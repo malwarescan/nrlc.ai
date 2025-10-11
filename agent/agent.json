@@ -1,0 +1,18 @@
+{
+  "name": "NRLC.ai",
+  "capabilities": ["crawl-clarity", "json-ld", "llm-seeding", "llm-optimization", "hreflang", "sitemaps"],
+  "actions": {
+    "book": "/api/book",
+    "quote": "/api/quote",
+    "audit": "/api/audit"
+  },
+  "collections": {
+    "services": "/services/",
+    "careers": "/careers/"
+  },
+  "contact": {
+    "website": "https://nrlc.ai/",
+    "phone": "+1-844-568-4624"
+  }
+}
+

@@ -1,0 +1,18 @@
+service,industry,token_key,pain_point,solution
+crawl-clarity,seo,pp1,Redundant URL params reduce crawl efficiency,Canonical guard + param stripping on every request
+crawl-clarity,seo,pp2,Mixed trailing slashes create duplicate sets,Deterministic trailing-slash policy enforced globally
+crawl-clarity,seo,pp3,Locale folders collide with canonical paths,Locale-prefixed routing + x-default hreflang cluster
+json-ld-strategy,structured-data,pp1,Missing FAQPage/Service schema limits rich results,Central schema builders inject compliant JSON-LD
+json-ld-strategy,structured-data,pp2,Inconsistent JSON-LD across templates,Single source of truth in schema_builders.php
+json-ld-strategy,structured-data,pp3,Schemas lack OfferCatalog depth for needs,Pain-point OfferCatalog nested under Service JSON-LD
+llm-seeding,ai,pp1,Thin content gets ignored by LLMs,Deterministic token system generates 800–1200 words per URL
+llm-seeding,ai,pp2,No SearchAction makes internal search undiscoverable,WebSite includes SearchAction target
+llm-seeding,ai,pp3,No agent surface for actions,agent.json exposes capabilities and booking endpoints
+llm-optimization,ai,pp1,Ambiguous entities reduce citation likelihood,Entity-weighted copy with city/service disambiguation
+llm-optimization,ai,pp2,Localized intent missing in body & schema,City context injected into H1, meta, and Service schema
+llm-optimization,ai,pp3,FAQs repeat across pages and look boilerplate,FAQ pool rotates via seeded shuffling per URL
+international-seo,seo,pp1,Incorrect hreflang leading to clustering errors,Full hreflang set per locale + x-default
+international-seo,seo,pp2,No region-aware content blocks,H1/lede adapt to city+country tokens per page
+technical-seo,seo,pp1,Sitemaps over 50k URLs,Sharded sitemap generator with stable lastmod by matrix
+technical-seo,seo,pp2,Slow static assets reduce crawl budget,Immutable caching for assets in .htaccess
+

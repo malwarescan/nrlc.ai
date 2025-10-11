@@ -1,0 +1,8 @@
+city,country,subdivision,lat,lng,lang,ccTLD
+new-york,US,NY,40.7128,-74.0060,en,.us
+london,GB,ENG,51.5072,-0.1276,en,.uk
+seoul,KR,KR,37.5665,126.9780,ko,.kr
+toronto,CA,ON,43.65107,-79.347015,en,.ca
+singapore,SG,SG,1.3521,103.8198,en,.sg
+tokyo,JP,13,35.6762,139.6503,ja,.jp
+

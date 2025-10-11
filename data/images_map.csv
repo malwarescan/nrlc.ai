@@ -1,0 +1,5 @@
+url,image_url,image_title,image_caption
+/services/crawl-clarity/new-york/,https://nrlc.ai/assets/cc-nyc-hero.jpg,"Crawl clarity in New York","URL lattice and canonical guard for NYC sites"
+/services/json-ld-strategy/london/,https://nrlc.ai/assets/jsonld-lon-hero.jpg,"JSON-LD in London","Structured data strategy for London enterprises"
+/services/llm-seeding/seoul/,https://nrlc.ai/assets/llms-seoul-hero.jpg,"LLM seeding in Seoul","Entity clarity and SearchAction for Korean locales"
+
