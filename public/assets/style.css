@@ -1,0 +1,301 @@
+/* NRLC.ai - Minimal, Crawl-First Styling */
+
+:root {
+  --liquid-blue: #E8F4F8;
+  --accent-blue: #0EA5E9;
+  --dark-blue: #0C4A6E;
+  --text-dark: #1E293B;
+  --text-light: #64748B;
+  --white: #FFFFFF;
+  --border: #E2E8F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: var(--liquid-blue);
+  font-size: 16px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+header nav {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+header nav a:first-child {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--dark-blue);
+  margin-right: auto;
+}
+
+header nav a:hover {
+  color: var(--accent-blue);
+}
+
+/* Main Content */
+main {
+  padding: 3rem 2rem;
+  min-height: calc(100vh - 200px);
+}
+
+main.container {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+  margin: 2rem 0 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 1.5rem 0 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+/* Sections */
+section {
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+}
+
+section.lede {
+  border-bottom: 2px solid var(--accent-blue);
+  padding-bottom: 2rem;
+}
+
+section.lede h1 {
+  margin-bottom: 0.5rem;
+}
+
+section.lede p {
+  font-size: 1.125rem;
+  color: var(--text-light);
+}
+
+/* Lists */
+ul, ol {
+  margin: 1rem 0 1rem 2rem;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+li strong {
+  color: var(--dark-blue);
+}
+
+/* Definition Lists (FAQs) */
+dl {
+  margin: 1rem 0;
+}
+
+dt {
+  font-weight: 600;
+  color: var(--dark-blue);
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+}
+
+dd {
+  margin: 0.5rem 0 0 1rem;
+  color: var(--text-dark);
+}
+
+/* Buttons & CTAs */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-blue);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: 2px solid var(--accent-blue);
+}
+
+.btn:hover {
+  background: var(--dark-blue);
+  border-color: var(--dark-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+section.cta {
+  text-align: center;
+  padding: 2rem;
+  background: var(--liquid-blue);
+  border-radius: 8px;
+  margin: 3rem 0;
+}
+
+section.cta p {
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Pain Points Section */
+section.pain-points ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+section.pain-points li {
+  padding: 1rem;
+  background: var(--liquid-blue);
+  border-left: 4px solid var(--accent-blue);
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+/* Approach Section */
+section.approach ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+section.approach li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+section.approach li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+/* FAQs Section */
+section.faqs {
+  background: var(--liquid-blue);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+section.faqs h2 {
+  margin-top: 0;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+footer p {
+  color: var(--white);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  header nav a:first-child {
+    margin-right: 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 2rem 1rem;
+  }
+
+  section.cta p {
+    flex-direction: column;
+  }
+}
+
+/* Print Styles */
+@media print {
+  header, footer, .cta {
+    display: none;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  main {
+    padding: 0;
+  }
+}
+
