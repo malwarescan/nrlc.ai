@@ -1,0 +1,6 @@
+# Railway uses PHP built-in server which doesn't support .htaccess
+# This file is kept for reference but won't be used on Railway
+# All routing is handled by public/index.php
+
+# For Apache deployments (non-Railway), rename this to .htaccess
+

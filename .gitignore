@@ -1,0 +1,36 @@
+# Sitemaps (generated)
+/public/sitemaps/*.xml
+/public/sitemaps/*.xml.gz
+/public/robots.txt
+
+# Logs
+*.log
+/logs/
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temp files
+tmp/
+temp/
+cache/
+
+# Environment
+.env
+.env.local
+
+# Composer (if added later)
+/vendor/
+
+# Node modules (if added later)
+node_modules/
+
