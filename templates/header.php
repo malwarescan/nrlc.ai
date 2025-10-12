@@ -6,7 +6,7 @@
       <div class="menu-item"><a href="/services/">Services</a></div>
       <div class="menu-item"><a href="/insights/">Insights</a></div>
       <div class="menu-item"><a href="/careers/">Careers</a></div>
-      <div class="menu-item"><a href="/api/book/">Book Consult</a></div>
+      <div class="menu-item"><a href="/api/book/">Consult</a></div>
     </div>
   </div>
 </header>

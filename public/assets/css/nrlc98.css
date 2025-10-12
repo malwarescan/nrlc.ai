@@ -65,4 +65,23 @@ hr{border:none;border-top:2px groove #fff;margin:8px 0;}
 @media (max-width: 480px) {
   .container { --gutter: 14px; }
   .card, .window-content { overflow-x: hidden; }
+  .btn { font-size: 14px; padding: 6px 12px; }
+  h1 { font-size: 1.5rem; }
+  .lead { font-size: 1rem; }
+}
+
+/* Mobile-first responsive grid */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* Ensure core services are visible on mobile */
+@media (max-width: 640px) {
+  .card {
+    height: auto !important;
+    min-height: 120px;
+  }
 }

@@ -20,9 +20,9 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">
           NRLC.ai engineers crawl clarity, structured data, and LLM seeding strategies that make your site readable by both Google and GPT.
         </p>
-        <div style="text-align: center; margin-top: 2rem;">
-          <a href="/services/site-audits/new-york/" class="btn" data-ripple style="margin-right: 1rem;">Run an AI-First Audit</a>
-          <a href="/insights/geo16-framework/" class="btn" data-ripple>Explore GEO-16 Framework</a>
+        <div style="text-align: center; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+          <a href="/services/site-audits/new-york/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Run an AI-First Audit</a>
+          <a href="/insights/geo16-framework/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore GEO-16 Framework</a>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <div class="title-bar-text">Core Services</div>
       </div>
       <div class="window-body">
-        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
           
           <div class="card" style="padding: 1rem; border: 1px solid #ccc;">
             <h3 style="margin-top: 0; color: #000080;">Crawl Clarity Engineering</h3>
