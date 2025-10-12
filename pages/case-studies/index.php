@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../templates/header.php';
     <h1>AI SEO Case Studies & Success Stories</h1>
     <p class="lead">Real-world examples of AI SEO optimization success, featuring detailed results and implementation strategies.</p>
     
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 20px;">
+    <div class="grid grid-auto-fit">
       <div class="card">
         <h3>B2B SaaS Case Study</h3>
         <p>How a SaaS company increased AI citations by 340% through structured data optimization and entity mapping.</p>

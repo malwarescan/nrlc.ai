@@ -42,7 +42,7 @@ $faqs = [
   ["q" => "Are there growth opportunities?", "a" => "Yes, we encourage professional development and offer clear paths for advancement in technical SEO and AI optimization."]
 ];
 
-$faqHtml = "<h2 class=\"h2\">Frequently Asked Questions</h2><div class=\"grid\" style=\"gap:8px\">";
+$faqHtml = "<h2 class=\"h2\">Frequently Asked Questions</h2><div class=\"grid grid-gap-4\">";
 foreach ($faqs as $faq) {
   $faqHtml .= "<details class=\"card\"><summary><strong>".htmlspecialchars($faq['q'])."</strong></summary><p class=\"small muted\">".htmlspecialchars($faq['a'])."</p></details>";
 }
@@ -79,7 +79,7 @@ inject_jsonld([ ld_jobposting($job, $city) ]);
   <section class="section">
     <div class="card">
       <p class="lead">Ready to build the future of AI-first SEO?</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <div class="flex-wrap">
         <a href="/api/book" class="btn brand" data-ripple>Apply Now</a>
         <a href="/careers/" class="btn ghost" data-ripple>View All Roles</a>
       </div>

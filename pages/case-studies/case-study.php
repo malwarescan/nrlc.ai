@@ -98,7 +98,7 @@ $faqs = det_pick([
   </ul>
   
   <h2>Frequently Asked Questions</h2>
-  <div class="grid" style="gap: 4px;">
+  <div class="grid grid-gap-4">
     <?php foreach ($faqs as $faq): ?>
     <details class="card">
       <summary><strong><?= htmlspecialchars($faq[0]) ?></strong></summary>

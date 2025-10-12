@@ -1,4 +1,4 @@
-<div class="window container" style="margin-top:20px;">
+<div class="window container margin-top-20">
   <div class="window-title">Careers at NRLC.ai</div>
   <div class="window-content">
     <p>Join our team building the future of AI-first SEO and LLM optimization.</p>

@@ -15,7 +15,7 @@ $date = date('Y-m-d', strtotime("-$postNumber days"));
     <h1>Advanced <?=$topic?> Strategies for 2025</h1>
     <p class="lead">Comprehensive guide to <?=strtolower($topic)?> optimization, featuring the latest techniques and best practices for AI-powered search engines.</p>
     
-    <div style="color: #666; font-size: 0.9em; margin-bottom: 20px;">
+    <div class="muted-text">
       Published: <?=$date?> | Topic: <?=$topic?> | Author: NRLC.ai Team
     </div>
     
@@ -53,7 +53,7 @@ $date = date('Y-m-d', strtotime("-$postNumber days"));
     <h2>Conclusion</h2>
     <p><?=$topic?> represents a critical component of modern SEO strategy. By implementing the strategies outlined in this guide, organizations can significantly improve their visibility in AI-powered search engines and achieve better results.</p>
     
-    <div class="field-row" style="justify-content: center; margin-top: 30px;">
+    <div class="field-row" class="field-row-center">
       <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get AI Audit</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>

@@ -16,7 +16,7 @@ $topic = $topics[($resourceNumber - 1) % count($topics)];
     <h1><?=$topic?> <?=$category?> Resource</h1>
     <p class="lead">Comprehensive <?=strtolower($category)?> for <?=strtolower($topic)?> optimization, providing actionable insights and practical implementation guidance.</p>
     
-    <div style="color: #666; font-size: 0.9em; margin-bottom: 20px;">
+    <div class="muted-text">
       Category: <?=$category?> | Topic: <?=$topic?> | Resource ID: <?=$resourceNumber?>
     </div>
     
@@ -63,7 +63,7 @@ $topic = $topics[($resourceNumber - 1) % count($topics)];
       <li>Performance measurement dashboards</li>
     </ul>
     
-    <div class="field-row" style="justify-content: center; margin-top: 30px;">
+    <div class="field-row" class="field-row-center">
       <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get AI Audit</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>

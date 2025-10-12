@@ -57,7 +57,7 @@ $industryName = $industryNames[$industry] ?? ucwords(str_replace('-', ' ', $indu
       <li>Better alignment with AI understanding of industry concepts</li>
     </ul>
     
-    <div class="field-row" style="justify-content: center; margin-top: 30px;">
+    <div class="field-row" class="field-row-center">
       <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get AI Audit</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>

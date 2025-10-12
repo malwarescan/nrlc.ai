@@ -60,7 +60,7 @@ $toolName = $toolNames[$tool] ?? ucwords(str_replace('-', ' ', $tool));
       <li>Monitor and analyze citation performance</li>
     </ul>
     
-    <div class="field-row" style="justify-content: center; margin-top: 30px;">
+    <div class="field-row" class="field-row-center">
       <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get AI Audit</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>

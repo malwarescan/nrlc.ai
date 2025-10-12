@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../templates/header.php';
     <h1>AI SEO Solutions by Industry</h1>
     <p class="lead">Tailored AI optimization strategies for specific industries and verticals.</p>
     
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 20px;">
+    <div class="grid" class="grid grid-auto-fit">
       <div class="card">
         <h3>Healthcare AI SEO</h3>
         <p>Medical content optimization for AI engines, HIPAA-compliant structured data, and healthcare entity recognition.</p>

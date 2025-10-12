@@ -1,87 +1,184 @@
-/* ========== NRLC.AI Global Layout Rules (Win98 aesthetic + responsive modern sizing) ========== */
+/* ==========================================================================
+   NRLC.ai Win98 Theme — Single Source of Truth
+   Depends on: 98.css (loaded first). This file ONLY adds tokens, layout,
+   responsive rules, utility classes, and light overrides — no component rewrites.
+   ========================================================================== */
 
-/* Every major content section */
-section {
-  padding-block: clamp(24px, 6vw, 72px);
-  border: none;
+/* 0) CSS Reset harmonized with 98.css quirks */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+img, svg, video, canvas { display:block; max-width:100%; height:auto; }
+button, input, select, textarea { font: inherit; }
+
+/* 1) Design Tokens */
+:root{
+  /* Layout tokens */
+  --container-max: 72rem;          /* ≈1152px */
+  --container-max-wide: 80rem;     /* ≈1280px */
+  --gutter: clamp(16px, 4vw, 32px);
+  --section-pad-y: clamp(24px, 6vw, 72px);
+
+  /* Typography */
+  --font-body: system-ui, Arial, "Segoe UI", Tahoma, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --prose-measure: 65ch;           /* ideal reading width */
+
+  /* Win98 palette (aligned with 98.css) */
+  --win-bg: #c0c0c0;
+  --win-face: #dfdfdf;
+  --win-dark: #808080;
+  --win-light: #ffffff;
+  --win-text: #000000;
+  --brand: #0047ff;                /* NRLC accent */
+  --brand-ink: #0a1b3c;
+
+  /* State */
+  --ok: #1a7f37;
+  --warn: #a88700;
+  --err: #b00020;
+
+  /* Effects */
+  --focus-ring: 0 0 0 2px var(--win-light), 0 0 0 4px var(--brand);
 }
 
-/* Standard container for all content blocks */
-.container {
-  --gutter: clamp(16px, 4vw, 32px);
-  width: min(100% - 2*var(--gutter), 72rem); /* smooth fluid width */
+/* 2) Base + Typography */
+html, body { height: 100%; }
+body{
+  font-family: var(--font-body);
+  color: var(--win-text);
+  background: var(--win-bg);
+  line-height: 1.45;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--brand); text-decoration: underline; }
+a:hover { filter: brightness(0.85); }
+p { margin: 0 0 1rem 0; }
+.prose { max-width: var(--prose-measure); margin-inline:auto; }
+.lead { font-weight: 600; }
+
+/* 3) Containers & Sections */
+.section{ padding-block: var(--section-pad-y); }
+.container{
+  width: min(100% - 2*var(--gutter), var(--container-max));
   margin-inline: auto;
 }
-
-/* Text reading zones (copy, insights, docs) */
-.prose {
-  max-width: 65ch;
-  line-height: 1.55;
-  font-size: 14px;
-  color: #000;
+.container--wide{
+  width: min(100% - 2*var(--gutter), var(--container-max-wide));
 }
-
-/* Wider containers (graphics, ripple meters, hero sections) */
-.container--wide {
-  width: min(100% - 2*var(--gutter), 80rem); /* ≈1280px */
-}
-
-/* Allow full-bleed images or hero canvases (like ripple.js pond/meter) */
-.full-bleed {
+.full-bleed{
   margin-inline: calc(50% - 50vw);
   width: 100vw;
 }
 
-/* ===== NRLC.ai Win98 Theme Overrides ===== */
-html,body{height:100%;margin:0;background:#008080;font-family:"MS Sans Serif",Tahoma,sans-serif;font-size:15.5px;color:#000;}
-body{display:flex;flex-direction:column;}
-a{color:#000080;text-decoration:none;}a:hover{text-decoration:underline;}
-header{background:#c0c0c0;border-bottom:2px solid #808080;border-top:2px solid #fff;padding:6px 10px;}
-h1,h2,h3{font-weight:bold;margin:8px 0;}h1{font-size:24px;}h2{font-size:21px;}h3{font-size:19px;}
-.btn,.linkish,button,input[type=submit]{font-family:inherit;font-size:15.5px;border:2px outset #fff;background:#c0c0c0;padding:4px 8px;cursor:pointer;}
-.btn:active{border:2px inset #fff;background:#808080;}
-.window{background:#dcdcdc;border:2px solid #000;padding:6px;}
-.window-title{background:#000080;color:#fff;padding:2px 6px;font-weight:bold;font-size:15.5px;}
-.window-content{padding:8px;}
-.menu-bar{display:flex;gap:6px;background:#c0c0c0;padding:2px;}
-.menu-item{padding:2px 6px;cursor:pointer;font-size:15.5px;}
-.menu-item:hover{background:transparent;color:#000080;text-decoration:underline;}
-.card{border:2px groove #c0c0c0;background:#fff;padding:12px;margin:8px 0;height:140px;display:flex;flex-direction:column;justify-content:space-between;}
-.card h3{margin:0 0 8px 0;font-size:19px;}
-.card p{margin:0 0 12px 0;flex-grow:1;}
-.card .btn{margin-top:auto;}
-hr{border:none;border-top:2px groove #fff;margin:8px 0;}
-/* Keep ripple highlight subtle */
-[data-ripple] .ripple-wave{background:rgba(255,255,255,0.4);}
-.footer{border-top:2px solid #fff;border-bottom:2px solid #808080;text-align:center;padding:6px;font-size:15.5px;background:#c0c0c0;margin-top:auto;}
+/* 4) Win98 components — respectful overrides only */
+.window { margin-bottom: 1.25rem; }
+.window .window-body { background: var(--win-face); }
+.title-bar-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Tablet and down: tighten spacing and font slightly */
-@media (max-width: 768px) {
-  .prose { font-size: 13px; line-height: 1.5; }
-  section { padding-block: clamp(16px, 5vw, 48px); }
+/* Buttons (ripple-ready) */
+.btn{
+  display:inline-block;
+  padding: 6px 12px;
+  background: var(--win-face);
+  border: 2px outset var(--win-light);
+  color: var(--win-text);
+  cursor:pointer;
+  user-select:none;
+}
+.btn:hover{ filter: brightness(0.97); }
+.btn:active{ border: 2px inset var(--win-light); background: #d0d0d0; }
+.btn--primary{ color:#fff; background: var(--brand); border-color: var(--win-light); }
+.btn--ghost{ background: transparent; border: 2px dashed var(--win-dark); }
+
+/* Focus styles for a11y */
+:where(button, [href], input, select, textarea, summary):focus-visible{
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
-/* Small phones: ensure hero widgets don't overflow horizontally */
-@media (max-width: 480px) {
-  .container { --gutter: 14px; }
-  .card, .window-content { overflow-x: hidden; }
-  .btn { font-size: 14px; padding: 6px 12px; }
-  h1 { font-size: 1.5rem; }
-  .lead { font-size: 1rem; }
+/* 5) Layout primitives */
+.grid{ display:grid; gap: clamp(12px,2vw,20px); }
+.grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 960px){
+  .grid-3{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .grid-2, .grid-3{ grid-template-columns: 1fr; }
 }
 
-/* Mobile-first responsive grid */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+/* Cards in Win98 vibe */
+.card{
+  background: var(--win-face);
+  border: 2px solid var(--win-dark);
+  box-shadow: 1px 1px 0 0 var(--win-light), -1px -1px 0 0 var(--win-dark);
+  padding: 12px;
+}
+
+/* 6) Utilities (replace scattered one-offs) */
+.hide{ display:none !important; }
+.muted{ opacity: .72; }
+.small{ font-size: .9rem; }
+.center{ text-align:center; }
+.right{ text-align:right; }
+.wide{ max-width: none !important; }
+.pad-y{ padding-block: var(--section-pad-y); }
+.pad-x{ padding-inline: var(--gutter); }
+.max-72{ max-width: var(--container-max); margin-inline:auto; }
+
+/* 7) Ripple.js hooks — keep CSS minimal; JS draws the effect */
+[data-ripple]{ position: relative; overflow: hidden; }
+
+/* 8) Hero: Crawl Budget Meter (sizing only; animation via JS) */
+.meter{
+  --h: 12px;
+  height: var(--h);
+  background: linear-gradient(90deg, #d66 0, #6d6 100%);
+  border: 2px inset var(--win-light);
+  position: relative;
+}
+.meter__bar{ height: 100%; width: 0%; background: rgba(0,0,0,.15); }
+
+/* 9) Tables in 98 aesthetic */
+.table{
+  width:100%; border-collapse: collapse; background: var(--win-face);
+  border: 2px groove var(--win-light);
+}
+.table th, .table td{ padding: 6px 8px; border: 1px solid var(--win-dark); }
+.table thead th{ background: #e8e8e8; }
+
+/* 10) Forms */
+.input, select, textarea{
+  background: #fff;
+  border: 2px inset var(--win-light);
+  padding: 6px 8px;
+  width: 100%;
+}
+label{ display:block; margin-bottom: .25rem; font-weight: 600; }
+
+/* 11) Dark mode (optional guarded) */
+@media (prefers-color-scheme: dark){
+  :root{
+    --win-bg: #1f1f1f; --win-face:#2a2a2a; --win-dark:#000; --win-light:#555;
+    --win-text:#f5f5f5; --brand:#6aa0ff; --brand-ink:#cfe0ff;
   }
+  .btn--primary{ color:#111; }
 }
 
-/* Ensure core services are visible on mobile */
-@media (max-width: 640px) {
-  .card {
-    height: auto !important;
-    min-height: 120px;
-  }
+/* 12) Print (keep retro borders light) */
+@media print{
+  .title-bar, .status-bar, .btn{ display:none !important; }
+  .window, .card{ box-shadow: none; border: 1px solid #bbb; }
 }
+
+/* 13) Replace common inline styles with utility classes */
+.muted-text { color: #666; font-size: 0.9em; margin-bottom: 20px; }
+.field-row-center { display: flex; justify-content: center; margin-top: 30px; }
+.grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 20px; }
+.grid-gap-4 { gap: 4px; }
+.flex-wrap { display: flex; gap: 10px; flex-wrap: wrap; }
+.margin-top-20 { margin-top: 20px; }
+
+/* END nrlc98.css — add new styling only here. */

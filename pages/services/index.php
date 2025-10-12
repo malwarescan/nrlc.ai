@@ -1,4 +1,4 @@
-<div class="window container" style="margin-top:20px;">
+<div class="window container margin-top-20">
   <div class="window-title">Our Services</div>
   <div class="window-content">
     <p>Comprehensive AI-first SEO solutions for modern businesses.</p>

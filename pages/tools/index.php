@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../templates/header.php';
     <h1>AI SEO Tools & Platform Reviews</h1>
     <p class="lead">Comprehensive reviews and comparisons of AI SEO tools, platforms, and optimization solutions.</p>
     
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 20px;">
+    <div class="grid" class="grid grid-auto-fit">
       <div class="card">
         <h3>AI Search Engines</h3>
         <p>Reviews of ChatGPT, Claude, Perplexity, Bard, and other AI search platforms for SEO optimization.</p>

@@ -46,7 +46,7 @@ $improvement = 150 + (($caseNumber * 7) % 200);
       <li>Continuous monitoring and optimization</li>
     </ol>
     
-    <div class="field-row" style="justify-content: center; margin-top: 30px;">
+    <div class="field-row" class="field-row-center">
       <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get Your AI Audit</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>
