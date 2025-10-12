@@ -91,6 +91,66 @@ function route_request(): void {
     return;
   }
 
+  // Industries routes
+  if (preg_match('#^/industries/([^/]+)/$#', $path, $m)) {
+    $_GET['industry'] = $m[1];
+    render_page('industries/industry');
+    return;
+  }
+
+  if ($path === '/industries/') {
+    render_page('industries/index');
+    return;
+  }
+
+  // Tools routes
+  if (preg_match('#^/tools/([^/]+)/$#', $path, $m)) {
+    $_GET['tool'] = $m[1];
+    render_page('tools/tool');
+    return;
+  }
+
+  if ($path === '/tools/') {
+    render_page('tools/index');
+    return;
+  }
+
+  // Case studies routes
+  if (preg_match('#^/case-studies/case-study-(\d+)/$#', $path, $m)) {
+    $_GET['case'] = $m[1];
+    render_page('case-studies/case-study');
+    return;
+  }
+
+  if ($path === '/case-studies/') {
+    render_page('case-studies/index');
+    return;
+  }
+
+  // Blog routes
+  if (preg_match('#^/blog/blog-post-(\d+)/$#', $path, $m)) {
+    $_GET['post'] = $m[1];
+    render_page('blog/blog-post');
+    return;
+  }
+
+  if ($path === '/blog/') {
+    render_page('blog/index');
+    return;
+  }
+
+  // Resources routes
+  if (preg_match('#^/resources/resource-(\d+)/$#', $path, $m)) {
+    $_GET['resource'] = $m[1];
+    render_page('resources/resource');
+    return;
+  }
+
+  if ($path === '/resources/') {
+    render_page('resources/index');
+    return;
+  }
+
   http_response_code(404);
   echo "Not Found";
 }

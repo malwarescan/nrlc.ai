@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../lib/sitemap.php';
 require_once __DIR__ . '/../lib/csv.php';
+require_once __DIR__ . '/../config/locales.php';
 
 $today = gmdate('Y-m-d');
 $outDir = __DIR__ . '/../public/sitemaps/';
@@ -75,7 +76,7 @@ foreach ($insightsRows as $row) {
   $lastmod = $row['lastmod'] ?? $today;
   
   if ($slug) {
-    $path = "/insights/{$slug}/";
+  $path = "/insights/{$slug}/";
     $hreflangUrls = sitemap_generate_hreflang_urls($path);
     $insightEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
   }
@@ -156,6 +157,118 @@ if ($newsEntries) {
   sitemap_write_gzipped($gzFile, $content);
   $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
   echo "Built news sitemap: " . count($newsEntries) . " URLs\n";
+}
+
+// 6. Industries sitemap
+$industryEntries = [];
+$industryPages = [
+  'healthcare', 'fintech', 'ecommerce', 'saas', 'education', 'real-estate',
+  'legal', 'automotive', 'travel', 'hospitality', 'manufacturing', 'retail',
+  'consulting', 'media', 'entertainment'
+];
+
+foreach ($industryPages as $industry) {
+  $hreflangUrls = [];
+  foreach (LOCALES as $locale => $data) {
+    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/industries/{$industry}/";
+  }
+  $industryEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($industryEntries) {
+  $xmlFile = "{$outDir}industries-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($industryEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built industries sitemap: " . count($industryEntries) . " URLs\n";
+}
+
+// 7. Tools sitemap
+$toolEntries = [];
+$toolPages = [
+  'chatgpt', 'claude', 'perplexity', 'bard', 'copilot', 'google-ai-overviews',
+  'schema-generator', 'json-ld-validator', 'structured-data-testing',
+  'screaming-frog', 'sitebulb', 'ahrefs', 'semrush', 'moz', 'brightedge', 'seer-interactive'
+];
+
+foreach ($toolPages as $tool) {
+  $hreflangUrls = [];
+  foreach (LOCALES as $locale => $data) {
+    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/tools/{$tool}/";
+  }
+  $toolEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($toolEntries) {
+  $xmlFile = "{$outDir}tools-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($toolEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built tools sitemap: " . count($toolEntries) . " URLs\n";
+}
+
+// 8. Case studies sitemap
+$caseStudyEntries = [];
+for ($i = 1; $i <= 200; $i++) {
+  $hreflangUrls = [];
+  foreach (LOCALES as $locale => $data) {
+    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/case-studies/case-study-{$i}/";
+  }
+  $caseStudyEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($caseStudyEntries) {
+  $xmlFile = "{$outDir}case-studies-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($caseStudyEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built case studies sitemap: " . count($caseStudyEntries) . " URLs\n";
+}
+
+// 9. Blog posts sitemap
+$blogEntries = [];
+for ($i = 1; $i <= 500; $i++) {
+  $hreflangUrls = [];
+  foreach (LOCALES as $locale => $data) {
+    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/blog/blog-post-{$i}/";
+  }
+  $blogEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($blogEntries) {
+  $xmlFile = "{$outDir}blog-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($blogEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built blog sitemap: " . count($blogEntries) . " URLs\n";
+}
+
+// 10. Resources sitemap
+$resourceEntries = [];
+for ($i = 1; $i <= 1000; $i++) {
+  $hreflangUrls = [];
+  foreach (LOCALES as $locale => $data) {
+    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/resources/resource-{$i}/";
+  }
+  $resourceEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($resourceEntries) {
+  $xmlFile = "{$outDir}resources-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($resourceEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built resources sitemap: " . count($resourceEntries) . " URLs\n";
 }
 
 // 6. Generate unified index
