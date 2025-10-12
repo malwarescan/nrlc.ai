@@ -64,22 +64,160 @@ if (!function_exists('absolute_url')) {
 }
 
 function meta_for_slug(string $slug): array {
+  require_once __DIR__ . '/csv.php';
+  
   switch ($slug) {
     case 'home/home':
-      return ['NRLC.ai — LLM-First SEO & Structured Data','Crawl clarity, JSON-LD, LLM seeding & optimization across every major city.','/'];
+      return [
+        'NRLC.ai — AI SEO & GEO-16 Framework | Optimize for LLM Citation',
+        'NRLC.ai engineers crawl clarity, structured data, and LLM seeding strategies. GEO-16 framework for AI engine optimization across major cities.',
+        '/'
+      ];
+      
     case 'services/service':
-      $s = $_GET['service'] ?? '';
-      return [ucwords(str_replace('-',' ',$s)).' — NRLC.ai',"$s services by NRLC.ai","/services/$s/"];
+      $serviceSlug = $_GET['service'] ?? '';
+      $services = csv_read_data('services.csv');
+      $serviceData = array_filter($services, fn($s) => ($s['slug'] ?? '') === $serviceSlug);
+      $serviceName = !empty($serviceData) ? reset($serviceData)['name'] : ucwords(str_replace('-', ' ', $serviceSlug));
+      
+      return [
+        "$serviceName Services | NRLC.ai — AI SEO",
+        "Professional $serviceName services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.",
+        "/services/$serviceSlug/"
+      ];
+      
     case 'services/service_city':
-      $s = $_GET['service'] ?? '';
-      $c = $_GET['city'] ?? '';
-      return [ucwords(str_replace('-',' ',$s))." in ".ucwords(str_replace('-',' ',$c)).' — NRLC.ai',"$s for $c by NRLC.ai","/services/$s/$c/"];
+      $serviceSlug = $_GET['service'] ?? '';
+      $citySlug = $_GET['city'] ?? '';
+      
+      $services = csv_read_data('services.csv');
+      $cities = csv_read_data('cities.csv');
+      
+      $serviceData = array_filter($services, fn($s) => ($s['slug'] ?? '') === $serviceSlug);
+      $cityData = array_filter($cities, fn($c) => ($c['city_name'] ?? '') === $citySlug);
+      
+      $serviceName = !empty($serviceData) ? reset($serviceData)['name'] : ucwords(str_replace('-', ' ', $serviceSlug));
+      $cityName = !empty($cityData) ? reset($cityData)['city_name'] : ucwords(str_replace('-', ' ', $citySlug));
+      
+      return [
+        "$serviceName in $cityName | NRLC.ai — AI SEO Services",
+        "Professional $serviceName services in $cityName by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.",
+        "/services/$serviceSlug/$citySlug/"
+      ];
+      
     case 'careers/career_city':
-      $c = $_GET['city'] ?? '';
-      $r = $_GET['role'] ?? '';
-      return [ucwords(str_replace('-',' ',$r))." in ".ucwords(str_replace('-',' ',$c)).' — Careers at NRLC.ai',"Open role in $c","/careers/$c/$r/"];
+      $citySlug = $_GET['city'] ?? '';
+      $roleSlug = $_GET['role'] ?? '';
+      
+      $cities = csv_read_data('cities.csv');
+      $careers = csv_read_data('careers.csv');
+      
+      $cityData = array_filter($cities, fn($c) => ($c['city_name'] ?? '') === $citySlug);
+      $careerData = array_filter($careers, fn($r) => ($r['slug'] ?? '') === $roleSlug);
+      
+      $cityName = !empty($cityData) ? reset($cityData)['city_name'] : ucwords(str_replace('-', ' ', $citySlug));
+      $roleTitle = !empty($careerData) ? reset($careerData)['title'] : ucwords(str_replace('-', ' ', $roleSlug));
+      
+      return [
+        "$roleTitle Jobs in $cityName | Careers at NRLC.ai",
+        "Join NRLC.ai as $roleTitle in $cityName. Work on AI SEO, GEO-16 framework, structured data optimization, and LLM citation strategies.",
+        "/careers/$citySlug/$roleSlug/"
+      ];
+      
+    case 'insights/article':
+      $articleSlug = $_GET['slug'] ?? '';
+      $insights = csv_read_data('insights.csv');
+      $articleData = array_filter($insights, fn($i) => ($i['slug'] ?? '') === $articleSlug);
+      
+      if (!empty($articleData)) {
+        $article = reset($articleData);
+        $title = $article['title'] ?? ucwords(str_replace('-', ' ', $articleSlug));
+        $keywords = $article['keywords'] ?? 'AI SEO, GEO-16, LLM Seeding';
+        
+        // Truncate title if too long
+        $shortTitle = strlen($title) > 45 ? substr($title, 0, 42) . '...' : $title;
+        
+        // Truncate description if too long
+        $desc = "$title - Research by NRLC.ai covering $keywords. GEO-16 framework insights, AI SEO strategies, and LLM optimization.";
+        $shortDesc = strlen($desc) > 160 ? substr($desc, 0, 157) . '...' : $desc;
+        
+        return [
+          "$shortTitle | NRLC.ai Research",
+          $shortDesc,
+          "/insights/$articleSlug/"
+        ];
+      }
+      
+      return [
+        'AI SEO Research & Insights | NRLC.ai',
+        'Latest research and insights on AI SEO, GEO-16 framework, LLM seeding, and structured data optimization by NRLC.ai.',
+        '/insights/'
+      ];
+      
+    case 'insights/index':
+      return [
+        'AI SEO Research & Insights | NRLC.ai — GEO-16 Framework Studies',
+        'Research and insights on AI SEO, GEO-16 framework, LLM seeding, structured data optimization, and AI engine citation strategies by NRLC.ai.',
+        '/insights/'
+      ];
+      
+    case 'services/index':
+      return [
+        'AI SEO Services | NRLC.ai — Crawl Clarity & LLM Seeding',
+        'Professional AI SEO services by NRLC.ai. Crawl clarity engineering, JSON-LD strategy, LLM seeding optimization, and GEO-16 framework implementation.',
+        '/services/'
+      ];
+      
+    case 'careers/index':
+      return [
+        'Careers at NRLC.ai — AI SEO Jobs & LLM Optimization Roles',
+        'Join NRLC.ai team. Careers in AI SEO, GEO-16 framework development, structured data optimization, and LLM citation strategies.',
+        '/careers/'
+      ];
+      
     default:
-      return ['NRLC.ai','LLM-First SEO','/'];
+      return [
+        'NRLC.ai — AI SEO & GEO-16 Framework | Optimize for LLM Citation',
+        'NRLC.ai engineers crawl clarity, structured data, and LLM seeding strategies. GEO-16 framework for AI engine optimization.',
+        '/'
+      ];
   }
+}
+
+function extract_keywords_from_title(string $title): string {
+  // Extract relevant keywords from title for meta keywords
+  $keywords = [];
+  
+  // Common AI SEO terms
+  $aiTerms = ['AI SEO', 'GEO-16', 'LLM Seeding', 'Structured Data', 'Crawl Clarity', 'AI Engine', 'Citation', 'Optimization'];
+  
+  // Extract city names (both formatted and slug versions)
+  $cities = ['New York', 'London', 'Seoul', 'Tokyo', 'Singapore', 'Toronto', 'new-york', 'london', 'seoul', 'tokyo', 'singapore', 'toronto'];
+  
+  // Extract service terms
+  $services = ['Crawl Clarity', 'JSON-LD', 'LLM Seeding', 'Site Audits', 'International SEO', 'SEO Specialist', 'Research', 'Insights'];
+  
+  foreach ($aiTerms as $term) {
+    if (stripos($title, $term) !== false) {
+      $keywords[] = $term;
+    }
+  }
+  
+  foreach ($cities as $city) {
+    if (stripos($title, $city) !== false) {
+      $keywords[] = ucwords(str_replace('-', ' ', $city));
+    }
+  }
+  
+  foreach ($services as $service) {
+    if (stripos($title, $service) !== false) {
+      $keywords[] = $service;
+    }
+  }
+  
+  // Add NRLC.ai branding
+  $keywords[] = 'NRLC.ai';
+  
+  return implode(', ', array_unique($keywords));
 }
 

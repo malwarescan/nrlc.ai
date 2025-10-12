@@ -55,5 +55,12 @@ sitemap-ping:
 
 sitemap-full: sitemap-build sitemap-validate sitemap-ping
 
-.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full
+# Meta tag testing
+meta-test:
+	@php scripts/test_meta_tags.php
+
+meta-validate:
+	@php scripts/validate_meta_seo.php
+
+.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full meta-test meta-validate
 
