@@ -132,11 +132,25 @@ Please respond within 24 hours.
     'Content-Type: text/plain; charset=UTF-8'
   ];
   
-  $email_sent = mail($to, $subject, $message, implode("\r\n", $headers));
+  // Ensure logs directory exists
+  $logs_dir = __DIR__ . '/../logs';
+  if (!is_dir($logs_dir)) {
+    mkdir($logs_dir, 0755, true);
+  }
   
-  // Log email attempt
-  $email_log = date('Y-m-d H:i:s') . " - Email to $to: " . ($email_sent ? 'SUCCESS' : 'FAILED') . "\n";
-  file_put_contents(__DIR__ . '/../logs/email.log', $email_log, FILE_APPEND | LOCK_EX);
+  $email_sent = @mail($to, $subject, $message, implode("\r\n", $headers));
+  
+  // Detailed logging with error info
+  $email_log = date('Y-m-d H:i:s') . " - Email to $to: " . ($email_sent ? 'SUCCESS' : 'FAILED');
+  if (!$email_sent) {
+    $email_log .= " (mail() returned false - check mail server configuration)";
+  }
+  $email_log .= "\n";
+  file_put_contents($logs_dir . '/email.log', $email_log, FILE_APPEND | LOCK_EX);
+  
+  // Also log the full email body for debugging
+  $full_log = date('Y-m-d H:i:s') . " - FULL EMAIL:\nTo: $to\nSubject: $subject\nMessage:\n$message\n---\n\n";
+  file_put_contents($logs_dir . '/email_full.log', $full_log, FILE_APPEND | LOCK_EX);
   
   return $email_sent;
 }

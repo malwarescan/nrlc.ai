@@ -1,24 +1,14 @@
 :root{
   --grid-bg-color:#c0c0c0;
   --grid-line-color:#808080;
-  --grid-glow-color:#808080;
   --grid-cell-size:24px;
-  --grid-opacity:0.4;
-  --dither-color1:#a8a8a8;
-  --dither-color2:#d0d0d0;
-  --random-color1:#909090;
-  --random-color2:#b0b0b0;
+  --grid-opacity:0.3;
 }
 
 @media (prefers-color-scheme:dark){
   :root{
     --grid-bg-color:#000000;
     --grid-line-color:#404040;
-    --grid-glow-color:#404040;
-    --dither-color1:#202020;
-    --dither-color2:#404040;
-    --random-color1:#303030;
-    --random-color2:#505050;
   }
 }
 
@@ -36,6 +26,8 @@
   height:100%;
   display:block;
   image-rendering:pixelated;
+  will-change:transform;
+  transform:translateZ(0);
 }
 
 @media print{
@@ -44,4 +36,17 @@
 
 @media (prefers-reduced-motion:reduce){
   .win98-grid-bg canvas{animation:none!important;}
+}
+
+/* Performance optimizations */
+@media (max-width: 768px) {
+  .win98-grid-bg canvas {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .win98-grid-bg {
+    display: none;
+  }
 }

@@ -42,6 +42,7 @@ header('Content-Type: text/html; charset=utf-8');
 <link rel="stylesheet" href="<?= asset_url('/assets/css/98.min.css') ?>">
 <link rel="stylesheet" href="<?= asset_url('/assets/css/nrlc98.css') ?>">
 <link rel="stylesheet" href="<?= asset_url('/assets/css/grid-bg.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/assets/css/progress-indicator.css') ?>">
 <?php
 foreach (hreflang_links(without_locale_prefix($path)) as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";

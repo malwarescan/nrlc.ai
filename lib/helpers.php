@@ -6,6 +6,83 @@ function absolute_url(string $path): string {
   return $scheme.'://'.$host.$path;
 }
 
+function current_locale(): string {
+  // Check for locale in URL path
+  $path = $_SERVER['REQUEST_URI'] ?? '/';
+  if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $path, $matches)) {
+    return $matches[1];
+  }
+  
+  // Check Accept-Language header for geolocation
+  $acceptLang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
+  $languages = explode(',', $acceptLang);
+  
+  foreach ($languages as $lang) {
+    $lang = trim(explode(';', $lang)[0]);
+    switch (strtolower($lang)) {
+      case 'en-us':
+      case 'en':
+        return 'en-us';
+      case 'en-gb':
+        return 'en-gb';
+      case 'es':
+      case 'es-es':
+        return 'es-es';
+      case 'fr':
+      case 'fr-fr':
+        return 'fr-fr';
+    }
+  }
+  
+  // Default to US English
+  return 'en-us';
+}
+
+function detect_user_city(): string {
+  // Check for city in URL path first
+  $path = $_SERVER['REQUEST_URI'] ?? '/';
+  if (preg_match('#/services/[^/]+/([^/]+)/#', $path, $matches)) {
+    return $matches[1];
+  }
+  
+  // Check for geolocation headers (Cloudflare, etc.)
+  $country = $_SERVER['HTTP_CF_IPCOUNTRY'] ?? $_SERVER['HTTP_X_COUNTRY'] ?? '';
+  $region = $_SERVER['HTTP_CF_REGION'] ?? $_SERVER['HTTP_X_REGION'] ?? '';
+  
+  // Map countries/regions to cities
+  $cityMap = [
+    'US' => [
+      'CA' => 'los-angeles',
+      'NY' => 'new-york',
+      'TX' => 'houston',
+      'FL' => 'miami',
+      'IL' => 'chicago',
+      'WA' => 'seattle',
+      'default' => 'new-york'
+    ],
+    'GB' => ['default' => 'london'],
+    'CA' => ['default' => 'toronto'],
+    'AU' => ['default' => 'sydney'],
+    'DE' => ['default' => 'berlin'],
+    'FR' => ['default' => 'paris'],
+    'ES' => ['default' => 'madrid'],
+    'IT' => ['default' => 'rome'],
+    'NL' => ['default' => 'amsterdam'],
+    'default' => 'new-york'
+  ];
+  
+  if ($country && isset($cityMap[$country])) {
+    $countryMap = $cityMap[$country];
+    if ($region && isset($countryMap[$region])) {
+      return $countryMap[$region];
+    }
+    return $countryMap['default'];
+  }
+  
+  // Default to New York
+  return 'new-york';
+}
+
 function without_locale_prefix(string $path): string {
   return preg_replace('#^/[a-z]{2}-[a-z]{2}#i','',$path);
 }

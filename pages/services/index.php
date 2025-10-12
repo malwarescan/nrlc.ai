@@ -33,37 +33,37 @@ require_once __DIR__ . '/../../templates/header.php';
           <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">Crawl Clarity Engineering</h3>
             <p>Duplicate URLs, parameter pollution, and canonical drift waste crawl budget and confuse AI engines. Our crawl clarity service eliminates these issues through systematic URL normalization, parameter stripping, and canonical enforcement. We implement deterministic rules that persist across deployments, ensuring consistent AI engine comprehension and improved citation likelihood.</p>
-            <a href="/services/crawl-clarity/new-york/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/crawl-clarity/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">JSON-LD & Structured Data Strategy</h3>
             <p>Thin or inconsistent structured data limits AI engine understanding and reduces citation opportunities. Our JSON-LD strategy implements comprehensive schema markup including Organization, Service, LocalBusiness, and FAQPage schemas. We ensure schema completeness, consistency, and validity across all content types, enabling AI engines to parse and cite your content effectively.</p>
-            <a href="/services/json-ld-strategy/new-york/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/json-ld-strategy/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">LLM Seeding & AI Optimization</h3>
             <p>Large language models require structured, crawl-clear content to understand and cite effectively. Our LLM seeding service optimizes content architecture, entity relationships, and semantic structure for AI comprehension. We implement the GEO-16 framework principles to maximize citation likelihood across major AI engines and search systems.</p>
-            <a href="/services/llm-seeding/new-york/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/llm-seeding/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">Technical SEO & Performance</h3>
             <p>Technical SEO forms the foundation for AI engine comprehension and user experience. Our technical SEO service addresses core web vitals, site speed, mobile optimization, and crawl efficiency. We implement comprehensive monitoring, testing, and optimization protocols to ensure your site meets both traditional search and AI engine requirements.</p>
-            <a href="/services/technical-seo/new-york/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/technical-seo/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">AI-First Site Audits</h3>
             <p>Traditional SEO audits miss AI-specific optimization opportunities. Our AI-first site audits evaluate content structure, entity clarity, schema completeness, and crawl efficiency from an AI engine perspective. We provide actionable recommendations based on the GEO-16 framework, ensuring your site is optimized for both traditional search and AI-powered systems.</p>
-            <a href="/services/site-audits/new-york/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/site-audits/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">Content Strategy & Optimization</h3>
             <p>Content strategy for AI engines requires different approaches than traditional SEO. Our content optimization service focuses on entity clarity, semantic structure, and comprehensive coverage of topics. We implement content hierarchies, internal linking strategies, and entity relationship mapping to maximize AI engine comprehension and citation opportunities.</p>
-            <a href="/services/content-strategy/new-york/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/content-strategy/" class="btn" data-ripple>Learn More</a>
           </div>
 
         </div>

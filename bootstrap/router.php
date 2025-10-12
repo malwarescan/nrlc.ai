@@ -55,6 +55,12 @@ function route_request(): void {
     return;
   }
 
+  // Demo routes
+  if ($path === '/demo/progress-demo/') {
+    render_page('demo/progress-demo');
+    return;
+  }
+
   // Sitemap routes
   if (preg_match('#^/sitemaps/([^/]+)$#', $path, $m)) {
     $sitemap_file = __DIR__.'/../public/sitemaps/'.$m[1];

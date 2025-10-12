@@ -17,6 +17,7 @@ foreach ($blocks as $b) {
   <script defer src="<?= asset_url('/assets/js/ripple.min.js') ?>"></script>
   <script defer src="<?= asset_url('/assets/js/app.min.js') ?>"></script>
   <script defer src="<?= asset_url('/assets/js/grid-bg.js') ?>"></script>
+  <script defer src="<?= asset_url('/assets/js/progress-indicator.js') ?>"></script>
 </footer>
 </body></html>
 

@@ -1,5 +1,7 @@
 <?php
 declare(strict_types=1);
+require_once __DIR__.'/../../templates/head.php';
+require_once __DIR__.'/../../templates/header.php';
 require_once __DIR__.'/../../lib/content_tokens.php';
 require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/helpers.php';
@@ -7,49 +9,117 @@ require_once __DIR__.'/../../lib/deterministic.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'crawl-clarity';
-$citySlug    = $_GET['city']    ?? 'new-york';
+$citySlug    = $_GET['city']    ?? detect_user_city();
 $pathKey = "/services/$serviceSlug/$citySlug/";
 
 det_seed($pathKey);
 
-$intro   = "<p class=\"lead\">".service_long_intro($serviceSlug, $citySlug)."</p>";
-$local   = "<p>".local_context_block($citySlug)."</p>";
+$serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
+$cityTitle = titleCaseCity($citySlug);
+$pageTitle = "$serviceTitle in $cityTitle";
+
+$intro   = service_long_intro($serviceSlug, $citySlug);
+$local   = local_context_block($citySlug);
 $pain    = pain_point_section($serviceSlug, $citySlug, 4);
 $appro   = approach_section($serviceSlug);
+$why     = why_this_matters_section($serviceSlug, $citySlug);
+$timeline= implementation_timeline_section($citySlug);
+$metrics = success_metrics_section($serviceSlug, $citySlug);
 $faqsHtml= faq_block($serviceSlug, $citySlug, 6);
 
-$body = "<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">"
-      .ucfirst(str_replace('-',' ', $serviceSlug))." in ".titleCaseCity($citySlug)
-      ."</div></div><div class=\"window-body\"><h1 class=\"h1\">"
-      .ucfirst(str_replace('-',' ', $serviceSlug))." in ".titleCaseCity($citySlug)
-      ."</h1>$intro$local</div></section>"
-      ."<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Pain Points & Solutions</div></div><div class=\"window-body\"><div class=\"grid\">$pain</div></div></section>"
-      ."<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Our Approach</div></div><div class=\"window-body\">$appro</div></section>"
-      ."<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Frequently Asked Questions</div></div><div class=\"window-body\"><h2 class=\"h2\">FAQs</h2>$faqsHtml</div></section>";
+// Build content with proper structure
+$content = $intro . $local;
+?>
 
-$words = word_count_html($body);
-$minWords = 900; $maxWords = 1400;
+<main role="main">
+<section class="container">
+        
+        <!-- Hero Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text"><?= htmlspecialchars($pageTitle) ?></div>
+          </div>
+          <div class="window-body">
+            <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;"><?= htmlspecialchars($pageTitle) ?></h1>
+            <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><?= $content ?></p>
+            <div class="center margin-top-20" style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+              <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Consultation</a>
+              <a href="/services/" class="btn" data-ripple style="width: 100%; max-width: 300px;">View All Services</a>
+            </div>
+          </div>
+        </div>
 
-// Pad with deterministic guidance if still short
-if ($words < $minWords) {
-  $pad = "<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Governance & Monitoring</div></div><div class=\"window-body\"><h3 class=\"h2\">Governance & Monitoring</h3>"
-       ."<p>We operationalize ongoing checks: URL guards, schema validation, and crawl-stat alarms so improvements persist.</p>"
-       ."<ul class=\"small\"><li>Daily diffs of sitemaps and canonicals</li><li>Param drift alerts</li><li>Rich results coverage trends</li></ul></div></section>";
-  $body .= $pad;
-}
+        <!-- Pain Points & Solutions Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Pain Points & Solutions</div>
+          </div>
+          <div class="window-body">
+            <div class="grid-auto-fit">
+              <?= $pain ?>
+            </div>
+          </div>
+        </div>
 
-// Final safety pad if still below threshold
-if (word_count_html($body) < 900) {
-  $body .= '<section class="window container"><div class="title-bar"><div class="title-bar-text">Implementation Notes</div></div><div class="window-body"><p class="small">We document tests and monitors so canonical and hreflang improvements persist across deploys, protecting crawl budget month over month.</p></div></section>';
-}
+        <!-- Why This Matters Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Why This Matters</div>
+          </div>
+          <div class="window-body">
+            <div class="grid-auto-fit">
+              <?= $why ?>
+            </div>
+          </div>
+        </div>
 
-$words = word_count_html($body);
+        <!-- Our Approach Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Our Approach</div>
+          </div>
+          <div class="window-body">
+            <div class="grid-auto-fit">
+              <?= $appro ?>
+            </div>
+          </div>
+        </div>
 
-// Page HTML
-echo $body;
+        <!-- Implementation Timeline Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Implementation Timeline</div>
+          </div>
+          <div class="window-body">
+            <?= $timeline ?>
+          </div>
+        </div>
 
-// Footer is included by router
+        <!-- Success Metrics Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Success Metrics</div>
+          </div>
+          <div class="window-body">
+            <?= $metrics ?>
+          </div>
+        </div>
 
+        <!-- FAQ Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Frequently Asked Questions</div>
+          </div>
+          <div class="window-body">
+            <h2 style="color: #000080; margin-top: 0;">FAQs</h2>
+            <?= $faqsHtml ?>
+          </div>
+        </div>
+
+</section>
+</main>
+
+<?php
 // JSON-LD (Service + FAQPage embedded)
 $ppMap = csv_rows_local('painpoint_token_map.csv');
 $ppForService = array_values(array_filter($ppMap, fn($r)=>$r['service']===$serviceSlug));
@@ -67,5 +137,52 @@ $serviceLd = ld_service_hefty([
   'faqs'=>$faqs,
   'offers'=>$offers
 ]);
-echo "<script type=\"application/ld+json\">".json_encode($serviceLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE)."</script>";
+
+// Add LocalBusiness schema
+$localBusinessLd = [
+  '@context' => 'https://schema.org',
+  '@type' => 'LocalBusiness',
+  'name' => 'NRLC.ai',
+  'url' => absolute_url('/'),
+  'description' => "AI-first SEO services specializing in $serviceTitle for businesses in $cityTitle.",
+  'telephone' => '+1-844-568-4624',
+  'email' => 'hirejoelm@gmail.com',
+  'address' => [
+    '@type' => 'PostalAddress',
+    'addressLocality' => $cityTitle,
+    'addressCountry' => $cityRow['country'] ?? 'US'
+  ],
+  'areaServed' => [
+    '@type' => 'City',
+    'name' => $cityTitle,
+    'containedInPlace' => [
+      '@type' => 'Country',
+      'name' => $cityRow['country'] ?? 'US'
+    ]
+  ],
+  'priceRange' => '$$',
+  'currenciesAccepted' => 'USD',
+  'paymentAccepted' => 'Credit Card, Bank Transfer',
+  'openingHours' => 'Mo-Fr 09:00-17:00'
+];
+
+// Add FAQPage schema
+$faqLd = [
+  '@context' => 'https://schema.org',
+  '@type' => 'FAQPage',
+  'mainEntity' => array_map(function($faq) {
+    return [
+      '@type' => 'Question',
+      'name' => $faq['q'],
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => $faq['a']
+      ]
+    ];
+  }, $faqs)
+];
+
+$GLOBALS['__jsonld'] = [$serviceLd, $localBusinessLd, $faqLd];
+?>
+
 
