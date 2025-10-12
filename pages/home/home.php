@@ -183,5 +183,3 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
  ]
 }
 </script>
-
-<?php require_once __DIR__ . '/../../templates/footer.php'; ?>

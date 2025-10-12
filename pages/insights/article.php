@@ -40,5 +40,4 @@ if (isset($all_articles[$slug])) {
   <h1>Insights</h1>
   <p>Publishing soon.</p>
 </main>
-<?php require_once __DIR__ . '/../../templates/footer.php'; ?>
 
