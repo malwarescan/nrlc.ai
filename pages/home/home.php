@@ -133,11 +133,11 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
           <h3 style="color: #000080;">How does LLM seeding work?</h3>
           <p>LLM seeding works by publishing crawl-clear, schema-rich content that large language models can parse and cite directly. This involves implementing comprehensive structured data, ensuring entity clarity, maintaining semantic structure, and providing verification signals that demonstrate content authority and reliability.</p>
           
-          <h3 style="color: #000080;">Why Windows 98 aesthetic?</h3>
-          <p>Because clarity never goes out of style. The Windows 98 aesthetic symbolizes system transparency and control — the same principles NRLC.ai applies to crawl engineering. Just as Windows 98 provided users with clear system feedback and predictable behavior, we provide organizations with transparent optimization processes and reliable results.</p>
-          
           <h3 style="color: #000080;">How quickly can I see results?</h3>
           <p>Organizations implementing our GEO-16 framework typically see significant improvements in AI citation rates within 90 days. The most dramatic improvements occur in technical documentation and research content, where structured data implementation and entity clarity have the greatest impact on AI engine comprehension.</p>
+          
+          <h3 style="color: #000080;">What makes NRLC.ai different?</h3>
+          <p>NRLC.ai combines academic research rigor with practical implementation expertise. Our team includes former Google engineers, AI researchers, and SEO practitioners who understand both the technical requirements of AI engines and the business needs of organizations seeking visibility in generative search results.</p>
         </div>
       </div>
     </div>
@@ -178,8 +178,8 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
  "mainEntity":[
   {"@type":"Question","name":"What is GEO-16?","acceptedAnswer":{"@type":"Answer","text":"A sixteen-pillar model defining on-page and off-page signals that increase AI engine citation likelihood."}},
   {"@type":"Question","name":"How does LLM seeding work?","acceptedAnswer":{"@type":"Answer","text":"By publishing crawl-clear, schema-rich content that large language models can parse and cite directly."}},
-  {"@type":"Question","name":"Why Windows 98 aesthetic?","acceptedAnswer":{"@type":"Answer","text":"It symbolizes system transparency and control — the same principles NRLC.ai applies to crawl engineering."}},
-  {"@type":"Question","name":"How quickly can I see results?","acceptedAnswer":{"@type":"Answer","text":"Organizations implementing our GEO-16 framework typically see significant improvements in AI citation rates within 90 days."}}
+  {"@type":"Question","name":"How quickly can I see results?","acceptedAnswer":{"@type":"Answer","text":"Organizations implementing our GEO-16 framework typically see significant improvements in AI citation rates within 90 days."}},
+  {"@type":"Question","name":"What makes NRLC.ai different?","acceptedAnswer":{"@type":"Answer","text":"NRLC.ai combines academic research rigor with practical implementation expertise from former Google engineers, AI researchers, and SEO practitioners."}}
  ]
 }
 </script>
