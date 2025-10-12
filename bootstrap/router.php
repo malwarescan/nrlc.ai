@@ -18,6 +18,17 @@ function route_request(): void {
     return;
   }
 
+  // robots.txt
+  if ($path === '/robots.txt') {
+    $robots_file = __DIR__.'/../public/robots.txt';
+    if (file_exists($robots_file)) {
+      header('Content-Type: text/plain; charset=UTF-8');
+      header('Cache-Control: public, max-age=3600');
+      readfile($robots_file);
+      return;
+    }
+  }
+
   if (preg_match('#^/services/([^/]+)/$#', $path, $m)) {
     $_GET['service'] = $m[1];
     render_page('services/service');
@@ -42,6 +53,17 @@ function route_request(): void {
     $_GET['slug'] = $m[1];
     render_page('insights/article');
     return;
+  }
+
+  // Sitemap routes
+  if (preg_match('#^/sitemaps/([^/]+)$#', $path, $m)) {
+    $sitemap_file = __DIR__.'/../public/sitemaps/'.$m[1];
+    if (file_exists($sitemap_file)) {
+      header('Content-Type: application/xml; charset=UTF-8');
+      header('Cache-Control: public, max-age=3600');
+      readfile($sitemap_file);
+      return;
+    }
   }
 
   // API routes
