@@ -1,55 +1,105 @@
 <?php
 declare(strict_types=1);
 
-// Validates all files under public/sitemaps.
-// - Ensures XML well-formedness
-// - For urlset: checks presence of base namespace
-// - Simple size sanity checks (not empty, < 51MB uncompressed)
+/**
+ * Validate all sitemap files for proper XML structure and content
+ */
 
-$root = dirname(__DIR__);
-$dir = $root.'/public/sitemaps';
-if (!is_dir($dir)) { fwrite(STDERR, "No sitemaps dir\n"); exit(1); }
+$dir = __DIR__ . '/../public/sitemaps/';
+$errors = 0;
+$total = 0;
 
-$ok = true;
-$files = glob($dir.'/*.xml');
-$gz    = glob($dir.'/*.xml.gz');
-$all   = array_merge($files, $gz);
-
-foreach ($all as $f) {
-  $content = null;
-  if (str_ends_with($f, '.gz')) {
-    $content = @gzdecode(file_get_contents($f));
-  } else {
-    $content = @file_get_contents($f);
-  }
-  if ($content === false || $content === '') {
-    echo "EMPTY: $f\n"; $ok = false; continue;
-  }
-  if (strlen($content) > 51 * 1024 * 1024) {
-    echo "WARN oversize (>51MB): $f\n";
-  }
-
-  $dom = new DOMDocument('1.0','UTF-8');
-  $dom->preserveWhiteSpace = false;
-  $dom->formatOutput = false;
-  if (!@$dom->loadXML($content, LIBXML_NOBLANKS|LIBXML_NOERROR|LIBXML_NOWARNING)) {
-    echo "BAD XML: $f\n"; $ok = false; continue;
-  }
-
-  $rootEl = $dom->documentElement->tagName;
-  if ($rootEl === 'urlset') {
-    $ns = $dom->documentElement->getAttribute('xmlns');
-    if (strpos($ns, 'sitemaps.org') === false) {
-      echo "WARN urlset missing base xmlns: $f\n";
-    }
-  } elseif ($rootEl === 'sitemapindex') {
-    // fine
-  } else {
-    echo "WARN unknown root <$rootEl> in $f\n";
-  }
-
-  echo "OK: $f\n";
+if (!is_dir($dir)) {
+  echo "ERROR: Sitemaps directory not found: $dir\n";
+  exit(1);
 }
 
-exit($ok ? 0 : 2);
+// Check all XML files (both .xml and .xml.gz)
+$files = array_merge(
+  glob("$dir/*.xml"),
+  glob("$dir/*.xml.gz")
+);
 
+if (empty($files)) {
+  echo "WARNING: No sitemap files found in $dir\n";
+  exit(0);
+}
+
+foreach ($files as $file) {
+  $total++;
+  $basename = basename($file);
+  echo "$basename: ";
+  
+  // Handle gzipped files
+  if (str_ends_with($file, '.gz')) {
+    $gz = gzopen($file, 'rb');
+    if (!$gz) {
+      echo "FAIL (cannot open gzip)\n";
+      $errors++;
+      continue;
+    }
+    
+    $content = '';
+    while (!gzeof($gz)) {
+      $content .= gzread($gz, 8192);
+    }
+    gzclose($gz);
+    
+    if (empty($content)) {
+      echo "FAIL (empty gzip content)\n";
+      $errors++;
+      continue;
+    }
+    
+    $xml = @simplexml_load_string($content);
+  } else {
+    $xml = @simplexml_load_file($file);
+  }
+  
+  if ($xml === false) {
+    echo "FAIL (invalid XML)\n";
+    $errors++;
+    continue;
+  }
+  
+  // Additional validation based on file type
+  $isValid = true;
+  $urlCount = 0;
+  
+  if (str_contains($basename, 'sitemap-index')) {
+    // Validate sitemap index
+    if (!isset($xml->sitemap)) {
+      $isValid = false;
+    } else {
+      $urlCount = count($xml->sitemap);
+    }
+  } else {
+    // Validate regular sitemap
+    if (!isset($xml->url)) {
+      $isValid = false;
+    } else {
+      $urlCount = count($xml->url);
+    }
+  }
+  
+  if (!$isValid) {
+    echo "FAIL (invalid structure)\n";
+    $errors++;
+  } else {
+    echo "OK ($urlCount entries)\n";
+  }
+}
+
+// Check robots.txt
+$robotsFile = __DIR__ . '/../public/robots.txt';
+if (file_exists($robotsFile)) {
+  $robotsContent = file_get_contents($robotsFile);
+  $sitemapCount = substr_count($robotsContent, 'Sitemap:');
+  echo "robots.txt: " . ($sitemapCount === 1 ? "OK ($sitemapCount Sitemap directive)" : "WARN ($sitemapCount Sitemap directives)") . "\n";
+} else {
+  echo "robots.txt: MISSING\n";
+  $errors++;
+}
+
+echo "\nSummary: $total files checked, $errors errors\n";
+exit($errors > 0 ? 1 : 0);

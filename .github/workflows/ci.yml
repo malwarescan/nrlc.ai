@@ -1,0 +1,14 @@
+name: NRLC CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with: { php-version: '8.2' }
+      - run: php -l $(git ls-files '*.php')
+      - run: make matrix careers build validate
+      - run: make contracts sitemap-smoke
+      - run: make content-gate
+      - run: make news-fresh || echo "No fresh news; skipping fail on PRs"

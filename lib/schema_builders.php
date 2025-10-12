@@ -135,3 +135,48 @@ function ld_jobposting(array $job, array $cityCtx): array {
   ];
 }
 
+function ld_service_hefty(array $ctx): array {
+  // $ctx: service, city, url, currency, price (optional), faqs[], offers[]
+  $name = ucfirst(str_replace('-',' ', $ctx['service'])) . " — " . ucwords(str_replace('-',' ', $ctx['city']));
+  $desc = "Hefty, locally-relevant coverage of {$ctx['service']} in ".ucwords(str_replace('-',' ',$ctx['city']))." including crawl clarity, schema depth, and LLM seeding.";
+  $offers = array_map(fn($o)=>[
+    "@type"=>"Offer",
+    "name"=>$o['headline']??"Remediation",
+    "description"=>($o['solution']??'')." Impact: ".($o['impact']??''),
+    "category"=>"SEO",
+  ], $ctx['offers'] ?? []);
+  $faqItems = array_map(fn($f)=>[
+    "@type"=>"Question",
+    "name"=>$f['q'],
+    "acceptedAnswer"=>["@type"=>"Answer","text"=>$f['a']]
+  ], $ctx['faqs'] ?? []);
+  return [
+    "@context"=>"https://schema.org",
+    "@type"=>"Service",
+    "name"=>$name,
+    "description"=>$desc,
+    "areaServed"=>$ctx['city'],
+    "provider"=>["@type"=>"Organization","name"=>"NRLC.ai"],
+    "offers"=>[
+      "@type"=>"OfferCatalog",
+      "name"=>"Pain-point Solutions",
+      "itemListElement"=>$offers
+    ],
+    "mainEntityOfPage"=>$ctx['url'],
+    "hasFAQ"=>[
+      "@type"=>"FAQPage",
+      "mainEntity"=>$faqItems
+    ]
+  ];
+}
+
+function ld_faqpage(array $faqs): array {
+  return [
+    "@context"=>"https://schema.org",
+    "@type"=>"FAQPage",
+    "mainEntity"=>array_map(fn($f)=>[
+      "@type"=>"Question","name"=>$f['q'],
+      "acceptedAnswer"=>["@type"=>"Answer","text"=>$f['a']]
+    ], $faqs)
+  ];
+}

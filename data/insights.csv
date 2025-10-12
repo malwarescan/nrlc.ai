@@ -1,4 +1,17 @@
 slug,title,lang,publication_date,lastmod,image_url,video_url,video_thumbnail,video_duration,keywords
+geo16-introduction,"AI Answer Engine Citation Behavior: The GEO-16 Framework",en,2025-09-16,2025-10-12,https://nrlc.ai/assets/geo16-hero.jpg,,,,"AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity"
+geo16-framework,"The GEO-16 Framework: Six Principles, Sixteen Pillars",en,2025-09-16,2025-10-12,https://nrlc.ai/assets/geo16-hero.jpg,,,,"AI SEO, GEO-16, Structured Data, Semantic HTML, Content Optimization"
+geo16-methodology,"Research Methodology: Data Collection and Analysis",en,2025-09-16,2025-10-12,https://nrlc.ai/assets/geo16-hero.jpg,,,,"AI SEO, GEO-16, Research Methodology, Data Analysis, Citation Behavior"
+geo16-results,"Research Results: Citation Performance Analysis",en,2025-09-16,2025-10-12,https://nrlc.ai/assets/geo16-hero.jpg,,,,"AI SEO, GEO-16, Citation Analysis, Research Results, AI Engines"
+geo16-implications,"Strategic Implications: Playbook for Generative Engine Optimization",en,2025-09-16,2025-10-12,https://nrlc.ai/assets/geo16-hero.jpg,,,,"AI SEO, GEO-16, Generative Engine Optimization, Content Strategy, B2B SaaS"
+geo16-conclusion,"Conclusion: The Future of AI Citation Optimization",en,2025-09-16,2025-10-12,https://nrlc.ai/assets/geo16-hero.jpg,,,,"AI SEO, GEO-16, Citation Optimization, Future Research, Implementation"
+llm-ontology-generation,"Large Language Models for Scholarly Ontology Generation",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/ontology-hero.jpg,,,,"AI SEO, GEO-16, LLM Seeding, Structured Data, Ontology Generation"
+semantic-seo-in-news,"Semantic SEO in News Media: How Publishers Use Structured Metadata",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/news-hero.jpg,,,,"AI SEO, GEO-16, Semantic SEO, News Media, Structured Data"
+seo-landscape-analysis,"Mapping the Optimized Web Landscape: SEO Manipulation vs Principled GEO Optimization",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/landscape-hero.jpg,,,,"AI SEO, GEO-16, SEO Landscape, Principled Optimization"
+ocrplus-data-ingestion,"OCR++ and AI Data Extraction: Turning PDFs into Structured Data Pipelines",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/ocr-hero.jpg,,,,"AI SEO, GEO-16, OCR++, Data Extraction, Structured Data"
+semantic-drift-tracking,"Tracking Topic Drift in AI Citations: Time-Decay and Freshness in LLM Seeding",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/drift-hero.jpg,,,,"AI SEO, GEO-16, Semantic Drift, Topic Evolution, LLM Seeding"
+yago-entity-mapping,"YAGO and Entity Disambiguation: Canonical Entity Mapping for Schema Alignment",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/yago-hero.jpg,,,,"AI SEO, GEO-16, YAGO, Entity Disambiguation, Schema Alignment"
+ontology-based-search,"Designing Ontology-Based Search Systems: How Ontology Improves Generative Retrieval",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/search-hero.jpg,,,,"AI SEO, GEO-16, Ontology-Based Search, Generative Retrieval"
+open-seo-tools,"Open Source SEO Tools You Can Actually Use: Curated Tool List and NRLC.ai Integrations",en,2025-10-12,2025-10-12,https://nrlc.ai/assets/tools-hero.jpg,,,,"AI SEO, GEO-16, Open Source Tools, SEO Tools, Tool Integration"
 geo-16-framework,GEO-16 Framework,en,2025-10-10,2025-10-11,https://nrlc.ai/assets/geo16-hero.jpg,,,
 llmo-blueprint,LLMO Blueprint,en,2025-10-12,2025-10-12,https://nrlc.ai/assets/llmo-hero.jpg,https://nrlc.ai/assets/llmo-intro.mp4,https://nrlc.ai/assets/llmo-thumb.jpg,95,"LLMO, JSON-LD, crawl clarity"
-

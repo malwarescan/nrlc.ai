@@ -1,0 +1,53 @@
+/* ===== NRLC.ai micro design system (≈5–7KB min) ===== */
+:root{
+  --bg: #0b0d12; --bg-elev: #121624; --surface: #171b2b; --muted:#7e8aa6;
+  --text: #e7ecff; --brand:#6ea8ff; --brand-2:#7cf0bd; --danger:#ff6b6b; --ok:#2dd4bf;
+  --ring: rgba(110,168,255,.45); --shadow: 0 6px 24px rgba(0,0,0,.25);
+  --radius: 14px; --radius-sm: 10px; --radius-lg: 22px; --gap: 12px; --gap-lg: 18px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+}
+@media (prefers-color-scheme: light){ :root{ --bg:#fbfbfe; --bg-elev:#fff; --surface:#ffffff; --text:#0b0d12; --muted:#5a647a; --ring:rgba(110,168,255,.35); } }
+*{ box-sizing:border-box } html{ scroll-behavior:smooth } body{
+  margin:0; background:var(--bg); color:var(--text); font:16px/1.55 var(--font); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img{ max-width:100%; height:auto; border:0 } a{ color:var(--brand); text-decoration:none } a:hover{ text-decoration:underline }
+.container{ width:min(1100px, calc(100% - 32px)); margin-inline:auto }
+.grid{ display:grid; gap:var(--gap) } .grid-3{ grid-template-columns:repeat(3, minmax(0,1fr)) } @media(max-width:900px){ .grid-3{ grid-template-columns:1fr } }
+.card{ background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; border:1px solid rgba(255,255,255,.06) }
+.muted{ color:var(--muted) } .small{ font-size:.9rem } .lead{ font-size:1.1rem; color:var(--muted) }
+.h1{ font-size:clamp(28px, 4vw, 40px); margin:18px 0 } .h2{ font-size:clamp(22px, 3vw, 28px); margin:16px 0 }
+.section{ padding:36px 0 } .pill{ padding:4px 10px; border-radius:999px; background:rgba(255,255,255,.06) }
+
+/* Buttons/links */
+.btn{ position:relative; display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.10);
+  border-radius:var(--radius-sm); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  color:var(--text); padding:10px 14px; cursor:pointer; transition:transform .08s ease; will-change:transform; overflow:hidden;
+}
+.btn:hover{ transform:translateY(-1px) } .btn:active{ transform:translateY(0) }
+.btn.brand{ border-color:rgba(110,168,255,.35); background:linear-gradient(180deg, rgba(110,168,255,.25), rgba(110,168,255,.08)) }
+.btn.ghost{ background:transparent } .btn.success{ border-color:rgba(45,212,191,.35); background:linear-gradient(180deg, rgba(45,212,191,.23), rgba(45,212,191,.06)) }
+.linkish{ position:relative; display:inline-flex; align-items:center; gap:8px; padding:6px 8px; border-radius:10px; overflow:hidden }
+
+/* Focus rings (a11y) */
+:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; box-shadow:0 0 0 6px var(--ring) }
+
+/* Ripple effect (CSS part; JS injects .ripple-wave spans) */
+[data-ripple]{ position:relative; overflow:hidden }
+.ripple-wave{
+  position:absolute; border-radius:50%; pointer-events:none; opacity:.3; transform:scale(0); animation:nrlc-ripple .6s ease-out both;
+  background:radial-gradient(circle, rgba(255,255,255,.45) 0%, rgba(255,255,255,.25) 40%, rgba(255,255,255,0) 70%);
+  mix-blend-mode:screen;
+}
+@keyframes nrlc-ripple{ to{ transform:scale(4); opacity:0 } }
+@media (prefers-reduced-motion: reduce){
+  .ripple-wave{ animation:none; opacity:0 } [data-ripple]{ overflow:visible }
+}
+
+/* Hero/utilities for service pages */
+.hero{ padding:48px 0; display:grid; gap:12px }
+.kpis{ display:flex; gap:12px; flex-wrap:wrap }
+.kpi{ background:var(--surface); border-radius:12px; padding:10px 12px; border:1px solid rgba(255,255,255,.08) }
+.badge{ font-size:.85rem; background:rgba(110,168,255,.15); color:#d9e8ff; border:1px solid rgba(110,168,255,.35); border-radius:999px; padding:4px 10px }
+
+/* Footer */
+.footer{ padding:30px 0; color:var(--muted) }

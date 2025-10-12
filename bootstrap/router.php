@@ -44,6 +44,31 @@ function route_request(): void {
     return;
   }
 
+  // API routes
+  if (preg_match('#^/api/([^/]+)/?$#', $path, $m)) {
+    $api_file = __DIR__.'/../api/'.$m[1].'.php';
+    if (file_exists($api_file)) {
+      include $api_file;
+      return;
+    }
+  }
+
+  // Index pages
+  if ($path === '/careers/') {
+    render_page('careers/index');
+    return;
+  }
+
+  if ($path === '/insights/') {
+    render_page('insights/index');
+    return;
+  }
+
+  if ($path === '/services/') {
+    render_page('services/index');
+    return;
+  }
+
   http_response_code(404);
   echo "Not Found";
 }

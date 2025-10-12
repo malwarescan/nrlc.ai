@@ -1,18 +1,17 @@
-service,industry,token_key,pain_point,solution
-crawl-clarity,seo,pp1,Redundant URL params reduce crawl efficiency,Canonical guard + param stripping on every request
-crawl-clarity,seo,pp2,Mixed trailing slashes create duplicate sets,Deterministic trailing-slash policy enforced globally
-crawl-clarity,seo,pp3,Locale folders collide with canonical paths,Locale-prefixed routing + x-default hreflang cluster
-json-ld-strategy,structured-data,pp1,Missing FAQPage/Service schema limits rich results,Central schema builders inject compliant JSON-LD
-json-ld-strategy,structured-data,pp2,Inconsistent JSON-LD across templates,Single source of truth in schema_builders.php
-json-ld-strategy,structured-data,pp3,Schemas lack OfferCatalog depth for needs,Pain-point OfferCatalog nested under Service JSON-LD
-llm-seeding,ai,pp1,Thin content gets ignored by LLMs,Deterministic token system generates 800–1200 words per URL
-llm-seeding,ai,pp2,No SearchAction makes internal search undiscoverable,WebSite includes SearchAction target
-llm-seeding,ai,pp3,No agent surface for actions,agent.json exposes capabilities and booking endpoints
-llm-optimization,ai,pp1,Ambiguous entities reduce citation likelihood,Entity-weighted copy with city/service disambiguation
-llm-optimization,ai,pp2,Localized intent missing in body & schema,City context injected into H1, meta, and Service schema
-llm-optimization,ai,pp3,FAQs repeat across pages and look boilerplate,FAQ pool rotates via seeded shuffling per URL
-international-seo,seo,pp1,Incorrect hreflang leading to clustering errors,Full hreflang set per locale + x-default
-international-seo,seo,pp2,No region-aware content blocks,H1/lede adapt to city+country tokens per page
-technical-seo,seo,pp1,Sitemaps over 50k URLs,Sharded sitemap generator with stable lastmod by matrix
-technical-seo,seo,pp2,Slow static assets reduce crawl budget,Immutable caching for assets in .htaccess
-
+service,pain_slug,headline,problem,impact,solution,deliverables,metric
+crawl-clarity,canonicals,"Canonical drift","Multiple URL variants are indexed (UTM, slash, case).","Index bloat + diluted signals","Canonical guard + parameter stripping + case normalizer","Rewrite rules, canonical map, tests","~35–60% crawl waste reduction"
+crawl-clarity,trailing-slash,"Trailing slash chaos","Mixed / and non-/ URLs create duplicate content.","Duplicate content penalties","Deterministic trailing-slash policy enforced globally","URL normalization rules, redirects","Eliminated duplicate indexing"
+crawl-clarity,locale-collision,"Locale path conflicts","Language folders interfere with canonical URLs.","Wrong region targeting","Locale-prefixed routing + x-default hreflang cluster","Hreflang clusters, routing rules","Proper geo-targeting"
+json-ld-strategy,thin-schema,"Thin JSON-LD","Only Organization schema; missing Service, LocalBusiness, FAQ.","Poor snippet qualification","Schema inventory + OfferCatalog + FAQPage","Schema registry, page-level builders","+12–35% rich result impressions"
+json-ld-strategy,inconsistent-schema,"Schema inconsistency","Different templates emit different JSON-LD structures.","Confused search engines","Single source of truth in schema_builders.php","Centralized schema functions","Consistent rich results"
+json-ld-strategy,missing-offers,"No OfferCatalog","Schemas lack depth for service offerings.","Limited rich snippet potential","Pain-point OfferCatalog nested under Service JSON-LD","Offer entities, service catalogs","Enhanced snippet visibility"
+llm-seeding,entity-ambiguity,"Ambiguous entities","Brand/service/city entities unresolved to LLMs.","Low AI surface recall","Disambiguation via SearchAction + agent surface","agent.json, SearchAction, citations","Higher LLM retrieval precision"
+llm-seeding,thin-content,"Thin content","Pages lack substance for LLM training.","Poor AI understanding","Deterministic token system generates 800–1200 words per URL","Content templates, token pools","Better AI comprehension"
+llm-seeding,no-search-action,"Missing SearchAction","Internal search not discoverable by AI.","Lost search visibility","WebSite includes SearchAction target","Search endpoint, structured data","AI-discoverable search"
+llm-optimization,boilerplate-faq,"Boilerplate FAQs","FAQs repeat, trigger duplication.","Quality demotion risk","Deterministic FAQ rotation + city flavoring","FAQ pools, selector","Lower duplication patterns"
+llm-optimization,entity-confusion,"Entity confusion","Brand/service/city entities unclear to AI.","Poor citation accuracy","Entity-weighted copy with city/service disambiguation","Entity mapping, disambiguation","Improved AI citations"
+llm-optimization,local-context-missing,"Missing local context","Content lacks city-specific relevance.","Generic AI responses","City context injected into H1, meta, and Service schema","Local content tokens","Location-aware AI responses"
+international-seo,hreflang-miss,"Hreflang gaps","Locales not interlinked; wrong region codes.","Wrong geo ranking","Sitemap hreflang + x-default","URL clusters, x-default","Reduced cannibalization"
+international-seo,region-blind,"Region-blind content","Content doesn't adapt to local markets.","Poor local relevance","H1/lede adapt to city+country tokens per page","Localized content blocks","Better local targeting"
+technical-seo,oversize-sitemap,"Oversized sitemaps",">50MB or >50k URLs per file.","Crawl inefficiency","Shard to ≤10k + gzip","+index + robots","Faster discovery"
+technical-seo,slow-assets,"Slow static assets","Large CSS/JS files block rendering.","Poor Core Web Vitals","Immutable caching for assets in .htaccess","Asset optimization, caching","Improved page speed"

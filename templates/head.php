@@ -16,7 +16,9 @@ header('Content-Type: text/html; charset=utf-8');
 <title><?=htmlspecialchars($title)?></title>
 <meta name="description" content="<?=htmlspecialchars($desc)?>">
 <link rel="canonical" href="<?=absolute_url($path)?>">
-<link rel="stylesheet" href="<?=absolute_url('/assets/style.css')?>">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="<?= asset_url('/assets/css/98.min.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/assets/css/nrlc98.css') ?>">
 <?php
 foreach (hreflang_links(without_locale_prefix($path)) as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";

@@ -1,0 +1,12 @@
+{
+  "services.csv": ["slug","name"],
+  "cities.csv":   ["city_name","country","subdivision","lat","lng","lang","cctld"],
+  "careers.csv":  ["slug","title"],
+  "matrix.csv":   ["service","city","lastmod"],
+  "career_matrix.csv": ["role","service","city","lastmod"],
+  "insights.csv": ["slug","title","lang","publication_date","lastmod","image_url","video_url","video_thumbnail","video_duration","keywords"],
+  "images_map.csv": ["url","image_url","image_title","image_caption"],
+  "painpoint_token_map.csv": ["service","pain_slug","headline","problem","impact","solution","deliverables","metric"],
+  "faq_pools.csv": ["service","question","answer"],
+  "approach_blocks.csv": ["service","block_title","body"]
+}

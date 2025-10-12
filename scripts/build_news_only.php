@@ -14,17 +14,11 @@ declare(strict_types=1);
 
 require_once __DIR__.'/../lib/sitemap.php';
 require_once __DIR__.'/../lib/helpers.php';
+require_once __DIR__.'/../lib/csv.php';
 require_once __DIR__.'/../config/locales.php';
 
 function csv_rows(string $file): array {
-  $path = __DIR__.'/../data/'.$file;
-  if (!file_exists($path)) return [];
-  $fh = fopen($path,'r');
-  $hdr = fgetcsv($fh);
-  $rows = [];
-  while ($row = fgetcsv($fh)) $rows[] = array_combine($hdr, $row);
-  fclose($fh);
-  return $rows;
+  return csv_read_data($file);
 }
 
 $dir = __DIR__.'/../public/sitemaps';

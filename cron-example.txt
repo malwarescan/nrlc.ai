@@ -1,0 +1,17 @@
+# NRLC.ai Sitemap v2 Automation - Cron Jobs
+# Add these to your crontab for production deployment
+
+# Full sitemap rebuild every 6 hours
+0 */6 * * * cd /var/www/nrlc.ai && make sitemap-build
+
+# News-only rebuild every 30 minutes (for fresh content)
+*/30 * * * * cd /var/www/nrlc.ai && make news
+
+# Ping search engines every 6 hours (5 minutes after build)
+5 */6 * * * cd /var/www/nrlc.ai && make sitemap-ping
+
+# Daily validation check
+0 2 * * * cd /var/www/nrlc.ai && make sitemap-validate
+
+# Weekly full system check
+0 3 * * 0 cd /var/www/nrlc.ai && make sitemap-full

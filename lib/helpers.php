@@ -1,6 +1,6 @@
 <?php
 function absolute_url(string $path): string {
-  $scheme = 'https';
+  $scheme = ($_SERVER['HTTPS'] ?? '') === 'on' ? 'https' : 'http';
   $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
   if ($path === '') $path = '/';
   return $scheme.'://'.$host.$path;
@@ -41,10 +41,26 @@ function csv_to_rows(string $file): array {
   $hdr = fgetcsv($fh);
   $rows = [];
   while ($row = fgetcsv($fh)) {
-    $rows[] = array_combine($hdr, $row);
+    if (count($row) === count($hdr) && !empty(array_filter($row))) {
+      $rows[] = array_combine($hdr, $row);
+    }
   }
   fclose($fh);
   return $rows;
+}
+
+function asset_url(string $path): string {
+  $abs = __DIR__ . '/../public' . $path;
+  $ver = file_exists($abs) ? substr(md5((string)@filemtime($abs)),0,8) : '0';
+  return $path . '?v=' . $ver;
+}
+
+if (!function_exists('absolute_url')) {
+  function absolute_url(string $path): string {
+    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+    return rtrim("$scheme://$host", '/') . '/' . ltrim($path, '/');
+  }
 }
 
 function meta_for_slug(string $slug): array {

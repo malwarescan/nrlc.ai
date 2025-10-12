@@ -241,6 +241,27 @@ section.faqs h2 {
   margin-top: 0;
 }
 
+/* FAQ Details/Summary - Compact styling */
+details.card {
+  padding: 12px;
+  margin: 0;
+}
+
+details.card summary {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+details.card summary:hover {
+  color: var(--dark-blue);
+}
+
+details.card p {
+  margin: 8px 0 0 0;
+}
+
 /* Footer */
 footer {
   background: var(--dark-blue);

@@ -1,0 +1,68 @@
+/* ========== NRLC.AI Global Layout Rules (Win98 aesthetic + responsive modern sizing) ========== */
+
+/* Every major content section */
+section {
+  padding-block: clamp(24px, 6vw, 72px);
+  border: none;
+}
+
+/* Standard container for all content blocks */
+.container {
+  --gutter: clamp(16px, 4vw, 32px);
+  width: min(100% - 2*var(--gutter), 72rem); /* smooth fluid width */
+  margin-inline: auto;
+}
+
+/* Text reading zones (copy, insights, docs) */
+.prose {
+  max-width: 65ch;
+  line-height: 1.55;
+  font-size: 14px;
+  color: #000;
+}
+
+/* Wider containers (graphics, ripple meters, hero sections) */
+.container--wide {
+  width: min(100% - 2*var(--gutter), 80rem); /* ≈1280px */
+}
+
+/* Allow full-bleed images or hero canvases (like ripple.js pond/meter) */
+.full-bleed {
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+}
+
+/* ===== NRLC.ai Win98 Theme Overrides ===== */
+html,body{height:100%;margin:0;background:#008080;font-family:"MS Sans Serif",Tahoma,sans-serif;font-size:15.5px;color:#000;}
+body{display:flex;flex-direction:column;}
+a{color:#000080;text-decoration:none;}a:hover{text-decoration:underline;}
+header{background:#c0c0c0;border-bottom:2px solid #808080;border-top:2px solid #fff;padding:6px 10px;}
+h1,h2,h3{font-weight:bold;margin:8px 0;}h1{font-size:24px;}h2{font-size:21px;}h3{font-size:19px;}
+.btn,.linkish,button,input[type=submit]{font-family:inherit;font-size:15.5px;border:2px outset #fff;background:#c0c0c0;padding:4px 8px;cursor:pointer;}
+.btn:active{border:2px inset #fff;background:#808080;}
+.window{background:#dcdcdc;border:2px solid #000;padding:6px;}
+.window-title{background:#000080;color:#fff;padding:2px 6px;font-weight:bold;font-size:15.5px;}
+.window-content{padding:8px;}
+.menu-bar{display:flex;gap:6px;background:#c0c0c0;padding:2px;}
+.menu-item{padding:2px 6px;cursor:pointer;font-size:15.5px;}
+.menu-item:hover{background:transparent;color:#000080;text-decoration:underline;}
+.card{border:2px groove #c0c0c0;background:#fff;padding:12px;margin:8px 0;height:140px;display:flex;flex-direction:column;justify-content:space-between;}
+.card h3{margin:0 0 8px 0;font-size:19px;}
+.card p{margin:0 0 12px 0;flex-grow:1;}
+.card .btn{margin-top:auto;}
+hr{border:none;border-top:2px groove #fff;margin:8px 0;}
+/* Keep ripple highlight subtle */
+[data-ripple] .ripple-wave{background:rgba(255,255,255,0.4);}
+.footer{border-top:2px solid #fff;border-bottom:2px solid #808080;text-align:center;padding:6px;font-size:15.5px;background:#c0c0c0;margin-top:auto;}
+
+/* Tablet and down: tighten spacing and font slightly */
+@media (max-width: 768px) {
+  .prose { font-size: 13px; line-height: 1.5; }
+  section { padding-block: clamp(16px, 5vw, 48px); }
+}
+
+/* Small phones: ensure hero widgets don't overflow horizontally */
+@media (max-width: 480px) {
+  .container { --gutter: 14px; }
+  .card, .window-content { overflow-x: hidden; }
+}

@@ -1,9 +1,13 @@
-<header>
-  <nav>
-    <a href="/">NRLC.ai</a>
-    <a href="/services/crawl-clarity/">Crawl Clarity</a>
-    <a href="/services/json-ld-strategy/">JSON-LD</a>
-    <a href="/services/llm-seeding/">LLM Seeding</a>
-  </nav>
+<header role="banner" class="window container">
+  <div class="window-title">NRLC.ai — Control Panel</div>
+  <div class="window-content">
+    <div class="menu-bar">
+      <div class="menu-item"><a href="/">Home</a></div>
+      <div class="menu-item"><a href="/services/">Services</a></div>
+      <div class="menu-item"><a href="/insights/">Insights</a></div>
+      <div class="menu-item"><a href="/careers/">Careers</a></div>
+      <div class="menu-item"><a href="/api/book/">Book Consult</a></div>
+    </div>
+  </div>
 </header>
 
