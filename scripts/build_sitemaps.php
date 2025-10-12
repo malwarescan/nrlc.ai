@@ -158,45 +158,7 @@ if ($newsEntries) {
   echo "Built news sitemap: " . count($newsEntries) . " URLs\n";
 }
 
-// 6. Videos sitemap (from insights with video data)
-$videoEntries = [];
-foreach ($insightsRows as $row) {
-  $slug = $row['slug'] ?? '';
-  $videoUrl = $row['video_url'] ?? '';
-  $videoThumbnail = $row['video_thumbnail'] ?? '';
-  $videoDuration = $row['video_duration'] ?? '';
-  $title = $row['title'] ?? '';
-  $pubDate = $row['publication_date'] ?? '';
-  
-  if ($slug && $videoUrl) {
-    $path = "/insights/{$slug}/";
-    $hreflangUrls = sitemap_generate_hreflang_urls($path);
-    
-    $entry = "  <url>\n    <loc>{$hreflangUrls['en-us']}</loc>\n";
-    $entry .= "    <video:video>\n";
-    if ($videoThumbnail) $entry .= "      <video:thumbnail_loc>{$videoThumbnail}</video:thumbnail_loc>\n";
-    $entry .= "      <video:content_loc>{$videoUrl}</video:content_loc>\n";
-    if ($title) $entry .= "      <video:title>{$title}</video:title>\n";
-    $entry .= "      <video:description>{$title} — NRLC.ai</video:description>\n";
-    if ($videoDuration) $entry .= "      <video:duration>{$videoDuration}</video:duration>\n";
-    if ($pubDate) $entry .= "      <video:publication_date>{$pubDate}</video:publication_date>\n";
-    $entry .= "    </video:video>\n";
-    $entry .= "  </url>\n";
-    $videoEntries[] = $entry;
-  }
-}
-
-if ($videoEntries) {
-  $xmlFile = "{$outDir}videos-1.xml";
-  $gzFile = "{$xmlFile}.gz";
-  $content = sitemap_render_videos($videoEntries);
-  file_put_contents($xmlFile, $content);
-  sitemap_write_gzipped($gzFile, $content);
-  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
-  echo "Built videos sitemap: " . count($videoEntries) . " URLs\n";
-}
-
-// 7. Generate unified index
+// 6. Generate unified index
 $indexFile = "{$outDir}sitemap-index.xml";
 $indexContent = sitemap_render_index($sitemaps);
 file_put_contents($indexFile, $indexContent);
