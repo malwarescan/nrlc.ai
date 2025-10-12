@@ -18,27 +18,29 @@ $pain    = pain_point_section($serviceSlug, $citySlug, 4);
 $appro   = approach_section($serviceSlug);
 $faqsHtml= faq_block($serviceSlug, $citySlug, 6);
 
-$body = "<section class=\"section container\"><h1 class=\"h1\">"
+$body = "<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">"
       .ucfirst(str_replace('-',' ', $serviceSlug))." in ".titleCaseCity($citySlug)
-      ."</h1>$intro$local</section>"
-      ."<section class=\"section container\"><div class=\"grid\">$pain</div></section>"
-      ."<section class=\"section container\">$appro</section>"
-      ."<section class=\"section container\"><h2 class=\"h2\">FAQs</h2>$faqsHtml</section>";
+      ."</div></div><div class=\"window-body\"><h1 class=\"h1\">"
+      .ucfirst(str_replace('-',' ', $serviceSlug))." in ".titleCaseCity($citySlug)
+      ."</h1>$intro$local</div></section>"
+      ."<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Pain Points & Solutions</div></div><div class=\"window-body\"><div class=\"grid\">$pain</div></div></section>"
+      ."<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Our Approach</div></div><div class=\"window-body\">$appro</div></section>"
+      ."<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Frequently Asked Questions</div></div><div class=\"window-body\"><h2 class=\"h2\">FAQs</h2>$faqsHtml</div></section>";
 
 $words = word_count_html($body);
 $minWords = 900; $maxWords = 1400;
 
 // Pad with deterministic guidance if still short
 if ($words < $minWords) {
-  $pad = "<section class=\"section container\"><h3 class=\"h2\">Governance & Monitoring</h3>"
+  $pad = "<section class=\"window container\"><div class=\"title-bar\"><div class=\"title-bar-text\">Governance & Monitoring</div></div><div class=\"window-body\"><h3 class=\"h2\">Governance & Monitoring</h3>"
        ."<p>We operationalize ongoing checks: URL guards, schema validation, and crawl-stat alarms so improvements persist.</p>"
-       ."<ul class=\"small\"><li>Daily diffs of sitemaps and canonicals</li><li>Param drift alerts</li><li>Rich results coverage trends</li></ul></section>";
+       ."<ul class=\"small\"><li>Daily diffs of sitemaps and canonicals</li><li>Param drift alerts</li><li>Rich results coverage trends</li></ul></div></section>";
   $body .= $pad;
 }
 
 // Final safety pad if still below threshold
 if (word_count_html($body) < 900) {
-  $body .= '<section class="section container"><p class="small">We document tests and monitors so canonical and hreflang improvements persist across deploys, protecting crawl budget month over month.</p></section>';
+  $body .= '<section class="window container"><div class="title-bar"><div class="title-bar-text">Implementation Notes</div></div><div class="window-body"><p class="small">We document tests and monitors so canonical and hreflang improvements persist across deploys, protecting crawl budget month over month.</p></div></section>';
 }
 
 $words = word_count_html($body);

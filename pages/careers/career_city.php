@@ -77,7 +77,7 @@ inject_jsonld([ ld_jobposting($job, $city) ]);
   <?=$faqHtml?>
   
   <section class="section">
-    <div class="card">
+    <div style="padding: 1rem;">
       <p class="lead">Ready to build the future of AI-first SEO?</p>
       <div class="flex-wrap">
         <a href="/api/book" class="btn brand" data-ripple>Apply Now</a>

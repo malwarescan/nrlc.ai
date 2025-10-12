@@ -3,17 +3,19 @@ require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 ?>
 <section class="window container prose">
-  <div class="window-title">GEO-16 Framework: Results</div>
-  <div class="window-content">
-    <h1>Research Results: Citation Performance Analysis</h1>
-    <p class="lead">Comprehensive analysis of 1,700 citations reveals clear patterns in AI engine behavior, with GEO-16 scores strongly correlating with citation frequency across all major platforms.</p>
+  <div class="title-bar">
+    <div class="title-bar-text">GEO-16 Framework: Results</div>
+  </div>
+  <div class="window-body">
+    <h1> style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Research Results: Citation Performance Analysis</h1>
+    <p class="lead"> style="font-size: 1.2rem; margin-bottom: 2rem;">Comprehensive analysis of 1,700 citations reveals clear patterns in AI engine behavior, with GEO-16 scores strongly correlating with citation frequency across all major platforms.</p>
     
-    <h2>Overall Citation Patterns</h2>
+    <h2> style="color: #000080;">Overall Citation Patterns</h2>
     <p>Our analysis of 1,700 citations across four major AI engines reveals significant variation in citation behavior. Pages with high GEO-16 scores demonstrate substantially better citation performance, with the most optimized pages receiving citations in over 80% of relevant queries.</p>
     
     <p>The data shows a clear correlation between GEO scores and citation frequency, with pages scoring above 0.70 receiving citations at rates 340% higher than pages scoring below 0.50. This relationship holds across all content types and organizational contexts included in the study.</p>
     
-    <h2>Engine-Specific Performance</h2>
+    <h2> style="color: #000080;">Engine-Specific Performance</h2>
     <p>Different AI engines showed varying sensitivity to GEO-16 signals, though all demonstrated positive correlation between scores and citation performance:</p>
     
     <table class="table">
@@ -55,7 +57,7 @@ require_once __DIR__ . '/../../templates/header.php';
     
     <p>Perplexity AI showed the strongest correlation between GEO scores and citation performance, likely due to its focus on source attribution and verification. ChatGPT demonstrated consistent performance across content types, while Claude showed particular strength with business and professional content.</p>
     
-    <h2>Content Type Analysis</h2>
+    <h2> style="color: #000080;">Content Type Analysis</h2>
     <p>Different content types showed varying levels of citation success, with technical documentation and research content performing best overall:</p>
     
     <table class="table">
@@ -103,10 +105,10 @@ require_once __DIR__ . '/../../templates/header.php';
     
     <p>Research papers achieved the highest average GEO scores and citation rates, benefiting from strong author credentials, comprehensive citations, and clear structure. Technical documentation also performed well, particularly when it included complete metadata and logical organization.</p>
     
-    <h2>Pillar Performance Analysis</h2>
+    <h2> style="color: #000080;">Pillar Performance Analysis</h2>
     <p>Analysis of individual pillar performance reveals which signals have the strongest impact on citation success:</p>
     
-    <h3>Highest Impact Pillars</h3>
+    <h3> style="margin-top: 0; color: #000080;">Highest Impact Pillars</h3>
     <ul>
       <li><strong>Pillar 3: Structured Data Implementation</strong> - Correlation: 0.89</li>
       <li><strong>Pillar 6: Heading Hierarchy</strong> - Correlation: 0.85</li>
@@ -114,7 +116,7 @@ require_once __DIR__ . '/../../templates/header.php';
       <li><strong>Pillar 12: Source Attribution</strong> - Correlation: 0.81</li>
     </ul>
     
-    <h3>Moderate Impact Pillars</h3>
+    <h3> style="margin-top: 0; color: #000080;">Moderate Impact Pillars</h3>
     <ul>
       <li><strong>Pillar 1: Title Tag Optimization</strong> - Correlation: 0.72</li>
       <li><strong>Pillar 4: Publication Date Visibility</strong> - Correlation: 0.69</li>
@@ -122,7 +124,7 @@ require_once __DIR__ . '/../../templates/header.php';
       <li><strong>Pillar 14: Page Speed Optimization</strong> - Correlation: 0.64</li>
     </ul>
     
-    <h3>Lower Impact Pillars</h3>
+    <h3> style="margin-top: 0; color: #000080;">Lower Impact Pillars</h3>
     <ul>
       <li><strong>Pillar 2: Meta Description Quality</strong> - Correlation: 0.58</li>
       <li><strong>Pillar 5: Update Frequency</strong> - Correlation: 0.55</li>
@@ -130,7 +132,7 @@ require_once __DIR__ . '/../../templates/header.php';
       <li><strong>Pillar 16: Accessibility Compliance</strong> - Correlation: 0.49</li>
     </ul>
     
-    <h2>Threshold Analysis</h2>
+    <h2> style="color: #000080;">Threshold Analysis</h2>
     <p>Detailed analysis of the 0.70 GEO score threshold reveals its optimal predictive power:</p>
     
     <table class="table">
@@ -184,7 +186,7 @@ require_once __DIR__ . '/../../templates/header.php';
     
     <p>The data clearly shows that pages scoring above 0.70 achieve significantly better citation performance, with the 0.70-0.79 range representing the optimal target for most content optimization efforts.</p>
     
-    <h2>Organizational Context</h2>
+    <h2> style="color: #000080;">Organizational Context</h2>
     <p>Analysis by organizational type reveals interesting patterns in citation behavior:</p>
     
     <ul>
@@ -197,7 +199,7 @@ require_once __DIR__ . '/../../templates/header.php';
     
     <p>Academic institutions benefit from strong author credentials, comprehensive citations, and clear structure. Government agencies also perform well due to their focus on accuracy and verification. Small businesses face challenges with technical implementation and content quality.</p>
     
-    <h2>Geographic and Language Factors</h2>
+    <h2> style="color: #000080;">Geographic and Language Factors</h2>
     <p>Analysis of geographic and language factors reveals some interesting patterns:</p>
     
     <ul>
@@ -209,10 +211,10 @@ require_once __DIR__ . '/../../templates/header.php';
     
     <p>This geographic bias likely reflects the training data and user base of the analyzed AI engines, rather than inherent quality differences in content.</p>
     
-    <h2>Implications for Content Strategy</h2>
+    <h2> style="color: #000080;">Implications for Content Strategy</h2>
     <p>The results provide clear guidance for content optimization efforts:</p>
     
-    <h3>Priority Optimization Areas</h3>
+    <h3> style="margin-top: 0; color: #000080;">Priority Optimization Areas</h3>
     <p>Organizations should focus on the highest-impact pillars first:</p>
     <ul>
       <li>Implement comprehensive structured data</li>
@@ -221,7 +223,7 @@ require_once __DIR__ . '/../../templates/header.php';
       <li>Maintain consistent publication dates and update frequency</li>
     </ul>
     
-    <h3>Content Type Strategies</h3>
+    <h3> style="margin-top: 0; color: #000080;">Content Type Strategies</h3>
     <p>Different content types require different optimization approaches:</p>
     <ul>
       <li><strong>Technical Documentation</strong>: Focus on structure and metadata</li>
@@ -230,7 +232,7 @@ require_once __DIR__ . '/../../templates/header.php';
       <li><strong>News Content</strong>: Ensure timely publication and source attribution</li>
     </ul>
     
-    <h2>Validation and Future Research</h2>
+    <h2> style="color: #000080;">Validation and Future Research</h2>
     <p>The results provide strong validation for the GEO-16 framework's predictive power. Future research should focus on:</p>
     
     <ul>
@@ -288,4 +290,6 @@ require_once __DIR__ . '/../../templates/header.php';
  ]
 }
 </script>
+  </div>\n</section>\n</main>
 
+<?php require_once __DIR__ . '/../../templates/footer.php'; ?>

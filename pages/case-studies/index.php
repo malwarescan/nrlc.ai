@@ -11,38 +11,38 @@ require_once __DIR__ . '/../../templates/header.php';
     <p class="lead">Real-world examples of AI SEO optimization success, featuring detailed results and implementation strategies.</p>
     
     <div class="grid grid-auto-fit">
-      <div class="card">
-        <h3>B2B SaaS Case Study</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">B2B SaaS Case Study</h3>
         <p>How a SaaS company increased AI citations by 340% through structured data optimization and entity mapping.</p>
         <a href="/case-studies/b2b-saas/" class="btn" data-ripple>View Case Study</a>
       </div>
       
-      <div class="card">
-        <h3>E-commerce Case Study</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">E-commerce Case Study</h3>
         <p>E-commerce platform achieved 250% increase in AI visibility through product schema optimization.</p>
         <a href="/case-studies/ecommerce/" class="btn" data-ripple>View Case Study</a>
       </div>
       
-      <div class="card">
-        <h3>Healthcare Case Study</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Healthcare Case Study</h3>
         <p>Medical website improved AI citation rates by 180% with healthcare-specific entity optimization.</p>
         <a href="/case-studies/healthcare/" class="btn" data-ripple>View Case Study</a>
       </div>
       
-      <div class="card">
-        <h3>Fintech Case Study</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Fintech Case Study</h3>
         <p>Financial services company increased AI mentions by 290% through compliance-focused optimization.</p>
         <a href="/case-studies/fintech/" class="btn" data-ripple>View Case Study</a>
       </div>
       
-      <div class="card">
-        <h3>Education Case Study</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Education Case Study</h3>
         <p>Educational platform achieved 220% increase in AI citations through academic content optimization.</p>
         <a href="/case-studies/education/" class="btn" data-ripple>View Case Study</a>
       </div>
       
-      <div class="card">
-        <h3>Real Estate Case Study</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Real Estate Case Study</h3>
         <p>Property platform improved AI visibility by 160% with location-based entity optimization.</p>
         <a href="/case-studies/real-estate/" class="btn" data-ripple>View Case Study</a>
       </div>

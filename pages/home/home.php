@@ -33,33 +33,33 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <div class="title-bar-text">Core Services</div>
       </div>
       <div class="window-body">
-        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+        <div class="grid-auto-fit">
           
-          <div class="card" style="padding: 1rem; border: 1px solid #ccc;">
+          <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">Crawl Clarity Engineering</h3>
             <p>Duplicate URLs, parameter pollution, and canonical drift waste crawl budget and confuse AI engines. Our crawl clarity service eliminates these issues through systematic URL normalization, parameter stripping, and canonical enforcement. We implement deterministic rules that persist across deployments, ensuring consistent AI engine comprehension and improved citation likelihood.</p>
             <a href="/services/crawl-clarity/new-york/" class="btn" data-ripple>Learn More</a>
           </div>
 
-          <div class="card" style="padding: 1rem; border: 1px solid #ccc;">
+          <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">JSON-LD & Structured Snippet Strategy</h3>
             <p>Thin or inconsistent structured data limits AI engine understanding and reduces citation opportunities. Our JSON-LD strategy implements comprehensive schema markup including Organization, Service, LocalBusiness, and FAQPage schemas. We ensure schema completeness, consistency, and validity across all content types, enabling AI engines to parse and cite your content effectively.</p>
             <a href="/services/json-ld-strategy/new-york/" class="btn" data-ripple>Learn More</a>
           </div>
 
-          <div class="card" style="padding: 1rem; border: 1px solid #ccc;">
+          <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">LLM Seeding Optimization</h3>
             <p>AI engines prioritize content that demonstrates entity clarity, semantic structure, and verification signals. Our LLM seeding service optimizes content for AI comprehension through systematic entity identification, relationship mapping, and credibility enhancement. We implement GEO-16 framework principles to ensure your content meets AI engine citation requirements.</p>
             <a href="/services/llm-seeding/new-york/" class="btn" data-ripple>Learn More</a>
           </div>
 
-          <div class="card" style="padding: 1rem; border: 1px solid #ccc;">
+          <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">AI-First Site Audits</h3>
             <p>Traditional SEO audits miss AI-specific optimization opportunities and fail to address generative search requirements. Our AI-first audits evaluate content against GEO-16 framework pillars, assess structured data completeness, and identify AI engine visibility gaps. We provide actionable recommendations for improving citation likelihood and AI engine comprehension.</p>
             <a href="/services/site-audits/new-york/" class="btn" data-ripple>Learn More</a>
           </div>
 
-          <div class="card" style="padding: 1rem; border: 1px solid #ccc;">
+          <div class="box-padding">
             <h3 style="margin-top: 0; color: #000080;">International SEO & Hreflang Engineering</h3>
             <p>Multi-regional content requires sophisticated hreflang implementation and locale-specific optimization to ensure proper AI engine targeting. Our international SEO service implements comprehensive hreflang clusters, locale-specific structured data, and regional content optimization. We ensure AI engines understand geographic targeting and serve appropriate content to users worldwide.</p>
             <a href="/services/international-seo/new-york/" class="btn" data-ripple>Learn More</a>
@@ -67,7 +67,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
 
         </div>
       </div>
-    </div>
+      </div>
 
     <!-- GEO-16 Framework Summary -->
     <div class="window" style="margin-bottom: 2rem;">
@@ -143,8 +143,8 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
     </div>
 
     <!-- CTA Section -->
-    <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #f0f0f0; border: 1px solid #ccc;">
-      <a href="/api/book/" class="btn" data-ripple style="margin-right: 1rem;">Request an Audit</a>
+    <div class="center margin-top-20 box-padding" style="background: #f0f0f0;">
+      <a href="/api/book/" class="btn" data-ripple style="margin-right: 1rem;">Schedule Consultation</a>
       <a href="/services/" class="btn" data-ripple style="margin-right: 1rem;">See Services</a>
       <a href="/insights/" class="btn" data-ripple>Read Insights</a>
     </div>

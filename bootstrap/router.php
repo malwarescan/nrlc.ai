@@ -66,7 +66,22 @@ function route_request(): void {
     }
   }
 
-  // API routes
+  // Book page route (GET requests to /api/book/)
+  if ($path === '/api/book/' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    render_page('book/index');
+    return;
+  }
+
+  // Book API route (POST requests to /api/book/)
+  if ($path === '/api/book/' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $api_file = __DIR__.'/../api/book.php';
+    if (file_exists($api_file)) {
+      include $api_file;
+      return;
+    }
+  }
+
+  // Other API routes
   if (preg_match('#^/api/([^/]+)/?$#', $path, $m)) {
     $api_file = __DIR__.'/../api/'.$m[1].'.php';
     if (file_exists($api_file)) {

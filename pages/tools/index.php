@@ -11,38 +11,38 @@ require_once __DIR__ . '/../../templates/header.php';
     <p class="lead">Comprehensive reviews and comparisons of AI SEO tools, platforms, and optimization solutions.</p>
     
     <div class="grid" class="grid grid-auto-fit">
-      <div class="card">
-        <h3>AI Search Engines</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">AI Search Engines</h3>
         <p>Reviews of ChatGPT, Claude, Perplexity, Bard, and other AI search platforms for SEO optimization.</p>
         <a href="/tools/ai-search-engines/" class="btn" data-ripple>View Reviews</a>
       </div>
       
-      <div class="card">
-        <h3>Structured Data Tools</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Structured Data Tools</h3>
         <p>Schema markup generators, JSON-LD validators, and structured data testing tools.</p>
         <a href="/tools/structured-data/" class="btn" data-ripple>View Reviews</a>
       </div>
       
-      <div class="card">
-        <h3>Crawl Analysis Tools</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Crawl Analysis Tools</h3>
         <p>Website crawlers, sitemap generators, and technical SEO analysis platforms.</p>
         <a href="/tools/crawl-analysis/" class="btn" data-ripple>View Reviews</a>
       </div>
       
-      <div class="card">
-        <h3>Content Optimization</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Content Optimization</h3>
         <p>AI content generators, optimization tools, and content analysis platforms.</p>
         <a href="/tools/content-optimization/" class="btn" data-ripple>View Reviews</a>
       </div>
       
-      <div class="card">
-        <h3>Analytics & Monitoring</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Analytics & Monitoring</h3>
         <p>AI visibility tracking, citation monitoring, and performance analysis tools.</p>
         <a href="/tools/analytics-monitoring/" class="btn" data-ripple>View Reviews</a>
       </div>
       
-      <div class="card">
-        <h3>Competitive Analysis</h3>
+      <div style="padding: 1rem;">
+        <h3 style="margin-top: 0; color: #000080;">Competitive Analysis</h3>
         <p>AI-powered competitor research, market analysis, and benchmarking tools.</p>
         <a href="/tools/competitive-analysis/" class="btn" data-ripple>View Reviews</a>
       </div>
