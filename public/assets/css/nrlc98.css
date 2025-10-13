@@ -412,6 +412,39 @@ label{
     background: var(--win-face);
     border-color: var(--win-dark);
   }
+  /* Override dark mode for window bodies to maintain light theme */
+  .window .window-body {
+    background: #e8e8e8 !important;
+    color: #000000 !important;
+  }
+  .window .title-bar {
+    background: #c0c0c0 !important;
+    color: #000000 !important;
+  }
+  .window .title-bar-text {
+    color: #000000 !important;
+  }
+  /* Override dark mode for all text elements */
+  .window h1, .window h2, .window h3, .window h4, .window h5, .window h6,
+  .window p, .window span, .window div, .window a, .window li {
+    color: #000000 !important;
+  }
+  .window a {
+    color: #0066cc !important;
+  }
+  .window a:hover {
+    color: #ff6600 !important;
+  }
+  /* Override dark mode for buttons */
+  .window .btn {
+    background: #e8e8e8 !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+  }
+  .window .btn--primary {
+    background: #0066cc !important;
+    color: #ffffff !important;
+  }
 }
 
 /* 12) Early Apple's Print Style - Functional, Clean */
