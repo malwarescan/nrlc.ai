@@ -186,14 +186,8 @@ $localBusinessLd = [
   ]
 ];
 
-// Emit JSON-LD with duplicate protection
-$jobPostingJson = json_encode($jobPostingLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_INVALID_UTF8_SUBSTITUTE);
-$localBusinessJson = json_encode($localBusinessLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_INVALID_UTF8_SUBSTITUTE);
-
-$GLOBALS['__jsonld'] = [
-  $jobPostingJson ?: $jobPostingLd,
-  $localBusinessJson ?: $localBusinessLd
-];
+// Store JSON-LD blocks for footer template
+$GLOBALS['__jsonld'] = [$jobPostingLd, $localBusinessLd];
 
 require_once __DIR__.'/../../templates/footer.php';
 ?>
