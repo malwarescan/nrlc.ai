@@ -4,6 +4,7 @@ require_once __DIR__.'/../../templates/header.php';
 require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/deterministic.php';
+require_once __DIR__.'/../../lib/SchemaNormalizers.php';
 
 $roleSlug = $_GET['role'] ?? '';
 $citySlug = $_GET['city'] ?? '';
@@ -101,10 +102,18 @@ $job = [
 </main>
 
 <?php
+// Normalize experience and education requirements
+$rawExperience = '3+ years of technical SEO experience';
+$normExperience = App\Schema\SchemaNormalizers::normalizeExperienceRequirements($rawExperience);
+
+$rawEducation = 'Bachelor\'s degree in Computer Science, Marketing, or related field';
+$normEducation = App\Schema\SchemaNormalizers::normalizeEducationRequirements($rawEducation);
+
 // JobPosting Schema
 $jobPostingLd = [
   '@context' => 'https://schema.org',
   '@type' => 'JobPosting',
+  '@id' => 'https://nrlc.ai/careers/' . $citySlug . '/' . $roleSlug . '/#jobposting',
   'title' => $role['title'],
   'description' => "Join NRLC.ai in {$city['city_name']} to build world-class JSON-LD, LLM seeding systems, and multi-regional SEO infrastructure that powers AI-first search experiences.",
   'datePosted' => date('Y-m-d'),
@@ -134,6 +143,9 @@ $jobPostingLd = [
       'unitText' => 'YEAR'
     ]
   ],
+  // Use normalized experience and education requirements
+  'experienceRequirements' => $normExperience,
+  'educationRequirements' => $normEducation,
   'qualifications' => 'Bachelor\'s degree in Computer Science, Marketing, or related field. Experience with SEO, structured data, and AI technologies preferred.',
   'responsibilities' => [
     'Design and implement crawl clarity solutions for enterprise clients',
@@ -146,6 +158,9 @@ $jobPostingLd = [
   'workHours' => '40 hours per week',
   'benefits' => 'Health insurance, dental, vision, 401k, flexible PTO, remote work options'
 ];
+
+// Drop nulls
+$jobPostingLd = array_filter($jobPostingLd, static function($v) { return $v !== null && $v !== ''; });
 
 // LocalBusiness Schema
 $localBusinessLd = [
@@ -171,7 +186,14 @@ $localBusinessLd = [
   ]
 ];
 
-$GLOBALS['__jsonld'] = [$jobPostingLd, $localBusinessLd];
+// Emit JSON-LD with duplicate protection
+$jobPostingJson = json_encode($jobPostingLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_INVALID_UTF8_SUBSTITUTE);
+$localBusinessJson = json_encode($localBusinessLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_INVALID_UTF8_SUBSTITUTE);
+
+$GLOBALS['__jsonld'] = [
+  $jobPostingJson ?: $jobPostingLd,
+  $localBusinessJson ?: $localBusinessLd
+];
 
 require_once __DIR__.'/../../templates/footer.php';
 ?>
