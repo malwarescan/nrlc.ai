@@ -20,6 +20,9 @@ $pageTitle = "$serviceTitle in $cityTitle";
 
 $intro   = service_long_intro($serviceSlug, $citySlug);
 $local   = local_context_block($citySlug);
+$market  = local_market_insights($citySlug);
+$competition = local_competition_analysis($citySlug);
+$strategy = local_implementation_strategy($citySlug);
 $pain    = pain_point_section($serviceSlug, $citySlug, 4);
 $appro   = approach_section($serviceSlug);
 $why     = why_this_matters_section($serviceSlug, $citySlug);
@@ -46,6 +49,36 @@ $content = $intro . $local;
               <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Consultation</a>
               <a href="/services/" class="btn" data-ripple style="width: 100%; max-width: 300px;">View All Services</a>
             </div>
+          </div>
+        </div>
+
+        <!-- Local Market Insights Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Local Market Insights</div>
+          </div>
+          <div class="window-body">
+            <?= $market ?>
+          </div>
+        </div>
+
+        <!-- Competitive Landscape Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Competitive Landscape</div>
+          </div>
+          <div class="window-body">
+            <?= $competition ?>
+          </div>
+        </div>
+
+        <!-- Localized Strategy Window -->
+        <div class="window" style="margin-bottom: 2rem;">
+          <div class="title-bar">
+            <div class="title-bar-text">Localized Strategy</div>
+          </div>
+          <div class="window-body">
+            <?= $strategy ?>
           </div>
         </div>
 

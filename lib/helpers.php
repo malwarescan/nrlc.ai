@@ -146,7 +146,7 @@ function meta_for_slug(string $slug): array {
   switch ($slug) {
     case 'home/home':
       return [
-        'NRLC.ai — AI SEO & GEO-16 Framework | Optimize for LLM Citation',
+        'NRLC.ai — AI SEO & GEO-16 Framework | LLM Optimization',
         'NRLC.ai engineers crawl clarity, structured data, and LLM seeding strategies. GEO-16 framework for AI engine optimization across major cities.',
         '/'
       ];
@@ -159,7 +159,7 @@ function meta_for_slug(string $slug): array {
       
       return [
         "$serviceName Services | NRLC.ai — AI SEO",
-        "Professional $serviceName services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.",
+        "Professional $serviceName services by NRLC.ai. GEO-16 framework, structured data optimization, and AI engine citation readiness.",
         "/services/$serviceSlug/"
       ];
       
@@ -177,8 +177,8 @@ function meta_for_slug(string $slug): array {
       $cityName = !empty($cityData) ? reset($cityData)['city_name'] : ucwords(str_replace('-', ' ', $citySlug));
       
       return [
-        "$serviceName in $cityName | NRLC.ai — AI SEO Services",
-        "Professional $serviceName services in $cityName by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.",
+        "$serviceName in $cityName | NRLC.ai AI SEO",
+        "Professional $serviceName services in $cityName. GEO-16 framework, structured data optimization, and AI engine citation readiness.",
         "/services/$serviceSlug/$citySlug/"
       ];
       
@@ -196,7 +196,7 @@ function meta_for_slug(string $slug): array {
       $roleTitle = !empty($careerData) ? reset($careerData)['title'] : ucwords(str_replace('-', ' ', $roleSlug));
       
       return [
-        "$roleTitle Jobs in $cityName | Careers at NRLC.ai",
+        "$roleTitle Jobs in $cityName | NRLC.ai Careers",
         "Join NRLC.ai as $roleTitle in $cityName. Work on AI SEO, GEO-16 framework, structured data optimization, and LLM citation strategies.",
         "/careers/$citySlug/$roleSlug/"
       ];
@@ -227,34 +227,34 @@ function meta_for_slug(string $slug): array {
       
       return [
         'AI SEO Research & Insights | NRLC.ai',
-        'Latest research and insights on AI SEO, GEO-16 framework, LLM seeding, and structured data optimization by NRLC.ai.',
+        'Latest research and insights on AI SEO, GEO-16 framework, LLM seeding, and structured data optimization.',
         '/insights/'
       ];
       
     case 'insights/index':
       return [
-        'AI SEO Research & Insights | NRLC.ai — GEO-16 Framework Studies',
-        'Research and insights on AI SEO, GEO-16 framework, LLM seeding, structured data optimization, and AI engine citation strategies by NRLC.ai.',
+        'AI SEO Research & Insights | NRLC.ai — GEO-16 Studies',
+        'Research and insights on AI SEO, GEO-16 framework, LLM seeding, structured data optimization, and AI engine citation strategies.',
         '/insights/'
       ];
       
     case 'services/index':
       return [
         'AI SEO Services | NRLC.ai — Crawl Clarity & LLM Seeding',
-        'Professional AI SEO services by NRLC.ai. Crawl clarity engineering, JSON-LD strategy, LLM seeding optimization, and GEO-16 framework implementation.',
+        'Professional AI SEO services by NRLC.ai. Crawl clarity engineering, JSON-LD strategy, LLM seeding, and GEO-16 framework implementation.',
         '/services/'
       ];
       
     case 'careers/index':
       return [
-        'Careers at NRLC.ai — AI SEO Jobs & LLM Optimization Roles',
+        'Careers at NRLC.ai — AI SEO Jobs & LLM Roles',
         'Join NRLC.ai team. Careers in AI SEO, GEO-16 framework development, structured data optimization, and LLM citation strategies.',
         '/careers/'
       ];
       
     default:
       return [
-        'NRLC.ai — AI SEO & GEO-16 Framework | Optimize for LLM Citation',
+        'NRLC.ai — AI SEO & GEO-16 Framework | LLM Optimization',
         'NRLC.ai engineers crawl clarity, structured data, and LLM seeding strategies. GEO-16 framework for AI engine optimization.',
         '/'
       ];

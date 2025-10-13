@@ -69,7 +69,7 @@ require_once __DIR__ . '/../../templates/header.php';
         </div>
       </div>
     </div>
-
+    
     <!-- Service Process Window -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
@@ -102,6 +102,72 @@ require_once __DIR__ . '/../../templates/header.php';
         </div>
       </div>
     </div>
+    
+    <!-- Why Choose AI-First SEO Window -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Why AI-First SEO Matters</div>
+      </div>
+      <div class="window-body">
+        <h2 style="color: #000080; margin-top: 0;">The Future of Search is AI-Powered</h2>
+        <p>Traditional SEO approaches focus on ranking algorithms, but the future belongs to AI engines that understand, synthesize, and cite content directly to users. Our AI-first methodology ensures your content is optimized for this paradigm shift.</p>
+        
+        <div class="grid-auto-fit margin-top-20">
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">Direct AI Citations</h4>
+            <p>When users ask AI engines questions, your content needs to be structured for direct citation rather than just ranking. Our services ensure your content is parseable and citable by major AI systems.</p>
+          </div>
+          
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">Structured Data Excellence</h4>
+            <p>AI engines rely heavily on structured data to understand content context and relationships. Our comprehensive schema implementation ensures maximum AI comprehension and citation accuracy.</p>
+          </div>
+          
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">Entity Clarity</h4>
+            <p>Clear entity identification and relationship mapping enables AI engines to understand your content's authority and relevance. We implement systematic entity optimization across all content types.</p>
+          </div>
+          
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">Crawl Efficiency</h4>
+            <p>AI engines need clean, crawlable content structures. Our crawl clarity engineering eliminates URL confusion and ensures optimal content discovery and parsing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Industry Applications Window -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Industry Applications</div>
+      </div>
+      <div class="window-body">
+        <h2 style="color: #000080; margin-top: 0;">AI-First SEO Across Industries</h2>
+        <p>Our AI-first SEO services deliver measurable results across diverse industries, from e-commerce to SaaS to content publishing. Each implementation is tailored to industry-specific AI engine behaviors and user search patterns.</p>
+        
+        <div class="grid-auto-fit margin-top-20">
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">E-commerce & Retail</h4>
+            <p>Product schema optimization, review aggregation, and inventory management for AI-powered shopping assistants and comparison engines.</p>
+          </div>
+          
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">SaaS & Technology</h4>
+            <p>Technical documentation optimization, API schema implementation, and knowledge base structuring for AI-powered developer tools and support systems.</p>
+          </div>
+          
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">Content & Media</h4>
+            <p>Article schema enhancement, author authority signals, and content relationship mapping for AI-powered news aggregation and content discovery.</p>
+          </div>
+          
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">Professional Services</h4>
+            <p>Local business optimization, service schema implementation, and expertise signaling for AI-powered professional directory and recommendation systems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Call to Action Window -->
     <div class="window">
@@ -112,15 +178,15 @@ require_once __DIR__ . '/../../templates/header.php';
         <div style="text-align: center;">
           <h2 style="color: #000080; margin-top: 0;">Transform Your AI Engine Visibility</h2>
           <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Join forward-thinking businesses optimizing for the AI-powered future of search.
+            Join forward-thinking businesses optimizing for the AI-powered future of search. Our comprehensive AI-first SEO services deliver measurable improvements in AI engine citation rates, user engagement, and organic visibility.
           </p>
           <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
             <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Consultation</a>
             <a href="/insights/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore Our Research</a>
           </div>
-        </div>
-      </div>
     </div>
+  </div>
+</div>
 
 </section>
 

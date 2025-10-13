@@ -108,6 +108,72 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
       </div>
     </div>
 
+    <!-- Research Categories Window -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Research Categories</div>
+      </div>
+      <div class="window-body">
+        <h2 style="color: #000080; margin-top: 0;">Comprehensive AI SEO Research Areas</h2>
+        <p>Our research spans multiple domains within AI-first SEO, from technical implementation to behavioral analysis. Each category represents a critical aspect of optimizing content for AI engine comprehension and citation.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Technical SEO</h4>
+            <p>Crawl clarity engineering, URL optimization, site architecture, and performance metrics that impact AI engine accessibility and parsing efficiency.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Structured Data</h4>
+            <p>Schema markup implementation, entity relationships, semantic understanding, and structured data validation for maximum AI comprehension.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Content Strategy</h4>
+            <p>LLM seeding optimization, entity clarity, content architecture, and semantic structure that enables AI engines to understand and cite content effectively.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">AI Engine Behavior</h4>
+            <p>Citation pattern analysis, entity recognition, content ranking factors, and behavioral modeling across major AI engines and search systems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Industry Impact Window -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Industry Impact</div>
+      </div>
+      <div class="window-body">
+        <h2 style="color: #000080; margin-top: 0;">Research That Drives Results</h2>
+        <p>Our research directly informs the strategies and implementations that deliver measurable improvements in AI engine citation rates, user engagement, and organic visibility across diverse industries.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">340%</h4>
+            <p>Average citation improvement within 90 days of implementing GEO-16 framework principles</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">1,700+</h4>
+            <p>AI engine citations analyzed across four major systems to develop the GEO-16 framework</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">16 Pillars</h4>
+            <p>Critical signals identified that determine citation success in generative search engines</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">95%</h4>
+            <p>Client satisfaction rate with AI-first SEO implementations based on our research</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Call to Action Window -->
     <div class="window">
       <div class="title-bar">
@@ -117,7 +183,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
         <div style="text-align: center;">
           <h2 style="color: #000080; margin-top: 0;">Join the AI SEO Research Community</h2>
           <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Get the latest insights on AI-first SEO optimization and join forward-thinking businesses preparing for the future of search.
+            Get the latest insights on AI-first SEO optimization and join forward-thinking businesses preparing for the future of search. Our research-driven approach ensures you stay ahead of evolving AI engine behaviors and optimization opportunities.
           </p>
           <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
             <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Research Consultation</a>

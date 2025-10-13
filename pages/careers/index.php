@@ -108,6 +108,72 @@ $featured_careers = array_slice($careers, 0, 6); // Get first 6 careers
       </div>
     </div>
 
+    <!-- Benefits & Perks Window -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Benefits & Perks</div>
+      </div>
+      <div class="window-body">
+        <h2 style="color: #000080; margin-top: 0;">Comprehensive Benefits Package</h2>
+        <p>We invest in our team's success with competitive compensation, comprehensive benefits, and opportunities for professional growth in the rapidly evolving field of AI-first SEO.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Health & Wellness</h4>
+            <p>100% company-paid health, dental, and vision insurance. Mental health support, wellness stipends, and flexible PTO policies that prioritize work-life balance.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Financial Security</h4>
+            <p>Competitive salaries, equity participation, 401(k) matching, and performance bonuses. We believe in rewarding exceptional work and long-term commitment.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Professional Development</h4>
+            <p>Conference attendance, training budgets, mentorship programs, and opportunities to contribute to open-source projects and industry research.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Flexible Work</h4>
+            <p>Remote-first culture with flexible hours, home office stipends, and the freedom to work from anywhere in the world. Focus on results, not location.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Process Window -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Application Process</div>
+      </div>
+      <div class="window-body">
+        <h2 style="color: #000080; margin-top: 0;">How We Hire</h2>
+        <p>Our hiring process is designed to be transparent, efficient, and focused on finding the right cultural and technical fit for our team.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">1. Application</h4>
+            <p>Submit your resume and cover letter through our application portal. Tell us why you're excited about AI-first SEO.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">2. Initial Review</h4>
+            <p>Our team reviews applications and conducts initial phone screens to discuss your background and interest in the role.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">3. Technical Interview</h4>
+            <p>Demonstrate your skills through technical challenges and discussions about AI SEO, structured data, and search optimization.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
+            <h4 style="margin-top: 0; color: #000080;">4. Team Fit</h4>
+            <p>Meet with potential teammates and managers to ensure cultural alignment and mutual fit for long-term success.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Call to Action Window -->
     <div class="window">
       <div class="title-bar">
@@ -117,7 +183,7 @@ $featured_careers = array_slice($careers, 0, 6); // Get first 6 careers
         <div style="text-align: center;">
           <h2 style="color: #000080; margin-top: 0;">Start Your Journey with NRLC.ai</h2>
           <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Join a team that's shaping the future of search technology and AI-first SEO optimization.
+            Join a team that's shaping the future of search technology and AI-first SEO optimization. We're looking for passionate individuals who want to make a lasting impact on how AI engines understand and cite web content.
           </p>
           <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
             <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Apply Now</a>

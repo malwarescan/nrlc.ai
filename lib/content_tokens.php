@@ -39,6 +39,74 @@ function local_context_block(string $city): string {
   return det_pick($alts, 1)[0];
 }
 
+function local_market_insights(string $city): string {
+  det_seed("market|$city");
+  $c = titleCaseCity($city);
+  
+  $marketData = [
+    'New York' => [
+      'industries' => 'finance, technology, media, and real estate',
+      'challenges' => 'high competition, complex local regulations, and diverse user demographics',
+      'opportunities' => 'enterprise clients, international businesses, and AI-first innovation hubs'
+    ],
+    'London' => [
+      'industries' => 'financial services, fintech, consulting, and creative industries',
+      'challenges' => 'GDPR compliance, multilingual content, and European market penetration',
+      'opportunities' => 'EU market access, financial technology leadership, and AI research centers'
+    ],
+    'San Francisco' => [
+      'industries' => 'technology, startups, venture capital, and software development',
+      'challenges' => 'rapid technological change, high talent costs, and intense competition',
+      'opportunities' => 'cutting-edge AI adoption, early-stage companies, and innovation partnerships'
+    ],
+    'Toronto' => [
+      'industries' => 'technology, finance, healthcare, and professional services',
+      'challenges' => 'bilingual requirements, seasonal variations, and cross-border regulations',
+      'opportunities' => 'North American market access, skilled workforce, and AI research initiatives'
+    ]
+  ];
+  
+  $data = $marketData[$c] ?? $marketData['New York'];
+  
+  return "<div class=\"box-padding\">
+    <h3 style=\"margin-top: 0; color: #000080;\">$c Market Dynamics</h3>
+    <p>The $c market presents unique opportunities and challenges for AI-first SEO implementation. Local businesses in $c operate within a competitive landscape dominated by {$data['industries']}, requiring sophisticated optimization strategies that address {$data['challenges']} while capitalizing on {$data['opportunities']}.</p>
+    <p>Our localized approach in $c considers regional search behaviors, local entity recognition patterns, and market-specific AI engine preferences to deliver measurable improvements in citation rates and organic visibility.</p>
+  </div>";
+}
+
+function local_competition_analysis(string $city): string {
+  det_seed("competition|$city");
+  $c = titleCaseCity($city);
+  
+  $competitionInsights = [
+    'New York' => 'enterprise-level competition with sophisticated technical implementations and significant resources',
+    'London' => 'established financial services sector with traditional SEO approaches transitioning to AI-first strategies',
+    'San Francisco' => 'technology-forward companies with early AI adoption but often lacking systematic SEO foundations',
+    'Toronto' => 'mixed landscape of traditional businesses and emerging tech companies seeking competitive advantages'
+  ];
+  
+  $insight = $competitionInsights[$c] ?? $competitionInsights['New York'];
+  
+  return "<div class=\"box-padding\">
+    <h3 style=\"margin-top: 0; color: #000080;\">Competitive Landscape in $c</h3>
+    <p>The $c market features {$insight}. Our AI-first SEO approach provides a distinct competitive advantage by implementing systematic crawl clarity, comprehensive structured data, and LLM seeding strategies that outperform traditional SEO methods.</p>
+    <p>We analyze local competitor implementations, identify optimization gaps, and develop strategies that leverage the GEO-16 framework to achieve superior AI engine visibility and citation performance in the $c market.</p>
+  </div>";
+}
+
+function local_implementation_strategy(string $city): string {
+  det_seed("strategy|$city");
+  $c = titleCaseCity($city);
+  
+  return "<div class=\"box-padding\">
+    <h3 style=\"margin-top: 0; color: #000080;\">Localized Implementation Strategy</h3>
+    <p>Our $c implementation strategy combines global AI-first SEO best practices with local market intelligence. We begin with comprehensive crawl clarity analysis, identifying city-specific technical issues that impact AI engine comprehension and citation likelihood.</p>
+    <p>The strategy includes localized entity optimization, region-specific schema implementation, and content architecture designed for $c market preferences and AI engine behaviors. We ensure compliance with local regulations while maximizing international visibility through proper hreflang implementation and multi-regional optimization.</p>
+    <p>Success metrics are tailored to $c market conditions, tracking both traditional search performance and AI engine citation improvements across major platforms including ChatGPT, Claude, Perplexity, and emerging AI search systems.</p>
+  </div>";
+}
+
 /** Rich paragraph generator per pain point to increase word count meaningfully. */
 function expand_pain_point(array $p, string $city): string {
   $h = htmlspecialchars($p['headline'] ?? 'Issue');
