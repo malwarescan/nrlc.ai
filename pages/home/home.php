@@ -67,6 +67,100 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
       </div>
     </div>
 
+    <!-- Second Hero: Goldmine-Proof SEO -->
+    <?php
+    $locale = current_locale();
+    $goldmine_hero = [
+      'en-us' => [
+        'title' => 'Goldmine-Proof SEO: Win the Title Competition',
+        'subhead' => 'Align title, H1, URL, and intro—validate with interaction data.',
+        'cta_primary_text' => 'Start a Crawl Clarity Review',
+        'cta_primary_link' => '/services/technical-audit-ai/',
+        'cta_secondary_text' => 'See the GEO-16 Method',
+        'cta_secondary_link' => '/insights/geo16-introduction/',
+        'bullet1' => 'Coherent titles that survive candidate selection',
+        'bullet2' => 'No boilerplate; no truncation surprises',
+        'bullet3' => 'Fast paths to satisfied clicks'
+      ],
+      'en-gb' => [
+        'title' => 'Goldmine-Proof SEO: Win the Title Competition',
+        'subhead' => 'Align title, H1, URL and intro—validate with interaction data.',
+        'cta_primary_text' => 'Start a Technical Audit',
+        'cta_primary_link' => '/en-gb/services/technical-audit-ai/',
+        'cta_secondary_text' => 'See the GEO-16 Method',
+        'cta_secondary_link' => '/en-gb/insights/geo16-introduction/',
+        'bullet1' => 'Coherent titles that survive candidate selection',
+        'bullet2' => 'No boilerplate; no truncation surprises',
+        'bullet3' => 'Fast paths to satisfied clicks'
+      ],
+      'es-es' => [
+        'title' => 'SEO resistente a Goldmine',
+        'subhead' => 'Alinea título, H1, URL e intro y valida con datos de interacción.',
+        'cta_primary_text' => 'Inicia una auditoría técnica',
+        'cta_primary_link' => '/es-es/services/technical-audit-ai/',
+        'cta_secondary_text' => 'Método GEO-16',
+        'cta_secondary_link' => '/es-es/insights/geo16-introduction/',
+        'bullet1' => 'Títulos coherentes que superan la selección',
+        'bullet2' => 'Sin repeticiones ni truncamiento',
+        'bullet3' => 'Rutas rápidas a clics satisfechos'
+      ],
+      'fr-fr' => [
+        'title' => 'SEO robuste face à Goldmine',
+        'subhead' => 'Alignez title, H1, URL et intro, puis validez par les interactions.',
+        'cta_primary_text' => 'Lancer un audit technique',
+        'cta_primary_link' => '/fr-fr/services/technical-audit-ai/',
+        'cta_secondary_text' => 'Méthode GEO-16',
+        'cta_secondary_link' => '/fr-fr/insights/geo16-introduction/',
+        'bullet1' => 'Titres cohérents qui résistent à la sélection',
+        'bullet2' => 'Pas de boilerplate ni de troncature',
+        'bullet3' => 'Voies rapides vers des clics satisfaits'
+      ],
+      'de-de' => [
+        'title' => 'Goldmine-feste SEO',
+        'subhead' => 'Title, H1, URL und Intro ausrichten; mit Interaktionen validieren.',
+        'cta_primary_text' => 'Technisches Audit starten',
+        'cta_primary_link' => '/de-de/services/technical-audit-ai/',
+        'cta_secondary_text' => 'GEO-16-Methode',
+        'cta_secondary_link' => '/de-de/insights/geo16-introduction/',
+        'bullet1' => 'Kohärente Titel, die Auswahl überstehen',
+        'bullet2' => 'Kein Boilerplate, keine Trunkierung',
+        'bullet3' => 'Schnelle Wege zu zufriedenen Klicks'
+      ],
+      'ko-kr' => [
+        'title' => 'Goldmine 대응 SEO',
+        'subhead' => '제목·H1·URL·인트로를 정합화하고 상호작용 데이터로 검증합니다.',
+        'cta_primary_text' => '기술 감사 시작',
+        'cta_primary_link' => '/ko-kr/services/technical-audit-ai/',
+        'cta_secondary_text' => 'GEO-16 방법',
+        'cta_secondary_link' => '/ko-kr/insights/geo16-introduction/',
+        'bullet1' => '후보 선택을 통과하는 일관된 제목',
+        'bullet2' => '상투구 없음, 절단 없음',
+        'bullet3' => '만족 클릭으로 가는 빠른 경로'
+      ]
+    ];
+    $hero = $goldmine_hero[$locale] ?? $goldmine_hero['en-us'];
+    ?>
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Google Goldmine Title Selection</div>
+      </div>
+      <div class="window-body">
+        <h2 style="margin: 0 0 1rem 0; font-size: 1.75rem; color: #000080;"><?= htmlspecialchars($hero['title']) ?></h2>
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+          <?= htmlspecialchars($hero['subhead']) ?>
+        </p>
+        <ul style="margin-bottom: 1.5rem;">
+          <li><?= htmlspecialchars($hero['bullet1']) ?></li>
+          <li><?= htmlspecialchars($hero['bullet2']) ?></li>
+          <li><?= htmlspecialchars($hero['bullet3']) ?></li>
+        </ul>
+        <div style="text-align: center; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+          <a href="<?= htmlspecialchars($hero['cta_primary_link']) ?>" class="btn" data-ripple style="width: 100%; max-width: 300px;"><?= htmlspecialchars($hero['cta_primary_text']) ?></a>
+          <a href="<?= htmlspecialchars($hero['cta_secondary_link']) ?>" class="btn" data-ripple style="width: 100%; max-width: 300px;"><?= htmlspecialchars($hero['cta_secondary_text']) ?></a>
+        </div>
+      </div>
+    </div>
+
     <!-- Core Services Window -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">

@@ -23,7 +23,13 @@ $insight_articles = [
   'semantic-drift-tracking' => 'semantic-drift-tracking.php',
   'yago-entity-mapping' => 'yago-entity-mapping.php',
   'ontology-based-search' => 'ontology-based-search.php',
-  'open-seo-tools' => 'open-seo-tools.php'
+  'open-seo-tools' => 'open-seo-tools.php',
+  'goldmine-google-title-selection' => 'goldmine-google-title-selection.php',
+  // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
+  'goldmine-seleccion-titulos-google' => 'goldmine-google-title-selection.php',
+  'goldmine-selection-titres-google' => 'goldmine-google-title-selection.php',
+  'goldmine-google-titelauswahl' => 'goldmine-google-title-selection.php',
+  'goldmine-google-제목-선정' => 'goldmine-google-title-selection.php'
 ];
 
 // Combine all articles
