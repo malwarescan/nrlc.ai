@@ -1,6 +1,15 @@
 <?php
 function absolute_url(string $path): string {
-  $scheme = ($_SERVER['HTTPS'] ?? '') === 'on' ? 'https' : 'http';
+  // Always use HTTPS for canonicals (modern hosting like Railway/Vercel handles SSL)
+  // Check common proxy headers for HTTPS detection
+  $isHttps = (
+    (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
+    (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+    (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
+    (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443')
+  );
+  // Default to HTTPS for production (canonicals should always be HTTPS)
+  $scheme = $isHttps || (($_SERVER['APP_ENV'] ?? 'production') === 'production') ? 'https' : 'http';
   $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
   if ($path === '') $path = '/';
   return $scheme.'://'.$host.$path;
@@ -134,7 +143,14 @@ function asset_url(string $path): string {
 
 if (!function_exists('absolute_url')) {
   function absolute_url(string $path): string {
-    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    // Always use HTTPS for canonicals (modern hosting handles SSL termination)
+    $isHttps = (
+      (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
+      (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+      (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
+      (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443')
+    );
+    $scheme = $isHttps || (($_SERVER['APP_ENV'] ?? 'production') === 'production') ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
     return rtrim("$scheme://$host", '/') . '/' . ltrim($path, '/');
   }
