@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Note: head.php and header.php are already included by router.php render_page()
+// Do not duplicate them here to avoid double headers
 
 $slug = $_GET['slug'] ?? '';
 

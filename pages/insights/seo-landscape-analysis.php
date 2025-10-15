@@ -1,7 +1,3 @@
-<?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
-?>
 <section class="window container prose">
   <div class="title-bar">
     <div class="title-bar-text">SEO Landscape Analysis</div>
@@ -192,4 +188,7 @@ require_once __DIR__ . '/../../templates/header.php';
 </script>
   </div>\n</section>\n</main>
 
-<?php require_once __DIR__ . '/../../templates/footer.php'; ?>
+<?php
+// Note: footer.php is already included by router.php render_page()
+// Do not duplicate it here to avoid double footers
+?>
