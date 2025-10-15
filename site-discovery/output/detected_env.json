@@ -1,0 +1,28 @@
+{
+    "BASE_URL": "https://nrlc.ai",
+    "DEFAULT_LOCALE": "",
+    "LOCALES": "en-us",
+    "SITE_NAME": "NRLC.ai",
+    "ORG_LEGAL_NAME": "NRLC.ai",
+    "ORG_URL": "http://nrlc.ai/",
+    "ORG_LOGO": "http://nrlc.ai/assets/logo.png",
+    "ORG_SAME_AS": [
+        "https://www.linkedin.com/company/neural-command/"
+    ],
+    "SCHEMA_PUBLISHER_NAME": "NRLC.ai",
+    "SCHEMA_PUBLISHER_LOGO": "http://nrlc.ai/assets/logo.png",
+    "SITEMAP_CANDIDATES": [
+        "https://nrlc.ai/sitemaps/sitemap-index.xml.gz"
+    ],
+    "ROBOTS_PRESENT": true,
+    "JSONLD_TYPES": [
+        "Organization",
+        "WebSite",
+        "BreadcrumbList",
+        "Service",
+        "LocalBusiness",
+        "FAQPage"
+    ],
+    "CANONICAL_TAGS_FOUND": 300,
+    "CRAWLED_URLS": 300
+}

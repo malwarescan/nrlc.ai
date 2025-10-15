@@ -34,3 +34,5 @@ cache/
 # Node modules (if added later)
 node_modules/
 
+gsc_data/
+website/
