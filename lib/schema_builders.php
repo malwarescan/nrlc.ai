@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__.'/helpers.php';
+require_once __DIR__.'/SchemaFixes.php';
+
+use NRLC\Schema\SchemaFixes;
 
 function base_schemas(): array {
   return [
@@ -14,8 +17,8 @@ function ld_organization(): array {
     '@context'=>'https://schema.org',
     '@type'=>'Organization',
     'name'=>'NRLC.ai',
-    'url'=>absolute_url('/'),
-    'logo'=>absolute_url('/assets/logo.png'),
+    'url'=>SchemaFixes::ensureHttps(absolute_url('/')),
+    'logo'=>SchemaFixes::ensureHttps(absolute_url('/assets/logo.png')),
     'sameAs'=>['https://www.linkedin.com/company/neural-command/']
   ];
 }
@@ -24,11 +27,11 @@ function ld_website_with_searchaction(): array {
   return [
     '@context'=>'https://schema.org',
     '@type'=>'WebSite',
-    'url'=>absolute_url('/'),
+    'url'=>SchemaFixes::ensureHttps(absolute_url('/')),
     'name'=>'NRLC.ai',
     'potentialAction'=>[
       '@type'=>'SearchAction',
-      'target'=>absolute_url('/?q={search_term_string}'),
+      'target'=>SchemaFixes::ensureHttps(absolute_url('/?q={search_term_string}')),
       'query-input'=>'required name=search_term_string'
     ]
   ];
@@ -59,7 +62,7 @@ function ld_local_business(?array $cityCtx): array {
     '@context'=>'https://schema.org',
     '@type'=>'LocalBusiness',
     'name'=>'NRLC.ai',
-    'url'=>absolute_url('/'),
+    'url'=>SchemaFixes::ensureHttps(absolute_url('/')),
     'areaServed'=> $cityCtx ? [
       '@type'=>'AdministrativeArea',
       'name'=>$cityCtx['city_name'].' '.$cityCtx['country']
@@ -90,7 +93,7 @@ function ld_service(array $service, ?array $cityCtx, array $painPoints, string $
     'serviceType'=>$service['name'],
     'name'=>$service['name'] . ($cityCtx ? " in ".$cityCtx['city_name'] : ''),
     'description'=>$desc,
-    'provider'=>['@type'=>'Organization','name'=>'NRLC.ai','url'=>absolute_url('/')],
+    'provider'=>['@type'=>'Organization','name'=>'NRLC.ai','url'=>SchemaFixes::ensureHttps(absolute_url('/'))],
     'areaServed'=>$cityCtx ? [
       '@type'=>'City',
       'name'=>$cityCtx['city_name'],
@@ -117,8 +120,8 @@ function ld_jobposting(array $job, array $cityCtx): array {
     'hiringOrganization'=>[
       '@type'=>'Organization',
       'name'=>'NRLC.ai',
-      'sameAs'=>absolute_url('/'),
-      'logo'=>absolute_url('/assets/logo.png')
+      'sameAs'=>SchemaFixes::ensureHttps(absolute_url('/')),
+      'logo'=>SchemaFixes::ensureHttps(absolute_url('/assets/logo.png'))
     ],
     'jobLocation'=>[
       '@type'=>'Place',
