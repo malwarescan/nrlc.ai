@@ -127,8 +127,10 @@ function ld_jobposting(array $job, array $cityCtx): array {
       '@type'=>'Place',
       'address'=>[
         '@type'=>'PostalAddress',
+        'streetAddress'=>$cityCtx['street_address'] ?? 'Remote',
         'addressLocality'=>$cityCtx['city_name'],
         'addressRegion'=>$cityCtx['subdivision'],
+        'postalCode'=>$cityCtx['postal_code'] ?? '',
         'addressCountry'=>$cityCtx['country']
       ]
     ],
