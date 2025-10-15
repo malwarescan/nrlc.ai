@@ -205,89 +205,120 @@ require_once __DIR__ . '/../../templates/header.php';
   </div>
 </section>
 
-<!-- Article Schema -->
+<!-- Unified Schema.org Graph -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "<?= $c['canonical'] ?>#article",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "<?= $c['canonical'] ?>"
-  },
-  "headline": "<?= htmlspecialchars($c['h1']) ?>",
-  "description": "<?= htmlspecialchars($c['meta_description']) ?>",
-  "inLanguage": "<?= $c['lang'] ?>",
-  "author": { "@type": "Organization", "name": "NRLC Research" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "NRLC.ai",
-    "logo": { "@type": "ImageObject", "url": "https://nrlc.ai/assets/logo.png" }
-  },
-  "image": [ "<?= $og_image ?>" ],
-  "datePublished": "2025-10-16",
-  "dateModified": "2025-10-16"
-}
-</script>
-
-<!-- BreadcrumbList Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "<?= $c['canonical'] ?>#breadcrumb",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "<?= htmlspecialchars($c['breadcrumb_insights']) ?>", "item": "<?= str_replace('/insights/goldmine-google-title-selection/', '/insights/', $c['canonical']) ?>" },
-    { "@type": "ListItem", "position": 2, "name": "<?= htmlspecialchars($c['breadcrumb_article']) ?>", "item": "<?= $c['canonical'] ?>" }
-  ]
-}
-</script>
-
-<!-- WebPage Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "<?= $c['canonical'] ?>#webpage",
-  "url": "<?= $c['canonical'] ?>",
-  "isPartOf": { "@id": "https://nrlc.ai/#website" },
-  "about": [{ "@type": "Thing", "name": "Google Goldmine" }, { "@type": "Thing", "name": "SEO" }]
-}
-</script>
-
-<!-- FAQPage Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": "<?= $c['canonical'] ?>#faq",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "<?= htmlspecialchars($c['faq1_q']) ?>",
-      "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq1_a']) ?>" }
+      "@type": "Organization",
+      "@id": "https://nrlc.ai/#organization",
+      "name": "NRLC.ai",
+      "url": "https://nrlc.ai/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://nrlc.ai/#logo",
+        "url": "https://nrlc.ai/assets/logo.png"
+      },
+      "sameAs": []
     },
     {
-      "@type": "Question",
-      "name": "<?= htmlspecialchars($c['faq2_q']) ?>",
-      "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq2_a']) ?>" }
+      "@type": "WebSite",
+      "@id": "https://nrlc.ai/#website",
+      "url": "https://nrlc.ai/",
+      "name": "NRLC.ai",
+      "publisher": { "@id": "https://nrlc.ai/#organization" },
+      "inLanguage": "<?= $c['lang'] ?>",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://nrlc.ai/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
-      "@type": "Question",
-      "name": "<?= htmlspecialchars($c['faq3_q']) ?>",
-      "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq3_a']) ?>" }
+      "@type": "WebPage",
+      "@id": "<?= $c['canonical'] ?>#webpage",
+      "url": "<?= $c['canonical'] ?>",
+      "name": "<?= htmlspecialchars($c['h1']) ?>",
+      "isPartOf": { "@id": "https://nrlc.ai/#website" },
+      "inLanguage": "<?= $c['lang'] ?>",
+      "breadcrumb": { "@id": "<?= $c['canonical'] ?>#breadcrumb" },
+      "primaryImageOfPage": { "@id": "<?= $c['canonical'] ?>#primaryimage" },
+      "datePublished": "2025-10-16",
+      "dateModified": "2025-10-16",
+      "description": "<?= htmlspecialchars($c['meta_description']) ?>"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "<?= $c['canonical'] ?>#primaryimage",
+      "url": "<?= $og_image ?>",
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nrlc.ai/#author-nrlc-research",
+      "name": "NRLC Research",
+      "url": "https://nrlc.ai/",
+      "affiliation": { "@id": "https://nrlc.ai/#organization" }
+    },
+    {
+      "@type": "Article",
+      "@id": "<?= $c['canonical'] ?>#article",
+      "mainEntityOfPage": { "@id": "<?= $c['canonical'] ?>#webpage" },
+      "headline": "<?= htmlspecialchars($c['h1']) ?>",
+      "description": "<?= htmlspecialchars($c['meta_description']) ?>",
+      "inLanguage": "<?= $c['lang'] ?>",
+      "author": { "@id": "https://nrlc.ai/#author-nrlc-research" },
+      "publisher": { "@id": "https://nrlc.ai/#organization" },
+      "image": [ "<?= $og_image ?>" ],
+      "datePublished": "2025-10-16",
+      "dateModified": "2025-10-16",
+      "about": [
+        { "@type": "Thing", "name": "Google Goldmine" },
+        { "@type": "Thing", "name": "Search Engine Optimization" }
+      ],
+      "mentions": [
+        { "@type": "Thing", "name": "NavBoost" },
+        { "@type": "Thing", "name": "SnippetBrain" },
+        { "@type": "Thing", "name": "Radish" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "<?= $c['canonical'] ?>#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "<?= htmlspecialchars($c['breadcrumb_insights']) ?>", "item": "<?= str_replace(['/goldmine-google-title-selection/', '/goldmine-seleccion-titulos-google/', '/goldmine-selection-titres-google/', '/goldmine-google-titelauswahl/', '/goldmine-google-제목-선정/'], '/', $c['canonical']) ?>" },
+        { "@type": "ListItem", "position": 2, "name": "<?= htmlspecialchars($c['breadcrumb_article']) ?>", "item": "<?= $c['canonical'] ?>" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "<?= $c['canonical'] ?>#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "<?= htmlspecialchars($c['faq1_q']) ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq1_a']) ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?= htmlspecialchars($c['faq2_q']) ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq2_a']) ?>" }
+        },
+        {
+          "@type": "Question",
+          "name": "<?= htmlspecialchars($c['faq3_q']) ?>",
+          "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq3_a']) ?>" }
+        }
+      ]
+    },
+    {
+      "@type": "SpeakableSpecification",
+      "@id": "<?= $c['canonical'] ?>#speakable",
+      "cssSelector": ["h1", ".lead"]
     }
   ]
-}
-</script>
-
-<!-- Speakable Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SpeakableSpecification",
-  "@id": "<?= $c['canonical'] ?>#speakable",
-  "cssSelector": ["h1", ".lead"]
 }
 </script>
 
