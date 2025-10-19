@@ -1,3 +1,42 @@
+## NRLC.ai — Per-URL Indexing Auditor and Recovery Pipeline
+
+What was added in this step:
+
+- Per-URL indexing auditor: `scripts/url_audit.php`
+- JSON-LD auto include: `includes/jsonld_auto.php` and `includes/jsonld_bootstrap.php`
+- Thin content expander: `includes/content_expander.php`
+- Sitemap builders: `scripts/sitemap_build.php`, `scripts/sitemap_news.php`
+- Robots sitemap line: `public/robots.txt` now points to `https://nrlc.ai/sitemap.xml`
+- Makefile pipeline targets: `schema:selftest`, `sitemap:update`, `sitemap:news`, `ping:search`, `refresh:indexing`, `audit:url`, `expand:thin`
+
+Quick usage:
+
+```bash
+# Build sitemaps from Table.csv and ping search engines
+make sitemap:update CSV=./Table.csv LASTMOD=$(date +%F) BASE=https://nrlc.ai
+make sitemap:news CSV=./News.csv BASE=https://nrlc.ai || true
+make ping:search BASE=https://nrlc.ai
+
+# Run auditor (limit optional)
+make audit:url CSV=./Table.csv LIMIT=200
+# Output: scripts/url_audit_output.csv
+```
+
+Template wiring:
+
+- In your base layout `<head>` add:
+  `<?php require_once __DIR__.'/includes/jsonld_bootstrap.php'; ?>`
+- Where you render page body HTML, wrap once:
+  `<?= nrlc_maybe_expand_content($htmlBody); ?>`
+
+Next steps in GSC per URL:
+
+- Ensure canonical equals the page URL
+- Remove any `noindex` (x-robots or meta)
+- Add unique Article JSON-LD (headline derived from slug), plus WebPage + Organization
+- Raise body copy to 500–800+ words with unique value
+- Add internal links from homepage/related posts
+- Rebuild sitemaps and ping, then request indexing
 # ✅ GSC Fix-Now Analysis Complete
 
 **Date:** 2025-10-15  
