@@ -1,4 +1,4 @@
-<section class="window container prose">
+<section class="window container">
   <div class="title-bar">
     <div class="title-bar-text">Ontology-Based Search</div>
   </div>
