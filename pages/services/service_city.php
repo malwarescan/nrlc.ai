@@ -199,23 +199,28 @@ $localBusinessLd = [
   'openingHours' => 'Mo-Fr 09:00-17:00'
 ];
 
-// Add FAQPage schema
-$faqLd = [
-  '@context' => 'https://schema.org',
-  '@type' => 'FAQPage',
-  'mainEntity' => array_map(function($faq) {
-    return [
-      '@type' => 'Question',
-      'name' => $faq['q'],
-      'acceptedAnswer' => [
-        '@type' => 'Answer',
-        'text' => $faq['a']
-      ]
-    ];
-  }, $faqs)
-];
+// Add FAQPage schema only if FAQs exist
+$jsonldSchemas = [$serviceLd, $localBusinessLd];
 
-$GLOBALS['__jsonld'] = [$serviceLd, $localBusinessLd, $faqLd];
+if (!empty($faqs)) {
+  $faqLd = [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => array_map(function($faq) {
+      return [
+        '@type' => 'Question',
+        'name' => $faq['q'],
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => $faq['a']
+        ]
+      ];
+    }, $faqs)
+  ];
+  $jsonldSchemas[] = $faqLd;
+}
+
+$GLOBALS['__jsonld'] = $jsonldSchemas;
 ?>
 
 
