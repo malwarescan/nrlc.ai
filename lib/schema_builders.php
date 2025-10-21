@@ -168,10 +168,7 @@ function ld_service_hefty(array $ctx): array {
       "itemListElement"=>$offers
     ],
     "mainEntityOfPage"=>$ctx['url'],
-    "hasFAQ"=>[
-      "@type"=>"FAQPage",
-      "mainEntity"=>$faqItems
-    ]
+    // FAQ schema should be emitted as a separate top-level FAQPage entity, not nested.
   ];
 }
 
