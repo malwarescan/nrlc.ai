@@ -15,14 +15,14 @@ foreach ($files as $file) {
   // Add styling to h2 elements
   $content = preg_replace(
     '/(<h2>)([^<]+)(<\/h2>)/',
-    '$1 style="color: #000080;">$2$3',
+    '<h2 style="color: #000080;">$2$3',
     $content
   );
   
   // Add styling to h3 elements
   $content = preg_replace(
     '/(<h3>)([^<]+)(<\/h3>)/',
-    '$1 style="margin-top: 0; color: #000080;">$2$3',
+    '<h3 style="margin-top: 0; color: #000080;">$2$3',
     $content
   );
   

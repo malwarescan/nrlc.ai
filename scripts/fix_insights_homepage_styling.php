@@ -28,14 +28,14 @@ foreach ($files as $file) {
   // Add homepage styling to h1
   $content = preg_replace(
     '/(<h1>)([^<]+)(<\/h1>)/',
-    '$1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">$2$3',
+    '<h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">$2$3',
     $content
   );
   
   // Add homepage styling to lead paragraph
   $content = preg_replace(
     '/(<p class="lead">)([^<]+)(<\/p>)/',
-    '$1 style="font-size: 1.2rem; margin-bottom: 2rem;">$2$3',
+    '<p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">$2$3',
     $content
   );
   
