@@ -7,6 +7,19 @@ $slug = $GLOBALS['__page_slug'] ?? 'home/home';
 [$title,$desc,$path] = meta_for_slug($slug);
 $baseSchemas = base_schemas();
 
+// Build canonical URL with locale prefix
+// Get the actual request path (includes locale prefix if present)
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+
+// Normalize the path (lowercase, remove double slashes, ensure trailing slash for directories)
+$requestPath = preg_replace('#/{2,}#', '/', strtolower($requestPath));
+if (!preg_match('#\.[a-z0-9]+$#', $requestPath) && substr($requestPath, -1) !== '/') {
+  $requestPath .= '/';
+}
+
+// Use the request path as canonical (it already includes locale prefix if present)
+$canonicalPath = $requestPath;
+
 header('Content-Type: text/html; charset=utf-8');
 ?><!doctype html>
 <html lang="<?=htmlspecialchars(substr(current_locale(),0,2))?>">
@@ -15,11 +28,11 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?=htmlspecialchars($title)?></title>
 <meta name="description" content="<?=htmlspecialchars($desc)?>">
-<link rel="canonical" href="<?=absolute_url($path)?>">
+<link rel="canonical" href="<?=absolute_url($canonicalPath)?>">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="<?=absolute_url($path)?>">
+<meta property="og:url" content="<?=absolute_url($canonicalPath)?>">
 <meta property="og:title" content="<?=htmlspecialchars($title)?>">
 <meta property="og:description" content="<?=htmlspecialchars($desc)?>">
 <meta property="og:site_name" content="NRLC.ai">
@@ -27,7 +40,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="<?=absolute_url($path)?>">
+<meta property="twitter:url" content="<?=absolute_url($canonicalPath)?>">
 <meta property="twitter:title" content="<?=htmlspecialchars($title)?>">
 <meta property="twitter:description" content="<?=htmlspecialchars($desc)?>">
 <meta property="twitter:image" content="https://nrlc.ai/assets/nrlc-og-image.jpg">
