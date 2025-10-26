@@ -64,27 +64,49 @@ final class SchemaNormalizers
         return trim($text);
     }
 
-    /** Normalize "educationRequirements" to clean Text.
-     * Examples: maps noisy values into readable text. Leaves unknowns as text.
+    /** Normalize "educationRequirements" to EducationalOccupationalCredential objects or Text.
+     * Returns EducationalOccupationalCredential object for common degrees (preferred by Google),
+     * or plain text for other requirements.
      */
-    public static function normalizeEducationRequirements(?string $raw): ?string
+    public static function normalizeEducationRequirements(?string $raw)
     {
         $raw = trim((string)$raw);
         if ($raw === '') return null;
 
-        $canon = [
-            '/\b(no\s*degree|none|n\/a)\b/i'          => 'No degree required',
-            '/\b(high\s*school|hs\s*diploma)\b/i'     => 'High school diploma',
-            '/\b(associate(\'?s)?|aa|as)\b/i'         => "Associate's degree",
-            '/\b(bachelor(\'?s)?|ba|bs|bsc)\b/i'      => "Bachelor's degree",
-            '/\b(master(\'?s)?|ma|ms|msc)\b/i'        => "Master's degree",
-            '/\b(doctorate|ph\.?d|md|dphil)\b/i'      => "Doctorate"
+        // Map to EducationalOccupationalCredential objects with credentialCategory
+        // Using proper Schema.org enum values
+        $credentialMap = [
+            '/\b(no\s*degree|none|n\/a)\b/i' => [
+                '@type' => 'EducationalOccupationalCredential',
+                'credentialCategory' => 'professional_certification'
+            ],
+            '/\b(high\s*school|hs\s*diploma)\b/i' => [
+                '@type' => 'EducationalOccupationalCredential',
+                'credentialCategory' => 'high_school'
+            ],
+            '/\b(associate(\'?s)?|aa|as)\b/i' => [
+                '@type' => 'EducationalOccupationalCredential',
+                'credentialCategory' => 'associate_degree'
+            ],
+            '/\b(bachelor(\'?s)?|ba|bs|bsc)\b/i' => [
+                '@type' => 'EducationalOccupationalCredential',
+                'credentialCategory' => 'bachelor_degree'
+            ],
+            '/\b(master(\'?s)?|ma|ms|msc)\b/i' => [
+                '@type' => 'EducationalOccupationalCredential',
+                'credentialCategory' => 'master_degree'
+            ],
+            '/\b(doctorate|ph\.?d|md|dphil)\b/i' => [
+                '@type' => 'EducationalOccupationalCredential',
+                'credentialCategory' => 'doctoral_degree'
+            ]
         ];
-        foreach ($canon as $re => $val) {
-            if (preg_match($re, $raw)) return $val;
+        
+        foreach ($credentialMap as $re => $obj) {
+            if (preg_match($re, $raw)) return $obj;
         }
 
-        // fallback: clean text
+        // fallback: clean text (still valid for Schema.org)
         $text = preg_replace('/\s+/u', ' ', $raw);
         return trim($text);
     }

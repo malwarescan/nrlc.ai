@@ -117,6 +117,7 @@ $jobPostingLd = [
   'title' => $role['title'],
   'description' => "Join NRLC.ai in {$city['city_name']} to build world-class JSON-LD, LLM seeding systems, and multi-regional SEO infrastructure that powers AI-first search experiences.",
   'datePosted' => date('Y-m-d'),
+  'validThrough' => gmdate('Y-m-d', strtotime('+45 days')),
   'employmentType' => 'FULL_TIME',
   'hiringOrganization' => [
     '@type' => 'Organization',
@@ -128,8 +129,10 @@ $jobPostingLd = [
     '@type' => 'Place',
     'address' => [
       '@type' => 'PostalAddress',
+      'streetAddress' => 'Remote', // Remote work - no physical address required
       'addressLocality' => $city['city_name'],
       'addressRegion' => $city['subdivision'] ?? '',
+      'postalCode' => '00000', // Generic postal code for remote positions
       'addressCountry' => $city['country'] ?? 'US'
     ]
   ],
