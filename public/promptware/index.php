@@ -20,6 +20,33 @@ include __DIR__.'/../../../templates/head.php';
 include __DIR__.'/../../../templates/header.php';
 ?>
 
+<style>
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  main.container {
+    padding: 1rem 0.5rem !important;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  nav ul li {
+    font-size: 0.875rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  ol li {
+    font-size: 0.875rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+}
+</style>
+
 <main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
   <header style="margin-bottom: 3rem;">
     <h1>Promptware</h1>

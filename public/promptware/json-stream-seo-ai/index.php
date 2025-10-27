@@ -21,6 +21,62 @@ include __DIR__.'/../../../templates/head.php';
 include __DIR__.'/../../../templates/header.php';
 ?>
 
+<style>
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  main.container {
+    padding: 1rem 0.5rem !important;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  table {
+    font-size: 0.875rem !important;
+    display: block !important;
+    overflow-x: auto !important;
+  }
+  
+  thead, tbody, tr {
+    display: block !important;
+  }
+  
+  td, th {
+    display: block !important;
+    text-align: left !important;
+    padding: 0.5rem !important;
+  }
+  
+  th {
+    border-bottom: 2px solid var(--border-color, #ddd);
+    font-weight: bold;
+  }
+  
+  td {
+    border-bottom: 1px solid var(--border-color, #ddd);
+  }
+  
+  td:before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+  }
+  
+  pre {
+    font-size: 0.75rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  details summary {
+    font-size: 0.875rem !important;
+  }
+}
+</style>
+
 <main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
   <header style="margin-bottom: 3rem;">
     <h1>JSON Stream + SEO AI</h1>
@@ -32,13 +88,13 @@ include __DIR__.'/../../../templates/header.php';
     <table style="width: 100%; margin-top: 1rem;">
       <thead><tr><th>Path</th><th>Description</th></tr></thead>
       <tbody>
-        <tr><td><code>/api/stream</code></td><td>Live <code>application/x-ndjson</code> stream (one JSON-LD object per line).</td></tr>
-        <tr><td><code>/public/sitemaps/sitemap-ai.ndjson</code></td><td>AI manifest (NDJSON). Built from CSV.</td></tr>
-        <tr><td><code>/scripts/build_ai_manifest.php</code></td><td>CSV → NDJSON generator.</td></tr>
-        <tr><td><code>/scripts/verify_ndjson.sh</code></td><td>Verifier using <code>jq</code>.</td></tr>
-        <tr><td><code>/Makefile</code></td><td>Convenience targets to build/verify/test.</td></tr>
-        <tr><td><code>/public/robots.txt</code></td><td>Adds <code>AI-Manifest:</code> discovery line.</td></tr>
-        <tr><td><code>/public/.htaccess</code></td><td>NDJSON headers + cache policy (Apache).</td></tr>
+        <tr><td data-label="Path"><code>/api/stream</code></td><td data-label="Description">Live <code>application/x-ndjson</code> stream (one JSON-LD object per line).</td></tr>
+        <tr><td data-label="Path"><code>/public/sitemaps/sitemap-ai.ndjson</code></td><td data-label="Description">AI manifest (NDJSON). Built from CSV.</td></tr>
+        <tr><td data-label="Path"><code>/scripts/build_ai_manifest.php</code></td><td data-label="Description">CSV → NDJSON generator.</td></tr>
+        <tr><td data-label="Path"><code>/scripts/verify_ndjson.sh</code></td><td data-label="Description">Verifier using <code>jq</code>.</td></tr>
+        <tr><td data-label="Path"><code>/Makefile</code></td><td data-label="Description">Convenience targets to build/verify/test.</td></tr>
+        <tr><td data-label="Path"><code>/public/robots.txt</code></td><td data-label="Description">Adds <code>AI-Manifest:</code> discovery line.</td></tr>
+        <tr><td data-label="Path"><code>/public/.htaccess</code></td><td data-label="Description">NDJSON headers + cache policy (Apache).</td></tr>
       </tbody>
     </table>
   </section>
