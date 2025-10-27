@@ -1,25 +1,23 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__.'/../../../lib/helpers.php';
+require_once __DIR__.'/../../../lib/schema_builders.php';
+require_once __DIR__.'/../../../lib/hreflang.php';
+
 $brand = 'NRLC.ai';
 $domain = 'https://nrlc.ai';
 
-$hasHead   = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/head.php');
-$hasHeader = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/header.php');
-$hasFooter = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/footer.php');
+// Set page slug for metadata
+$GLOBALS['__page_slug'] = 'promptware/index';
 
-if ($hasHead) {
-  include $_SERVER['DOCUMENT_ROOT'].'/partials/head.php';
-} else {
-  ?><!doctype html><html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Promptware · <?= htmlspecialchars($brand) ?></title>
-  <meta name="description" content="Open-source Promptware utilities from NRLC.ai: JSON streaming, AI manifests, and search optimization tooling.">
-  <link rel="canonical" href="<?= htmlspecialchars($domain) ?>/promptware/">
-  </head><body><?php
-}
-if ($hasHeader) include $_SERVER['DOCUMENT_ROOT'].'/partials/header.php';
+// Override metadata for this page
+$GLOBALS['pageTitle'] = 'Promptware · NRLC.ai';
+$GLOBALS['pageDesc'] = 'Open-source Promptware utilities from NRLC.ai: JSON streaming, AI manifests, and search optimization tooling.';
+
+// Use site templates
+include __DIR__.'/../../../templates/head.php';
+include __DIR__.'/../../../templates/header.php';
 ?>
 
 <main>
@@ -61,5 +59,5 @@ if ($hasHeader) include $_SERVER['DOCUMENT_ROOT'].'/partials/header.php';
   ]
 }</script>
 
-<?php if (!$hasHead): ?></body></html><?php endif; ?>
+<?php include __DIR__.'/../../../templates/footer.php'; ?>
 

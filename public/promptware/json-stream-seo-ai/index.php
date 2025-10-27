@@ -1,26 +1,24 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__.'/../../../lib/helpers.php';
+require_once __DIR__.'/../../../lib/schema_builders.php';
+require_once __DIR__.'/../../../lib/hreflang.php';
+
 $brand = 'NRLC.ai';
 $domain = 'https://nrlc.ai';
 $contact = 'team@nrlc.ai';
 
-$hasHead   = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/head.php');
-$hasHeader = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/header.php');
-$hasFooter = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/footer.php');
+// Set page slug for metadata
+$GLOBALS['__page_slug'] = 'promptware/json-stream-seo-ai';
 
-if ($hasHead) {
-  include $_SERVER['DOCUMENT_ROOT'].'/partials/head.php';
-} else {
-  ?><!doctype html><html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JSON Stream + SEO AI · Promptware · <?= htmlspecialchars($brand) ?></title>
-  <meta name="description" content="Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.">
-  <link rel="canonical" href="<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/">
-  </head><body><?php
-}
-if ($hasHeader) include $_SERVER['DOCUMENT_ROOT'].'/partials/header.php';
+// Override metadata for this page
+$GLOBALS['pageTitle'] = 'JSON Stream + SEO AI · Promptware · NRLC.ai';
+$GLOBALS['pageDesc'] = 'Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.';
+
+// Use site templates
+include __DIR__.'/../../../templates/head.php';
+include __DIR__.'/../../../templates/header.php';
 ?>
 
 <main>
@@ -187,5 +185,5 @@ curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</
   "license":"https://opensource.org/licenses/MIT"
 }</script>
 
-<?php if (!$hasHead): ?></body></html><?php endif; ?>
+<?php include __DIR__.'/../../../templates/footer.php'; ?>
 

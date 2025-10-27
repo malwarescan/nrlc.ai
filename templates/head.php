@@ -4,7 +4,16 @@ require_once __DIR__.'/../lib/schema_builders.php';
 require_once __DIR__.'/../lib/hreflang.php';
 
 $slug = $GLOBALS['__page_slug'] ?? 'home/home';
-[$title,$desc,$path] = meta_for_slug($slug);
+
+// Use custom metadata if provided, otherwise use meta_for_slug
+if (isset($GLOBALS['pageTitle']) && isset($GLOBALS['pageDesc'])) {
+  $title = $GLOBALS['pageTitle'];
+  $desc = $GLOBALS['pageDesc'];
+  $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+} else {
+  [$title,$desc,$path] = meta_for_slug($slug);
+}
+
 $baseSchemas = base_schemas();
 
 // Build canonical URL with locale prefix
