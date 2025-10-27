@@ -59,6 +59,10 @@ include __DIR__.'/../../../templates/header.php';
         <a href="/promptware/json-stream-seo-ai/">JSON Stream + SEO AI</a>
         — NDJSON streaming API + AI manifest for LLM/RAG ingestion and internal crawlers.
       </li>
+      <li>
+        <a href="/promptware/llm-data-to-citation/">LLM Data-to-Citation Guide</a>
+        — How schema and NDJSON earn citations in LLM answers and AI Overviews.
+      </li>
     </ul>
   </nav>
 
