@@ -21,15 +21,15 @@ include __DIR__.'/../../../templates/head.php';
 include __DIR__.'/../../../templates/header.php';
 ?>
 
-<main>
-  <header>
+<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+  <header style="margin-bottom: 3rem;">
     <h1>JSON Stream + SEO AI</h1>
     <p>NDJSON streaming API + compact AI manifest for fast ingestion by LLMs, RAG systems, and internal crawlers.</p>
   </header>
 
-  <section aria-labelledby="files">
+  <section aria-labelledby="files" style="margin-bottom: 3rem;">
     <h2 id="files">What this installs</h2>
-    <table>
+    <table style="width: 100%; margin-top: 1rem;">
       <thead><tr><th>Path</th><th>Description</th></tr></thead>
       <tbody>
         <tr><td><code>/api/stream</code></td><td>Live <code>application/x-ndjson</code> stream (one JSON-LD object per line).</td></tr>
@@ -43,10 +43,10 @@ include __DIR__.'/../../../templates/header.php';
     </table>
   </section>
 
-  <section aria-labelledby="cursor">
+  <section aria-labelledby="cursor" style="margin-bottom: 3rem;">
     <h2 id="cursor">Cursor one-shot</h2>
     <details open><summary>Open to copy</summary>
-<pre><code>You are editing a PHP 8+ project named "NRLC.ai". Create/overwrite the files below EXACTLY as specified. After writing, run `php -l` on all PHP files and print:
+<pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; max-height: 600px; overflow-y: auto;"><code>You are editing a PHP 8+ project named "NRLC.ai". Create/overwrite the files below EXACTLY as specified. After writing, run `php -l` on all PHP files and print:
 
 DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
 
@@ -138,14 +138,14 @@ DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
     </details>
   </section>
 
-  <section aria-labelledby="verify">
+  <section aria-labelledby="verify" style="margin-bottom: 3rem;">
     <h2 id="verify">Verify</h2>
-    <pre><code>make sitemap:ai
-make ndjson:verify
+    <pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto;"><code>make sitemap-ai
+make ndjson-verify
 curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</code></pre>
   </section>
 
-  <footer>
+  <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #ddd);">
     <p>MIT Licensed — © <span id="y"></span> <?= htmlspecialchars($brand) ?> • Contact: <?= htmlspecialchars($contact) ?></p>
   </footer>
 </main>

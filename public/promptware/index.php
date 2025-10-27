@@ -20,13 +20,13 @@ include __DIR__.'/../../../templates/head.php';
 include __DIR__.'/../../../templates/header.php';
 ?>
 
-<main>
-  <header>
+<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+  <header style="margin-bottom: 3rem;">
     <h1>Promptware</h1>
     <p>Open-source, production-ready prompts + code scaffolds you can drop into your stack.</p>
   </header>
 
-  <nav aria-label="Promptware list">
+  <nav aria-label="Promptware list" style="margin-bottom: 3rem;">
     <ul>
       <li>
         <a href="/promptware/json-stream-seo-ai/">JSON Stream + SEO AI</a>
@@ -35,7 +35,7 @@ include __DIR__.'/../../../templates/header.php';
     </ul>
   </nav>
 
-  <section aria-labelledby="usage">
+  <section aria-labelledby="usage" style="margin-bottom: 3rem;">
     <h2 id="usage">How to use</h2>
     <ol>
       <li>Open a promptware page.</li>
@@ -44,7 +44,7 @@ include __DIR__.'/../../../templates/header.php';
     </ol>
   </section>
 
-  <footer>
+  <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #ddd);">
     <p>© <span id="y"></span> <?= htmlspecialchars($brand) ?> — Open Source Promptware.</p>
   </footer>
 </main>
