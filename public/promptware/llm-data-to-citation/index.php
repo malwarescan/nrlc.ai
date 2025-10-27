@@ -97,12 +97,16 @@ include __DIR__.'/../../../templates/header.php';
 
   <section id="faq" aria-labelledby="faq-h" style="margin-bottom: 3rem;">
     <h2 id="faq-h">FAQ</h2>
-    <details><summary>Does Google still render HowTo/FAQ rich results?</summary>
-      <p>Eligibility is limited, but the markup still improves machine understanding and RAG mapping. Keep it.</p>
-    </details>
-    <details><summary>Where do I declare the AI manifest?</summary>
-      <p>Add an <code>AI-Manifest:</code> line in <code>/public/robots.txt</code> pointing to <code>/sitemaps/sitemap-ai.ndjson</code>.</p>
-    </details>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <details style="padding: 1rem; border: 1px solid var(--border-color, #ddd);">
+        <summary style="font-weight: bold; cursor: pointer;">Does Google still render HowTo/FAQ rich results?</summary>
+        <p style="margin-top: 0.75rem;">Eligibility is limited, but the markup still improves machine understanding and RAG mapping. Keep it.</p>
+      </details>
+      <details style="padding: 1rem; border: 1px solid var(--border-color, #ddd);">
+        <summary style="font-weight: bold; cursor: pointer;">Where do I declare the AI manifest?</summary>
+        <p style="margin-top: 0.75rem;">Add an <code>AI-Manifest:</code> line in <code>/public/robots.txt</code> pointing to <code>/sitemaps/sitemap-ai.ndjson</code>.</p>
+      </details>
+    </div>
   </section>
 
   <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #ddd);">
