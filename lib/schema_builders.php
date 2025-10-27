@@ -63,6 +63,8 @@ function ld_local_business(?array $cityCtx): array {
     '@type'=>'LocalBusiness',
     'name'=>'NRLC.ai',
     'url'=>SchemaFixes::ensureHttps(absolute_url('/')),
+    'image'=>SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlcai logo 0.png')),
+    'logo'=>SchemaFixes::ensureHttps(absolute_url('/assets/logo.png')),
     'areaServed'=> $cityCtx ? [
       '@type'=>'AdministrativeArea',
       'name'=>$cityCtx['city_name'].' '.$cityCtx['country']
