@@ -62,7 +62,7 @@ meta-test:
 meta-validate:
 	@php scripts/validate_meta_seo.php
 
-.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full meta-test meta-validate sitemap:ai ndjson:verify stream:test
+.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full meta-test meta-validate sitemap-ai ndjson-verify stream-test
 
 # ================= Universal GSC Indexing Recovery (White-Label) =================
 BASE ?= https://example.com
@@ -126,11 +126,11 @@ expand-thin:
 	@echo "✅ Thin-content fallback wired (template change required once)"
 
 # Promptware — AI Manifest & NDJSON streaming
-sitemap:ai:
+sitemap-ai:
 	@php scripts/build_ai_manifest.php
 
-ndjson:verify:
+ndjson-verify:
 	@bash scripts/verify_ndjson.sh
 
-stream:test:
+stream-test:
 	@curl -s https://nrlc.ai/api/stream?limit=3 | head -n 3 | jq .
