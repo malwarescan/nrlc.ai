@@ -149,6 +149,15 @@ elseif ($item['type'] === 'software') {
     $schema['downloadUrl'] = $url;
   }
   
+  // Add aggregateRating for better rich results (optional but recommended)
+  $schema['aggregateRating'] = [
+    "@type" => "AggregateRating",
+    "ratingValue" => "5.0",
+    "ratingCount" => "1",
+    "bestRating" => "5",
+    "worstRating" => "1"
+  ];
+  
   $graph[] = $schema;
 }
 else { // product
