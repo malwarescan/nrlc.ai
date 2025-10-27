@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__.'/../../../lib/helpers.php';
-require_once __DIR__.'/../../../lib/schema_builders.php';
-require_once __DIR__.'/../../../lib/hreflang.php';
+require_once __DIR__.'/../../../../lib/helpers.php';
+require_once __DIR__.'/../../../../lib/schema_builders.php';
+require_once __DIR__.'/../../../../lib/hreflang.php';
 
 $brand   = 'NRLC.ai';
 $domain  = 'https://nrlc.ai';
@@ -22,8 +22,8 @@ $GLOBALS['pageTitle'] = $title;
 $GLOBALS['pageDesc'] = $desc;
 
 // Use site templates
-include __DIR__.'/../../../templates/head.php';
-include __DIR__.'/../../../templates/header.php';
+include __DIR__.'/../../../../templates/head.php';
+include __DIR__.'/../../../../templates/header.php';
 ?>
 
 <style>
@@ -185,5 +185,5 @@ include __DIR__.'/../../../templates/header.php';
   ]
 }</script>
 
-<?php include __DIR__.'/../../../templates/footer.php'; ?>
+<?php include __DIR__.'/../../../../templates/footer.php'; ?>
 
