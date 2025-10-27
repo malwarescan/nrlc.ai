@@ -5,12 +5,15 @@
   --grid-opacity:0.3;
 }
 
+/* Dark mode disabled - force light theme */
+/*
 @media (prefers-color-scheme:dark){
   :root{
     --grid-bg-color:#000000;
     --grid-line-color:#404040;
   }
 }
+*/
 
 .win98-grid-bg{
   position:fixed;

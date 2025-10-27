@@ -51,7 +51,8 @@
   );
 }
 
-/* Dark mode support */
+/* Dark mode disabled - force light theme */
+/*
 @media (prefers-color-scheme: dark) {
   .progress-indicator {
     background: #404040;
@@ -73,6 +74,7 @@
     );
   }
 }
+*/
 
 /* Mobile optimizations */
 @media (max-width: 768px) {

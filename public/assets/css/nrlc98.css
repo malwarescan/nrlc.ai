@@ -391,7 +391,9 @@ label{
   color: var(--win-text);
 }
 
-/* 11) Early Apple's Dark Mode - Retro-Futuristic */
+/* 11) Early Apple's Dark Mode - DISABLED - Force light theme */
+/* Dark mode disabled to maintain consistent light Windows 98 aesthetic */
+/*
 @media (prefers-color-scheme: dark){
   :root{
     --win-bg: #2a2a2a; 
@@ -446,6 +448,7 @@ label{
     color: #ffffff !important;
   }
 }
+*/
 
 /* 12) Early Apple's Print Style - Functional, Clean */
 @media print{
