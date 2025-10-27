@@ -116,7 +116,7 @@ if ($item['type'] === 'service') {
   ];
 }
 elseif ($item['type'] === 'software') {
-  $graph[] = [
+  $schema = [
     "@type"=>"SoftwareApplication",
     "@id"=>$url . "#app",
     "name"=>$item['name'],
@@ -125,6 +125,11 @@ elseif ($item['type'] === 'software') {
     "softwareVersion"=>"1.0.0",
     "url"=>$url,
     "description"=>$item['description'],
+    "publisher"=>[
+      "@type"=>"Organization",
+      "name"=>$brand,
+      "url"=>$domain
+    ],
     "offers"=>[
       "@type"=>"Offer",
       "price"=>$item['price'] ?: "0.00",
@@ -133,6 +138,18 @@ elseif ($item['type'] === 'software') {
       "url"=>$url
     ]
   ];
+  
+  // Add screenshot/image if available
+  if (!empty($item['image_url'])) {
+    $schema['screenshot'] = $item['image_url'];
+  }
+  
+  // Add download URL for free/open source software
+  if (strpos(strtolower($item['description']), 'open source') !== false || (empty($item['price']) || $item['price'] == '0.00')) {
+    $schema['downloadUrl'] = $url;
+  }
+  
+  $graph[] = $schema;
 }
 else { // product
   $graph[] = [
