@@ -37,6 +37,7 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?=htmlspecialchars($title)?></title>
 <meta name="description" content="<?=htmlspecialchars($desc)?>">
+<link rel="icon" type="image/png" href="/favicon.ico.png">
 <link rel="canonical" href="<?=absolute_url($canonicalPath)?>">
 
 <!-- Open Graph / Facebook -->
