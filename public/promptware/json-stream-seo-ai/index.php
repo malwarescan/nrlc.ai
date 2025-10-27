@@ -46,7 +46,7 @@ include __DIR__.'/../../../templates/header.php';
   <section aria-labelledby="cursor" style="margin-bottom: 3rem;">
     <h2 id="cursor">Cursor one-shot</h2>
     <details open><summary>Open to copy</summary>
-<pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; max-height: 600px; overflow-y: auto;"><code>You are editing a PHP 8+ project named "NRLC.ai". Create/overwrite the files below EXACTLY as specified. After writing, run `php -l` on all PHP files and print:
+<pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; max-height: 600px; overflow-y: auto; word-wrap: break-word; white-space: pre-wrap;"><code style="word-wrap: break-word; white-space: pre-wrap;">You are editing a PHP 8+ project named "NRLC.ai". Create/overwrite the files below EXACTLY as specified. After writing, run `php -l` on all PHP files and print:
 
 DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
 
@@ -140,7 +140,7 @@ DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
 
   <section aria-labelledby="verify" style="margin-bottom: 3rem;">
     <h2 id="verify">Verify</h2>
-    <pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto;"><code>make sitemap-ai
+    <pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; word-wrap: break-word; white-space: pre-wrap;"><code style="word-wrap: break-word; white-space: pre-wrap;">make sitemap-ai
 make ndjson-verify
 curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</code></pre>
   </section>
