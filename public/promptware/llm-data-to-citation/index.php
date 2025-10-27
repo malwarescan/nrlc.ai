@@ -24,58 +24,33 @@ $GLOBALS['pageDesc'] = $desc;
 // Use site templates
 include __DIR__.'/../../../templates/head.php';
 include __DIR__.'/../../../templates/header.php';
+include __DIR__.'/../_shared_style.php';
 ?>
 
-<style>
-/* Mobile responsive styles */
-@media (max-width: 768px) {
-  main.container {
-    padding: 1rem 0.5rem !important;
-  }
-  
-  h1 {
-    font-size: 1.5rem !important;
-  }
-  
-  h2 {
-    font-size: 1.25rem !important;
-  }
-  
-  pre {
-    font-size: 0.75rem !important;
-    padding: 0.75rem !important;
-  }
-  
-  nav {
-    font-size: 0.875rem !important;
-  }
-}
-</style>
-
-<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
-  <header style="margin-bottom: 3rem;">
-    <nav aria-label="breadcrumb" style="margin-bottom: 1rem; font-size: 0.875rem;">
+<main class="container">
+  <header>
+    <nav aria-label="breadcrumb">
       <a href="/">Home</a> › <a href="/promptware/">Promptware</a> › LLM Data-to-Citation Guide
     </nav>
     <h1>LLM Data-to-Citation Guide</h1>
     <p>How to turn <strong>schema</strong> and <strong>NDJSON</strong> into <strong>citations</strong> in LLM answers and AI Overviews.</p>
   </header>
 
-  <section id="why" aria-labelledby="why-h" style="margin-bottom: 3rem;">
+  <section id="why" aria-labelledby="why-h">
     <h2 id="why-h">Why citations happen</h2>
     <p>LLMs cite when a retrieval step fetches a verifiable passage tied to a stable URL. JSON-LD on page and an AI manifest (<code>/sitemaps/sitemap-ai.ndjson</code>) make that mapping explicit and cheap.</p>
   </section>
 
-  <section id="ndjson" aria-labelledby="ndjson-h" style="margin-bottom: 3rem;">
+  <section id="ndjson" aria-labelledby="ndjson-h">
     <h2 id="ndjson-h">Publish token-lean facts via NDJSON</h2>
     <p>Expose compact JSON-LD objects (one per line) summarizing key pages/entities. Link it from <code>robots.txt</code> with an <strong>AI-Manifest</strong> line.</p>
-    <pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; word-wrap: break-word; white-space: pre-wrap;"><code style="word-wrap: break-word; white-space: pre-wrap;">{"@context":"https://schema.org","@type":"WebPage","url":"<?= htmlspecialchars($domain) ?>/","name":"NRLC.ai — Home","inLanguage":"en","dateModified":"<?= date('Y-m-d') ?>"}
+    <pre><code>{"@context":"https://schema.org","@type":"WebPage","url":"<?= htmlspecialchars($domain) ?>/","name":"NRLC.ai — Home","inLanguage":"en","dateModified":"<?= date('Y-m-d') ?>"}
 {"@context":"https://schema.org","@type":"TechArticle","url":"<?= htmlspecialchars($url) ?>","name":"LLM Data-to-Citation Guide","inLanguage":"en","dateModified":"<?= date('Y-m-d') ?>","keywords":["NDJSON","schema","RAG","citations"]}</code></pre>
     <p>Stream test:</p>
-    <pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; word-wrap: break-word; white-space: pre-wrap;"><code style="word-wrap: break-word; white-space: pre-wrap;">curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | jq .</code></pre>
+    <pre><code>curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | jq .</code></pre>
   </section>
 
-  <section id="schema" aria-labelledby="schema-h" style="margin-bottom: 3rem;">
+  <section id="schema" aria-labelledby="schema-h">
     <h2 id="schema-h">Minimum viable schema for citations</h2>
     <ul>
       <li><code>@type</code> (e.g., <code>TechArticle</code>), <code>name</code>, <code>url</code>, <code>dateModified</code></li>
@@ -85,7 +60,7 @@ include __DIR__.'/../../../templates/header.php';
     </ul>
   </section>
 
-  <section id="rag" aria-labelledby="rag-h" style="margin-bottom: 3rem;">
+  <section id="rag" aria-labelledby="rag-h">
     <h2 id="rag-h">RAG preferences you can influence</h2>
     <ol>
       <li>Serve fast NDJSON with <code>Content-Type: application/x-ndjson</code> and long-lived cache for static files.</li>
@@ -95,21 +70,19 @@ include __DIR__.'/../../../templates/header.php';
     <p>See also: <a href="/promptware/json-stream-seo-ai/">JSON Stream + SEO AI</a></p>
   </section>
 
-  <section id="faq" aria-labelledby="faq-h" style="margin-bottom: 3rem;">
+  <section id="faq" aria-labelledby="faq-h">
     <h2 id="faq-h">FAQ</h2>
-    <div style="display: flex; flex-direction: column; gap: 1rem;">
-      <details style="padding: 1rem; border: 1px solid var(--border-color, #ddd);">
-        <summary style="font-weight: bold; cursor: pointer;">Does Google still render HowTo/FAQ rich results?</summary>
-        <p style="margin-top: 0.75rem;">Eligibility is limited, but the markup still improves machine understanding and RAG mapping. Keep it.</p>
-      </details>
-      <details style="padding: 1rem; border: 1px solid var(--border-color, #ddd);">
-        <summary style="font-weight: bold; cursor: pointer;">Where do I declare the AI manifest?</summary>
-        <p style="margin-top: 0.75rem;">Add an <code>AI-Manifest:</code> line in <code>/public/robots.txt</code> pointing to <code>/sitemaps/sitemap-ai.ndjson</code>.</p>
-      </details>
-    </div>
+    <details>
+      <summary>Does Google still render HowTo/FAQ rich results?</summary>
+      <p>Eligibility is limited, but the markup still improves machine understanding and RAG mapping. Keep it.</p>
+    </details>
+    <details>
+      <summary>Where do I declare the AI manifest?</summary>
+      <p>Add an <code>AI-Manifest:</code> line in <code>/public/robots.txt</code> pointing to <code>/sitemaps/sitemap-ai.ndjson</code>.</p>
+    </details>
   </section>
 
-  <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #ddd);">
+  <footer>
     <p>© <span id="y"></span> <?= htmlspecialchars($brand) ?> • Contact: <?= htmlspecialchars($contact) ?></p>
   </footer>
 </main>

@@ -19,73 +19,18 @@ $GLOBALS['pageDesc'] = 'Open-source JSON streaming (NDJSON) utilities and AI man
 // Use site templates
 include __DIR__.'/../../../templates/head.php';
 include __DIR__.'/../../../templates/header.php';
+include __DIR__.'/../_shared_style.php';
 ?>
 
-<style>
-/* Mobile responsive styles */
-@media (max-width: 768px) {
-  main.container {
-    padding: 1rem 0.5rem !important;
-  }
-  
-  h1 {
-    font-size: 1.5rem !important;
-  }
-  
-  h2 {
-    font-size: 1.25rem !important;
-  }
-  
-  table {
-    font-size: 0.875rem !important;
-    display: block !important;
-    overflow-x: auto !important;
-  }
-  
-  thead, tbody, tr {
-    display: block !important;
-  }
-  
-  td, th {
-    display: block !important;
-    text-align: left !important;
-    padding: 0.5rem !important;
-  }
-  
-  th {
-    border-bottom: 2px solid var(--border-color, #ddd);
-    font-weight: bold;
-  }
-  
-  td {
-    border-bottom: 1px solid var(--border-color, #ddd);
-  }
-  
-  td:before {
-    content: attr(data-label) ": ";
-    font-weight: bold;
-  }
-  
-  pre {
-    font-size: 0.75rem !important;
-    padding: 0.75rem !important;
-  }
-  
-  details summary {
-    font-size: 0.875rem !important;
-  }
-}
-</style>
-
-<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
-  <header style="margin-bottom: 3rem;">
+<main class="container">
+  <header>
     <h1>JSON Stream + SEO AI</h1>
     <p>NDJSON streaming API + compact AI manifest for fast ingestion by LLMs, RAG systems, and internal crawlers.</p>
   </header>
 
-  <section aria-labelledby="files" style="margin-bottom: 3rem;">
+  <section aria-labelledby="files">
     <h2 id="files">What this installs</h2>
-    <table style="width: 100%; margin-top: 1rem;">
+    <table>
       <thead><tr><th>Path</th><th>Description</th></tr></thead>
       <tbody>
         <tr><td data-label="Path"><code>/api/stream</code></td><td data-label="Description">Live <code>application/x-ndjson</code> stream (one JSON-LD object per line).</td></tr>
@@ -99,10 +44,10 @@ include __DIR__.'/../../../templates/header.php';
     </table>
   </section>
 
-  <section aria-labelledby="cursor" style="margin-bottom: 3rem;">
+  <section aria-labelledby="cursor">
     <h2 id="cursor">Cursor one-shot</h2>
     <details open><summary>Open to copy</summary>
-<pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; max-height: 600px; overflow-y: auto; word-wrap: break-word; white-space: pre-wrap;"><code style="word-wrap: break-word; white-space: pre-wrap;">You are editing a PHP 8+ project named "NRLC.ai". Create/overwrite the files below EXACTLY as specified. After writing, run `php -l` on all PHP files and print:
+<pre style="max-height: 600px; overflow-y: auto;"><code>You are editing a PHP 8+ project named "NRLC.ai". Create/overwrite the files below EXACTLY as specified. After writing, run `php -l` on all PHP files and print:
 
 DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
 
@@ -194,14 +139,14 @@ DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
     </details>
   </section>
 
-  <section aria-labelledby="verify" style="margin-bottom: 3rem;">
+  <section aria-labelledby="verify">
     <h2 id="verify">Verify</h2>
-    <pre style="padding: 1rem; background: var(--background-color, #fff); border: 1px solid var(--border-color, #ddd); overflow-x: auto; word-wrap: break-word; white-space: pre-wrap;"><code style="word-wrap: break-word; white-space: pre-wrap;">make sitemap-ai
+    <pre><code>make sitemap-ai
 make ndjson-verify
 curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</code></pre>
   </section>
 
-  <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #ddd);">
+  <footer>
     <p>MIT Licensed — © <span id="y"></span> <?= htmlspecialchars($brand) ?> • Contact: <?= htmlspecialchars($contact) ?></p>
   </footer>
 </main>

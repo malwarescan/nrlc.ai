@@ -18,42 +18,16 @@ $GLOBALS['pageDesc'] = 'Open-source Promptware utilities from NRLC.ai: JSON stre
 // Use site templates
 include __DIR__.'/../../templates/head.php';
 include __DIR__.'/../../templates/header.php';
+include __DIR__.'/_shared_style.php';
 ?>
 
-<style>
-/* Mobile responsive styles */
-@media (max-width: 768px) {
-  main.container {
-    padding: 1rem 0.5rem !important;
-  }
-  
-  h1 {
-    font-size: 1.5rem !important;
-  }
-  
-  h2 {
-    font-size: 1.25rem !important;
-  }
-  
-  nav ul li {
-    font-size: 0.875rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  ol li {
-    font-size: 0.875rem !important;
-    margin-bottom: 0.75rem !important;
-  }
-}
-</style>
-
-<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
-  <header style="margin-bottom: 3rem;">
+<main class="container">
+  <header>
     <h1>Promptware</h1>
     <p>Open-source, production-ready prompts + code scaffolds you can drop into your stack.</p>
   </header>
 
-  <nav aria-label="Promptware list" style="margin-bottom: 3rem;">
+  <nav aria-label="Promptware list">
     <ul>
       <li>
         <a href="/promptware/json-stream-seo-ai/">JSON Stream + SEO AI</a>
@@ -66,7 +40,7 @@ include __DIR__.'/../../templates/header.php';
     </ul>
   </nav>
 
-  <section aria-labelledby="usage" style="margin-bottom: 3rem;">
+  <section aria-labelledby="usage">
     <h2 id="usage">How to use</h2>
     <ol>
       <li>Open a promptware page.</li>
@@ -75,7 +49,7 @@ include __DIR__.'/../../templates/header.php';
     </ol>
   </section>
 
-  <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #ddd);">
+  <footer>
     <p>© <span id="y"></span> <?= htmlspecialchars($brand) ?> — Open Source Promptware.</p>
   </footer>
 </main>
