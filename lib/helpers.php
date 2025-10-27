@@ -227,16 +227,24 @@ function meta_for_slug(string $slug): array {
         $title = $article['title'] ?? ucwords(str_replace('-', ' ', $articleSlug));
         $keywords = $article['keywords'] ?? 'AI SEO, GEO-16, LLM Seeding';
         
-        // Truncate title if too long
-        $shortTitle = strlen($title) > 45 ? substr($title, 0, 42) . '...' : $title;
+        // Build SEO-optimized title (keep under 60 chars ideally)
+        // Use the article title + Research suffix
+        $shortTitle = $title;
+        if (strlen($shortTitle) > 50) {
+          // Truncate smartly at word boundary
+          $shortTitle = substr($shortTitle, 0, 47);
+          $shortTitle = substr($shortTitle, 0, strrpos($shortTitle, ' ')) . '...';
+        }
         
-        // Truncate description if too long
-        $desc = "$title - Research by NRLC.ai covering $keywords. GEO-16 framework insights, AI SEO strategies, and LLM optimization.";
-        $shortDesc = strlen($desc) > 160 ? substr($desc, 0, 157) . '...' : $desc;
+        // Build description from keywords and value prop
+        $desc = "Comprehensive guide to $keywords. Practical insights and strategies for AI-first SEO optimization from NRLC.ai research.";
+        if (strlen($desc) > 160) {
+          $desc = substr($desc, 0, 157) . '...';
+        }
         
         return [
           "$shortTitle | NRLC.ai Research",
-          $shortDesc,
+          $desc,
           "/insights/$articleSlug/"
         ];
       }
