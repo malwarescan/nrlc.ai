@@ -392,8 +392,14 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
  "email":"hirejoelm@gmail.com",
  "address":{
   "@type":"PostalAddress",
+  "streetAddress":"Remote Work Available",
+  "addressLocality":"New York",
+  "addressRegion":"NY",
+  "postalCode":"10001",
   "addressCountry":"US"
  },
+ "image":"https://nrlc.ai/assets/images/nrlcai logo 0.png",
+ "logo":"https://nrlc.ai/assets/logo.png",
  "areaServed":[
   {"@type":"Country","name":"United States"},
   {"@type":"Country","name":"United Kingdom"},
