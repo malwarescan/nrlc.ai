@@ -62,7 +62,7 @@ meta-test:
 meta-validate:
 	@php scripts/validate_meta_seo.php
 
-.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full meta-test meta-validate sitemap-ai ndjson-verify stream-test
+.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full meta-test meta-validate sitemap-ai ndjson-verify stream-test catalog-build feed-merchant
 
 # ================= Universal GSC Indexing Recovery (White-Label) =================
 BASE ?= https://example.com
@@ -134,3 +134,10 @@ ndjson-verify:
 
 stream-test:
 	@curl -s https://nrlc.ai/api/stream?limit=3 | head -n 3 | jq .
+
+# Catalog — Services & Software
+catalog-build:
+	@php scripts/build_catalog.php
+
+feed-merchant:
+	@jq . feeds/merchant_products.json >/dev/null 2>&1 && echo "Merchant feed OK: feeds/merchant_products.json" || (echo "Feed not found or invalid"; exit 1)

@@ -1,0 +1,34 @@
+{
+    "entries": [
+        {
+            "offerId": "NRLC-PROMPT-001",
+            "title": "JSON Stream + SEO AI",
+            "description": "Open source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG ingestion and internal crawlers.",
+            "link": "https://nrlc.ai/catalog/json-stream-seo-ai/",
+            "imageLink": "https://nrlc.ai/assets/images/nrlcai logo 5.png",
+            "availability": "InStock",
+            "price": {
+                "value": "0.00",
+                "currency": "USD"
+            },
+            "brand": "NRLC.ai",
+            "googleProductCategory": "Software",
+            "subscriptionCost": null
+        },
+        {
+            "offerId": "NRLC-PROMPT-002",
+            "title": "LLM Data-to-Citation Guide",
+            "description": "Practical guide for turning your site's schema and NDJSON into citations inside LLM answers and AI Overviews.",
+            "link": "https://nrlc.ai/catalog/llm-data-to-citation/",
+            "imageLink": "https://nrlc.ai/assets/images/nrlcai logo 6.png",
+            "availability": "InStock",
+            "price": {
+                "value": "0.00",
+                "currency": "USD"
+            },
+            "brand": "NRLC.ai",
+            "googleProductCategory": "Software",
+            "subscriptionCost": null
+        }
+    ]
+}
