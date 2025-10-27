@@ -1,7 +1,14 @@
 <?php
-// Redirect GET requests to the booking page
+// Handle GET requests
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  header('Location: /pages/book/');
+  // For GET requests, return a simple JSON response
+  header('Content-Type: application/json');
+  echo json_encode([
+    'ok' => true,
+    'message' => 'Use POST to submit booking requests',
+    'endpoint' => '/api/book/',
+    'form_action' => '/api/book/'
+  ]);
   exit;
 }
 
