@@ -170,7 +170,7 @@ include __DIR__.'/../../../templates/header.php';
       "@type":"Dataset",
       "@id":"<?= htmlspecialchars($domain) ?>/sitemaps/sitemap-ai.ndjson#dataset",
       "name":"NRLC.ai AI Manifest (NDJSON)",
-      "description":"Compact JSON-LD rows for LLM/RAG ingestion.",
+      "description":"Compact JSON-LD rows for site pages, services, and insights optimized for LLM/RAG ingestion and AI engine citation mapping. Each NDJSON line contains structured metadata (name, URL, dateModified, keywords) to enable fast retrieval and accurate citations in AI Overviews and LLM responses.",
       "creator":{"@type":"Organization","name":"<?= htmlspecialchars($brand) ?>"},
       "distribution":[{"@type":"DataDownload","encodingFormat":"application/x-ndjson","contentUrl":"<?= htmlspecialchars($domain) ?>/sitemaps/sitemap-ai.ndjson"}],
       "license":"https://opensource.org/licenses/MIT"
