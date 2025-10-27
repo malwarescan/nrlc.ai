@@ -1,0 +1,32 @@
+{
+    "scan_date": "2025-10-21 06:33:19",
+    "schema_issues": [],
+    "template_issues": [],
+    "page_issues": [
+        {
+            "url": "https:\/\/nrlc.ai\/services\/analytics\/goyang\/",
+            "path": "\/services\/analytics\/goyang\/",
+            "type": "service_city_page",
+            "service": "analytics",
+            "city": "goyang",
+            "template": "pages\/services\/service_city.php",
+            "status": "needs_check",
+            "issue": "Uses ld_service_hefty() - check if FAQ schema is properly separated"
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/services\/llm-seeding\/new-york\/",
+            "path": "\/services\/llm-seeding\/new-york\/",
+            "type": "service_city_page",
+            "service": "llm-seeding",
+            "city": "new-york",
+            "template": "pages\/services\/service_city.php",
+            "status": "needs_check",
+            "issue": "Uses ld_service_hefty() - check if FAQ schema is properly separated"
+        }
+    ],
+    "summary": {
+        "critical_issues": 0,
+        "total_issues": 0,
+        "service_pages": 2
+    }
+}

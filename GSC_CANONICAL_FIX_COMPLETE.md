@@ -137,3 +137,4 @@ This fix ensures that the canonical URL matches the URL that contains the hrefla
 **Files Modified**: `templates/head.php`
 **Files Created**: `scripts/verify_canonical_urls.php`
 
+
