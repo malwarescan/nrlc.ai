@@ -1,0 +1,4 @@
+{"@context":"https://schema.org","@type":"WebPage","url":"https://nrlc.ai/","name":"Home","inLanguage":"en","dateModified":"2025-10-27"}
+{"@context":"https://schema.org","@type":"CollectionPage","url":"https://nrlc.ai/promptware/","name":"Promptware","inLanguage":"en","dateModified":"2025-10-27"}
+{"@context":"https://schema.org","@type":"TechArticle","url":"https://nrlc.ai/promptware/json-stream-seo-ai/","name":"JSON Stream + SEO AI","inLanguage":"en","dateModified":"2025-10-27","keywords":["NDJSON","AI manifest","LLM seeding","RAG"]}
+

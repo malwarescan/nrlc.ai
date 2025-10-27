@@ -41,3 +41,16 @@ Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; prelo
   Header set Cache-Control "public, max-age=3600"
 </Files>
 
+# NDJSON AI Manifest headers
+<FilesMatch "sitemap-ai\.ndjson$">
+  Header set Content-Type "application/x-ndjson; charset=utf-8"
+  Header set Cache-Control "public, max-age=86400, immutable"
+</FilesMatch>
+
+# NDJSON stream API headers
+<IfModule mod_headers.c>
+  <Location "/api/stream">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </Location>
+</IfModule>
+

@@ -1,0 +1,191 @@
+<?php
+declare(strict_types=1);
+
+$brand = 'NRLC.ai';
+$domain = 'https://nrlc.ai';
+$contact = 'team@nrlc.ai';
+
+$hasHead   = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/head.php');
+$hasHeader = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/header.php');
+$hasFooter = is_file($_SERVER['DOCUMENT_ROOT'].'/partials/footer.php');
+
+if ($hasHead) {
+  include $_SERVER['DOCUMENT_ROOT'].'/partials/head.php';
+} else {
+  ?><!doctype html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JSON Stream + SEO AI · Promptware · <?= htmlspecialchars($brand) ?></title>
+  <meta name="description" content="Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.">
+  <link rel="canonical" href="<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/">
+  </head><body><?php
+}
+if ($hasHeader) include $_SERVER['DOCUMENT_ROOT'].'/partials/header.php';
+?>
+
+<main>
+  <header>
+    <h1>JSON Stream + SEO AI</h1>
+    <p>NDJSON streaming API + compact AI manifest for fast ingestion by LLMs, RAG systems, and internal crawlers.</p>
+  </header>
+
+  <section aria-labelledby="files">
+    <h2 id="files">What this installs</h2>
+    <table>
+      <thead><tr><th>Path</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>/api/stream</code></td><td>Live <code>application/x-ndjson</code> stream (one JSON-LD object per line).</td></tr>
+        <tr><td><code>/public/sitemaps/sitemap-ai.ndjson</code></td><td>AI manifest (NDJSON). Built from CSV.</td></tr>
+        <tr><td><code>/scripts/build_ai_manifest.php</code></td><td>CSV → NDJSON generator.</td></tr>
+        <tr><td><code>/scripts/verify_ndjson.sh</code></td><td>Verifier using <code>jq</code>.</td></tr>
+        <tr><td><code>/Makefile</code></td><td>Convenience targets to build/verify/test.</td></tr>
+        <tr><td><code>/public/robots.txt</code></td><td>Adds <code>AI-Manifest:</code> discovery line.</td></tr>
+        <tr><td><code>/public/.htaccess</code></td><td>NDJSON headers + cache policy (Apache).</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="cursor">
+    <h2 id="cursor">Cursor one-shot</h2>
+    <details open><summary>Open to copy</summary>
+<pre><code>You are editing a PHP 8+ project named "NRLC.ai". Create/overwrite the files below EXACTLY as specified. After writing, run `php -l` on all PHP files and print:
+
+DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
+
+1) STREAMING API (NDJSON; no buffering)
+Create file: public/api/stream/index.php
+&lt;?php
+declare(strict_types=1);
+header('Content-Type: application/x-ndjson; charset=utf-8');
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('X-Accel-Buffering: no');
+@ini_set('output_buffering','off'); @ini_set('zlib.output_compression','0'); @ob_implicit_flush(true); while (ob_get_level()&gt;0) ob_end_flush();
+$domain='https://nrlc.ai'; $limit=isset($_GET['limit'])?max(1,min(500,(int)$_GET['limit'])):10;
+$rows=[
+  ["@context"=>"https://schema.org","@type"=>"WebPage","url"=>$domain."/","name"=>"NRLC.ai — Home","inLanguage"=>"en","dateModified"=>date('Y-m-d')],
+  ["@context"=>"https://schema.org","@type"=>"CreativeWork","url"=>$domain."/promptware/","name"=>"Promptware","about"=>["NDJSON","AI manifest","RAG","LLMO"],"dateModified"=>date('Y-m-d')],
+  ["@context"=>"https://schema.org","@type"=>"HowTo","url"=>$domain."/promptware/json-stream-seo-ai/","name"=>"JSON Stream + SEO AI","totalTime"=>"PT20M","dateModified"=>date('Y-m-d')],
+];
+$c=0; foreach($rows as $r){ if($c&gt;=$limit) break; echo json_encode($r,JSON_UNESCAPED_SLASHES)."\n"; $c++; usleep(150000);} exit;
+
+2) AI MANIFEST (seed rows; build can overwrite)
+Create file: public/sitemaps/sitemap-ai.ndjson
+{"@context":"https://schema.org","@type":"WebPage","url":"https://nrlc.ai/","name":"Home","inLanguage":"en","dateModified":"2025-10-27"}
+{"@context":"https://schema.org","@type":"CollectionPage","url":"https://nrlc.ai/promptware/","name":"Promptware","inLanguage":"en","dateModified":"2025-10-27"}
+{"@context":"https://schema.org","@type":"TechArticle","url":"https://nrlc.ai/promptware/json-stream-seo-ai/","name":"JSON Stream + SEO AI","inLanguage":"en","dateModified":"2025-10-27","keywords":["NDJSON","AI manifest","LLM seeding","RAG"]}
+
+3) CSV → NDJSON builder
+Create file: scripts/build_ai_manifest.php
+&lt;?php
+declare(strict_types=1);
+$csv=__DIR__.'/../data/ai_manifest_seed.csv'; $out=__DIR__.'/../public/sitemaps/sitemap-ai.ndjson';
+if(!is_file($csv)){ @mkdir(dirname($csv),0775,true); file_put_contents($csv,"url,name,type,lang,lastmod,keywords\nhttps://nrlc.ai/,NRLC.ai — Home,WebPage,en,".date('Y-m-d').",brand\n"); }
+$fp=fopen($csv,'r'); $hdr=fgetcsv($fp); @mkdir(dirname($out),0775,true); $fo=fopen($out,'w');
+while(($row=fgetcsv($fp))!==false){ $rec=array_combine($hdr,$row);
+  $obj=["@context"=>"https://schema.org","@type"=>$rec['type']?:'WebPage',"url"=>$rec['url'],"name"=>$rec['name'],"inLanguage"=>$rec['lang']?:'en',"dateModified"=>$rec['lastmod']?:date('Y-m-d')];
+  if(!empty($rec['keywords'])){ $obj['keywords']=array_values(array_filter(array_map('trim',explode('|',$rec['keywords'])))); }
+  fwrite($fo,json_encode($obj,JSON_UNESCAPED_SLASHES)."\n");
+} fclose($fp); fclose($fo); echo "WROTE: $out\n";
+
+4) Verifier (bash + jq)
+Create file: scripts/verify_ndjson.sh
+#!/usr/bin/env bash
+set -euo pipefail
+AI_NDJSON="public/sitemaps/sitemap-ai.ndjson"
+[[ -s "$AI_NDJSON" ]] || { echo "Missing AI manifest: $AI_NDJSON"; exit 1; }
+head -n 1 "$AI_NDJSON" | jq . >/dev/null 2>&1 || { echo "First line not valid JSON"; exit 1; }
+LINES=$(wc -l < "$AI_NDJSON" | tr -d ' ')
+echo "OK: $AI_NDJSON ($LINES rows)"
+
+5) Makefile targets
+Create file: Makefile
+SHELL := /bin/bash
+.PHONY: sitemap:ai ndjson:verify stream:test
+sitemap:ai:
+	php scripts/build_ai_manifest.php
+ndjson:verify:
+	bash scripts/verify_ndjson.sh
+stream:test:
+	curl -s https://nrlc.ai/api/stream?limit=3 | head -n 3 | jq .
+
+6) robots.txt (append)
+Create file if missing: public/robots.txt
+User-agent: *
+Disallow:
+
+Sitemap: https://nrlc.ai/sitemaps/sitemap-index.xml.gz
+AI-Manifest: https://nrlc.ai/sitemaps/sitemap-ai.ndjson
+
+If robots.txt exists, ensure a single AI-Manifest line.
+
+7) .htaccess (Apache headers; safe no-op on Nginx)
+Create/append file: public/.htaccess
+<FilesMatch "sitemap-ai\.ndjson$">
+  Header set Content-Type "application/x-ndjson; charset=utf-8"
+  Header set Cache-Control "public, max-age=86400, immutable"
+</FilesMatch>
+<IfModule mod_headers.c>
+  <Location "/api/stream">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </Location>
+</IfModule>
+
+Validation
+- php -l public/api/stream/index.php
+- php -l scripts/build_ai_manifest.php
+
+Then print:
+DONE: Promptware — JSON Stream + SEO AI (Style-Agnostic) installed.
+</code></pre>
+    </details>
+  </section>
+
+  <section aria-labelledby="verify">
+    <h2 id="verify">Verify</h2>
+    <pre><code>make sitemap:ai
+make ndjson:verify
+curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</code></pre>
+  </section>
+
+  <footer>
+    <p>MIT Licensed — © <span id="y"></span> <?= htmlspecialchars($brand) ?> • Contact: <?= htmlspecialchars($contact) ?></p>
+  </footer>
+</main>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+<!-- Schemas -->
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"<?= htmlspecialchars($domain) ?>/"},
+    {"@type":"ListItem","position":2,"name":"Promptware","item":"<?= htmlspecialchars($domain) ?>/promptware/"},
+    {"@type":"ListItem","position":3,"name":"JSON Stream + SEO AI","item":"<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/"}
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"JSON Stream + SEO AI (Promptware)",
+  "description":"Implement an NDJSON streaming API and AI manifest for LLMs and crawlers.",
+  "totalTime":"PT20M",
+  "tool":[{"@type":"HowToTool","name":"PHP 8+"},{"@type":"HowToTool","name":"curl"},{"@type":"HowToTool","name":"jq"}],
+  "step":[
+    {"@type":"HowToStep","name":"Install API","text":"Add /api/stream endpoint returning application/x-ndjson."},
+    {"@type":"HowToStep","name":"Emit NDJSON rows","text":"Write one compact JSON-LD object per line."},
+    {"@type":"HowToStep","name":"Expose AI Manifest","text":"Publish /sitemaps/sitemap-ai.ndjson and reference in robots.txt."},
+    {"@type":"HowToStep","name":"Verify","text":"Use curl | head and jq to validate."}
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"SoftwareSourceCode",
+  "name":"NRLC.ai Promptware — JSON Stream + SEO AI",
+  "codeRepository":"<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/",
+  "programmingLanguage":"PHP",
+  "runtimePlatform":"PHP 8+ (Apache/Nginx)",
+  "license":"https://opensource.org/licenses/MIT"
+}</script>
+
+<?php if (!$hasHead): ?></body></html><?php endif; ?>
+
