@@ -5,7 +5,7 @@
     <div class="title-bar-text">Open Source SEO Tools</div>
   </div>
   <div class="window-body">
-    <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Open Source SEO Tools You Can Actually Use: Curated Tool List and NRLC.ai Integrations</h1>
+    <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Open Source SEO Tools - Free Tools for AI Optimization</h1>
     <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">A comprehensive guide to open-source SEO tools that provide real value for AI-first optimization, including practical implementations and integrations with NRLC.ai's services for maximum impact.</p>
     
     <h2> style="color: #000080;">The Open Source SEO Landscape</h2>
