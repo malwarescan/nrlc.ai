@@ -31,9 +31,9 @@
 <meta name="keywords" content="AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity, JSON-LD, NRLC.ai">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/css/98.min.css?v=c31094b2">
-<link rel="stylesheet" href="/assets/css/nrlc98.css?v=3efeb905">
-<link rel="stylesheet" href="/assets/css/grid-bg.css?v=6a711bcb">
-<link rel="stylesheet" href="/assets/css/progress-indicator.css?v=d48ed995">
+<link rel="stylesheet" href="/assets/css/nrlc98.css?v=226f8cc2">
+<link rel="stylesheet" href="/assets/css/grid-bg.css?v=226f8cc2">
+<link rel="stylesheet" href="/assets/css/progress-indicator.css?v=226f8cc2">
 <link rel="alternate" hreflang="en-US" href="https://nrlc.ai/en-us/">
 <link rel="alternate" hreflang="en-GB" href="https://nrlc.ai/en-gb/">
 <link rel="alternate" hreflang="es-ES" href="https://nrlc.ai/es-es/">
