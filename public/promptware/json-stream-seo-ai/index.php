@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__.'/../../../../lib/helpers.php';
-require_once __DIR__.'/../../../../lib/schema_builders.php';
-require_once __DIR__.'/../../../../lib/hreflang.php';
+require_once __DIR__.'/../../../lib/helpers.php';
+require_once __DIR__.'/../../../lib/schema_builders.php';
+require_once __DIR__.'/../../../lib/hreflang.php';
 
 $brand = 'NRLC.ai';
 $domain = 'https://nrlc.ai';
@@ -17,8 +17,8 @@ $GLOBALS['pageTitle'] = 'JSON Stream + SEO AI · Promptware · NRLC.ai';
 $GLOBALS['pageDesc'] = 'Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.';
 
 // Use site templates
-include __DIR__.'/../../../../templates/head.php';
-include __DIR__.'/../../../../templates/header.php';
+include __DIR__.'/../../../templates/head.php';
+include __DIR__.'/../../../templates/header.php';
 ?>
 
 <style>
@@ -284,5 +284,5 @@ curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</
   }]
 }</script>
 
-<?php include __DIR__.'/../../../../templates/footer.php'; ?>
+<?php include __DIR__.'/../../../templates/footer.php'; ?>
 
