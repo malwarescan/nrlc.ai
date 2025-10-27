@@ -208,6 +208,7 @@ curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 
 <!-- Schemas -->
+<!-- 1. BreadcrumbList (eligible for rich results) -->
 <script type="application/ld+json">{
   "@context":"https://schema.org",
   "@type":"BreadcrumbList",
@@ -217,28 +218,70 @@ curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</
     {"@type":"ListItem","position":3,"name":"JSON Stream + SEO AI","item":"<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/"}
   ]
 }</script>
+
+<!-- 2. TechArticle (primary schema for docs page) -->
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"TechArticle",
+  "headline":"JSON Stream + SEO AI — Promptware",
+  "about":["NDJSON","AI manifest","RAG","LLMO"],
+  "author":{"@type":"Organization","name":"NRLC.ai"},
+  "publisher":{"@type":"Organization","name":"NRLC.ai"},
+  "datePublished":"2025-10-27",
+  "dateModified":"2025-10-27",
+  "inLanguage":"en",
+  "mainEntityOfPage":"<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/"
+}</script>
+
+<!-- 3. HowTo (optional; may not render rich results but good for LLM understanding) -->
 <script type="application/ld+json">{
   "@context":"https://schema.org",
   "@type":"HowTo",
-  "name":"JSON Stream + SEO AI (Promptware)",
-  "description":"Implement an NDJSON streaming API and AI manifest for LLMs and crawlers.",
+  "name":"Install JSON Stream + SEO AI",
   "totalTime":"PT20M",
-  "tool":[{"@type":"HowToTool","name":"PHP 8+"},{"@type":"HowToTool","name":"curl"},{"@type":"HowToTool","name":"jq"}],
+  "tool":[{"@type":"HowToTool","name":"PHP 8+"},{"@type":"HowToTool","name":"jq"}],
   "step":[
-    {"@type":"HowToStep","name":"Install API","text":"Add /api/stream endpoint returning application/x-ndjson."},
-    {"@type":"HowToStep","name":"Emit NDJSON rows","text":"Write one compact JSON-LD object per line."},
-    {"@type":"HowToStep","name":"Expose AI Manifest","text":"Publish /sitemaps/sitemap-ai.ndjson and reference in robots.txt."},
-    {"@type":"HowToStep","name":"Verify","text":"Use curl | head and jq to validate."}
+    {"@type":"HowToStep","name":"Install API","text":"Add /api/stream returning application/x-ndjson."},
+    {"@type":"HowToStep","name":"Build AI Manifest","text":"Generate sitemap-ai.ndjson from CSV."},
+    {"@type":"HowToStep","name":"Verify","text":"Use jq/head to validate JSON lines."}
   ]
 }</script>
+
+<!-- 4. SoftwareSourceCode (excellent for dev docs and LLM ingestion) -->
 <script type="application/ld+json">{
   "@context":"https://schema.org",
   "@type":"SoftwareSourceCode",
-  "name":"NRLC.ai Promptware — JSON Stream + SEO AI",
+  "name":"Promptware — JSON Stream + SEO AI",
   "codeRepository":"<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/",
   "programmingLanguage":"PHP",
-  "runtimePlatform":"PHP 8+ (Apache/Nginx)",
+  "runtimePlatform":"PHP 8+",
   "license":"https://opensource.org/licenses/MIT"
+}</script>
+
+<!-- 5. APIReference (for the /api/stream endpoint) -->
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"APIReference",
+  "name":"NDJSON Stream API",
+  "description":"Streams JSON-LD objects one per line with content-type application/x-ndjson.",
+  "url":"<?= htmlspecialchars($domain) ?>/api/stream",
+  "programmingLanguage":"HTTP",
+  "targetPlatform":"Web"
+}</script>
+
+<!-- 6. Dataset (for the NDJSON manifest - may appear in Dataset Search) -->
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"Dataset",
+  "name":"NRLC.ai AI Manifest (NDJSON)",
+  "description":"Compact JSON-LD rows for site pages to aid LLM/RAG ingestion.",
+  "creator":{"@type":"Organization","name":"NRLC.ai"},
+  "license":"https://opensource.org/licenses/MIT",
+  "distribution":[{
+    "@type":"DataDownload",
+    "encodingFormat":"application/x-ndjson",
+    "contentUrl":"<?= htmlspecialchars($domain) ?>/sitemaps/sitemap-ai.ndjson"
+  }]
 }</script>
 
 <?php include __DIR__.'/../../../templates/footer.php'; ?>
