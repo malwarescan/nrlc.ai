@@ -179,5 +179,68 @@ footer {
     font-size: 0.875rem !important;
   }
 }
+
+/* Force light theme on Promptware pages regardless of system preference */
+main.container,
+main.container * {
+  background-color: white !important;
+  color: #000000 !important;
+}
+
+main.container h1,
+main.container h2,
+main.container h3,
+main.container h4,
+main.container h5,
+main.container h6 {
+  color: #000000 !important;
+}
+
+main.container p,
+main.container li,
+main.container span,
+main.container div {
+  color: #000000 !important;
+}
+
+main.container a {
+  color: #0066cc !important;
+}
+
+main.container a:hover {
+  color: #ff6600 !important;
+}
+
+main.container pre {
+  background: #fff !important;
+  border-color: #ddd !important;
+}
+
+main.container code {
+  color: #000000 !important;
+}
+
+main.container details {
+  background: white !important;
+  border-color: #ddd !important;
+}
+
+main.container details summary {
+  color: #000000 !important;
+}
+
+main.container table {
+  background: white !important;
+}
+
+main.container th {
+  background: #f5f5f5 !important;
+  color: #000000 !important;
+}
+
+main.container td {
+  background: white !important;
+  color: #000000 !important;
+}
 </style>
 
