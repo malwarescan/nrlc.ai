@@ -13,9 +13,27 @@ function route_request(): void {
     i18n_set_locale('en-us'); // default
   }
 
-  if ($path === '/' || $path === '') {
-    render_page('home/home');
-    return;
+  // Favicon files - MUST be at top before other routes
+  $favicon_files = [
+    '/favicon.ico' => ['file' => __DIR__.'/../public/favicon.ico', 'type' => 'image/x-icon'],
+    '/favicon-16x16.png' => ['file' => __DIR__.'/../public/favicon-16x16.png', 'type' => 'image/png'],
+    '/favicon-32x32.png' => ['file' => __DIR__.'/../public/favicon-32x32.png', 'type' => 'image/png'],
+    '/favicon-48x48.png' => ['file' => __DIR__.'/../public/favicon-48x48.png', 'type' => 'image/png'],
+    '/favicon-192.png' => ['file' => __DIR__.'/../public/android-chrome-192x192.png', 'type' => 'image/png'],
+    '/apple-touch-icon.png' => ['file' => __DIR__.'/../public/apple-touch-icon.png', 'type' => 'image/png'],
+    '/android-chrome-192x192.png' => ['file' => __DIR__.'/../public/android-chrome-192x192.png', 'type' => 'image/png'],
+    '/android-chrome-512x512.png' => ['file' => __DIR__.'/../public/android-chrome-512x512.png', 'type' => 'image/png'],
+    '/site.webmanifest' => ['file' => __DIR__.'/../public/site.webmanifest', 'type' => 'application/manifest+json'],
+  ];
+
+  if (isset($favicon_files[$path])) {
+    $favicon_config = $favicon_files[$path];
+    if (file_exists($favicon_config['file'])) {
+      header('Content-Type: ' . $favicon_config['type']);
+      header('Cache-Control: public, max-age=31536000, immutable');
+      readfile($favicon_config['file']);
+      return;
+    }
   }
 
   // robots.txt
@@ -27,6 +45,11 @@ function route_request(): void {
       readfile($robots_file);
       return;
     }
+  }
+
+  if ($path === '/' || $path === '') {
+    render_page('home/home');
+    return;
   }
 
   if (preg_match('#^/services/([^/]+)/$#', $path, $m)) {
