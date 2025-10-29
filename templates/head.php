@@ -37,7 +37,22 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?=htmlspecialchars($title)?></title>
 <meta name="description" content="<?=htmlspecialchars($desc)?>">
-<link rel="icon" type="image/png" href="/favicon.ico.png">
+<!-- Base ICO (legacy + broad UA support) -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+
+<!-- PNG favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+
+<!-- Apple touch -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- PWA (optional but recommended) -->
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Minimal browser UI hint -->
+<meta name="theme-color" content="#0B1220">
 <link rel="canonical" href="<?=absolute_url($canonicalPath)?>">
 
 <!-- Open Graph / Facebook -->
