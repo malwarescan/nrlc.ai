@@ -11,7 +11,7 @@ if (isset($GLOBALS['pageTitle']) && isset($GLOBALS['pageDesc'])) {
   $desc = $GLOBALS['pageDesc'];
   $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 } else {
-  [$title,$desc,$path] = meta_for_slug($slug);
+[$title,$desc,$path] = meta_for_slug($slug);
 }
 
 $baseSchemas = base_schemas();
@@ -81,6 +81,7 @@ header('Content-Type: text/html; charset=utf-8');
 <link rel="stylesheet" href="<?= asset_url('/assets/css/nrlc98.css') ?>">
 <link rel="stylesheet" href="<?= asset_url('/assets/css/grid-bg.css') ?>">
 <link rel="stylesheet" href="<?= asset_url('/assets/css/progress-indicator.css') ?>">
+<link rel="stylesheet" href="/enhance/enhance.css">
 <?php
 foreach (hreflang_links(without_locale_prefix($path)) as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";

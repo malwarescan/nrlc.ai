@@ -1,0 +1,56 @@
+@import url("/enhance/grain.png");
+
+:root {
+  --bg-h: 220;
+  --bg-s: 55%;
+  --bg-l: 8%;
+  --bg-overlay: 0;
+}
+
+.enhance-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.enhance-bg::before,
+.enhance-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 120% at 70% 30%, hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) + 6%)) 0%, hsl(var(--bg-h) var(--bg-s) var(--bg-l)) 60%, #000 100%);
+  opacity: 1;
+  transition: opacity .5s ease-out;
+}
+
+.enhance-bg::after {
+  opacity: var(--bg-overlay);
+}
+
+.enhance-bg.grain {
+  background-image: url("/enhance/grain.png");
+  background-size: 2px 2px;
+  mix-blend-mode: soft-light;
+  opacity: .15;
+}
+
+.enhance-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+
+.enhance-reveal.is-inview {
+  opacity: 1;
+  transform: none;
+  transition: transform .6s ease, opacity .6s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enhance-reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
