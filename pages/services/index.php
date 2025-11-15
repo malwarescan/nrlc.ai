@@ -3,167 +3,210 @@ require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 ?>
 
+<main role="main">
 <section class="container">
     
     <!-- Services Header Window -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Our Services</div>
+        <div class="title-bar-text">Semantic Infrastructure Services</div>
       </div>
       <div class="window-body">
-        <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">AI-First SEO Services</h1>
+        <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">The Semantic Infrastructure for the AI Internet</h1>
         <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">
-          Comprehensive AI-first SEO solutions engineered for modern businesses. Our services optimize your content for both traditional search engines and AI-powered systems.
+          NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.
         </p>
         <div style="text-align: center; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-          <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Consultation</a>
-          <a href="/insights/geo16-framework/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore GEO-16 Framework</a>
+          <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Book a Demo</a>
+          <a href="/insights/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore Research</a>
         </div>
       </div>
     </div>
 
-    <!-- Core Services Window -->
+    <!-- Core Platform Services -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Core Services</div>
+        <div class="title-bar-text">Core Platform</div>
       </div>
       <div class="window-body">
         <div class="grid-auto-fit">
           
           <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">Crawl Clarity Engineering</h3>
-            <p>Duplicate URLs, parameter pollution, and canonical drift waste crawl budget and confuse AI engines. Our crawl clarity service eliminates these issues through systematic URL normalization, parameter stripping, and canonical enforcement. We implement deterministic rules that persist across deployments, ensuring consistent AI engine comprehension and improved citation likelihood.</p>
-            <a href="/services/crawl-clarity/" class="btn" data-ripple>Learn More</a>
+            <h3 style="margin-top: 0; color: #000080;">Semantic Layer</h3>
+            <p>SQL-native ontologies exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms. Transform your data into a semantic graph where relationships are explicit and queries collapse complexity.</p>
+            <a href="/services/semantic-layer/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">JSON-LD & Structured Data Strategy</h3>
-            <p>Thin or inconsistent structured data limits AI engine understanding and reduces citation opportunities. Our JSON-LD strategy implements comprehensive schema markup including Organization, Service, LocalBusiness, and FAQPage schemas. We ensure schema completeness, consistency, and validity across all content types, enabling AI engines to parse and cite your content effectively.</p>
-            <a href="/services/json-ld-strategy/" class="btn" data-ripple>Learn More</a>
+            <h3 style="margin-top: 0; color: #000080;">Data Virtualization</h3>
+            <p>Connect every source into a semantic, virtualized layer with no ingestion or duplication. Your data stays where it lives — NRLC makes it usable. Automatic mapping to the ontology, federated queries, and intelligent pushdown optimization.</p>
+            <a href="/services/data-virtualization/" class="btn" data-ripple>Explore Data Virtualization</a>
           </div>
 
           <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">LLM Seeding & AI Optimization</h3>
-            <p>Large language models require structured, crawl-clear content to understand and cite effectively. Our LLM seeding service optimizes content architecture, entity relationships, and semantic structure for AI comprehension. We implement the GEO-16 framework principles to maximize citation likelihood across major AI engines and search systems.</p>
-            <a href="/services/llm-seeding/" class="btn" data-ripple>Learn More</a>
+            <h3 style="margin-top: 0; color: #000080;">Enterprise LLM Foundation</h3>
+            <p>Structured semantic context, verified relationships, and virtualized access to all data sources. LLMs become reliable once they operate on governed, contextualized, precise data. NRLC delivers that foundation.</p>
+            <a href="/services/enterprise-llm-foundation/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">Technical SEO & Performance</h3>
-            <p>Technical SEO forms the foundation for AI engine comprehension and user experience. Our technical SEO service addresses core web vitals, site speed, mobile optimization, and crawl efficiency. We implement comprehensive monitoring, testing, and optimization protocols to ensure your site meets both traditional search and AI engine requirements.</p>
-            <a href="/services/technical-seo/" class="btn" data-ripple>Learn More</a>
+            <h3 style="margin-top: 0; color: #000080;">Knowledge Graph</h3>
+            <p>Interactive knowledge graph exploration with relationship traversal, insight surfacing, and natural-language query generation. Let LLMs act as your data analyst. Generate SQL or natural-language queries automatically.</p>
+            <a href="/services/knowledge-graph/" class="btn" data-ripple>Explore the Knowledge Graph</a>
           </div>
 
           <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">AI-First Site Audits</h3>
-            <p>Traditional SEO audits miss AI-specific optimization opportunities. Our AI-first site audits evaluate content structure, entity clarity, schema completeness, and crawl efficiency from an AI engine perspective. We provide actionable recommendations based on the GEO-16 framework, ensuring your site is optimized for both traditional search and AI-powered systems.</p>
-            <a href="/services/site-audits/" class="btn" data-ripple>Learn More</a>
+            <h3 style="margin-top: 0; color: #000080;">Ontology Modeling</h3>
+            <p>Rapid semantic modeling with LLM-assisted entity and metric creation. Model your business using SQL-native ontologies with up to 90% reduction in time-to-consumption. No new languages — everything in SQL.</p>
+            <a href="/services/ontology-modeling/" class="btn" data-ripple>Learn More</a>
           </div>
 
           <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">Content Strategy & Optimization</h3>
-            <p>Content strategy for AI engines requires different approaches than traditional SEO. Our content optimization service focuses on entity clarity, semantic structure, and comprehensive coverage of topics. We implement content hierarchies, internal linking strategies, and entity relationship mapping to maximize AI engine comprehension and citation opportunities.</p>
-            <a href="/services/content-strategy/" class="btn" data-ripple>Learn More</a>
+            <h3 style="margin-top: 0; color: #000080;">REST API</h3>
+            <p>Your REST layer becomes semantic, self-documenting, and deeply expressive. Nested semantic fetches, field-level precision, role & row-level governance, and automatic OpenAPI/Swagger generation.</p>
+            <a href="/services/rest-api/" class="btn" data-ripple>REST API Documentation</a>
           </div>
 
         </div>
       </div>
     </div>
-    
-    <!-- Service Process Window -->
+
+    <!-- AI Capabilities -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Our Process</div>
+        <div class="title-bar-text">AI Capabilities</div>
       </div>
       <div class="window-body">
-        <h2 style="color: #000080; margin-top: 0;">How We Work</h2>
-        <p>Our AI-first SEO process is designed to optimize your content for both traditional search engines and AI-powered systems.</p>
+        <h2 style="color: #000080; margin-top: 0;">Build AI Workflows on Structured Understanding</h2>
+        <p>Power AI with structured semantic context, verified relationships, virtualized access to all data sources, SQL measures, and fine-grained access control.</p>
         
         <div class="grid-auto-fit margin-top-20">
-          <div class="box-padding" style="background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">1. AI-First Audit</h4>
-            <p>Comprehensive evaluation of your site's AI optimization potential using the GEO-16 framework.</p>
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">NL2SQL Generation</h4>
+            <p>Convert natural language queries into optimized SQL using semantic understanding of your data model.</p>
           </div>
           
-          <div class="box-padding" style="background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">2. Strategy Development</h4>
-            <p>Custom AI-first SEO strategy tailored to your business goals and target AI engines.</p>
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">GraphRAG</h4>
+            <p>Retrieval-augmented generation powered by your knowledge graph for accurate, contextual AI responses.</p>
           </div>
           
-          <div class="box-padding" style="background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">3. Implementation</h4>
-            <p>Systematic implementation of crawl clarity, structured data, and LLM seeding optimizations.</p>
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">Graph Analytics</h4>
+            <p>Analyze relationships, patterns, and insights across your entire semantic graph with powerful graph algorithms.</p>
           </div>
           
-          <div class="box-padding" style="background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">4. Monitoring & Optimization</h4>
-            <p>Ongoing monitoring and optimization to ensure continued AI engine performance and citation improvements.</p>
+          <div class="box-padding">
+            <h4 style="margin-top: 0; color: #000080;">LLM Data Analyst</h4>
+            <p>Let LLMs act as your data analyst, generating queries, surfacing insights, and answering complex questions about your data.</p>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Why Choose AI-First SEO Window -->
+
+    <!-- Integrations -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Why AI-First SEO Matters</div>
+        <div class="title-bar-text">Connect Anything</div>
       </div>
       <div class="window-body">
-        <h2 style="color: #000080; margin-top: 0;">The Future of Search is AI-Powered</h2>
-        <p>Traditional SEO approaches focus on ranking algorithms, but the future belongs to AI engines that understand, synthesize, and cite content directly to users. Our AI-first methodology ensures your content is optimized for this paradigm shift.</p>
+        <h2 style="color: #000080; margin-top: 0;">No syncing. No lifting. No duplication.</h2>
+        <p>NRLC supports universal connectivity across data platforms, BI tools, AI frameworks, and protocols.</p>
         
         <div class="grid-auto-fit margin-top-20">
           <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">Direct AI Citations</h4>
-            <p>When users ask AI engines questions, your content needs to be structured for direct citation rather than just ranking. Our services ensure your content is parseable and citable by major AI systems.</p>
+            <h4 style="margin-top: 0; color: #000080;">Data Platforms</h4>
+            <p>Databricks, Snowflake, Fabric, GCP, AWS, SAP HANA, data warehouses, data lakes, databases, catalogs</p>
           </div>
           
           <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">Structured Data Excellence</h4>
-            <p>AI engines rely heavily on structured data to understand content context and relationships. Our comprehensive schema implementation ensures maximum AI comprehension and citation accuracy.</p>
+            <h4 style="margin-top: 0; color: #000080;">BI Tools</h4>
+            <p>Power BI, Tableau, Looker, Qlik, Excel, Superset. Reuse metrics across BI tools without vendor lock-in.</p>
           </div>
           
           <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">Entity Clarity</h4>
-            <p>Clear entity identification and relationship mapping enables AI engines to understand your content's authority and relevance. We implement systematic entity optimization across all content types.</p>
+            <h4 style="margin-top: 0; color: #000080;">AI/ML Frameworks</h4>
+            <p>Python, LangChain, LangGraph, GraphRAG, Graph Algorithms. Native integration with modern AI tooling.</p>
           </div>
           
           <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">Crawl Efficiency</h4>
-            <p>AI engines need clean, crawlable content structures. Our crawl clarity engineering eliminates URL confusion and ensures optimal content discovery and parsing.</p>
+            <h4 style="margin-top: 0; color: #000080;">Protocols</h4>
+            <p>REST, SQL, JDBC/ODBC, MDX, OLAP. Standard protocols with semantic enhancements.</p>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Industry Applications Window -->
+
+    <!-- Solutions -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Industry Applications</div>
+        <div class="title-bar-text">Solutions</div>
       </div>
       <div class="window-body">
-        <h2 style="color: #000080; margin-top: 0;">AI-First SEO Across Industries</h2>
-        <p>Our AI-first SEO services deliver measurable results across diverse industries, from e-commerce to SaaS to content publishing. Each implementation is tailored to industry-specific AI engine behaviors and user search patterns.</p>
+        <h2 style="color: #000080; margin-top: 0;">Industry-Specific Semantic Solutions</h2>
+        <p>Pre-built semantic models and solutions for common use cases and industries.</p>
         
-        <div class="grid-auto-fit margin-top-20">
-          <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">E-commerce & Retail</h4>
-            <p>Product schema optimization, review aggregation, and inventory management for AI-powered shopping assistants and comparison engines.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Intelligent Semantic Layer</h4>
+            <p>Unified semantic abstraction across all your data sources.</p>
           </div>
           
-          <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">SaaS & Technology</h4>
-            <p>Technical documentation optimization, API schema implementation, and knowledge base structuring for AI-powered developer tools and support systems.</p>
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Metrics Store</h4>
+            <p>Centralized, reusable metrics with consistent definitions.</p>
           </div>
           
-          <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">Content & Media</h4>
-            <p>Article schema enhancement, author authority signals, and content relationship mapping for AI-powered news aggregation and content discovery.</p>
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Data Mesh</h4>
+            <p>Federated data architecture with semantic governance.</p>
           </div>
           
-          <div class="box-padding">
-            <h4 style="margin-top: 0; color: #000080;">Professional Services</h4>
-            <p>Local business optimization, service schema implementation, and expertise signaling for AI-powered professional directory and recommendation systems.</p>
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Data Fabric</h4>
+            <p>Unified data management across hybrid and multi-cloud environments.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Digital Twin</h4>
+            <p>Semantic representation of physical systems and processes.</p>
+          </div>
+          
+          <div style="padding: 1rem; background: #f8f8f8;">
+            <h4 style="margin-top: 0; color: #000080;">Industry Models</h4>
+            <p>FHIR, FIBO, Supply Chain, Telecom, Analytics ontologies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Key Benefits</div>
+      </div>
+      <div class="window-body">
+        <h2 style="color: #000080; margin-top: 0;">Why Organizations Choose NRLC</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+          <div style="padding: 1rem;">
+            <h4 style="margin-top: 0; color: #000080;">90% Faster Time-to-Consumption</h4>
+            <p>Rapid semantic modeling and LLM-assisted entity creation dramatically reduce implementation time.</p>
+          </div>
+          
+          <div style="padding: 1rem;">
+            <h4 style="margin-top: 0; color: #000080;">No Data Duplication</h4>
+            <p>Virtualized access means your data stays where it lives. No syncing, no lifting, no duplication.</p>
+          </div>
+          
+          <div style="padding: 1rem;">
+            <h4 style="margin-top: 0; color: #000080;">SQL-Native</h4>
+            <p>Everything in SQL. No new languages or paradigms to learn. Your team already knows how to use it.</p>
+          </div>
+          
+          <div style="padding: 1rem;">
+            <h4 style="margin-top: 0; color: #000080;">Enterprise-Ready</h4>
+            <p>Deploy in SaaS, cloud, or on-premises. Kubernetes-ready with fine-grained governance and access control.</p>
           </div>
         </div>
       </div>
@@ -176,19 +219,20 @@ require_once __DIR__ . '/../../templates/header.php';
       </div>
       <div class="window-body">
         <div style="text-align: center;">
-          <h2 style="color: #000080; margin-top: 0;">Transform Your AI Engine Visibility</h2>
+          <h2 style="color: #000080; margin-top: 0;">Build Semantic Intelligence Into Your Stack</h2>
           <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Join forward-thinking businesses optimizing for the AI-powered future of search. Our comprehensive AI-first SEO services deliver measurable improvements in AI engine citation rates, user engagement, and organic visibility.
+            Transform your data into a semantic knowledge graph that powers reliable AI workflows. Book a demo to see how NRLC can accelerate your AI initiatives.
           </p>
           <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-            <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Consultation</a>
-            <a href="/insights/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore Our Research</a>
+            <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Book a live demo</a>
+            <a href="/insights/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore Research</a>
           </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
 </section>
+</main>
 
 <?php
 // JSON-LD Schema
@@ -196,59 +240,45 @@ $jsonld = [
   [
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "AI-First SEO Services",
-    "description" => "Comprehensive AI-first SEO solutions engineered for modern businesses",
+    "name" => "Semantic Infrastructure Platform",
+    "description" => "A unified semantic layer for the AI era that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph",
     "provider" => [
       "@type" => "Organization",
       "name" => "NRLC.ai",
       "url" => "https://nrlc.ai"
     ],
-    "serviceType" => "SEO Services",
+    "serviceType" => "Semantic Infrastructure Platform",
     "areaServed" => "Worldwide",
     "hasOfferCatalog" => [
       "@type" => "OfferCatalog",
-      "name" => "AI-First SEO Services",
+      "name" => "Semantic Infrastructure Services",
       "itemListElement" => [
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "Crawl Clarity Engineering"
+            "name" => "Semantic Layer"
           ]
         ],
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "JSON-LD & Structured Data Strategy"
+            "name" => "Data Virtualization"
           ]
         ],
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "LLM Seeding & AI Optimization"
+            "name" => "Enterprise LLM Foundation"
           ]
         ],
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "Technical SEO & Performance"
-          ]
-        ],
-        [
-          "@type" => "Offer",
-          "itemOffered" => [
-            "@type" => "Service",
-            "name" => "AI-First Site Audits"
-          ]
-        ],
-        [
-          "@type" => "Offer",
-          "itemOffered" => [
-            "@type" => "Service",
-            "name" => "Content Strategy & Optimization"
+            "name" => "Knowledge Graph"
           ]
         ]
       ]

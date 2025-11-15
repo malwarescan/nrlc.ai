@@ -8,210 +8,391 @@ $insights = csv_read_data('insights.csv');
 $latest_insights = array_slice($insights, -4); // Get last 4 insights
 ?>
 
+<main role="main">
 <section class="container">
     
-    <!-- Hero / Mission Window -->
+    <!-- Hero / Main Value Proposition -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Optimizing the Internet for AI Understanding</div>
+        <div class="title-bar-text">nrlc.ai — The Semantic Infrastructure for the AI Internet</div>
       </div>
       <div class="window-body">
         <div class="hero-content" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
           <?php
           // Cycle through available logos
           $logos = ['nrlcai logo 0.png', 'nrlcai logo 3.png', 'nrlcai logo 4.png'];
-          $logoIndex = time() % count($logos); // Simple time-based cycling
+          $logoIndex = time() % count($logos);
           $selectedLogo = $logos[$logoIndex];
           ?>
           <img src="/assets/images/<?= htmlspecialchars($selectedLogo) ?>" alt="NRLC.ai Logo" class="hero-logo" style="height: 80px; width: auto; max-width: 250px;">
-          <?php
-          // Cycle through different topic clusters and service descriptions
-          $topicClusters = [
-            [
-              'heading' => 'AI-First SEO, LLM Seeding, Crawl Clarity & Structured Data Optimization',
-              'description' => 'NRLC.ai engineers crawl clarity, structured data, and LLM seeding strategies that make your site readable by both Google and GPT.'
-            ],
-            [
-              'heading' => 'GEO-16 Framework Implementation, Entity Clarity & Semantic SEO',
-              'description' => 'Our GEO-16 framework optimizes content for AI engine citation through systematic entity mapping, semantic structure, and verification signals.'
-            ],
-            [
-              'heading' => 'Technical SEO, Performance Optimization & Core Web Vitals',
-              'description' => 'We optimize technical infrastructure, page speed, mobile responsiveness, and Core Web Vitals for both traditional search and AI engines.'
-            ],
-            [
-              'heading' => 'International SEO, Hreflang Engineering & Multi-Regional Optimization',
-              'description' => 'Comprehensive hreflang implementation, locale-specific structured data, and regional content optimization for global AI engine targeting.'
-            ],
-            [
-              'heading' => 'Content Strategy, Internal Linking & Topic Authority Building',
-              'description' => 'Strategic content architecture, internal linking optimization, and topic authority development for enhanced AI engine comprehension.'
-            ],
-            [
-              'heading' => 'Schema Markup, JSON-LD Implementation & Rich Results Optimization',
-              'description' => 'Comprehensive schema markup including Organization, Service, LocalBusiness, and FAQPage schemas for maximum AI engine visibility.'
-            ]
-          ];
-          $topicIndex = time() % count($topicClusters);
-          $selectedTopic = $topicClusters[$topicIndex];
-          ?>
-          <h1 class="hero-heading" style="margin: 0; font-size: 2rem; color: #000080;"><?= htmlspecialchars($selectedTopic['heading']) ?></h1>
+          <div style="flex: 1;">
+            <h1 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: #000080; line-height: 1.2;">
+              The Semantic Infrastructure<br>for the AI Internet
+            </h1>
+            <p class="lead" style="font-size: 1.3rem; margin: 0; color: #000080;">
+              Where data becomes knowledge.<br>Where knowledge becomes intelligence.
+            </p>
+          </div>
         </div>
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">
-          <?= htmlspecialchars($selectedTopic['description']) ?>
-        </p>
-        <div style="text-align: center; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-          <a href="/services/site-audits/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Run an AI-First Audit</a>
-          <a href="/insights/geo16-framework/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore GEO-16 Framework</a>
+        
+        <div style="border-top: 2px solid #000080; padding-top: 1.5rem; margin-top: 1.5rem;">
+          <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem; color: #000080;">The Operating Layer for Agentic Systems</h2>
+          <p class="lead" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+            NRLC builds the semantic foundation that allows LLMs, agents, and applications to interact with enterprise data as if it were fully mapped, contextualized, and logically structured.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="/api/book/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Book a Demo</a>
+            <a href="/services/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Explore the Knowledge Graph</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Second Hero: Goldmine-Proof SEO -->
-    <?php
-    $locale = current_locale();
-    $goldmine_hero = [
-      'en-us' => [
-        'title' => 'Goldmine-Proof SEO: Win the Title Competition',
-        'subhead' => 'Align title, H1, URL, and intro—validate with interaction data.',
-        'cta_primary_text' => 'Start a Crawl Clarity Review',
-        'cta_primary_link' => '/services/technical-audit-ai/',
-        'cta_secondary_text' => 'See the GEO-16 Method',
-        'cta_secondary_link' => '/insights/geo16-introduction/',
-        'bullet1' => 'Coherent titles that survive candidate selection',
-        'bullet2' => 'No boilerplate; no truncation surprises',
-        'bullet3' => 'Fast paths to satisfied clicks'
-      ],
-      'en-gb' => [
-        'title' => 'Goldmine-Proof SEO: Win the Title Competition',
-        'subhead' => 'Align title, H1, URL and intro—validate with interaction data.',
-        'cta_primary_text' => 'Start a Technical Audit',
-        'cta_primary_link' => '/en-gb/services/technical-audit-ai/',
-        'cta_secondary_text' => 'See the GEO-16 Method',
-        'cta_secondary_link' => '/en-gb/insights/geo16-introduction/',
-        'bullet1' => 'Coherent titles that survive candidate selection',
-        'bullet2' => 'No boilerplate; no truncation surprises',
-        'bullet3' => 'Fast paths to satisfied clicks'
-      ],
-      'es-es' => [
-        'title' => 'SEO resistente a Goldmine',
-        'subhead' => 'Alinea título, H1, URL e intro y valida con datos de interacción.',
-        'cta_primary_text' => 'Inicia una auditoría técnica',
-        'cta_primary_link' => '/es-es/services/technical-audit-ai/',
-        'cta_secondary_text' => 'Método GEO-16',
-        'cta_secondary_link' => '/es-es/insights/geo16-introduction/',
-        'bullet1' => 'Títulos coherentes que superan la selección',
-        'bullet2' => 'Sin repeticiones ni truncamiento',
-        'bullet3' => 'Rutas rápidas a clics satisfechos'
-      ],
-      'fr-fr' => [
-        'title' => 'SEO robuste face à Goldmine',
-        'subhead' => 'Alignez title, H1, URL et intro, puis validez par les interactions.',
-        'cta_primary_text' => 'Lancer un audit technique',
-        'cta_primary_link' => '/fr-fr/services/technical-audit-ai/',
-        'cta_secondary_text' => 'Méthode GEO-16',
-        'cta_secondary_link' => '/fr-fr/insights/geo16-introduction/',
-        'bullet1' => 'Titres cohérents qui résistent à la sélection',
-        'bullet2' => 'Pas de boilerplate ni de troncature',
-        'bullet3' => 'Voies rapides vers des clics satisfaits'
-      ],
-      'de-de' => [
-        'title' => 'Goldmine-feste SEO',
-        'subhead' => 'Title, H1, URL und Intro ausrichten; mit Interaktionen validieren.',
-        'cta_primary_text' => 'Technisches Audit starten',
-        'cta_primary_link' => '/de-de/services/technical-audit-ai/',
-        'cta_secondary_text' => 'GEO-16-Methode',
-        'cta_secondary_link' => '/de-de/insights/geo16-introduction/',
-        'bullet1' => 'Kohärente Titel, die Auswahl überstehen',
-        'bullet2' => 'Kein Boilerplate, keine Trunkierung',
-        'bullet3' => 'Schnelle Wege zu zufriedenen Klicks'
-      ],
-      'ko-kr' => [
-        'title' => 'Goldmine 대응 SEO',
-        'subhead' => '제목·H1·URL·인트로를 정합화하고 상호작용 데이터로 검증합니다.',
-        'cta_primary_text' => '기술 감사 시작',
-        'cta_primary_link' => '/ko-kr/services/technical-audit-ai/',
-        'cta_secondary_text' => 'GEO-16 방법',
-        'cta_secondary_link' => '/ko-kr/insights/geo16-introduction/',
-        'bullet1' => '후보 선택을 통과하는 일관된 제목',
-        'bullet2' => '상투구 없음, 절단 없음',
-        'bullet3' => '만족 클릭으로 가는 빠른 경로'
-      ]
-    ];
-    $hero = $goldmine_hero[$locale] ?? $goldmine_hero['en-us'];
-    ?>
+    <!-- Unified Semantic Layer -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Google Goldmine Title Selection</div>
+        <div class="title-bar-text">A Unified Semantic Layer for the AI Era</div>
       </div>
       <div class="window-body">
-        <h2 style="margin: 0 0 1rem 0; font-size: 1.75rem; color: #000080;"><?= htmlspecialchars($hero['title']) ?></h2>
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-          <?= htmlspecialchars($hero['subhead']) ?>
+        <h2 style="margin: 0 0 1rem 0; font-size: 1.75rem; color: #000080;">Stop stitching tools together.</h2>
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          Stop forcing LLMs to interpret raw tables.<br>
+          Stop building bespoke pipelines for every use case.
         </p>
-        <ul style="margin-bottom: 1.5rem;">
-          <li><?= htmlspecialchars($hero['bullet1']) ?></li>
-          <li><?= htmlspecialchars($hero['bullet2']) ?></li>
-          <li><?= htmlspecialchars($hero['bullet3']) ?></li>
+        <p style="font-size: 1rem; margin-bottom: 1.5rem;">
+          NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.
+        </p>
+        <a href="/services/" class="btn" data-ripple>See how it works</a>
+      </div>
+    </div>
+
+    <!-- Think in Concepts -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Think in Concepts, Not Tables</div>
+      </div>
+      <div class="window-body">
+        <h2 style="margin: 0 0 1rem 0; font-size: 1.75rem; color: #000080;">Modern data is complex. NRLC abstracts it into meaningful objects, relationships, metrics, and logical rules.</h2>
+        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">What this enables:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+          <li>Structured data becomes a semantic graph</li>
+          <li>LLMs answer with contextual accuracy</li>
+          <li>Queries collapse from dozens of JOINs to concise, relationship-aware logic</li>
+          <li>Applications consume data as connected concepts, not raw sources</li>
+          <li>Governance is enforced automatically across the entire knowledge layer</li>
         </ul>
-        <div style="text-align: center; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-          <a href="<?= htmlspecialchars($hero['cta_primary_link']) ?>" class="btn" data-ripple style="width: 100%; max-width: 300px;"><?= htmlspecialchars($hero['cta_primary_text']) ?></a>
-          <a href="<?= htmlspecialchars($hero['cta_secondary_link']) ?>" class="btn" data-ripple style="width: 100%; max-width: 300px;"><?= htmlspecialchars($hero['cta_secondary_text']) ?></a>
+        <a href="/services/" class="btn" data-ripple>See it in action</a>
+      </div>
+    </div>
+
+    <!-- Semantic Layer Re-engineered -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">The Semantic Layer, Re-engineered for AI</div>
+      </div>
+      <div class="window-body">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          Our ontology engine models your business using SQL-native ontologies, exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms.
+        </p>
+        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Core capabilities:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+          <li>Semantic representation of every entity</li>
+          <li>Explicit relationships replacing JOIN complexity</li>
+          <li>Business logic encoded into reusable rules</li>
+          <li>Hierarchies, classifications, inheritance</li>
+          <li>Automated reasoning across the entire graph</li>
+        </ul>
+        <a href="/insights/" class="btn" data-ripple>Learn why teams adopt semantic modeling</a>
+      </div>
+    </div>
+
+    <!-- Build AI Workflows -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Build AI Workflows on Structured Understanding</div>
+      </div>
+      <div class="window-body">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          LLMs become reliable once they operate on governed, contextualized, precise data.<br>
+          NRLC delivers that foundation.
+        </p>
+        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Power AI with:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+          <li>Structured semantic context</li>
+          <li>Verified relationships</li>
+          <li>Virtualized access to all data sources</li>
+          <li>SQL measures and reusable metrics</li>
+          <li>Fine-grained access control</li>
+        </ul>
+        <a href="/services/" class="btn" data-ripple>Enterprise LLM Foundation Overview</a>
+      </div>
+    </div>
+
+    <!-- Simplify Data Path -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Simplify the Entire Path from Data → Insight</div>
+      </div>
+      <div class="window-body">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          NRLC connects every source into a semantic, virtualized layer with no ingestion or duplication.<br>
+          Your data stays where it lives — NRLC makes it usable.
+        </p>
+        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Benefits:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+          <li>Automatic mapping to the ontology</li>
+          <li>Federated queries across clouds and databases</li>
+          <li>Intelligent pushdown + query optimization</li>
+          <li>Powerful caching engine that reduces compute spend</li>
+          <li>Unified graph view across all sources</li>
+        </ul>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="/services/data-mapping/" class="btn" data-ripple>See how data is mapped</a>
+          <a href="/services/data-virtualization/" class="btn" data-ripple>Explore data virtualization</a>
+          <a href="/insights/" class="btn" data-ripple>Performance & caching insights</a>
         </div>
       </div>
     </div>
 
-    <!-- Core Services Window -->
+    <!-- Connect Anything -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Core Services</div>
+        <div class="title-bar-text">Connect Anything</div>
       </div>
       <div class="window-body">
-        <div class="grid-auto-fit">
-          
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">Crawl Clarity Engineering</h3>
-            <p>Duplicate URLs, parameter pollution, and canonical drift waste crawl budget and confuse AI engines. Our crawl clarity service eliminates these issues through systematic URL normalization, parameter stripping, and canonical enforcement. We implement deterministic rules that persist across deployments, ensuring consistent AI engine comprehension and improved citation likelihood.</p>
-                <a href="/services/crawl-clarity/" class="btn" data-ripple>Learn More</a>
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          No syncing. No lifting. No duplication.
+        </p>
+        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Supported universally:</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div>
+            <strong>Data Platforms:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+              <li>Data warehouses</li>
+              <li>Data lakes</li>
+              <li>Databases</li>
+              <li>Catalogs</li>
+            </ul>
           </div>
-
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">JSON-LD & Structured Snippet Strategy</h3>
-            <p>Thin or inconsistent structured data limits AI engine understanding and reduces citation opportunities. Our JSON-LD strategy implements comprehensive schema markup including Organization, Service, LocalBusiness, and FAQPage schemas. We ensure schema completeness, consistency, and validity across all content types, enabling AI engines to parse and cite your content effectively.</p>
-                <a href="/services/json-ld-strategy/" class="btn" data-ripple>Learn More</a>
+          <div>
+            <strong>BI Tools:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+              <li>Power BI</li>
+              <li>Tableau</li>
+              <li>Looker</li>
+              <li>Qlik</li>
+            </ul>
           </div>
-
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">LLM Seeding Optimization</h3>
-            <p>AI engines prioritize content that demonstrates entity clarity, semantic structure, and verification signals. Our LLM seeding service optimizes content for AI comprehension through systematic entity identification, relationship mapping, and credibility enhancement. We implement GEO-16 framework principles to ensure your content meets AI engine citation requirements.</p>
-                <a href="/services/llm-seeding/" class="btn" data-ripple>Learn More</a>
+          <div>
+            <strong>AI Frameworks:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+              <li>Python</li>
+              <li>LangChain</li>
+              <li>LangGraph</li>
+              <li>GraphRAG</li>
+            </ul>
           </div>
-
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">AI-First Site Audits</h3>
-            <p>Traditional SEO audits miss AI-specific optimization opportunities and fail to address generative search requirements. Our AI-first audits evaluate content against GEO-16 framework pillars, assess structured data completeness, and identify AI engine visibility gaps. We provide actionable recommendations for improving citation likelihood and AI engine comprehension.</p>
-                <a href="/services/site-audits/" class="btn" data-ripple>Learn More</a>
+          <div>
+            <strong>Protocols:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+              <li>REST, SQL</li>
+              <li>JDBC, ODBC</li>
+              <li>OLAP, MDX</li>
+            </ul>
           </div>
+        </div>
+        <a href="/services/" class="btn" data-ripple>View all integrations</a>
+      </div>
+    </div>
 
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">International SEO & Hreflang Engineering</h3>
-            <p>Multi-regional content requires sophisticated hreflang implementation and locale-specific optimization to ensure proper AI engine targeting. Our international SEO service implements comprehensive hreflang clusters, locale-specific structured data, and regional content optimization. We ensure AI engines understand geographic targeting and serve appropriate content to users worldwide.</p>
-                <a href="/services/international-seo/" class="btn" data-ripple>Learn More</a>
-          </div>
+    <!-- Power Applications With Smart REST -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Power Applications With Smart REST</div>
+      </div>
+      <div class="window-body">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          Your REST layer becomes semantic, self-documenting, and deeply expressive.
+        </p>
+        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Capabilities:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+          <li>Nested semantic fetches</li>
+          <li>Field-level precision</li>
+          <li>Role & row-level governance</li>
+          <li>Reduced network payload</li>
+          <li>Automatic OpenAPI/Swagger generation</li>
+        </ul>
+        <a href="/services/rest-api/" class="btn" data-ripple>REST API Documentation</a>
+      </div>
+    </div>
 
+    <!-- Accelerated Analytics -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Accelerated Analytics</div>
+      </div>
+      <div class="window-body">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          Semantic relationships collapse query complexity and reduce time to value.
+        </p>
+        <div style="background: #f0f0f0; padding: 1rem; margin: 1rem 0; border: 1px solid #ccc;">
+          <p style="margin: 0 0 0.5rem 0; font-weight: 600;">Example</p>
+          <p style="margin: 0 0 0.5rem 0;"><strong>Traditional SQL:</strong> 22 lines</p>
+          <p style="margin: 0;"><strong>Semantic SQL:</strong> 6 lines</p>
+        </div>
+        <a href="/insights/" class="btn" data-ripple>Learn more about semantic queries</a>
+      </div>
+    </div>
+
+    <!-- Interactive Knowledge Graph -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Interactive Knowledge Graph Exploration</div>
+      </div>
+      <div class="window-body">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          Traverse relationships. Surface insights.<br>
+          Generate SQL or natural-language queries.<br>
+          Let LLMs act as your data analyst.
+        </p>
+        <a href="/services/" class="btn" data-ripple>Explore the Knowledge Graph</a>
+      </div>
+    </div>
+
+    <!-- Decouple BI -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Decouple BI From Raw Data</div>
+      </div>
+      <div class="window-body">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
+          Stable metrics, reusable logic, and dynamic mappings eliminate the fragility of BI dashboards.
+        </p>
+        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Benefits:</p>
+        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+          <li>Reuse metrics across BI tools</li>
+          <li>Update structures without breaking dashboards</li>
+          <li>Push compute back to your warehouse</li>
+          <li>Avoid vendor lock-in</li>
+          <li>Speed up cloud migrations</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Faster Implementation -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Faster Implementation. Faster Answers.</div>
+      </div>
+      <div class="window-body">
+        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+          <li>Rapid semantic modeling</li>
+          <li>LLM-assisted entity + metric creation</li>
+          <li>Up to 90% reduction in time-to-consumption</li>
+          <li>No new languages — everything in SQL</li>
+          <li>Deploy in SaaS, cloud, or on-premises</li>
+          <li>Kubernetes-ready</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Ready To Build Semantic Intelligence Into Your Stack?</div>
+      </div>
+      <div class="window-body">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+          <a href="/api/book/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Book a live demo</a>
+          <a href="/services/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Start your free trial</a>
+          <a href="/services/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Get product overview</a>
         </div>
       </div>
-      </div>
+    </div>
 
-    <!-- GEO-16 Framework Summary -->
+    <!-- Product Overview -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">GEO-16 Framework</div>
+        <div class="title-bar-text">Product Overview</div>
       </div>
       <div class="window-body">
-        <p>The GEO-16 framework represents our comprehensive research into AI engine citation behavior, identifying sixteen critical signals that determine citation success in generative search engines. Based on analysis of 1,700 citations across four major AI engines, the framework provides actionable guidance for optimizing content structure, metadata completeness, entity clarity, and verification signals. Organizations implementing GEO-16 principles see average citation improvements of 340% within 90 days.</p>
-        <div style="text-align: center; margin-top: 1rem;">
-          <a href="/insights/geo16-framework/" class="btn" data-ripple>Read Full Framework</a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div>
+            <h3 style="color: #000080; margin-top: 0;">Core Platform</h3>
+            <ul style="padding-left: 1.5rem;">
+              <li>Semantic Layer</li>
+              <li>SQL Ontologies</li>
+              <li>Enterprise LLM Foundation</li>
+              <li>Ontology Modeling</li>
+              <li>Virtualization</li>
+              <li>Cache Engine</li>
+              <li>SQL Measures</li>
+              <li>Governance & Access Control</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color: #000080; margin-top: 0;">AI Capabilities</h3>
+            <ul style="padding-left: 1.5rem;">
+              <li>NL2SQL Generation</li>
+              <li>GraphRAG</li>
+              <li>Graph Analytics</li>
+              <li>LLM Data Analyst</li>
+              <li>Natural Language for Excel</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color: #000080; margin-top: 0;">Integrations</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Data Platforms:</strong> Databricks, Snowflake, Fabric, GCP, AWS, SAP HANA</p>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>BI:</strong> Power BI, Tableau, Looker, Qlik, Excel, Superset</p>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>AI/ML:</strong> Python, LangChain, LangGraph, Graph Algorithms</p>
+            <p style="font-size: 0.9rem;"><strong>Consumption:</strong> SQL, JDBC/ODBC, MDX, REST</p>
+          </div>
+          <div>
+            <h3 style="color: #000080; margin-top: 0;">Solutions</h3>
+            <ul style="padding-left: 1.5rem; font-size: 0.9rem;">
+              <li>Intelligent Semantic Layer</li>
+              <li>Metrics Store</li>
+              <li>Data Virtualization</li>
+              <li>Data Mesh</li>
+              <li>Data Fabric</li>
+              <li>Digital Twin</li>
+              <li>Semantic Data Lake</li>
+              <li>Lakehouse Semantic Model</li>
+              <li>RDF & OWL Modernization</li>
+              <li>Industry models: FHIR, FIBO, Supply Chain, Telecom, Analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Resources</div>
+      </div>
+      <div class="window-body">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+          <div>
+            <h3 style="color: #000080; margin-top: 0;">Resources</h3>
+            <ul style="padding-left: 1.5rem;">
+              <li><a href="/insights/">Knowledge Base</a></li>
+              <li><a href="/services/">Documentation</a></li>
+              <li><a href="/insights/">Tutorials</a></li>
+              <li><a href="/services/">Ontology Catalog</a></li>
+              <li><a href="/insights/">Benchmarks</a></li>
+              <li><a href="/insights/">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color: #000080; margin-top: 0;">Company</h3>
+            <ul style="padding-left: 1.5rem;">
+              <li><a href="/insights/">News</a></li>
+              <li><a href="/services/">Partners</a></li>
+              <li><a href="/services/">Support</a></li>
+              <li><a href="/api/book/">Contact</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -240,50 +421,8 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
       </div>
     </div>
 
-    <!-- Open-Source Resources -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Open-Source Research & Tools</div>
-      </div>
-      <div class="window-body">
-        <p>Our research builds upon foundational open-source projects that enable AI-first optimization. <a href="/insights/yago-entity-mapping/">YAGO</a> provides comprehensive entity disambiguation and canonical mapping capabilities essential for schema alignment. <a href="/insights/ocrplus-data-ingestion/">OCR++</a> technologies enable conversion of legacy documents into structured data pipelines that AI engines can parse effectively.</p>
-        
-        <p><a href="/insights/semantic-drift-tracking/">Semantic drift tracking</a> research helps organizations maintain content freshness and relevance over time, while <a href="/insights/ontology-based-search/">ontology-based search systems</a> improve generative retrieval capabilities. We integrate these open-source tools with our proprietary GEO-16 framework to provide comprehensive optimization solutions.</p>
-        
-        <p>Our <a href="/insights/open-seo-tools/">curated tool list</a> includes Lighthouse for performance auditing, Stanford CoreNLP for natural language processing, and Apache Tika for content extraction. These tools, combined with our research insights, enable organizations to implement effective AI-first optimization strategies.</p>
-      </div>
-    </div>
-
-    <!-- Homepage FAQ -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Frequently Asked Questions</div>
-      </div>
-      <div class="window-body">
-        <div class="faq-section">
-          <h3 style="color: #000080;">What is GEO-16?</h3>
-          <p>The GEO-16 framework is a sixteen-pillar model defining on-page and off-page signals that increase AI engine citation likelihood. Based on comprehensive research analyzing 1,700 citations across four major AI engines, the framework provides actionable guidance for optimizing content structure, metadata completeness, entity clarity, and verification signals.</p>
-          
-          <h3 style="color: #000080;">How does LLM seeding work?</h3>
-          <p>LLM seeding works by publishing crawl-clear, schema-rich content that large language models can parse and cite directly. This involves implementing comprehensive structured data, ensuring entity clarity, maintaining semantic structure, and providing verification signals that demonstrate content authority and reliability.</p>
-          
-          <h3 style="color: #000080;">How quickly can I see results?</h3>
-          <p>Organizations implementing our GEO-16 framework typically see significant improvements in AI citation rates within 90 days. The most dramatic improvements occur in technical documentation and research content, where structured data implementation and entity clarity have the greatest impact on AI engine comprehension.</p>
-          
-          <h3 style="color: #000080;">What makes NRLC.ai different?</h3>
-          <p>NRLC.ai combines academic research rigor with practical implementation expertise. Our team includes former Google engineers, AI researchers, and SEO practitioners who understand both the technical requirements of AI engines and the business needs of organizations seeking visibility in generative search results.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA Section -->
-    <div class="center margin-top-20 box-padding" style="background: #f0f0f0;">
-      <a href="/api/book/" class="btn" data-ripple style="margin-right: 1rem;">Schedule Consultation</a>
-      <a href="/services/" class="btn" data-ripple style="margin-right: 1rem;">See Services</a>
-      <a href="/insights/" class="btn" data-ripple>Read Insights</a>
-    </div>
-
 </section>
+</main>
 
 <script type="application/ld+json">
 {
@@ -291,17 +430,17 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
  "@type":"WebSite",
  "name":"NRLC.ai",
  "url":"https://nrlc.ai",
- "description":"NRLC.ai optimizes web ecosystems for AI discovery and LLM citation through Crawl Clarity, JSON-LD Strategy, and GEO-16 Framework research.",
+ "description":"The Semantic Infrastructure for the AI Internet. NRLC builds the semantic foundation that allows LLMs, agents, and applications to interact with enterprise data as if it were fully mapped, contextualized, and logically structured.",
  "publisher":{"@type":"Organization","name":"NRLC.ai"},
  "potentialAction":{"@type":"SearchAction","target":"https://nrlc.ai/search/?q={query}","query-input":"required name=query"},
  "hasPart":[
-   {"@type":"Service","name":"Crawl Clarity Engineering"},
-   {"@type":"Service","name":"JSON-LD & Structured Snippet Strategy"},
-   {"@type":"Service","name":"LLM Seeding Optimization"},
-   {"@type":"Service","name":"AI-First Site Audits"},
-   {"@type":"Service","name":"International SEO & Hreflang Engineering"}
+   {"@type":"Service","name":"Semantic Layer"},
+   {"@type":"Service","name":"SQL Ontologies"},
+   {"@type":"Service","name":"Enterprise LLM Foundation"},
+   {"@type":"Service","name":"Data Virtualization"},
+   {"@type":"Service","name":"Knowledge Graph"}
  ],
- "about":["AI SEO","GEO-16","Crawl Clarity","Structured Data","LLM Seeding"]
+ "about":["Semantic Infrastructure","AI Internet","Knowledge Graph","Data Virtualization","LLM Foundation"]
 }
 </script>
 
@@ -309,14 +448,14 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
 {
  "@context":"https://schema.org",
  "@type":"Service",
- "name":"AI-First SEO Services",
- "description":"Comprehensive AI-first SEO services including crawl clarity engineering, JSON-LD strategy, LLM seeding optimization, site audits, and international SEO with hreflang engineering.",
+ "name":"Semantic Infrastructure Platform",
+ "description":"A unified semantic layer for the AI era that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.",
  "provider":{
   "@type":"Organization",
   "name":"NRLC.ai",
   "url":"https://nrlc.ai"
  },
- "serviceType":"AI-First SEO Services",
+ "serviceType":"Semantic Infrastructure Platform",
  "areaServed":[
   {"@type":"Country","name":"United States"},
   {"@type":"Country","name":"United Kingdom"},
@@ -327,53 +466,45 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
  ],
  "hasOfferCatalog":{
   "@type":"OfferCatalog",
-  "name":"Core AI-First SEO Services",
+  "name":"Semantic Infrastructure Services",
   "itemListElement":[
    {
     "@type":"Offer",
     "itemOffered":{
      "@type":"Service",
-     "name":"Crawl Clarity Engineering",
-     "description":"Systematic URL normalization, parameter stripping, and canonical enforcement to eliminate crawl budget waste and improve AI engine comprehension."
+     "name":"Semantic Layer",
+     "description":"SQL-native ontologies exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms."
     }
    },
    {
     "@type":"Offer",
     "itemOffered":{
      "@type":"Service",
-     "name":"JSON-LD & Structured Snippet Strategy",
-     "description":"Comprehensive schema markup implementation including Organization, Service, LocalBusiness, and FAQPage schemas for maximum AI engine visibility."
+     "name":"Data Virtualization",
+     "description":"Connect every source into a semantic, virtualized layer with no ingestion or duplication. Your data stays where it lives — NRLC makes it usable."
     }
    },
    {
     "@type":"Offer",
     "itemOffered":{
      "@type":"Service",
-     "name":"LLM Seeding Optimization",
-     "description":"Content optimization for AI comprehension through systematic entity identification, relationship mapping, and credibility enhancement using GEO-16 framework principles."
+     "name":"Enterprise LLM Foundation",
+     "description":"Structured semantic context, verified relationships, and virtualized access to all data sources for reliable LLM operations."
     }
    },
    {
     "@type":"Offer",
     "itemOffered":{
      "@type":"Service",
-     "name":"AI-First Site Audits",
-     "description":"Comprehensive audits evaluating content against GEO-16 framework pillars, structured data completeness, and AI engine visibility gaps."
-    }
-   },
-   {
-    "@type":"Offer",
-    "itemOffered":{
-     "@type":"Service",
-     "name":"International SEO & Hreflang Engineering",
-     "description":"Multi-regional optimization with comprehensive hreflang clusters, locale-specific structured data, and regional content optimization for global AI engine targeting."
+     "name":"Knowledge Graph",
+     "description":"Interactive knowledge graph exploration with relationship traversal, insight surfacing, and natural-language query generation."
     }
    }
   ]
  },
  "offers":{
   "@type":"Offer",
-  "name":"Free Consultation",
+  "name":"Free Demo",
   "price":"0",
   "priceCurrency":"USD",
   "availability":"https://schema.org/InStock"
@@ -384,45 +515,20 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
 <script type="application/ld+json">
 {
  "@context":"https://schema.org",
- "@type":"LocalBusiness",
+ "@type":"Organization",
  "name":"NRLC.ai",
  "url":"https://nrlc.ai",
- "description":"AI-first SEO services specializing in crawl clarity, structured data, and LLM seeding strategies for generative search engine optimization.",
- "telephone":"+1-844-568-4624",
- "email":"hirejoelm@gmail.com",
- "address":{
-  "@type":"PostalAddress",
-  "streetAddress":"Remote Work Available",
-  "addressLocality":"New York",
-  "addressRegion":"NY",
-  "postalCode":"10001",
-  "addressCountry":"US"
+ "description":"The Semantic Infrastructure for the AI Internet. Building the semantic foundation for agentic systems.",
+ "logo":"https://nrlc.ai/assets/images/nrlcai logo 0.png",
+ "contactPoint":{
+  "@type":"ContactPoint",
+  "contactType":"Sales",
+  "email":"hirejoelm@gmail.com"
  },
- "image":"https://nrlc.ai/assets/images/nrlcai logo 0.png",
- "logo":"https://nrlc.ai/assets/logo.png",
- "areaServed":[
-  {"@type":"Country","name":"United States"},
-  {"@type":"Country","name":"United Kingdom"},
-  {"@type":"Country","name":"Canada"},
-  {"@type":"Country","name":"South Korea"},
-  {"@type":"Country","name":"Japan"},
-  {"@type":"Country","name":"Singapore"}
- ],
- "serviceArea":{
-  "@type":"GeoCircle",
-  "geoMidpoint":{
-   "@type":"GeoCoordinates",
-   "latitude":40.7128,
-   "longitude":-74.0060
-  },
-  "geoRadius":"10000000"
- },
- "openingHours":"Mo-Fr 09:00-17:00",
- "priceRange":"$$",
- "currenciesAccepted":"USD",
- "paymentAccepted":"Credit Card, Bank Transfer",
- "foundingDate":"2024",
- "slogan":"Optimizing the Internet for AI Understanding"
+ "sameAs":[
+  "https://nrlcmd.com",
+  "https://neuralcommandllc.com"
+ ]
 }
 </script>
 
@@ -431,10 +537,10 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
  "@context":"https://schema.org",
  "@type":"FAQPage",
  "mainEntity":[
-  {"@type":"Question","name":"What is GEO-16?","acceptedAnswer":{"@type":"Answer","text":"A sixteen-pillar model defining on-page and off-page signals that increase AI engine citation likelihood."}},
-  {"@type":"Question","name":"How does LLM seeding work?","acceptedAnswer":{"@type":"Answer","text":"By publishing crawl-clear, schema-rich content that large language models can parse and cite directly."}},
-  {"@type":"Question","name":"How quickly can I see results?","acceptedAnswer":{"@type":"Answer","text":"Organizations implementing our GEO-16 framework typically see significant improvements in AI citation rates within 90 days."}},
-  {"@type":"Question","name":"What makes NRLC.ai different?","acceptedAnswer":{"@type":"Answer","text":"NRLC.ai combines academic research rigor with practical implementation expertise from former Google engineers, AI researchers, and SEO practitioners."}}
+  {"@type":"Question","name":"What is semantic infrastructure?","acceptedAnswer":{"@type":"Answer","text":"Semantic infrastructure transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships."}},
+  {"@type":"Question","name":"How does NRLC enable AI workflows?","acceptedAnswer":{"@type":"Answer","text":"NRLC provides structured semantic context, verified relationships, and virtualized access to all data sources, enabling LLMs to operate on governed, contextualized, precise data."}},
+  {"@type":"Question","name":"What data sources does NRLC support?","acceptedAnswer":{"@type":"Answer","text":"NRLC supports data warehouses, data lakes, databases, catalogs, BI tools, AI frameworks, and protocols including REST, SQL, JDBC, ODBC, OLAP, Python, LangChain, LangGraph, and GraphRAG."}},
+  {"@type":"Question","name":"How quickly can I implement NRLC?","acceptedAnswer":{"@type":"Answer","text":"NRLC offers rapid semantic modeling, LLM-assisted entity creation, up to 90% reduction in time-to-consumption, and can be deployed in SaaS, cloud, or on-premises environments."}}
  ]
 }
 </script>

@@ -8,20 +8,21 @@ $insights = csv_read_data('insights.csv');
 $featured_insights = array_slice($insights, -6); // Get last 6 insights
 ?>
 
+<main role="main">
 <section class="container">
     
     <!-- Insights Header Window -->
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">SEO Insights & Research</div>
+        <div class="title-bar-text">Semantic Infrastructure Research</div>
       </div>
       <div class="window-body">
-        <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">AI-First SEO Research</h1>
+        <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Research & Insights on Semantic AI</h1>
         <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">
-          Latest research and insights on AI-first SEO, crawl optimization, and LLM seeding. Stay ahead of the curve with our comprehensive analysis of search engine evolution.
+          Latest research and insights on semantic infrastructure, knowledge graphs, data virtualization, and building reliable AI workflows on structured understanding.
         </p>
         <div style="text-align: center; margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-          <a href="/insights/geo16-framework/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Explore GEO-16 Framework</a>
+          <a href="/insights/semantic-modeling/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Learn Why Teams Adopt Semantic Modeling</a>
           <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Research Consultation</a>
         </div>
       </div>
@@ -36,74 +37,41 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
         <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
           
           <div style="padding: 1rem;">
-            <h3 style="margin-top: 0; color: #000080;">GEO-16 Framework Introduction</h3>
-            <p>Understanding the sixteen-pillar model that defines on-page and off-page signals increasing AI engine citation likelihood. Based on comprehensive research analyzing 1,700 citations across four major AI engines.</p>
-            <a href="/insights/geo16-introduction/" class="btn" data-ripple>Read Article</a>
+            <h3 style="margin-top: 0; color: #000080;">Semantic Queries & Query Optimization</h3>
+            <p>How semantic relationships collapse query complexity and reduce time to value. Learn how traditional SQL queries with dozens of JOINs become concise, relationship-aware logic.</p>
+            <a href="/insights/semantic-queries/" class="btn" data-ripple>Learn More About Semantic Queries</a>
           </div>
 
           <div style="padding: 1rem;">
-            <h3 style="margin-top: 0; color: #000080;">LLM Ontology Generation</h3>
-            <p>How large language models build ontologies and schema graphs for better content understanding. Explore the intersection of AI comprehension and structured data optimization.</p>
-            <a href="/insights/llm-ontology-generation/" class="btn" data-ripple>Read Article</a>
+            <h3 style="margin-top: 0; color: #000080;">Performance & Caching Insights</h3>
+            <p>Intelligent pushdown optimization, query performance tuning, and powerful caching engines that reduce compute spend while maintaining query speed and accuracy.</p>
+            <a href="/insights/performance-caching/" class="btn" data-ripple>Performance & Caching Insights</a>
           </div>
 
           <div style="padding: 1rem;">
-            <h3 style="margin-top: 0; color: #000080;">Semantic SEO in News Media</h3>
-            <p>How publishers use structured metadata for semantic SEO in news media. Learn advanced techniques for optimizing content for both traditional search and AI-powered systems.</p>
-            <a href="/insights/semantic-seo-in-news/" class="btn" data-ripple>Read Article</a>
+            <h3 style="margin-top: 0; color: #000080;">Why Teams Adopt Semantic Modeling</h3>
+            <p>Understanding the business value of semantic infrastructure. How organizations achieve 90% reduction in time-to-consumption and enable reliable AI workflows.</p>
+            <a href="/insights/semantic-modeling/" class="btn" data-ripple>Read Article</a>
           </div>
 
           <div style="padding: 1rem;">
-            <h3 style="margin-top: 0; color: #000080;">OCR++ Data Ingestion</h3>
-            <p>Advanced OCR and AI data extraction techniques for turning PDFs into structured data pipelines. Transform unstructured content into AI-readable formats.</p>
-            <a href="/insights/ocrplus-data-ingestion/" class="btn" data-ripple>Read Article</a>
+            <h3 style="margin-top: 0; color: #000080;">Data Virtualization Best Practices</h3>
+            <p>Connecting every source into a semantic, virtualized layer with no ingestion or duplication. Automatic mapping, federated queries, and unified graph views.</p>
+            <a href="/insights/data-virtualization/" class="btn" data-ripple>Read Article</a>
           </div>
 
           <div style="padding: 1rem;">
-            <h3 style="margin-top: 0; color: #000080;">Semantic Drift Tracking</h3>
-            <p>Tracking topic drift in AI citations and maintaining content relevance over time. Understand how AI engines evolve their understanding of your content.</p>
-            <a href="/insights/semantic-drift-tracking/" class="btn" data-ripple>Read Article</a>
+            <h3 style="margin-top: 0; color: #000080;">Enterprise LLM Foundation</h3>
+            <p>Building reliable AI workflows on structured understanding. How structured semantic context, verified relationships, and virtualized access enable trustworthy LLM operations.</p>
+            <a href="/insights/enterprise-llm/" class="btn" data-ripple>Read Article</a>
           </div>
 
           <div style="padding: 1rem;">
-            <h3 style="margin-top: 0; color: #000080;">Open Source SEO Tools</h3>
-            <p>Curated list of open-source SEO tools you can actually use. Discover powerful tools for AI-first SEO optimization and structured data implementation.</p>
-            <a href="/insights/open-seo-tools/" class="btn" data-ripple>Read Article</a>
+            <h3 style="margin-top: 0; color: #000080;">Knowledge Graph Exploration</h3>
+            <p>Interactive knowledge graph techniques for traversing relationships, surfacing insights, and generating SQL or natural-language queries automatically.</p>
+            <a href="/insights/knowledge-graph/" class="btn" data-ripple>Read Article</a>
           </div>
 
-        </div>
-      </div>
-    </div>
-
-    <!-- Research Methodology Window -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Our Research Methodology</div>
-      </div>
-      <div class="window-body">
-        <h2 style="color: #000080; margin-top: 0;">Evidence-Based AI SEO Research</h2>
-        <p>Our research methodology combines academic rigor with practical implementation to deliver actionable insights for AI-first SEO optimization.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-          <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">1. Data Collection</h4>
-            <p>Systematic collection of AI engine citations, structured data implementations, and performance metrics across diverse industries.</p>
-          </div>
-          
-          <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">2. Analysis Framework</h4>
-            <p>Application of the GEO-16 framework to identify patterns and correlations between technical implementation and AI engine performance.</p>
-          </div>
-          
-          <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">3. Validation Testing</h4>
-            <p>Rigorous testing of hypotheses through controlled experiments and real-world implementation across client projects.</p>
-          </div>
-          
-          <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">4. Publication & Updates</h4>
-            <p>Regular publication of findings with ongoing updates as AI engines evolve and new patterns emerge in search behavior.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -114,65 +82,58 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
         <div class="title-bar-text">Research Categories</div>
       </div>
       <div class="window-body">
-        <h2 style="color: #000080; margin-top: 0;">Comprehensive AI SEO Research Areas</h2>
-        <p>Our research spans multiple domains within AI-first SEO, from technical implementation to behavioral analysis. Each category represents a critical aspect of optimizing content for AI engine comprehension and citation.</p>
+        <h2 style="color: #000080; margin-top: 0;">Comprehensive Semantic Infrastructure Research</h2>
+        <p>Our research spans multiple domains within semantic infrastructure, from ontology modeling to AI workflow optimization. Each category represents a critical aspect of building reliable AI systems on structured data.</p>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">Technical SEO</h4>
-            <p>Crawl clarity engineering, URL optimization, site architecture, and performance metrics that impact AI engine accessibility and parsing efficiency.</p>
+            <h4 style="margin-top: 0; color: #000080;">Semantic Layer Architecture</h4>
+            <p>SQL-native ontologies, reusable logic, metrics, hierarchies, and automated reasoning across knowledge graphs.</p>
           </div>
           
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">Structured Data</h4>
-            <p>Schema markup implementation, entity relationships, semantic understanding, and structured data validation for maximum AI comprehension.</p>
+            <h4 style="margin-top: 0; color: #000080;">Data Virtualization</h4>
+            <p>Federated queries, intelligent pushdown, caching strategies, and unified graph views across all data sources.</p>
           </div>
           
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">Content Strategy</h4>
-            <p>LLM seeding optimization, entity clarity, content architecture, and semantic structure that enables AI engines to understand and cite content effectively.</p>
+            <h4 style="margin-top: 0; color: #000080;">AI Workflow Optimization</h4>
+            <p>Building reliable LLM workflows, GraphRAG implementation, NL2SQL generation, and structured semantic context for AI.</p>
           </div>
           
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">AI Engine Behavior</h4>
-            <p>Citation pattern analysis, entity recognition, content ranking factors, and behavioral modeling across major AI engines and search systems.</p>
+            <h4 style="margin-top: 0; color: #000080;">Query Performance</h4>
+            <p>Semantic query optimization, relationship-aware logic, query complexity reduction, and performance tuning strategies.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Industry Impact Window -->
+    <!-- Latest Insights Feed -->
+    <?php if (!empty($featured_insights)): ?>
     <div class="window" style="margin-bottom: 2rem;">
       <div class="title-bar">
-        <div class="title-bar-text">Industry Impact</div>
+        <div class="title-bar-text">Latest Research & Insights</div>
       </div>
       <div class="window-body">
-        <h2 style="color: #000080; margin-top: 0;">Research That Drives Results</h2>
-        <p>Our research directly informs the strategies and implementations that deliver measurable improvements in AI engine citation rates, user engagement, and organic visibility across diverse industries.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
-            <h4 style="margin-top: 0; color: #000080;">340%</h4>
-            <p>Average citation improvement within 90 days of implementing GEO-16 framework principles</p>
-          </div>
-          
-          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
-            <h4 style="margin-top: 0; color: #000080;">1,700+</h4>
-            <p>AI engine citations analyzed across four major systems to develop the GEO-16 framework</p>
-          </div>
-          
-          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
-            <h4 style="margin-top: 0; color: #000080;">16 Pillars</h4>
-            <p>Critical signals identified that determine citation success in generative search engines</p>
-          </div>
-          
-          <div style="padding: 1rem; background: #f8f8f8; text-align: center;">
-            <h4 style="margin-top: 0; color: #000080;">95%</h4>
-            <p>Client satisfaction rate with AI-first SEO implementations based on our research</p>
-          </div>
+        <div class="list-view">
+          <?php foreach (array_reverse($featured_insights) as $insight): ?>
+            <div class="list-item" style="padding: 0.5rem; border-bottom: 1px solid #ccc;">
+              <h4 style="margin: 0 0 0.5rem 0; color: #000080;">
+                <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" style="text-decoration: none; color: inherit;">
+                  <?= htmlspecialchars($insight['title']) ?>
+                </a>
+              </h4>
+              <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">
+                <?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 100)) ?>...
+              </p>
+              <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn" data-ripple style="font-size: 0.8rem;">Read Article</a>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
+    <?php endif; ?>
 
     <!-- Call to Action Window -->
     <div class="window">
@@ -181,9 +142,9 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
       </div>
       <div class="window-body">
         <div style="text-align: center;">
-          <h2 style="color: #000080; margin-top: 0;">Join the AI SEO Research Community</h2>
+          <h2 style="color: #000080; margin-top: 0;">Join the Semantic Infrastructure Research Community</h2>
           <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Get the latest insights on AI-first SEO optimization and join forward-thinking businesses preparing for the future of search. Our research-driven approach ensures you stay ahead of evolving AI engine behaviors and optimization opportunities.
+            Get the latest insights on semantic infrastructure, knowledge graphs, and building reliable AI workflows. Our research-driven approach ensures you stay ahead of evolving best practices and optimization opportunities.
           </p>
           <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
             <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Research Consultation</a>
@@ -194,6 +155,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
     </div>
 
 </section>
+</main>
 
 <?php
 // JSON-LD Schema
@@ -201,8 +163,8 @@ $jsonld = [
   [
     "@context" => "https://schema.org",
     "@type" => "Blog",
-    "name" => "AI-First SEO Research",
-    "description" => "Latest research and insights on AI-first SEO, crawl optimization, and LLM seeding",
+    "name" => "Semantic Infrastructure Research",
+    "description" => "Latest research and insights on semantic infrastructure, knowledge graphs, data virtualization, and building reliable AI workflows",
     "publisher" => [
       "@type" => "Organization",
       "name" => "NRLC.ai",

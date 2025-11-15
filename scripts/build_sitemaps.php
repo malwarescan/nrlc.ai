@@ -271,7 +271,98 @@ if ($resourceEntries) {
   echo "Built resources sitemap: " . count($resourceEntries) . " URLs\n";
 }
 
-// 6. Generate unified index
+// 11. Core index pages sitemap
+$indexPageEntries = [];
+$indexPages = [
+  '/',
+  '/services/',
+  '/insights/',
+  '/careers/',
+  '/industries/',
+  '/tools/',
+  '/case-studies/',
+  '/blog/',
+  '/resources/',
+  '/catalog/',
+  '/api/book/'
+];
+
+foreach ($indexPages as $path) {
+  $hreflangUrls = [];
+  foreach (LOCALES as $locale => $data) {
+    if ($path === '/') {
+      $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/";
+    } else {
+      $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}{$path}";
+    }
+  }
+  $hreflangUrls['x-default'] = $hreflangUrls['en-us'];
+  $indexPageEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($indexPageEntries) {
+  $xmlFile = "{$outDir}index-pages-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($indexPageEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built index pages sitemap: " . count($indexPageEntries) . " URLs\n";
+}
+
+// 12. Semantic infrastructure service pages sitemap
+$semanticServiceEntries = [];
+$semanticServices = [
+  'data-mapping',
+  'data-virtualization',
+  'rest-api',
+  'semantic-layer',
+  'enterprise-llm-foundation',
+  'knowledge-graph',
+  'ontology-modeling'
+];
+
+foreach ($semanticServices as $service) {
+  $path = "/services/{$service}/";
+  $hreflangUrls = sitemap_generate_hreflang_urls($path);
+  $semanticServiceEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($semanticServiceEntries) {
+  $xmlFile = "{$outDir}semantic-services-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($semanticServiceEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built semantic services sitemap: " . count($semanticServiceEntries) . " URLs\n";
+}
+
+// 13. Promptware pages sitemap
+$promptwareEntries = [];
+$promptwarePages = [
+  'promptware/',
+  'promptware/json-stream-seo-ai/',
+  'promptware/llm-data-to-citation/'
+];
+
+foreach ($promptwarePages as $page) {
+  $path = "/{$page}";
+  $hreflangUrls = sitemap_generate_hreflang_urls($path);
+  $promptwareEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+}
+
+if ($promptwareEntries) {
+  $xmlFile = "{$outDir}promptware-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($promptwareEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built promptware sitemap: " . count($promptwareEntries) . " URLs\n";
+}
+
+// Generate unified index
 $indexFile = "{$outDir}sitemap-index.xml";
 $indexContent = sitemap_render_index($sitemaps);
 file_put_contents($indexFile, $indexContent);
