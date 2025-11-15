@@ -70,4 +70,7 @@ $improvement = 150 + (($caseNumber * 7) % 200);
 }
 </script>
 
-<?php require_once __DIR__ . '/../../templates/footer.php'; ?>
+<?php
+// Note: footer.php is already included by router.php render_page()
+// Do not duplicate it here to avoid double footers
+?>

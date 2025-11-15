@@ -1,0 +1,21 @@
+[project]
+name = "serp-intel"
+version = "0.1.0"
+description = "SERP Intelligence scan from GSC exports + on-page fetch"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.2.2",
+  "beautifulsoup4>=4.12.3",
+  "lxml>=5.2.2",
+  "tldextract>=5.1.2",
+  "readability-lxml>=0.8.1",
+  "w3lib>=2.2.1",
+  "requests>=2.32.3",
+  "python-slugify>=8.0.4",
+  "rapidfuzz>=3.9.6"
+]
+
+[project.scripts]
+serp-intel = "main:cli"
+
+

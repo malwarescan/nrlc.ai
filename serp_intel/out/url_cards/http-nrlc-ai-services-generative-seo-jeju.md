@@ -1,0 +1,24 @@
+# Generative SEO in jeju | NRLC.ai AI SEO
+URL: http://nrlc.ai/services/generative-seo/jeju/
+Primary keyword: http://nrlc.ai/services/generative-seo/jeju/
+Average position (page): 10.0 | CTR: 0.00% | Clicks/Impr: 0/1
+
+## On-page snapshot
+- Title (39): Generative SEO in jeju | NRLC.ai AI SEO
+- Meta description (127): Professional Generative SEO services in jeju. GEO-16 framework, structured data optimization, and AI engine citation readiness.
+- H1s (1): ['Generative seo in Jeju']
+- H2s (1): ['FAQs']
+- Word count: 181
+- Canonical: https://nrlc.ai/services/generative-seo/jeju/
+- Robots noindex: False
+- Detected schema: Answer, BreadcrumbList, City, Country, FAQPage, ListItem, LocalBusiness, OfferCatalog, Organization, PostalAddress, Question, SearchAction, Service, WebSite
+
+## Semantic predictions
+http, nrlc, ai, services, generative, seo, jeju
+
+## Recommended fixes (priority order)
+1. Add primary keyword to <title> (primary: "http://nrlc.ai/services/generative-seo/jeju/").
+2. Title too short (<40 chars). Expand with value props.
+3. Add primary keyword to meta description naturally.
+4. Thin content (181 words). Target 1000–1500 with semantic coverage: http, nrlc, ai, services, generative, seo.
+

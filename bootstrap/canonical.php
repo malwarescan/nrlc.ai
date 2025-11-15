@@ -5,6 +5,11 @@ function canonical_guard(): void {
   $uri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
   $query  = $_GET ?? [];
 
+  // Skip canonical redirects for API paths
+  if (strpos($uri, '/api/') === 0) {
+    return;
+  }
+
   // strip trackers
   $strip = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'];
   $query = array_diff_key($query, array_flip($strip));

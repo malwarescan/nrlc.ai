@@ -34,9 +34,7 @@ include __DIR__.'/../../templates/header.php';
       <li><a href="<?= htmlspecialchars($u) ?>"><?= htmlspecialchars($it['name']) ?></a> — <?= htmlspecialchars($it['short']) ?></li>
     <?php endforeach; ?>
   </ul>
-  <footer><p>© <span id="y"></span> <?= htmlspecialchars($brand) ?></p></footer>
 </main>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 <script type="application/ld+json">{
   "@context":"https://schema.org",
   "@type":"BreadcrumbList",
@@ -45,5 +43,10 @@ include __DIR__.'/../../templates/header.php';
     {"@type":"ListItem","position":2,"name":"Catalog","item":"<?= htmlspecialchars($domain) ?>/catalog/"}
   ]
 }</script>
-<?php include __DIR__.'/../../templates/footer.php'; ?>
+<?php
+// Note: footer.php is already included by router.php render_page()
+// Do not duplicate it here to avoid double footers
+?>
+
+
 

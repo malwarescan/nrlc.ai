@@ -229,5 +229,8 @@ curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | head -n 3 | jq .</
   }]
 }</script>
 
-<?php include __DIR__.'/../../../templates/footer.php'; ?>
+<?php
+// Note: footer.php is already included by router.php render_page()
+// Do not duplicate it here to avoid double footers
+?>
 

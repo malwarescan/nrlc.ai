@@ -135,6 +135,33 @@ function route_request(): void {
     return;
   }
 
+  // Promptware routes
+  if ($path === '/promptware/') {
+    render_page('promptware/index');
+    return;
+  }
+
+  if ($path === '/promptware/json-stream-seo-ai/') {
+    render_page('promptware/json-stream-seo-ai/index');
+    return;
+  }
+
+  if ($path === '/promptware/llm-data-to-citation/') {
+    render_page('promptware/llm-data-to-citation/index');
+    return;
+  }
+
+  if ($path === '/catalog/') {
+    render_page('catalog/index');
+    return;
+  }
+
+  if (preg_match('#^/catalog/([^/]+)/$#', $path, $m)) {
+    $_GET['slug'] = $m[1];
+    render_page('catalog/item');
+    return;
+  }
+
   // Industries routes
   if (preg_match('#^/industries/([^/]+)/$#', $path, $m)) {
     $_GET['industry'] = $m[1];
@@ -201,6 +228,25 @@ function route_request(): void {
 
 function render_page(string $slug): void {
   $GLOBALS['__page_slug'] = $slug;
+
+  // Special handling for promptware pages
+  if (strpos($slug, 'promptware/') === 0) {
+    include __DIR__.'/../templates/head.php';
+    include __DIR__.'/../templates/header.php';
+    include __DIR__.'/../public/'.$slug.'.php';
+    include __DIR__.'/../templates/footer.php';
+    return;
+  }
+
+  // Special handling for catalog pages
+  if (strpos($slug, 'catalog/') === 0) {
+    include __DIR__.'/../templates/head.php';
+    include __DIR__.'/../templates/header.php';
+    include __DIR__.'/../public/'.$slug.'.php';
+    include __DIR__.'/../templates/footer.php';
+    return;
+  }
+
   include __DIR__.'/../templates/head.php';
   include __DIR__.'/../templates/header.php';
   include __DIR__.'/../pages/'.$slug.'.php';

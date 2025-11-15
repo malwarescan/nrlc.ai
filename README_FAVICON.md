@@ -103,3 +103,7 @@ HTML should contain:
 3. Request re-indexing in Google Search Console
 4. Monitor favicon appearance in search results over 1-2 weeks
 
+
+
+
+

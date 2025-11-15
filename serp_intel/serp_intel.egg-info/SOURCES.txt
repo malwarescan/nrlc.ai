@@ -1,0 +1,9 @@
+README.md
+main.py
+pyproject.toml
+serp_intel.egg-info/PKG-INFO
+serp_intel.egg-info/SOURCES.txt
+serp_intel.egg-info/dependency_links.txt
+serp_intel.egg-info/entry_points.txt
+serp_intel.egg-info/requires.txt
+serp_intel.egg-info/top_level.txt

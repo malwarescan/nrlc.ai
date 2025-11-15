@@ -82,6 +82,7 @@ header('Content-Type: text/html; charset=utf-8');
 <link rel="stylesheet" href="<?= asset_url('/assets/css/grid-bg.css') ?>">
 <link rel="stylesheet" href="<?= asset_url('/assets/css/progress-indicator.css') ?>">
 <link rel="stylesheet" href="/enhance/enhance.css">
+<script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
 <?php
 foreach (hreflang_links(without_locale_prefix($path)) as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";

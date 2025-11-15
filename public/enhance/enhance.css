@@ -1,56 +1,102 @@
 @import url("/enhance/grain.png");
 
+/* Neural Network Data Flow - Extremely Minimal & Lightweight */
 :root {
-  --bg-h: 220;
-  --bg-s: 55%;
-  --bg-l: 8%;
-  --bg-overlay: 0;
+  /* Base neural colors */
+  --neural-h: 210;       /* Cool blue */
+  --neural-s: 30%;       /* Low saturation */
+  --neural-l: 97%;       /* Near white */
+  
+  /* Flow progression */
+  --flow-progress: 0;    /* 0-1 through network */
+  --synapse-strength: 0; /* Connection intensity */
+  
+  /* Minimal effects */
+  --data-particles: 0.02; /* Barely visible particles */
+  --neural-glow: 0.01;    /* Subtle glow */
 }
 
+/* Elegantly subtle neural background */
 .enhance-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.25; /* Elegantly minimal */
 }
 
-.enhance-bg::before,
-.enhance-bg::after {
+/* Barely perceptible neural gradient */
+.enhance-bg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(120% 120% at 70% 30%, hsl(var(--bg-h) var(--bg-s) calc(var(--bg-l) + 6%)) 0%, hsl(var(--bg-h) var(--bg-s) var(--bg-l)) 60%, #000 100%);
-  opacity: 1;
-  transition: opacity .5s ease-out;
+  background: linear-gradient(135deg,
+    hsl(calc(var(--neural-h) + var(--flow-progress) * 3) calc(var(--neural-s) + var(--flow-progress) * 5) calc(var(--neural-l) + var(--flow-progress) * 0.3)) 0%,
+    hsl(calc(var(--neural-h) + var(--flow-progress) * 5) calc(var(--neural-s) + var(--flow-progress) * 8) var(--neural-l)) 50%,
+    hsl(calc(var(--neural-h) + var(--flow-progress) * 7) calc(var(--neural-s) + var(--flow-progress) * 10) calc(var(--neural-l) - var(--flow-progress) * 0.2)) 100%);
+  opacity: calc(0.05 + var(--flow-progress) * 0.08);
+  transition: all 1.5s ease;
 }
 
-.enhance-bg::after {
-  opacity: var(--bg-overlay);
+/* Very subtle data particles */
+.enhance-bg .neural-particles {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 25% 25%, hsl(calc(var(--neural-h) + var(--synapse-strength) * 20) calc(var(--neural-s) + var(--synapse-strength) * 15) 85%) 1px, transparent 2px),
+                    radial-gradient(circle at 75% 75%, hsl(calc(var(--neural-h) + var(--synapse-strength) * 25) calc(var(--neural-s) + var(--synapse-strength) * 20) 80%) 0.5px, transparent 1px);
+  background-size: 200px 200px, 300px 300px;
+  opacity: calc(var(--data-particles) + var(--flow-progress) * 0.03);
+  animation: neural-drift 25s ease-in-out infinite;
 }
 
+/* Minimal neural activation glow */
+.enhance-bg .neural-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%,
+    hsl(calc(var(--neural-h) + var(--synapse-strength) * 30) calc(var(--neural-s) + var(--synapse-strength) * 25) calc(var(--neural-l) + var(--synapse-strength) * 1)) 0%,
+    transparent 70%);
+  opacity: calc(var(--neural-glow) + var(--flow-progress) * 0.02);
+  transition: opacity 2s ease;
+}
+
+/* ScrollReveal handles all reveal animations now */
+/* Neural layer styling applied by ScrollReveal callbacks */
+
+/* Subtle animations */
+@keyframes neural-drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(20px, -10px) rotate(360deg); }
+}
+
+/* ScrollReveal handles all reveal animations - CSS scroll-driven removed for cleaner implementation */
+
+/* Accessibility - ScrollReveal respects prefers-reduced-motion automatically */
+@media (prefers-reduced-motion: reduce) {
+  .neural-particles,
+  .neural-glow {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .neural-particles {
+    display: none; /* Too subtle for mobile performance */
+  }
+
+  .enhance-bg {
+    opacity: 0.15; /* Barely perceptible on mobile */
+  }
+
+  .neural-glow {
+    opacity: 0; /* Remove glow entirely on mobile */
+  }
+}
+
+/* Grain texture - barely there */
 .enhance-bg.grain {
   background-image: url("/enhance/grain.png");
-  background-size: 2px 2px;
+  background-size: 6px 6px;
   mix-blend-mode: soft-light;
-  opacity: .15;
-}
-
-.enhance-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  will-change: transform, opacity;
-}
-
-.enhance-reveal.is-inview {
-  opacity: 1;
-  transform: none;
-  transition: transform .6s ease, opacity .6s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .enhance-reveal {
-    transition: none;
-    transform: none;
-    opacity: 1;
-  }
+  opacity: 0.02;
 }
