@@ -7,7 +7,9 @@
 
 Railway deployments were failing because the healthcheck never found a running web server.
 
-**Root Cause:** Healthcheck requests (HEAD) were being redirected by `canonical_guard()`, causing Railway to receive redirects instead of 200 OK responses.
+**Primary Root Cause:** Railway was detecting `Dockerfile.example` and using it instead of Nixpacks, causing the container to never bind to `$PORT`.
+
+**Secondary Root Cause:** Healthcheck requests (HEAD) were being redirected by `canonical_guard()`, causing Railway to receive redirects instead of 200 OK responses.
 
 ## Fix Applied
 
