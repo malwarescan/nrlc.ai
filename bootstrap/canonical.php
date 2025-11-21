@@ -13,7 +13,7 @@ function canonical_guard(): void {
   }
 
   // Skip redirects for static files and special paths
-  $staticPaths = ['/robots.txt', '/favicon.ico', '/sitemap', '/sitemaps'];
+  $staticPaths = ['/robots.txt', '/favicon.ico', '/sitemap', '/sitemaps', '/healthcheck.html'];
   foreach ($staticPaths as $staticPath) {
     if (strpos($uri, $staticPath) === 0) {
       return;
@@ -40,10 +40,13 @@ function canonical_guard(): void {
   // Force locale prefix redirect (e.g., /services/... -> /en-us/services/...)
   // This prevents duplicate canonical issues where Google chooses a different canonical
   // Skip redirect for healthcheck requests (HEAD requests or Railway healthcheck)
+  // Note: Railway healthcheck now uses /healthcheck.html (static file), so this is mainly for other healthchecks
   $isHealthcheck = ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'HEAD' || 
                     isset($_SERVER['HTTP_USER_AGENT']) && 
                     (strpos($_SERVER['HTTP_USER_AGENT'], 'Railway') !== false ||
-                     strpos($_SERVER['HTTP_USER_AGENT'], 'healthcheck') !== false);
+                     strpos($_SERVER['HTTP_USER_AGENT'], 'healthcheck') !== false ||
+                     strpos($_SERVER['HTTP_USER_AGENT'], 'kube-probe') !== false ||
+                     strpos($_SERVER['HTTP_USER_AGENT'], 'GoogleHC') !== false);
   
   if (!preg_match('#^/([a-z]{2})-([a-z]{2})(/|$)#i', $uri)) {
     // Path doesn't have locale prefix - redirect to default locale

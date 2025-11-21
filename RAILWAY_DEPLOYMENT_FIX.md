@@ -9,7 +9,7 @@ Railway deployments were failing because the healthcheck never found a running w
 
 **Primary Root Cause:** Railway was detecting `Dockerfile.example` and using it instead of Nixpacks, causing the container to never bind to `$PORT`.
 
-**Secondary Root Cause:** Healthcheck requests (HEAD) were being redirected by `canonical_guard()`, causing Railway to receive redirects instead of 200 OK responses.
+**Secondary Root Cause:** Healthcheck requests to `/` were being redirected (301) by `canonical_guard()`, causing Railway to receive redirects instead of 200 OK responses. Railway expects 200 OK, not 301 redirects.
 
 ## Fix Applied
 
@@ -19,9 +19,11 @@ Railway deployments were failing because the healthcheck never found a running w
 - `.railwayignore` does NOT prevent Railway from detecting Dockerfiles
 - **This was the primary cause of healthcheck failures**
 
-### 2. Healthcheck Fix (Completed)
-- Updated `bootstrap/canonical.php` to skip locale redirects for HEAD requests
-- Healthcheck requests now get 200 OK responses
+### 2. Healthcheck Fix (Completed - CRITICAL)
+- **Created `/public/healthcheck.html`** - Static file that always returns 200 OK
+- **Updated `railway.toml`** - Changed healthcheck path from `/` to `/healthcheck.html`
+- Updated `bootstrap/canonical.php` to skip redirects for `/healthcheck.html`
+- Railway healthcheck now gets guaranteed 200 OK response
 - Regular users still get redirected to `/en-us/` version
 
 ### 3. Dockerfile Prevention (Completed)
@@ -37,7 +39,7 @@ builder = "nixpacks"
 
 [deploy]
 startCommand = "php -S 0.0.0.0:$PORT -t public"
-healthcheckPath = "/"
+healthcheckPath = "/healthcheck.html"
 healthcheckTimeout = 100
 restartPolicyType = "always"
 ```

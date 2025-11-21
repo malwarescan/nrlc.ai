@@ -3,7 +3,7 @@ builder = "nixpacks"
 
 [deploy]
 startCommand = "php -S 0.0.0.0:$PORT -t public"
-healthcheckPath = "/"
+healthcheckPath = "/healthcheck.html"
 healthcheckTimeout = 100
 restartPolicyType = "always"
 
