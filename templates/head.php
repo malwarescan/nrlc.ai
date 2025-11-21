@@ -26,7 +26,19 @@ if (!preg_match('#\.[a-z0-9]+$#', $requestPath) && substr($requestPath, -1) !== 
   $requestPath .= '/';
 }
 
-// Use the request path as canonical (it already includes locale prefix if present)
+// Ensure canonical always includes locale prefix
+// If path doesn't have locale prefix, add default locale
+if (!preg_match('#^/([a-z]{2})-([a-z]{2})(/|$)#i', $requestPath)) {
+  // Path doesn't have locale prefix - add default locale
+  require_once __DIR__.'/../config/locales.php';
+  if ($requestPath === '/' || $requestPath === '') {
+    $requestPath = '/'.X_DEFAULT.'/';
+  } else {
+    $requestPath = '/'.X_DEFAULT.$requestPath;
+  }
+}
+
+// Use the request path as canonical (now guaranteed to include locale prefix if not root)
 $canonicalPath = $requestPath;
 
 header('Content-Type: text/html; charset=utf-8');

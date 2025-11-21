@@ -47,6 +47,20 @@ function route_request(): void {
     }
   }
 
+  // Handle invalid search URLs (404)
+  if (preg_match('#^/search#', $path)) {
+    http_response_code(404);
+    echo "Not Found";
+    return;
+  }
+
+  // Handle /audit/ URL (404)
+  if ($path === '/audit/' || $path === '/audit') {
+    http_response_code(404);
+    echo "Not Found";
+    return;
+  }
+
   if ($path === '/' || $path === '') {
     render_page('home/home');
     return;
