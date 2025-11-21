@@ -39,8 +39,21 @@ function canonical_guard(): void {
 
   // Force locale prefix redirect (e.g., /services/... -> /en-us/services/...)
   // This prevents duplicate canonical issues where Google chooses a different canonical
+  // Skip redirect for healthcheck requests (HEAD requests or Railway healthcheck)
+  $isHealthcheck = ($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'HEAD' || 
+                    isset($_SERVER['HTTP_USER_AGENT']) && 
+                    (strpos($_SERVER['HTTP_USER_AGENT'], 'Railway') !== false ||
+                     strpos($_SERVER['HTTP_USER_AGENT'], 'healthcheck') !== false);
+  
   if (!preg_match('#^/([a-z]{2})-([a-z]{2})(/|$)#i', $uri)) {
     // Path doesn't have locale prefix - redirect to default locale
+    // But skip redirect for healthcheck requests to allow healthcheck to pass
+    if ($isHealthcheck) {
+      // For healthcheck, allow the request through without redirect
+      // The canonical tag will still point to /en-us/ version
+      return;
+    }
+    
     // Preserve query string
     $queryString = count($query) ? '?'.http_build_query($query) : '';
     // Handle root path specially
