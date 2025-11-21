@@ -11,14 +11,20 @@ Railway deployments were failing because the healthcheck never found a running w
 
 ## Fix Applied
 
-### 1. Healthcheck Fix (Completed)
+### 1. Dockerfile Removal (Completed - CRITICAL)
+- **Removed `Dockerfile.example`** from repository
+- Railway detects ANY `Dockerfile*` file and prioritizes it over Nixpacks
+- `.railwayignore` does NOT prevent Railway from detecting Dockerfiles
+- **This was the primary cause of healthcheck failures**
+
+### 2. Healthcheck Fix (Completed)
 - Updated `bootstrap/canonical.php` to skip locale redirects for HEAD requests
 - Healthcheck requests now get 200 OK responses
 - Regular users still get redirected to `/en-us/` version
 
-### 2. Dockerfile Prevention (Completed)
-- Created `.railwayignore` to ensure Railway always uses Nixpacks
-- Prevents accidental Dockerfile from overriding Nixpacks configuration
+### 3. Dockerfile Prevention (Completed)
+- Created `.railwayignore` for build context exclusions
+- **Note:** Railway will still detect Dockerfiles - they must be removed or renamed
 
 ## Current Configuration
 
@@ -52,14 +58,18 @@ cmd = "php -S 0.0.0.0:$PORT -t public"
 
 ## If Dockerfile Issues Occur
 
+**IMPORTANT:** Railway detects ANY file named `Dockerfile*` and uses it instead of Nixpacks. `.railwayignore` does NOT prevent this detection.
+
 If a Dockerfile is accidentally added and causes Railway to ignore Nixpacks:
 
-### Option A — Remove the Dockerfile (Recommended)
+### Option A — Remove the Dockerfile (REQUIRED)
 ```bash
-rm Dockerfile
+git rm Dockerfile Dockerfile.* *.dockerfile
 git commit -m "Remove Dockerfile to use Nixpacks"
 git push
 ```
+
+**Railway will automatically revert to Nixpacks once Dockerfile is removed.**
 
 ### Option B — Fix the Dockerfile
 If Docker must be used, ensure the Dockerfile ends with:
@@ -68,8 +78,12 @@ EXPOSE ${PORT}
 CMD ["php", "-S", "0.0.0.0:${PORT}", "-t", "public"]
 ```
 
-### Option C — Use .railwayignore (Already Done)
-The `.railwayignore` file already exists and will prevent Railway from using any Dockerfile.
+### Option C — Rename the Dockerfile
+If you need to keep a Dockerfile for reference, rename it to something Railway won't detect:
+```bash
+git mv Dockerfile Dockerfile.reference
+# Railway will NOT detect Dockerfile.reference
+```
 
 ## Verification Steps
 
