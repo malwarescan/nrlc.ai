@@ -1,0 +1,15 @@
+# Railway ignore file
+# Ensures Railway always uses Nixpacks instead of Docker
+
+# Ignore Dockerfile if one is accidentally added
+Dockerfile
+Dockerfile.*
+*.dockerfile
+
+# Ignore docker-compose files
+docker-compose.yml
+docker-compose.yaml
+
+# Ignore .dockerignore (not needed if using Nixpacks)
+.dockerignore
+
