@@ -1,0 +1,29 @@
+{
+  "name": "nrlc.ai",
+  "version": "1.0.0",
+  "description": "[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/nrlc-ai)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malwarescan/nrlc.ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/malwarescan/nrlc.ai/issues"
+  },
+  "homepage": "https://github.com/malwarescan/nrlc.ai#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17"
+  }
+}

@@ -20,11 +20,11 @@ if (in_array($service, $semanticServices)) {
       'title' => 'See How Data is Mapped',
       'description' => 'Automatic mapping to the ontology transforms your raw data sources into a coherent semantic graph.',
       'content' => '
-        <h2 style="color: #000080; margin-top: 0;">Automatic Ontology Mapping</h2>
+        <h2>Automatic Ontology Mapping</h2>
         <p>NRLC automatically maps your databases, APIs, warehouses, and streams to a unified ontology. No manual configuration required—our system understands your data structure and creates semantic relationships automatically.</p>
         
-        <h3 style="color: #000080;">How It Works</h3>
-        <ul style="padding-left: 1.5rem;">
+        <h3>How It Works</h3>
+        <ul>
           <li><strong>Schema Discovery:</strong> Automatically discovers tables, columns, and relationships across all connected sources</li>
           <li><strong>Entity Recognition:</strong> Identifies entities, attributes, and relationships in your data</li>
           <li><strong>Ontology Alignment:</strong> Maps discovered structures to your semantic ontology</li>
@@ -32,8 +32,8 @@ if (in_array($service, $semanticServices)) {
           <li><strong>Validation & Refinement:</strong> Provides tools to validate and refine mappings as needed</li>
         </ul>
         
-        <h3 style="color: #000080;">Benefits</h3>
-        <ul style="padding-left: 1.5rem;">
+        <h3>Benefits</h3>
+        <ul>
           <li>Zero manual mapping for standard data structures</li>
           <li>Consistent semantic representation across all sources</li>
           <li>Automatic relationship discovery and creation</li>
@@ -46,11 +46,11 @@ if (in_array($service, $semanticServices)) {
       'title' => 'Explore Data Virtualization',
       'description' => 'Connect every source into a semantic, virtualized layer with no ingestion or duplication. Your data stays where it lives—NRLC makes it usable.',
       'content' => '
-        <h2 style="color: #000080; margin-top: 0;">Data Virtualization Without Duplication</h2>
+        <h2>Data Virtualization Without Duplication</h2>
         <p>NRLC connects every data source into a semantic, virtualized layer. No syncing, no lifting, no duplication. Your data stays where it lives—NRLC makes it usable through a unified semantic interface.</p>
         
-        <h3 style="color: #000080;">Key Capabilities</h3>
-        <ul style="padding-left: 1.5rem;">
+        <h3>Key Capabilities</h3>
+        <ul>
           <li><strong>Federated Queries:</strong> Query across clouds and databases as if they were a single source</li>
           <li><strong>Intelligent Pushdown:</strong> Push computation back to source systems for optimal performance</li>
           <li><strong>Query Optimization:</strong> Automatically optimizes queries across distributed sources</li>
@@ -58,8 +58,8 @@ if (in_array($service, $semanticServices)) {
           <li><strong>Unified Graph View:</strong> See all your data as a connected knowledge graph regardless of source</li>
         </ul>
         
-        <h3 style="color: #000080;">Supported Sources</h3>
-        <ul style="padding-left: 1.5rem;">
+        <h3>Supported Sources</h3>
+        <ul>
           <li>Data warehouses (Snowflake, Databricks, BigQuery, Redshift)</li>
           <li>Data lakes (S3, ADLS, GCS)</li>
           <li>Databases (PostgreSQL, MySQL, SQL Server, Oracle)</li>
@@ -68,8 +68,8 @@ if (in_array($service, $semanticServices)) {
           <li>Cloud platforms (AWS, GCP, Azure)</li>
         </ul>
         
-        <h3 style="color: #000080;">Benefits</h3>
-        <ul style="padding-left: 1.5rem;">
+        <h3>Benefits</h3>
+        <ul>
           <li>No data duplication—access data in place</li>
           <li>Real-time access to live data sources</li>
           <li>Reduced storage and compute costs</li>
@@ -82,11 +82,11 @@ if (in_array($service, $semanticServices)) {
       'title' => 'REST API Documentation',
       'description' => 'Your REST layer becomes semantic, self-documenting, and deeply expressive. Nested semantic fetches, field-level precision, and automatic OpenAPI generation.',
       'content' => '
-        <h2 style="color: #000080; margin-top: 0;">Semantic REST API</h2>
+        <h2>Semantic REST API</h2>
         <p>NRLC transforms your REST layer into a semantic, self-documenting API that understands relationships and context. Query your knowledge graph through intuitive REST endpoints with automatic OpenAPI/Swagger documentation.</p>
         
-        <h3 style="color: #000080;">Key Features</h3>
-        <ul style="padding-left: 1.5rem;">
+        <h3>Key Features</h3>
+        <ul>
           <li><strong>Nested Semantic Fetches:</strong> Request related entities in a single call using semantic relationships</li>
           <li><strong>Field-Level Precision:</strong> Request only the fields you need, reducing payload size</li>
           <li><strong>Role & Row-Level Governance:</strong> Automatic enforcement of access control based on user roles</li>
@@ -94,16 +94,16 @@ if (in_array($service, $semanticServices)) {
           <li><strong>Automatic OpenAPI/Swagger:</strong> Self-documenting API with automatic schema generation</li>
         </ul>
         
-        <h3 style="color: #000080;">Example Endpoints</h3>
-        <div style="background: #f0f0f0; padding: 1rem; margin: 1rem 0; border: 1px solid #ccc; font-family: monospace;">
-          <p style="margin: 0;"><strong>GET</strong> /api/entities/customers</p>
-          <p style="margin: 0.5rem 0 0 0;"><strong>GET</strong> /api/entities/customers/{id}?include=orders,address</p>
-          <p style="margin: 0.5rem 0 0 0;"><strong>GET</strong> /api/entities/customers?fields=name,email&filter=status:active</p>
-          <p style="margin: 0.5rem 0 0 0;"><strong>GET</strong> /api/query?q=revenue by region</p>
+        <h3>Example Endpoints</h3>
+        <div class="content-block content-block--highlighted">
+          <p><strong>GET</strong> /api/entities/customers</p>
+          <p><strong>GET</strong> /api/entities/customers/{id}?include=orders,address</p>
+          <p><strong>GET</strong> /api/entities/customers?fields=name,email&filter=status:active</p>
+          <p><strong>GET</strong> /api/query?q=revenue by region</p>
         </div>
         
-        <h3 style="color: #000080;">Benefits</h3>
-        <ul style="padding-left: 1.5rem;">
+        <h3>Benefits</h3>
+        <ul>
           <li>Intuitive API design based on your semantic model</li>
           <li>Automatic relationship traversal</li>
           <li>Built-in security and governance</li>
@@ -111,9 +111,9 @@ if (in_array($service, $semanticServices)) {
           <li>Optimized for both human developers and AI agents</li>
         </ul>
         
-        <h3 style="color: #000080;">Documentation</h3>
+        <h3>Documentation</h3>
         <p>Full REST API documentation is available in OpenAPI/Swagger format. Access interactive API documentation, code samples, and integration guides.</p>
-        <a href="/api/docs/" class="btn" data-ripple style="margin-top: 1rem;">View Full API Documentation</a>
+        <p><a href="/api/docs/" class="btn">View Full API Documentation</a></p>
       '
     ]
   ];
@@ -144,19 +144,18 @@ if (in_array($service, $semanticServices)) {
     ];
     ?>
     <main role="main">
-    <section class="container">
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text"><?= htmlspecialchars($content['title']) ?></div>
+    <section class="container section">
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h1 class="content-block__title"><?= htmlspecialchars($content['title']) ?></h1>
           </div>
-          <div class="window-body">
-            <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;"><?= htmlspecialchars($content['title']) ?></h1>
-            <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><?= htmlspecialchars($content['description']) ?></p>
+          <div class="content-block__body">
+            <p class="lead"><?= htmlspecialchars($content['description']) ?></p>
             <?= $content['content'] ?>
-            <div style="margin-top: 2rem; text-align: center;">
-              <a href="/api/book/" class="btn" data-ripple>Book a Demo</a>
-              <a href="/services/" class="btn" data-ripple style="margin-left: 1rem;">View All Services</a>
-            </div>
+            <p class="text-center">
+              <a href="/api/book/" class="btn btn--primary">Book a Demo</a>
+              <a href="/services/" class="btn">View All Services</a>
+            </p>
           </div>
         </div>
     </section>
@@ -197,63 +196,62 @@ $GLOBALS['__jsonld'] = [
 ?>
 
 <main role="main">
-<section class="container">
+<section class="container section">
     
-    <!-- Hero Window -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text"><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?></div>
+    <!-- Hero Content Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title"><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?></h1>
       </div>
-      <div class="window-body">
-        <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;"><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?></h1>
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">Select a city to see localized implementation and pricing for this service.</p>
+      <div class="content-block__body">
+        <p class="lead">Select a city to see localized implementation and pricing for this service.</p>
       </div>
     </div>
 
-    <!-- City Selection Window -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Available Cities</div>
+    <!-- City Selection Content Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Available Cities</h2>
       </div>
-      <div class="window-body">
-        <div class="grid-auto-fit">
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">New York</h3>
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit">
+          <div class="content-block">
+            <h3>New York</h3>
             <p>Full service implementation in New York with local expertise and support.</p>
-            <a href="/services/<?=htmlspecialchars($service)?>/new-york/" class="btn" data-ripple>View in New York</a>
+            <p><a href="/services/<?=htmlspecialchars($service)?>/new-york/" class="btn">View in New York</a></p>
           </div>
           
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">London</h3>
+          <div class="content-block">
+            <h3>London</h3>
             <p>Comprehensive service delivery in London with UK market expertise.</p>
-            <a href="/services/<?=htmlspecialchars($service)?>/london/" class="btn" data-ripple>View in London</a>
+            <p><a href="/services/<?=htmlspecialchars($service)?>/london/" class="btn">View in London</a></p>
           </div>
           
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">San Francisco</h3>
+          <div class="content-block">
+            <h3>San Francisco</h3>
             <p>Tech-focused implementation in San Francisco with Silicon Valley insights.</p>
-            <a href="/services/<?=htmlspecialchars($service)?>/san-francisco/" class="btn" data-ripple>View in San Francisco</a>
+            <p><a href="/services/<?=htmlspecialchars($service)?>/san-francisco/" class="btn">View in San Francisco</a></p>
           </div>
           
-          <div class="box-padding">
-            <h3 style="margin-top: 0; color: #000080;">Toronto</h3>
+          <div class="content-block">
+            <h3>Toronto</h3>
             <p>Canadian market expertise with Toronto-based implementation and support.</p>
-            <a href="/services/<?=htmlspecialchars($service)?>/toronto/" class="btn" data-ripple>View in Toronto</a>
+            <p><a href="/services/<?=htmlspecialchars($service)?>/toronto/" class="btn">View in Toronto</a></p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Consultation Window -->
-    <div class="window">
-      <div class="title-bar">
-        <div class="title-bar-text">Need Help Choosing?</div>
+    <!-- Consultation Content Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Need Help Choosing?</h2>
       </div>
-      <div class="window-body">
+      <div class="content-block__body">
         <p>Our team can help you select the right city and service package for your needs. Contact us for personalized recommendations.</p>
-        <div class="center margin-top-20">
-          <a href="/api/book/" class="btn" data-ripple>Schedule Consultation</a>
-        </div>
+        <p class="text-center">
+          <a href="/api/book/" class="btn btn--primary">Schedule Consultation</a>
+        </p>
       </div>
     </div>
 

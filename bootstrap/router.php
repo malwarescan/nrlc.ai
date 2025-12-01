@@ -149,6 +149,21 @@ function route_request(): void {
     return;
   }
 
+  // Products routes
+  if ($path === '/products/') {
+    render_page('products/index');
+    return;
+  }
+
+  if (preg_match('#^/products/([^/]+)/$#', $path, $m)) {
+    $product_slug = $m[1];
+    $product_file = __DIR__.'/../pages/products/'.$product_slug.'.php';
+    if (file_exists($product_file)) {
+      render_page('products/'.$product_slug);
+      return;
+    }
+  }
+
   // Promptware routes
   if ($path === '/promptware/') {
     render_page('promptware/index');

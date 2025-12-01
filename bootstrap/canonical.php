@@ -21,12 +21,21 @@ function canonical_guard(): void {
   }
 
   // Force HTTPS redirect (fallback if .htaccess doesn't catch it)
-  if (empty($_SERVER['HTTPS']) && 
+  // Skip HTTPS enforcement for localhost/127.0.0.1 (local development)
+  $isLocalhost = in_array($host, ['localhost', '127.0.0.1', 'localhost:8000', '127.0.0.1:8000']);
+  
+  if (!$isLocalhost && 
+      empty($_SERVER['HTTPS']) && 
       empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && 
       empty($_SERVER['HTTP_X_FORWARDED_SSL'])) {
     $redirectUrl = $scheme.'://'.$host.$_SERVER['REQUEST_URI'];
     header("Location: $redirectUrl", true, 301);
     exit;
+  }
+  
+  // Use HTTP scheme for localhost
+  if ($isLocalhost) {
+    $scheme = 'http';
   }
 
   // Force non-www redirect (www.nrlc.ai -> nrlc.ai)

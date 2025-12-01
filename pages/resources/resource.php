@@ -61,7 +61,7 @@ $faqs = det_pick([
   <p>Most organizations can implement the strategies outlined in this resource within 30-60 days, with measurable improvements visible within 90 days of completion.</p>
   
   <h3>Phase 1: Preparation (Days 1-15)</h3>
-  <p>During the preparation phase, organizations should focus on understanding the resource requirements and preparing their teams for implementation.</p>
+  <p>Understand resource requirements and prepare teams for implementation.</p>
   
   <ul>
     <li>Review all resource materials and documentation</li>
@@ -72,7 +72,7 @@ $faqs = det_pick([
   </ul>
   
   <h3>Phase 2: Implementation (Days 16-45)</h3>
-  <p>The implementation phase involves executing the strategies outlined in the resource while maintaining quality and consistency.</p>
+  <p>Execute strategies while maintaining quality and consistency.</p>
   
   <ul>
     <li>Begin systematic implementation of resource strategies</li>
@@ -83,7 +83,7 @@ $faqs = det_pick([
   </ul>
   
   <h3>Phase 3: Optimization (Days 46-90)</h3>
-  <p>The optimization phase focuses on refining the implementation and maximizing the benefits of the resource.</p>
+  <p>Refine implementation and maximize benefits.</p>
   
   <ul>
     <li>Analyze initial results and identify optimization opportunities</li>
@@ -94,7 +94,7 @@ $faqs = det_pick([
   </ul>
   
   <h2>Resource Components</h2>
-  <p>This resource includes several key components designed to support successful implementation:</p>
+  <p>Key components designed to support successful implementation:</p>
   
   <ul>
     <li><strong>Comprehensive Guide:</strong> Detailed instructions and best practices for implementation</li>
@@ -105,7 +105,7 @@ $faqs = det_pick([
   </ul>
   
   <h2>Success Factors</h2>
-  <p>Organizations that achieve the best results with this resource typically share certain characteristics:</p>
+  <p>Organizations achieving the best results typically share:</p>
   
   <ul>
     <li><strong>Strong Leadership:</strong> Committed leadership that supports and champions the initiative</li>

@@ -173,9 +173,12 @@ function meta_for_slug(string $slug): array {
       $serviceData = array_filter($services, fn($s) => ($s['slug'] ?? '') === $serviceSlug);
       $serviceName = !empty($serviceData) ? reset($serviceData)['name'] : ucwords(str_replace('-', ' ', $serviceSlug));
       
+      // AEO-optimized: Direct answer format
+      $desc = "Expert $serviceName services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness. Get results with proven AI SEO strategies.";
+      
       return [
-        "$serviceName Services | NRLC.ai — AI SEO",
-        "Professional $serviceName services by NRLC.ai. GEO-16 framework, structured data optimization, and AI engine citation readiness.",
+        "$serviceName Services | Expert AI SEO | NRLC.ai",
+        $desc,
         "/services/$serviceSlug/"
       ];
       
@@ -192,9 +195,34 @@ function meta_for_slug(string $slug): array {
       $serviceName = !empty($serviceData) ? reset($serviceData)['name'] : ucwords(str_replace('-', ' ', $serviceSlug));
       $cityName = !empty($cityData) ? reset($cityData)['city_name'] : ucwords(str_replace('-', ' ', $citySlug));
       
+      // Special optimization for Singapore (high impressions, 0% CTR)
+      $isSingapore = strtolower($citySlug) === 'singapore' || stripos($cityName, 'Singapore') !== false;
+      
+      if ($isSingapore) {
+        // CTR-optimized: Include "AI SEO Singapore" in title for query match
+        // Keep title under 60 chars for optimal SERP display
+        $title = "AI SEO Singapore | $serviceName Services | NRLC.ai";
+        if (strlen($title) > 60) {
+          // Truncate service name if needed
+          $shortService = substr($serviceName, 0, 30);
+          $title = "AI SEO Singapore | $shortService | NRLC.ai";
+        }
+        
+        // Benefit-driven description with Singapore-specific value prop
+        $desc = "Expert AI SEO services in Singapore. $serviceName with proven results. GEO-16 framework, structured data optimization, and AI engine citation readiness. Free consultation for Singapore businesses.";
+        if (strlen($desc) > 160) {
+          $desc = substr($desc, 0, 157) . '...';
+        }
+      } else {
+        // AEO-optimized description: Answer-focused, benefit-driven
+        $desc = "Get $serviceName in $cityName. Expert AI SEO services with proven results. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness. Free consultation available.";
+        
+        $title = "$serviceName in $cityName | Expert AI SEO Services | NRLC.ai";
+      }
+      
       return [
-        "$serviceName in $cityName | NRLC.ai AI SEO",
-        "Professional $serviceName services in $cityName. GEO-16 framework, structured data optimization, and AI engine citation readiness.",
+        $title,
+        $desc,
         "/services/$serviceSlug/$citySlug/"
       ];
       
@@ -211,14 +239,27 @@ function meta_for_slug(string $slug): array {
       $cityName = !empty($cityData) ? reset($cityData)['city_name'] : ucwords(str_replace('-', ' ', $citySlug));
       $roleTitle = !empty($careerData) ? reset($careerData)['title'] : ucwords(str_replace('-', ' ', $roleSlug));
       
+      // AEO-optimized: Job-focused description
+      $desc = "Apply for $roleTitle jobs in $cityName at NRLC.ai. Remote-friendly positions. Work on AI SEO, GEO-16 framework development, structured data optimization, and LLM citation strategies. Competitive salary and benefits.";
+      
       return [
-        "$roleTitle Jobs in $cityName | NRLC.ai Careers",
-        "Join NRLC.ai as $roleTitle in $cityName. Work on AI SEO, GEO-16 framework, structured data optimization, and LLM citation strategies.",
+        "$roleTitle Jobs in $cityName | Apply Now | NRLC.ai Careers",
+        $desc,
         "/careers/$citySlug/$roleSlug/"
       ];
       
     case 'insights/article':
       $articleSlug = $_GET['slug'] ?? '';
+      
+      // Special handling for silent-hydration-seo article
+      if ($articleSlug === 'silent-hydration-seo') {
+        return [
+          'The Silent Killer of SEO: How JavaScript Hydration Failures Suppress Rankings',
+          'Discover how silent JavaScript hydration failures cause Google to index broken versions of modern websites, quietly suppressing rankings despite perfect SEO signals.',
+          "/insights/$articleSlug/"
+        ];
+      }
+      
       $insights = csv_read_data('insights.csv');
       $articleData = array_filter($insights, fn($i) => ($i['slug'] ?? '') === $articleSlug);
       
@@ -236,8 +277,8 @@ function meta_for_slug(string $slug): array {
           $shortTitle = substr($shortTitle, 0, strrpos($shortTitle, ' ')) . '...';
         }
         
-        // Build description from keywords and value prop
-        $desc = "Comprehensive guide to $keywords. Practical insights and strategies for AI-first SEO optimization from NRLC.ai research.";
+        // AEO-optimized description: Answer-focused
+        $desc = "Learn $keywords. Comprehensive guide with practical insights and proven strategies for AI-first SEO optimization. Research-backed by NRLC.ai experts.";
         if (strlen($desc) > 160) {
           $desc = substr($desc, 0, 157) . '...';
         }

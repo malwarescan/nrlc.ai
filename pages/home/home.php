@@ -8,166 +8,130 @@ $insights = csv_read_data('insights.csv');
 $latest_insights = array_slice($insights, -4); // Get last 4 insights
 ?>
 
-<main role="main">
-<section class="container">
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
     
-    <!-- Hero / Main Value Proposition -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">nrlc.ai — The Semantic Infrastructure for the AI Internet</div>
+    <!-- Primary Mission Statement -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">The Semantic Infrastructure for the AI Internet</h1>
       </div>
-      <div class="window-body">
-        <div class="hero-content" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-          <?php
-          // Cycle through available logos
-          $logos = ['nrlcai logo 0.png', 'nrlcai logo 3.png', 'nrlcai logo 4.png'];
-          $logoIndex = time() % count($logos);
-          $selectedLogo = $logos[$logoIndex];
-          ?>
-          <img src="/assets/images/<?= htmlspecialchars($selectedLogo) ?>" alt="NRLC.ai Logo" class="hero-logo" style="height: 80px; width: auto; max-width: 250px;">
-          <div style="flex: 1;">
-            <h1 style="margin: 0 0 0.5rem 0; font-size: 2.5rem; color: #000080; line-height: 1.2;">
-              The Semantic Infrastructure<br>for the AI Internet
-            </h1>
-            <p class="lead" style="font-size: 1.3rem; margin: 0; color: #000080;">
-              Where data becomes knowledge.<br>Where knowledge becomes intelligence.
-            </p>
-          </div>
-        </div>
-        
-        <div style="border-top: 2px solid #000080; padding-top: 1.5rem; margin-top: 1.5rem;">
-          <h2 style="margin: 0 0 1rem 0; font-size: 1.5rem; color: #000080;">The Operating Layer for Agentic Systems</h2>
-          <p class="lead" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-            NRLC builds the semantic foundation that allows LLMs, agents, and applications to interact with enterprise data as if it were fully mapped, contextualized, and logically structured.
-          </p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="/api/book/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Book a Demo</a>
-            <a href="/services/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Explore the Knowledge Graph</a>
-          </div>
+      <div class="content-block__body">
+        <p class="lead">NRLC builds the semantic foundation that allows LLMs, agents, and applications to interact with enterprise data as if it were fully mapped, contextualized, and logically structured.</p>
+        <p>Where data becomes knowledge. Where knowledge becomes intelligence.</p>
+        <div class="btn-group">
+          <a href="sms:+12135628438?body=hey, im interested in picking your brain" class="btn btn--primary">Text Us</a>
+          <a href="tel:+12135628438" class="btn">Call Now</a>
+          <a href="mailto:hirejoelm@gmail.com" class="btn">Email Us</a>
         </div>
       </div>
-    </div>
+        </div>
 
     <!-- Unified Semantic Layer -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">A Unified Semantic Layer for the AI Era</div>
-      </div>
-      <div class="window-body">
-        <h2 style="margin: 0 0 1rem 0; font-size: 1.75rem; color: #000080;">Stop stitching tools together.</h2>
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          Stop forcing LLMs to interpret raw tables.<br>
-          Stop building bespoke pipelines for every use case.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 1.5rem;">
-          NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.
-        </p>
-        <a href="/services/" class="btn" data-ripple>See how it works</a>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">A Unified Semantic Layer for the AI Era</h2>
+        </div>
+      <div class="content-block__body">
+        <p class="lead">Stop stitching tools together. Stop forcing LLMs to interpret raw tables. Stop building bespoke pipelines for every use case.</p>
+        <p>Transform databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.</p>
+        <p><a href="/services/" class="btn">See how it works</a></p>
       </div>
     </div>
 
     <!-- Think in Concepts -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Think in Concepts, Not Tables</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Think in Concepts, Not Tables</h2>
       </div>
-      <div class="window-body">
-        <h2 style="margin: 0 0 1rem 0; font-size: 1.75rem; color: #000080;">Modern data is complex. NRLC abstracts it into meaningful objects, relationships, metrics, and logical rules.</h2>
-        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">What this enables:</p>
-        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+      <div class="content-block__body">
+        <p class="lead">Modern data is complex. NRLC abstracts it into meaningful objects, relationships, metrics, and logical rules.</p>
+        <p><strong>What this enables:</strong></p>
+        <ul>
           <li>Structured data becomes a semantic graph</li>
           <li>LLMs answer with contextual accuracy</li>
           <li>Queries collapse from dozens of JOINs to concise, relationship-aware logic</li>
           <li>Applications consume data as connected concepts, not raw sources</li>
           <li>Governance is enforced automatically across the entire knowledge layer</li>
         </ul>
-        <a href="/services/" class="btn" data-ripple>See it in action</a>
+        <p><a href="/services/" class="btn">See it in action</a></p>
       </div>
     </div>
 
     <!-- Semantic Layer Re-engineered -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">The Semantic Layer, Re-engineered for AI</div>
-      </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          Our ontology engine models your business using SQL-native ontologies, exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Core capabilities:</p>
-        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">The Semantic Layer, Re-engineered for AI</h2>
+        </div>
+      <div class="content-block__body">
+        <p class="lead">Model your business using SQL-native ontologies, exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms.</p>
+        <p><strong>Core capabilities:</strong></p>
+        <ul>
           <li>Semantic representation of every entity</li>
           <li>Explicit relationships replacing JOIN complexity</li>
           <li>Business logic encoded into reusable rules</li>
           <li>Hierarchies, classifications, inheritance</li>
           <li>Automated reasoning across the entire graph</li>
         </ul>
-        <a href="/insights/" class="btn" data-ripple>Learn why teams adopt semantic modeling</a>
+        <p><a href="/insights/" class="btn">Learn why teams adopt semantic modeling</a></p>
       </div>
     </div>
 
     <!-- Build AI Workflows -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Build AI Workflows on Structured Understanding</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Build AI Workflows on Structured Understanding</h2>
       </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          LLMs become reliable once they operate on governed, contextualized, precise data.<br>
-          NRLC delivers that foundation.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Power AI with:</p>
-        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+      <div class="content-block__body">
+        <p class="lead">LLMs become reliable once they operate on governed, contextualized, precise data. NRLC delivers that foundation.</p>
+        <p><strong>Power AI with:</strong></p>
+        <ul>
           <li>Structured semantic context</li>
           <li>Verified relationships</li>
           <li>Virtualized access to all data sources</li>
           <li>SQL measures and reusable metrics</li>
           <li>Fine-grained access control</li>
         </ul>
-        <a href="/services/" class="btn" data-ripple>Enterprise LLM Foundation Overview</a>
+        <p><a href="/services/" class="btn">Enterprise LLM Foundation Overview</a></p>
       </div>
     </div>
 
     <!-- Simplify Data Path -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Simplify the Entire Path from Data → Insight</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Simplify the Entire Path from Data → Insight</h2>
       </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          NRLC connects every source into a semantic, virtualized layer with no ingestion or duplication.<br>
-          Your data stays where it lives — NRLC makes it usable.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Benefits:</p>
-        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+      <div class="content-block__body">
+        <p class="lead">NRLC connects every source into a semantic, virtualized layer with no ingestion or duplication. Your data stays where it lives — NRLC makes it usable.</p>
+        <p><strong>Benefits:</strong></p>
+        <ul>
           <li>Automatic mapping to the ontology</li>
           <li>Federated queries across clouds and databases</li>
           <li>Intelligent pushdown + query optimization</li>
           <li>Powerful caching engine that reduces compute spend</li>
           <li>Unified graph view across all sources</li>
         </ul>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-          <a href="/services/data-mapping/" class="btn" data-ripple>See how data is mapped</a>
-          <a href="/services/data-virtualization/" class="btn" data-ripple>Explore data virtualization</a>
-          <a href="/insights/" class="btn" data-ripple>Performance & caching insights</a>
+        <div class="btn-group">
+          <a href="/services/data-mapping/" class="btn">See how data is mapped</a>
+          <a href="/services/data-virtualization/" class="btn">Explore data virtualization</a>
+          <a href="/insights/" class="btn">Performance & caching insights</a>
         </div>
       </div>
-    </div>
+          </div>
 
     <!-- Connect Anything -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Connect Anything</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Connect Anything</h2>
       </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          No syncing. No lifting. No duplication.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Supported universally:</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+      <div class="content-block__body">
+        <p class="lead">No syncing. No lifting. No duplication.</p>
+        <p><strong>Supported universally:</strong></p>
+        <div class="grid grid-auto-fit">
           <div>
-            <strong>Data Platforms:</strong>
-            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            <h4>Data Platforms</h4>
+            <ul>
               <li>Data warehouses</li>
               <li>Data lakes</li>
               <li>Databases</li>
@@ -175,8 +139,8 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
             </ul>
           </div>
           <div>
-            <strong>BI Tools:</strong>
-            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            <h4>BI Tools</h4>
+            <ul>
               <li>Power BI</li>
               <li>Tableau</li>
               <li>Looker</li>
@@ -184,8 +148,8 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
             </ul>
           </div>
           <div>
-            <strong>AI Frameworks:</strong>
-            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            <h4>AI Frameworks</h4>
+            <ul>
               <li>Python</li>
               <li>LangChain</li>
               <li>LangGraph</li>
@@ -193,83 +157,73 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
             </ul>
           </div>
           <div>
-            <strong>Protocols:</strong>
-            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            <h4>Protocols</h4>
+            <ul>
               <li>REST, SQL</li>
               <li>JDBC, ODBC</li>
               <li>OLAP, MDX</li>
             </ul>
           </div>
         </div>
-        <a href="/services/" class="btn" data-ripple>View all integrations</a>
+        <p><a href="/services/" class="btn">View all integrations</a></p>
       </div>
-    </div>
+      </div>
 
     <!-- Power Applications With Smart REST -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Power Applications With Smart REST</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Power Applications With Smart REST</h2>
       </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          Your REST layer becomes semantic, self-documenting, and deeply expressive.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Capabilities:</p>
-        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+      <div class="content-block__body">
+        <p class="lead">Your REST layer becomes semantic, self-documenting, and deeply expressive.</p>
+        <p><strong>Capabilities:</strong></p>
+        <ul>
           <li>Nested semantic fetches</li>
           <li>Field-level precision</li>
           <li>Role & row-level governance</li>
           <li>Reduced network payload</li>
           <li>Automatic OpenAPI/Swagger generation</li>
         </ul>
-        <a href="/services/rest-api/" class="btn" data-ripple>REST API Documentation</a>
+        <p><a href="/services/rest-api/" class="btn">REST API Documentation</a></p>
       </div>
     </div>
 
     <!-- Accelerated Analytics -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Accelerated Analytics</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Accelerated Analytics</h2>
       </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          Semantic relationships collapse query complexity and reduce time to value.
-        </p>
-        <div style="background: #f0f0f0; padding: 1rem; margin: 1rem 0; border: 1px solid #ccc;">
-          <p style="margin: 0 0 0.5rem 0; font-weight: 600;">Example</p>
-          <p style="margin: 0 0 0.5rem 0;"><strong>Traditional SQL:</strong> 22 lines</p>
-          <p style="margin: 0;"><strong>Semantic SQL:</strong> 6 lines</p>
+      <div class="content-block__body">
+        <p class="lead">Semantic relationships collapse query complexity and reduce time to value.</p>
+        <div class="content-block content-block--highlighted">
+          <p><strong>Example</strong></p>
+          <p><strong>Traditional SQL:</strong> 22 lines</p>
+          <p><strong>Semantic SQL:</strong> 6 lines</p>
         </div>
-        <a href="/insights/" class="btn" data-ripple>Learn more about semantic queries</a>
+        <p><a href="/insights/" class="btn">Learn more about semantic queries</a></p>
       </div>
     </div>
 
     <!-- Interactive Knowledge Graph -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Interactive Knowledge Graph Exploration</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Interactive Knowledge Graph Exploration</h2>
       </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          Traverse relationships. Surface insights.<br>
-          Generate SQL or natural-language queries.<br>
-          Let LLMs act as your data analyst.
-        </p>
-        <a href="/services/" class="btn" data-ripple>Explore the Knowledge Graph</a>
+      <div class="content-block__body">
+        <p class="lead">Traverse relationships. Surface insights. Generate SQL or natural-language queries. Let LLMs act as your data analyst.</p>
+        <p><a href="/services/" class="btn">Explore the Knowledge Graph</a></p>
       </div>
-    </div>
+            </div>
 
     <!-- Decouple BI -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Decouple BI From Raw Data</div>
-      </div>
-      <div class="window-body">
-        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem;">
-          Stable metrics, reusable logic, and dynamic mappings eliminate the fragility of BI dashboards.
-        </p>
-        <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Benefits:</p>
-        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Decouple BI From Raw Data</h2>
+        </div>
+      <div class="content-block__body">
+        <p class="lead">Stable metrics, reusable logic, and dynamic mappings eliminate the fragility of BI dashboards.</p>
+        <p><strong>Benefits:</strong></p>
+        <ul>
           <li>Reuse metrics across BI tools</li>
           <li>Update structures without breaking dashboards</li>
           <li>Push compute back to your warehouse</li>
@@ -280,12 +234,12 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
     </div>
 
     <!-- Faster Implementation -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Faster Implementation. Faster Answers.</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Faster Implementation. Faster Answers.</h2>
       </div>
-      <div class="window-body">
-        <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+      <div class="content-block__body">
+        <ul>
           <li>Rapid semantic modeling</li>
           <li>LLM-assisted entity + metric creation</li>
           <li>Up to 90% reduction in time-to-consumption</li>
@@ -296,30 +250,16 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
       </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Ready To Build Semantic Intelligence Into Your Stack?</div>
-      </div>
-      <div class="window-body">
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-          <a href="/api/book/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Book a live demo</a>
-          <a href="/services/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Start your free trial</a>
-          <a href="/services/" class="btn" data-ripple style="font-size: 1rem; padding: 0.75rem 1.5rem;">Get product overview</a>
-        </div>
-      </div>
-    </div>
-
     <!-- Product Overview -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Product Overview</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Product Overview</h2>
       </div>
-      <div class="window-body">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit">
           <div>
-            <h3 style="color: #000080; margin-top: 0;">Core Platform</h3>
-            <ul style="padding-left: 1.5rem;">
+            <h3>Core Platform</h3>
+            <ul>
               <li>Semantic Layer</li>
               <li>SQL Ontologies</li>
               <li>Enterprise LLM Foundation</li>
@@ -331,8 +271,8 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
             </ul>
           </div>
           <div>
-            <h3 style="color: #000080; margin-top: 0;">AI Capabilities</h3>
-            <ul style="padding-left: 1.5rem;">
+            <h3>AI Capabilities</h3>
+            <ul>
               <li>NL2SQL Generation</li>
               <li>GraphRAG</li>
               <li>Graph Analytics</li>
@@ -341,15 +281,15 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
             </ul>
           </div>
           <div>
-            <h3 style="color: #000080; margin-top: 0;">Integrations</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Data Platforms:</strong> Databricks, Snowflake, Fabric, GCP, AWS, SAP HANA</p>
-            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>BI:</strong> Power BI, Tableau, Looker, Qlik, Excel, Superset</p>
-            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>AI/ML:</strong> Python, LangChain, LangGraph, Graph Algorithms</p>
-            <p style="font-size: 0.9rem;"><strong>Consumption:</strong> SQL, JDBC/ODBC, MDX, REST</p>
+            <h3>Integrations</h3>
+            <p><strong>Data Platforms:</strong> Databricks, Snowflake, Fabric, GCP, AWS, SAP HANA</p>
+            <p><strong>BI:</strong> Power BI, Tableau, Looker, Qlik, Excel, Superset</p>
+            <p><strong>AI/ML:</strong> Python, LangChain, LangGraph, Graph Algorithms</p>
+            <p><strong>Consumption:</strong> SQL, JDBC/ODBC, MDX, REST</p>
           </div>
           <div>
-            <h3 style="color: #000080; margin-top: 0;">Solutions</h3>
-            <ul style="padding-left: 1.5rem; font-size: 0.9rem;">
+            <h3>Solutions</h3>
+            <ul>
               <li>Intelligent Semantic Layer</li>
               <li>Metrics Store</li>
               <li>Data Virtualization</li>
@@ -367,15 +307,15 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
     </div>
 
     <!-- Resources -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Resources</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Resources</h2>
       </div>
-      <div class="window-body">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit">
           <div>
-            <h3 style="color: #000080; margin-top: 0;">Resources</h3>
-            <ul style="padding-left: 1.5rem;">
+            <h3>Resources</h3>
+            <ul>
               <li><a href="/insights/">Knowledge Base</a></li>
               <li><a href="/services/">Documentation</a></li>
               <li><a href="/insights/">Tutorials</a></li>
@@ -385,12 +325,14 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
             </ul>
           </div>
           <div>
-            <h3 style="color: #000080; margin-top: 0;">Company</h3>
-            <ul style="padding-left: 1.5rem;">
+            <h3>Company</h3>
+            <ul>
               <li><a href="/insights/">News</a></li>
               <li><a href="/services/">Partners</a></li>
               <li><a href="/services/">Support</a></li>
-              <li><a href="/api/book/">Contact</a></li>
+              <li><a href="sms:+12135628438?body=hey, im interested in picking your brain">Text: +1-213-562-8438</a></li>
+              <li><a href="tel:+12135628438">Call: +1-213-562-8438</a></li>
+              <li><a href="mailto:hirejoelm@gmail.com">Email: hirejoelm@gmail.com</a></li>
             </ul>
           </div>
         </div>
@@ -398,29 +340,40 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
     </div>
 
     <!-- Latest Insights Feed -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Latest Research & Insights</div>
+    <?php if (!empty($latest_insights)): ?>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Latest Research & Insights</h2>
       </div>
-      <div class="window-body">
-        <div class="list-view">
+      <div class="content-block__body">
+        <ul>
           <?php foreach (array_reverse($latest_insights) as $insight): ?>
-            <div class="list-item" style="padding: 0.5rem; border-bottom: 1px solid #ccc;">
-              <h4 style="margin: 0 0 0.5rem 0; color: #000080;">
-                <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" style="text-decoration: none; color: inherit;">
-                  <?= htmlspecialchars($insight['title']) ?>
-                </a>
-              </h4>
-              <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">
-                <?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 100)) ?>...
-              </p>
-              <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn" data-ripple style="font-size: 0.8rem;">Read Article</a>
-            </div>
+            <li>
+              <h4><a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/"><?= htmlspecialchars($insight['title']) ?></a></h4>
+              <p><?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 150)) ?>...</p>
+              <p><a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn">Read Article</a></p>
+            </li>
           <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+    <?php endif; ?>
+
+    <!-- CTA Section -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Ready To Build Semantic Intelligence Into Your Stack?</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="btn-group text-center">
+          <a href="sms:+12135628438?body=hey, im interested in picking your brain" class="btn btn--primary">Text Us</a>
+          <a href="tel:+12135628438" class="btn">Call: +1-213-562-8438</a>
+          <a href="mailto:hirejoelm@gmail.com" class="btn">Email Us</a>
         </div>
       </div>
     </div>
 
+  </div>
 </section>
 </main>
 
@@ -524,7 +477,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
   "@type":"ContactPoint",
   "contactType":"Sales",
   "email":"hirejoelm@gmail.com"
- },
+  },
  "sameAs":[
   "https://nrlcmd.com",
   "https://neuralcommandllc.com"

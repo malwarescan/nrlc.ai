@@ -14,17 +14,17 @@ $topic = $topics[($resourceNumber - 1) % count($topics)];
   </div>
   <div class="window-body">
     <h1><?=$topic?> <?=$category?> Resource</h1>
-    <p class="lead">Comprehensive <?=strtolower($category)?> for <?=strtolower($topic)?> optimization, providing actionable insights and practical implementation guidance.</p>
+    <p class="lead">Actionable insights and practical implementation guidance for <?=strtolower($topic)?> optimization.</p>
     
     <div class="muted-text">
       Category: <?=$category?> | Topic: <?=$topic?> | Resource ID: <?=$resourceNumber?>
     </div>
     
     <h2>Overview</h2>
-    <p>This <?=strtolower($category)?> provides comprehensive guidance on <?=strtolower($topic)?> optimization strategies. Whether you're new to <?=strtolower($topic)?> or looking to advance your existing knowledge, this resource offers valuable insights and practical implementation steps.</p>
+    <p>Whether you're new to <?=strtolower($topic)?> or advancing existing knowledge, this resource delivers practical implementation steps and optimization strategies.</p>
     
     <h2>Key Components</h2>
-    <p>The <?=strtolower($category)?> covers essential <?=strtolower($topic)?> elements:</p>
+    <p>Essential elements covered:</p>
     <ul>
       <li>Fundamental concepts and principles</li>
       <li>Implementation strategies and techniques</li>
@@ -34,7 +34,7 @@ $topic = $topics[($resourceNumber - 1) % count($topics)];
     </ul>
     
     <h2>Implementation Guide</h2>
-    <p>Follow these steps to implement <?=strtolower($topic)?> optimization:</p>
+    <p>Step-by-step optimization process:</p>
     <ol>
       <li><strong>Assessment:</strong> Evaluate current <?=strtolower($topic)?> status</li>
       <li><strong>Planning:</strong> Develop comprehensive optimization strategy</li>
@@ -44,7 +44,7 @@ $topic = $topics[($resourceNumber - 1) % count($topics)];
     </ol>
     
     <h2>Advanced Techniques</h2>
-    <p>For advanced <?=strtolower($topic)?> optimization:</p>
+    <p>Advanced optimization methods:</p>
     <ul>
       <li>Leverage AI-powered analysis tools</li>
       <li>Implement advanced structured data</li>
@@ -54,7 +54,7 @@ $topic = $topics[($resourceNumber - 1) % count($topics)];
     </ul>
     
     <h2>Resources and Tools</h2>
-    <p>Essential resources for <?=strtolower($topic)?> optimization:</p>
+    <p>Essential tools and documentation:</p>
     <ul>
       <li>GEO-16 framework documentation</li>
       <li>Structured data testing tools</li>

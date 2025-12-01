@@ -54,6 +54,15 @@ function sitemap_render_news(array $entries): string {
   return $xml . "</urlset>\n";
 }
 
+function sitemap_render_news_with_images(array $entries): string {
+  $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
+         "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" " .
+         "xmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\" " .
+         "xmlns:image=\"http://www.google.com/schemas/sitemap-image/1.1\">\n";
+  foreach ($entries as $e) $xml .= $e;
+  return $xml . "</urlset>\n";
+}
+
 function sitemap_render_index(array $sitemaps): string {
   $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
          "<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";

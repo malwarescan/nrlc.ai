@@ -10,8 +10,8 @@ $csv = __DIR__ . '/../../data/catalog.csv';
 $rows = [];
 if (is_file($csv)) {
   if (($fp=fopen($csv,'r'))!==false) {
-    $hdr = fgetcsv($fp);
-    while(($r=fgetcsv($fp))!==false){ $rows[] = array_combine($hdr,$r); }
+    $hdr = fgetcsv($fp, escape: '\\');
+    while(($r=fgetcsv($fp, escape: '\\'))!==false){ $rows[] = array_combine($hdr,$r); }
     fclose($fp);
   }
 }
@@ -25,15 +25,51 @@ $GLOBALS['pageDesc'] = $desc;
 include __DIR__.'/../../templates/head.php';
 include __DIR__.'/../../templates/header.php';
 ?>
-<main class="container">
-  <header><h1>Catalog</h1><p>All services & software from NRLC.ai.</p></header>
-  <ul>
-    <?php foreach ($rows as $it):
-      $u = '/catalog/' . $it['slug'] . '/';
-    ?>
-      <li><a href="<?= htmlspecialchars($u) ?>"><?= htmlspecialchars($it['name']) ?></a> — <?= htmlspecialchars($it['short']) ?></li>
-    <?php endforeach; ?>
-  </ul>
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
+    
+    <!-- Catalog Header Content Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">Catalog</h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead">All services & software from NRLC.ai.</p>
+      </div>
+    </div>
+
+    <!-- Catalog Items Grid -->
+    <?php if (!empty($rows)): ?>
+    <div class="content-block module">
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit">
+          <?php foreach ($rows as $it):
+            $u = '/catalog/' . $it['slug'] . '/';
+            $type = $it['type'] ?? 'service';
+            $description = $it['description'] ?? $it['short'] ?? '';
+          ?>
+            <div class="content-block">
+              <h3 class="content-block__title"><?= htmlspecialchars($it['name']) ?></h3>
+              <p><?= htmlspecialchars($it['short']) ?></p>
+              <?php if ($description && $description !== $it['short']): ?>
+                <p class="small muted"><?= htmlspecialchars($description) ?></p>
+              <?php endif; ?>
+              <div class="btn-group">
+                <a href="<?= htmlspecialchars($u) ?>" class="btn">View Details</a>
+                <?php if (!empty($it['landing_url'])): ?>
+                  <a href="<?= htmlspecialchars($it['landing_url']) ?>" class="btn btn--primary">Learn More</a>
+                <?php endif; ?>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+    <?php endif; ?>
+
+  </div>
+</section>
 </main>
 <script type="application/ld+json">{
   "@context":"https://schema.org",

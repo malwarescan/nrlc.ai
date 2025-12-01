@@ -58,13 +58,13 @@
       <p>Clear semantic structure helps AI engines understand content organization and extract key information. This principle focuses on HTML structure and content organization:</p>
       
       <h3 style="margin-top: 0; color: #000080;">Pillar 6: Heading Hierarchy</h3>
-      <p>Proper heading hierarchy (H1, H2, H3) creates logical content structure that AI engines can easily parse. Headings should be descriptive and reflect the content's organizational structure. Each heading level should represent a clear content section or subsection.</p>
+      <p>Logical content structure (H1, H2, H3) that AI engines can easily parse. Headings should be descriptive and reflect organizational structure. Each level represents a clear content section or subsection.</p>
       
       <h3 style="margin-top: 0; color: #000080;">Pillar 7: List and Table Structure</h3>
-      <p>Well-structured lists and tables help AI engines extract key information efficiently. Lists should use proper HTML markup (ul, ol, li) and tables should include appropriate headers and semantic markup. This structure enables AI engines to understand relationships between different pieces of information.</p>
+      <p>Proper HTML markup (ul, ol, li) and tables with appropriate headers enable AI engines to extract key information efficiently and understand relationships between different pieces of information.</p>
       
       <h3 style="margin-top: 0; color: #000080;">Pillar 8: Paragraph Organization</h3>
-      <p>Logical paragraph organization improves content readability for both humans and AI engines. Paragraphs should focus on single topics and flow logically from one to the next. Clear topic sentences help AI engines understand paragraph content and relevance.</p>
+      <p>Single-topic focus with logical flow improves readability for both humans and AI engines. Clear topic sentences help AI engines understand content and relevance.</p>
     </div>
   </div>
 
@@ -75,7 +75,7 @@
     </div>
     <div class="window-body">
       <h2 style="color: #000080; margin-top: 0;">Principle 4: Entity Clarity</h2>
-      <p>Clear entity identification helps AI engines understand the people, places, and concepts discussed in content. This principle ensures that key entities are explicitly identified and properly contextualized:</p>
+      <p>Explicit identification of people, places, and concepts helps AI engines understand content. Key entities must be clearly identified and properly contextualized:</p>
       
       <h3 style="margin-top: 0; color: #000080;">Pillar 9: Named Entity Recognition</h3>
       <p>Content should clearly identify key entities such as people, organizations, locations, and concepts. AI engines use named entity recognition to understand content context and make citation decisions. Entities should be introduced clearly and consistently throughout the content.</p>

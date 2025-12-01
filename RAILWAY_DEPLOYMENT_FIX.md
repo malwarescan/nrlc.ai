@@ -103,7 +103,7 @@ After deployment:
    - Should complete within seconds
 
 3. **Test Endpoint:**
-   ```bash
+```bash
    curl https://nrlc.ai/
    ```
    Should return HTML (may redirect to `/en-us/`)

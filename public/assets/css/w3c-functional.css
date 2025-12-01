@@ -1,0 +1,1212 @@
+/* ==========================================================================
+   NRLC.ai — W3C Functional Authority Design System
+   Utilitarian interface prioritizing clear, rapid delivery of complex 
+   information over decorative aesthetics. Form strictly follows function.
+   WCAG AAA compliance target. High information density. Modular segmentation.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CSS RESET & BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px; /* Base 16px for WCAG AAA compliance */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #000000; /* WCAG AAA: 21:1 contrast on white */
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video, canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* ==========================================================================
+   2. DESIGN TOKENS — Functional, Minimalist, High Contrast
+   ========================================================================== */
+:root {
+  /* Typography — System fonts only, no decorative typefaces */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  
+  /* Color Palette — Minimalist, High Contrast (WCAG AAA) */
+  --color-text-primary: #000000;      /* 21:1 contrast on white */
+  --color-text-secondary: #333333;    /* 12.6:1 contrast on white */
+  --color-text-muted: #666666;        /* 7:1 contrast on white */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f5;      /* Subtle separation */
+  --color-bg-tertiary: #e8e8e8;       /* Section separation */
+  --color-border: #cccccc;            /* Clear boundaries */
+  --color-border-strong: #000000;     /* Strong separation */
+  
+  /* Brand Accent — Used sparingly for links, active states */
+  --color-brand: #0066cc;              /* WCAG AAA: 7:1 contrast */
+  --color-brand-hover: #0052a3;        /* Darker on hover */
+  --color-brand-active: #003d7a;       /* Active state */
+  
+  /* Status Colors — Functional feedback only */
+  --color-success: #006600;            /* WCAG AAA: 7:1 contrast */
+  --color-error: #cc0000;              /* WCAG AAA: 7:1 contrast */
+  --color-warning: #cc6600;           /* WCAG AAA: 7:1 contrast */
+  
+  /* Layout — Modular, Efficient (8pt rhythm) */
+  --container-max-width: 1280px; /* max-w-screen-xl equivalent */
+  --container-padding: 1rem;     /* 16px = 2×8pt */
+  --container-padding-sm: 1.5rem; /* 24px = 3×8pt */
+  --container-padding-lg: 2rem;   /* 32px = 4×8pt */
+  --section-spacing-y: 3rem;     /* 48px = 6×8pt */
+  --section-spacing-y-lg: 4rem;  /* 64px = 8×8pt */
+  --module-spacing: 1.5rem;      /* 24px = 3×8pt */
+  --content-spacing: 1rem;       /* 16px = 2×8pt */
+  --section-gap: 1.5rem;         /* 24px = 3×8pt */
+  
+  /* Typography Scale — Size & Weight Only */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights — Optimized for readability */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+  
+  /* Spacing — 8pt rhythm only */
+  --spacing-0: 0;          /* 0px */
+  --spacing-2: 0.125rem;   /* 2px */
+  --spacing-4: 0.25rem;    /* 4px */
+  --spacing-6: 0.375rem;   /* 6px */
+  --spacing-8: 0.5rem;     /* 8px */
+  --spacing-12: 0.75rem;   /* 12px */
+  --spacing-16: 1rem;      /* 16px */
+  --spacing-20: 1.25rem;   /* 20px */
+  --spacing-24: 1.5rem;    /* 24px */
+  --spacing-32: 2rem;      /* 32px */
+  --spacing-40: 2.5rem;    /* 40px */
+  --spacing-48: 3rem;      /* 48px */
+  --spacing-64: 4rem;      /* 64px */
+  
+  /* Legacy aliases for compatibility */
+  --spacing-xs: var(--spacing-4);
+  --spacing-sm: var(--spacing-8);
+  --spacing-md: var(--spacing-16);
+  --spacing-lg: var(--spacing-24);
+  --spacing-xl: var(--spacing-32);
+  --spacing-2xl: var(--spacing-48);
+  
+  /* Borders — Clear separation */
+  --border-width: 1px;
+  --border-width-strong: 2px;
+  --border-style: solid;
+  
+  /* Focus — WCAG AAA compliant focus indicators */
+  --focus-outline: 3px solid #0066cc;
+  --focus-outline-offset: 2px;
+  
+  /* Animation — Subtle, Purposeful */
+  --ease-functional: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY HIERARCHY — Size, Weight, Color Only
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-sm);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+}
+
+.lead {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+}
+
+small, .small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   4. LINKS — Functional, Unambiguous
+   ========================================================================== */
+a {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color var(--duration-fast) var(--ease-functional);
+}
+
+a:hover {
+  color: var(--color-brand-hover);
+  text-decoration-thickness: 2px;
+}
+
+a:active {
+  color: var(--color-brand-active);
+}
+
+a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* ==========================================================================
+   5. LAYOUT — Modular Segmentation
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--container-padding-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding:  var(--container-padding-lg);
+  }
+}
+
+.section {
+  padding: var(--section-spacing-y) 0;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--section-spacing-y-lg) 0;
+  }
+}
+
+.section__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+.module {
+  margin-bottom: var(--module-spacing);
+}
+
+/* Horizontal Rules — Clear Section Separation */
+hr {
+  border: 0;
+  border-top: var(--border-width-strong) solid var(--color-border-strong);
+  margin: var(--spacing-xl) 0;
+}
+
+/* ==========================================================================
+   6. NAVIGATION — Deep Multi-Tiered (W3C Style)
+   ========================================================================== */
+.site-header {
+  background-color: var(--color-bg-primary);
+  border-bottom: var(--border-width-strong) solid var(--color-border-strong);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) var(--container-padding);
+  background-color: var(--color-bg-primary);
+}
+
+.nav-primary__brand {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.nav-primary__brand img {
+  height: 32px;
+  width: auto;
+  display: block;
+  transform-origin: center center;
+  transform: rotate(0deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-primary__brand:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.nav-primary__brand:hover img {
+  transform: rotate(60deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-primary__brand:not(:hover) img {
+  animation: leverSnapBack 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes leverSnapBack {
+  0% {
+    transform: rotate(60deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  70% {
+    transform: rotate(3deg);
+  }
+  85% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.nav-primary__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--spacing-xs);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-primary__toggle-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  transition: transform var(--duration-base) var(--ease-functional),
+              opacity var(--duration-base) var(--ease-functional);
+}
+
+.nav-primary__toggle[aria-expanded="true"] .nav-primary__toggle-icon:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-primary__toggle[aria-expanded="true"] .nav-primary__toggle-icon:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-primary__toggle[aria-expanded="true"] .nav-primary__toggle-icon:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-primary__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-primary__item {
+  position: relative;
+}
+
+.nav-primary__link {
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-functional);
+}
+
+.nav-primary__link:hover {
+  border-bottom-color: var(--color-brand);
+  color: var(--color-text-primary);
+}
+
+.nav-primary__link[aria-current="page"] {
+  border-bottom-color: var(--color-brand);
+  color: var(--color-brand);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Dropdown Navigation */
+.nav-primary__item--has-dropdown {
+  position: relative;
+}
+
+.nav-primary__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: var(--color-bg-primary);
+  border: var(--border-width-strong) solid var(--color-border-strong);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  margin: 0;
+  padding: var(--spacing-8);
+  display: none;
+  z-index: 1000;
+  margin-top: var(--spacing-4);
+}
+
+.nav-primary__item--has-dropdown:hover .nav-primary__dropdown,
+.nav-primary__item--has-dropdown:focus-within .nav-primary__dropdown {
+  display: block;
+}
+
+.nav-primary__dropdown-link {
+  display: block;
+  padding: var(--spacing-8) var(--spacing-12);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  transition: background-color var(--duration-fast) var(--ease-functional);
+}
+
+.nav-primary__dropdown-link:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .nav-primary__dropdown {
+    position: static;
+    display: block;
+    border: none;
+    box-shadow: none;
+    padding-left: var(--spacing-16);
+    margin-top: var(--spacing-8);
+  }
+  
+  .nav-primary__item--has-dropdown:hover .nav-primary__dropdown {
+    display: block;
+  }
+}
+
+.nav-primary__link--button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-functional);
+}
+
+.nav-primary__link--button:hover {
+  border-bottom-color: var(--color-brand);
+  color: var(--color-text-primary);
+}
+
+/* Secondary Navigation — Deep Hierarchy */
+.nav-secondary {
+  background-color: var(--color-bg-secondary);
+  border-bottom: var(--border-width) solid var(--color-border);
+  padding: var(--spacing-sm) var(--container-padding);
+}
+
+.nav-secondary__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-secondary__item {
+  position: relative;
+}
+
+.nav-secondary__link {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+}
+
+.nav-secondary__link:hover {
+  color: var(--color-brand);
+  text-decoration: underline;
+}
+
+.nav-secondary__link[aria-current="page"] {
+  color: var(--color-brand);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Tertiary Navigation — Deepest Level */
+.nav-tertiary {
+  background-color: var(--color-bg-tertiary);
+  border-bottom: var(--border-width) solid var(--color-border);
+  padding: var(--spacing-xs) var(--container-padding);
+}
+
+.nav-tertiary__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-tertiary__link {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--font-size-xs);
+}
+
+.nav-tertiary__link:hover {
+  color: var(--color-brand);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   7. CONTENT BLOCKS — High-Density Information Modules
+   ========================================================================== */
+.content-block {
+  margin-bottom: var(--module-spacing);
+  padding: var(--content-spacing);
+  background-color: var(--color-bg-primary);
+  border: var(--border-width) solid var(--color-border);
+  animation: fadeInUp var(--duration-slow) var(--ease-functional) both;
+}
+
+.content-block__header {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.content-block__title {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.content-block__body {
+  color: var(--color-text-primary);
+}
+
+.content-block--highlighted {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   8. LISTS — Clear, Scannable
+   ========================================================================== */
+ul, ol {
+  margin: 0 0 var(--spacing-md) 0;
+  padding-left: var(--spacing-xl);
+}
+
+li {
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-normal);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/* Definition Lists — FAQ, Terms */
+dl {
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+dt {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+dd {
+  margin: 0 0 var(--spacing-md) var(--spacing-lg);
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   9. BUTTONS — Functional, Unambiguous
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+  border: var(--border-width-strong) solid var(--color-border-strong);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-functional), 
+              border-color var(--duration-fast) var(--ease-functional),
+              transform var(--duration-fast) var(--ease-functional),
+              box-shadow var(--duration-fast) var(--ease-functional);
+}
+
+.btn:hover {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-brand);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  background-color: var(--color-bg-tertiary);
+}
+
+.btn:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.btn--primary {
+  background-color: var(--color-brand);
+  color: #ffffff;
+  border-color: var(--color-brand);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
+  color: #ffffff;
+}
+
+.btn--primary:active {
+  background-color: var(--color-brand-active);
+  border-color: var(--color-brand-active);
+}
+
+/* Button Groups — Uniform Spacing (8pt rhythm) */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-16);
+  margin-bottom: 0;
+}
+
+.btn-group .btn {
+  margin: 0;
+  min-width: auto;
+  width: auto;
+}
+
+/* Ensure all buttons have uniform sizing */
+.btn {
+  min-height: 44px; /* Touch target minimum */
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Single button in group should not stretch */
+.btn-group .btn:only-child {
+  width: auto;
+  min-width: auto;
+}
+
+/* Button groups in text-center */
+.text-center.btn-group,
+.btn-group.text-center {
+  justify-content: center;
+}
+
+/* Buttons in paragraphs — ensure consistent spacing */
+p .btn + .btn {
+  margin-left: var(--spacing-8);
+}
+
+p .btn {
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+/* Single button spacing */
+.content-block__body > p:has(.btn:only-child) {
+  margin-top: var(--spacing-16);
+  margin-bottom: 0;
+}
+
+/* Mobile: ensure buttons stack properly with uniform spacing */
+@media (max-width: 768px) {
+  .btn-group {
+    flex-direction: column;
+    gap: var(--spacing-8);
+  }
+  
+  .btn-group .btn {
+    width: 100%;
+  }
+  
+  /* Buttons in paragraphs on mobile */
+  p .btn {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+  }
+  
+  p .btn + .btn {
+    margin-left: 0;
+  }
+}
+
+/* ==========================================================================
+   10. TABLES — Functional Data Display
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-md) 0;
+  font-size: var(--font-size-base);
+}
+
+th, td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+th {
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+tbody tr:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+/* ==========================================================================
+   11. FORMS — Functional Inputs
+   ========================================================================== */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: 0; /* No decorative rounding */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  border-color: var(--color-brand);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   12. UTILITIES — Functional Helpers
+   ========================================================================== */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.hide {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ==========================================================================
+   13. GRID — Modular Layout
+   ========================================================================== */
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* ==========================================================================
+   14. FOOTER — Functional, Clear
+   ========================================================================== */
+.site-footer {
+  margin-top: var(--spacing-2xl);
+  padding: var(--spacing-xl) var(--container-padding);
+  background-color: var(--color-bg-secondary);
+  border-top: var(--border-width-strong) solid var(--color-border-strong);
+}
+
+.site-footer__content {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  list-style: none;
+  margin: var(--spacing-md) 0;
+  padding: 0;
+}
+
+.site-footer__link {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  font-size: var(--font-size-sm);
+}
+
+.site-footer__link:hover {
+  color: var(--color-brand);
+}
+
+/* ==========================================================================
+   15. RESPONSIVE — Mobile-First, Functional
+   ========================================================================== */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1rem;
+    --section-spacing: 1.5rem;
+    --module-spacing: 1rem;
+  }
+  
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .nav-primary {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-primary__toggle {
+    display: flex;
+  }
+  
+  .nav-primary__menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: var(--spacing-md);
+  }
+  
+  .nav-primary__menu[aria-hidden="false"] {
+    display: flex;
+  }
+  
+  .nav-primary__item {
+    width: 100%;
+  }
+  
+  .nav-primary__link {
+    width: 100%;
+    padding: var(--spacing-sm);
+  }
+  
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   16. PRINT — Functional Print Styles
+   ========================================================================== */
+@media print {
+  .site-header,
+  .nav-secondary,
+  .nav-tertiary,
+  .site-footer,
+  .btn {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .content-block {
+    border: none;
+    page-break-inside: avoid;
+  }
+}
+
+/* ==========================================================================
+   17. ANIMATIONS — Subtle Entrance Effects
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation delays for sequential content blocks */
+.content-block:nth-child(1) { animation-delay: 0ms; }
+.content-block:nth-child(2) { animation-delay: 50ms; }
+.content-block:nth-child(3) { animation-delay: 100ms; }
+.content-block:nth-child(4) { animation-delay: 150ms; }
+.content-block:nth-child(5) { animation-delay: 200ms; }
+.content-block:nth-child(6) { animation-delay: 250ms; }
+.content-block:nth-child(7) { animation-delay: 300ms; }
+.content-block:nth-child(8) { animation-delay: 350ms; }
+.content-block:nth-child(9) { animation-delay: 400ms; }
+.content-block:nth-child(10) { animation-delay: 450ms; }
+
+/* ==========================================================================
+   18. ACCESSIBILITY — WCAG AAA Compliance
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Disable entrance animations for reduced motion */
+  .content-block {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000000;
+    --color-border-strong: #000000;
+    --color-bg-secondary: #ffffff;
+    --color-bg-tertiary: #f0f0f0;
+  }
+  
+  .btn {
+    border-width: 2px;
+  }
+}
+
+/* ==========================================================================
+   19. CONTACT BOTTOM SHEET — iOS-style Action Sheet
+   ========================================================================== */
+.contact-sheet {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-functional);
+}
+
+.contact-sheet[aria-hidden="false"] {
+  pointer-events: auto;
+}
+
+.contact-sheet--open {
+  opacity: 1;
+}
+
+.contact-sheet__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.contact-sheet__content {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--color-bg-primary);
+  border-top-left-radius: var(--spacing-16);
+  border-top-right-radius: var(--spacing-16);
+  padding: var(--spacing-8) var(--spacing-16) var(--spacing-32);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(100%);
+  transition: transform var(--duration-base) var(--ease-out);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.contact-sheet--open .contact-sheet__content {
+  transform: translateY(0);
+}
+
+.contact-sheet__handle {
+  width: 40px;
+  height: 4px;
+  background-color: var(--color-border);
+  border-radius: 2px;
+  margin: 0 auto var(--spacing-16);
+}
+
+.contact-sheet__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-16) 0;
+  text-align: center;
+}
+
+.contact-sheet__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-16);
+}
+
+.contact-sheet__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-16);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--spacing-8);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-functional),
+              border-color var(--duration-fast) var(--ease-functional);
+  text-align: center;
+  min-height: 48px;
+}
+
+.contact-sheet__option:hover:not(:disabled) {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-brand);
+}
+
+.contact-sheet__option:active:not(:disabled) {
+  background-color: var(--color-bg-tertiary);
+}
+
+.contact-sheet__option--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-sheet__option-hint {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-4);
+  font-weight: var(--font-weight-normal);
+}
+
+.contact-sheet__fallback {
+  text-align: center;
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.contact-sheet__fallback a {
+  color: var(--color-brand);
+  text-decoration: underline;
+}
+
+.contact-sheet__fallback a:hover {
+  color: var(--color-brand-hover);
+}
+
+@media (min-width: 640px) {
+  .contact-sheet__content {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: var(--spacing-16);
+    border-top-left-radius: var(--spacing-16);
+    border-top-right-radius: var(--spacing-16);
+  }
+}
+
+/* ==========================================================================
+   END W3C Functional Authority Design System
+   ========================================================================== */
+

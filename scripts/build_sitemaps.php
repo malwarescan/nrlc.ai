@@ -128,6 +128,8 @@ $cutoff = new DateTimeImmutable('-48 hours');
 foreach ($insightsRows as $row) {
   $slug = $row['slug'] ?? '';
   $pubDate = $row['publication_date'] ?? '';
+  $lastmod = $row['lastmod'] ?? $pubDate ?? $today;
+  $imageUrl = $row['image_url'] ?? '';
   
   if ($slug && $pubDate) {
     $pubDateTime = new DateTimeImmutable($pubDate);
@@ -135,14 +137,29 @@ foreach ($insightsRows as $row) {
       $path = "/insights/{$slug}/";
       $hreflangUrls = sitemap_generate_hreflang_urls($path);
       $entry = "  <url>\n    <loc>{$hreflangUrls['en-us']}</loc>\n";
+      $entry .= "    <lastmod>{$lastmod}</lastmod>\n";
+      $entry .= "    <changefreq>monthly</changefreq>\n";
+      $entry .= "    <priority>0.9</priority>\n";
       $entry .= "    <news:news>\n";
       $entry .= "      <news:publication>\n";
-      $entry .= "        <news:name>NRLC.ai</news:name>\n";
+      $entry .= "        <news:name>Neural Command</news:name>\n";
       $entry .= "        <news:language>en</news:language>\n";
       $entry .= "      </news:publication>\n";
       $entry .= "      <news:publication_date>{$pubDate}</news:publication_date>\n";
-      $entry .= "      <news:title>" . htmlspecialchars($row['title'] ?? '') . "</news:title>\n";
+      // Use shortened title for news:title (Google News requirement: max 150 chars)
+      $newsTitle = htmlspecialchars($row['title'] ?? '');
+      if (strlen($newsTitle) > 150) {
+        $newsTitle = substr($newsTitle, 0, 147) . '...';
+      }
+      $entry .= "      <news:title>{$newsTitle}</news:title>\n";
       $entry .= "    </news:news>\n";
+      // Add image if available
+      if ($imageUrl) {
+        $entry .= "    <image:image>\n";
+        $entry .= "      <image:loc>{$imageUrl}</image:loc>\n";
+        $entry .= "      <image:title>{$newsTitle}</image:title>\n";
+        $entry .= "    </image:image>\n";
+      }
       $entry .= "  </url>\n";
       $newsEntries[] = $entry;
     }
@@ -152,7 +169,7 @@ foreach ($insightsRows as $row) {
 if ($newsEntries) {
   $xmlFile = "{$outDir}news-insights-1.xml";
   $gzFile = "{$xmlFile}.gz";
-  $content = sitemap_render_news($newsEntries);
+  $content = sitemap_render_news_with_images($newsEntries);
   file_put_contents($xmlFile, $content);
   sitemap_write_gzipped($gzFile, $content);
   $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];

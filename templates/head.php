@@ -88,13 +88,8 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="bingbot" content="index, follow">
 <meta name="author" content="NRLC.ai">
 <meta name="keywords" content="AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity, <?=htmlspecialchars(extract_keywords_from_title($title))?>">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="<?= asset_url('/assets/css/98.min.css') ?>">
-<link rel="stylesheet" href="<?= asset_url('/assets/css/nrlc98.css') ?>">
-<link rel="stylesheet" href="<?= asset_url('/assets/css/grid-bg.css') ?>">
-<link rel="stylesheet" href="<?= asset_url('/assets/css/progress-indicator.css') ?>">
-<link rel="stylesheet" href="/enhance/enhance.css">
-<script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+<!-- W3C Functional Authority Design System -->
+<link rel="stylesheet" href="<?= asset_url('/assets/css/w3c-functional.css') ?>">
 <?php
 foreach (hreflang_links(without_locale_prefix($path)) as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";

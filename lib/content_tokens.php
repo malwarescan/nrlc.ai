@@ -70,8 +70,8 @@ function local_market_insights(string $city): string {
   
   return "<div class=\"box-padding\">
     <h3 style=\"margin-top: 0; color: #000080;\">$c Market Dynamics</h3>
-    <p>The $c market presents unique opportunities and challenges for AI-first SEO implementation. Local businesses in $c operate within a competitive landscape dominated by {$data['industries']}, requiring sophisticated optimization strategies that address {$data['challenges']} while capitalizing on {$data['opportunities']}.</p>
-    <p>Our localized approach in $c considers regional search behaviors, local entity recognition patterns, and market-specific AI engine preferences to deliver measurable improvements in citation rates and organic visibility.</p>
+    <p>Local businesses operate within a competitive landscape dominated by {$data['industries']}, requiring sophisticated optimization strategies that address {$data['challenges']} while capitalizing on {$data['opportunities']}.</p>
+    <p>Regional search behaviors, local entity recognition patterns, and market-specific AI engine preferences drive measurable improvements in citation rates and organic visibility.</p>
   </div>";
 }
 
@@ -90,8 +90,8 @@ function local_competition_analysis(string $city): string {
   
   return "<div class=\"box-padding\">
     <h3 style=\"margin-top: 0; color: #000080;\">Competitive Landscape in $c</h3>
-    <p>The $c market features {$insight}. Our AI-first SEO approach provides a distinct competitive advantage by implementing systematic crawl clarity, comprehensive structured data, and LLM seeding strategies that outperform traditional SEO methods.</p>
-    <p>We analyze local competitor implementations, identify optimization gaps, and develop strategies that leverage the GEO-16 framework to achieve superior AI engine visibility and citation performance in the $c market.</p>
+    <p>The market features {$insight}. Systematic crawl clarity, comprehensive structured data, and LLM seeding strategies outperform traditional SEO methods.</p>
+    <p>Analysis of local competitor implementations identifies optimization gaps and leverages the GEO-16 framework to achieve superior AI engine visibility and citation performance.</p>
   </div>";
 }
 
@@ -101,9 +101,9 @@ function local_implementation_strategy(string $city): string {
   
   return "<div class=\"box-padding\">
     <h3 style=\"margin-top: 0; color: #000080;\">Localized Implementation Strategy</h3>
-    <p>Our $c implementation strategy combines global AI-first SEO best practices with local market intelligence. We begin with comprehensive crawl clarity analysis, identifying city-specific technical issues that impact AI engine comprehension and citation likelihood.</p>
-    <p>The strategy includes localized entity optimization, region-specific schema implementation, and content architecture designed for $c market preferences and AI engine behaviors. We ensure compliance with local regulations while maximizing international visibility through proper hreflang implementation and multi-regional optimization.</p>
-    <p>Success metrics are tailored to $c market conditions, tracking both traditional search performance and AI engine citation improvements across major platforms including ChatGPT, Claude, Perplexity, and emerging AI search systems.</p>
+    <p>Global AI-first SEO best practices combined with local market intelligence. Comprehensive crawl clarity analysis identifies city-specific technical issues that impact AI engine comprehension and citation likelihood.</p>
+    <p>Localized entity optimization, region-specific schema implementation, and content architecture designed for market preferences and AI engine behaviors. Compliance with local regulations while maximizing international visibility through proper hreflang implementation and multi-regional optimization.</p>
+    <p>Success metrics tailored to market conditions track both traditional search performance and AI engine citation improvements across major platforms including ChatGPT, Claude, Perplexity, and emerging AI search systems.</p>
   </div>";
 }
 

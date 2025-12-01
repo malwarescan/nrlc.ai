@@ -34,121 +34,121 @@ $faqsHtml= faq_block($serviceSlug, $citySlug, 6);
 $content = $intro . $local;
 ?>
 
-<main role="main">
-<section class="container">
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
         
-        <!-- Hero Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text"><?= htmlspecialchars($pageTitle) ?></div>
+        <!-- Hero Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
           </div>
-          <div class="window-body">
-            <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;"><?= htmlspecialchars($pageTitle) ?></h1>
-            <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><?= $content ?></p>
-            <div class="center margin-top-20" style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
-              <a href="/api/book/" class="btn" data-ripple style="width: 100%; max-width: 300px;">Schedule Consultation</a>
-              <a href="/services/" class="btn" data-ripple style="width: 100%; max-width: 300px;">View All Services</a>
+          <div class="content-block__body">
+            <p class="lead"><?= $content ?></p>
+            <div class="btn-group text-center">
+              <a href="/api/book/" class="btn btn--primary">Schedule Consultation</a>
+              <a href="/services/" class="btn">View All Services</a>
             </div>
           </div>
         </div>
 
-        <!-- Local Market Insights Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Local Market Insights</div>
+        <!-- Local Market Insights Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Local Market Insights</h2>
           </div>
-          <div class="window-body">
+          <div class="content-block__body">
             <?= $market ?>
           </div>
         </div>
 
-        <!-- Competitive Landscape Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Competitive Landscape</div>
+        <!-- Competitive Landscape Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Competitive Landscape</h2>
           </div>
-          <div class="window-body">
+          <div class="content-block__body">
             <?= $competition ?>
           </div>
         </div>
 
-        <!-- Localized Strategy Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Localized Strategy</div>
+        <!-- Localized Strategy Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Localized Strategy</h2>
           </div>
-          <div class="window-body">
+          <div class="content-block__body">
             <?= $strategy ?>
           </div>
         </div>
 
-        <!-- Pain Points & Solutions Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Pain Points & Solutions</div>
+        <!-- Pain Points & Solutions Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Pain Points & Solutions</h2>
           </div>
-          <div class="window-body">
-            <div class="grid-auto-fit">
+          <div class="content-block__body">
+            <div class="grid grid-auto-fit">
               <?= $pain ?>
             </div>
           </div>
         </div>
 
-        <!-- Why This Matters Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Why This Matters</div>
+        <!-- Why This Matters Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Why This Matters</h2>
           </div>
-          <div class="window-body">
-            <div class="grid-auto-fit">
+          <div class="content-block__body">
+            <div class="grid grid-auto-fit">
               <?= $why ?>
             </div>
           </div>
         </div>
 
-        <!-- Our Approach Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Our Approach</div>
+        <!-- Our Approach Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Our Approach</h2>
           </div>
-          <div class="window-body">
-            <div class="grid-auto-fit">
+          <div class="content-block__body">
+            <div class="grid grid-auto-fit">
               <?= $appro ?>
             </div>
           </div>
         </div>
 
-        <!-- Implementation Timeline Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Implementation Timeline</div>
+        <!-- Implementation Timeline Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Implementation Timeline</h2>
           </div>
-          <div class="window-body">
+          <div class="content-block__body">
             <?= $timeline ?>
           </div>
         </div>
 
-        <!-- Success Metrics Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Success Metrics</div>
+        <!-- Success Metrics Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Success Metrics</h2>
           </div>
-          <div class="window-body">
+          <div class="content-block__body">
             <?= $metrics ?>
           </div>
         </div>
 
-        <!-- FAQ Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Frequently Asked Questions</div>
+        <!-- FAQ Content Block -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Frequently Asked Questions</h2>
           </div>
-          <div class="window-body">
-            <h2 style="color: #000080; margin-top: 0;">FAQs</h2>
+          <div class="content-block__body">
             <?= $faqsHtml ?>
           </div>
         </div>
 
+  </div>
 </section>
 </main>
 

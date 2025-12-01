@@ -25,6 +25,7 @@ $insight_articles = [
   'ontology-based-search' => 'ontology-based-search.php',
   'open-seo-tools' => 'open-seo-tools.php',
   'goldmine-google-title-selection' => 'goldmine-google-title-selection.php',
+  'silent-hydration-seo' => 'silent-hydration-seo.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
   'goldmine-seleccion-titulos-google' => 'goldmine-google-title-selection.php',
   'goldmine-selection-titres-google' => 'goldmine-google-title-selection.php',
@@ -36,7 +37,17 @@ $insight_articles = [
 $all_articles = array_merge($geo16_articles, $insight_articles);
 
 if (isset($all_articles[$slug])) {
+  // Set flag before including article so article can check if nav is needed
+  $GLOBALS['__insights_nav_needed'] = true;
   include __DIR__ . '/' . $all_articles[$slug];
+  // Add navigation back to insights index if article didn't add it
+  if (!isset($GLOBALS['__insights_nav_added'])) {
+    echo '<div class="content-block module">';
+    echo '<div class="content-block__body">';
+    echo '<p><a href="/insights/" class="btn">← Latest Research & Insights</a></p>';
+    echo '</div>';
+    echo '</div>';
+  }
   return;
 }
 
