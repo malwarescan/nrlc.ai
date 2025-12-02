@@ -1,0 +1,219 @@
+GOOGLE SCHEMA TEST URLS
+Generated: 2025-12-02 12:23:59
+================================================================================
+
+
+## Index Pages (12 URLs)
+
+https://nrlc.ai/ - Homepage
+https://nrlc.ai/services/ - Services Index
+https://nrlc.ai/products/ - Products Index
+https://nrlc.ai/insights/ - Insights Index
+https://nrlc.ai/tools/ - Tools Index
+https://nrlc.ai/industries/ - Industries Index
+https://nrlc.ai/careers/ - Careers Index
+https://nrlc.ai/catalog/ - Catalog Index
+https://nrlc.ai/blog/ - Blog Index
+https://nrlc.ai/case-studies/ - Case Studies Index
+https://nrlc.ai/resources/ - Resources Index
+https://nrlc.ai/promptware/ - Promptware Index
+
+## Products (8 URLs)
+
+https://nrlc.ai/products/applicants-io/ - Product: applicants-io
+https://nrlc.ai/products/croutons-ai/ - Product: croutons-ai
+https://nrlc.ai/products/data-but-structured/ - Product: data-but-structured
+https://nrlc.ai/products/googlebot-renderer-lab/ - Product: googlebot-renderer-lab
+https://nrlc.ai/products/neural-command-os/ - Product: neural-command-os
+https://nrlc.ai/products/newfaq/ - Product: newfaq
+https://nrlc.ai/products/ourcasa-ai/ - Product: ourcasa-ai
+https://nrlc.ai/products/precogs/ - Product: precogs
+
+## Services (Base) (56 URLs)
+
+https://nrlc.ai/services/crawl-clarity/ - Service: Crawl Clarity Engineering
+https://nrlc.ai/services/json-ld-strategy/ - Service: JSON-LD & Structured Snippets
+https://nrlc.ai/services/llm-seeding/ - Service: LLM Seeding & Citation Readiness
+https://nrlc.ai/services/llm-optimization/ - Service: LLM Optimization (LLMO)
+https://nrlc.ai/services/agentic-seo/ - Service: Generative/Agentic SEO
+https://nrlc.ai/services/technical-seo/ - Service: Technical SEO & Sitemaps
+https://nrlc.ai/services/international-seo/ - Service: International SEO & Hreflang
+https://nrlc.ai/services/site-audits/ - Service: AI-First Site Audits
+https://nrlc.ai/services/analytics/ - Service: AI Visibility & Analytics
+https://nrlc.ai/services/training/ - Service: Team Training & Playbooks
+https://nrlc.ai/services/voice-search-optimization/ - Service: Voice Search & AI Assistant Optimization
+https://nrlc.ai/services/local-seo-ai/ - Service: Local SEO & AI Discovery
+https://nrlc.ai/services/ecommerce-ai-seo/ - Service: E-commerce AI SEO
+https://nrlc.ai/services/b2b-seo-ai/ - Service: B2B AI SEO Strategy
+https://nrlc.ai/services/content-optimization-ai/ - Service: AI Content Optimization
+https://nrlc.ai/services/technical-audit-ai/ - Service: AI Technical Audit
+https://nrlc.ai/services/competitor-analysis-ai/ - Service: AI Competitor Analysis
+https://nrlc.ai/services/link-building-ai/ - Service: AI Link Building Strategy
+https://nrlc.ai/services/conversion-optimization-ai/ - Service: AI Conversion Optimization
+https://nrlc.ai/services/mobile-seo-ai/ - Service: Mobile AI SEO
+https://nrlc.ai/services/schema-markup-ai/ - Service: AI Schema Markup
+https://nrlc.ai/services/entity-optimization-ai/ - Service: Entity Optimization for AI
+https://nrlc.ai/services/semantic-seo-ai/ - Service: Semantic SEO for AI
+https://nrlc.ai/services/knowledge-graph-ai/ - Service: Knowledge Graph AI Optimization
+https://nrlc.ai/services/featured-snippets-ai/ - Service: Featured Snippets AI Optimization
+https://nrlc.ai/services/ai-overviews-optimization/ - Service: AI Overviews Optimization
+https://nrlc.ai/services/chatgpt-optimization/ - Service: ChatGPT Optimization
+https://nrlc.ai/services/claude-optimization/ - Service: Claude Optimization
+https://nrlc.ai/services/perplexity-optimization/ - Service: Perplexity Optimization
+https://nrlc.ai/services/bard-optimization/ - Service: Bard Optimization
+https://nrlc.ai/services/copilot-optimization/ - Service: Copilot Optimization
+https://nrlc.ai/services/ai-search-optimization/ - Service: AI Search Optimization
+https://nrlc.ai/services/generative-seo/ - Service: Generative SEO
+https://nrlc.ai/services/llm-content-strategy/ - Service: LLM Content Strategy
+https://nrlc.ai/services/ai-citation-optimization/ - Service: AI Citation Optimization
+https://nrlc.ai/services/structured-data-ai/ - Service: Structured Data for AI
+https://nrlc.ai/services/metadata-optimization-ai/ - Service: Metadata Optimization for AI
+https://nrlc.ai/services/entity-recognition-ai/ - Service: Entity Recognition AI
+https://nrlc.ai/services/topic-modeling-ai/ - Service: Topic Modeling AI
+https://nrlc.ai/services/intent-optimization-ai/ - Service: Intent Optimization AI
+https://nrlc.ai/services/contextual-seo-ai/ - Service: Contextual SEO AI
+https://nrlc.ai/services/multimodal-seo-ai/ - Service: Multimodal SEO AI
+https://nrlc.ai/services/conversational-seo-ai/ - Service: Conversational SEO AI
+https://nrlc.ai/services/personalization-ai/ - Service: Personalization AI SEO
+https://nrlc.ai/services/recommendation-ai/ - Service: Recommendation AI SEO
+https://nrlc.ai/services/retrieval-optimization-ai/ - Service: Retrieval Optimization AI
+https://nrlc.ai/services/ranking-optimization-ai/ - Service: Ranking Optimization AI
+https://nrlc.ai/services/relevance-optimization-ai/ - Service: Relevance Optimization AI
+https://nrlc.ai/services/accuracy-optimization-ai/ - Service: Accuracy Optimization AI
+https://nrlc.ai/services/completeness-optimization-ai/ - Service: Completeness Optimization AI
+https://nrlc.ai/services/freshness-optimization-ai/ - Service: Freshness Optimization AI
+https://nrlc.ai/services/authority-optimization-ai/ - Service: Authority Optimization AI
+https://nrlc.ai/services/trust-optimization-ai/ - Service: Trust Optimization AI
+https://nrlc.ai/services/verification-optimization-ai/ - Service: Verification Optimization AI
+https://nrlc.ai/services/transparency-optimization-ai/ - Service: Transparency Optimization AI
+https://nrlc.ai/services/explainability-optimization-ai/ - Service: Explainability Optimization AI
+
+## Services (City) (15 URLs)
+
+https://nrlc.ai/services/crawl-clarity/new-york/ - Service: Crawl Clarity Engineering in new-york
+https://nrlc.ai/services/crawl-clarity/los-angeles/ - Service: Crawl Clarity Engineering in los-angeles
+https://nrlc.ai/services/crawl-clarity/chicago/ - Service: Crawl Clarity Engineering in chicago
+https://nrlc.ai/services/crawl-clarity/houston/ - Service: Crawl Clarity Engineering in houston
+https://nrlc.ai/services/crawl-clarity/phoenix/ - Service: Crawl Clarity Engineering in phoenix
+https://nrlc.ai/services/json-ld-strategy/new-york/ - Service: JSON-LD & Structured Snippets in new-york
+https://nrlc.ai/services/json-ld-strategy/los-angeles/ - Service: JSON-LD & Structured Snippets in los-angeles
+https://nrlc.ai/services/json-ld-strategy/chicago/ - Service: JSON-LD & Structured Snippets in chicago
+https://nrlc.ai/services/json-ld-strategy/houston/ - Service: JSON-LD & Structured Snippets in houston
+https://nrlc.ai/services/json-ld-strategy/phoenix/ - Service: JSON-LD & Structured Snippets in phoenix
+https://nrlc.ai/services/llm-seeding/new-york/ - Service: LLM Seeding & Citation Readiness in new-york
+https://nrlc.ai/services/llm-seeding/los-angeles/ - Service: LLM Seeding & Citation Readiness in los-angeles
+https://nrlc.ai/services/llm-seeding/chicago/ - Service: LLM Seeding & Citation Readiness in chicago
+https://nrlc.ai/services/llm-seeding/houston/ - Service: LLM Seeding & Citation Readiness in houston
+https://nrlc.ai/services/llm-seeding/phoenix/ - Service: LLM Seeding & Citation Readiness in phoenix
+
+## Insights (18 URLs)
+
+https://nrlc.ai/insights/geo16-conclusion/ - Article: geo16-conclusion
+https://nrlc.ai/insights/geo16-framework/ - Article: geo16-framework
+https://nrlc.ai/insights/geo16-implications/ - Article: geo16-implications
+https://nrlc.ai/insights/geo16-introduction/ - Article: geo16-introduction
+https://nrlc.ai/insights/geo16-methodology/ - Article: geo16-methodology
+https://nrlc.ai/insights/geo16-results/ - Article: geo16-results
+https://nrlc.ai/insights/goldmine-google-title-selection/ - Article: goldmine-google-title-selection
+https://nrlc.ai/insights/industry-insights/ - Article: industry-insights
+https://nrlc.ai/insights/llm-ontology-generation/ - Article: llm-ontology-generation
+https://nrlc.ai/insights/ocrplus-data-ingestion/ - Article: ocrplus-data-ingestion
+https://nrlc.ai/insights/ontology-based-search/ - Article: ontology-based-search
+https://nrlc.ai/insights/open-seo-tools/ - Article: open-seo-tools
+https://nrlc.ai/insights/semantic-drift-tracking/ - Article: semantic-drift-tracking
+https://nrlc.ai/insights/semantic-seo-in-news/ - Article: semantic-seo-in-news
+https://nrlc.ai/insights/seo-landscape-analysis/ - Article: seo-landscape-analysis
+https://nrlc.ai/insights/silent-hydration-seo/ - Article: silent-hydration-seo
+https://nrlc.ai/insights/tool-reviews/ - Article: tool-reviews
+https://nrlc.ai/insights/yago-entity-mapping/ - Article: yago-entity-mapping
+
+## Tools (16 URLs)
+
+https://nrlc.ai/tools/ahrefs/ - Tool: ahrefs
+https://nrlc.ai/tools/bard/ - Tool: bard
+https://nrlc.ai/tools/brightedge/ - Tool: brightedge
+https://nrlc.ai/tools/chatgpt/ - Tool: chatgpt
+https://nrlc.ai/tools/claude/ - Tool: claude
+https://nrlc.ai/tools/copilot/ - Tool: copilot
+https://nrlc.ai/tools/google-ai-overviews/ - Tool: google-ai-overviews
+https://nrlc.ai/tools/json-ld-validator/ - Tool: json-ld-validator
+https://nrlc.ai/tools/moz/ - Tool: moz
+https://nrlc.ai/tools/perplexity/ - Tool: perplexity
+https://nrlc.ai/tools/schema-generator/ - Tool: schema-generator
+https://nrlc.ai/tools/screaming-frog/ - Tool: screaming-frog
+https://nrlc.ai/tools/seer-interactive/ - Tool: seer-interactive
+https://nrlc.ai/tools/semrush/ - Tool: semrush
+https://nrlc.ai/tools/sitebulb/ - Tool: sitebulb
+https://nrlc.ai/tools/structured-data-testing/ - Tool: structured-data-testing
+
+## Industries (15 URLs)
+
+https://nrlc.ai/industries/automotive/ - Industry: automotive
+https://nrlc.ai/industries/consulting/ - Industry: consulting
+https://nrlc.ai/industries/ecommerce/ - Industry: ecommerce
+https://nrlc.ai/industries/education/ - Industry: education
+https://nrlc.ai/industries/entertainment/ - Industry: entertainment
+https://nrlc.ai/industries/fintech/ - Industry: fintech
+https://nrlc.ai/industries/healthcare/ - Industry: healthcare
+https://nrlc.ai/industries/hospitality/ - Industry: hospitality
+https://nrlc.ai/industries/legal/ - Industry: legal
+https://nrlc.ai/industries/manufacturing/ - Industry: manufacturing
+https://nrlc.ai/industries/media/ - Industry: media
+https://nrlc.ai/industries/real-estate/ - Industry: real-estate
+https://nrlc.ai/industries/retail/ - Industry: retail
+https://nrlc.ai/industries/saas/ - Industry: saas
+https://nrlc.ai/industries/travel/ - Industry: travel
+
+## Catalog (7 URLs)
+
+https://nrlc.ai/catalog/crawl-clarity-engineering/ - Catalog: Crawl Clarity Engineering
+https://nrlc.ai/catalog/json-ld-strategy/ - Catalog: JSON-LD & Structured Snippets
+https://nrlc.ai/catalog/llm-seeding/ - Catalog: LLM Seeding & Citation Readiness
+https://nrlc.ai/catalog/technical-seo/ - Catalog: Technical SEO & Sitemaps
+https://nrlc.ai/catalog/site-audits/ - Catalog: AI-First Site Audits
+https://nrlc.ai/catalog/json-stream-seo-ai/ - Catalog: JSON Stream + SEO AI
+https://nrlc.ai/catalog/llm-data-to-citation/ - Catalog: LLM Data-to-Citation Guide
+
+## Careers (12 URLs)
+
+https://nrlc.ai/careers/new-york/seo-specialist/ - Job: seo-specialist in new-york
+https://nrlc.ai/careers/new-york/schema-engineer/ - Job: schema-engineer in new-york
+https://nrlc.ai/careers/new-york/llm-strategist/ - Job: llm-strategist in new-york
+https://nrlc.ai/careers/new-york/technical-writer/ - Job: technical-writer in new-york
+https://nrlc.ai/careers/los-angeles/seo-specialist/ - Job: seo-specialist in los-angeles
+https://nrlc.ai/careers/los-angeles/schema-engineer/ - Job: schema-engineer in los-angeles
+https://nrlc.ai/careers/los-angeles/llm-strategist/ - Job: llm-strategist in los-angeles
+https://nrlc.ai/careers/los-angeles/technical-writer/ - Job: technical-writer in los-angeles
+https://nrlc.ai/careers/chicago/seo-specialist/ - Job: seo-specialist in chicago
+https://nrlc.ai/careers/chicago/schema-engineer/ - Job: schema-engineer in chicago
+https://nrlc.ai/careers/chicago/llm-strategist/ - Job: llm-strategist in chicago
+https://nrlc.ai/careers/chicago/technical-writer/ - Job: technical-writer in chicago
+
+## Blog Posts (10 URLs)
+
+https://nrlc.ai/blog/blog-post-1/ - Blog Post #1
+https://nrlc.ai/blog/blog-post-10/ - Blog Post #10
+https://nrlc.ai/blog/blog-post-100/ - Blog Post #100
+https://nrlc.ai/blog/blog-post-101/ - Blog Post #101
+https://nrlc.ai/blog/blog-post-102/ - Blog Post #102
+https://nrlc.ai/blog/blog-post-103/ - Blog Post #103
+https://nrlc.ai/blog/blog-post-104/ - Blog Post #104
+https://nrlc.ai/blog/blog-post-105/ - Blog Post #105
+https://nrlc.ai/blog/blog-post-106/ - Blog Post #106
+https://nrlc.ai/blog/blog-post-107/ - Blog Post #107
+
+## Case Studies (5 URLs)
+
+https://nrlc.ai/case-studies/case-study-1/ - Case Study #1
+https://nrlc.ai/case-studies/case-study-10/ - Case Study #10
+https://nrlc.ai/case-studies/case-study-100/ - Case Study #100
+https://nrlc.ai/case-studies/case-study-101/ - Case Study #101
+https://nrlc.ai/case-studies/case-study-102/ - Case Study #102
+
+## Resources (5 URLs)
+
+https://nrlc.ai/resources/resource-1/ - Resource #1
+https://nrlc.ai/resources/resource-10/ - Resource #10
+https://nrlc.ai/resources/resource-100/ - Resource #100
+https://nrlc.ai/resources/resource-1000/ - Resource #1000
+https://nrlc.ai/resources/resource-101/ - Resource #101

@@ -21,9 +21,8 @@ $GLOBALS['__page_slug'] = 'promptware/llm-data-to-citation';
 $GLOBALS['pageTitle'] = $title;
 $GLOBALS['pageDesc'] = $desc;
 
-// Use site templates
-include __DIR__.'/../../../templates/head.php';
-include __DIR__.'/../../../templates/header.php';
+// Note: head.php and header.php are already included by render_page() in router.php
+// Only include the shared style
 include __DIR__.'/../_shared_style.php';
 ?>
 

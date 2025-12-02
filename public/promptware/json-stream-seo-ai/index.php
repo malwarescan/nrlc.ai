@@ -16,9 +16,8 @@ $GLOBALS['__page_slug'] = 'promptware/json-stream-seo-ai';
 $GLOBALS['pageTitle'] = 'JSON Stream + SEO AI · Promptware · NRLC.ai';
 $GLOBALS['pageDesc'] = 'Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.';
 
-// Use site templates
-include __DIR__.'/../../../templates/head.php';
-include __DIR__.'/../../../templates/header.php';
+// Note: head.php and header.php are already included by render_page() in router.php
+// Only include the shared style
 include __DIR__.'/../_shared_style.php';
 ?>
 

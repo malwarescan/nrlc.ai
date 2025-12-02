@@ -30,6 +30,10 @@ include __DIR__.'/_shared_style.php';
   <nav aria-label="Promptware list">
     <ul>
       <li>
+        <a href="/promptware/seo-enhancement-kernel/">SEO Enhancement Kernel</a>
+        — Complete technical specification of every SEO, rendering, schema, and AI-search enhancement implemented across NRLC.ai.
+      </li>
+      <li>
         <a href="/promptware/json-stream-seo-ai/">JSON Stream + SEO AI</a>
         — NDJSON streaming API + AI manifest for LLM/RAG ingestion and internal crawlers.
       </li>

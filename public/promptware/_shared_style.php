@@ -5,11 +5,13 @@
  */
 ?>
 <style>
-/* Base container styling */
-main.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+/* Base container styling - override global styles */
+body main.container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1rem !important;
+  background-color: white !important;
+  color: #000000 !important;
 }
 
 /* Section spacing */
@@ -21,20 +23,25 @@ header {
   margin-bottom: 3rem;
 }
 
-/* Typography - consistent font sizes */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+/* Typography - consistent font sizes - override global styles */
+body main.container h1 {
+  font-size: 2rem !important;
+  margin-bottom: 1rem !important;
+  font-weight: bold !important;
+  color: #000000 !important;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+body main.container h2 {
+  font-size: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  font-weight: bold !important;
+  color: #000000 !important;
 }
 
-p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
+body main.container p {
+  line-height: 1.6 !important;
+  margin-bottom: 1rem !important;
+  color: #000000 !important;
 }
 
 ul, ol {
@@ -181,64 +188,69 @@ footer {
 }
 
 /* Force light theme on Promptware pages regardless of system preference */
-main.container,
-main.container * {
+/* Override any global styles from w3c-functional.css */
+body main.container,
+body main.container * {
   background-color: white !important;
   color: #000000 !important;
 }
 
-main.container h1,
-main.container h2,
-main.container h3,
-main.container h4,
-main.container h5,
-main.container h6 {
+body main.container h1,
+body main.container h2,
+body main.container h3,
+body main.container h4,
+body main.container h5,
+body main.container h6 {
   color: #000000 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 
-main.container p,
-main.container li,
-main.container span,
-main.container div {
+body main.container p,
+body main.container li,
+body main.container span,
+body main.container div {
   color: #000000 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 
-main.container a {
+body main.container a {
   color: #0066cc !important;
+  text-decoration: underline !important;
 }
 
-main.container a:hover {
+body main.container a:hover {
   color: #ff6600 !important;
 }
 
-main.container pre {
+body main.container pre {
   background: #fff !important;
   border-color: #ddd !important;
 }
 
-main.container code {
+body main.container code {
   color: #000000 !important;
+  font-family: "Courier New", Courier, monospace !important;
 }
 
-main.container details {
+body main.container details {
   background: white !important;
   border-color: #ddd !important;
 }
 
-main.container details summary {
+body main.container details summary {
   color: #000000 !important;
 }
 
-main.container table {
+body main.container table {
   background: white !important;
 }
 
-main.container th {
+body main.container th {
   background: #f5f5f5 !important;
   color: #000000 !important;
 }
 
-main.container td {
+body main.container td {
   background: white !important;
   color: #000000 !important;
 }

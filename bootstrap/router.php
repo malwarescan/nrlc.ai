@@ -181,6 +181,23 @@ function route_request(): void {
     return;
   }
 
+  // Handle both /seo-enhancement-kernel/ and /promptware/seo-enhancement-kernel/
+  if ($path === '/seo-enhancement-kernel/' || $path === '/seo-enhancement-kernel') {
+    // Set SEO-first meta BEFORE rendering
+    $GLOBALS['pageTitle'] = 'SEO Enhancement Kernel Promptware for Technical SEO & AI Visibility';
+    $GLOBALS['pageDesc'] = 'Full-stack technical SEO promptware for rendering forensics, schema validation, Googlebot simulation, internal link enforcement, and NDJSON microfact extraction.';
+    render_page('promptware/seo-enhancement-kernel/index');
+    return;
+  }
+
+  if ($path === '/promptware/seo-enhancement-kernel/' || $path === '/promptware/seo-enhancement-kernel' || $path === '/en-us/promptware/seo-enhancement-kernel/' || $path === '/en-us/promptware/seo-enhancement-kernel') {
+    // Set SEO-first meta BEFORE rendering
+    $GLOBALS['pageTitle'] = 'SEO Enhancement Kernel Promptware for Technical SEO & AI Visibility';
+    $GLOBALS['pageDesc'] = 'Full-stack technical SEO promptware for rendering forensics, schema validation, Googlebot simulation, internal link enforcement, and NDJSON microfact extraction.';
+    render_page('promptware/seo-enhancement-kernel/index');
+    return;
+  }
+
   if ($path === '/promptware/json-stream-seo-ai/') {
     render_page('promptware/json-stream-seo-ai/index');
     return;
@@ -271,6 +288,7 @@ function render_page(string $slug): void {
 
   // Special handling for promptware pages
   if (strpos($slug, 'promptware/') === 0) {
+    define('ROUTER_INCLUDED', true);
     include __DIR__.'/../templates/head.php';
     include __DIR__.'/../templates/header.php';
     include __DIR__.'/../public/'.$slug.'.php';
