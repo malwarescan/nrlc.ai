@@ -4,6 +4,8 @@ foreach ($blocks as $b) {
   echo '<script type="application/ld+json">'.json_encode($b, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE).'</script>'."\n";
 }
 ?>
+<!-- Hero Isometric Animation Script -->
+<script src="<?= asset_url('/assets/js/hero-animation.js') ?>" defer></script>
 <footer class="site-footer">
   <div class="site-footer__content">
     <p><small>© <?= date('Y') ?> NRLC.ai — The Semantic Infrastructure for the AI Internet</small></p>
@@ -40,10 +42,20 @@ foreach ($blocks as $b) {
   const navMenu = document.querySelector('.nav-primary__menu');
   
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function() {
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !isExpanded);
-      navMenu.setAttribute('aria-hidden', isExpanded);
+    navToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const currentExpanded = this.getAttribute('aria-expanded') === 'true';
+      const newExpanded = !currentExpanded;
+      
+      // Update button state
+      this.setAttribute('aria-expanded', String(newExpanded));
+      
+      // Update menu visibility - when expanded=true, menu should be visible (aria-hidden=false)
+      navMenu.setAttribute('aria-hidden', String(!newExpanded));
+      
+      // Force a reflow to ensure CSS updates
+      void navMenu.offsetHeight;
     });
     
     // Close menu when clicking outside
@@ -83,10 +95,21 @@ foreach ($blocks as $b) {
     return { isIOS, isAndroid, isMobile };
   }
   
-  // Build contact options based on device
-  function buildContactOptions() {
+  // Build contact options based on device and service type
+  function buildContactOptions(serviceType = '') {
     const device = detectDevice();
     const options = [];
+    
+    // Build message body with service type if provided
+    let smsBody = 'hey, im interested in picking your brain';
+    let emailSubject = 'Consultation Request';
+    let emailBody = 'I\'m interested in scheduling a consultation.';
+    
+    if (serviceType) {
+      smsBody = `hey, im interested in ${serviceType} - consultation request`;
+      emailSubject = `Consultation Request - ${serviceType}`;
+      emailBody = `I'm interested in scheduling a consultation for: ${serviceType}`;
+    }
     
     // Always show SMS/iMessage options, but order and enable based on device
     if (device.isIOS) {
@@ -94,14 +117,14 @@ foreach ($blocks as $b) {
       options.push({
         label: 'iMessage',
         action: () => {
-          window.location.href = 'sms:+12135628438?body=hey, im interested in picking your brain';
+          window.location.href = 'sms:+12135628438?body=' + encodeURIComponent(smsBody);
         },
         enabled: true
       });
       options.push({
         label: 'SMS',
         action: () => {
-          window.location.href = 'sms:+12135628438?body=hey, im interested in picking your brain';
+          window.location.href = 'sms:+12135628438?body=' + encodeURIComponent(smsBody);
         },
         enabled: true
       });
@@ -110,14 +133,14 @@ foreach ($blocks as $b) {
       options.push({
         label: 'SMS',
         action: () => {
-          window.location.href = 'sms:+12135628438?body=hey, im interested in picking your brain';
+          window.location.href = 'sms:+12135628438?body=' + encodeURIComponent(smsBody);
         },
         enabled: device.isMobile
       });
       options.push({
         label: 'iMessage',
         action: () => {
-          window.location.href = 'sms:+12135628438?body=hey, im interested in picking your brain';
+          window.location.href = 'sms:+12135628438?body=' + encodeURIComponent(smsBody);
         },
         enabled: false // Only enabled on iOS
       });
@@ -134,7 +157,8 @@ foreach ($blocks as $b) {
     options.push({
       label: 'Email',
       action: () => {
-        window.location.href = 'mailto:hirejoelm@gmail.com';
+        const emailUrl = 'mailto:hirejoelm@gmail.com?subject=' + encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(emailBody);
+        window.location.href = emailUrl;
       },
       enabled: true
     });
@@ -142,11 +166,14 @@ foreach ($blocks as $b) {
     return options;
   }
   
+  // Store current service type
+  let currentServiceType = '';
+  
   // Render contact options
   function renderContactOptions() {
     if (!contactOptions) return;
     
-    const options = buildContactOptions();
+    const options = buildContactOptions(currentServiceType);
     
     contactOptions.innerHTML = options.map((option, index) => {
       const isDisabled = !option.enabled;
@@ -175,9 +202,10 @@ foreach ($blocks as $b) {
     });
   }
   
-  // Open contact sheet
-  function openContactSheet() {
+  // Open contact sheet with optional service type
+  function openContactSheet(serviceType = '') {
     if (!contactSheet) return;
+    currentServiceType = serviceType;
     renderContactOptions();
     contactSheet.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -187,6 +215,9 @@ foreach ($blocks as $b) {
       contactSheet.classList.add('contact-sheet--open');
     }, 10);
   }
+  
+  // Make openContactSheet globally available
+  window.openContactSheet = openContactSheet;
   
   // Close contact sheet
   function closeContactSheet() {

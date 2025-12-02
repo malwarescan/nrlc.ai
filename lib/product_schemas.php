@@ -10,6 +10,7 @@ use NRLC\Schema\SchemaFixes;
 function product_universal_schemas(string $productSlug, string $productName, string $productDescription, ?string $imageUrl = null): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/' . $productSlug . '/';
+  $productId = $productUrl . '#product';
   
   return [
     // WebSite
@@ -38,8 +39,7 @@ function product_universal_schemas(string $productSlug, string $productName, str
         'url' => $baseUrl
       ],
       'about' => [
-        '@type' => 'Product',
-        'name' => $productName
+        '@id' => $productId
       ]
     ],
     
@@ -67,6 +67,7 @@ function product_universal_schemas(string $productSlug, string $productName, str
     [
       '@context' => 'https://schema.org',
       '@type' => 'Product',
+      '@id' => $productId,
       'name' => $productName,
       'description' => $productDescription,
       'url' => $productUrl,
@@ -78,7 +79,18 @@ function product_universal_schemas(string $productSlug, string $productName, str
         '@type' => 'Organization',
         'name' => 'Neural Command'
       ],
-      'image' => $imageUrl ? SchemaFixes::ensureHttps($imageUrl) : SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlc-logo.png'))
+      'image' => $imageUrl ? SchemaFixes::ensureHttps($imageUrl) : SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlc-logo.png')),
+      'offers' => [
+        '@type' => 'Offer',
+        'availability' => 'https://schema.org/InStock',
+        'priceCurrency' => 'USD',
+        'price' => '0',
+        'url' => $productUrl,
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
+      ]
     ],
     
     // Offer (required by Google)
@@ -86,8 +98,7 @@ function product_universal_schemas(string $productSlug, string $productName, str
       '@context' => 'https://schema.org',
       '@type' => 'Offer',
       'itemOffered' => [
-        '@type' => 'Product',
-        'name' => $productName
+        '@id' => $productId
       ],
       'availability' => 'https://schema.org/InStock',
       'priceCurrency' => 'USD',
@@ -141,12 +152,14 @@ function product_universal_schemas(string $productSlug, string $productName, str
 function product_platform_schemas(string $productSlug, string $productName, string $productDescription, array $features = [], ?string $applicationCategory = 'DeveloperApplication'): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/' . $productSlug . '/';
+  $productId = $productUrl . '#product';
   
   return [
     // SoftwareApplication
     [
       '@context' => 'https://schema.org',
       '@type' => 'SoftwareApplication',
+      '@id' => $productId,
       'name' => $productName,
       'description' => $productDescription,
       'url' => $productUrl,
@@ -156,7 +169,12 @@ function product_platform_schemas(string $productSlug, string $productName, stri
         '@type' => 'Offer',
         'availability' => 'https://schema.org/InStock',
         'priceCurrency' => 'USD',
-        'price' => '0'
+        'price' => '0',
+        'url' => $productUrl,
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
       ],
       'featureList' => $features,
       'provider' => [
@@ -172,17 +190,30 @@ function product_platform_schemas(string $productSlug, string $productName, stri
     [
       '@context' => 'https://schema.org',
       '@type' => 'WebApplication',
+      '@id' => $productId,
       'name' => $productName,
       'url' => $productUrl,
       'browserRequirements' => 'Requires JavaScript. Requires HTML5.',
       'applicationCategory' => $applicationCategory,
-      'operatingSystem' => 'Any'
+      'operatingSystem' => 'Any',
+      'offers' => [
+        '@type' => 'Offer',
+        'availability' => 'https://schema.org/InStock',
+        'priceCurrency' => 'USD',
+        'price' => '0',
+        'url' => $productUrl,
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
+      ]
     ],
     
     // Service
     [
       '@context' => 'https://schema.org',
       '@type' => 'Service',
+      '@id' => $productId,
       'name' => $productName,
       'description' => $productDescription,
       'provider' => [
@@ -190,7 +221,18 @@ function product_platform_schemas(string $productSlug, string $productName, stri
         'name' => 'Neural Command'
       ],
       'areaServed' => 'Worldwide',
-      'serviceType' => $productName
+      'serviceType' => $productName,
+      'offers' => [
+        '@type' => 'Offer',
+        'availability' => 'https://schema.org/InStock',
+        'priceCurrency' => 'USD',
+        'price' => '0',
+        'url' => $productUrl,
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
+      ]
     ],
     
     // TechArticle
@@ -213,8 +255,7 @@ function product_platform_schemas(string $productSlug, string $productName, stri
         ]
       ],
       'about' => [
-        '@type' => 'Thing',
-        'name' => $productName
+        '@id' => $productId
       ]
     ]
   ];
@@ -226,12 +267,14 @@ function product_platform_schemas(string $productSlug, string $productName, stri
 function product_dataset_schemas(string $productSlug, string $productName, string $productDescription): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/' . $productSlug . '/';
+  $productId = $productUrl . '#product';
   
   return [
     // Dataset
     [
       '@context' => 'https://schema.org',
       '@type' => 'Dataset',
+      '@id' => $productId,
       'name' => $productName . ' Dataset',
       'description' => $productDescription,
       'url' => $productUrl,
@@ -249,6 +292,17 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
         '@type' => 'DataDownload',
         'encodingFormat' => 'application/ndjson',
         'contentUrl' => $productUrl . 'data/'
+      ],
+      'offers' => [
+        '@type' => 'Offer',
+        'availability' => 'https://schema.org/InStock',
+        'priceCurrency' => 'USD',
+        'price' => '0',
+        'url' => $productUrl,
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
       ]
     ],
     
@@ -256,6 +310,7 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
     [
       '@context' => 'https://schema.org',
       '@type' => 'DataCatalog',
+      // Linked to product if appropriate, or separate
       'name' => $productName . ' Data Catalog',
       'description' => 'Catalog of structured data and micro-facts',
       'url' => $productUrl,
@@ -266,6 +321,7 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
     [
       '@context' => 'https://schema.org',
       '@type' => 'DataFeed',
+      '@id' => $productId,
       'name' => $productName . ' Data Feed',
       'description' => 'Real-time feed of structured data and micro-facts',
       'dataFeedElement' => [
@@ -331,14 +387,19 @@ function applicants_io_schemas(): array {
 function ourcasa_ai_schemas(): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/ourcasa-ai/';
+  $productId = $productUrl . '#product';
   
   return [
     // Residence
     [
       '@context' => 'https://schema.org',
       '@type' => 'Residence',
+      '@id' => $productId,
       'name' => 'Property Intelligence',
-      'description' => 'OurCasa.ai provides comprehensive property and neighborhood intelligence'
+      'description' => 'OurCasa.ai provides comprehensive property and neighborhood intelligence',
+      // A residence doesn't typically have offers in this context (it's not for sale as a residence), 
+      // but if Google treats it as a Product due to context, adding offers is safe.
+      // However, better to link it to the Service/Product ID
     ],
     
     // Place with GeoCoordinates
@@ -365,13 +426,25 @@ function ourcasa_ai_schemas(): array {
     [
       '@context' => 'https://schema.org',
       '@type' => 'Service',
+      '@id' => $productId, // Link to main product ID
       'name' => 'Property Intelligence Service',
       'serviceType' => 'Home Intelligence',
       'provider' => [
         '@type' => 'Organization',
         'name' => 'Neural Command'
       ],
-      'areaServed' => 'Worldwide'
+      'areaServed' => 'Worldwide',
+      'offers' => [
+        '@type' => 'Offer',
+        'availability' => 'https://schema.org/InStock',
+        'priceCurrency' => 'USD',
+        'price' => '0',
+        'url' => $productUrl,
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
+      ]
     ]
   ];
 }
@@ -382,27 +455,61 @@ function ourcasa_ai_schemas(): array {
 function newfaq_schemas(): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/newfaq/';
+  $productId = $productUrl . '#product';
   
   return [
     // FAQPage
     [
       '@context' => 'https://schema.org',
       '@type' => 'FAQPage',
+      '@id' => $productId . '#faq',
       'mainEntity' => [
         [
           '@type' => 'Question',
-          'name' => 'What is NEWFAQ?',
+          'name' => 'What is NEWFAQ and how does it differ from traditional FAQ systems?',
           'acceptedAnswer' => [
             '@type' => 'Answer',
-            'text' => 'NEWFAQ is a sentient FAQ and business intelligence engine that learns from customer queries, expands dynamically, and generates breakthrough SEO visibility.'
+            'text' => 'NEWFAQ is a sentient FAQ and business intelligence engine that learns from customer queries, expands dynamically, and generates breakthrough SEO visibility. Unlike traditional static FAQ systems, NEWFAQ uses Precogs ontology and Croutons micro-facts to automatically classify queries, map user intent, generate accurate answers, and detect emerging topics. Every user prompt becomes semantic input that creates new FAQ content optimized for AI engines and search visibility.'
           ]
         ],
         [
           '@type' => 'Question',
-          'name' => 'How does NEWFAQ work?',
+          'name' => 'How does NEWFAQ improve SEO and search visibility?',
           'acceptedAnswer' => [
             '@type' => 'Answer',
-            'text' => 'NEWFAQ uses Precogs ontology and Croutons micro-facts to classify queries, map user intent, generate accurate answers, and detect emerging topics. Every user prompt becomes semantic input that creates new FAQ content.'
+            'text' => 'NEWFAQ creates SEO-optimized pages for location-specific questions, address-intent queries, and hyper-niche questions with no existing competition. This delivers instant indexing, deeper visibility, long-tail traffic capture, and industry vocabulary dominance. The system generates structured data, FAQPage schema, and content that AI engines like ChatGPT, Claude, and Perplexity can easily discover and cite.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'What technical infrastructure does NEWFAQ require?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'NEWFAQ leverages the Precogs ontological reasoning engine and Croutons micro-fact infrastructure. It integrates with your existing content management system and requires structured data implementation, JSON-LD schema markup, and API endpoints for real-time query processing. The system works with any web platform that supports dynamic content generation and schema markup.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'How quickly can NEWFAQ generate new FAQ content?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'NEWFAQ processes queries in real-time. Every prompt entered into the NEWFAQ UI is logged, becomes semantic input, turns into a new seed question, and can be processed into a new public-facing FAQ page if warranted. The system automatically groups similar intents and prioritizes questions based on demand frequency and conversion potential.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'Does NEWFAQ require ongoing maintenance or manual content updates?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'No. NEWFAQ is self-expanding and self-optimizing. It learns from real customer queries, expands FAQ content dynamically, prioritizes questions by demand frequency, and eliminates dead content automatically. The system continuously improves both SEO visibility and business intelligence without manual intervention.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'How does NEWFAQ measure success and ROI?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'NEWFAQ tracks multiple metrics including SEO visibility improvements, long-tail traffic capture, AI engine citation rates, user engagement with FAQ content, and business intelligence insights from query patterns. The system provides comprehensive analytics showing how customer interactions translate to both SEO gains and actionable business intelligence.'
           ]
         ]
       ]
@@ -441,6 +548,7 @@ function newfaq_schemas(): array {
 function googlebot_renderer_schemas(): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/googlebot-renderer-lab/';
+  $productId = $productUrl . '#product';
   
   return [
     // HowTo
@@ -475,7 +583,18 @@ function googlebot_renderer_schemas(): array {
       'name' => 'Googlebot Rendering Diagnostics',
       'description' => 'Learn how to diagnose and fix Googlebot rendering issues',
       'educationalLevel' => 'Advanced',
-      'learningResourceType' => 'Tutorial'
+      'learningResourceType' => 'Tutorial',
+      'offers' => [
+        '@type' => 'Offer',
+        'availability' => 'https://schema.org/InStock',
+        'priceCurrency' => 'USD',
+        'price' => '0',
+        'url' => $productUrl,
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
+      ]
     ]
   ];
 }

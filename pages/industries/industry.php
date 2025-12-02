@@ -112,7 +112,20 @@ $faqs = det_pick([
   
   <div class="status-bar">
     <p class="status-bar-field">Ready to optimize your <?= htmlspecialchars($industryName) ?> presence for AI engines?</p>
-    <button class="btn ripple" onclick="window.location.href='/contact/'">Get Started</button>
+    <button class="btn ripple" onclick="window.location.href='/services/'">Get Started with AI SEO</button>
+  </div>
+  
+  <!-- Required Internal Links Section -->
+  <div class="content-block module" style="margin-top: 2rem;">
+    <div class="content-block__header">
+      <h2 class="content-block__title">Related Resources</h2>
+    </div>
+    <div class="content-block__body">
+      <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for industry-specific technical SEO optimization.</p>
+      <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+      <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and learn more about <a href="/industries/">Industry-Specific Solutions</a>.</p>
+      <p><a href="/services/" class="btn">Get Started with AI SEO</a></p>
+    </div>
   </div>
 </section>
 

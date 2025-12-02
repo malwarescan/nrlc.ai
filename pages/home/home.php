@@ -11,51 +11,39 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">
-    
-    <!-- Primary Mission Statement -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h1 class="content-block__title">The Semantic Infrastructure for the AI Internet</h1>
-      </div>
-      <div class="content-block__body">
-        <p class="lead">NRLC builds the semantic foundation that allows LLMs, agents, and applications to interact with enterprise data as if it were fully mapped, contextualized, and logically structured.</p>
-        <p>Where data becomes knowledge. Where knowledge becomes intelligence.</p>
-        <div class="btn-group">
-          <a href="sms:+12135628438?body=hey, im interested in picking your brain" class="btn btn--primary">Text Us</a>
-          <a href="tel:+12135628438" class="btn">Call Now</a>
-          <a href="mailto:hirejoelm@gmail.com" class="btn">Email Us</a>
-        </div>
-      </div>
-        </div>
 
     <!-- Unified Semantic Layer -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">A Unified Semantic Layer for the AI Era</h2>
+        <h2 class="content-block__title">Unified Semantic Layer System</h2>
         </div>
       <div class="content-block__body">
-        <p class="lead">Stop stitching tools together. Stop forcing LLMs to interpret raw tables. Stop building bespoke pipelines for every use case.</p>
-        <p>Transform databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.</p>
-        <p><a href="/services/" class="btn">See how it works</a></p>
+        <p class="lead">Tool stitching fails. Raw table interpretation fails. Bespoke pipelines fail.</p>
+        <p>Transform databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph. Use ontologies, SQL reasoning, and automated relationships.</p>
+        <h3>Core Philosophy</h3>
+        <p>Data requires semantic structure before it becomes queryable knowledge. Structure precedes query.</p>
+        <h3>Workflow</h3>
+        <p>Map sources to ontology. Establish relationships. Enable graph queries.</p>
+        <div class="btn-group">
+          <a href="/services/" class="btn">System Documentation</a>
+        </div>
       </div>
     </div>
 
     <!-- Think in Concepts -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Think in Concepts, Not Tables</h2>
+        <h2 class="content-block__title">Concept Abstraction System</h2>
       </div>
       <div class="content-block__body">
-        <p class="lead">Modern data is complex. NRLC abstracts it into meaningful objects, relationships, metrics, and logical rules.</p>
-        <p><strong>What this enables:</strong></p>
-        <ul>
-          <li>Structured data becomes a semantic graph</li>
-          <li>LLMs answer with contextual accuracy</li>
-          <li>Queries collapse from dozens of JOINs to concise, relationship-aware logic</li>
-          <li>Applications consume data as connected concepts, not raw sources</li>
-          <li>Governance is enforced automatically across the entire knowledge layer</li>
-        </ul>
-        <p><a href="/services/" class="btn">See it in action</a></p>
+        <p class="lead">Data complexity requires abstraction. This system converts tables into objects, relationships, metrics, and logical rules.</p>
+        <h3>Patterns</h3>
+        <p>Structured data → semantic graph. JOIN complexity → relationship-aware queries. Raw sources → connected concepts. Manual governance → automated enforcement.</p>
+        <h3>Anti-Patterns</h3>
+        <p>Direct table access. JOIN-heavy queries. Bespoke data pipelines. Manual relationship management.</p>
+        <div class="btn-group">
+          <a href="/services/" class="btn">Implementation Guide</a>
+        </div>
       </div>
     </div>
 
@@ -66,15 +54,10 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         </div>
       <div class="content-block__body">
         <p class="lead">Model your business using SQL-native ontologies, exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms.</p>
-        <p><strong>Core capabilities:</strong></p>
-        <ul>
-          <li>Semantic representation of every entity</li>
-          <li>Explicit relationships replacing JOIN complexity</li>
-          <li>Business logic encoded into reusable rules</li>
-          <li>Hierarchies, classifications, inheritance</li>
-          <li>Automated reasoning across the entire graph</li>
-        </ul>
-        <p><a href="/insights/" class="btn">Learn why teams adopt semantic modeling</a></p>
+        <p><strong>Core capabilities:</strong> Semantic representation of every entity. Explicit relationships replacing JOIN complexity. Business logic encoded into reusable rules. Hierarchies, classifications, inheritance. Automated reasoning across the entire graph.</p>
+        <div class="btn-group">
+          <a href="/insights/" class="btn">Learn why teams adopt semantic modeling</a>
+        </div>
       </div>
     </div>
 
@@ -85,15 +68,10 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
       </div>
       <div class="content-block__body">
         <p class="lead">LLMs become reliable once they operate on governed, contextualized, precise data. NRLC delivers that foundation.</p>
-        <p><strong>Power AI with:</strong></p>
-        <ul>
-          <li>Structured semantic context</li>
-          <li>Verified relationships</li>
-          <li>Virtualized access to all data sources</li>
-          <li>SQL measures and reusable metrics</li>
-          <li>Fine-grained access control</li>
-        </ul>
-        <p><a href="/services/" class="btn">Enterprise LLM Foundation Overview</a></p>
+        <p><strong>Power AI with:</strong> Structured semantic context. Verified relationships. Virtualized access to all data sources. SQL measures and reusable metrics. Fine-grained access control.</p>
+        <div class="btn-group">
+          <a href="/services/" class="btn">Enterprise LLM Foundation Overview</a>
+        </div>
       </div>
     </div>
 
@@ -104,14 +82,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
       </div>
       <div class="content-block__body">
         <p class="lead">NRLC connects every source into a semantic, virtualized layer with no ingestion or duplication. Your data stays where it lives — NRLC makes it usable.</p>
-        <p><strong>Benefits:</strong></p>
-        <ul>
-          <li>Automatic mapping to the ontology</li>
-          <li>Federated queries across clouds and databases</li>
-          <li>Intelligent pushdown + query optimization</li>
-          <li>Powerful caching engine that reduces compute spend</li>
-          <li>Unified graph view across all sources</li>
-        </ul>
+        <p><strong>Benefits:</strong> Automatic mapping to the ontology. Federated queries across clouds and databases. Intelligent pushdown + query optimization. Powerful caching engine that reduces compute spend. Unified graph view across all sources.</p>
         <div class="btn-group">
           <a href="/services/data-mapping/" class="btn">See how data is mapped</a>
           <a href="/services/data-virtualization/" class="btn">Explore data virtualization</a>
@@ -131,41 +102,24 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <div class="grid grid-auto-fit">
           <div>
             <h4>Data Platforms</h4>
-            <ul>
-              <li>Data warehouses</li>
-              <li>Data lakes</li>
-              <li>Databases</li>
-              <li>Catalogs</li>
-            </ul>
+            <p>Data warehouses. Data lakes. Databases. Catalogs.</p>
           </div>
           <div>
             <h4>BI Tools</h4>
-            <ul>
-              <li>Power BI</li>
-              <li>Tableau</li>
-              <li>Looker</li>
-              <li>Qlik</li>
-            </ul>
+            <p>Power BI. Tableau. Looker. Qlik.</p>
           </div>
           <div>
             <h4>AI Frameworks</h4>
-            <ul>
-              <li>Python</li>
-              <li>LangChain</li>
-              <li>LangGraph</li>
-              <li>GraphRAG</li>
-            </ul>
+            <p>Python. LangChain. LangGraph. GraphRAG.</p>
           </div>
           <div>
             <h4>Protocols</h4>
-            <ul>
-              <li>REST, SQL</li>
-              <li>JDBC, ODBC</li>
-              <li>OLAP, MDX</li>
-            </ul>
+            <p>REST, SQL. JDBC, ODBC. OLAP, MDX.</p>
           </div>
         </div>
-        <p><a href="/services/" class="btn">View all integrations</a></p>
+        <div class="btn-group">
+          <a href="/services/" class="btn">View all integrations</a>
+        </div>
       </div>
       </div>
 
@@ -176,15 +130,10 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
       </div>
       <div class="content-block__body">
         <p class="lead">Your REST layer becomes semantic, self-documenting, and deeply expressive.</p>
-        <p><strong>Capabilities:</strong></p>
-        <ul>
-          <li>Nested semantic fetches</li>
-          <li>Field-level precision</li>
-          <li>Role & row-level governance</li>
-          <li>Reduced network payload</li>
-          <li>Automatic OpenAPI/Swagger generation</li>
-        </ul>
-        <p><a href="/services/rest-api/" class="btn">REST API Documentation</a></p>
+        <p><strong>Capabilities:</strong> Nested semantic fetches. Field-level precision. Role & row-level governance. Reduced network payload. Automatic OpenAPI/Swagger generation.</p>
+        <div class="btn-group">
+          <a href="/services/rest-api/" class="btn">REST API Documentation</a>
+        </div>
       </div>
     </div>
 
@@ -200,7 +149,9 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
           <p><strong>Traditional SQL:</strong> 22 lines</p>
           <p><strong>Semantic SQL:</strong> 6 lines</p>
         </div>
-        <p><a href="/insights/" class="btn">Learn more about semantic queries</a></p>
+        <div class="btn-group">
+          <a href="/insights/" class="btn">Learn more about semantic queries</a>
+        </div>
       </div>
     </div>
 
@@ -211,7 +162,9 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
       </div>
       <div class="content-block__body">
         <p class="lead">Traverse relationships. Surface insights. Generate SQL or natural-language queries. Let LLMs act as your data analyst.</p>
-        <p><a href="/services/" class="btn">Explore the Knowledge Graph</a></p>
+        <div class="btn-group">
+          <a href="/services/" class="btn">Explore the Knowledge Graph</a>
+        </div>
       </div>
             </div>
 
@@ -222,14 +175,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         </div>
       <div class="content-block__body">
         <p class="lead">Stable metrics, reusable logic, and dynamic mappings eliminate the fragility of BI dashboards.</p>
-        <p><strong>Benefits:</strong></p>
-        <ul>
-          <li>Reuse metrics across BI tools</li>
-          <li>Update structures without breaking dashboards</li>
-          <li>Push compute back to your warehouse</li>
-          <li>Avoid vendor lock-in</li>
-          <li>Speed up cloud migrations</li>
-        </ul>
+        <p><strong>Benefits:</strong> Reuse metrics across BI tools. Update structures without breaking dashboards. Push compute back to your warehouse. Avoid vendor lock-in. Speed up cloud migrations.</p>
       </div>
     </div>
 
@@ -239,14 +185,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <h2 class="content-block__title">Faster Implementation. Faster Answers.</h2>
       </div>
       <div class="content-block__body">
-        <ul>
-          <li>Rapid semantic modeling</li>
-          <li>LLM-assisted entity + metric creation</li>
-          <li>Up to 90% reduction in time-to-consumption</li>
-          <li>No new languages — everything in SQL</li>
-          <li>Deploy in SaaS, cloud, or on-premises</li>
-          <li>Kubernetes-ready</li>
-        </ul>
+        <p>Rapid semantic modeling. LLM-assisted entity + metric creation. Up to 90% reduction in time-to-consumption. No new languages — everything in SQL. Deploy in SaaS, cloud, or on-premises. Kubernetes-ready.</p>
       </div>
     </div>
 
@@ -259,26 +198,11 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <div class="grid grid-auto-fit">
           <div>
             <h3>Core Platform</h3>
-            <ul>
-              <li>Semantic Layer</li>
-              <li>SQL Ontologies</li>
-              <li>Enterprise LLM Foundation</li>
-              <li>Ontology Modeling</li>
-              <li>Virtualization</li>
-              <li>Cache Engine</li>
-              <li>SQL Measures</li>
-              <li>Governance & Access Control</li>
-            </ul>
+            <p>Semantic Layer. SQL Ontologies. Enterprise LLM Foundation. Ontology Modeling. Virtualization. Cache Engine. SQL Measures. Governance & Access Control.</p>
           </div>
           <div>
             <h3>AI Capabilities</h3>
-            <ul>
-              <li>NL2SQL Generation</li>
-              <li>GraphRAG</li>
-              <li>Graph Analytics</li>
-              <li>LLM Data Analyst</li>
-              <li>Natural Language for Excel</li>
-            </ul>
+            <p>NL2SQL Generation. GraphRAG. Graph Analytics. LLM Data Analyst. Natural Language for Excel.</p>
           </div>
           <div>
             <h3>Integrations</h3>
@@ -289,18 +213,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
           </div>
           <div>
             <h3>Solutions</h3>
-            <ul>
-              <li>Intelligent Semantic Layer</li>
-              <li>Metrics Store</li>
-              <li>Data Virtualization</li>
-              <li>Data Mesh</li>
-              <li>Data Fabric</li>
-              <li>Digital Twin</li>
-              <li>Semantic Data Lake</li>
-              <li>Lakehouse Semantic Model</li>
-              <li>RDF & OWL Modernization</li>
-              <li>Industry models: FHIR, FIBO, Supply Chain, Telecom, Analytics</li>
-            </ul>
+            <p>Intelligent Semantic Layer. Metrics Store. Data Virtualization. Data Mesh. Data Fabric. Digital Twin. Semantic Data Lake. Lakehouse Semantic Model. RDF & OWL Modernization. Industry models: FHIR, FIBO, Supply Chain, Telecom, Analytics.</p>
           </div>
         </div>
       </div>
@@ -315,25 +228,11 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <div class="grid grid-auto-fit">
           <div>
             <h3>Resources</h3>
-            <ul>
-              <li><a href="/insights/">Knowledge Base</a></li>
-              <li><a href="/services/">Documentation</a></li>
-              <li><a href="/insights/">Tutorials</a></li>
-              <li><a href="/services/">Ontology Catalog</a></li>
-              <li><a href="/insights/">Benchmarks</a></li>
-              <li><a href="/insights/">Blog</a></li>
-            </ul>
+            <p><a href="/insights/">Knowledge Base</a>. <a href="/services/">Documentation</a>. <a href="/insights/">Tutorials</a>. <a href="/services/">Ontology Catalog</a>. <a href="/insights/">Benchmarks</a>. <a href="/insights/">Blog</a>.</p>
           </div>
           <div>
             <h3>Company</h3>
-            <ul>
-              <li><a href="/insights/">News</a></li>
-              <li><a href="/services/">Partners</a></li>
-              <li><a href="/services/">Support</a></li>
-              <li><a href="sms:+12135628438?body=hey, im interested in picking your brain">Text: +1-213-562-8438</a></li>
-              <li><a href="tel:+12135628438">Call: +1-213-562-8438</a></li>
-              <li><a href="mailto:hirejoelm@gmail.com">Email: hirejoelm@gmail.com</a></li>
-            </ul>
+            <p><a href="/insights/">News</a>. <a href="/services/">Partners</a>. <a href="/services/">Support</a>. <a href="sms:+12135628438?body=hey, im interested in picking your brain">Text: +1-213-562-8438</a>. <a href="tel:+12135628438">Call: +1-213-562-8438</a>. <a href="mailto:hirejoelm@gmail.com">Email: hirejoelm@gmail.com</a>.</p>
           </div>
         </div>
       </div>
@@ -346,15 +245,15 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
         <h2 class="content-block__title">Latest Research & Insights</h2>
       </div>
       <div class="content-block__body">
-        <ul>
-          <?php foreach (array_reverse($latest_insights) as $insight): ?>
-            <li>
-              <h4><a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/"><?= htmlspecialchars($insight['title']) ?></a></h4>
-              <p><?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 150)) ?>...</p>
-              <p><a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn">Read Article</a></p>
-            </li>
-          <?php endforeach; ?>
-        </ul>
+        <?php foreach (array_reverse($latest_insights) as $insight): ?>
+          <div style="margin-bottom: var(--spacing-24);">
+            <h4><a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/"><?= htmlspecialchars($insight['title']) ?></a></h4>
+            <p><?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 150)) ?>...</p>
+            <div class="btn-group">
+              <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn">Read Article</a>
+            </div>
+          </div>
+        <?php endforeach; ?>
       </div>
     </div>
     <?php endif; ?>

@@ -108,6 +108,17 @@ function route_request(): void {
       return;
     }
   }
+  
+  // Sitemap index route
+  if ($path === '/sitemap.xml' || $path === '/sitemap.xml/') {
+    $sitemap_index = __DIR__.'/../public/sitemaps/sitemap-index.xml';
+    if (file_exists($sitemap_index)) {
+      header('Content-Type: application/xml; charset=UTF-8');
+      header('Cache-Control: public, max-age=3600');
+      readfile($sitemap_index);
+      return;
+    }
+  }
 
   // Book page route (GET requests to /api/book/)
   if ($path === '/api/book/' && $_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -267,11 +278,11 @@ function render_page(string $slug): void {
     return;
   }
 
-  // Special handling for catalog pages
+  // Special handling for catalog pages - use pages/ directory
   if (strpos($slug, 'catalog/') === 0) {
     include __DIR__.'/../templates/head.php';
     include __DIR__.'/../templates/header.php';
-    include __DIR__.'/../public/'.$slug.'.php';
+    include __DIR__.'/../pages/'.$slug.'.php';
     include __DIR__.'/../templates/footer.php';
     return;
   }

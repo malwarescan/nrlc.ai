@@ -107,7 +107,7 @@ function local_implementation_strategy(string $city): string {
   </div>";
 }
 
-/** Rich paragraph generator per pain point to increase word count meaningfully. */
+/** Rich paragraph generator per pain point to increase word count meaningfully. SEO-first content. */
 function expand_pain_point(array $p, string $city): string {
   $h = htmlspecialchars($p['headline'] ?? 'Issue');
   $problem = htmlspecialchars($p['problem'] ?? '');
@@ -116,13 +116,15 @@ function expand_pain_point(array $p, string $city): string {
   $deliver = htmlspecialchars($p['deliverables'] ?? '');
   $metric  = htmlspecialchars($p['metric'] ?? '');
   $c = htmlspecialchars(titleCaseCity($city));
+  $serviceName = htmlspecialchars(ucfirst(str_replace('-', ' ', $p['service'] ?? '')));
 
-  $para1 = "<p>{$problem} In {$c}, this typically surfaces as log spikes, faceted loops, and soft-duplicate paths that compete for the same queries.</p>";
-  $para2 = "<p><strong>Impact:</strong> {$impact} Our audits in {$c} usually find wasted crawl on parameterized URLs and mixed-case aliases that never convert.</p>";
-  $para3 = "<p><strong>Remediation:</strong> {$solution} We ship rule-sets, tests, and monitors so consolidation persists through releases. <em>Deliverables:</em> {$deliver}. <em>Expected result:</em> {$metric}.</p>";
+  // SEO-first content with keywords
+  $para1 = "<p><strong>Problem:</strong> {$problem} In {$c}, this SEO issue typically surfaces as crawl budget waste, duplicate content indexing, and URL canonicalization conflicts that compete for the same search queries and dilute ranking signals.</p>";
+  $para2 = "<p><strong>Impact on SEO:</strong> {$impact} Our AI SEO audits in {$c} usually find wasted crawl budget on parameterized URLs, mixed-case aliases, and duplicate content that never converts. This directly impacts AI engine visibility, structured data recognition, and citation accuracy across ChatGPT, Claude, and Perplexity.</p>";
+  $para3 = "<p><strong>AI SEO Solution:</strong> {$solution} We implement comprehensive technical SEO improvements including structured data optimization, entity mapping, and canonical enforcement. Our approach ensures AI engines can properly crawl, index, and cite your content. <em>Deliverables:</em> {$deliver}. <em>Expected SEO result:</em> {$metric}.</p>";
 
-  $list = "<ul class=\"small\"><li>Before/After sitemap diffs</li><li>Coverage & Discovered URLs trend</li><li>Param allowlist vs. strip rules</li><li>Canonical and hreflang spot-checks</li></ul>";
-  return "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">$h</h3>$para1$para2$para3$list</div>";
+  $list = "<ul class=\"small\"><li>Before/After sitemap analysis and crawl efficiency metrics</li><li>Search Console coverage & discovered URLs trend tracking</li><li>Parameter allowlist vs. strip rules for canonical URLs</li><li>Structured data validation and rich results testing</li><li>Canonical and hreflang implementation verification</li><li>AI engine citation accuracy monitoring</li></ul>";
+  return "<div class=\"content-block\"><div class=\"content-block__header\"><h3 class=\"content-block__title\">$h</h3></div><div class=\"content-block__body\">$para1$para2$para3$list</div></div>";
 }
 
 function pain_points_for_service(string $service): array {
@@ -197,27 +199,21 @@ function why_this_matters_section(string $service, string $city): string {
 
 function implementation_timeline_section(string $city): string {
   $c = titleCaseCity($city);
-  return "<div class=\"box-padding\">
-    <h3 style=\"margin-top: 0; color: #000080;\">Implementation Timeline</h3>
-    <p>Our typical engagement in {$c} follows a structured four-phase approach designed to deliver measurable improvements quickly while building sustainable optimization practices:</p>
+  return "<p>Our typical engagement in {$c} follows a structured four-phase approach designed to deliver measurable improvements quickly while building sustainable optimization practices:</p>
     <p><strong>Phase 1: Discovery & Audit (Week 1-2)</strong> — Comprehensive technical audit covering crawl efficiency, schema completeness, entity clarity, and AI engine visibility. We analyze your current state across all GEO-16 framework pillars and identify quick wins alongside strategic opportunities.</p>
     <p><strong>Phase 2: Implementation & Optimization (Week 3-6)</strong> — Systematic implementation of recommended improvements, including URL normalization, schema enhancement, content optimization, and technical infrastructure updates. Each change is tested and validated before deployment.</p>
     <p><strong>Phase 3: Validation & Monitoring (Week 7-8)</strong> — Rigorous testing of all implementations, establishment of monitoring systems, and validation of improvements through crawl analysis, rich results testing, and AI engine citation tracking.</p>
-    <p><strong>Phase 4: Ongoing Optimization (Month 3+)</strong> — Continuous monitoring, iterative improvements, and adaptation to evolving AI engine requirements. Regular reporting on citation accuracy, crawl efficiency, and visibility metrics.</p>
-  </div>";
+    <p><strong>Phase 4: Ongoing Optimization (Month 3+)</strong> — Continuous monitoring, iterative improvements, and adaptation to evolving AI engine requirements. Regular reporting on citation accuracy, crawl efficiency, and visibility metrics.</p>";
 }
 
 function success_metrics_section(string $service, string $city): string {
   $s = ucfirst(str_replace('-', ' ', $service));
   $c = titleCaseCity($city);
-  return "<div class=\"box-padding\">
-    <h3 style=\"margin-top: 0; color: #000080;\">Success Metrics & Measurement</h3>
-    <p>We measure $s success in {$c} through comprehensive tracking across multiple dimensions. Every engagement includes baseline measurement, ongoing monitoring, and detailed reporting so you can see exactly how improvements translate to business outcomes.</p>
+  return "<p>We measure $s success in {$c} through comprehensive tracking across multiple dimensions. Every engagement includes baseline measurement, ongoing monitoring, and detailed reporting so you can see exactly how improvements translate to business outcomes.</p>
     <p><strong>Crawl Efficiency Metrics:</strong> We track crawl budget utilization, discovered URL counts, sitemap coverage rates, and duplicate URL elimination. In {$c}, our clients typically see 35-60% reductions in crawl waste within the first month of implementation.</p>
     <p><strong>AI Engine Visibility:</strong> We monitor citation accuracy across ChatGPT, Claude, Perplexity, and other AI platforms. This includes tracking brand mentions, URL accuracy in citations, fact correctness, and citation frequency. Improvements in these metrics directly correlate with increased qualified traffic and brand authority.</p>
     <p><strong>Structured Data Performance:</strong> Rich results impressions, FAQ snippet appearances, and schema validation status are tracked weekly. We monitor Google Search Console for structured data errors and opportunities, ensuring your schema implementations deliver maximum visibility benefits.</p>
-    <p><strong>Technical Health Indicators:</strong> Core Web Vitals, mobile usability scores, HTTPS implementation, canonical coverage, and hreflang accuracy are continuously monitored. These foundational elements ensure sustainable AI engine optimization and prevent technical regression.</p>
-  </div>";
+    <p><strong>Technical Health Indicators:</strong> Core Web Vitals, mobile usability scores, HTTPS implementation, canonical coverage, and hreflang accuracy are continuously monitored. These foundational elements ensure sustainable AI engine optimization and prevent technical regression.</p>";
 }
 
 function faq_block(string $service, string $city, int $count = 6): string {

@@ -28,7 +28,63 @@ $features = [
 $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
   product_platform_schemas($productSlug, $productName, $productDescription, $features, 'DeveloperApplication'),
-  [product_howto_schema($productSlug, $productName)]
+  [product_howto_schema($productSlug, $productName)],
+  [
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'FAQPage',
+      'mainEntity' => [
+        [
+          '@type' => 'Question',
+          'name' => 'What is Neural Command OS and how does it power the ecosystem?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'Neural Command OS is the universal operating system that powers all products in the Neural Command ecosystem. It provides agentic SEO, schema generation, authority scoring, LLM visibility modeling, intelligent onboarding, API integration, funnel generation, AI Overview optimization, dashboard tools, domain/service/entity ontologies, and semantic linking. All products share this common infrastructure, creating a cohesive ecosystem.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'How does Neural Command OS improve AI SEO and search visibility?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'Neural Command OS implements comprehensive AI SEO strategies including structured data optimization, entity mapping, canonical enforcement, and LLM seeding. The platform generates JSON-LD schema, implements GEO-16 framework principles, and ensures content is optimized for AI engines like ChatGPT, Claude, and Perplexity. This results in improved citation accuracy, better AI engine visibility, and enhanced search rankings.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'What products are powered by Neural Command OS?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'Neural Command OS powers Applicants.io (job schema automation and AI recruiting), OurCasa.ai (property and neighborhood intelligence), Croutons.ai (micro-fact data atomization), Precogs (ontological oracle reasoning), Googlebot Renderer Lab (SEO diagnostics), and NEWFAQ (sentient FAQ and business intelligence). All products leverage the same foundational infrastructure for maximum efficiency and consistency.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'How does Neural Command OS handle schema generation and structured data?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'The platform automatically generates comprehensive JSON-LD schema including WebPage, BreadcrumbList, Service, LocalBusiness, FAQPage, Product, and Organization schemas. It ensures schema consistency across all page types, validates against Schema.org standards, and optimizes for rich results eligibility. The system uses centralized schema builders that emit consistent structured data across the entire ecosystem.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'What technical requirements does Neural Command OS have?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'Neural Command OS integrates with existing web platforms and content management systems. It requires PHP support, database connectivity for entity storage, API endpoints for dynamic content generation, and support for JSON-LD schema markup. The platform is designed to work with any modern web infrastructure and can be deployed on standard hosting environments.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'How does Neural Command OS measure and track SEO performance?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'The platform provides comprehensive analytics including AI engine citation tracking, crawl efficiency metrics, structured data performance, rich results impressions, and technical health indicators. It monitors Core Web Vitals, mobile usability, canonical coverage, hreflang accuracy, and provides detailed reporting on how optimizations translate to business outcomes.'
+          ]
+        ]
+      ]
+    ]
+  ]
 );
 
 $GLOBALS['__jsonld'] = $jsonld;
@@ -46,6 +102,7 @@ $GLOBALS['__jsonld'] = $jsonld;
       <div class="content-block__body">
         <p class="lead">Universal operating system powering all products in the Neural Command ecosystem.</p>
         <p>This is the platform tying the entire suite together, providing agentic SEO, schema generation, authority scoring, LLM visibility modeling, intelligent onboarding, API integration, funnel generation, AI Overview optimization, dashboard tools, domain/service/entity ontologies, and semantic linking.</p>
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a>.</p>
       </div>
     </div>
 
@@ -123,6 +180,41 @@ $GLOBALS['__jsonld'] = $jsonld;
       </div>
     </div>
 
+    <!-- FAQ Section -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Frequently Asked Questions</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="grid" style="gap: 1rem;">
+          <details class="content-block">
+            <summary><strong>What is Neural Command OS and how does it power the ecosystem?</strong></summary>
+            <p>Neural Command OS is the universal operating system that powers all products in the Neural Command ecosystem. It provides agentic SEO, schema generation, authority scoring, LLM visibility modeling, intelligent onboarding, API integration, funnel generation, AI Overview optimization, dashboard tools, domain/service/entity ontologies, and semantic linking. All products share this common infrastructure, creating a cohesive ecosystem.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>How does Neural Command OS improve AI SEO and search visibility?</strong></summary>
+            <p>Neural Command OS implements comprehensive AI SEO strategies including structured data optimization, entity mapping, canonical enforcement, and LLM seeding. The platform generates JSON-LD schema, implements GEO-16 framework principles, and ensures content is optimized for AI engines like ChatGPT, Claude, and Perplexity. This results in improved citation accuracy, better AI engine visibility, and enhanced search rankings.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>What products are powered by Neural Command OS?</strong></summary>
+            <p>Neural Command OS powers Applicants.io (job schema automation and AI recruiting), OurCasa.ai (property and neighborhood intelligence), Croutons.ai (micro-fact data atomization), Precogs (ontological oracle reasoning), Googlebot Renderer Lab (SEO diagnostics), and NEWFAQ (sentient FAQ and business intelligence). All products leverage the same foundational infrastructure for maximum efficiency and consistency.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>How does Neural Command OS handle schema generation and structured data?</strong></summary>
+            <p>The platform automatically generates comprehensive JSON-LD schema including WebPage, BreadcrumbList, Service, LocalBusiness, FAQPage, Product, and Organization schemas. It ensures schema consistency across all page types, validates against Schema.org standards, and optimizes for rich results eligibility. The system uses centralized schema builders that emit consistent structured data across the entire ecosystem.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>What technical requirements does Neural Command OS have?</strong></summary>
+            <p>Neural Command OS integrates with existing web platforms and content management systems. It requires PHP support, database connectivity for entity storage, API endpoints for dynamic content generation, and support for JSON-LD schema markup. The platform is designed to work with any modern web infrastructure and can be deployed on standard hosting environments.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>How does Neural Command OS measure and track SEO performance?</strong></summary>
+            <p>The platform provides comprehensive analytics including AI engine citation tracking, crawl efficiency metrics, structured data performance, rich results impressions, and technical health indicators. It monitors Core Web Vitals, mobile usability, canonical coverage, hreflang accuracy, and provides detailed reporting on how optimizations translate to business outcomes.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
     <div class="content-block module">
       <div class="content-block__body">
         <div class="btn-group text-center">
@@ -132,6 +224,21 @@ $GLOBALS['__jsonld'] = $jsonld;
     </div>
 
   </div>
+    <!-- Related Resources -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Resources</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view all <a href="/products/">Products</a>.</p>
+        <div class="btn-group text-center">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Neural Command OS Product Inquiry')">Schedule Consultation</button>
+          <a href="/services/" class="btn">Get Started with AI SEO</a>
+        </div>
+      </div>
+    </div>
 </section>
 </main>
 

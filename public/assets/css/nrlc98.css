@@ -106,10 +106,15 @@ p {
   box-shadow: var(--shadow-medium);
   overflow: hidden;
   border: 2px solid var(--win-dark);
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 .window .window-body { 
   background: var(--win-face); 
   padding: 20px 24px 20px 20px;
+  max-width: 100%; /* Prevent overflow */
+  overflow-wrap: break-word; /* Allow text to wrap */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 .title-bar-text { 
   white-space: nowrap; 

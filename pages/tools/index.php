@@ -2,12 +2,13 @@
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 ?>
+
 <section class="window container prose">
   <div class="title-bar">
     <div class="title-bar-text">AI SEO Tools & Reviews</div>
   </div>
   <div class="window-body">
-    <h1>AI SEO Tools & Platform Reviews</h1>
+    <h2>AI SEO Tools & Platform Reviews</h2>
     <p class="lead">Comprehensive reviews and comparisons of AI SEO tools, platforms, and optimization solutions.</p>
     
     <div class="grid" class="grid grid-auto-fit">
@@ -45,6 +46,16 @@ require_once __DIR__ . '/../../templates/header.php';
         <h3 style="margin-top: 0; color: #000080;">Competitive Analysis</h3>
         <p>AI-powered competitor research, market analysis, and benchmarking tools.</p>
         <a href="/tools/competitive-analysis/" class="btn" data-ripple>View Reviews</a>
+      </div>
+    </div>
+    
+    <!-- Related Resources -->
+    <div class="window-body" style="margin-top: 2rem;">
+      <h2>Related Resources</h2>
+      <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+      <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+      <div class="text-center" style="margin-top: 1.5rem;">
+        <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
       </div>
     </div>
   </div>

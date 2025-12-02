@@ -16,6 +16,7 @@ $GLOBALS['__page_slug'] = 'products/index';
       </div>
       <div class="content-block__body">
         <p class="lead">Complete product ecosystem for structured knowledge, AI visibility, and agentic intelligence.</p>
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a>.</p>
       </div>
     </div>
 
@@ -96,6 +97,21 @@ $GLOBALS['__page_slug'] = 'products/index';
             </div>
           </div>
 
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Resources -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Resources</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
+        <div class="btn-group text-center">
+          <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
         </div>
       </div>
     </div>

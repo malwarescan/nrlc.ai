@@ -3,6 +3,7 @@ require_once __DIR__.'/../../templates/head.php';
 require_once __DIR__.'/../../templates/header.php';
 require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/schema_builders.php';
+require_once __DIR__.'/../../lib/nrlc_linking_kernel.php';
 
 $service = $_GET['service'] ?? '';
 $GLOBALS['__page_slug'] = 'services/service';
@@ -121,7 +122,49 @@ if (in_array($service, $semanticServices)) {
   $content = $serviceContent[$service] ?? null;
   
   if ($content) {
+    $domain = 'https://nrlc.ai';
+    $canonical_url = $domain . '/services/' . $service . '/';
+    
     $GLOBALS['__jsonld'] = [
+      [
+        "@context" => "https://schema.org",
+        "@type" => "WebPage",
+        "@id" => $canonical_url . '#webpage',
+        "name" => $content['title'],
+        "url" => $canonical_url,
+        "description" => $content['description'],
+        "isPartOf" => [
+          "@type" => "WebSite",
+          "@id" => $domain . '/#website',
+          "name" => "NRLC.ai",
+          "url" => $domain
+        ]
+      ],
+      [
+        "@context" => "https://schema.org",
+        "@type" => "BreadcrumbList",
+        "@id" => $canonical_url . '#breadcrumb',
+        "itemListElement" => [
+          [
+            "@type" => "ListItem",
+            "position" => 1,
+            "name" => "Home",
+            "item" => $domain . "/"
+          ],
+          [
+            "@type" => "ListItem",
+            "position" => 2,
+            "name" => "Services",
+            "item" => $domain . "/services/"
+          ],
+          [
+            "@type" => "ListItem",
+            "position" => 3,
+            "name" => $content['title'],
+            "item" => $canonical_url
+          ]
+        ]
+      ],
       [
         "@context" => "https://schema.org",
         "@type" => "Service",
@@ -153,7 +196,7 @@ if (in_array($service, $semanticServices)) {
             <p class="lead"><?= htmlspecialchars($content['description']) ?></p>
             <?= $content['content'] ?>
             <p class="text-center">
-              <a href="/api/book/" class="btn btn--primary">Book a Demo</a>
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($content['title']) ?>')">Book a Demo</button>
               <a href="/services/" class="btn">View All Services</a>
             </p>
           </div>
@@ -166,7 +209,49 @@ if (in_array($service, $semanticServices)) {
 }
 
 // Default service page with city selection
+$domain = 'https://nrlc.ai';
+$canonical_url = $domain . '/services/' . $service . '/';
+
 $GLOBALS['__jsonld'] = [
+  [
+    "@context" => "https://schema.org",
+    "@type" => "WebPage",
+    "@id" => $canonical_url . '#webpage',
+    "name" => $serviceName,
+    "url" => $canonical_url,
+    "description" => "Professional $serviceName implementation with localized expertise and support across multiple cities.",
+    "isPartOf" => [
+      "@type" => "WebSite",
+      "@id" => $domain . '/#website',
+      "name" => "NRLC.ai",
+      "url" => $domain
+    ]
+  ],
+  [
+    "@context" => "https://schema.org",
+    "@type" => "BreadcrumbList",
+    "@id" => $canonical_url . '#breadcrumb',
+    "itemListElement" => [
+      [
+        "@type" => "ListItem",
+        "position" => 1,
+        "name" => "Home",
+        "item" => $domain . "/"
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 2,
+        "name" => "Services",
+        "item" => $domain . "/services/"
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 3,
+        "name" => $serviceName,
+        "item" => $canonical_url
+      ]
+    ]
+  ],
   [
     "@context" => "https://schema.org",
     "@type" => "Service",
@@ -205,6 +290,7 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <p class="lead">Select a city to see localized implementation and pricing for this service.</p>
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
       </div>
     </div>
 
@@ -216,27 +302,51 @@ $GLOBALS['__jsonld'] = [
       <div class="content-block__body">
         <div class="grid grid-auto-fit">
           <div class="content-block">
-            <h3>New York</h3>
-            <p>Full service implementation in New York with local expertise and support.</p>
-            <p><a href="/services/<?=htmlspecialchars($service)?>/new-york/" class="btn">View in New York</a></p>
+            <div class="content-block__header">
+              <h3 class="content-block__title">New York</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Full service implementation in New York with local expertise and support.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/new-york/" class="btn btn--primary">View in New York</a>
+              </div>
+            </div>
           </div>
           
           <div class="content-block">
-            <h3>London</h3>
-            <p>Comprehensive service delivery in London with UK market expertise.</p>
-            <p><a href="/services/<?=htmlspecialchars($service)?>/london/" class="btn">View in London</a></p>
+            <div class="content-block__header">
+              <h3 class="content-block__title">London</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Comprehensive service delivery in London with UK market expertise.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/london/" class="btn btn--primary">View in London</a>
+              </div>
+            </div>
           </div>
           
           <div class="content-block">
-            <h3>San Francisco</h3>
-            <p>Tech-focused implementation in San Francisco with Silicon Valley insights.</p>
-            <p><a href="/services/<?=htmlspecialchars($service)?>/san-francisco/" class="btn">View in San Francisco</a></p>
+            <div class="content-block__header">
+              <h3 class="content-block__title">San Francisco</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Tech-focused implementation in San Francisco with Silicon Valley insights.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/san-francisco/" class="btn btn--primary">View in San Francisco</a>
+              </div>
+            </div>
           </div>
           
           <div class="content-block">
-            <h3>Toronto</h3>
-            <p>Canadian market expertise with Toronto-based implementation and support.</p>
-            <p><a href="/services/<?=htmlspecialchars($service)?>/toronto/" class="btn">View in Toronto</a></p>
+            <div class="content-block__header">
+              <h3 class="content-block__title">Toronto</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Canadian market expertise with Toronto-based implementation and support.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/toronto/" class="btn btn--primary">View in Toronto</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -249,14 +359,23 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <p>Our team can help you select the right city and service package for your needs. Contact us for personalized recommendations.</p>
+        <p>Learn more about our <a href="/insights/">AI SEO Research & Insights</a> and explore our <a href="/tools/">SEO Tools & Resources</a> to enhance your search visibility.</p>
         <p class="text-center">
-          <a href="/api/book/" class="btn btn--primary">Schedule Consultation</a>
+          <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
+          <button type="button" class="btn" onclick="openContactSheet('<?= htmlspecialchars($serviceName) ?>')">Schedule Consultation</button>
         </p>
       </div>
     </div>
 
 </section>
 </main>
+
+<?php
+// LINKING KERNEL: Add required internal links
+if (function_exists('render_internal_links_section')) {
+  echo render_internal_links_section('services', $service, [], 'Related Resources');
+}
+?>
 
 <?php
 // Note: footer.php is already included by router.php render_page()

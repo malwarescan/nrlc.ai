@@ -39,7 +39,7 @@ $GLOBALS['__jsonld'] = [
             <div class="title-bar-text">Book AI SEO Consultation</div>
           </div>
           <div class="window-body">
-            <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Schedule Your AI SEO Consultation</h1>
+            <h2 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Schedule Your AI SEO Consultation</h2>
             <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">Get expert guidance on implementing the GEO-16 framework, optimizing for AI engines, and improving your LLM citation rates.</p>
             
             <form id="booking-form" method="POST" action="/api/book/" style="margin-top: 2rem;">
@@ -156,6 +156,21 @@ $GLOBALS['__jsonld'] = [
       <div class="box-padding">
         <h3 style="margin-top: 0; color: #000080;">Can you help with international SEO?</h3>
         <p>Absolutely. International SEO is one of our core specialties. We implement comprehensive hreflang configurations, locale-specific structured data, regional content optimization, and multi-regional crawl management. Our team has experience with complex multi-country implementations across North America, Europe, and Asia-Pacific markets.</p>
+      </div>
+    </div>
+    
+    <!-- Related Resources -->
+    <div class="window" style="margin-bottom: 2rem;">
+      <div class="title-bar">
+        <div class="title-bar-text">Related Resources</div>
+      </div>
+      <div class="window-body">
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view our <a href="/products/">Products</a>.</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
+        </div>
       </div>
     </div>
   </div>

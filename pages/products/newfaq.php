@@ -43,6 +43,7 @@ $GLOBALS['__jsonld'] = $jsonld;
       <div class="content-block__body">
         <p class="lead">Sentient FAQ and business intelligence engine that learns from queries, expands dynamically, and generates breakthrough SEO visibility.</p>
         <p>This is not a traditional FAQ. This is a self-expanding, self-optimizing knowledge system that generates breakthrough SEO and business intelligence.</p>
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a>.</p>
       </div>
     </div>
 
@@ -132,6 +133,41 @@ $GLOBALS['__jsonld'] = $jsonld;
       </div>
     </div>
 
+    <!-- FAQ Section -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Frequently Asked Questions</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="grid" style="gap: 1rem;">
+          <details class="content-block">
+            <summary><strong>What is NEWFAQ and how does it differ from traditional FAQ systems?</strong></summary>
+            <p>NEWFAQ is a sentient FAQ and business intelligence engine that learns from customer queries, expands dynamically, and generates breakthrough SEO visibility. Unlike traditional static FAQ systems, NEWFAQ uses Precogs ontology and Croutons micro-facts to automatically classify queries, map user intent, generate accurate answers, and detect emerging topics. Every user prompt becomes semantic input that creates new FAQ content optimized for AI engines and search visibility.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>How does NEWFAQ improve SEO and search visibility?</strong></summary>
+            <p>NEWFAQ creates SEO-optimized pages for location-specific questions, address-intent queries, and hyper-niche questions with no existing competition. This delivers instant indexing, deeper visibility, long-tail traffic capture, and industry vocabulary dominance. The system generates structured data, FAQPage schema, and content that AI engines like ChatGPT, Claude, and Perplexity can easily discover and cite.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>What technical infrastructure does NEWFAQ require?</strong></summary>
+            <p>NEWFAQ leverages the Precogs ontological reasoning engine and Croutons micro-fact infrastructure. It integrates with your existing content management system and requires structured data implementation, JSON-LD schema markup, and API endpoints for real-time query processing. The system works with any web platform that supports dynamic content generation and schema markup.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>How quickly can NEWFAQ generate new FAQ content?</strong></summary>
+            <p>NEWFAQ processes queries in real-time. Every prompt entered into the NEWFAQ UI is logged, becomes semantic input, turns into a new seed question, and can be processed into a new public-facing FAQ page if warranted. The system automatically groups similar intents and prioritizes questions based on demand frequency and conversion potential.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>Does NEWFAQ require ongoing maintenance or manual content updates?</strong></summary>
+            <p>No. NEWFAQ is self-expanding and self-optimizing. It learns from real customer queries, expands FAQ content dynamically, prioritizes questions by demand frequency, and eliminates dead content automatically. The system continuously improves both SEO visibility and business intelligence without manual intervention.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>How does NEWFAQ measure success and ROI?</strong></summary>
+            <p>NEWFAQ tracks multiple metrics including SEO visibility improvements, long-tail traffic capture, AI engine citation rates, user engagement with FAQ content, and business intelligence insights from query patterns. The system provides comprehensive analytics showing how customer interactions translate to both SEO gains and actionable business intelligence.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
     <div class="content-block module">
       <div class="content-block__body">
         <div class="btn-group text-center">
@@ -141,6 +177,21 @@ $GLOBALS['__jsonld'] = $jsonld;
     </div>
 
   </div>
+    <!-- Related Resources -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Resources</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view all <a href="/products/">Products</a>.</p>
+        <div class="btn-group text-center">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('NEWFAQ Product Inquiry')">Schedule Consultation</button>
+          <a href="/services/" class="btn">Get Started with AI SEO</a>
+        </div>
+      </div>
+    </div>
 </section>
 </main>
 

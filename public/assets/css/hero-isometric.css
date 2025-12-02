@@ -1,0 +1,725 @@
+/**
+ * NRLC.ai True Isometric Hero Animation
+ * Mobile-First, Lightweight, Strong 3D Isometric
+ * Total payload: <800KB on mobile
+ */
+
+/* ============================================================================
+   HERO CONTAINER — Mobile-First
+   STRICT LAYER SEPARATION: Background (dithered) | Foreground (clean)
+   ============================================================================ */
+.hero-isometric {
+  position: relative;
+  width: 100%;
+  max-width: 100vw; /* Never exceed viewport width */
+  min-height: 100vh; /* Full viewport height for vertical centering */
+  overflow: hidden; /* Prevent content overflow */
+  /* Background layer - WHITE or TRANSPARENT */
+  background-color: #ffffff !important; /* Pure white background */
+  background-image: none !important; /* NO dither pattern */
+  background-size: cover; /* Ensure proper background coverage */
+  background-position: center; /* Center background */
+  background-repeat: no-repeat; /* No background repetition */
+  /* NO dither, NO patterns - clean white/transparent */
+  image-rendering: auto;
+  isolation: isolate;
+  display: flex; /* Flex container for vertical centering */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  margin-left: 0; /* Prevent left drift */
+  margin-right: 0; /* Prevent right drift */
+  margin-bottom: 0;
+  margin-top: 0; /* Prevent top margin */
+  padding-left: 0; /* Prevent padding-induced drift */
+  padding-right: 0; /* Prevent padding-induced drift */
+  padding-top: 0; /* Prevent top padding */
+  padding-bottom: 0; /* Prevent bottom padding */
+  z-index: 1; /* Background layer - BELOW foreground */
+}
+
+@media (min-width: 769px) {
+  .hero-isometric {
+    min-height: 100vh; /* Full viewport height on desktop */
+  }
+}
+
+/* ============================================================================
+   LAYER A — BASE ISOMETRIC GRID (Static/Ultra-Slow, Lightweight)
+   ============================================================================ */
+.hero-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%; /* Never exceed parent width */
+  height: 100%;
+  opacity: 0.08;
+  z-index: 2; /* BELOW foreground (10) */
+  pointer-events: none;
+  overflow: hidden; /* Prevent overflow */
+  /* Optimize for mobile */
+  will-change: transform;
+  transform: translateZ(0); /* GPU acceleration */
+  /* Prevent layout drift */
+  box-sizing: border-box;
+}
+
+.hero-grid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  /* Very subtle isometric grid - matches site aesthetic */
+  background-image: 
+    repeating-linear-gradient(
+      30deg,
+      rgba(0, 0, 0, 0.04) 0px,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px,
+      transparent 24px
+    ),
+    repeating-linear-gradient(
+      150deg,
+      rgba(0, 0, 0, 0.04) 0px,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px,
+      transparent 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.04) 0px,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+  background-size: 24px 24px;
+  transform: translate(-50%, -50%) rotateX(35.264deg) rotateZ(45deg);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+
+@media (min-width: 769px) {
+  .hero-grid::before {
+    width: 400%;
+    height: 400%;
+    background-size: 32px 32px;
+  }
+}
+
+/* ============================================================================
+   LAYER B — COGNITION LAYER (Strong 3D Isometric, Mobile-Optimized)
+   ============================================================================ */
+.hero-cognition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%; /* Never exceed parent width */
+  height: 100%;
+  z-index: 2; /* Background layer - BELOW foreground (10) */
+  pointer-events: none;
+  transform-style: preserve-3d;
+  overflow: hidden; /* Prevent overflow */
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+  /* NO filters, NO blending - pure background layer */
+  filter: none;
+  mix-blend-mode: normal;
+  /* Prevent layout drift */
+  box-sizing: border-box;
+}
+
+/* Isometric container - Smaller scale, centered */
+.cognition-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%; /* Smaller scale */
+  max-width: 700px; /* Reduced from 1000px */
+  height: 350px; /* Smaller height - Mobile-first */
+  /* Strong isometric: X=35.264°, Y=45° - clearly 3D */
+  transform: translate(-50%, -50%) rotateX(35.264deg) rotateZ(45deg) scale(0.7); /* Scaled down */
+  transform-style: preserve-3d;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@media (min-width: 769px) {
+  .cognition-container {
+    height: 700px;
+  }
+}
+
+/* A. Croutons (Microfacts) - Subtle nodes matching site aesthetic */
+.cognition-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  /* Subtle dither - uses main colors */
+  background-color: rgba(18, 53, 94, 0.15); /* Main color 1 - #12355e */
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(18, 53, 94, 0.15) 0px,
+      rgba(18, 53, 94, 0.15) 1px,
+      rgba(18, 53, 94, 0.08) 1px,
+      rgba(18, 53, 94, 0.08) 2px
+    );
+  background-size: 3px 3px;
+  border: 1px solid rgba(18, 53, 94, 0.2);
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  z-index: 4; /* BELOW foreground */
+  will-change: transform, opacity;
+  transform: translate(-50%, -50%) translateZ(0);
+}
+
+.cognition-node::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 40%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  .cognition-node {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Minimal data source positions - top layer, elevated */
+.cognition-node--source-1 { top: 20%; left: 25%; transform: translate(-50%, -50%) translateZ(42px) scale(0.7); }
+.cognition-node--source-2 { top: 20%; left: 50%; transform: translate(-50%, -50%) translateZ(42px) scale(0.7); }
+.cognition-node--source-3 { top: 20%; left: 75%; transform: translate(-50%, -50%) translateZ(42px) scale(0.7); }
+
+/* B. Precogs (Reasoning Graph) - Optimized edges */
+.cognition-edges {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4; /* BELOW foreground (10) */
+  /* Lightweight filter */
+  filter: drop-shadow(0 1px 1px rgba(18, 53, 94, 0.1));
+}
+
+.cognition-edge {
+  /* Flailing lines - animated, dynamic */
+  stroke: rgba(18, 53, 94, 0.4); /* Main color 1 - #12355e */
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  will-change: stroke-dashoffset, stroke-opacity, d;
+  opacity: 0.6;
+  /* Flailing animation */
+  animation: flailLine 3s ease-in-out infinite;
+}
+
+.cognition-edge--flail-1 {
+  animation-delay: 0s;
+}
+
+.cognition-edge--flail-2 {
+  animation-delay: 0.3s;
+}
+
+.cognition-edge--flail-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes flailLine {
+  0%, 100% {
+    d: path("M 250 120 L 500 450");
+    opacity: 0.6;
+  }
+  25% {
+    d: path("M 250 120 Q 350 250 500 450");
+    opacity: 0.8;
+  }
+  50% {
+    d: path("M 250 120 Q 400 280 500 450");
+    opacity: 0.6;
+  }
+  75% {
+    d: path("M 250 120 Q 350 250 500 450");
+    opacity: 0.8;
+  }
+}
+
+/* Grids that expand from node positions - natural flowing expansion */
+.node-grid {
+  opacity: 0;
+  transform-origin: center;
+  animation: gridExpand 6s ease-in-out infinite; /* Slower, smoother */
+}
+
+.node-grid-1 {
+  animation-delay: 0s;
+}
+
+.node-grid-2 {
+  animation-delay: 0.3s;
+}
+
+.node-grid-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes gridExpand {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 0.3;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  80% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+}
+
+/* Flowing shadows - natural expansion beneath objects */
+.shadow-shadow-1,
+.shadow-shadow-2,
+.shadow-shadow-3 {
+  opacity: 0.2;
+  animation: shadowPulse 5s ease-in-out infinite; /* Slower, smoother */
+  transform: scale(1); /* No bouncing - static scale */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.shadow-shadow-1 {
+  animation-delay: 0s;
+}
+
+.shadow-shadow-2 {
+  animation-delay: 0.3s;
+}
+
+.shadow-shadow-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes shadowPulse {
+  0% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@media (min-width: 769px) {
+  .cognition-edge {
+    stroke-width: 2;
+  }
+}
+
+/* Domain planes removed - minimal objects only */
+
+@media (min-width: 769px) {
+  .cognition-plane--applicants {
+    width: 120px;
+    height: 80px;
+  }
+  .cognition-plane--newfaq {
+    width: 100px;
+    height: 100px;
+  }
+  .cognition-plane--ourcasa {
+    width: 120px;
+    height: 80px;
+  }
+  .cognition-plane--renderer {
+    width: 100px;
+    height: 60px;
+  }
+}
+
+/* Data streams removed - minimal objects only */
+
+@media (min-width: 769px) {
+  .cognition-streamline {
+    height: 2px;
+    width: 200px;
+  }
+}
+
+/* Neural Command OS - Central Intelligence Hub (Subtle, matches site) */
+.cognition-command {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  width: 17px; /* Scaled down */
+  height: 17px; /* Scaled down */
+  /* Subtle fill - uses main color */
+  background-color: rgba(18, 53, 94, 0.25); /* Main color 1 - #12355e */
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(18, 53, 94, 0.25) 0px,
+      rgba(18, 53, 94, 0.25) 1px,
+      rgba(18, 53, 94, 0.15) 1px,
+      rgba(18, 53, 94, 0.15) 2px
+    );
+  background-size: 3px 3px;
+  border: 2px solid rgba(18, 53, 94, 0.3);
+  transform: translate(-50%, -50%) translateZ(100px);
+  z-index: 5; /* BELOW foreground */
+  opacity: 0.9;
+  will-change: transform, opacity;
+}
+
+.cognition-command::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 50%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Glow and pulse ring removed - minimal objects only */
+
+@media (min-width: 769px) {
+  .cognition-command {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Reduced motion: Static isometric frame */
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid,
+  .hero-cognition,
+  .cognition-node,
+  .cognition-plane,
+  .cognition-streamline,
+  .cognition-command {
+    animation: none !important;
+  }
+  
+  .hero-grid::before {
+    transform: translate(-50%, -50%) rotateX(35.264deg) rotateZ(45deg);
+  }
+}
+
+/* ============================================================================
+   LAYER C — FOREGROUND UI (STRICT: NO DITHER, CLEAN UI ONLY)
+   ============================================================================ */
+.hero-foreground {
+  position: relative;
+  z-index: 10 !important; /* Above background dither layer */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Vertically centered */
+  min-height: 100%; /* Fill parent height for centering */
+  width: 100%; /* Full width */
+  max-width: 100%; /* Never exceed parent width */
+  margin: 0; /* No margins */
+  padding: var(--spacing-16) var(--container-padding) var(--spacing-24) var(--container-padding); /* Reduced top padding */
+  text-align: left; /* Left align text content */
+  pointer-events: auto;
+  /* Prevent layout drift */
+  box-sizing: border-box;
+}
+
+.hero-foreground .content-block__body {
+  text-align: left !important; /* Left align body content */
+  width: 100%; /* Full width */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12); /* Spacing between paragraphs */
+  margin: 0; /* No margins */
+  padding: 0; /* No padding */
+}
+
+.hero-foreground .content-block__body .lead {
+  text-align: left !important; /* Left align lead paragraph */
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem); /* Larger lead text */
+  line-height: var(--line-height-relaxed); /* More relaxed line height */
+  margin: 0; /* No margins - spacing handled by gap */
+  font-weight: var(--font-weight-medium); /* Slightly bolder */
+}
+
+@media (min-width: 769px) {
+  .hero-foreground {
+    min-height: 100%; /* Fill parent height */
+    padding: var(--spacing-24) var(--container-padding-lg) var(--spacing-32) var(--container-padding-lg); /* Reduced top padding on desktop */
+    max-width: var(--container-max-width); /* Match site container max-width */
+  }
+  
+  .hero-foreground .content-block__body {
+    gap: var(--spacing-16); /* More spacing between paragraphs on desktop */
+  }
+  
+  .hero-foreground .btn-group {
+    margin-top: 24px !important; /* FIXED - same as base, no variation */
+    gap: 12px !important; /* FIXED - same as base, no variation */
+  }
+}
+
+.hero-foreground .content-block {
+  /* STRICT: NO dither, NO filters, NO blending - clean content block */
+  background: none !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important; /* Prevent dither bleed */
+  border-radius: 0;
+  padding: var(--spacing-24); /* Generous padding for spacing */
+  margin: 0; /* No margins - spacing handled by parent */
+  box-shadow: none !important;
+  border: none !important;
+  opacity: 1 !important; /* Full opacity - no blending */
+  text-align: left !important; /* Left align content block */
+  align-items: flex-start; /* Left align flex children */
+  width: 100%; /* Full width */
+  max-width: 100%; /* Never exceed parent */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16); /* Spacing between header and body */
+}
+
+@media (min-width: 769px) {
+  .hero-foreground .content-block {
+    padding: var(--spacing-20) var(--spacing-32) var(--spacing-32) var(--spacing-32); /* Reduced top padding on desktop */
+    gap: var(--spacing-24); /* More spacing between elements on desktop */
+  }
+}
+
+.hero-foreground .content-block__title,
+.hero-foreground .content-block__body,
+.hero-foreground .content-block__body p,
+.hero-foreground .content-block__body .lead {
+  /* STRICT: Clean text - NO dither, NO filters, NO blending, NO shadows */
+  text-shadow: none !important;
+  color: var(--color-text-primary);
+  position: relative;
+  z-index: 1;
+  filter: none !important;
+  mix-blend-mode: normal !important; /* Prevent dither bleed */
+  /* Ensure crisp rendering - no pixelation from background */
+  image-rendering: auto;
+}
+
+.hero-foreground .content-block__title {
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(1.75rem, 5vw, 3rem); /* Larger, more prominent */
+  text-align: left !important; /* Left align title */
+  margin: 0 0 var(--spacing-16) 0; /* Spacing below title */
+  line-height: var(--line-height-tight); /* Tighter line height for headings */
+}
+
+/* Bright square bullet points for hero applications */
+.hero-foreground .hero-applications {
+  list-style: none;
+  padding-left: 0;
+  margin: var(--spacing-md) 0;
+  text-align: left !important; /* Force left align */
+  display: inline-block; /* Allow left alignment */
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-foreground .hero-applications li {
+  position: relative;
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+  text-align: left !important; /* Force left align */
+  display: block;
+}
+
+.hero-foreground .hero-applications li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  background: rgba(18, 53, 94, 0.8); /* Main color 1 - #12355e */
+  transform: rotate(45deg);
+  box-shadow: 0 0 6px rgba(18, 53, 94, 0.6); /* Glow effect */
+}
+
+@media (min-width: 769px) {
+  .hero-foreground .hero-applications li::before {
+    width: 7px;
+    height: 7px;
+    box-shadow: 0 0 8px rgba(18, 53, 94, 0.8);
+  }
+}
+
+/* All hero buttons must have identical styling - STRICT: NO dither, clean UI */
+/* UNIFORM SIZING - matches w3c-functional.css exactly */
+.hero-foreground .btn,
+.hero-foreground .btn--primary {
+  position: relative;
+  z-index: 2;
+  /* Solid background - NO transparency that could blend with dither */
+  background: #ffffff !important; /* Pure white - no rgba blending */
+  backdrop-filter: none !important; /* NO blur filters */
+  filter: none !important; /* NO filters */
+  mix-blend-mode: normal !important; /* Prevent dither bleed */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  color: var(--color-text-primary, #1a1a1a) !important;
+  font-weight: 500 !important; /* FIXED - medium weight */
+  text-shadow: none !important;
+  border: 2px solid var(--color-border-strong, rgba(0, 0, 0, 0.1)) !important;
+  padding: 12px 24px !important; /* EXACT - matches base .btn */
+  font-size: 16px !important; /* FIXED - matches base .btn */
+  line-height: 1.5 !important; /* FIXED */
+  text-align: center !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all var(--duration-fast, 0.2s) var(--ease-functional, ease) !important;
+  min-height: 44px !important; /* FIXED - matches base .btn */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important; /* ZERO margin */
+  width: auto !important;
+  min-width: auto !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  /* Ensure crisp rendering - no pixelation */
+  image-rendering: auto;
+}
+
+/* Remove primary button special styling in hero - STRICT: NO dither */
+.hero-foreground .btn--primary {
+  background: #ffffff !important; /* Pure white - NO rgba blending */
+  color: var(--color-text-primary, #1a1a1a) !important;
+  border-color: var(--color-border-strong, rgba(0, 0, 0, 0.2)) !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Hover state - same for all buttons - STRICT: NO dither */
+.hero-foreground .btn:hover,
+.hero-foreground .btn--primary:hover {
+  background: #ffffff !important; /* Pure white - NO rgba blending */
+  border-color: var(--color-brand, #0066cc) !important;
+  color: var(--color-text-primary, #1a1a1a) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Active state - same for all buttons - STRICT: NO dither */
+.hero-foreground .btn:active,
+.hero-foreground .btn--primary:active {
+  background: #f5f5f5 !important; /* Light gray - NO rgba blending */
+  transform: translateY(0) !important;
+  box-shadow: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.hero-foreground .content-block {
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero-foreground .btn-group {
+  justify-content: flex-start; /* Left align buttons */
+  max-width: 100%;
+  width: 100%; /* Full width for better spacing */
+  margin-top: 24px !important; /* FIXED - matches base .btn-group */
+  margin-bottom: 0;
+  gap: 12px !important; /* FIXED - matches base .btn-group */
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+}
+
+.hero-foreground .btn-group .btn {
+  width: auto !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important; /* ZERO margin - uniform spacing */
+  padding: 12px 24px !important; /* EXACT - matches base .btn */
+  min-height: 44px !important; /* FIXED */
+}
+
+/* Mobile: ensure buttons are touch-friendly */
+@media (max-width: 768px) {
+  .hero-foreground .btn-group .btn {
+    min-width: auto !important; /* Let content determine width */
+    padding: 12px 24px !important; /* EXACT - same as desktop */
+    min-height: 44px !important; /* FIXED */
+  }
+}
+
+/* Hero border removed */
+
+/* ============================================================================
+   LEVEL AT FOLD - Clean transition, zero overlap
+   ============================================================================ */
+main {
+  position: relative;
+  z-index: 10;
+  background: var(--color-bg-primary, #ffffff);
+  margin-top: 0 !important; /* Zero overlap - border defines fold */
+}
+
+/* Clean container - no borders, no weird overlays */
+main .container {
+  position: relative;
+  background: var(--color-bg-primary, #ffffff);
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* First section - spacing begins AFTER border, not before */
+main .section:first-child {
+  margin-top: 0 !important; /* Zero overlap */
+  padding-top: var(--spacing-32, 2rem); /* Spacing after border */
+}
+
+/* Ensure content below hero covers the parallax background */
+main::before {
+  content: '';
+  position: absolute;
+  top: -100px; /* Overlap with hero */
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: var(--color-bg-primary, #ffffff);
+  z-index: -1;
+}

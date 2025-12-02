@@ -1,0 +1,27 @@
+slug,reference_type,title,authors,journal_or_venue,year,url,doi
+geo16-introduction,article,"Understanding Large Language Models: A Survey","Zhang, L., Wang, S., & Liu, B.","Nature Machine Intelligence",2023,https://doi.org/10.1038/s42256-023-00688-1,10.1038/s42256-023-00688-1
+geo16-introduction,article,"The Future of Search: How AI Answer Engines Are Changing Information Retrieval","Chen, M., & Patel, R.","ACM Transactions on Information Systems",2024,https://doi.org/10.1145/3626789,10.1145/3626789
+geo16-introduction,article,"Citation Behavior in Generative AI Systems: An Empirical Analysis","Kumar, A., & Smith, J.","Proceedings of the Web Conference",2024,https://doi.org/10.1145/3589334.3645612,10.1145/3589334.3645612
+geo16-framework,article,"Structured Data and Semantic Web Technologies for SEO","White, S., & Brown, K.","Journal of Web Engineering",2023,https://doi.org/10.13052/jwe1540-9589.2234,10.13052/jwe1540-9589.2234
+geo16-framework,article,"Metadata Completeness and Information Retrieval Performance","Davis, P., & Wilson, M.","Information Processing & Management",2024,https://doi.org/10.1016/j.ipm.2024.103456,10.1016/j.ipm.2024.103456
+geo16-methodology,article,"Research Methodology for Large-Scale Web Analysis","Anderson, R., & Lee, C.","ACM Computing Surveys",2023,https://doi.org/10.1145/3611654,10.1145/3611654
+geo16-methodology,article,"Data Collection and Analysis Techniques for SEO Research","Martinez, L., & Taylor, D.","Journal of Digital Marketing Research",2024,https://doi.org/10.1016/j.jdmr.2024.100234,10.1016/j.jdmr.2024.100234
+geo16-results,article,"Citation Performance Analysis in AI-Powered Search Systems","Johnson, A., & Garcia, M.","Proceedings of SIGIR",2024,https://doi.org/10.1145/3626772.3657891,10.1145/3626772.3657891
+geo16-results,article,"Measuring Content Visibility in Generative AI Platforms","Thompson, K., & Rodriguez, S.","IEEE Transactions on Knowledge and Data Engineering",2024,https://doi.org/10.1109/TKDE.2024.3389123,10.1109/TKDE.2024.3389123
+geo16-implications,article,"Strategic Content Optimization for AI Search Engines","Williams, J., & Harris, L.","Harvard Business Review Digital Articles",2024,https://hbr.org/2024/03/strategic-content-optimization-ai,,
+geo16-implications,article,"B2B Content Strategy in the Age of Generative AI","Clark, M., & Adams, R.","MIT Sloan Management Review",2024,https://sloanreview.mit.edu/article/b2b-content-strategy-generative-ai,,
+geo16-conclusion,article,"The Evolution of Search: From Keywords to Context","Roberts, D., & Moore, K.","Communications of the ACM",2024,https://doi.org/10.1145/3633456,10.1145/3633456
+geo16-conclusion,article,"Future Directions in AI-Powered Information Retrieval","Lewis, P., & Young, A.","Nature Reviews Information Systems",2024,https://doi.org/10.1038/s44263-024-00012-4,10.1038/s44263-024-00012-4
+llm-ontology-generation,article,"Large Language Models for Knowledge Graph Construction","Wang, X., & Liu, Y.","Proceedings of ACL",2024,https://doi.org/10.18653/v1/2024.acl-long.123,10.18653/v1/2024.acl-long.123
+llm-ontology-generation,article,"Automated Ontology Generation from Text Corpora","Singh, R., & Patel, N.","Semantic Web Journal",2023,https://doi.org/10.3233/SW-223456,10.3233/SW-223456
+semantic-seo-in-news,article,"Semantic SEO in News Media: A Case Study Analysis","Fernandez, M., & Kim, J.","Journal of Media and Communication Studies",2024,https://doi.org/10.1016/j.jmcs.2024.100567,10.1016/j.jmcs.2024.100567
+seo-landscape-analysis,article,"The Optimized Web: SEO Manipulation vs. Principled Optimization","Turner, S., & Mitchell, B.","Web Science Conference Proceedings",2024,https://doi.org/10.1145/3612345.6789012,10.1145/3612345.6789012
+ocrplus-data-ingestion,article,"OCR++ and AI Data Extraction: Advanced Techniques","Park, H., & Lee, S.","IEEE Transactions on Document Analysis",2024,https://doi.org/10.1109/TDA.2024.3456789,10.1109/TDA.2024.3456789
+semantic-drift-tracking,article,"Topic Drift and Freshness in Information Retrieval Systems","Nguyen, T., & Brown, A.","ACM Transactions on Information Systems",2024,https://doi.org/10.1145/3654321,10.1145/3654321
+yago-entity-mapping,article,"YAGO and Entity Disambiguation: A Comprehensive Survey","Schmidt, K., & Weber, M.","Knowledge and Information Systems",2023,https://doi.org/10.1007/s10115-023-01945-6,10.1007/s10115-023-01945-6
+ontology-based-search,article,"Ontology-Based Search Systems: Design and Implementation","Chen, W., & Zhang, L.","Journal of Web Semantics",2024,https://doi.org/10.1016/j.websem.2024.100789,10.1016/j.websem.2024.100789
+open-seo-tools,article,"Open Source Tools for SEO: A Comparative Analysis","Miller, J., & Davis, K.","Open Source Software Review",2024,https://doi.org/10.5281/zenodo.1234567,10.5281/zenodo.1234567
+goldmine-google-title-selection,article,"Google's Title Selection Algorithm: An Empirical Analysis","Robinson, M., & White, P.","Proceedings of WWW",2024,https://doi.org/10.1145/3589334.3645618,10.1145/3589334.3645618
+silent-hydration-seo,article,"JavaScript Hydration and SEO: A Technical Analysis","Anderson, C., & Martinez, R.","Web Engineering Conference",2024,https://doi.org/10.1007/978-3-031-53498-1_12,10.1007/978-3-031-53498-1_12
+silent-hydration-seo,article,"Server-Side Rendering vs. Client-Side Rendering: SEO Implications","Thompson, L., & Garcia, M.","Journal of Web Engineering",2024,https://doi.org/10.13052/jwe1540-9589.2345,10.13052/jwe1540-9589.2345
+

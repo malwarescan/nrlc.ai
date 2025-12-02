@@ -2,12 +2,13 @@
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 ?>
+
 <section class="window container prose">
   <div class="title-bar">
     <div class="title-bar-text">Industry-Specific AI SEO Solutions</div>
   </div>
   <div class="window-body">
-    <h1>AI SEO Solutions by Industry</h1>
+    <h2>AI SEO Solutions by Industry</h2>
     <p class="lead">Tailored AI optimization strategies for specific industries and verticals.</p>
     
     <div class="grid" class="grid grid-auto-fit">
@@ -45,6 +46,17 @@ require_once __DIR__ . '/../../templates/header.php';
         <h3 style="margin-top: 0; color: #000080;">Real Estate AI SEO</h3>
         <p>Property listing optimization, location-based AI discovery, and real estate structured data.</p>
         <a href="/industries/real-estate/" class="btn" data-ripple>Learn More</a>
+      </div>
+    </div>
+    
+    <!-- Related Resources -->
+    <div class="window-body" style="margin-top: 2rem;">
+      <h2>Related Resources</h2>
+      <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+      <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+      <p>Browse our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
+      <div class="text-center" style="margin-top: 1.5rem;">
+        <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
       </div>
     </div>
   </div>

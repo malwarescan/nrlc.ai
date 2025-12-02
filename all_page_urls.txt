@@ -1,0 +1,142 @@
+Complete list of all page URLs on NRLC.ai
+
+Generated: 2025-12-02
+
+=== ROOT PAGES ===
+/
+/services/
+/catalog/
+/products/
+/insights/
+/tools/
+/industries/
+/careers/
+/book/
+/case-studies/
+/blog/
+/resources/
+/promptware/
+
+=== SERVICE PAGES (without cities) ===
+/services/crawl-clarity/
+/services/json-ld-strategy/
+/services/llm-seeding/
+/services/llm-optimization/
+/services/agentic-seo/
+/services/technical-seo/
+/services/international-seo/
+/services/site-audits/
+/services/analytics/
+/services/training/
+/services/voice-search-optimization/
+/services/local-seo-ai/
+/services/ecommerce-ai-seo/
+/services/b2b-seo-ai/
+/services/content-optimization-ai/
+/services/technical-audit-ai/
+/services/competitor-analysis-ai/
+/services/link-building-ai/
+/services/conversion-optimization-ai/
+
+=== SERVICE/CITY COMBINATIONS ===
+(Each service × each city = thousands of combinations)
+
+Example format:
+/services/crawl-clarity/new-york/
+/services/crawl-clarity/los-angeles/
+/services/crawl-clarity/chicago/
+... (and so on for all services × all cities)
+
+=== CATALOG ITEMS ===
+/catalog/crawl-clarity-engineering/
+/catalog/json-ld-strategy/
+/catalog/llm-seeding/
+/catalog/technical-seo/
+/catalog/site-audits/
+/catalog/json-stream-seo-ai/
+/catalog/llm-data-to-citation/
+
+=== INSIGHTS ===
+/insights/geo16-introduction/
+/insights/geo16-framework/
+/insights/geo16-methodology/
+/insights/geo16-results/
+/insights/geo16-implications/
+/insights/geo16-conclusion/
+/insights/llm-ontology-generation/
+/insights/semantic-seo-in-news/
+/insights/seo-landscape-analysis/
+/insights/ocrplus-data-ingestion/
+/insights/semantic-drift-tracking/
+/insights/yago-entity-mapping/
+/insights/ontology-based-search/
+/insights/open-seo-tools/
+/insights/goldmine-google-title-selection/
+/insights/silent-hydration-seo/
+
+=== TOOLS ===
+/tools/ahrefs/
+/tools/bard/
+/tools/brightedge/
+/tools/chatgpt/
+/tools/claude/
+/tools/copilot/
+/tools/google-ai-overviews/
+/tools/json-ld-validator/
+/tools/moz/
+/tools/perplexity/
+/tools/schema-generator/
+/tools/screaming-frog/
+/tools/seer-interactive/
+/tools/semrush/
+/tools/sitebulb/
+/tools/structured-data-testing/
+
+=== PRODUCTS ===
+/products/applicants-io/
+/products/croutons-ai/
+/products/data-but-structured/
+/products/googlebot-renderer-lab/
+/products/neural-command-os/
+/products/newfaq/
+/products/ourcasa-ai/
+/products/precogs/
+
+=== INDUSTRIES ===
+/industries/automotive/
+/industries/consulting/
+/industries/ecommerce/
+/industries/education/
+/industries/entertainment/
+/industries/fintech/
+/industries/healthcare/
+/industries/hospitality/
+/industries/legal/
+/industries/manufacturing/
+/industries/media/
+/industries/real-estate/
+/industries/retail/
+/industries/saas/
+/industries/travel/
+
+=== CASE STUDIES ===
+/case-studies/case-study-1/
+/case-studies/case-study-2/
+... (200+ case studies)
+
+=== RESOURCES ===
+/resources/resource-1/
+/resources/resource-2/
+... (1000+ resources)
+
+=== BLOG POSTS ===
+/blog/blog-post-1/
+/blog/blog-post-2/
+... (500+ blog posts)
+
+=== PROMPTWARE ===
+/promptware/json-stream-seo-ai/
+/promptware/llm-data-to-citation/
+
+NOTE: For complete service/city combinations, see all_page_urls.txt
+Total URLs: 12,527+

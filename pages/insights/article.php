@@ -24,6 +24,8 @@ $insight_articles = [
   'yago-entity-mapping' => 'yago-entity-mapping.php',
   'ontology-based-search' => 'ontology-based-search.php',
   'open-seo-tools' => 'open-seo-tools.php',
+  'industry-insights' => 'industry-insights.php',
+  'tool-reviews' => 'tool-reviews.php',
   'goldmine-google-title-selection' => 'goldmine-google-title-selection.php',
   'silent-hydration-seo' => 'silent-hydration-seo.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
@@ -44,7 +46,7 @@ if (isset($all_articles[$slug])) {
   if (!isset($GLOBALS['__insights_nav_added'])) {
     echo '<div class="content-block module">';
     echo '<div class="content-block__body">';
-    echo '<p><a href="/insights/" class="btn">← Latest Research & Insights</a></p>';
+    echo '<p><a href="/insights/" class="btn">← View All Research & Insights</a></p>';
     echo '</div>';
     echo '</div>';
   }

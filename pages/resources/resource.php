@@ -39,81 +39,33 @@ $faqs = det_pick([
 ?>
 
 <section class="window container prose">
-  <h1><?= htmlspecialchars($resourceType) ?> - Resource #<?= htmlspecialchars($resourceNumber) ?></h1>
+  <h2><?= htmlspecialchars($resourceType) ?> - Resource #<?= htmlspecialchars($resourceNumber) ?></h2>
   
   <p class="lead"><?= htmlspecialchars($description) ?></p>
   
   <h2>What's Included</h2>
-  <ul>
-    <?php foreach ($features as $feature): ?>
-    <li><?= htmlspecialchars($feature) ?></li>
-    <?php endforeach; ?>
-  </ul>
+  <p><?php foreach ($features as $i => $feature): ?><?= htmlspecialchars($feature) ?><?= $i < count($features) - 1 ? '. ' : '.' ?><?php endforeach; ?></p>
   
   <h2>Key Benefits</h2>
-  <ul>
-    <?php foreach ($benefits as $benefit): ?>
-    <li><?= htmlspecialchars($benefit) ?></li>
-    <?php endforeach; ?>
-  </ul>
+  <p><?php foreach ($benefits as $i => $benefit): ?><?= htmlspecialchars($benefit) ?><?= $i < count($benefits) - 1 ? '. ' : '.' ?><?php endforeach; ?></p>
   
   <h2>Implementation Timeline</h2>
   <p>Most organizations can implement the strategies outlined in this resource within 30-60 days, with measurable improvements visible within 90 days of completion.</p>
   
   <h3>Phase 1: Preparation (Days 1-15)</h3>
-  <p>Understand resource requirements and prepare teams for implementation.</p>
-  
-  <ul>
-    <li>Review all resource materials and documentation</li>
-    <li>Assess current capabilities and identify skill gaps</li>
-    <li>Develop implementation plan and assign responsibilities</li>
-    <li>Set up necessary tools and systems</li>
-    <li>Establish communication channels and reporting structures</li>
-  </ul>
+  <p>Understand resource requirements and prepare teams for implementation. Review all resource materials and documentation. Assess current capabilities and identify skill gaps. Develop implementation plan and assign responsibilities. Set up necessary tools and systems. Establish communication channels and reporting structures.</p>
   
   <h3>Phase 2: Implementation (Days 16-45)</h3>
-  <p>Execute strategies while maintaining quality and consistency.</p>
-  
-  <ul>
-    <li>Begin systematic implementation of resource strategies</li>
-    <li>Monitor progress and address issues as they arise</li>
-    <li>Conduct regular team meetings and progress reviews</li>
-    <li>Adjust implementation approach based on initial results</li>
-    <li>Document lessons learned and best practices</li>
-  </ul>
+  <p>Execute strategies while maintaining quality and consistency. Begin systematic implementation of resource strategies. Monitor progress and address issues as they arise. Conduct regular team meetings and progress reviews. Adjust implementation approach based on initial results. Document lessons learned and best practices.</p>
   
   <h3>Phase 3: Optimization (Days 46-90)</h3>
-  <p>Refine implementation and maximize benefits.</p>
-  
-  <ul>
-    <li>Analyze initial results and identify optimization opportunities</li>
-    <li>Implement improvements and refinements</li>
-    <li>Expand successful strategies to additional areas</li>
-    <li>Develop long-term maintenance and improvement plans</li>
-    <li>Share results and insights with stakeholders</li>
-  </ul>
+  <p>Refine implementation and maximize benefits. Analyze initial results and identify optimization opportunities. Implement improvements and refinements. Expand successful strategies to additional areas. Develop long-term maintenance and improvement plans. Share results and insights with stakeholders.</p>
   
   <h2>Resource Components</h2>
-  <p>Key components designed to support successful implementation:</p>
-  
-  <ul>
-    <li><strong>Comprehensive Guide:</strong> Detailed instructions and best practices for implementation</li>
-    <li><strong>Templates and Checklists:</strong> Ready-to-use tools for planning and execution</li>
-    <li><strong>Case Studies:</strong> Real-world examples of successful implementations</li>
-    <li><strong>Technical Documentation:</strong> Detailed technical specifications and requirements</li>
-    <li><strong>Support Materials:</strong> Additional resources for ongoing reference and learning</li>
-  </ul>
+  <p>Key components designed to support successful implementation: <strong>Comprehensive Guide:</strong> Detailed instructions and best practices for implementation. <strong>Templates and Checklists:</strong> Ready-to-use tools for planning and execution. <strong>Case Studies:</strong> Real-world examples of successful implementations. <strong>Technical Documentation:</strong> Detailed technical specifications and requirements. <strong>Support Materials:</strong> Additional resources for ongoing reference and learning.</p>
   
   <h2>Success Factors</h2>
-  <p>Organizations achieving the best results typically share:</p>
-  
-  <ul>
-    <li><strong>Strong Leadership:</strong> Committed leadership that supports and champions the initiative</li>
-    <li><strong>Skilled Team:</strong> Team members with the necessary skills and experience</li>
-    <li><strong>Clear Objectives:</strong> Well-defined goals and success metrics</li>
-    <li><strong>Adequate Resources:</strong> Sufficient budget and time allocated for implementation</li>
-    <li><strong>Continuous Learning:</strong> Commitment to ongoing learning and improvement</li>
-  </ul>
+  <p>Organizations achieving the best results typically share: <strong>Strong Leadership:</strong> Committed leadership that supports and champions the initiative. <strong>Skilled Team:</strong> Team members with the necessary skills and experience. <strong>Clear Objectives:</strong> Well-defined goals and success metrics. <strong>Adequate Resources:</strong> Sufficient budget and time allocated for implementation. <strong>Continuous Learning:</strong> Commitment to ongoing learning and improvement.</p>
   
   <h2>Frequently Asked Questions</h2>
   <div class="grid" class="grid-gap-4">
@@ -127,8 +79,14 @@ $faqs = det_pick([
   
   <div class="status-bar">
     <p class="status-bar-field">Ready to access this resource and start optimizing?</p>
-    <button class="btn ripple" onclick="window.location.href='/contact/'">Download Now</button>
+    <button class="btn ripple" onclick="window.location.href='/services/'">Get Started with AI SEO</button>
   </div>
+  
+  <!-- Related Resources -->
+  <h2>Related Resources</h2>
+  <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+  <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+  <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view more <a href="/resources/">Resources</a>.</p>
 </section>
 
 <script type="application/ld+json">
@@ -147,7 +105,7 @@ $faqs = det_pick([
   },
   "datePublished": "<?= date('Y-m-d') ?>",
   "dateModified": "<?= date('Y-m-d') ?>",
-  "keywords": ["AI SEO", "<?= htmlspecialchars($resourceType) ?>", "Resources", "Implementation"],
+  "keywords": ["AI SEO", "<?= htmlspecialchars($resourceType) ?>", "Implementation"],
   "about": "Comprehensive resource for implementing <?= htmlspecialchars($resourceType) ?> strategies",
   "inLanguage": "en"
 }

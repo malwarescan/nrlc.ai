@@ -53,9 +53,11 @@ $date = date('Y-m-d', strtotime("-$postNumber days"));
     <h2>Conclusion</h2>
     <p><?=$topic?> represents a critical component of modern SEO strategy. By implementing the strategies outlined in this guide, organizations can significantly improve their visibility in AI-powered search engines and achieve better results.</p>
     
-    <div class="field-row" class="field-row-center">
-      <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get AI Audit</a>
-      <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
+    <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization. Discover more <a href="/insights/">AI SEO Research & Insights</a> and browse our <a href="/tools/">SEO Tools & Resources</a>.</p>
+    
+    <div class="btn-group text-center" style="margin-top: 1.5rem;">
+      <button type="button" class="btn btn--primary" onclick="openContactSheet('Blog Consultation')">Schedule Consultation</button>
+      <a href="/services/" class="btn">Get Started with AI SEO</a>
     </div>
   </div>
 </section>
@@ -63,17 +65,41 @@ $date = date('Y-m-d', strtotime("-$postNumber days"));
 <script type="application/ld+json">
 {
  "@context":"https://schema.org",
- "@type":"TechArticle",
- "headline":"Advanced <?=$topic?> Strategies for 2025",
- "author":{"@type":"Organization","name":"NRLC.ai"},
- "publisher":{"@type":"Organization","name":"NRLC.ai","url":"https://nrlc.ai"},
- "datePublished":"<?=$date?>",
- "dateModified":"<?=$date?>",
- "keywords":["AI SEO","<?=$topic?>","Optimization","Strategy"],
- "about":"Comprehensive guide to <?=strtolower($topic)?> optimization for AI-powered search engines",
- "articleSection":"Blog",
- "inLanguage":"en",
- "mainEntityOfPage":{"@type":"WebPage","@id":"https://nrlc.ai/blog/blog-post-<?=$postNumber?>/"}
+ "@graph":[
+   {
+     "@type":"WebPage",
+     "@id":"https://nrlc.ai/blog/blog-post-<?=$postNumber?>/#webpage",
+     "name":"Advanced <?=$topic?> Strategies for 2025",
+     "url":"https://nrlc.ai/blog/blog-post-<?=$postNumber?>/",
+     "description":"Comprehensive guide to <?=strtolower($topic)?> optimization, featuring the latest techniques and best practices for AI-powered search engines.",
+     "isPartOf":{
+       "@type":"WebSite",
+       "@id":"https://nrlc.ai/#website",
+       "name":"NRLC.ai",
+       "url":"https://nrlc.ai"
+     }
+   },
+   {
+     "@type":"BreadcrumbList",
+     "@id":"https://nrlc.ai/blog/blog-post-<?=$postNumber?>/#breadcrumb",
+     "itemListElement":[
+       {"@type":"ListItem","position":1,"name":"Home","item":"https://nrlc.ai/"},
+       {"@type":"ListItem","position":2,"name":"Blog","item":"https://nrlc.ai/blog/"},
+       {"@type":"ListItem","position":3,"name":"Advanced <?=$topic?> Strategies for 2025","item":"https://nrlc.ai/blog/blog-post-<?=$postNumber?>/"}
+     ]
+   },
+   {
+     "@type":"BlogPosting",
+     "headline":"Advanced <?=$topic?> Strategies for 2025",
+     "description":"Comprehensive guide to <?=strtolower($topic)?> optimization, featuring the latest techniques and best practices for AI-powered search engines.",
+     "author":{"@type":"Person","name":"Joel Maldonado"},
+     "publisher":{"@type":"Organization","name":"Neural Command","logo":{"@type":"ImageObject","url":"https://nrlc.ai/assets/images/nrlcai%20logo%200.png"}},
+     "datePublished":"<?=$date?>",
+     "dateModified":"<?=$date?>",
+     "mainEntityOfPage":{"@id":"https://nrlc.ai/blog/blog-post-<?=$postNumber?>/#webpage"},
+     "articleSection":"Blog"
+   }
+ ]
 }
 </script>
 

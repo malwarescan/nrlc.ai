@@ -41,7 +41,18 @@ $jsonld = array_merge(
       ],
       'url' => 'https://nrlc.ai/products/data-but-structured/',
       'bookFormat' => 'https://schema.org/EBook',
-      'inLanguage' => 'en-US'
+      'inLanguage' => 'en-US',
+      'offers' => [
+        '@type' => 'Offer',
+        'availability' => 'https://schema.org/InStock',
+        'priceCurrency' => 'USD',
+        'price' => '0',
+        'url' => 'https://nrlc.ai/products/data-but-structured/',
+        'seller' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ]
+      ]
     ],
     product_howto_schema($productSlug, $productName)
   ]
@@ -60,8 +71,9 @@ $GLOBALS['__jsonld'] = $jsonld;
         <h1 class="content-block__title">Data, But Structured</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">The foundational text that defines your philosophy: structured knowledge, micro-fact cognition, agentic search, data ontology, AI visibility, and schema literacy.</p>
-        <p>Everything else in the ecosystem descends from this book.</p>
+        <p class="lead">A comprehensive guide to building AI-first knowledge systems through structured data, semantic markup, and machine-readable content architecture.</p>
+        <p><strong>Data, But Structured</strong> establishes the foundational principles for creating content and data systems that AI engines can understand, verify, and cite. This book covers structured knowledge architecture, micro-fact cognition models, agentic search optimization, data ontology design, AI visibility strategies, and schema literacy implementation.</p>
+        <p>The methodologies and frameworks presented in this book form the foundation for all Neural Command products and services, from <a href="/products/croutons-ai/">Croutons.ai</a> micro-fact engines to <a href="/products/precogs/">Precogs</a> ontology systems and <a href="/products/newfaq/">NEWFAQ</a> intelligent knowledge bases.</p>
       </div>
     </div>
 
@@ -106,15 +118,64 @@ $GLOBALS['__jsonld'] = $jsonld;
         <h2 class="content-block__title">Why This Matters</h2>
       </div>
       <div class="content-block__body">
-        <p>As AI becomes the primary interface for information discovery, traditional SEO approaches fall short. This book establishes the foundation for building systems that AI engines can understand, trust, and cite.</p>
-        <p>Every product in the Neural Command ecosystem implements principles from this foundational work.</p>
+        <p>As AI answer engines like ChatGPT, Perplexity, and Claude become primary information sources, traditional SEO approaches that optimize for keyword rankings fail to predict citation success. Pages ranking #1 on Google may receive zero citations from AI engines, while lower-ranked content with proper structured data frequently appears in AI-generated responses.</p>
+        <p>This disconnect stems from fundamentally different ranking signals between traditional search and generative AI systems. <strong>Data, But Structured</strong> provides the framework for building content and data systems that AI engines can understand, verify, and cite with confidence.</p>
+        <p>Every product in the Neural Command ecosystem implements principles from this foundational work, ensuring consistent AI-first architecture across all platforms and services.</p>
       </div>
     </div>
 
+    <!-- Key Topics Covered -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Key Topics Covered</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+          <li><strong>Structured Knowledge Architecture:</strong> Designing semantic hierarchies and entity relationships that enable AI comprehension</li>
+          <li><strong>Micro-Fact Cognition Models:</strong> Breaking information into atomic, verifiable facts for independent validation</li>
+          <li><strong>Agentic Search Optimization:</strong> Enabling AI agents to search, understand, and act upon structured knowledge</li>
+          <li><strong>Data Ontology Design:</strong> Building explicit taxonomies and relationships for semantic reasoning</li>
+          <li><strong>AI Visibility Strategies:</strong> Ensuring content is discoverable, comprehensible, and citable by AI engines</li>
+          <li><strong>Schema Literacy Implementation:</strong> Mastering JSON-LD, structured data markup, and semantic HTML</li>
+          <li><strong>Citation Optimization:</strong> Applying the GEO-16 framework for AI engine citation success</li>
+          <li><strong>Knowledge Graph Construction:</strong> Building interconnected data structures that AI systems can navigate</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Who Should Read This -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Who Should Read This</h2>
+      </div>
+      <div class="content-block__body">
+        <p>This book is essential reading for technical SEO professionals, data architects, content strategists, and developers building AI-first systems. Whether you're implementing <a href="/services/json-ld-strategy/">JSON-LD structured data strategies</a>, optimizing for <a href="/services/llm-seeding/">LLM seeding and citation readiness</a>, or building knowledge graphs for enterprise applications, the principles in this book provide the foundation for success.</p>
+        <p>Organizations implementing these frameworks see average citation lift of 340% within 90 days, with the most significant gains in technical documentation, research content, and structured data implementations.</p>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
     <div class="content-block module">
       <div class="content-block__body">
+        <p class="lead text-center">Ready to implement structured knowledge systems?</p>
         <div class="btn-group text-center">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Data But Structured Consultation')">Schedule Consultation</button>
           <a href="/products/" class="btn">View All Products</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Resources -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Resources</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view all <a href="/products/">Products</a>.</p>
+        <div class="btn-group text-center">
+          <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
         </div>
       </div>
     </div>

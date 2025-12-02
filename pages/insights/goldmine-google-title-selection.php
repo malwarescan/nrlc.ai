@@ -138,192 +138,102 @@ require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 ?>
 
-<main role="main">
-<section class="container">
-  <div class="window" style="margin-bottom: 2rem;">
-  <div class="title-bar">
-    <div class="title-bar-text"><?= htmlspecialchars($c['title_bar']) ?></div>
-  </div>
-  <div class="window-body">
-    <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;"><?= htmlspecialchars($c['h1']) ?></h1>
-    
-    <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>Abstract.</strong> <?= $c['abstract'] ?></p>
-
-    <h2 style="color: #000080;">1. Introduction</h2>
-    <p><?= $c['intro'] ?></p>
-
-    <h2 style="color: #000080;">2. System Model</h2>
-    <p><strong>Candidate sourcing.</strong> Title candidates can originate from the HTML <code>&lt;title&gt;</code>, prominent headings, on-site and off-site anchors, and generated variants. <strong>Semantic review.</strong> Candidates are filtered by linguistic quality and topical alignment. <strong>User-interaction adjudication.</strong> Final choice is influenced by historical click patterns (e.g., long dwell vs. short return), integrating with re-ranking systems.</p>
-
-    <h3 style="margin-top: 0; color: #000080;">2.1 Signals and penalties</h3>
-    <ul>
-      <li><strong>Coherence:</strong> alignment of title with URL tokens, H1, and intro paragraph.</li>
-      <li><strong>Prominence:</strong> headings and key terms that are visually prominent are more likely to be selected as candidates.</li>
-      <li><strong>Penalties:</strong> truncation risk, duplicated tokens, repeated boilerplate, and language mismatch reduce selection probability.</li>
-    </ul>
-
-    <h2 style="color: #000080;">3. Practical Construction Guidelines</h2>
-    <ol>
-      <li><strong>Engineer coherence:</strong> ensure <code>&lt;title&gt;</code>, H1, URL slug, and first paragraph all express the same specific topic.</li>
-      <li><strong>Write for "satisfied clicks":</strong> set an accurate promise in the snippet and fulfill it immediately on-page.</li>
-      <li><strong>Minimize boilerplate:</strong> avoid repeated fragments across multiple pages.</li>
-      <li><strong>Control length:</strong> aim for titles that fit within pixel constraints to avoid truncation.</li>
-      <li><strong>Use FAQs judiciously:</strong> only include FAQ schema when the content is visible on the page.</li>
-    </ol>
-
-    <h2 style="color: #000080;">4. Implementation Checklist</h2>
-    <ul>
-      <li>Descriptive, stable slug: <code>/insights/goldmine-google-title-selection/</code></li>
-      <li>Title ≤ 60 chars; meta description ~155 chars</li>
-      <li>First 120 words answer the query directly</li>
-      <li>Unique internal anchors pointing to the page with descriptive text</li>
-      <li>All canonical and schema URLs use HTTPS</li>
-    </ul>
-
-    <h2 style="color: #000080;">5. Frequently Asked Questions</h2>
-    <details open>
-      <summary><strong><?= htmlspecialchars($c['faq1_q']) ?></strong></summary>
-      <p><?= htmlspecialchars($c['faq1_a']) ?></p>
-    </details>
-    <details>
-      <summary><strong><?= htmlspecialchars($c['faq2_q']) ?></strong></summary>
-      <p><?= htmlspecialchars($c['faq2_a']) ?></p>
-    </details>
-    <details>
-      <summary><strong><?= htmlspecialchars($c['faq3_q']) ?></strong></summary>
-      <p><?= htmlspecialchars($c['faq3_a']) ?></p>
-    </details>
-
-    <h2 style="color: #000080;">6. Conclusion</h2>
-    <p>Modern SERP construction is a competitive pipeline. The durable strategy is not to exploit loopholes but to maximize clarity and satisfaction. Pages that present coherent signals and deliver on their promise are rewarded by both selection systems and users.</p>
-
-    <div class="status-bar">
-      <div class="status-bar-field">Related: <a href="/insights/geo16-introduction/">GEO-16 Framework</a></div>
-      <div class="status-bar-field">Service: <a href="/services/technical-audit-ai/">Technical Audit</a></div>
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title"><?= htmlspecialchars($c['h1']) ?></h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead"><strong>Abstract.</strong> <?= $c['abstract'] ?></p>
+      </div>
+    </div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">1. Introduction</h2>
+      </div>
+      <div class="content-block__body">
+        <p><?= $c['intro'] ?></p>
+      </div>
+    </div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">2. System Model</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Candidate sourcing.</strong> Title candidates can originate from the HTML <code>&lt;title&gt;</code>, prominent headings, on-site and off-site anchors, and generated variants. <strong>Semantic review.</strong> Candidates are filtered by linguistic quality and topical alignment. <strong>User-interaction adjudication.</strong> Final choice is influenced by historical click patterns (e.g., long dwell vs. short return), integrating with re-ranking systems.</p>
+      </div>
+    </div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h3 class="content-block__title">2.1 Signals and penalties</h3>
+      </div>
+      <div class="content-block__body">
+        <ul>
+        <li><strong>Coherence:</strong> alignment of title with URL tokens, H1, and intro paragraph.</li>
+        <li><strong>Prominence:</strong> headings and key terms that are visually prominent are more likely to be selected as candidates.</li>
+        <li><strong>Penalties:</strong> truncation risk, duplicated tokens, repeated boilerplate, and language mismatch reduce selection probability.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">3. Practical Construction Guidelines</h2>
+      </div>
+      <div class="content-block__body">
+        <ol>
+        <li><strong>Engineer coherence:</strong> ensure <code>&lt;title&gt;</code>, H1, URL slug, and first paragraph all express the same specific topic.</li>
+        <li><strong>Write for "satisfied clicks":</strong> set an accurate promise in the snippet and fulfill it immediately on-page.</li>
+        <li><strong>Minimize boilerplate:</strong> avoid repeated fragments across multiple pages.</li>
+        <li><strong>Control length:</strong> aim for titles that fit within pixel constraints to avoid truncation.</li>
+        <li><strong>Use FAQs judiciously:</strong> only include FAQ schema when the content is visible on the page.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">4. Implementation Checklist</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+        <li>Descriptive, stable slug: <code>/insights/goldmine-google-title-selection/</code></li>
+        <li>Title ≤ 60 chars; meta description ~155 chars</li>
+        <li>First 120 words answer the query directly</li>
+        <li>Unique internal anchors pointing to the page with descriptive text</li>
+        <li>All canonical and schema URLs use HTTPS</li>
+        </ul>
+      </div>
+    </div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">5. Frequently Asked Questions</h2>
+      </div>
+      <div class="content-block__body">
+        <details open>
+        <summary><strong><?= htmlspecialchars($c['faq1_q']) ?></strong></summary>
+        <p><?= htmlspecialchars($c['faq1_a']) ?></p>
+        </details>
+        <details>
+        <summary><strong><?= htmlspecialchars($c['faq2_q']) ?></strong></summary>
+        <p><?= htmlspecialchars($c['faq2_a']) ?></p>
+        </details>
+        <details>
+        <summary><strong><?= htmlspecialchars($c['faq3_q']) ?></strong></summary>
+        <p><?= htmlspecialchars($c['faq3_a']) ?></p>
+        </details>
+      </div>
+    </div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">6. Conclusion</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Modern SERP construction is a competitive pipeline. The durable strategy is not to exploit loopholes but to maximize clarity and satisfaction. Pages that present coherent signals and deliver on their promise are rewarded by both selection systems and users.</p>
+        <div class="status-bar-field">Service: <a href="/services/technical-audit-ai/">Technical Audit</a></div>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
 </section>
-
-<!-- Unified Schema.org Graph -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://nrlc.ai/#organization",
-      "name": "NRLC.ai",
-      "url": "https://nrlc.ai/",
-      "logo": {
-        "@type": "ImageObject",
-        "@id": "https://nrlc.ai/#logo",
-        "url": "https://nrlc.ai/assets/logo.png"
-      },
-      "sameAs": []
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://nrlc.ai/#website",
-      "url": "https://nrlc.ai/",
-      "name": "NRLC.ai",
-      "publisher": { "@id": "https://nrlc.ai/#organization" },
-      "inLanguage": "<?= $c['lang'] ?>",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://nrlc.ai/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "<?= $c['canonical'] ?>#webpage",
-      "url": "<?= $c['canonical'] ?>",
-      "name": "<?= htmlspecialchars($c['h1']) ?>",
-      "isPartOf": { "@id": "https://nrlc.ai/#website" },
-      "inLanguage": "<?= $c['lang'] ?>",
-      "breadcrumb": { "@id": "<?= $c['canonical'] ?>#breadcrumb" },
-      "primaryImageOfPage": { "@id": "<?= $c['canonical'] ?>#primaryimage" },
-      "datePublished": "2025-10-16",
-      "dateModified": "2025-10-16",
-      "description": "<?= htmlspecialchars($c['meta_description']) ?>"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "<?= $c['canonical'] ?>#primaryimage",
-      "url": "<?= $og_image ?>",
-      "width": 1200,
-      "height": 630
-    },
-    {
-      "@type": "Person",
-      "@id": "https://nrlc.ai/#author-nrlc-research",
-      "name": "NRLC Research",
-      "url": "https://nrlc.ai/",
-      "affiliation": { "@id": "https://nrlc.ai/#organization" }
-    },
-    {
-      "@type": "Article",
-      "@id": "<?= $c['canonical'] ?>#article",
-      "mainEntityOfPage": { "@id": "<?= $c['canonical'] ?>#webpage" },
-      "headline": "<?= htmlspecialchars($c['h1']) ?>",
-      "description": "<?= htmlspecialchars($c['meta_description']) ?>",
-      "inLanguage": "<?= $c['lang'] ?>",
-      "author": { "@id": "https://nrlc.ai/#author-nrlc-research" },
-      "publisher": { "@id": "https://nrlc.ai/#organization" },
-      "image": [ "<?= $og_image ?>" ],
-      "datePublished": "2025-10-16",
-      "dateModified": "2025-10-16",
-      "about": [
-        { "@type": "Thing", "name": "Google Goldmine" },
-        { "@type": "Thing", "name": "Search Engine Optimization" }
-      ],
-      "mentions": [
-        { "@type": "Thing", "name": "NavBoost" },
-        { "@type": "Thing", "name": "SnippetBrain" },
-        { "@type": "Thing", "name": "Radish" }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "<?= $c['canonical'] ?>#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "<?= htmlspecialchars($c['breadcrumb_insights']) ?>", "item": "<?= str_replace(['/goldmine-google-title-selection/', '/goldmine-seleccion-titulos-google/', '/goldmine-selection-titres-google/', '/goldmine-google-titelauswahl/', '/goldmine-google-제목-선정/'], '/', $c['canonical']) ?>" },
-        { "@type": "ListItem", "position": 2, "name": "<?= htmlspecialchars($c['breadcrumb_article']) ?>", "item": "<?= $c['canonical'] ?>" }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "<?= $c['canonical'] ?>#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "<?= htmlspecialchars($c['faq1_q']) ?>",
-          "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq1_a']) ?>" }
-        },
-        {
-          "@type": "Question",
-          "name": "<?= htmlspecialchars($c['faq2_q']) ?>",
-          "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq2_a']) ?>" }
-        },
-        {
-          "@type": "Question",
-          "name": "<?= htmlspecialchars($c['faq3_q']) ?>",
-          "acceptedAnswer": { "@type": "Answer", "text": "<?= htmlspecialchars($c['faq3_a']) ?>" }
-        }
-      ]
-    },
-    {
-      "@type": "SpeakableSpecification",
-      "@id": "<?= $c['canonical'] ?>#speakable",
-      "cssSelector": ["h1", ".lead"]
-    }
-  ]
-}
-</script>
-
-<?php
-// Note: footer.php is already included by router.php render_page()
-// Do not duplicate it here to avoid double footers
-?>
-
+</main>

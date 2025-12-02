@@ -61,9 +61,13 @@ $toolName = $toolNames[$tool] ?? ucwords(str_replace('-', ' ', $tool));
     </ul>
     
     <div class="field-row" class="field-row-center">
-      <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get AI Audit</a>
+      <a href="/services/" class="btn" data-ripple>Get Started with AI SEO</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>
+    
+    <h2>Related Resources</h2>
+    <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+    <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> and browse our complete <a href="/tools/">SEO Tools & Resources</a> directory.</p>
   </div>
 </section>
 

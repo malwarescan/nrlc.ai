@@ -45,8 +45,9 @@ $content = $intro . $local;
           </div>
           <div class="content-block__body">
             <p class="lead"><?= $content ?></p>
+            <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/geo16-introduction/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
             <div class="btn-group text-center">
-              <a href="/api/book/" class="btn btn--primary">Schedule Consultation</a>
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($pageTitle) ?>')">Schedule Consultation</button>
               <a href="/services/" class="btn">View All Services</a>
             </div>
           </div>
@@ -139,6 +140,7 @@ $content = $intro . $local;
         </div>
 
         <!-- FAQ Content Block -->
+        <?php if (!empty($faqsHtml)): ?>
         <div class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Frequently Asked Questions</h2>
@@ -147,12 +149,18 @@ $content = $intro . $local;
             <?= $faqsHtml ?>
           </div>
         </div>
+        <?php endif; ?>
 
   </div>
 </section>
 </main>
 
 <?php
+// LINKING KERNEL: Add required internal links
+if (function_exists('render_internal_links_section')) {
+  echo render_internal_links_section('services', $serviceSlug, ['city' => $citySlug], 'Related Resources');
+}
+
 // JSON-LD (Service + FAQPage embedded)
 $ppMap = csv_rows_local('painpoint_token_map.csv');
 $ppForService = array_values(array_filter($ppMap, fn($r)=>$r['service']===$serviceSlug));
@@ -163,12 +171,65 @@ $fqPick = det_pick($fqForService, 6);
 $faqs = array_map(fn($f)=>['q'=>$f['question'],'a'=>$f['answer']], $fqPick);
 $offers = det_pick($ppForService, 6);
 
+$domain = 'https://nrlc.ai';
+$canonical_url = absolute_url($pathKey);
+
 $serviceLd = ld_service_hefty([
   'service'=>$serviceSlug,
   'city'=>$citySlug,
-  'url'=>absolute_url($pathKey),
+  'url'=>$canonical_url,
   'faqs'=>$faqs,
   'offers'=>$offers
+]);
+
+// Add WebPage and BreadcrumbList schema
+$GLOBALS['__jsonld'] = array_merge($GLOBALS['__jsonld'] ?? [], [
+  [
+    "@context" => "https://schema.org",
+    "@type" => "WebPage",
+    "@id" => $canonical_url . '#webpage',
+    "name" => $pageTitle,
+    "url" => $canonical_url,
+    "description" => "$serviceTitle implementation in $cityTitle with localized expertise and support.",
+    "isPartOf" => [
+      "@type" => "WebSite",
+      "@id" => $domain . '/#website',
+      "name" => "NRLC.ai",
+      "url" => $domain
+    ]
+  ],
+  [
+    "@context" => "https://schema.org",
+    "@type" => "BreadcrumbList",
+    "@id" => $canonical_url . '#breadcrumb',
+    "itemListElement" => [
+      [
+        "@type" => "ListItem",
+        "position" => 1,
+        "name" => "Home",
+        "item" => $domain . "/"
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 2,
+        "name" => "Services",
+        "item" => $domain . "/services/"
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 3,
+        "name" => $serviceTitle,
+        "item" => $domain . "/services/$serviceSlug/"
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 4,
+        "name" => $cityTitle,
+        "item" => $canonical_url
+      ]
+    ]
+  ],
+  $serviceLd
 ]);
 
 // Add LocalBusiness schema

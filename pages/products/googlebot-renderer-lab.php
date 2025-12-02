@@ -54,7 +54,7 @@ $GLOBALS['__jsonld'] = $jsonld;
     <!-- Product Header -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">Googlebot Renderer Lab</h1>
+        <h2 class="content-block__title">Googlebot Renderer Lab</h2>
       </div>
       <div class="content-block__body">
         <p class="lead">Real Googlebot DOM simulation that solves the #1 problem in SEO and dev teams: why Googlebot cannot render pages even when they work fine for real people.</p>
@@ -127,6 +127,20 @@ $GLOBALS['__jsonld'] = $jsonld;
     </div>
 
   </div>
+    <!-- Related Resources -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Resources</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view all <a href="/products/">Products</a>.</p>
+        <div class="btn-group text-center">
+          <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
+        </div>
+      </div>
+    </div>
 </section>
 </main>
 

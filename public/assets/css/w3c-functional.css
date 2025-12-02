@@ -17,6 +17,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   font-size: 16px; /* Base 16px for WCAG AAA compliance */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  max-width: 100vw; /* Never exceed viewport width */
 }
 
 body {
@@ -29,6 +31,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  max-width: 100vw; /* Never exceed viewport width */
 }
 
 img, svg, video, canvas {
@@ -49,25 +53,30 @@ button, input, select, textarea {
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
   
-  /* Color Palette — Minimalist, High Contrast (WCAG AAA) */
-  --color-text-primary: #000000;      /* 21:1 contrast on white */
-  --color-text-secondary: #333333;    /* 12.6:1 contrast on white */
-  --color-text-muted: #666666;        /* 7:1 contrast on white */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f5f5f5;      /* Subtle separation */
-  --color-bg-tertiary: #e8e8e8;       /* Section separation */
-  --color-border: #cccccc;            /* Clear boundaries */
-  --color-border-strong: #000000;     /* Strong separation */
+  /* Color Palette — 2 Main Colors + 1 Shade */
+  --color-primary: #12355e;            /* Main color 1 - Dark blue */
+  --color-secondary: #000000;          /* Main color 2 - Black */
+  --color-shade: #2a4a6e;              /* Shade - Lighter version of primary */
   
-  /* Brand Accent — Used sparingly for links, active states */
-  --color-brand: #0066cc;              /* WCAG AAA: 7:1 contrast */
-  --color-brand-hover: #0052a3;        /* Darker on hover */
-  --color-brand-active: #003d7a;       /* Active state */
+  /* Derived Colors */
+  --color-text-primary: #000000;       /* Main color 2 */
+  --color-text-secondary: #12355e;     /* Main color 1 */
+  --color-text-muted: #2a4a6e;         /* Shade */
+  --color-bg-primary: #ffffff;          /* White background */
+  --color-bg-secondary: #f5f5f5;      /* Light gray using shade logic */
+  --color-bg-tertiary: #e8e8e8;        /* Lighter gray */
+  --color-border: #2a4a6e;             /* Shade for borders */
+  --color-border-strong: #000000;      /* Main color 2 */
   
-  /* Status Colors — Functional feedback only */
-  --color-success: #006600;            /* WCAG AAA: 7:1 contrast */
-  --color-error: #cc0000;              /* WCAG AAA: 7:1 contrast */
-  --color-warning: #cc6600;           /* WCAG AAA: 7:1 contrast */
+  /* Brand Accent — Uses main colors */
+  --color-brand: #12355e;              /* Main color 1 */
+  --color-brand-hover: #2a4a6e;        /* Shade */
+  --color-brand-active: #000000;       /* Main color 2 */
+  
+  /* Status Colors — Derived from main colors */
+  --color-success: #12355e;            /* Main color 1 */
+  --color-error: #000000;              /* Main color 2 */
+  --color-warning: #2a4a6e;           /* Shade */
   
   /* Layout — Modular, Efficient (8pt rhythm) */
   --container-max-width: 1280px; /* max-w-screen-xl equivalent */
@@ -573,6 +582,11 @@ hr {
   background-color: var(--color-bg-primary);
   border: var(--border-width) solid var(--color-border);
   animation: fadeInUp var(--duration-slow) var(--ease-functional) both;
+  max-width: 100%; /* Prevent overflow */
+  overflow: hidden; /* Clip content that exceeds container */
+  box-sizing: border-box; /* Include padding in width calculation */
+  display: flex;
+  flex-direction: column;
 }
 
 .content-block__header {
@@ -590,6 +604,84 @@ hr {
 
 .content-block__body {
   color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 100%; /* Prevent overflow */
+  overflow-wrap: break-word; /* Allow text to wrap */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Catalog items: anchor buttons to bottom left */
+/* Grid items: ensure flexbox layout for button anchoring */
+.grid .content-block {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0;
+  max-width: 100%; /* Prevent overflow */
+  overflow: hidden; /* Clip content that exceeds container */
+}
+
+.grid .content-block .content-block__body {
+  min-height: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  max-width: 100%; /* Prevent overflow */
+  overflow-wrap: break-word; /* Allow text to wrap */
+}
+
+.grid .content-block .btn-group {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  justify-content: flex-start !important;
+  max-width: 100%; /* Ensure button group fits */
+}
+
+/* Link Tree Styling - Technical Research Aesthetic */
+.link-tree {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem; /* Add spacing between link tree and buttons below */
+}
+
+.link-tree strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+}
+
+.link-tree ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.link-tree li {
+  margin: 0;
+  padding: 0;
+}
+
+.link-tree a {
+  color: var(--color-brand, #0066cc);
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.link-tree a:hover {
+  color: var(--color-brand-hover, #0052a3);
+  border-bottom-color: var(--color-brand-hover, #0052a3);
+  border-bottom-style: solid;
 }
 
 .content-block--highlighted {
@@ -635,23 +727,46 @@ dd {
 }
 
 /* ==========================================================================
-   9. BUTTONS — Functional, Unambiguous
+   9. BUTTONS — Functional, Unambiguous — UNIFORM SIZING & SPACING
    ========================================================================== */
+/* Base button — EXACT uniform sizing for ALL buttons */
 .btn {
-  display: inline-block;
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+  /* Uniform sizing */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; /* Touch target minimum - FIXED */
+  padding: 12px 24px; /* EXACT padding - 12px vertical, 24px horizontal */
+  box-sizing: border-box;
+  max-width: 100%; /* Ensure buttons fit within containers */
+  word-wrap: break-word; /* Allow long text to wrap */
+  overflow-wrap: break-word; /* Modern property for word wrapping */
+  white-space: normal; /* Allow text to wrap */
+  
+  /* Uniform typography */
+  font-size: 16px; /* FIXED - no variation */
+  font-weight: 500; /* FIXED - medium weight */
+  line-height: 1.5; /* FIXED */
   text-align: center;
   text-decoration: none;
+  /* white-space: nowrap; REMOVED - allow text to wrap */
+  
+  /* Uniform appearance */
   color: var(--color-text-primary);
   background-color: var(--color-bg-secondary);
-  border: var(--border-width-strong) solid var(--color-border-strong);
+  border: 2px solid var(--color-border-strong);
   cursor: pointer;
+  
+  /* Uniform transitions */
   transition: background-color var(--duration-fast) var(--ease-functional), 
               border-color var(--duration-fast) var(--ease-functional),
               transform var(--duration-fast) var(--ease-functional),
               box-shadow var(--duration-fast) var(--ease-functional);
+  
+  /* Reset any inherited styles */
+  margin: 0;
+  width: auto;
+  min-width: auto;
 }
 
 .btn:hover {
@@ -689,31 +804,28 @@ dd {
   border-color: var(--color-brand-active);
 }
 
-/* Button Groups — Uniform Spacing (8pt rhythm) */
+/* Button Groups — EXACT uniform spacing */
 .btn-group {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-8);
-  margin-top: var(--spacing-16);
+  gap: 12px; /* FIXED - 12px gap between all buttons */
+  margin-top: 24px; /* FIXED - 24px top margin */
   margin-bottom: 0;
+  align-items: center;
+  width: 100%; /* Ensure group takes full width of container */
+  max-width: 100%; /* Prevent overflow */
 }
 
+/* All buttons in groups have ZERO margin */
 .btn-group .btn {
-  margin: 0;
+  margin: 0 !important;
   min-width: auto;
   width: auto;
+  max-width: 100%; /* Ensure buttons don't overflow container */
+  flex: 0 1 auto; /* Allow buttons to shrink if needed */
 }
 
-/* Ensure all buttons have uniform sizing */
-.btn {
-  min-height: 44px; /* Touch target minimum */
-  box-sizing: border-box;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Single button in group should not stretch */
+/* Single button in group */
 .btn-group .btn:only-child {
   width: auto;
   min-width: auto;
@@ -725,19 +837,28 @@ dd {
   justify-content: center;
 }
 
-/* Buttons in paragraphs — ensure consistent spacing */
-p .btn + .btn {
-  margin-left: var(--spacing-8);
-}
-
+/* Buttons in paragraphs — convert to btn-group pattern */
 p .btn {
-  margin-top: var(--spacing-8);
-  margin-bottom: var(--spacing-8);
+  margin-top: 24px; /* FIXED */
+  margin-bottom: 0;
+  display: inline-flex;
 }
 
-/* Single button spacing */
+/* When multiple buttons in paragraph */
+p:has(.btn + .btn) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px; /* FIXED */
+  align-items: center;
+}
+
+p:has(.btn + .btn) .btn {
+  margin: 0 !important;
+}
+
+/* Single button spacing in paragraphs */
 .content-block__body > p:has(.btn:only-child) {
-  margin-top: var(--spacing-16);
+  margin-top: 24px; /* FIXED */
   margin-bottom: 0;
 }
 
@@ -745,21 +866,33 @@ p .btn {
 @media (max-width: 768px) {
   .btn-group {
     flex-direction: column;
-    gap: var(--spacing-8);
+    gap: 12px !important; /* FIXED - same gap */
   }
   
   .btn-group .btn {
     width: 100%;
+    padding: 12px 24px !important; /* EXACT - same padding */
+    min-height: 44px !important; /* FIXED */
+  }
+  
+  /* Hero buttons should not stretch on mobile */
+  .hero-foreground .btn-group .btn {
+    width: auto !important;
+    min-width: auto !important;
+    padding: 12px 24px !important; /* EXACT - same padding */
+    min-height: 44px !important; /* FIXED */
   }
   
   /* Buttons in paragraphs on mobile */
   p .btn {
-    display: block;
-    width: 100%;
+    display: inline-flex;
+    width: auto;
     margin-left: 0;
     margin-right: 0;
-    margin-top: var(--spacing-8);
-    margin-bottom: var(--spacing-8);
+    margin-top: 24px !important; /* FIXED */
+    margin-bottom: 0;
+    padding: 12px 24px !important; /* EXACT */
+    min-height: 44px !important; /* FIXED */
   }
   
   p .btn + .btn {
@@ -943,6 +1076,7 @@ label {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    position: relative;
   }
   
   .nav-primary__toggle {
@@ -954,10 +1088,23 @@ label {
     flex-direction: column;
     width: 100%;
     margin-top: var(--spacing-md);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-primary);
+    border-top: var(--border-width) solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: var(--spacing-md);
   }
   
   .nav-primary__menu[aria-hidden="false"] {
-    display: flex;
+    display: flex !important;
+  }
+  
+  .nav-primary__menu[aria-hidden="true"] {
+    display: none !important;
   }
   
   .nav-primary__item {

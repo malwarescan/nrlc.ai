@@ -47,9 +47,15 @@ $improvement = 150 + (($caseNumber * 7) % 200);
     </ol>
     
     <div class="field-row" class="field-row-center">
-      <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get Your AI Audit</a>
+      <a href="/services/" class="btn btn--primary" data-ripple>Get Started with AI SEO</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>
+    
+    <!-- Related Resources -->
+    <h2>Related Resources</h2>
+    <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+    <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+    <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view more <a href="/case-studies/">Case Studies</a>.</p>
   </div>
 </section>
 

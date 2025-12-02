@@ -90,6 +90,10 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="keywords" content="AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity, <?=htmlspecialchars(extract_keywords_from_title($title))?>">
 <!-- W3C Functional Authority Design System -->
 <link rel="stylesheet" href="<?= asset_url('/assets/css/w3c-functional.css') ?>">
+<!-- Hero Isometric Animation -->
+<link rel="stylesheet" href="<?= asset_url('/assets/css/hero-isometric.css') ?>">
+<!-- GSAP Animation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <?php
 foreach (hreflang_links(without_locale_prefix($path)) as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";

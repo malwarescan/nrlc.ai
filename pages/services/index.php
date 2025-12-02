@@ -16,8 +16,9 @@ require_once __DIR__ . '/../../templates/header.php';
         <p class="lead">
           NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.
         </p>
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a>.</p>
         <div class="btn-group text-center">
-          <a href="/api/book/" class="btn btn--primary">Book a Demo</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI SEO Services Demo')">Book a Demo</button>
           <a href="/insights/" class="btn">Explore Research</a>
         </div>
       </div>
@@ -34,7 +35,7 @@ require_once __DIR__ . '/../../templates/header.php';
           <div class="content-block">
             <h3>Semantic Layer</h3>
             <p>SQL-native ontologies exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms. Transform your data into a semantic graph where relationships are explicit and queries collapse complexity.</p>
-            <a href="/services/semantic-layer/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/semantic-layer/" class="btn" data-ripple>Explore Semantic Layer Service</a>
           </div>
 
           <div class="content-block">
@@ -46,7 +47,7 @@ require_once __DIR__ . '/../../templates/header.php';
           <div class="content-block">
             <h3>Enterprise LLM Foundation</h3>
             <p>Structured semantic context, verified relationships, and virtualized access to all data sources. LLMs become reliable once they operate on governed, contextualized, precise data. NRLC delivers that foundation.</p>
-            <a href="/services/enterprise-llm-foundation/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/enterprise-llm-foundation/" class="btn" data-ripple>Explore Enterprise LLM Foundation</a>
           </div>
 
           <div class="content-block">
@@ -58,7 +59,7 @@ require_once __DIR__ . '/../../templates/header.php';
           <div class="content-block">
             <h3>Ontology Modeling</h3>
             <p>Rapid semantic modeling with LLM-assisted entity and metric creation. Model your business using SQL-native ontologies with up to 90% reduction in time-to-consumption. No new languages — everything in SQL.</p>
-            <a href="/services/ontology-modeling/" class="btn" data-ripple>Learn More</a>
+            <a href="/services/ontology-modeling/" class="btn" data-ripple>Explore Ontology Modeling Service</a>
           </div>
 
           <div class="content-block">
@@ -223,7 +224,7 @@ require_once __DIR__ . '/../../templates/header.php';
           Transform your data into a semantic knowledge graph that powers reliable AI workflows. Book a demo to see how NRLC can accelerate your AI initiatives.
         </p>
         <div class="btn-group text-center">
-          <a href="/api/book/" class="btn btn--primary">Book a live demo</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Live Demo')">Book a live demo</button>
           <a href="/insights/" class="btn">Explore Research</a>
         </div>
       </div>
@@ -234,8 +235,51 @@ require_once __DIR__ . '/../../templates/header.php';
 </main>
 
 <?php
+// LINKING KERNEL: Add required internal links
+if (function_exists('render_internal_links_section')) {
+  echo render_internal_links_section('services', '', [], 'Explore More');
+}
+?>
+
+<?php
 // JSON-LD Schema
+$domain = 'https://nrlc.ai';
+$canonical_url = $domain . '/services/';
+
 $jsonld = [
+  [
+    "@context" => "https://schema.org",
+    "@type" => "WebPage",
+    "@id" => $canonical_url . '#webpage',
+    "name" => "AI SEO Services",
+    "url" => $canonical_url,
+    "description" => "NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.",
+    "isPartOf" => [
+      "@type" => "WebSite",
+      "@id" => $domain . '/#website',
+      "name" => "NRLC.ai",
+      "url" => $domain
+    ]
+  ],
+  [
+    "@context" => "https://schema.org",
+    "@type" => "BreadcrumbList",
+    "@id" => $canonical_url . '#breadcrumb',
+    "itemListElement" => [
+      [
+        "@type" => "ListItem",
+        "position" => 1,
+        "name" => "Home",
+        "item" => $domain . "/"
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 2,
+        "name" => "Services",
+        "item" => $canonical_url
+      ]
+    ]
+  ],
   [
     "@context" => "https://schema.org",
     "@type" => "Service",

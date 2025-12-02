@@ -9,7 +9,17 @@ $improvement = 150 + (($caseNumber * 7) % 200);
 ?>
 <section class="window container prose">
   <div class="title-bar">
+    <!-- Related Resources -->
+    <h2>Related Resources</h2>
+    <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+    <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+    <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view more <a href="/case-studies/">Case Studies</a>.</p>
     <div class="title-bar-text"><?=$industry?> AI SEO Case Study #<?=$caseNumber?></div>
+    <!-- Related Resources -->
+    <h2>Related Resources</h2>
+    <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+    <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+    <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view more <a href="/case-studies/">Case Studies</a>.</p>
   </div>
   <div class="window-body">
     <h1><?=$industry?> AI SEO Success Story</h1>
@@ -47,9 +57,19 @@ $improvement = 150 + (($caseNumber * 7) % 200);
     </ol>
     
     <div class="field-row" class="field-row-center">
-      <a href="/services/ai-first-site-audits/" class="btn" data-ripple>Get Your AI Audit</a>
+      <a href="/services/" class="btn" data-ripple>Get Started with AI SEO</a>
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
+    <!-- Related Resources -->
+    <h2>Related Resources</h2>
+    <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+    <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+    <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view more <a href="/case-studies/">Case Studies</a>.</p>
     </div>
+    <!-- Related Resources -->
+    <h2>Related Resources</h2>
+    <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+    <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+    <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view more <a href="/case-studies/">Case Studies</a>.</p>
   </div>
 </section>
 

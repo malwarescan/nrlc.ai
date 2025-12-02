@@ -317,6 +317,24 @@ function meta_for_slug(string $slug): array {
         '/careers/'
       ];
       
+    case 'resources/index':
+      return [
+        'AI SEO Resources & Tools | NRLC.ai',
+        'Comprehensive AI SEO resources, templates, checklists, and implementation guides. GEO-16 framework resources, structured data templates, and LLM optimization tools.',
+        '/resources/'
+      ];
+      
+    case 'resources/resource':
+      $resourceNumber = $_GET['resource'] ?? '1';
+      // AEO-optimized: Resource-focused description
+      $desc = "Access comprehensive AI SEO resource #$resourceNumber. Practical tools, templates, and implementation guides for GEO-16 framework, structured data optimization, and LLM citation strategies.";
+      
+      return [
+        "AI SEO Resource #$resourceNumber | Implementation Guide | NRLC.ai",
+        $desc,
+        "/resources/resource-$resourceNumber/"
+      ];
+      
     default:
       return [
         'NRLC.ai — AI SEO & GEO-16 Framework | LLM Optimization',

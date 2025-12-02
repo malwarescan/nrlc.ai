@@ -68,6 +68,11 @@ $topic = $topics[($resourceNumber - 1) % count($topics)];
       <a href="/insights/geo16-framework/" class="btn" data-ripple>Learn GEO-16</a>
     </div>
   </div>
+  <!-- Related Resources -->
+  <h2>Related Resources</h2>
+  <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+  <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
+  <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view more <a href="/resources/">Resources</a>.</p>
 </section>
 
 <script type="application/ld+json">
