@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/ourcasa-ai';
-$GLOBALS['pageTitle'] = 'OurCasa.ai — Home & Neighborhood Intelligence Graph | NRLC.ai';
-$GLOBALS['pageDesc'] = 'Home and neighborhood intelligence graph with property cognition, weather risk mapping, local incident history, maintenance prediction, and neighborhood lifestyle knowledge.';
+$GLOBALS['pageTitle'] = 'Neighborhood Intelligence Graph for Property Analysis';
+$GLOBALS['pageDesc'] = 'OurCasa.ai: Home and neighborhood intelligence graph with property cognition, weather risk mapping, local incident history, and maintenance prediction.';
 
 // Build comprehensive schemas
 $productSlug = 'ourcasa-ai';
@@ -120,7 +120,7 @@ $GLOBALS['__jsonld'] = $jsonld;
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
         </div>
       </div>
-    </div>
+  </div>
 </section>
 </main>
 

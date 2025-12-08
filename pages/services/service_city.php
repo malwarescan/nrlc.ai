@@ -18,7 +18,11 @@ $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
 $cityTitle = titleCaseCity($citySlug);
 $pageTitle = "$serviceTitle in $cityTitle";
 
-$intro   = service_long_intro($serviceSlug, $citySlug);
+// Try to get enhanced intro from service_enhancements.json
+$enhancement = get_service_enhancement($serviceSlug, $citySlug);
+$enhancedIntro = $enhancement['intro'] ?? null;
+
+$intro   = $enhancedIntro ?? service_long_intro($serviceSlug, $citySlug);
 $local   = local_context_block($citySlug);
 $market  = local_market_insights($citySlug);
 $competition = local_competition_analysis($citySlug);
@@ -44,7 +48,14 @@ $content = $intro . $local;
             <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
           </div>
           <div class="content-block__body">
-            <p class="lead"><?= $content ?></p>
+            <?php
+            $queryAlignedContent = get_query_aligned_content($serviceSlug, $citySlug);
+            ?>
+            <?php if ($enhancedIntro): ?>
+            <p class="lead"><?= htmlspecialchars($enhancedIntro) ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
+            <?php else: ?>
+            <p class="lead"><?= $content ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
+            <?php endif; ?>
             <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/geo16-introduction/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
             <div class="btn-group text-center">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($pageTitle) ?>')">Schedule Consultation</button>
@@ -156,6 +167,35 @@ $content = $intro . $local;
 </main>
 
 <?php
+// STEP 5: Internal Linking Repair
+// Detect locale from URL
+$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$locale = '';
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
+  $locale = $matches[1];
+}
+$localePrefix = $locale ? "/$locale" : '';
+
+// Get related services for lateral linking
+$relatedServices = get_related_services_for_linking($serviceSlug, $locale);
+?>
+
+<!-- STEP 5: Related Services Footer Block -->
+<section class="content-block module">
+  <div class="content-block__header">
+    <h2 class="content-block__title">Related Services</h2>
+  </div>
+  <div class="content-block__body">
+    <ul>
+      <?php foreach ($relatedServices as $related): ?>
+      <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+    <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a></p>
+  </div>
+</section>
+
+<?php
 // LINKING KERNEL: Add required internal links
 if (function_exists('render_internal_links_section')) {
   echo render_internal_links_section('services', $serviceSlug, ['city' => $citySlug], 'Related Resources');
@@ -172,15 +212,29 @@ $faqs = array_map(fn($f)=>['q'=>$f['question'],'a'=>$f['answer']], $fqPick);
 $offers = det_pick($ppForService, 6);
 
 $domain = 'https://nrlc.ai';
-$canonical_url = absolute_url($pathKey);
 
-$serviceLd = ld_service_hefty([
-  'service'=>$serviceSlug,
-  'city'=>$citySlug,
-  'url'=>$canonical_url,
-  'faqs'=>$faqs,
-  'offers'=>$offers
-]);
+// Use exact canonical URL from Pages.csv if available
+$enhancement = get_service_enhancement($serviceSlug, $citySlug);
+$canonical_url = $enhancement['canonical'] ?? absolute_url($pathKey);
+
+// STEP 4: Exact Service JSON-LD structure as specified
+require_once __DIR__.'/../../lib/service_enhancements.php';
+$serviceName = get_service_name_from_slug($serviceSlug);
+$serviceType = get_service_type_from_slug($serviceSlug);
+
+$serviceLd = [
+  "@context" => "https://schema.org",
+  "@type" => "Service",
+  "name" => $serviceName,
+  "serviceType" => $serviceType,
+  "provider" => [
+    "@type" => "Organization",
+    "name" => "Neural Command LLC",
+    "url" => "https://nrlc.ai"
+  ],
+  "areaServed" => "Global",
+  "url" => $canonical_url
+];
 
 // Add WebPage and BreadcrumbList schema
 $GLOBALS['__jsonld'] = array_merge($GLOBALS['__jsonld'] ?? [], [

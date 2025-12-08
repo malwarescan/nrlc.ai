@@ -88,6 +88,14 @@ function route_request(): void {
 
   if (preg_match('#^/insights/([^/]+)/$#', $path, $m)) {
     $_GET['slug'] = $m[1];
+    $slug = $m[1];
+    
+    // Set metadata for specific articles BEFORE head.php is included
+    if ($slug === 'google-llms-txt-ai-seo') {
+      $GLOBALS['pageTitle'] = "Google LLMs.txt Documentation Analysis & SEO Strategy";
+      $GLOBALS['pageDesc'] = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
+    }
+    
     render_page('insights/article');
     return;
   }

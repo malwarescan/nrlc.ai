@@ -144,3 +144,4 @@ if (empty($report['pain_points']) && empty($report['faq_issues'])) {
 file_put_contents(__DIR__ . '/../logs/pain_points_faq_audit.json', json_encode($report, JSON_PRETTY_PRINT));
 echo "\n✅ Report saved to logs/pain_points_faq_audit.json\n";
 
+

@@ -1,4 +1,8 @@
 <?php
+// Set unique metadata for homepage
+$GLOBALS['pageTitle'] = "GEO-16 Framework Research for AI Overviews & Citations";
+$GLOBALS['pageDesc'] = "AI SEO research using the GEO-16 framework. Optimize for Google AI Overviews, improve LLM citations, increase AI visibility. Structured data and technical SEO.";
+
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/csv.php';
@@ -11,6 +15,28 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">
+
+    <!-- LLMs.txt Hero Section -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">Google's LLMs.txt Decoded. Your New Edge in AI SEO.</h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead">
+          Google publicly revealed the documentation it trains its large language models on — a complete blueprint of how Search is meant to be understood. We turn that blueprint into executable AI SEO strategy, structured-data engineering, and technical implementation your competitors will never see coming.
+        </p>
+        <p>
+          If Google teaches LLMs how Search works, we teach your site how to speak Google's language — structurally, semantically, and at scale.
+        </p>
+        <div class="btn-group">
+          <a href="/insights/google-llms-txt-ai-seo/" class="btn btn--primary">Unlock the LLMs.txt Strategy</a>
+          <a href="/services/ai-overview-optimization/" class="btn">See How AI SEO Actually Works</a>
+        </div>
+        <p style="margin-top: var(--spacing-24); font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.7;">
+          Structured data. Technical SEO. Agentic visibility. Built from the same docs Google feeds into its own models.
+        </p>
+      </div>
+    </div>
 
     <!-- Unified Semantic Layer -->
     <div class="content-block module">

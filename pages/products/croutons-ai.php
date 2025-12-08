@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/croutons-ai';
-$GLOBALS['pageTitle'] = 'Croutons.ai — Micro-Fact Data Atomization + Truth Layer | NRLC.ai';
+$GLOBALS['pageTitle'] = 'Micro-Fact Data Atomization Engine for LLMs & Search';
 $GLOBALS['pageDesc'] = 'Data atomization engine converting HTML, PDFs, CSVs, NDJSON streams, and APIs into machine-verifiable micro-facts for search engines, LLMs, and agents.';
 
 // Build comprehensive schemas

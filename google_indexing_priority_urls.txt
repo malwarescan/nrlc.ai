@@ -1,0 +1,163 @@
+# Google Indexing Priority URLs - NRLC.ai
+# Test these URLs live and request indexing in Google Search Console
+# Organized by priority and SEO value
+
+# ============================================
+# TIER 1: CRITICAL PAGES (Request Indexing Immediately)
+# ============================================
+
+# Home & Core Pages
+https://nrlc.ai/
+https://nrlc.ai/en-us/
+
+# Promptware (High AI Search Value)
+https://nrlc.ai/en-us/promptware/
+https://nrlc.ai/en-us/promptware/seo-enhancement-kernel/
+https://nrlc.ai/promptware/seo-enhancement-kernel/
+https://nrlc.ai/en-us/promptware/json-stream-seo-ai/
+https://nrlc.ai/en-us/promptware/llm-data-to-citation/
+
+# Main Service Pages (Revenue Drivers)
+https://nrlc.ai/en-us/services/
+https://nrlc.ai/en-us/services/crawl-clarity/
+https://nrlc.ai/en-us/services/json-ld-strategy/
+https://nrlc.ai/en-us/services/llm-seeding/
+https://nrlc.ai/en-us/services/ai-overview-optimization/
+
+# Product Pages (Schema-Rich)
+https://nrlc.ai/en-us/products/
+https://nrlc.ai/en-us/products/data-but-structured/
+https://nrlc.ai/en-us/products/croutons-ai/
+https://nrlc.ai/en-us/products/precogs/
+https://nrlc.ai/en-us/products/newfaq/
+
+# Insights (Content Authority)
+https://nrlc.ai/en-us/insights/
+https://nrlc.ai/en-us/insights/geo16-introduction/
+
+# ============================================
+# TIER 2: HIGH-VALUE LOCATION PAGES (Request Indexing)
+# ============================================
+
+# Top Service + Location Combinations (Schema-Rich, High Intent)
+https://nrlc.ai/en-us/services/crawl-clarity/new-york/
+https://nrlc.ai/en-us/services/crawl-clarity/london/
+https://nrlc.ai/en-us/services/crawl-clarity/seattle/
+https://nrlc.ai/en-us/services/crawl-clarity/san-francisco/
+https://nrlc.ai/en-us/services/crawl-clarity/los-angeles/
+
+https://nrlc.ai/en-us/services/json-ld-strategy/new-york/
+https://nrlc.ai/en-us/services/json-ld-strategy/london/
+https://nrlc.ai/en-us/services/json-ld-strategy/seattle/
+
+https://nrlc.ai/en-us/services/llm-seeding/new-york/
+https://nrlc.ai/en-us/services/llm-seeding/london/
+https://nrlc.ai/en-us/services/llm-seeding/seoul/
+
+# ============================================
+# TIER 3: CATALOG PAGES (Product Discovery)
+# ============================================
+
+https://nrlc.ai/en-us/catalog/
+https://nrlc.ai/en-us/catalog/crawl-clarity-engineering/
+https://nrlc.ai/en-us/catalog/json-ld-strategy/
+https://nrlc.ai/en-us/catalog/llm-seeding/
+https://nrlc.ai/en-us/catalog/data-but-structured/
+https://nrlc.ai/en-us/catalog/croutons-ai/
+https://nrlc.ai/en-us/catalog/precogs/
+https://nrlc.ai/en-us/catalog/newfaq/
+
+# ============================================
+# TIER 4: BLOG POSTS & CASE STUDIES (Content Authority)
+# ============================================
+
+# Blog Posts (if you have dynamic blog routing)
+https://nrlc.ai/en-us/blog/
+https://nrlc.ai/en-us/blog/blog-post-1/
+https://nrlc.ai/en-us/blog/blog-post-2/
+https://nrlc.ai/en-us/blog/blog-post-3/
+
+# Case Studies
+https://nrlc.ai/en-us/case-studies/
+https://nrlc.ai/en-us/case-studies/case-study-1/
+https://nrlc.ai/en-us/case-studies/case-study-2/
+
+# ============================================
+# TIER 5: CAREERS (If Applicable)
+# ============================================
+
+https://nrlc.ai/en-us/careers/
+https://nrlc.ai/en-us/careers/seattle/
+https://nrlc.ai/en-us/careers/seattle/devops-engineer/
+
+# ============================================
+# TIER 6: SITEMAPS (Critical for Discovery)
+# ============================================
+
+https://nrlc.ai/sitemaps/sitemap-index.xml
+https://nrlc.ai/sitemaps/pages-1.xml
+https://nrlc.ai/sitemaps/services-1.xml
+https://nrlc.ai/sitemaps/products-1.xml
+https://nrlc.ai/sitemaps/insights-1.xml
+https://nrlc.ai/sitemaps/promptware-1.xml
+
+# ============================================
+# TESTING CHECKLIST
+# ============================================
+
+# For each URL above, verify:
+# [ ] URL is accessible (200 status)
+# [ ] Meta title and description are present
+# [ ] H1 tag is present and unique
+# [ ] Canonical URL is correct
+# [ ] Schema JSON-LD is present and valid
+# [ ] Internal links (min 5 semantic links)
+# [ ] Images have alt text
+# [ ] Mobile-responsive
+# [ ] No console errors
+# [ ] Fast load time (<3s)
+
+# ============================================
+# GOOGLE SEARCH CONSOLE INDEXING REQUEST
+# ============================================
+
+# Use Google Search Console URL Inspection Tool:
+# 1. Go to: https://search.google.com/search-console
+# 2. Use "URL Inspection" tool
+# 3. Enter each URL from Tier 1 and Tier 2
+# 4. Click "Request Indexing"
+# 5. Wait 24-48 hours for indexing
+
+# Priority Order:
+# 1. Tier 1 URLs (immediate)
+# 2. Tier 2 URLs (within 24 hours)
+# 3. Tier 3-6 URLs (submit sitemap, let Google crawl naturally)
+
+# ============================================
+# SCHEMA VALIDATION
+# ============================================
+
+# Test each URL with:
+# - Google Rich Results Test: https://search.google.com/test/rich-results
+# - Schema.org Validator: https://validator.schema.org/
+# - Google Search Console Rich Results report
+
+# ============================================
+# AI SEARCH OPTIMIZATION
+# ============================================
+
+# These URLs are optimized for:
+# - Google AI Overviews
+# - Perplexity
+# - ChatGPT Browse
+# - Claude Search
+# - Bing Chat
+
+# Key indicators for AI search:
+# - FAQPage schema present
+# - Layered content (quick answer + detailed)
+# - Definitions and examples
+# - Entity clarity
+# - NDJSON microfacts (where applicable)
+
+

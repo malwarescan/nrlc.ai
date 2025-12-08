@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/applicants-io';
-$GLOBALS['pageTitle'] = 'Applicants.io — AI Recruiting + Job Schema Visibility | NRLC.ai';
+$GLOBALS['pageTitle'] = 'AI Recruiting Platform with Job Schema Automation & Indexing';
 $GLOBALS['pageDesc'] = 'AI recruiting platform with JobPosting schema automation, Google Jobs indexing, resume PDF crawling, skill extraction, and AI-driven applicant ranking.';
 
 // Build comprehensive schemas
@@ -123,7 +123,7 @@ $GLOBALS['__jsonld'] = $jsonld;
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
         </div>
       </div>
-    </div>
+  </div>
 </section>
 </main>
 

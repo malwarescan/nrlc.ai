@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/precogs';
-$GLOBALS['pageTitle'] = 'Precogs — Ontological Oracle Intelligence Engine | NRLC.ai';
+$GLOBALS['pageTitle'] = 'Ontological Oracle Engine for Predictive AI Reasoning';
 $GLOBALS['pageDesc'] = 'Ontological oracle intelligence engine with predictive reasoning, multi-domain cognition, temporal simulation, and real-time agentic intelligence.';
 
 // Build comprehensive schemas
@@ -125,7 +125,7 @@ $GLOBALS['__jsonld'] = $jsonld;
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
         </div>
       </div>
-    </div>
+  </div>
 </section>
 </main>
 

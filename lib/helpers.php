@@ -169,6 +169,18 @@ function meta_for_slug(string $slug): array {
       
     case 'services/service':
       $serviceSlug = $_GET['service'] ?? '';
+      
+      // Try to load enhancement from service_enhancements.json
+      $enhancement = get_service_enhancement($serviceSlug, '');
+      if ($enhancement) {
+        return [
+          $enhancement['title'],
+          $enhancement['description'],
+          $enhancement['path']
+        ];
+      }
+      
+      // Fallback to original logic
       $services = csv_read_data('services.csv');
       $serviceData = array_filter($services, fn($s) => ($s['slug'] ?? '') === $serviceSlug);
       $serviceName = !empty($serviceData) ? reset($serviceData)['name'] : ucwords(str_replace('-', ' ', $serviceSlug));
@@ -186,6 +198,17 @@ function meta_for_slug(string $slug): array {
       $serviceSlug = $_GET['service'] ?? '';
       $citySlug = $_GET['city'] ?? '';
       
+      // Try to load enhancement from service_enhancements.json
+      $enhancement = get_service_enhancement($serviceSlug, $citySlug);
+      if ($enhancement) {
+        return [
+          $enhancement['title'],
+          $enhancement['description'],
+          $enhancement['path']
+        ];
+      }
+      
+      // Fallback to original logic
       $services = csv_read_data('services.csv');
       $cities = csv_read_data('cities.csv');
       
@@ -342,6 +365,33 @@ function meta_for_slug(string $slug): array {
         '/'
       ];
   }
+}
+
+/**
+ * Get service enhancement from service_enhancements.json
+ * Returns enhancement data or null if not found
+ */
+function get_service_enhancement(string $serviceSlug, string $citySlug = ''): ?array {
+  static $enhancements = null;
+  static $enhancementsLoaded = false;
+  
+  if (!$enhancementsLoaded) {
+    $enhancementsFile = __DIR__ . '/../data/service_enhancements.json';
+    if (file_exists($enhancementsFile)) {
+      $data = json_decode(file_get_contents($enhancementsFile), true);
+      if (is_array($data)) {
+        $enhancements = [];
+        foreach ($data as $item) {
+          $key = $item['service'] . '|' . ($item['city'] ?? '');
+          $enhancements[$key] = $item;
+        }
+      }
+    }
+    $enhancementsLoaded = true;
+  }
+  
+  $key = $serviceSlug . '|' . $citySlug;
+  return $enhancements[$key] ?? null;
 }
 
 function extract_keywords_from_title(string $title): string {

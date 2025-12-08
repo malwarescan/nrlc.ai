@@ -209,3 +209,4 @@ foreach ($output as $category => $urls) {
 file_put_contents($filePath, $fileContent);
 echo "\n\n✅ Saved to: schema_test_urls.txt\n";
 
+

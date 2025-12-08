@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/googlebot-renderer-lab';
-$GLOBALS['pageTitle'] = 'Googlebot Renderer Lab — Real Googlebot DOM Simulation | NRLC.ai';
+$GLOBALS['pageTitle'] = 'Googlebot DOM Simulation Tool for SEO Diagnostic Testing';
 $GLOBALS['pageDesc'] = 'Real Googlebot DOM simulation solving hydration failures, CSR/SSR drift, and crawl-time abort replication for modern SEO diagnostics.';
 
 // Build comprehensive schemas

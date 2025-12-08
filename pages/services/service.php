@@ -14,6 +14,9 @@ $serviceName = ucwords(str_replace('-',' ',$service));
 // Special handling for semantic infrastructure services
 $semanticServices = ['data-mapping', 'data-virtualization', 'rest-api', 'semantic-layer', 'enterprise-llm-foundation', 'knowledge-graph', 'ontology-modeling'];
 
+// Special handling for AI SEO services with custom content
+$aiSeoServices = ['ai-overview-optimization'];
+
 if (in_array($service, $semanticServices)) {
   // Custom content for semantic infrastructure services
   $serviceContent = [
@@ -208,9 +211,164 @@ if (in_array($service, $semanticServices)) {
   }
 }
 
+// Special handling for AI Overview Optimization
+if ($service === 'ai-overview-optimization') {
+  $domain = 'https://nrlc.ai';
+  $canonical_url = $domain . '/services/ai-overview-optimization/';
+  
+  // Get enhancement data if available
+  $enhancement = get_service_enhancement('ai-overview-optimization', '');
+  $pageTitle = $enhancement['title'] ?? 'Google AI Overviews Optimization Services';
+  $pageDesc = $enhancement['description'] ?? 'Optimize your content for Google AI Overviews and AI-powered search experiences. Increase citation rates, improve AI visibility, and surface in AI-generated answers.';
+  
+  // Ensure title is 50-60 chars and unique
+  if (strlen($pageTitle) < 50 || strlen($pageTitle) > 60) {
+    $pageTitle = 'Google AI Overviews Optimization & Citation Services';
+  }
+  
+  $GLOBALS['pageTitle'] = $pageTitle;
+  $GLOBALS['pageDesc'] = $pageDesc;
+  
+  $GLOBALS['__jsonld'] = [
+    [
+      "@context" => "https://schema.org",
+      "@type" => "WebPage",
+      "@id" => $canonical_url . '#webpage',
+      "name" => "AI Overview Optimization",
+      "url" => $canonical_url,
+      "description" => $pageDesc,
+      "isPartOf" => [
+        "@type" => "WebSite",
+        "@id" => $domain . '/#website',
+        "name" => "NRLC.ai",
+        "url" => $domain
+      ]
+    ],
+    [
+      "@context" => "https://schema.org",
+      "@type" => "BreadcrumbList",
+      "@id" => $canonical_url . '#breadcrumb',
+      "itemListElement" => [
+        [
+          "@type" => "ListItem",
+          "position" => 1,
+          "name" => "Home",
+          "item" => $domain . "/"
+        ],
+        [
+          "@type" => "ListItem",
+          "position" => 2,
+          "name" => "Services",
+          "item" => $domain . "/services/"
+        ],
+        [
+          "@type" => "ListItem",
+          "position" => 3,
+          "name" => "AI Overview Optimization",
+          "item" => $canonical_url
+        ]
+      ]
+    ],
+    [
+      "@context" => "https://schema.org",
+      "@type" => "Service",
+      "name" => "AI Overview Optimization",
+      "description" => $pageDesc,
+      "provider" => [
+        "@type" => "Organization",
+        "name" => "Neural Command LLC",
+        "url" => "https://nrlc.ai"
+      ],
+      "serviceType" => "AI SEO Optimization",
+      "areaServed" => "Global",
+      "url" => $canonical_url,
+      "offers" => [
+        "@type" => "Offer",
+        "name" => "Free Consultation",
+        "price" => "0",
+        "priceCurrency" => "USD",
+        "availability" => "https://schema.org/InStock"
+      ]
+    ]
+  ];
+  ?>
+  <main role="main">
+  <section class="container section">
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h1 class="content-block__title">AI Overview Optimization</h1>
+        </div>
+        <div class="content-block__body">
+          <p class="lead">Optimize your content for Google AI Overviews and AI-powered search experiences. Increase citation rates, improve AI visibility, and surface in AI-generated answers.</p>
+          
+          <h2>What Is AI Overview Optimization?</h2>
+          <p>AI Overview Optimization ensures your content is structured, cited, and surfaced in Google AI Overviews and other AI-powered search experiences. Unlike traditional SEO that targets search rankings, AI Overview Optimization focuses on making your content citable, verifiable, and authoritative for large language models.</p>
+          
+          <h3>How AI Overviews Work</h3>
+          <p>Google AI Overviews use large language models to generate direct answers from web content. These models prioritize:</p>
+          <ul>
+            <li><strong>Structured Data:</strong> Content marked up with JSON-LD schema (Article, FAQPage, HowTo, etc.)</li>
+            <li><strong>Verifiability:</strong> Clear citations, sources, and factual claims</li>
+            <li><strong>Completeness:</strong> Comprehensive answers that address the full query</li>
+            <li><strong>Authority:</strong> Content from trusted, authoritative sources</li>
+            <li><strong>Freshness:</strong> Recent publication dates and regular updates</li>
+          </ul>
+          
+          <h3>Our Approach</h3>
+          <p>NRLC.ai implements the GEO-16 framework for AI Overview Optimization:</p>
+          <ul>
+            <li><strong>Structured Data Implementation:</strong> Comprehensive JSON-LD schema markup for all content types</li>
+            <li><strong>Content Optimization:</strong> Rewrite content for AI citation with clear facts, sources, and structure</li>
+            <li><strong>Technical SEO:</strong> Ensure proper rendering, canonical URLs, and metadata for AI crawlers</li>
+            <li><strong>Citation Readiness:</strong> Format content for easy extraction and citation by AI models</li>
+            <li><strong>Monitoring & Measurement:</strong> Track AI Overview appearances and citation rates</li>
+          </ul>
+          
+          <h3>Key Benefits</h3>
+          <ul>
+            <li>Increase visibility in Google AI Overviews and AI-powered search</li>
+            <li>Improve citation rates from AI answer engines</li>
+            <li>Surface in AI-generated answers across ChatGPT, Perplexity, Claude, and other LLMs</li>
+            <li>Build authority and trust signals for AI systems</li>
+            <li>Future-proof your SEO strategy for AI-first search</li>
+          </ul>
+          
+          <h3>Implementation Process</h3>
+          <ol>
+            <li><strong>Audit:</strong> Analyze current content structure, schema markup, and AI visibility</li>
+            <li><strong>Strategy:</strong> Develop AI Overview optimization plan based on GEO-16 framework</li>
+            <li><strong>Implementation:</strong> Add structured data, optimize content, and improve technical signals</li>
+            <li><strong>Testing:</strong> Validate schema markup and test AI Overview appearance</li>
+            <li><strong>Monitoring:</strong> Track AI Overview citations and optimize based on performance</li>
+          </ol>
+          
+          <h3>Related Services</h3>
+          <p>AI Overview Optimization works best when combined with:</p>
+          <ul>
+            <li><a href="/services/llm-seeding/">LLM Seeding & Citation Readiness</a> — Prepare content for AI citation</li>
+            <li><a href="/services/json-ld-strategy/">JSON-LD & Structured Data Strategy</a> — Implement comprehensive schema markup</li>
+            <li><a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> — Ensure technical SEO for AI crawlers</li>
+          </ul>
+          
+          <div class="btn-group text-center" style="margin-top: var(--spacing-32);">
+            <button type="button" class="btn btn--primary" onclick="openContactSheet('AI Overview Optimization')">Schedule Consultation</button>
+            <a href="/services/" class="btn">View All Services</a>
+            <a href="/insights/google-llms-txt-ai-seo/" class="btn">Learn About LLMs.txt</a>
+          </div>
+        </div>
+      </div>
+  </section>
+  </main>
+  <?php
+  exit; // Exit early for AI Overview Optimization
+}
+
 // Default service page with city selection
 $domain = 'https://nrlc.ai';
-$canonical_url = $domain . '/services/' . $service . '/';
+
+// Use exact canonical URL from Pages.csv if available
+$enhancement = get_service_enhancement($service, '');
+$canonical_url = $enhancement['canonical'] ?? ($domain . '/services/' . $service . '/');
 
 $GLOBALS['__jsonld'] = [
   [
@@ -256,26 +414,14 @@ $GLOBALS['__jsonld'] = [
     "@context" => "https://schema.org",
     "@type" => "Service",
     "name" => $serviceName,
-    "description" => "Professional $serviceName implementation with localized expertise and support across multiple cities.",
+    "serviceType" => get_service_type_from_slug($service),
     "provider" => [
       "@type" => "Organization",
-      "name" => "NRLC.ai",
+      "name" => "Neural Command LLC",
       "url" => "https://nrlc.ai"
     ],
-    "serviceType" => "AI-First SEO Services",
-    "areaServed" => [
-      ["@type" => "City", "name" => "New York"],
-      ["@type" => "City", "name" => "London"],
-      ["@type" => "City", "name" => "San Francisco"],
-      ["@type" => "City", "name" => "Toronto"]
-    ],
-    "offers" => [
-      "@type" => "Offer",
-      "name" => "Free Consultation",
-      "price" => "0",
-      "priceCurrency" => "USD",
-      "availability" => "https://schema.org/InStock"
-    ]
+    "areaServed" => "Global",
+    "url" => $canonical_url
   ]
 ];
 ?>
@@ -289,7 +435,16 @@ $GLOBALS['__jsonld'] = [
         <h1 class="content-block__title"><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?></h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Select a city to see localized implementation and pricing for this service.</p>
+        <?php
+        $enhancement = get_service_enhancement($service, '');
+        $intro = $enhancement['intro'] ?? null;
+        $queryAlignedContent = get_query_aligned_content($service, '');
+        ?>
+        <?php if ($intro): ?>
+        <p class="lead"><?= htmlspecialchars($intro) ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
+        <?php else: ?>
+        <p class="lead">Select a city to see localized implementation and pricing for this service.<?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
+        <?php endif; ?>
         <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
       </div>
     </div>
@@ -369,6 +524,35 @@ $GLOBALS['__jsonld'] = [
 
 </section>
 </main>
+
+<?php
+// STEP 5: Internal Linking Repair
+// Detect locale from URL
+$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$locale = '';
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
+  $locale = $matches[1];
+}
+$localePrefix = $locale ? "/$locale" : '';
+
+// Get related services for lateral linking
+$relatedServices = get_related_services_for_linking($service, $locale);
+?>
+
+<!-- STEP 5: Related Services Footer Block -->
+<section class="content-block module">
+  <div class="content-block__header">
+    <h2 class="content-block__title">Related Services</h2>
+  </div>
+  <div class="content-block__body">
+    <ul>
+      <?php foreach ($relatedServices as $related): ?>
+      <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+    <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a></p>
+  </div>
+</section>
 
 <?php
 // LINKING KERNEL: Add required internal links

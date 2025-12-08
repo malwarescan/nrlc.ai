@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/newfaq';
-$GLOBALS['pageTitle'] = 'NEWFAQ — Sentient FAQ + Business Intelligence Engine | NRLC.ai';
+$GLOBALS['pageTitle'] = 'Self-Optimizing FAQ System with Real-Time Intelligence';
 $GLOBALS['pageDesc'] = 'Self-expanding, self-optimizing FAQ system that learns from customer queries, generates breakthrough SEO visibility, and provides real-time business intelligence.';
 
 // Build comprehensive schemas

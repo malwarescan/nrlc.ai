@@ -1,0 +1,85 @@
+# GOOGLE INDEXING QUICK REFERENCE - NRLC.ai
+# Copy-paste these URLs into Google Search Console URL Inspection Tool
+
+# ============================================
+# TIER 1: CRITICAL PAGES (Request Indexing Immediately)
+# ============================================
+
+https://nrlc.ai/
+https://nrlc.ai/en-us/
+https://nrlc.ai/en-us/promptware/
+https://nrlc.ai/en-us/promptware/seo-enhancement-kernel/
+https://nrlc.ai/promptware/seo-enhancement-kernel/
+https://nrlc.ai/en-us/promptware/json-stream-seo-ai/
+https://nrlc.ai/en-us/promptware/llm-data-to-citation/
+https://nrlc.ai/en-us/services/
+https://nrlc.ai/en-us/services/crawl-clarity/
+https://nrlc.ai/en-us/services/json-ld-strategy/
+https://nrlc.ai/en-us/services/llm-seeding/
+https://nrlc.ai/en-us/services/ai-overview-optimization/
+https://nrlc.ai/en-us/products/
+https://nrlc.ai/en-us/products/data-but-structured/
+https://nrlc.ai/en-us/products/croutons-ai/
+https://nrlc.ai/en-us/products/precogs/
+https://nrlc.ai/en-us/products/newfaq/
+https://nrlc.ai/en-us/insights/
+https://nrlc.ai/en-us/insights/geo16-introduction/
+
+# ============================================
+# TIER 2: HIGH-VALUE LOCATION PAGES (Request Within 24 Hours)
+# ============================================
+
+https://nrlc.ai/en-us/services/crawl-clarity/new-york/
+https://nrlc.ai/en-us/services/crawl-clarity/london/
+https://nrlc.ai/en-us/services/crawl-clarity/seattle/
+https://nrlc.ai/en-us/services/crawl-clarity/san-francisco/
+https://nrlc.ai/en-us/services/crawl-clarity/los-angeles/
+https://nrlc.ai/en-us/services/json-ld-strategy/new-york/
+https://nrlc.ai/en-us/services/json-ld-strategy/london/
+https://nrlc.ai/en-us/services/json-ld-strategy/seattle/
+https://nrlc.ai/en-us/services/llm-seeding/new-york/
+https://nrlc.ai/en-us/services/llm-seeding/london/
+https://nrlc.ai/en-us/services/llm-seeding/seoul/
+
+# ============================================
+# TIER 3: CATALOG PAGES (Submit Sitemap, Let Google Crawl)
+# ============================================
+
+https://nrlc.ai/en-us/catalog/
+https://nrlc.ai/en-us/catalog/crawl-clarity-engineering/
+https://nrlc.ai/en-us/catalog/json-ld-strategy/
+https://nrlc.ai/en-us/catalog/llm-seeding/
+https://nrlc.ai/en-us/catalog/data-but-structured/
+https://nrlc.ai/en-us/catalog/croutons-ai/
+https://nrlc.ai/en-us/catalog/precogs/
+https://nrlc.ai/en-us/catalog/newfaq/
+
+# ============================================
+# SITEMAPS (Submit to Google Search Console)
+# ============================================
+
+https://nrlc.ai/sitemaps/sitemap-index.xml
+https://nrlc.ai/sitemaps/pages-1.xml
+https://nrlc.ai/sitemaps/services-1.xml
+https://nrlc.ai/sitemaps/products-1.xml
+https://nrlc.ai/sitemaps/insights-1.xml
+https://nrlc.ai/sitemaps/promptware-1.xml
+
+# ============================================
+# GOOGLE SEARCH CONSOLE ACTIONS
+# ============================================
+
+# 1. Submit Sitemap:
+#    https://nrlc.ai/sitemaps/sitemap-index.xml
+#
+# 2. Use URL Inspection Tool for Tier 1 URLs:
+#    https://search.google.com/search-console
+#    - Enter each Tier 1 URL
+#    - Click "Request Indexing"
+#    - Wait 24-48 hours
+#
+# 3. Monitor Coverage Report:
+#    - Check for indexing errors
+#    - Fix any crawl issues
+#    - Resubmit after fixes
+

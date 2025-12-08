@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/neural-command-os';
-$GLOBALS['pageTitle'] = 'Neural Command OS — AI Search & Agentic Platform Backbone | NRLC.ai';
+$GLOBALS['pageTitle'] = 'Agentic SEO Platform Backbone for Enterprise AI Systems';
 $GLOBALS['pageDesc'] = 'Universal operating system powering agentic SEO, schema generation, authority scoring, LLM visibility modeling, and semantic linking across all products.';
 
 // Build comprehensive schemas

@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/data-but-structured';
-$GLOBALS['pageTitle'] = 'Data, But Structured — Foundational Book | NRLC.ai';
+$GLOBALS['pageTitle'] = 'Structured Knowledge & Micro-Fact Cognition Guide Book';
 $GLOBALS['pageDesc'] = 'The foundational text defining structured knowledge, micro-fact cognition, agentic search, data ontology, AI visibility, and schema literacy.';
 
 // Build comprehensive schemas
