@@ -1,8 +1,11 @@
 <?php
+// Set unique metadata for products overview hub (BEFORE head.php)
+$GLOBALS['__page_slug'] = 'products/index';
+$GLOBALS['pageTitle'] = "AI SEO Products & Service Suite – Visibility Tools";
+$GLOBALS['pageDesc'] = "Explore AI-powered SEO products and services from Neural Command. Improve search visibility, structured data accuracy, and ranking performance.";
+
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
-
-$GLOBALS['__page_slug'] = 'products/index';
 ?>
 
 <main role="main" class="container">
@@ -121,25 +124,108 @@ $GLOBALS['__page_slug'] = 'products/index';
 </main>
 
 <?php
-// JSON-LD Schema
+// JSON-LD Schema - ItemList for Product/Service Overview Hub
+require_once __DIR__ . '/../../lib/helpers.php';
+$domain = 'https://nrlc.ai';
+$canonicalUrl = absolute_url('/products/');
+
 $jsonld = [
   [
     "@context" => "https://schema.org",
-    "@type" => "CollectionPage",
-    "name" => "Products",
-    "description" => "Complete product ecosystem for structured knowledge, AI visibility, and agentic intelligence",
-    "url" => "https://nrlc.ai/products/",
-    "mainEntity" => [
-      "@type" => "ItemList",
-      "itemListElement" => [
-        ["@type" => "ListItem", "position" => 1, "item" => ["@type" => "Book", "name" => "Data, But Structured"]],
-        ["@type" => "ListItem", "position" => 2, "item" => ["@type" => "SoftwareApplication", "name" => "Applicants.io"]],
-        ["@type" => "ListItem", "position" => 3, "item" => ["@type" => "SoftwareApplication", "name" => "OurCasa.ai"]],
-        ["@type" => "ListItem", "position" => 4, "item" => ["@type" => "SoftwareApplication", "name" => "Croutons.ai"]],
-        ["@type" => "ListItem", "position" => 5, "item" => ["@type" => "SoftwareApplication", "name" => "Precogs"]],
-        ["@type" => "ListItem", "position" => 6, "item" => ["@type" => "SoftwareApplication", "name" => "Googlebot Renderer Lab"]],
-        ["@type" => "ListItem", "position" => 7, "item" => ["@type" => "SoftwareApplication", "name" => "NEWFAQ"]],
-        ["@type" => "ListItem", "position" => 8, "item" => ["@type" => "SoftwareApplication", "name" => "Neural Command OS"]]
+    "@type" => "ItemList",
+    "name" => "AI SEO Products & Services",
+    "description" => "Overview of Neural Command's suite of AI SEO tools and services.",
+    "url" => $canonicalUrl,
+    "numberOfItems" => 8,
+    "itemListElement" => [
+      [
+        "@type" => "ListItem",
+        "position" => 1,
+        "name" => "Data, But Structured",
+        "url" => $domain . "/products/data-but-structured/",
+        "description" => "Foundational book defining structured knowledge, micro-fact cognition, agentic search, data ontology, AI visibility, and schema literacy."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 2,
+        "name" => "Applicants.io",
+        "url" => $domain . "/products/applicants-io/",
+        "description" => "AI recruiting platform with JobPosting schema automation, Google Jobs indexing, resume crawling, and AI-driven applicant ranking."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 3,
+        "name" => "OurCasa.ai",
+        "url" => $domain . "/products/ourcasa-ai/",
+        "description" => "Home and neighborhood intelligence graph with property cognition, weather risk mapping, local incident history, and maintenance prediction."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 4,
+        "name" => "Croutons.ai",
+        "url" => $domain . "/products/croutons-ai/",
+        "description" => "Micro-fact data atomization engine converting HTML, PDFs, CSVs, NDJSON streams, and APIs into machine-verifiable truth infrastructure."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 5,
+        "name" => "Precogs",
+        "url" => $domain . "/products/precogs/",
+        "description" => "Ontological oracle intelligence engine with predictive reasoning, multi-domain cognition, temporal simulation, and real-time agentic intelligence."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 6,
+        "name" => "Googlebot Renderer Lab",
+        "url" => $domain . "/products/googlebot-renderer-lab/",
+        "description" => "Real Googlebot DOM simulation solving hydration failures, CSR/SSR drift, and crawl-time abort replication for modern SEO diagnostics."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 7,
+        "name" => "NEWFAQ",
+        "url" => $domain . "/products/newfaq/",
+        "description" => "Sentient FAQ and business intelligence engine that learns from queries, expands dynamically, and generates breakthrough SEO visibility."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 8,
+        "name" => "Neural Command OS",
+        "url" => $domain . "/products/neural-command-os/",
+        "description" => "Universal operating system powering agentic SEO, schema generation, authority scoring, LLM visibility modeling, and semantic linking."
+      ]
+    ]
+  ],
+  [
+    "@context" => "https://schema.org",
+    "@type" => "WebPage",
+    "@id" => $canonicalUrl . '#webpage',
+    "name" => "AI SEO Products & Service Suite",
+    "url" => $canonicalUrl,
+    "description" => "Explore AI-powered SEO products and services from Neural Command. Improve search visibility, structured data accuracy, and ranking performance.",
+    "isPartOf" => [
+      "@type" => "WebSite",
+      "@id" => $domain . '/#website',
+      "name" => "NRLC.ai",
+      "url" => $domain
+    ]
+  ],
+  [
+    "@context" => "https://schema.org",
+    "@type" => "BreadcrumbList",
+    "@id" => $canonicalUrl . '#breadcrumb',
+    "itemListElement" => [
+      [
+        "@type" => "ListItem",
+        "position" => 1,
+        "name" => "Home",
+        "item" => $domain . "/"
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 2,
+        "name" => "Products",
+        "item" => $canonicalUrl
       ]
     ]
   ]
