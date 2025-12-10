@@ -11,6 +11,7 @@ function product_universal_schemas(string $productSlug, string $productName, str
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/' . $productSlug . '/';
   $productId = $productUrl . '#product';
+  $returnPolicyId = $baseUrl . '#returnPolicy';
   
   return [
     // WebSite
@@ -103,10 +104,53 @@ function product_universal_schemas(string $productSlug, string $productName, str
       'availability' => 'https://schema.org/InStock',
       'priceCurrency' => 'USD',
       'price' => '0',
+      'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
+      'shippingDetails' => [
+        '@type' => 'OfferShippingDetails',
+        'shippingRate' => [
+          '@type' => 'MonetaryAmount',
+          'value' => '0',
+          'currency' => 'USD'
+        ],
+        'deliveryTime' => [
+          '@type' => 'ShippingDeliveryTime',
+          'handlingTime' => [
+            '@type' => 'QuantitativeValue',
+            'minValue' => 0,
+            'maxValue' => 0,
+            'unitCode' => 'DAY'
+          ],
+          'transitTime' => [
+            '@type' => 'QuantitativeValue',
+            'minValue' => 0,
+            'maxValue' => 0,
+            'unitCode' => 'DAY'
+          ]
+        ],
+        'shippingDestination' => [
+          '@type' => 'DefinedRegion',
+          'addressCountry' => 'US'
+        ]
+      ],
+      'hasMerchantReturnPolicy' => [
+        '@id' => $returnPolicyId
+      ],
       'seller' => [
         '@type' => 'Organization',
         'name' => 'Neural Command'
       ]
+    ],
+    
+    // MerchantReturnPolicy
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'MerchantReturnPolicy',
+      '@id' => $returnPolicyId,
+      'applicableCountry' => 'US',
+      'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      'merchantReturnDays' => 30,
+      'returnMethod' => 'https://schema.org/ReturnByMail',
+      'returnFees' => 'https://schema.org/FreeReturn'
     ],
     
     // Brand
@@ -153,6 +197,50 @@ function product_platform_schemas(string $productSlug, string $productName, stri
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/' . $productSlug . '/';
   $productId = $productUrl . '#product';
+  $returnPolicyId = $baseUrl . '#returnPolicy';
+  
+  $offerSchema = [
+    '@type' => 'Offer',
+    'availability' => 'https://schema.org/InStock',
+    'priceCurrency' => 'USD',
+    'price' => '0',
+    'url' => $productUrl,
+    'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
+    'shippingDetails' => [
+      '@type' => 'OfferShippingDetails',
+      'shippingRate' => [
+        '@type' => 'MonetaryAmount',
+        'value' => '0',
+        'currency' => 'USD'
+      ],
+      'deliveryTime' => [
+        '@type' => 'ShippingDeliveryTime',
+        'handlingTime' => [
+          '@type' => 'QuantitativeValue',
+          'minValue' => 0,
+          'maxValue' => 0,
+          'unitCode' => 'DAY'
+        ],
+        'transitTime' => [
+          '@type' => 'QuantitativeValue',
+          'minValue' => 0,
+          'maxValue' => 0,
+          'unitCode' => 'DAY'
+        ]
+      ],
+      'shippingDestination' => [
+        '@type' => 'DefinedRegion',
+        'addressCountry' => 'US'
+      ]
+    ],
+    'hasMerchantReturnPolicy' => [
+      '@id' => $returnPolicyId
+    ],
+    'seller' => [
+      '@type' => 'Organization',
+      'name' => 'Neural Command'
+    ]
+  ];
   
   return [
     // SoftwareApplication
@@ -165,17 +253,7 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'url' => $productUrl,
       'applicationCategory' => $applicationCategory,
       'operatingSystem' => 'Web',
-      'offers' => [
-        '@type' => 'Offer',
-        'availability' => 'https://schema.org/InStock',
-        'priceCurrency' => 'USD',
-        'price' => '0',
-        'url' => $productUrl,
-        'seller' => [
-          '@type' => 'Organization',
-          'name' => 'Neural Command'
-        ]
-      ],
+      'offers' => $offerSchema,
       'featureList' => $features,
       'provider' => [
         '@type' => 'Organization',
@@ -196,17 +274,7 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'browserRequirements' => 'Requires JavaScript. Requires HTML5.',
       'applicationCategory' => $applicationCategory,
       'operatingSystem' => 'Any',
-      'offers' => [
-        '@type' => 'Offer',
-        'availability' => 'https://schema.org/InStock',
-        'priceCurrency' => 'USD',
-        'price' => '0',
-        'url' => $productUrl,
-        'seller' => [
-          '@type' => 'Organization',
-          'name' => 'Neural Command'
-        ]
-      ]
+      'offers' => $offerSchema
     ],
     
     // Service
@@ -222,17 +290,7 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       ],
       'areaServed' => 'Worldwide',
       'serviceType' => $productName,
-      'offers' => [
-        '@type' => 'Offer',
-        'availability' => 'https://schema.org/InStock',
-        'priceCurrency' => 'USD',
-        'price' => '0',
-        'url' => $productUrl,
-        'seller' => [
-          '@type' => 'Organization',
-          'name' => 'Neural Command'
-        ]
-      ]
+      'offers' => $offerSchema
     ],
     
     // TechArticle
@@ -257,6 +315,18 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'about' => [
         '@id' => $productId
       ]
+    ],
+    
+    // MerchantReturnPolicy
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'MerchantReturnPolicy',
+      '@id' => $returnPolicyId,
+      'applicableCountry' => 'US',
+      'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      'merchantReturnDays' => 30,
+      'returnMethod' => 'https://schema.org/ReturnByMail',
+      'returnFees' => 'https://schema.org/FreeReturn'
     ]
   ];
 }
@@ -522,10 +592,22 @@ function newfaq_schemas(): array {
       'mainEntity' => [
         '@type' => 'Question',
         'name' => 'How does NEWFAQ improve SEO?',
+        'datePublished' => '2024-01-01',
+        'author' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command'
+        ],
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'NEWFAQ creates SEO-optimized pages for location-specific questions, address-intent queries, and hyper-niche questions with no existing competition, delivering instant indexing and long-tail traffic capture.'
-        ]
+          'text' => 'NEWFAQ creates SEO-optimized pages for location-specific questions, address-intent queries, and hyper-niche questions with no existing competition, delivering instant indexing and long-tail traffic capture.',
+          'datePublished' => '2024-01-01',
+          'author' => [
+            '@type' => 'Organization',
+            'name' => 'Neural Command'
+          ],
+          'url' => $productUrl . '#answer'
+        ],
+        'answerCount' => 1
       ]
     ],
     
