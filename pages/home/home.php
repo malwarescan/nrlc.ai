@@ -16,6 +16,22 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
 <section class="section">
   <div class="section__content">
 
+    <!-- Prompt Surface Intelligence Hero Section -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">See What Prompts Your Website Actually Surfaces For</h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead">
+          Search has shifted to AI-driven prompts, rewrites, and intent modeling. Prompt Surface Intelligence reveals the real conversational inputs—proto-prompts, AI rewrites, and semantic variants—that determine whether your site appears in Google AI Overviews, ChatGPT, Claude, and Perplexity.
+        </p>
+        <div class="btn-group">
+          <a href="/products/prompt-surface-intelligence/" class="btn btn--primary">View Product</a>
+          <button type="button" class="btn" onclick="openContactSheet('Prompt Surface Intelligence Audit')">Request Audit</button>
+        </div>
+      </div>
+    </div>
+
     <!-- LLMs.txt Hero Section -->
     <div class="content-block module">
       <div class="content-block__header">

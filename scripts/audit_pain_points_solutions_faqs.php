@@ -145,3 +145,4 @@ file_put_contents(__DIR__ . '/../logs/pain_points_faq_audit.json', json_encode($
 echo "\n✅ Report saved to logs/pain_points_faq_audit.json\n";
 
 
+

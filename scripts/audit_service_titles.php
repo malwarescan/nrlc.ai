@@ -105,3 +105,4 @@ if (!empty($issues)) {
   echo "✅ No issues found. All service titles are optimized.\n";
 }
 
+

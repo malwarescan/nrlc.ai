@@ -1,8 +1,8 @@
 <?php
 // Set unique metadata for products overview hub (BEFORE head.php)
 $GLOBALS['__page_slug'] = 'products/index';
-$GLOBALS['pageTitle'] = "AI SEO Products & Service Suite – Visibility Tools";
-$GLOBALS['pageDesc'] = "Explore AI-powered SEO products and services from Neural Command. Improve search visibility, structured data accuracy, and ranking performance.";
+$GLOBALS['pageTitle'] = "NRLC Products | AI Search Visibility, Schema Tools, and Agentic SEO Systems";
+$GLOBALS['pageDesc'] = "Explore NRLC's suite of AI-driven search visibility tools including Prompt Surface Intelligence, Schema Reverse Engineering, Authority Tracking, and Agentic SEO systems.";
 
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
@@ -100,6 +100,15 @@ require_once __DIR__ . '/../../templates/header.php';
             </div>
           </div>
 
+          <!-- Prompt Surface Intelligence -->
+          <div class="content-block">
+            <h3 class="content-block__title">Prompt Surface Intelligence</h3>
+            <p>Identify the real prompts your website appears in across Google, AI Overviews, ChatGPT, Claude, and Perplexity.</p>
+            <div class="btn-group">
+              <a href="/products/prompt-surface-intelligence/" class="btn">Learn More</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -136,7 +145,7 @@ $jsonld = [
     "name" => "AI SEO Products & Services",
     "description" => "Overview of Neural Command's suite of AI SEO tools and services.",
     "url" => $canonicalUrl,
-    "numberOfItems" => 8,
+    "numberOfItems" => 9,
     "itemListElement" => [
       [
         "@type" => "ListItem",
@@ -193,6 +202,13 @@ $jsonld = [
         "name" => "Neural Command OS",
         "url" => $domain . "/products/neural-command-os/",
         "description" => "Universal operating system powering agentic SEO, schema generation, authority scoring, LLM visibility modeling, and semantic linking."
+      ],
+      [
+        "@type" => "ListItem",
+        "position" => 9,
+        "name" => "Prompt Surface Intelligence",
+        "url" => $domain . "/products/prompt-surface-intelligence/",
+        "description" => "Identify the real prompts your website appears in across Google, AI Overviews, ChatGPT, Claude, and Perplexity."
       ]
     ]
   ],
