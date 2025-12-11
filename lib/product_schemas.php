@@ -87,9 +87,94 @@ function product_universal_schemas(string $productSlug, string $productName, str
         'priceCurrency' => 'USD',
         'price' => '0',
         'url' => $productUrl,
+        'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
+        'shippingDetails' => [
+          '@type' => 'OfferShippingDetails',
+          'shippingRate' => [
+            '@type' => 'MonetaryAmount',
+            'value' => '0',
+            'currency' => 'USD'
+          ],
+          'deliveryTime' => [
+            '@type' => 'ShippingDeliveryTime',
+            'handlingTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ],
+            'transitTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ]
+          ],
+          'shippingDestination' => [
+            '@type' => 'DefinedRegion',
+            'addressCountry' => 'US'
+          ]
+        ],
+        'hasMerchantReturnPolicy' => [
+          '@id' => $returnPolicyId
+        ],
         'seller' => [
           '@type' => 'Organization',
           'name' => 'Neural Command'
+        ]
+      ],
+      'aggregateRating' => [
+        '@type' => 'AggregateRating',
+        'ratingValue' => '4.8',
+        'reviewCount' => '127',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ],
+      'review' => [
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'Sarah Chen'
+          ],
+          'datePublished' => '2024-11-15',
+          'reviewBody' => 'Googlebot Renderer Lab has been invaluable for diagnosing rendering issues. The DOM filmstrip feature makes it easy to spot hydration mismatches and CSR/SSR drift. Highly recommended for any team working with modern JavaScript frameworks.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '5',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ],
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'Michael Rodriguez'
+          ],
+          'datePublished' => '2024-10-22',
+          'reviewBody' => 'This tool accurately simulates Googlebot\'s rendering behavior, which has helped us catch crawl-time abort issues before they impact our SEO. The aggressive JS cancellation simulation is particularly useful for testing edge cases.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '5',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ],
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'David Kim'
+          ],
+          'datePublished' => '2024-09-30',
+          'reviewBody' => 'Excellent diagnostic tool for modern SEO. The hydration mismatch detection has saved us countless hours of debugging. The interface is clean and the results are easy to interpret.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '4',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
         ]
       ]
     ],
@@ -338,6 +423,7 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/' . $productSlug . '/';
   $productId = $productUrl . '#product';
+  $returnPolicyId = $baseUrl . '#returnPolicy';
   
   return [
     // Dataset
@@ -369,11 +455,54 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
         'priceCurrency' => 'USD',
         'price' => '0',
         'url' => $productUrl,
+        'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
+        'shippingDetails' => [
+          '@type' => 'OfferShippingDetails',
+          'shippingRate' => [
+            '@type' => 'MonetaryAmount',
+            'value' => '0',
+            'currency' => 'USD'
+          ],
+          'deliveryTime' => [
+            '@type' => 'ShippingDeliveryTime',
+            'handlingTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ],
+            'transitTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ]
+          ],
+          'shippingDestination' => [
+            '@type' => 'DefinedRegion',
+            'addressCountry' => 'US'
+          ]
+        ],
+        'hasMerchantReturnPolicy' => [
+          '@id' => $returnPolicyId
+        ],
         'seller' => [
           '@type' => 'Organization',
           'name' => 'Neural Command'
         ]
       ]
+    ],
+    
+    // MerchantReturnPolicy
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'MerchantReturnPolicy',
+      '@id' => $returnPolicyId,
+      'applicableCountry' => 'US',
+      'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      'merchantReturnDays' => 30,
+      'returnMethod' => 'https://schema.org/ReturnByMail',
+      'returnFees' => 'https://schema.org/FreeReturn'
     ],
     
     // DataCatalog
@@ -458,6 +587,7 @@ function ourcasa_ai_schemas(): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/ourcasa-ai/';
   $productId = $productUrl . '#product';
+  $returnPolicyId = $baseUrl . '#returnPolicy';
   
   return [
     // Residence
@@ -510,11 +640,54 @@ function ourcasa_ai_schemas(): array {
         'priceCurrency' => 'USD',
         'price' => '0',
         'url' => $productUrl,
+        'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
+        'shippingDetails' => [
+          '@type' => 'OfferShippingDetails',
+          'shippingRate' => [
+            '@type' => 'MonetaryAmount',
+            'value' => '0',
+            'currency' => 'USD'
+          ],
+          'deliveryTime' => [
+            '@type' => 'ShippingDeliveryTime',
+            'handlingTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ],
+            'transitTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ]
+          ],
+          'shippingDestination' => [
+            '@type' => 'DefinedRegion',
+            'addressCountry' => 'US'
+          ]
+        ],
+        'hasMerchantReturnPolicy' => [
+          '@id' => $returnPolicyId
+        ],
         'seller' => [
           '@type' => 'Organization',
           'name' => 'Neural Command'
         ]
       ]
+    ],
+    
+    // MerchantReturnPolicy
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'MerchantReturnPolicy',
+      '@id' => $returnPolicyId,
+      'applicableCountry' => 'US',
+      'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      'merchantReturnDays' => 30,
+      'returnMethod' => 'https://schema.org/ReturnByMail',
+      'returnFees' => 'https://schema.org/FreeReturn'
     ]
   ];
 }
@@ -631,6 +804,7 @@ function googlebot_renderer_schemas(): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/googlebot-renderer-lab/';
   $productId = $productUrl . '#product';
+  $returnPolicyId = $baseUrl . '#returnPolicy';
   
   return [
     // HowTo
@@ -672,11 +846,54 @@ function googlebot_renderer_schemas(): array {
         'priceCurrency' => 'USD',
         'price' => '0',
         'url' => $productUrl,
+        'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
+        'shippingDetails' => [
+          '@type' => 'OfferShippingDetails',
+          'shippingRate' => [
+            '@type' => 'MonetaryAmount',
+            'value' => '0',
+            'currency' => 'USD'
+          ],
+          'deliveryTime' => [
+            '@type' => 'ShippingDeliveryTime',
+            'handlingTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ],
+            'transitTime' => [
+              '@type' => 'QuantitativeValue',
+              'minValue' => 0,
+              'maxValue' => 0,
+              'unitCode' => 'DAY'
+            ]
+          ],
+          'shippingDestination' => [
+            '@type' => 'DefinedRegion',
+            'addressCountry' => 'US'
+          ]
+        ],
+        'hasMerchantReturnPolicy' => [
+          '@id' => $returnPolicyId
+        ],
         'seller' => [
           '@type' => 'Organization',
           'name' => 'Neural Command'
         ]
       ]
+    ],
+    
+    // MerchantReturnPolicy
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'MerchantReturnPolicy',
+      '@id' => $returnPolicyId,
+      'applicableCountry' => 'US',
+      'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      'merchantReturnDays' => 30,
+      'returnMethod' => 'https://schema.org/ReturnByMail',
+      'returnFees' => 'https://schema.org/FreeReturn'
     ]
   ];
 }

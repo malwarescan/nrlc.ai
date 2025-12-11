@@ -26,7 +26,7 @@ $latest_insights = array_slice($insights, -4); // Get last 4 insights
           Search has shifted to AI-driven prompts, rewrites, and intent modeling. Prompt Surface Intelligence reveals the real conversational inputs—proto-prompts, AI rewrites, and semantic variants—that determine whether your site appears in Google AI Overviews, ChatGPT, Claude, and Perplexity.
         </p>
         <div class="btn-group">
-          <a href="/products/prompt-surface-intelligence/" class="btn btn--primary">View Product</a>
+          <a href="/products/prompt-surface-intelligence/" class="btn btn--primary">find out how it's done</a>
           <button type="button" class="btn" onclick="openContactSheet('Prompt Surface Intelligence Audit')">Request Audit</button>
         </div>
       </div>
