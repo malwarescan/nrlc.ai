@@ -1,7 +1,8 @@
 <?php
 declare(strict_types=1);
-require_once __DIR__.'/../../templates/head.php';
-require_once __DIR__.'/../../templates/header.php';
+// Note: head.php and header.php are already included by router.php render_page()
+// Do not duplicate them here to avoid double headers
+
 require_once __DIR__.'/../../lib/content_tokens.php';
 require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/helpers.php';
@@ -18,9 +19,22 @@ $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
 $cityTitle = titleCaseCity($citySlug);
 $pageTitle = "$serviceTitle in $cityTitle";
 
+// Set page metadata for head.php (must be set before router includes head.php)
+// This runs when the file is included, so metadata is available to head.php
+$GLOBALS['__page_slug'] = 'services/service_city';
+
 // Try to get enhanced intro from service_enhancements.json
 $enhancement = get_service_enhancement($serviceSlug, $citySlug);
 $enhancedIntro = $enhancement['intro'] ?? null;
+
+// Set page title and description
+$GLOBALS['pageTitle'] = $pageTitle;
+if ($enhancedIntro) {
+  $GLOBALS['pageDesc'] = $enhancedIntro;
+} else {
+  // We'll set this after generating intro, but set a default now
+  $GLOBALS['pageDesc'] = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
+}
 
 $intro   = $enhancedIntro ?? service_long_intro($serviceSlug, $citySlug);
 $local   = local_context_block($citySlug);

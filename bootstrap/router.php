@@ -75,6 +75,29 @@ function route_request(): void {
   if (preg_match('#^/services/([^/]+)/([^/]+)/$#', $path, $m)) {
     $_GET['service'] = $m[1];
     $_GET['city']    = $m[2];
+    
+    // Set metadata before rendering page (so head.php can use it)
+    require_once __DIR__.'/../lib/helpers.php';
+    require_once __DIR__.'/../lib/content_tokens.php';
+    $serviceSlug = $m[1];
+    $citySlug = $m[2];
+    $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
+    $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
+    $GLOBALS['__page_slug'] = 'services/service_city';
+    $GLOBALS['pageTitle'] = "$serviceTitle in $cityTitle";
+    
+    // Try to get enhanced intro for description
+    if (function_exists('get_service_enhancement')) {
+      $enhancement = get_service_enhancement($serviceSlug, $citySlug);
+      if (!empty($enhancement['intro'])) {
+        $GLOBALS['pageDesc'] = $enhancement['intro'];
+      } else {
+        $GLOBALS['pageDesc'] = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
+      }
+    } else {
+      $GLOBALS['pageDesc'] = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
+    }
+    
     render_page('services/service_city');
     return;
   }
