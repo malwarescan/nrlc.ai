@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'Open Source SEO Tools - Free Tools for AI Optimization | ...';
+$GLOBALS['pageDesc'] = 'A comprehensive guide to open-source SEO tools that provide real value for AI-first optimization, including practical implementations and integrations w...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

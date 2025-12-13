@@ -1,4 +1,8 @@
 <?php
+
+$GLOBALS['pageTitle'] = 'AI SEO Integration | NRLC.ai';
+$GLOBALS['pageDesc'] = 'AI SEO Integration. AI SEO services and solutions by NRLC.ai.';
+
 $toolSlug = $_GET['tool'] ?? 'chatgpt';
 $toolName = ucwords(str_replace('-', ' ', $toolSlug));
 

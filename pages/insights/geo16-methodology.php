@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'Research Methodology: Data Collection and Analysis | AI S...';
+$GLOBALS['pageDesc'] = 'Our comprehensive analysis of AI citation behavior involved systematic data collection across multiple engines, rigorous scoring methodology, and statis...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

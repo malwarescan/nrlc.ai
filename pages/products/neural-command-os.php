@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/neural-command-os';
-$GLOBALS['pageTitle'] = 'Agentic SEO Platform Backbone for Enterprise AI Systems';
-$GLOBALS['pageDesc'] = 'Universal operating system powering agentic SEO, schema generation, authority scoring, LLM visibility modeling, and semantic linking across all products.';
+$GLOBALS['pageTitle'] = 'Neural Command OS | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Universal operating system powering all products in the Neural Command ecosystem. AI SEO product by NRLC.ai.';
 
 // Build comprehensive schemas
 $productSlug = 'neural-command-os';
@@ -28,6 +28,7 @@ $features = [
 $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
   product_platform_schemas($productSlug, $productName, $productDescription, $features, 'DeveloperApplication'),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [product_howto_schema($productSlug, $productName)],
   [
     [

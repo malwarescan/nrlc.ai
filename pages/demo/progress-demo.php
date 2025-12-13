@@ -3,6 +3,10 @@ require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 
 $GLOBALS['__page_slug'] = 'demo/progress-demo';
+$GLOBALS['pageTitle'] = 'Progress Indicator Controls | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Demonstration of Windows 98-style progress indicators as specified in Microsoft Windows User Experience guidelines.';
+
+
 ?>
 
 <main role="main">

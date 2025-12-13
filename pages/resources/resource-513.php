@@ -2,6 +2,10 @@
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 
+
+$GLOBALS['pageTitle'] = 'Resource | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Comprehensive  for  optimization, providing actionable insights and practical implementation guidance.';
+
 $resourceNumber = $_GET['resource'] ?? '1';
 $categories = ['Guides', 'Templates', 'Checklists', 'Tools', 'Frameworks', 'Methodologies', 'Best Practices', 'Tutorials', 'References', 'Standards'];
 $category = $categories[($resourceNumber - 1) % count($categories)];

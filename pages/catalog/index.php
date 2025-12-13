@@ -27,6 +27,10 @@ $title='Catalog — Services & Software | '.$brand;
 $desc='Complete catalog of NRLC.ai services and software. Professional AI SEO services, structured data implementation, and open source tools for developers.';
 
 $GLOBALS['__page_slug'] = 'catalog/index';
+$GLOBALS['pageTitle'] = 'Catalog | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Complete catalog of professional services and software tools from NRLC.ai.';
+
+
 $GLOBALS['pageTitle'] = $title;
 $GLOBALS['pageDesc'] = $desc;
 ?>
@@ -287,8 +291,8 @@ $GLOBALS['pageDesc'] = $desc;
       <div class="content-block__body">
         <p class="lead">Need help choosing the right service or tool?</p>
         <div class="btn-group">
-          <a href="sms:+12135628438?body=Interested in catalog items" class="btn btn--primary">Contact Us</a>
-          <a href="/services/" class="btn">View All Services</a>
+          <a href="sms:+12135628438?body=Interested in catalog items" class="btn btn--primary" title="Contact us via SMS about catalog items and services" aria-label="Contact us via SMS">Contact Us</a>
+          <a href="/services/" class="btn" title="View all available services and solutions" aria-label="View all services">View All Services</a>
         </div>
       </div>
     </div>

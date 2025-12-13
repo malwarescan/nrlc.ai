@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'Designing Ontology-Based Search Systems: How Ontology Imp...';
+$GLOBALS['pageDesc'] = 'Ontology-based search systems represent a significant advancement in information retrieval, enabling AI engines to understand content relationships and ...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

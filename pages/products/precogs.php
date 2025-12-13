@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/precogs';
-$GLOBALS['pageTitle'] = 'Ontological Oracle Engine for Predictive AI Reasoning';
-$GLOBALS['pageDesc'] = 'Ontological oracle intelligence engine with predictive reasoning, multi-domain cognition, temporal simulation, and real-time agentic intelligence.';
+$GLOBALS['pageTitle'] = 'Precogs | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Ontological oracle intelligence engine that sits above Croutons.ai, providing predictive reasoning and multi-domain cognition. AI SEO product by NRLC.ai.';
 
 // Build comprehensive schemas
 $productSlug = 'precogs';
@@ -25,6 +25,7 @@ $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
   product_platform_schemas($productSlug, $productName, $productDescription, $features, 'DeveloperApplication'),
   product_dataset_schemas($productSlug, $productName, $productDescription),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [product_howto_schema($productSlug, $productName)]
 );
 

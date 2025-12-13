@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'OCR++ and AI Data Extraction: Turning PDFs into Structure...';
+$GLOBALS['pageDesc'] = 'Advanced OCR++ technologies combined with AI-powered data extraction are revolutionizing how organizations convert unstructured documents into structure...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

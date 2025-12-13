@@ -2,6 +2,10 @@
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 
+
+$GLOBALS['pageTitle'] = 'AI SEO Success Story | NRLC.ai';
+$GLOBALS['pageDesc'] = 'How a  company achieved % increase in AI citations through strategic optimization and GEO-16 framework implementation.';
+
 $caseNumber = $_GET['case'] ?? '1';
 $industries = ['SaaS', 'E-commerce', 'Healthcare', 'Fintech', 'Education', 'Real Estate', 'Legal', 'Automotive', 'Travel', 'Manufacturing'];
 $industry = $industries[($caseNumber - 1) % count($industries)];

@@ -2,6 +2,10 @@
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 
+
+$GLOBALS['pageTitle'] = 'AI SEO Optimization | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Specialized AI optimization strategies for the  industry, designed to maximize visibility in AI-powered search engines and LLM citations.';
+
 $industry = $_GET['industry'] ?? '';
 $industryNames = [
   'healthcare' => 'Healthcare',

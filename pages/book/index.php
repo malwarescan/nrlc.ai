@@ -1,4 +1,6 @@
 <?php
+
+$GLOBALS['pageDesc'] = 'Get expert guidance on implementing the GEO-16 framework, optimizing for AI engines, and improving your LLM citation rates.';
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/schema_builders.php';

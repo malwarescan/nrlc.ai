@@ -1,4 +1,6 @@
 <?php
+
+$GLOBALS['pageDesc'] = 'Ready to build the future of AI-first SEO?';
 require_once __DIR__.'/../../templates/head.php';
 require_once __DIR__.'/../../templates/header.php';
 require_once __DIR__.'/../../lib/helpers.php';

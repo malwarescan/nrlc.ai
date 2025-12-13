@@ -1,6 +1,10 @@
 <?php
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
+
+$GLOBALS['pageTitle'] = 'AI SEO Case Studies & Success Stories | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Real-world examples of AI SEO optimization success, featuring detailed results and implementation strategies.';
+
 ?>
 <section class="window container prose">
   <div class="title-bar">

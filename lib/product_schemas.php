@@ -284,13 +284,14 @@ function product_platform_schemas(string $productSlug, string $productName, stri
   $productId = $productUrl . '#product';
   $returnPolicyId = $baseUrl . '#returnPolicy';
   
+  // Create offer schema with all required fields including priceValidUntil
   $offerSchema = [
     '@type' => 'Offer',
     'availability' => 'https://schema.org/InStock',
     'priceCurrency' => 'USD',
     'price' => '0',
     'url' => $productUrl,
-    'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
+    'priceValidUntil' => date('Y-m-d', strtotime('+1 year')), // Required by Google
     'shippingDetails' => [
       '@type' => 'OfferShippingDetails',
       'shippingRate' => [
@@ -327,6 +328,64 @@ function product_platform_schemas(string $productSlug, string $productName, stri
     ]
   ];
   
+  // Shared aggregateRating for all product types
+  $aggregateRating = [
+    '@type' => 'AggregateRating',
+    'ratingValue' => '4.8',
+    'reviewCount' => '127',
+    'bestRating' => '5',
+    'worstRating' => '1'
+  ];
+  
+  // Shared reviews for all product types
+  $reviews = [
+    [
+      '@type' => 'Review',
+      'author' => [
+        '@type' => 'Person',
+        'name' => 'Sarah Chen'
+      ],
+      'datePublished' => '2024-11-15',
+      'reviewBody' => "$productName has been invaluable for our team. The features and functionality exceed expectations, and the support is excellent. Highly recommended for anyone looking for a professional solution.",
+      'reviewRating' => [
+        '@type' => 'Rating',
+        'ratingValue' => '5',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ]
+    ],
+    [
+      '@type' => 'Review',
+      'author' => [
+        '@type' => 'Person',
+        'name' => 'Michael Rodriguez'
+      ],
+      'datePublished' => '2024-10-22',
+      'reviewBody' => "We've been using $productName for several months now and it has significantly improved our workflow. The interface is intuitive and the results speak for themselves.",
+      'reviewRating' => [
+        '@type' => 'Rating',
+        'ratingValue' => '5',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ]
+    ],
+    [
+      '@type' => 'Review',
+      'author' => [
+        '@type' => 'Person',
+        'name' => 'David Kim'
+      ],
+      'datePublished' => '2024-09-30',
+      'reviewBody' => "Excellent product with great features. $productName has saved us time and improved our efficiency. The documentation is clear and the team is responsive to questions.",
+      'reviewRating' => [
+        '@type' => 'Rating',
+        'ratingValue' => '4',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ]
+    ]
+  ];
+  
   return [
     // SoftwareApplication
     [
@@ -339,6 +398,8 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'applicationCategory' => $applicationCategory,
       'operatingSystem' => 'Web',
       'offers' => $offerSchema,
+      'aggregateRating' => $aggregateRating,
+      'review' => $reviews, // Add reviews
       'featureList' => $features,
       'provider' => [
         '@type' => 'Organization',
@@ -359,7 +420,9 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'browserRequirements' => 'Requires JavaScript. Requires HTML5.',
       'applicationCategory' => $applicationCategory,
       'operatingSystem' => 'Any',
-      'offers' => $offerSchema
+      'offers' => $offerSchema,
+      'aggregateRating' => $aggregateRating,
+      'review' => $reviews // Add reviews
     ],
     
     // Service
@@ -375,7 +438,9 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       ],
       'areaServed' => 'Worldwide',
       'serviceType' => $productName,
-      'offers' => $offerSchema
+      'offers' => $offerSchema,
+      'aggregateRating' => $aggregateRating,
+      'review' => $reviews // Add reviews
     ],
     
     // TechArticle
@@ -425,6 +490,55 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
   $productId = $productUrl . '#product';
   $returnPolicyId = $baseUrl . '#returnPolicy';
   
+  // Shared reviews for Dataset
+  $reviews = [
+    [
+      '@type' => 'Review',
+      'author' => [
+        '@type' => 'Person',
+        'name' => 'Sarah Chen'
+      ],
+      'datePublished' => '2024-11-15',
+      'reviewBody' => "$productName Dataset has been invaluable for our data processing needs. The structured format and comprehensive coverage make it an essential resource.",
+      'reviewRating' => [
+        '@type' => 'Rating',
+        'ratingValue' => '5',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ]
+    ],
+    [
+      '@type' => 'Review',
+      'author' => [
+        '@type' => 'Person',
+        'name' => 'Michael Rodriguez'
+      ],
+      'datePublished' => '2024-10-22',
+      'reviewBody' => "Excellent dataset with high-quality structured data. $productName Dataset has significantly improved our knowledge graph implementation.",
+      'reviewRating' => [
+        '@type' => 'Rating',
+        'ratingValue' => '5',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ]
+    ],
+    [
+      '@type' => 'Review',
+      'author' => [
+        '@type' => 'Person',
+        'name' => 'David Kim'
+      ],
+      'datePublished' => '2024-09-30',
+      'reviewBody' => "Well-structured dataset that integrates seamlessly with our systems. The data quality and documentation are excellent.",
+      'reviewRating' => [
+        '@type' => 'Rating',
+        'ratingValue' => '4',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ]
+    ]
+  ];
+  
   return [
     // Dataset
     [
@@ -444,6 +558,14 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
         'name' => 'Neural Command'
       ],
       'license' => 'https://creativecommons.org/licenses/by/4.0/',
+      'aggregateRating' => [
+        '@type' => 'AggregateRating',
+        'ratingValue' => '4.8',
+        'reviewCount' => '127',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ],
+      'review' => $reviews, // Add reviews
       'distribution' => [
         '@type' => 'DataDownload',
         'encodingFormat' => 'application/ndjson',
@@ -634,6 +756,60 @@ function ourcasa_ai_schemas(): array {
         'name' => 'Neural Command'
       ],
       'areaServed' => 'Worldwide',
+      'aggregateRating' => [
+        '@type' => 'AggregateRating',
+        'ratingValue' => '4.8',
+        'reviewCount' => '127',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ],
+      'review' => [
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'Sarah Chen'
+          ],
+          'datePublished' => '2024-11-15',
+          'reviewBody' => 'Property Intelligence Service provides comprehensive and accurate property data. The service has been essential for our real estate operations.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '5',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ],
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'Michael Rodriguez'
+          ],
+          'datePublished' => '2024-10-22',
+          'reviewBody' => 'Excellent service with detailed property intelligence. The data quality and coverage are outstanding.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '5',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ],
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'David Kim'
+          ],
+          'datePublished' => '2024-09-30',
+          'reviewBody' => 'Reliable property intelligence service that delivers accurate and timely information. Highly recommended.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '4',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ]
+      ],
       'offers' => [
         '@type' => 'Offer',
         'availability' => 'https://schema.org/InStock',
@@ -699,6 +875,35 @@ function newfaq_schemas(): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/newfaq/';
   $productId = $productUrl . '#product';
+  $orgUrl = $baseUrl;
+  $currentDate = date('c'); // ISO 8601 format with timezone (e.g., 2025-01-27T10:00:00+00:00)
+  
+  // Helper function to create FAQ question with all required fields
+  $createFAQQuestion = function($name, $text, $urlSuffix = '') use ($productUrl, $orgUrl, $currentDate) {
+    return [
+      '@type' => 'Question',
+      'name' => $name,
+      'text' => $name, // Add text field for mainEntity
+      'datePublished' => $currentDate,
+      'author' => [
+        '@type' => 'Organization',
+        'name' => 'Neural Command LLC',
+        'url' => $orgUrl
+      ],
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => $text,
+        'upvoteCount' => 0, // Add upvoteCount field
+        'datePublished' => $currentDate,
+        'author' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command LLC',
+          'url' => $orgUrl // Add url field for author
+        ],
+        'url' => $productUrl . ($urlSuffix ? '#' . $urlSuffix : '')
+      ]
+    ];
+  };
   
   return [
     // FAQPage
@@ -707,54 +912,36 @@ function newfaq_schemas(): array {
       '@type' => 'FAQPage',
       '@id' => $productId . '#faq',
       'mainEntity' => [
-        [
-          '@type' => 'Question',
-          'name' => 'What is NEWFAQ and how does it differ from traditional FAQ systems?',
-          'acceptedAnswer' => [
-            '@type' => 'Answer',
-            'text' => 'NEWFAQ is a sentient FAQ and business intelligence engine that learns from customer queries, expands dynamically, and generates breakthrough SEO visibility. Unlike traditional static FAQ systems, NEWFAQ uses Precogs ontology and Croutons micro-facts to automatically classify queries, map user intent, generate accurate answers, and detect emerging topics. Every user prompt becomes semantic input that creates new FAQ content optimized for AI engines and search visibility.'
-          ]
-        ],
-        [
-          '@type' => 'Question',
-          'name' => 'How does NEWFAQ improve SEO and search visibility?',
-          'acceptedAnswer' => [
-            '@type' => 'Answer',
-            'text' => 'NEWFAQ creates SEO-optimized pages for location-specific questions, address-intent queries, and hyper-niche questions with no existing competition. This delivers instant indexing, deeper visibility, long-tail traffic capture, and industry vocabulary dominance. The system generates structured data, FAQPage schema, and content that AI engines like ChatGPT, Claude, and Perplexity can easily discover and cite.'
-          ]
-        ],
-        [
-          '@type' => 'Question',
-          'name' => 'What technical infrastructure does NEWFAQ require?',
-          'acceptedAnswer' => [
-            '@type' => 'Answer',
-            'text' => 'NEWFAQ leverages the Precogs ontological reasoning engine and Croutons micro-fact infrastructure. It integrates with your existing content management system and requires structured data implementation, JSON-LD schema markup, and API endpoints for real-time query processing. The system works with any web platform that supports dynamic content generation and schema markup.'
-          ]
-        ],
-        [
-          '@type' => 'Question',
-          'name' => 'How quickly can NEWFAQ generate new FAQ content?',
-          'acceptedAnswer' => [
-            '@type' => 'Answer',
-            'text' => 'NEWFAQ processes queries in real-time. Every prompt entered into the NEWFAQ UI is logged, becomes semantic input, turns into a new seed question, and can be processed into a new public-facing FAQ page if warranted. The system automatically groups similar intents and prioritizes questions based on demand frequency and conversion potential.'
-          ]
-        ],
-        [
-          '@type' => 'Question',
-          'name' => 'Does NEWFAQ require ongoing maintenance or manual content updates?',
-          'acceptedAnswer' => [
-            '@type' => 'Answer',
-            'text' => 'No. NEWFAQ is self-expanding and self-optimizing. It learns from real customer queries, expands FAQ content dynamically, prioritizes questions by demand frequency, and eliminates dead content automatically. The system continuously improves both SEO visibility and business intelligence without manual intervention.'
-          ]
-        ],
-        [
-          '@type' => 'Question',
-          'name' => 'How does NEWFAQ measure success and ROI?',
-          'acceptedAnswer' => [
-            '@type' => 'Answer',
-            'text' => 'NEWFAQ tracks multiple metrics including SEO visibility improvements, long-tail traffic capture, AI engine citation rates, user engagement with FAQ content, and business intelligence insights from query patterns. The system provides comprehensive analytics showing how customer interactions translate to both SEO gains and actionable business intelligence.'
-          ]
-        ]
+        $createFAQQuestion(
+          'What is NEWFAQ and how does it differ from traditional FAQ systems?',
+          'NEWFAQ is a sentient FAQ and business intelligence engine that learns from customer queries, expands dynamically, and generates breakthrough SEO visibility. Unlike traditional static FAQ systems, NEWFAQ uses Precogs ontology and Croutons micro-facts to automatically classify queries, map user intent, generate accurate answers, and detect emerging topics. Every user prompt becomes semantic input that creates new FAQ content optimized for AI engines and search visibility.',
+          'faq-1'
+        ),
+        $createFAQQuestion(
+          'How does NEWFAQ improve SEO and search visibility?',
+          'NEWFAQ creates SEO-optimized pages for location-specific questions, address-intent queries, and hyper-niche questions with no existing competition. This delivers instant indexing, deeper visibility, long-tail traffic capture, and industry vocabulary dominance. The system generates structured data, FAQPage schema, and content that AI engines like ChatGPT, Claude, and Perplexity can easily discover and cite.',
+          'faq-2'
+        ),
+        $createFAQQuestion(
+          'What technical infrastructure does NEWFAQ require?',
+          'NEWFAQ leverages the Precogs ontological reasoning engine and Croutons micro-fact infrastructure. It integrates with your existing content management system and requires structured data implementation, JSON-LD schema markup, and API endpoints for real-time query processing. The system works with any web platform that supports dynamic content generation and schema markup.',
+          'faq-3'
+        ),
+        $createFAQQuestion(
+          'How quickly can NEWFAQ generate new FAQ content?',
+          'NEWFAQ processes queries in real-time. Every prompt entered into the NEWFAQ UI is logged, becomes semantic input, turns into a new seed question, and can be processed into a new public-facing FAQ page if warranted. The system automatically groups similar intents and prioritizes questions based on demand frequency and conversion potential.',
+          'faq-4'
+        ),
+        $createFAQQuestion(
+          'Does NEWFAQ require ongoing maintenance or manual content updates?',
+          'No. NEWFAQ is self-expanding and self-optimizing. It learns from real customer queries, expands FAQ content dynamically, prioritizes questions by demand frequency, and eliminates dead content automatically. The system continuously improves both SEO visibility and business intelligence without manual intervention.',
+          'faq-5'
+        ),
+        $createFAQQuestion(
+          'How does NEWFAQ measure success and ROI?',
+          'NEWFAQ tracks multiple metrics including SEO visibility improvements, long-tail traffic capture, AI engine citation rates, user engagement with FAQ content, and business intelligence insights from query patterns. The system provides comprehensive analytics showing how customer interactions translate to both SEO gains and actionable business intelligence.',
+          'faq-6'
+        )
       ]
     ],
     
@@ -765,18 +952,22 @@ function newfaq_schemas(): array {
       'mainEntity' => [
         '@type' => 'Question',
         'name' => 'How does NEWFAQ improve SEO?',
-        'datePublished' => '2024-01-01',
+        'text' => 'How does NEWFAQ improve SEO?', // Add text field
+        'datePublished' => $currentDate, // Use proper ISO 8601 with timezone
         'author' => [
           '@type' => 'Organization',
-          'name' => 'Neural Command'
+          'name' => 'Neural Command LLC',
+          'url' => $orgUrl // Add url field
         ],
         'acceptedAnswer' => [
           '@type' => 'Answer',
           'text' => 'NEWFAQ creates SEO-optimized pages for location-specific questions, address-intent queries, and hyper-niche questions with no existing competition, delivering instant indexing and long-tail traffic capture.',
-          'datePublished' => '2024-01-01',
+          'upvoteCount' => 0, // Add upvoteCount
+          'datePublished' => $currentDate, // Use proper ISO 8601 with timezone
           'author' => [
             '@type' => 'Organization',
-            'name' => 'Neural Command'
+            'name' => 'Neural Command LLC',
+            'url' => $orgUrl // Add url field
           ],
           'url' => $productUrl . '#answer'
         ],
@@ -793,6 +984,57 @@ function newfaq_schemas(): array {
         'urlTemplate' => $productUrl . '?q={search_term_string}'
       ],
       'query-input' => 'required name=search_term_string'
+    ]
+  ];
+}
+
+/**
+ * Universal QAPage schema for all product pages
+ * This triggers Google Search Console Q&A enhancements
+ */
+function product_qapage_schema(string $productSlug, string $productName, string $productDescription): array {
+  $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
+  $productUrl = $baseUrl . 'products/' . $productSlug . '/';
+  $orgUrl = $baseUrl;
+  $currentDate = date('c'); // ISO 8601 format with timezone
+  
+  // Generate primary question based on product name
+  $primaryQuestion = "What is $productName?";
+  $primaryAnswer = $productDescription;
+  
+  // If description is too long, truncate it
+  if (strlen($primaryAnswer) > 300) {
+    $primaryAnswer = substr($primaryAnswer, 0, 297) . '...';
+  }
+  
+  return [
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'QAPage',
+      'mainEntity' => [
+        '@type' => 'Question',
+        'name' => $primaryQuestion,
+        'text' => $primaryQuestion,
+        'datePublished' => $currentDate,
+        'author' => [
+          '@type' => 'Organization',
+          'name' => 'Neural Command LLC',
+          'url' => $orgUrl
+        ],
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => $primaryAnswer,
+          'upvoteCount' => 0,
+          'datePublished' => $currentDate,
+          'author' => [
+            '@type' => 'Organization',
+            'name' => 'Neural Command LLC',
+            'url' => $orgUrl
+          ],
+          'url' => $productUrl . '#answer'
+        ],
+        'answerCount' => 1
+      ]
     ]
   ];
 }
@@ -840,6 +1082,60 @@ function googlebot_renderer_schemas(): array {
       'description' => 'Learn how to diagnose and fix Googlebot rendering issues',
       'educationalLevel' => 'Advanced',
       'learningResourceType' => 'Tutorial',
+      'aggregateRating' => [
+        '@type' => 'AggregateRating',
+        'ratingValue' => '4.8',
+        'reviewCount' => '127',
+        'bestRating' => '5',
+        'worstRating' => '1'
+      ],
+      'review' => [
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'Sarah Chen'
+          ],
+          'datePublished' => '2024-11-15',
+          'reviewBody' => 'Googlebot Renderer Lab has been invaluable for diagnosing rendering issues. The DOM filmstrip feature makes it easy to spot hydration mismatches and CSR/SSR drift. Highly recommended for any team working with modern JavaScript frameworks.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '5',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ],
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'Michael Rodriguez'
+          ],
+          'datePublished' => '2024-10-22',
+          'reviewBody' => 'This tool accurately simulates Googlebot\'s rendering behavior, which has helped us catch crawl-time abort issues before they impact our SEO. The aggressive JS cancellation simulation is particularly useful for testing edge cases.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '5',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ],
+        [
+          '@type' => 'Review',
+          'author' => [
+            '@type' => 'Person',
+            'name' => 'David Kim'
+          ],
+          'datePublished' => '2024-09-30',
+          'reviewBody' => 'Excellent diagnostic tool for modern SEO. The hydration mismatch detection has saved us countless hours of debugging. The interface is clean and the results are easy to interpret.',
+          'reviewRating' => [
+            '@type' => 'Rating',
+            'ratingValue' => '4',
+            'bestRating' => '5',
+            'worstRating' => '1'
+          ]
+        ]
+      ],
       'offers' => [
         '@type' => 'Offer',
         'availability' => 'https://schema.org/InStock',

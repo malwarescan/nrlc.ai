@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/data-but-structured';
-$GLOBALS['pageTitle'] = 'Structured Knowledge & Micro-Fact Cognition Guide Book';
-$GLOBALS['pageDesc'] = 'The foundational text defining structured knowledge, micro-fact cognition, agentic search, data ontology, AI visibility, and schema literacy.';
+$GLOBALS['pageTitle'] = 'Data, But Structured | NRLC.ai';
+$GLOBALS['pageDesc'] = 'A comprehensive guide to building AI-first knowledge systems through structured data, semantic markup, and machine-readable content architecture. AI SEO...';
 
 // Build comprehensive schemas
 $productSlug = 'data-but-structured';
@@ -14,6 +14,7 @@ $productDescription = 'The foundational text defining structured knowledge, micr
 
 $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [
     // Book schema
     [

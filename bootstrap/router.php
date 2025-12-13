@@ -187,6 +187,9 @@ function route_request(): void {
   }
 
   if ($path === '/services/') {
+    // Set metadata BEFORE head.php is included (so it's available when head.php renders the <title> tag)
+    $GLOBALS['pageTitle'] = 'The Semantic Infrastructure for the AI Internet | NRLC.ai';
+    $GLOBALS['pageDesc'] = 'NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.';
     render_page('services/index');
     return;
   }
@@ -314,6 +317,54 @@ function route_request(): void {
   echo "Not Found";
 }
 
+/**
+ * Load page metadata from a PHP file before head.php is included
+ * SUDO-POWERED: Enforces metadata alignment with page intent
+ * 
+ * 1. Extracts existing metadata from file
+ * 2. Analyzes page content to determine intent
+ * 3. Validates metadata alignment
+ * 4. Enforces optimal metadata if misaligned
+ */
+function load_page_metadata(string $filePath): void {
+  if (!file_exists($filePath)) {
+    return;
+  }
+  
+  require_once __DIR__.'/../lib/meta_directive.php';
+  
+  $slug = $GLOBALS['__page_slug'] ?? 'home/home';
+  $currentTitle = null;
+  $currentDesc = null;
+  
+  $content = file_get_contents($filePath);
+  
+  // Extract $GLOBALS['pageTitle'] assignments (single quotes)
+  if (preg_match('/\$GLOBALS\s*\[\s*[\'"]pageTitle[\'"]\s*\]\s*=\s*[\']((?:[^\'\\\\]|\\\\.)*)[\']\s*;/s', $content, $matches)) {
+    $currentTitle = stripcslashes($matches[1]);
+  }
+  // Extract $GLOBALS["pageTitle"] assignments (double quotes)
+  elseif (preg_match('/\$GLOBALS\s*\[\s*[\'"]pageTitle[\'"]\s*\]\s*=\s*["]((?:[^"\\\\]|\\\\.)*)["]\s*;/s', $content, $matches)) {
+    $currentTitle = stripcslashes($matches[1]);
+  }
+  
+  // Extract $GLOBALS['pageDesc'] assignments (single quotes)
+  if (preg_match('/\$GLOBALS\s*\[\s*[\'"]pageDesc[\'"]\s*\]\s*=\s*[\']((?:[^\'\\\\]|\\\\.)*)[\']\s*;/s', $content, $matches)) {
+    $currentDesc = stripcslashes($matches[1]);
+  }
+  // Extract $GLOBALS["pageDesc"] assignments (double quotes)
+  elseif (preg_match('/\$GLOBALS\s*\[\s*[\'"]pageDesc[\'"]\s*\]\s*=\s*["]((?:[^"\\\\]|\\\\.)*)["]\s*;/s', $content, $matches)) {
+    $currentDesc = stripcslashes($matches[1]);
+  }
+  
+  // SUDO-POWERED META DIRECTIVE: Enforce metadata alignment with intent
+  [$enforcedTitle, $enforcedDesc] = sudo_meta_directive($filePath, $slug, $currentTitle, $currentDesc);
+  
+  // Set enforced metadata (sudo authority - overrides if needed)
+  $GLOBALS['pageTitle'] = $enforcedTitle;
+  $GLOBALS['pageDesc'] = $enforcedDesc;
+}
+
 function render_page(string $slug): void {
   $GLOBALS['__page_slug'] = $slug;
 
@@ -329,16 +380,23 @@ function render_page(string $slug): void {
 
   // Special handling for catalog pages - use pages/ directory
   if (strpos($slug, 'catalog/') === 0) {
+    // Load metadata before head.php
+    $pageFile = __DIR__.'/../pages/'.$slug.'.php';
+    load_page_metadata($pageFile);
     include __DIR__.'/../templates/head.php';
     include __DIR__.'/../templates/header.php';
-    include __DIR__.'/../pages/'.$slug.'.php';
+    include $pageFile;
     include __DIR__.'/../templates/footer.php';
     return;
   }
 
+  // Load page metadata BEFORE head.php is included
+  $pageFile = __DIR__.'/../pages/'.$slug.'.php';
+  load_page_metadata($pageFile);
+  
   include __DIR__.'/../templates/head.php';
   include __DIR__.'/../templates/header.php';
-  include __DIR__.'/../pages/'.$slug.'.php';
+  include $pageFile;
   include __DIR__.'/../templates/footer.php';
 }
 

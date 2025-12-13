@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/applicants-io';
-$GLOBALS['pageTitle'] = 'AI Recruiting Platform with Job Schema Automation & Indexing';
-$GLOBALS['pageDesc'] = 'AI recruiting platform with JobPosting schema automation, Google Jobs indexing, resume PDF crawling, skill extraction, and AI-driven applicant ranking.';
+$GLOBALS['pageTitle'] = 'Applicants.io | NRLC.ai';
+$GLOBALS['pageDesc'] = 'AI recruiting platform with JobPosting schema automation, Google Jobs indexing, resume PDF crawling, skill extraction, and AI-driven applicant ranking. ...';
 
 // Build comprehensive schemas
 $productSlug = 'applicants-io';
@@ -26,6 +26,7 @@ $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
   product_platform_schemas($productSlug, $productName, $productDescription, $features, 'BusinessApplication'),
   applicants_io_schemas(),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [product_howto_schema($productSlug, $productName)]
 );
 

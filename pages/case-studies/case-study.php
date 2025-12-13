@@ -2,6 +2,10 @@
 require_once __DIR__ . '/../../lib/helpers.php';
 require_once __DIR__ . '/../../lib/deterministic.php';
 
+
+$GLOBALS['pageTitle'] = 'Case Study #: | NRLC.ai';
+$GLOBALS['pageDesc'] = 'How , a leading  company, achieved significant improvements in AI engine visibility through strategic SEO optimization.';
+
 $caseNumber = $_GET['case'] ?? '1';
 
 // Generate deterministic content based on case number

@@ -1,4 +1,8 @@
 <?php
+
+$GLOBALS['pageTitle'] = 'Insights | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Insights. Comprehensive research and insights on AI-first SEO optimization.';
+
 // Note: head.php and header.php are already included by router.php render_page()
 // Do not duplicate them here to avoid double headers
 

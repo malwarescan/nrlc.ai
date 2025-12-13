@@ -1,4 +1,6 @@
 <?php
+
+$GLOBALS['pageDesc'] = 'Comprehensive reviews and comparisons of AI SEO tools, platforms, and optimization solutions.';
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 ?>

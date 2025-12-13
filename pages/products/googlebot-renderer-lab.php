@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/googlebot-renderer-lab';
 $GLOBALS['pageTitle'] = 'Googlebot DOM Simulation Tool for SEO Diagnostic Testing';
-$GLOBALS['pageDesc'] = 'Real Googlebot DOM simulation solving hydration failures, CSR/SSR drift, and crawl-time abort replication for modern SEO diagnostics.';
+$GLOBALS['pageDesc'] = 'Real Googlebot DOM simulation that solves the #1 problem in SEO and dev teams: why Googlebot cannot render pages even when they work fine for real peopl...';
 
 // Build comprehensive schemas
 $productSlug = 'googlebot-renderer-lab';
@@ -25,6 +25,7 @@ $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
   product_platform_schemas($productSlug, $productName, $productDescription, $features, 'DeveloperApplication'),
   googlebot_renderer_schemas(),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [product_howto_schema($productSlug, $productName, [
     [
       '@type' => 'HowToStep',

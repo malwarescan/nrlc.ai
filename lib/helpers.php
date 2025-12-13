@@ -431,3 +431,130 @@ function extract_keywords_from_title(string $title): string {
   return implode(', ', array_unique($keywords));
 }
 
+/**
+ * Generate SEO-friendly title and aria-label attributes for buttons
+ * 
+ * @param string $buttonText The visible button text
+ * @param string|null $context Additional context (e.g., article title, service name)
+ * @param string|null $action Optional action description
+ * @return array Array with 'title' and 'aria-label' keys
+ */
+function button_seo_attrs(string $buttonText, ?string $context = null, ?string $action = null): array {
+  $attrs = [];
+  
+  // Generate title attribute (for SEO tooltips)
+  if ($context) {
+    $title = $action ? "$action: $context" : "$buttonText: $context";
+  } else {
+    // Generate descriptive title based on button text
+    $titleMap = [
+      'Read Article' => 'Read the full article',
+      'View All' => 'View all items',
+      'Contact Us' => 'Contact us for more information',
+      'Learn More' => 'Learn more about this topic',
+      'Get Started' => 'Get started with our services',
+      'See More' => 'See more details',
+      'View Details' => 'View detailed information',
+      'Text Us' => 'Send us a text message',
+      'Call Now' => 'Call us now',
+      'Email Us' => 'Send us an email',
+    ];
+    
+    $title = $titleMap[$buttonText] ?? $buttonText;
+  }
+  
+  $attrs['title'] = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+  
+  // Generate aria-label (for accessibility)
+  if ($context) {
+    $ariaLabel = $action ? "$action: $context" : "$buttonText: $context";
+  } else {
+    $ariaLabel = $title;
+  }
+  
+  $attrs['aria-label'] = htmlspecialchars($ariaLabel, ENT_QUOTES, 'UTF-8');
+  
+  return $attrs;
+}
+
+/**
+ * Render button HTML with SEO attributes
+ * 
+ * @param string $href The link URL
+ * @param string $text The button text
+ * @param string $classes Additional CSS classes (default: 'btn')
+ * @param string|null $context Context for SEO attributes
+ * @param string|null $action Action description for SEO
+ * @return string HTML button/link element
+ */
+function render_seo_button(string $href, string $text, string $classes = 'btn', ?string $context = null, ?string $action = null): string {
+  $attrs = button_seo_attrs($text, $context, $action);
+  $escapedHref = htmlspecialchars($href, ENT_QUOTES, 'UTF-8');
+  $escapedText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+  $escapedClasses = htmlspecialchars($classes, ENT_QUOTES, 'UTF-8');
+  
+  return sprintf(
+    '<a href="%s" class="%s" title="%s" aria-label="%s">%s</a>',
+    $escapedHref,
+    $escapedClasses,
+    $attrs['title'],
+    $attrs['aria-label'],
+    $escapedText
+  );
+}
+
+/**
+ * Generate SEO-friendly title and aria-label attributes for navigation menu items
+ * 
+ * @param string $linkText The visible link text
+ * @param string|null $description Optional description of what the link leads to
+ * @return array Array with 'title' and 'aria-label' keys
+ */
+function menu_item_seo_attrs(string $linkText, ?string $description = null): array {
+  $attrs = [];
+  
+  // Generate title attribute (for SEO tooltips and search engine context)
+  if ($description) {
+    $title = "$linkText - $description";
+  } else {
+    // Generate descriptive title based on link text
+    $titleMap = [
+      'Home' => 'Home - NRLC.ai',
+      'Services' => 'Services - AI SEO Services & Solutions',
+      'Insights' => 'Insights - AI SEO Research & Best Practices',
+      'Careers' => 'Careers - Join the NRLC.ai Team',
+      'Products' => 'Products - AI SEO Tools & Software',
+      'Catalog' => 'Catalog - Browse All Services & Products',
+      'Contact' => 'Contact - Get in Touch with NRLC.ai',
+      'All Services' => 'All Services - View All AI SEO Services',
+      'All Insights' => 'All Insights - Browse All AI SEO Research',
+      'Crawl Clarity' => 'Crawl Clarity - Technical SEO Engineering Service',
+      'JSON-LD Strategy' => 'JSON-LD Strategy - Structured Data Implementation',
+      'LLM Seeding' => 'LLM Seeding - AI Search Engine Optimization',
+      'Technical SEO' => 'Technical SEO - Website Performance & Optimization',
+      'Site Audits' => 'Site Audits - Comprehensive SEO Analysis',
+      'Semantic Modeling' => 'Semantic Modeling - AI SEO Research',
+      'Data Virtualization' => 'Data Virtualization - AI SEO Research',
+      'Enterprise LLM' => 'Enterprise LLM - AI SEO Research',
+      'Performance & Caching' => 'Performance & Caching - AI SEO Research',
+      'Data, But Structured' => 'Data, But Structured - AI SEO Product',
+      'Applicants.io' => 'Applicants.io - AI SEO Product',
+      'OurCasa.ai' => 'OurCasa.ai - AI SEO Product',
+      'Croutons.ai' => 'Croutons.ai - AI SEO Product',
+      'Precogs' => 'Precogs - AI SEO Product',
+      'Googlebot Renderer Lab' => 'Googlebot Renderer Lab - AI SEO Product',
+      'NEWFAQ' => 'NEWFAQ - AI SEO Product',
+      'Neural Command OS' => 'Neural Command OS - AI SEO Product',
+    ];
+    
+    $title = $titleMap[$linkText] ?? "$linkText - NRLC.ai";
+  }
+  
+  $attrs['title'] = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+  
+  // Generate aria-label (for accessibility - typically same as title for navigation)
+  $attrs['aria-label'] = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+  
+  return $attrs;
+}
+

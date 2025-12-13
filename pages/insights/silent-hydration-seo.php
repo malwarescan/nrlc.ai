@@ -1,3 +1,7 @@
+<?php
+$GLOBALS['pageTitle'] = 'The Silent Killer of Search Rankings: How Hydration Failu...';
+$GLOBALS['pageDesc'] = 'For years, companies have poured millions into content, backlinks, site speed, and technical optimization—yet their rankings remained stubbornly flat....';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

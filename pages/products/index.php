@@ -1,8 +1,8 @@
 <?php
 // Set unique metadata for products overview hub (BEFORE head.php)
 $GLOBALS['__page_slug'] = 'products/index';
-$GLOBALS['pageTitle'] = "NRLC Products | AI Search Visibility, Schema Tools, and Agentic SEO Systems";
-$GLOBALS['pageDesc'] = "Explore NRLC's suite of AI-driven search visibility tools including Prompt Surface Intelligence, Schema Reverse Engineering, Authority Tracking, and Agentic SEO systems.";
+$GLOBALS['pageTitle'] = 'Products | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Complete product ecosystem for structured knowledge, AI visibility, and agentic intelligence. AI SEO product by NRLC.ai.'s suite of AI-driven search visibility tools including Prompt Surface Intelligence, Schema Reverse Engineering, Authority Tracking, and Agentic SEO systems.";
 
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';

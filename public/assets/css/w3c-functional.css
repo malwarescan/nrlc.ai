@@ -638,6 +638,88 @@ hr {
   max-width: 100%; /* Ensure button group fits */
 }
 
+/* Direct buttons in content-block body: anchor to bottom left */
+.grid .content-block .content-block__body > .btn {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  align-self: flex-start !important;
+}
+
+/* Service cards in grid: anchor buttons to bottom left */
+/* Ensure grid items stretch to equal heights */
+.grid {
+  align-items: stretch !important;
+}
+
+/* CRITICAL: Ensure ALL grid item divs are flex containers for button anchoring */
+.grid.grid-auto-fit > div,
+.grid > div {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Direct buttons in grid item divs: anchor to bottom left */
+.grid.grid-auto-fit > div > .btn,
+.grid > div > .btn {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  align-self: flex-start !important;
+  width: auto !important;
+}
+
+/* Buttons nested deeper in grid items (e.g., inside btn-group) */
+.grid > div .btn-group {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  justify-content: flex-start !important;
+}
+
+.grid > div .btn-group .btn {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Universal rule: ALL buttons and button groups in ANY grid container anchor to bottom left */
+.grid .btn,
+.grid .btn-group {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+}
+
+/* Ensure all buttons in grids align to left */
+.grid .btn {
+  align-self: flex-start !important;
+}
+
+.grid .btn-group {
+  justify-content: flex-start !important;
+}
+
+/* SPECIFIC: Target buttons in insights/article containers - anchor to bottom left */
+.grid a.btn[href*="/insights/"],
+.grid a.btn[href*="/blog/"],
+.grid a.btn[href*="/resources/"] {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  align-self: flex-start !important;
+}
+
+/* Ensure any div containing a button in a grid is a flex container */
+.grid > div:has(.btn) {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Last button in grid item divs - always push to bottom */
+.grid > div > .btn:last-child,
+.grid.grid-auto-fit > div > .btn:last-child {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  align-self: flex-start !important;
+}
+
 /* Link Tree Styling - Technical Research Aesthetic */
 .link-tree {
   font-size: 0.8125rem;

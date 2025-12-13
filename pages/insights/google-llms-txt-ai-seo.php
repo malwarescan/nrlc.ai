@@ -11,8 +11,8 @@ $GLOBALS['__insights_nav_added'] = true;
 
 // Set unique metadata for this article
 $articleSlug = 'google-llms-txt-ai-seo';
-$GLOBALS['pageTitle'] = "Google LLMs.txt Documentation Analysis & SEO Strategy";
-$GLOBALS['pageDesc'] = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
+$GLOBALS['pageTitle'] = 'Google\'s LLMs.txt: The Hidden Syllabus Behind AI SEO and ...';
+$GLOBALS['pageDesc'] = 'TL;DR: Google's llms.txt is a machine-readable list of Search Central documentation that Google feeds to large language models. It's essentially Google's hidden syllabus for AI SEO.';
 
 // Note: head.php and header.php are already included by router.php render_page()
 // Do not duplicate them here to avoid double headers

@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/ourcasa-ai';
-$GLOBALS['pageTitle'] = 'Neighborhood Intelligence Graph for Property Analysis';
-$GLOBALS['pageDesc'] = 'OurCasa.ai: Home and neighborhood intelligence graph with property cognition, weather risk mapping, local incident history, and maintenance prediction.';
+$GLOBALS['pageTitle'] = 'OurCasa.ai | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Home and neighborhood intelligence graph connecting property data, weather patterns, local incidents, and neighborhood insights. AI SEO product by NRLC.ai.';
 
 // Build comprehensive schemas
 $productSlug = 'ourcasa-ai';
@@ -25,6 +25,7 @@ $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
   product_platform_schemas($productSlug, $productName, $productDescription, $features, 'LifestyleApplication'),
   ourcasa_ai_schemas(),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [product_howto_schema($productSlug, $productName)]
 );
 

@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'Research Results: Citation Performance Analysis | AI SEO ...';
+$GLOBALS['pageDesc'] = 'Comprehensive analysis of 1,700 citations reveals clear patterns in AI engine behavior, with GEO-16 scores strongly correlating with citation frequency ...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

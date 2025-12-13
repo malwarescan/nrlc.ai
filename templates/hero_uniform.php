@@ -30,9 +30,9 @@ function render_uniform_hero_content($include_buttons = true) {
         
         <?php if ($include_buttons): ?>
         <div class="btn-group">
-          <a href="sms:+12135628438?body=hey, im interested in picking your brain" class="btn btn--primary">Text Us</a>
-          <a href="tel:+12135628438" class="btn">Call Now</a>
-          <a href="mailto:hirejoelm@gmail.com" class="btn">Email Us</a>
+          <a href="sms:+12135628438?body=hey, im interested in picking your brain" class="btn btn--primary" title="Send us a text message to discuss your project" aria-label="Send us a text message">Text Us</a>
+          <a href="tel:+12135628438" class="btn" title="Call us now at +1 (213) 562-8438" aria-label="Call us now">Call Now</a>
+          <a href="mailto:hirejoelm@gmail.com" class="btn" title="Send us an email to discuss your project" aria-label="Send us an email">Email Us</a>
         </div>
         <?php endif; ?>
       </div>

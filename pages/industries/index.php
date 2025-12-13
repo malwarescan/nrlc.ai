@@ -1,4 +1,6 @@
 <?php
+
+$GLOBALS['pageDesc'] = 'Tailored AI optimization strategies for specific industries and verticals.';
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 ?>

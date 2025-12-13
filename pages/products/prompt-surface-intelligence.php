@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/prompt-surface-intelligence';
-$GLOBALS['pageTitle'] = 'Prompt Surface Intelligence | AI Visibility Engine | NRLC';
-$GLOBALS['pageDesc'] = 'Reveals conversational prompts, AI rewrites, and proto-intents your website surfaces for across Google AI Overviews, ChatGPT, Claude, and Perplexity.';
+$GLOBALS['pageTitle'] = 'Prompt Surface Intelligence | NRLC.ai';
+$GLOBALS['pageDesc'] = 'This service reveals the real prompts your website appears for across Google, AI Overviews, ChatGPT, Claude, and Perplexity. AI SEO product by NRLC.ai.';
 
 // Build comprehensive schemas
 $productSlug = 'prompt-surface-intelligence';
@@ -14,6 +14,7 @@ $productDescription = 'Reveals conversational prompts, AI rewrites, and proto-in
 
 $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [
     // FAQPage schema
     [

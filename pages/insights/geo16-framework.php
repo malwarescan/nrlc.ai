@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'The GEO-16 Framework: Six Principles, Sixteen Pillars | A...';
+$GLOBALS['pageDesc'] = 'The theoretical foundation of AI citation optimization rests on six core principles, each mapped to specific, measurable signals that determine citation...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

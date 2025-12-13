@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Note: head.php and header.php are already included by router.php render_page()
+// Metadata is set in router.php before head.php is included
 ?>
 
 <main role="main" class="container">
@@ -18,8 +18,8 @@ require_once __DIR__ . '/../../templates/header.php';
         </p>
         <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a>.</p>
         <div class="btn-group text-center">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI SEO Services Demo')">Book a Demo</button>
-          <a href="/insights/" class="btn">Explore Research</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI SEO Services Demo')" title="Book a demo to see our AI SEO services in action" aria-label="Book a demo for AI SEO services">Book a Demo</button>
+          <a href="/insights/" class="btn" title="Explore our AI SEO research and insights" aria-label="Explore AI SEO research">Explore Research</a>
         </div>
       </div>
     </div>
@@ -35,37 +35,37 @@ require_once __DIR__ . '/../../templates/header.php';
           <div class="content-block">
             <h3>Semantic Layer</h3>
             <p>SQL-native ontologies exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms. Transform your data into a semantic graph where relationships are explicit and queries collapse complexity.</p>
-            <a href="/services/semantic-layer/" class="btn" data-ripple>Explore Semantic Layer Service</a>
+            <a href="/services/semantic-layer/" class="btn" data-ripple title="Explore our Semantic Layer service - SQL-native ontologies and knowledge graphs" aria-label="Explore Semantic Layer Service">Explore Semantic Layer Service</a>
           </div>
 
           <div class="content-block">
             <h3>Data Virtualization</h3>
             <p>Connect every source into a semantic, virtualized layer with no ingestion or duplication. Your data stays where it lives — NRLC makes it usable. Automatic mapping to the ontology, federated queries, and intelligent pushdown optimization.</p>
-            <a href="/services/data-virtualization/" class="btn" data-ripple>Explore Data Virtualization</a>
+            <a href="/services/data-virtualization/" class="btn" data-ripple title="Explore our Data Virtualization service - connect all sources without ingestion" aria-label="Explore Data Virtualization Service">Explore Data Virtualization</a>
           </div>
 
           <div class="content-block">
             <h3>Enterprise LLM Foundation</h3>
             <p>Structured semantic context, verified relationships, and virtualized access to all data sources. LLMs become reliable once they operate on governed, contextualized, precise data. NRLC delivers that foundation.</p>
-            <a href="/services/enterprise-llm-foundation/" class="btn" data-ripple>Explore Enterprise LLM Foundation</a>
+            <a href="/services/enterprise-llm-foundation/" class="btn" data-ripple title="Explore our Enterprise LLM Foundation service - reliable AI workflows on structured data" aria-label="Explore Enterprise LLM Foundation Service">Explore Enterprise LLM Foundation</a>
           </div>
 
           <div class="content-block">
             <h3>Knowledge Graph</h3>
             <p>Interactive knowledge graph exploration with relationship traversal, insight surfacing, and natural-language query generation. Let LLMs act as your data analyst. Generate SQL or natural-language queries automatically.</p>
-            <a href="/services/knowledge-graph/" class="btn" data-ripple>Explore the Knowledge Graph</a>
+            <a href="/services/knowledge-graph/" class="btn" data-ripple title="Explore our Knowledge Graph service - interactive relationship exploration" aria-label="Explore Knowledge Graph Service">Explore the Knowledge Graph</a>
           </div>
 
           <div class="content-block">
             <h3>Ontology Modeling</h3>
             <p>Rapid semantic modeling with LLM-assisted entity and metric creation. Model your business using SQL-native ontologies with up to 90% reduction in time-to-consumption. No new languages — everything in SQL.</p>
-            <a href="/services/ontology-modeling/" class="btn" data-ripple>Explore Ontology Modeling Service</a>
+            <a href="/services/ontology-modeling/" class="btn" data-ripple title="Explore our Ontology Modeling service - structured data relationships" aria-label="Explore Ontology Modeling Service">Explore Ontology Modeling Service</a>
           </div>
 
           <div class="content-block">
             <h3>REST API</h3>
             <p>Your REST layer becomes semantic, self-documenting, and deeply expressive. Nested semantic fetches, field-level precision, role & row-level governance, and automatic OpenAPI/Swagger generation.</p>
-            <a href="/services/rest-api/" class="btn" data-ripple>REST API Documentation</a>
+            <a href="/services/rest-api/" class="btn" data-ripple title="View REST API documentation and integration guides" aria-label="View REST API Documentation">REST API Documentation</a>
           </div>
 
         </div>

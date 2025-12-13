@@ -4,8 +4,8 @@ require_once __DIR__ . '/../../templates/header.php';
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/croutons-ai';
-$GLOBALS['pageTitle'] = 'Micro-Fact Data Atomization Engine for LLMs & Search';
-$GLOBALS['pageDesc'] = 'Data atomization engine converting HTML, PDFs, CSVs, NDJSON streams, and APIs into machine-verifiable micro-facts for search engines, LLMs, and agents.';
+$GLOBALS['pageTitle'] = 'Croutons.ai | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Micro-fact data atomization engine that converts raw data into verifiable, machine-readable facts. AI SEO product by NRLC.ai.';
 
 // Build comprehensive schemas
 $productSlug = 'croutons-ai';
@@ -25,6 +25,7 @@ $jsonld = array_merge(
   product_universal_schemas($productSlug, $productName, $productDescription),
   product_platform_schemas($productSlug, $productName, $productDescription, $features, 'DeveloperApplication'),
   product_dataset_schemas($productSlug, $productName, $productDescription),
+  product_qapage_schema($productSlug, $productName, $productDescription),
   [product_howto_schema($productSlug, $productName)]
 );
 

@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'AI Answer Engine Citation Behavior: The GEO-16 Framework ...';
+$GLOBALS['pageDesc'] = 'Empirical analysis reveals why some pages get cited by AI engines while others remain invisible. The GEO-16 framework quantifies the sixteen critical si...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

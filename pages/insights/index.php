@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Note: head.php and header.php are already included by router.php render_page()
+// Metadata is loaded automatically by router before head.php is included
 require_once __DIR__ . '/../../lib/csv.php';
 
 // Load insights data
@@ -57,7 +57,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Why Teams Adopt Semantic Modeling</h3>
             <p>Understanding the business value of semantic infrastructure. How organizations achieve 90% reduction in time-to-consumption and enable reliable AI workflows.</p>
             <div class="btn-group">
-              <a href="/insights/semantic-modeling/" class="btn">Read Article</a>
+              <a href="/insights/semantic-modeling/" class="btn" title="Read full article: Why Teams Adopt Semantic Modeling" aria-label="Read full article: Why Teams Adopt Semantic Modeling">Read Article</a>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Data Virtualization Best Practices</h3>
             <p>Connecting every source into a semantic, virtualized layer with no ingestion or duplication. Automatic mapping, federated queries, and unified graph views.</p>
             <div class="btn-group">
-              <a href="/insights/data-virtualization/" class="btn">Read Article</a>
+              <a href="/insights/data-virtualization/" class="btn" title="Read full article: Data Virtualization Best Practices" aria-label="Read full article: Data Virtualization Best Practices">Read Article</a>
             </div>
           </div>
 
@@ -73,7 +73,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Enterprise LLM Foundation</h3>
             <p>Building reliable AI workflows on structured understanding. How structured semantic context, verified relationships, and virtualized access enable trustworthy LLM operations.</p>
             <div class="btn-group">
-              <a href="/insights/enterprise-llm/" class="btn">Read Article</a>
+              <a href="/insights/enterprise-llm/" class="btn" title="Read full article: Enterprise LLM Foundation" aria-label="Read full article: Enterprise LLM Foundation">Read Article</a>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Knowledge Graph Exploration</h3>
             <p>Interactive knowledge graph techniques for traversing relationships, surfacing insights, and generating SQL or natural-language queries automatically.</p>
             <div class="btn-group">
-              <a href="/insights/knowledge-graph/" class="btn">Read Article</a>
+              <a href="/insights/knowledge-graph/" class="btn" title="Read full article: Knowledge Graph Exploration" aria-label="Read full article: Knowledge Graph Exploration">Read Article</a>
             </div>
           </div>
 
@@ -141,7 +141,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
                 <?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 100)) ?>...
               </p>
               <div class="btn-group">
-                <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn">Read Article</a>
+                <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn" title="Read full article: <?= htmlspecialchars($insight['title']) ?>" aria-label="Read full article: <?= htmlspecialchars($insight['title']) ?>">Read Article</a>
               </div>
           </div>
           <?php endforeach; ?>

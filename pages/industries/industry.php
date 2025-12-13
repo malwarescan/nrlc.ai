@@ -1,4 +1,8 @@
 <?php
+
+$GLOBALS['pageTitle'] = 'AI SEO Services | NRLC.ai';
+$GLOBALS['pageDesc'] = 'AI SEO Services. AI SEO services and solutions by NRLC.ai.';
+
 $industrySlug = $_GET['industry'] ?? 'healthcare';
 $industryName = ucwords(str_replace('-', ' ', $industrySlug));
 

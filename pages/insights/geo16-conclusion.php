@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'Conclusion: The Future of AI Citation Optimization | AI S...';
+$GLOBALS['pageDesc'] = 'The GEO-16 framework provides a comprehensive foundation for understanding and optimizing AI citation behavior, offering organizations a clear roadmap f...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

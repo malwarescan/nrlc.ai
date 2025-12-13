@@ -2,6 +2,10 @@
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 
+
+$GLOBALS['pageTitle'] = 'for AI SEO Optimization | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Comprehensive review and optimization guide for  in AI search engine optimization and LLM citation strategies.';
+
 $tool = $_GET['tool'] ?? '';
 $toolNames = [
   'chatgpt' => 'ChatGPT',

@@ -1,4 +1,10 @@
 <?php
+// Prevent double inclusion - if head already rendered, return early
+if (defined('HEAD_PHP_INCLUDED')) {
+  return;
+}
+define('HEAD_PHP_INCLUDED', true);
+
 require_once __DIR__.'/../lib/helpers.php';
 require_once __DIR__.'/../lib/schema_builders.php';
 require_once __DIR__.'/../lib/hreflang.php';
@@ -88,6 +94,9 @@ header('Content-Type: text/html; charset=utf-8');
 <meta name="bingbot" content="index, follow">
 <meta name="author" content="NRLC.ai">
 <meta name="keywords" content="AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity, <?=htmlspecialchars(extract_keywords_from_title($title))?>">
+<!-- Schema.org Powered -->
+<meta name="generator" content="Schema.org Structured Data">
+<meta name="schema-org" content="https://schema.org">
 <!-- W3C Functional Authority Design System -->
 <link rel="stylesheet" href="<?= asset_url('/assets/css/w3c-functional.css') ?>">
 <!-- Hero Isometric Animation -->

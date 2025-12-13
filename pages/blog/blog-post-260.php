@@ -2,6 +2,10 @@
 require_once __DIR__ . '/../../templates/head.php';
 require_once __DIR__ . '/../../templates/header.php';
 
+
+$GLOBALS['pageTitle'] = 'Advanced  Strategies for 2025 | AI SEO Research | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Comprehensive guide to  optimization, featuring the latest techniques and best practices for AI-powered search engines.';
+
 $postNumber = $_GET['post'] ?? '1';
 $topics = ['AI SEO', 'GEO-16 Framework', 'LLM Optimization', 'Structured Data', 'Crawl Clarity', 'Entity Recognition', 'Citation Optimization', 'Technical SEO', 'Content Strategy', 'Analytics'];
 $topic = $topics[($postNumber - 1) % count($topics)];

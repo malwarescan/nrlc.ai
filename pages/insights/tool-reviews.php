@@ -1,3 +1,7 @@
+
+$GLOBALS['pageTitle'] = 'AI SEO Tool Reviews: Comprehensive Platform Analysis | AI...';
+$GLOBALS['pageDesc'] = 'Comprehensive analysis of AI SEO tools and platforms, evaluating features, performance, and optimization capabilities for modern search engine optimizat...';
+
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">
