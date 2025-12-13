@@ -7,6 +7,7 @@ require_once __DIR__.'/../../lib/content_tokens.php';
 require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/deterministic.php';
+require_once __DIR__.'/../../lib/csv.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'crawl-clarity';
@@ -18,6 +19,19 @@ det_seed($pathKey);
 $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
 $cityTitle = titleCaseCity($citySlug);
 $pageTitle = "$serviceTitle in $cityTitle";
+
+// Load city data for schema
+$citiesData = csv_read_data('cities.csv');
+$cityRow = null;
+foreach ($citiesData as $c) {
+  if (($c['city_name'] ?? '') === $citySlug) {
+    $cityRow = $c;
+    break;
+  }
+}
+if (!$cityRow) {
+  $cityRow = ['city_name' => $cityTitle, 'country' => 'US', 'subdivision' => ''];
+}
 
 // Set page metadata for head.php (must be set before router includes head.php)
 // This runs when the file is included, so metadata is available to head.php
@@ -68,7 +82,10 @@ $content = $intro . $local;
             <?php if ($enhancedIntro): ?>
             <p class="lead"><?= htmlspecialchars($enhancedIntro) ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
             <?php else: ?>
-            <p class="lead"><?= $content ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
+            <p class="lead"><?= htmlspecialchars($intro) ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
+            <?php if (!empty($local)): ?>
+            <p><?= htmlspecialchars($local) ?></p>
+            <?php endif; ?>
             <?php endif; ?>
             <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/geo16-introduction/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
             <div class="btn-group text-center">
