@@ -1,4 +1,5 @@
 <?php
+// Metadata is now set in router via ctx-based system
 $resourceNumber = $_GET['resource'] ?? '1';
 
 // Generate deterministic content based on resource number

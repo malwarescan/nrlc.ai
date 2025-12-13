@@ -1,10 +1,20 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
-
-
-$GLOBALS['pageTitle'] = 'for AI SEO Optimization | NRLC.ai';
-$GLOBALS['pageDesc'] = 'Comprehensive review and optimization guide for  in AI search engine optimization and LLM citation strategies.';
+// Prevent direct access. This file is a data/partial for routed templates only.
+if (!defined('ROUTER_CONTEXT')) {
+  $canonical = '/tools/chatgpt/';
+  $scheme = (!empty($_SERVER['HTTPS']) || !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ? 'https' : 'https';
+  $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+  if (!preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $canonical)) {
+    require_once __DIR__.'/../../config/locales.php';
+    $canonical = '/'.X_DEFAULT.$canonical;
+  }
+  $redirectUrl = $scheme.'://'.$host.$canonical;
+  header("Location: $redirectUrl", true, 301);
+  exit;
+}
+// Metadata is now set in router via ctx-based system for /tools/{tool}/ routes
+// This file may be accessed directly, but router metadata takes precedence
+// Remove old placeholder metadata to prevent conflicts
 
 $tool = $_GET['tool'] ?? '';
 $toolNames = [

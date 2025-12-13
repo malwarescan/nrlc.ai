@@ -1,10 +1,27 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Prevent direct access. This file is a data/partial for routed templates only.
+if (!defined('ROUTER_CONTEXT')) {
+  // Compute canonical routed URL
+  $canonical = '/resources/resource-46/';
+  
+  // Ensure HTTPS and add locale prefix if needed
+  $scheme = (!empty($_SERVER['HTTPS']) || !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ? 'https' : 'https';
+  $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+  
+  // Add default locale if not present
+  if (!preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $canonical)) {
+    require_once __DIR__.'/../../config/locales.php';
+    $canonical = '/'.X_DEFAULT.$canonical;
+  }
+  
+  $redirectUrl = $scheme.'://'.$host.$canonical;
+  header("Location: $redirectUrl", true, 301);
+  exit;
+}
 
 
-$GLOBALS['pageTitle'] = 'Resource | NRLC.ai';
-$GLOBALS['pageDesc'] = 'Comprehensive  for  optimization, providing actionable insights and practical implementation guidance.';
+
+
 
 $resourceNumber = $_GET['resource'] ?? '1';
 $categories = ['Guides', 'Templates', 'Checklists', 'Tools', 'Frameworks', 'Methodologies', 'Best Practices', 'Tutorials', 'References', 'Standards'];

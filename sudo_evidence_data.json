@@ -1,0 +1,355 @@
+{
+    "duplicates": [
+        {
+            "canonical": "https:\/\/nrlc.ai\/insights\/open-seo-tools\/",
+            "duplicate": "http:\/\/nrlc.ai\/insights\/open-seo-tools\/",
+            "reason": "http\/https",
+            "dup_impressions": 78,
+            "dup_clicks": 0,
+            "canon_impressions": 242,
+            "canon_clicks": 1
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/en-us\/services\/semantic-seo-ai\/jacksonville\/",
+            "duplicate": "http:\/\/nrlc.ai\/en-us\/services\/semantic-seo-ai\/jacksonville\/",
+            "reason": "http\/https",
+            "dup_impressions": 5,
+            "dup_clicks": 0,
+            "canon_impressions": 8,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/en-us\/services\/ranking-optimization-ai\/stockport\/",
+            "duplicate": "http:\/\/nrlc.ai\/en-us\/services\/ranking-optimization-ai\/stockport\/",
+            "reason": "http\/https",
+            "dup_impressions": 7,
+            "dup_clicks": 0,
+            "canon_impressions": 4,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/en-us\/services\/generative-seo\/huddersfield\/",
+            "duplicate": "http:\/\/nrlc.ai\/en-us\/services\/generative-seo\/huddersfield\/",
+            "reason": "http\/https",
+            "dup_impressions": 1,
+            "dup_clicks": 0,
+            "canon_impressions": 5,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/services\/llm-content-strategy\/edmonton\/",
+            "duplicate": "http:\/\/nrlc.ai\/services\/llm-content-strategy\/edmonton\/",
+            "reason": "http\/https",
+            "dup_impressions": 2,
+            "dup_clicks": 0,
+            "canon_impressions": 1,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/en-us\/services\/generative-seo\/montreal\/",
+            "duplicate": "http:\/\/nrlc.ai\/en-us\/services\/generative-seo\/montreal\/",
+            "reason": "http\/https",
+            "dup_impressions": 1,
+            "dup_clicks": 0,
+            "canon_impressions": 2,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/services\/generative-seo\/san-antonio\/",
+            "duplicate": "http:\/\/nrlc.ai\/services\/generative-seo\/san-antonio\/",
+            "reason": "http\/https",
+            "dup_impressions": 1,
+            "dup_clicks": 0,
+            "canon_impressions": 2,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/services\/generative-seo\/oklahoma-city\/",
+            "duplicate": "http:\/\/nrlc.ai\/services\/generative-seo\/oklahoma-city\/",
+            "reason": "http\/https",
+            "dup_impressions": 1,
+            "dup_clicks": 0,
+            "canon_impressions": 1,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/services\/site-audits\/raleigh\/",
+            "duplicate": "http:\/\/nrlc.ai\/services\/site-audits\/raleigh\/",
+            "reason": "http\/https",
+            "dup_impressions": 1,
+            "dup_clicks": 0,
+            "canon_impressions": 1,
+            "canon_clicks": 0
+        },
+        {
+            "canonical": "https:\/\/nrlc.ai\/careers\/sheffield\/technical-writer\/",
+            "duplicate": "http:\/\/nrlc.ai\/careers\/sheffield\/technical-writer\/",
+            "reason": "http\/https",
+            "dup_impressions": 1,
+            "dup_clicks": 0,
+            "canon_impressions": 1,
+            "canon_clicks": 0
+        }
+    ],
+    "priority1": [],
+    "priority2": [],
+    "priority3": [],
+    "clusters": {
+        "Services": {
+            "count": 228,
+            "total_impressions": 1256,
+            "total_clicks": 0,
+            "top_queries": [
+                {
+                    "query": "open source seo software",
+                    "impressions": 133,
+                    "clicks": 0,
+                    "position": 74.79
+                },
+                {
+                    "query": "open source seo tools",
+                    "impressions": 60,
+                    "clicks": 0,
+                    "position": 88.3
+                },
+                {
+                    "query": "copilot seo tracker",
+                    "impressions": 57,
+                    "clicks": 0,
+                    "position": 69.7
+                },
+                {
+                    "query": "open source seo platform",
+                    "impressions": 50,
+                    "clicks": 0,
+                    "position": 53
+                },
+                {
+                    "query": "ai seo singapore",
+                    "impressions": 36,
+                    "clicks": 0,
+                    "position": 52.17
+                },
+                {
+                    "query": "seo southport",
+                    "impressions": 35,
+                    "clicks": 0,
+                    "position": 77.51
+                },
+                {
+                    "query": "best open source seo software",
+                    "impressions": 29,
+                    "clicks": 0,
+                    "position": 68.41
+                },
+                {
+                    "query": "seo audit belfast",
+                    "impressions": 28,
+                    "clicks": 0,
+                    "position": 88.71
+                },
+                {
+                    "query": "conversion rate optimization abbotsford",
+                    "impressions": 21,
+                    "clicks": 0,
+                    "position": 39.76
+                },
+                {
+                    "query": "jacksonville ai seo",
+                    "impressions": 20,
+                    "clicks": 0,
+                    "position": 57.2
+                }
+            ]
+        },
+        "Unmapped": {
+            "count": 33,
+            "total_impressions": 77,
+            "total_clicks": 0,
+            "top_queries": [
+                {
+                    "query": "search engine optimisation southend-on-sea",
+                    "impressions": 7,
+                    "clicks": 0,
+                    "position": 68.71
+                },
+                {
+                    "query": "ai search results in okc",
+                    "impressions": 6,
+                    "clicks": 0,
+                    "position": 17.5
+                },
+                {
+                    "query": "citation building nottingham",
+                    "impressions": 6,
+                    "clicks": 0,
+                    "position": 32.67
+                },
+                {
+                    "query": "sayama b2b",
+                    "impressions": 5,
+                    "clicks": 0,
+                    "position": 6
+                },
+                {
+                    "query": "kazo ai",
+                    "impressions": 5,
+                    "clicks": 0,
+                    "position": 6.2
+                },
+                {
+                    "query": "search engine optimisation in southport",
+                    "impressions": 4,
+                    "clicks": 0,
+                    "position": 82.75
+                },
+                {
+                    "query": "search engine optimisation southport",
+                    "impressions": 4,
+                    "clicks": 0,
+                    "position": 85.75
+                },
+                {
+                    "query": "search generative experience in okc",
+                    "impressions": 3,
+                    "clicks": 0,
+                    "position": 4.33
+                },
+                {
+                    "query": "wako ai",
+                    "impressions": 3,
+                    "clicks": 0,
+                    "position": 5
+                },
+                {
+                    "query": "miami technical soe",
+                    "impressions": 3,
+                    "clicks": 0,
+                    "position": 20
+                }
+            ]
+        },
+        "Careers\/Jobs": {
+            "count": 37,
+            "total_impressions": 73,
+            "total_clicks": 0,
+            "top_queries": [
+                {
+                    "query": "llm jobs",
+                    "impressions": 9,
+                    "clicks": 0,
+                    "position": 3
+                },
+                {
+                    "query": "seo specialist singapore",
+                    "impressions": 7,
+                    "clicks": 0,
+                    "position": 77.86
+                },
+                {
+                    "query": "seo specialist belfast",
+                    "impressions": 6,
+                    "clicks": 0,
+                    "position": 70.17
+                },
+                {
+                    "query": "seo specialist in cambridge",
+                    "impressions": 4,
+                    "clicks": 0,
+                    "position": 81
+                },
+                {
+                    "query": "technical seo jobs",
+                    "impressions": 3,
+                    "clicks": 0,
+                    "position": 3.67
+                },
+                {
+                    "query": "seo specialist in huddersfield",
+                    "impressions": 3,
+                    "clicks": 0,
+                    "position": 94.33
+                },
+                {
+                    "query": "seo specialist in northampton",
+                    "impressions": 3,
+                    "clicks": 0,
+                    "position": 97
+                },
+                {
+                    "query": "seo job",
+                    "impressions": 2,
+                    "clicks": 0,
+                    "position": 5.5
+                },
+                {
+                    "query": "seo jobs",
+                    "impressions": 2,
+                    "clicks": 0,
+                    "position": 5.5
+                },
+                {
+                    "query": "ai strategist jobs",
+                    "impressions": 2,
+                    "clicks": 0,
+                    "position": 6.5
+                }
+            ]
+        },
+        "Non-English\/Geo": {
+            "count": 8,
+            "total_impressions": 45,
+            "total_clicks": 0,
+            "top_queries": [
+                {
+                    "query": "generative engine optimisation glasgow",
+                    "impressions": 30,
+                    "clicks": 0,
+                    "position": 7.83
+                },
+                {
+                    "query": "ai e commerce montreal",
+                    "impressions": 4,
+                    "clicks": 0,
+                    "position": 35.25
+                },
+                {
+                    "query": "search engine ranking stockport",
+                    "impressions": 4,
+                    "clicks": 0,
+                    "position": 53.75
+                },
+                {
+                    "query": "core web vitals optimisation stockport",
+                    "impressions": 3,
+                    "clicks": 0,
+                    "position": 9
+                },
+                {
+                    "query": "marketing audits raleigh",
+                    "impressions": 1,
+                    "clicks": 0,
+                    "position": 35
+                },
+                {
+                    "query": "search engine optimisation huddersfield",
+                    "impressions": 1,
+                    "clicks": 0,
+                    "position": 56
+                },
+                {
+                    "query": "ai as a service kansas city",
+                    "impressions": 1,
+                    "clicks": 0,
+                    "position": 88
+                },
+                {
+                    "query": "ai implementation kansas city",
+                    "impressions": 1,
+                    "clicks": 0,
+                    "position": 97
+                }
+            ]
+        }
+    }
+}

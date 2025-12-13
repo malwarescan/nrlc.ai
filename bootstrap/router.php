@@ -62,12 +62,38 @@ function route_request(): void {
   }
 
   if ($path === '/' || $path === '') {
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'home',
+      'slug' => 'home/home',
+      'title' => 'Neural Command — AI Search Optimization, Schema, and LLM Visibility',
+      'excerpt' => 'NRLC provides a semantic operating layer for databases, APIs, and data streams. Transform your infrastructure into a queryable knowledge graph with ontologies, SQL reasoning, and automated relationships. Enterprise-ready AI SEO solutions.',
+      'canonicalPath' => '/'
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('home/home');
     return;
   }
 
   if (preg_match('#^/services/([^/]+)/$#', $path, $m)) {
     $_GET['service'] = $m[1];
+    
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $serviceSlug = $m[1];
+    $serviceTitle = ucfirst(str_replace(['-', '_'], ' ', $serviceSlug));
+    
+    $ctx = [
+      'type' => 'service',
+      'slug' => 'services/service',
+      'title' => $serviceTitle,
+      'excerpt' => "Expert $serviceTitle services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.",
+      'service' => $serviceTitle,
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
     render_page('services/service');
     return;
   }
@@ -76,27 +102,37 @@ function route_request(): void {
     $_GET['service'] = $m[1];
     $_GET['city']    = $m[2];
     
-    // Set metadata before rendering page (so head.php can use it)
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
     require_once __DIR__.'/../lib/helpers.php';
     require_once __DIR__.'/../lib/content_tokens.php';
     $serviceSlug = $m[1];
     $citySlug = $m[2];
     $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
     $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
-    $GLOBALS['__page_slug'] = 'services/service_city';
-    $GLOBALS['pageTitle'] = "$serviceTitle in $cityTitle";
     
     // Try to get enhanced intro for description
+    $excerpt = null;
     if (function_exists('get_service_enhancement')) {
       $enhancement = get_service_enhancement($serviceSlug, $citySlug);
       if (!empty($enhancement['intro'])) {
-        $GLOBALS['pageDesc'] = $enhancement['intro'];
-      } else {
-        $GLOBALS['pageDesc'] = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
+        $excerpt = $enhancement['intro'];
       }
-    } else {
-      $GLOBALS['pageDesc'] = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
     }
+    if (!$excerpt) {
+      $excerpt = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
+    }
+    
+    $ctx = [
+      'type' => 'service',
+      'slug' => "services/service_city",
+      'title' => "$serviceTitle in $cityTitle",
+      'excerpt' => $excerpt,
+      'service' => $serviceTitle,
+      'city' => $cityTitle,
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
     render_page('services/service_city');
     return;
@@ -105,6 +141,25 @@ function route_request(): void {
   if (preg_match('#^/careers/([^/]+)/([^/]+)/$#', $path, $m)) {
     $_GET['city'] = $m[1];
     $_GET['role'] = $m[2];
+    
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $citySlug = $m[1];
+    $roleSlug = $m[2];
+    $cityTitle = ucwords(str_replace(['-', '_'], ' ', $citySlug));
+    $roleTitle = ucwords(str_replace(['-', '_'], ' ', $roleSlug));
+    
+    $ctx = [
+      'type' => 'careers',
+      'slug' => "careers/career_city",
+      'title' => "$roleTitle in $cityTitle",
+      'excerpt' => "Apply for $roleTitle in $cityTitle. Remote-friendly role with competitive salary. Responsibilities include technical documentation, SEO content, and LLM optimization guides.",
+      'city' => $cityTitle,
+      'role' => $roleTitle,
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
     render_page('careers/career_city');
     return;
   }
@@ -113,11 +168,26 @@ function route_request(): void {
     $_GET['slug'] = $m[1];
     $slug = $m[1];
     
-    // Set metadata for specific articles BEFORE head.php is included
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $articleTitle = ucwords(str_replace(['-', '_'], ' ', $slug));
+    
+    // Special handling for specific articles
     if ($slug === 'google-llms-txt-ai-seo') {
-      $GLOBALS['pageTitle'] = "Google LLMs.txt Documentation Analysis & SEO Strategy";
-      $GLOBALS['pageDesc'] = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
+      $articleTitle = "Google LLMs.txt Documentation Analysis & SEO Strategy";
+      $excerpt = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
+    } else {
+      $excerpt = null; // Will be generated by meta_directive
     }
+    
+    $ctx = [
+      'type' => 'insights',
+      'slug' => "insights/$slug",
+      'title' => $articleTitle,
+      'excerpt' => $excerpt,
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
     render_page('insights/article');
     return;
@@ -182,14 +252,31 @@ function route_request(): void {
   }
 
   if ($path === '/insights/') {
+    // Generate unique metadata using ctx-based system for insights hub
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'insights_hub',
+      'slug' => 'insights/index',
+      'title' => 'Insights & Research on AI Search, SEO, and Structured Data | NRLC.ai',
+      'excerpt' => 'Research and insights from NRLC.ai on AI-driven search, structured data, indexing systems, and modern SEO strategy.',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('insights/index');
     return;
   }
 
   if ($path === '/services/') {
-    // Set metadata BEFORE head.php is included (so it's available when head.php renders the <title> tag)
-    $GLOBALS['pageTitle'] = 'The Semantic Infrastructure for the AI Internet | NRLC.ai';
-    $GLOBALS['pageDesc'] = 'NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.';
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'home',
+      'slug' => 'services/index',
+      'title' => 'The Semantic Infrastructure for the AI Internet | NRLC.ai',
+      'excerpt' => 'NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('services/index');
     return;
   }
@@ -216,18 +303,17 @@ function route_request(): void {
   }
 
   // Handle both /seo-enhancement-kernel/ and /promptware/seo-enhancement-kernel/
-  if ($path === '/seo-enhancement-kernel/' || $path === '/seo-enhancement-kernel') {
-    // Set SEO-first meta BEFORE rendering
-    $GLOBALS['pageTitle'] = 'SEO Enhancement Kernel Promptware for Technical SEO & AI Visibility';
-    $GLOBALS['pageDesc'] = 'Full-stack technical SEO promptware for rendering forensics, schema validation, Googlebot simulation, internal link enforcement, and NDJSON microfact extraction.';
-    render_page('promptware/seo-enhancement-kernel/index');
-    return;
-  }
-
-  if ($path === '/promptware/seo-enhancement-kernel/' || $path === '/promptware/seo-enhancement-kernel' || $path === '/en-us/promptware/seo-enhancement-kernel/' || $path === '/en-us/promptware/seo-enhancement-kernel') {
-    // Set SEO-first meta BEFORE rendering
-    $GLOBALS['pageTitle'] = 'SEO Enhancement Kernel Promptware for Technical SEO & AI Visibility';
-    $GLOBALS['pageDesc'] = 'Full-stack technical SEO promptware for rendering forensics, schema validation, Googlebot simulation, internal link enforcement, and NDJSON microfact extraction.';
+  if ($path === '/seo-enhancement-kernel/' || $path === '/seo-enhancement-kernel' || $path === '/promptware/seo-enhancement-kernel/' || $path === '/promptware/seo-enhancement-kernel' || $path === '/en-us/promptware/seo-enhancement-kernel/' || $path === '/en-us/promptware/seo-enhancement-kernel') {
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'tool',
+      'slug' => 'promptware/seo-enhancement-kernel/index',
+      'title' => 'SEO Enhancement Kernel Promptware for Technical SEO & AI Visibility',
+      'excerpt' => 'Full-stack technical SEO promptware for rendering forensics, schema validation, Googlebot simulation, internal link enforcement, and NDJSON microfact extraction.',
+      'canonicalPath' => '/promptware/seo-enhancement-kernel/'
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('promptware/seo-enhancement-kernel/index');
     return;
   }
@@ -256,6 +342,21 @@ function route_request(): void {
   // Industries routes
   if (preg_match('#^/industries/([^/]+)/$#', $path, $m)) {
     $_GET['industry'] = $m[1];
+    $industrySlug = $m[1];
+    
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $industryName = ucwords(str_replace(['-', '_'], ' ', $industrySlug));
+    
+    $ctx = [
+      'type' => 'industry',
+      'slug' => "industries/$industrySlug",
+      'title' => $industryName,
+      'excerpt' => "SEO and AI visibility for $industryName industry. Specialized strategies, compliance considerations, and proven tactics for sector-specific SEO success.",
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
     render_page('industries/industry');
     return;
   }
@@ -268,6 +369,21 @@ function route_request(): void {
   // Tools routes
   if (preg_match('#^/tools/([^/]+)/$#', $path, $m)) {
     $_GET['tool'] = $m[1];
+    $toolSlug = $m[1];
+    
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $toolName = ucwords(str_replace(['-', '_'], ' ', $toolSlug));
+    
+    $ctx = [
+      'type' => 'tool',
+      'slug' => "tools/$toolSlug",
+      'title' => $toolName,
+      'excerpt' => "Use this tool to optimize AI SEO with $toolName. Free AI SEO tool for technical audits, schema validation, and search engine optimization.",
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
     render_page('tools/tool');
     return;
   }
@@ -280,6 +396,23 @@ function route_request(): void {
   // Case studies routes
   if (preg_match('#^/case-studies/case-study-(\d+)/$#', $path, $m)) {
     $_GET['case'] = $m[1];
+    $caseNumber = $m[1];
+    
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $companies = ['TechCorp', 'DataFlow Inc', 'CloudSync', 'AI Ventures', 'SearchMax', 'SchemaPro', 'LLM Labs', 'SEO Dynamics'];
+    $company = $companies[($caseNumber - 1) % count($companies)];
+    $title = "$company AI SEO Case Study";
+    
+    $ctx = [
+      'type' => 'case_study',
+      'slug' => "case-studies/case-study-$caseNumber",
+      'title' => $title,
+      'excerpt' => "See how we helped $company achieve measurable results with AI SEO. Real-world implementation, data-driven outcomes, and actionable insights.",
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
     render_page('case-studies/case-study');
     return;
   }
@@ -292,6 +425,23 @@ function route_request(): void {
   // Blog routes
   if (preg_match('#^/blog/blog-post-(\d+)/$#', $path, $m)) {
     $_GET['post'] = $m[1];
+    $postNumber = $m[1];
+    
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $topics = ['AI SEO', 'GEO-16 Framework', 'LLM Optimization', 'Structured Data', 'Crawl Clarity', 'Entity Recognition', 'Citation Optimization', 'Technical SEO', 'Content Strategy', 'Analytics'];
+    $topic = $topics[($postNumber - 1) % count($topics)];
+    $title = "Advanced $topic Strategies for 2025";
+    
+    $ctx = [
+      'type' => 'blog_post',
+      'slug' => "blog/blog-post-$postNumber",
+      'title' => $title,
+      'excerpt' => "Comprehensive guide to $topic optimization, featuring the latest techniques and best practices for AI-powered search engines.",
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
     render_page('blog/blog-post');
     return;
   }
@@ -304,6 +454,22 @@ function route_request(): void {
   // Resources routes
   if (preg_match('#^/resources/resource-(\d+)/$#', $path, $m)) {
     $_GET['resource'] = $m[1];
+    $resourceNumber = $m[1];
+    
+    // Generate unique metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $resourceTypes = ['Schema Guide', 'LLM Optimization Playbook', 'Technical SEO Checklist', 'Structured Data Template', 'AI Citation Framework', 'Entity Mapping Guide', 'Crawl Strategy', 'Content Optimization'];
+    $resourceType = $resourceTypes[($resourceNumber - 1) % count($resourceTypes)];
+    
+    $ctx = [
+      'type' => 'resource',
+      'slug' => "resources/resource-$resourceNumber",
+      'title' => $resourceType,
+      'excerpt' => "Download or reference $resourceType. Comprehensive guides, templates, and tools for AI SEO optimization, structured data, and LLM visibility.",
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
     render_page('resources/resource');
     return;
   }
@@ -366,6 +532,12 @@ function load_page_metadata(string $filePath): void {
 }
 
 function render_page(string $slug): void {
+  // Define router context BEFORE including any page files
+  // This prevents numbered files from being executed directly
+  if (!defined('ROUTER_CONTEXT')) {
+    define('ROUTER_CONTEXT', true);
+  }
+  
   $GLOBALS['__page_slug'] = $slug;
 
   // Special handling for promptware pages

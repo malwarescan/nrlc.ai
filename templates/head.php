@@ -11,41 +11,46 @@ require_once __DIR__.'/../lib/hreflang.php';
 
 $slug = $GLOBALS['__page_slug'] ?? 'home/home';
 
-// Use custom metadata if provided, otherwise use meta_for_slug
-if (isset($GLOBALS['pageTitle']) && isset($GLOBALS['pageDesc'])) {
-  $title = $GLOBALS['pageTitle'];
-  $desc = $GLOBALS['pageDesc'];
-  $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+// SINGLE SOURCE OF TRUTH: Only accept metadata from router's ctx-based system
+// Fail-closed if $meta is missing (prevents bypassed metadata)
+if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
+  // FAIL-CLOSED: No metadata from router means this page bypassed the router
+  $isProduction = !in_array($_SERVER['HTTP_HOST'] ?? '', ['localhost', '127.0.0.1', 'localhost:8000', '127.0.0.1:8000']);
+  
+  if ($isProduction) {
+    // Production: Output noindex to prevent indexing of bypassed pages
+    echo '<meta name="robots" content="noindex,nofollow">' . "\n";
+    // Still provide minimal metadata to prevent errors
+    $title = 'NRLC.ai';
+    $desc = 'AI SEO services and solutions';
+  } else {
+    // Non-production: Hard error to catch bypasses during development
+    trigger_error("CRITICAL: templates/head.php called without router metadata. Page bypassed router meta system. Slug: $slug", E_USER_ERROR);
+    $title = 'ERROR: Missing Metadata';
+    $desc = 'This page bypassed the router metadata system';
+  }
+  
+  // Build canonical from request path
+  $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+  if ($requestPath === '/' || $requestPath === '') {
+    $canonicalPath = '/';
+  } else {
+    require_once __DIR__.'/../config/locales.php';
+    if (!preg_match('#^/([a-z]{2})-([a-z]{2})(/|$)#i', $requestPath)) {
+      $canonicalPath = '/'.X_DEFAULT.$requestPath;
+    } else {
+      $canonicalPath = $requestPath;
+    }
+  }
 } else {
-[$title,$desc,$path] = meta_for_slug($slug);
+  // Router metadata exists - use it exclusively
+  $meta = $GLOBALS['__page_meta'];
+  $title = $meta['title'] ?? 'NRLC.ai';
+  $desc = $meta['description'] ?? 'AI SEO services and solutions';
+  $canonicalPath = $meta['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 }
 
 $baseSchemas = base_schemas();
-
-// Build canonical URL with locale prefix
-// Get the actual request path (includes locale prefix if present)
-$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-
-// Normalize the path (lowercase, remove double slashes, ensure trailing slash for directories)
-$requestPath = preg_replace('#/{2,}#', '/', strtolower($requestPath));
-if (!preg_match('#\.[a-z0-9]+$#', $requestPath) && substr($requestPath, -1) !== '/') {
-  $requestPath .= '/';
-}
-
-// Ensure canonical always includes locale prefix
-// If path doesn't have locale prefix, add default locale
-if (!preg_match('#^/([a-z]{2})-([a-z]{2})(/|$)#i', $requestPath)) {
-  // Path doesn't have locale prefix - add default locale
-  require_once __DIR__.'/../config/locales.php';
-  if ($requestPath === '/' || $requestPath === '') {
-    $requestPath = '/'.X_DEFAULT.'/';
-  } else {
-    $requestPath = '/'.X_DEFAULT.$requestPath;
-  }
-}
-
-// Use the request path as canonical (now guaranteed to include locale prefix if not root)
-$canonicalPath = $requestPath;
 
 header('Content-Type: text/html; charset=utf-8');
 ?><!doctype html>
@@ -104,7 +109,12 @@ header('Content-Type: text/html; charset=utf-8');
 <!-- GSAP Animation Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <?php
-foreach (hreflang_links(without_locale_prefix($path)) as $alt) {
+// Use canonicalPath for hreflang (remove locale prefix for hreflang generation)
+$hreflangPath = $canonicalPath ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+if (function_exists('without_locale_prefix')) {
+  $hreflangPath = without_locale_prefix($hreflangPath);
+}
+foreach (hreflang_links($hreflangPath) as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";
 }
 foreach ($baseSchemas as $s) {

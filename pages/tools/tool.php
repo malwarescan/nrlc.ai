@@ -1,7 +1,6 @@
 <?php
-
-$GLOBALS['pageTitle'] = 'AI SEO Integration | NRLC.ai';
-$GLOBALS['pageDesc'] = 'AI SEO Integration. AI SEO services and solutions by NRLC.ai.';
+// Metadata is now set in router via ctx-based system
+// Remove old placeholder metadata to prevent conflicts
 
 $toolSlug = $_GET['tool'] ?? 'chatgpt';
 $toolName = ucwords(str_replace('-', ' ', $toolSlug));

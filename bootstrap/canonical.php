@@ -46,6 +46,12 @@ function canonical_guard(): void {
     exit;
   }
 
+  // Root "/" must remain canonical as "/" (do not force locale).
+  // This prevents breaking the homepage URL.
+  if ($uri === '/' || $uri === '') {
+    return;
+  }
+
   // Force locale prefix redirect (e.g., /services/... -> /en-us/services/...)
   // This prevents duplicate canonical issues where Google chooses a different canonical
   // Skip redirect for healthcheck requests (HEAD requests or Railway healthcheck)
@@ -66,21 +72,16 @@ function canonical_guard(): void {
       return;
     }
     
-    // Preserve query string
+    // Preserve query string (including UTMs for analytics)
     $queryString = count($query) ? '?'.http_build_query($query) : '';
-    // Handle root path specially
-    if ($uri === '/' || $uri === '') {
-      $redirectUrl = $scheme.'://'.$host.'/'.X_DEFAULT.'/'.$queryString;
-    } else {
-      $redirectUrl = $scheme.'://'.$host.'/'.X_DEFAULT.$uri.$queryString;
-    }
+    $redirectUrl = $scheme.'://'.$host.'/'.X_DEFAULT.$uri.$queryString;
     header("Location: $redirectUrl", true, 301);
     exit;
   }
 
-  // strip trackers
-  $strip = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'];
-  $query = array_diff_key($query, array_flip($strip));
+  // Strip only known spam/junk params, preserve UTMs for analytics
+  // Canonical tags will ignore UTMs, but we keep them in redirects for tracking
+  $strip = []; // Keep all params in redirects - canonical tag handles UTM exclusion
 
   // normalize path
   $normalized = preg_replace('#/{2,}#','/', strtolower($uri));

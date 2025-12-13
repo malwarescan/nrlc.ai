@@ -3,8 +3,8 @@ require_once __DIR__ . '/../../lib/helpers.php';
 require_once __DIR__ . '/../../lib/deterministic.php';
 
 
-$GLOBALS['pageTitle'] = 'Case Study #: | NRLC.ai';
-$GLOBALS['pageDesc'] = 'How , a leading  company, achieved significant improvements in AI engine visibility through strategic SEO optimization.';
+// Metadata is now set in router via ctx-based system
+// Remove old placeholder metadata to prevent conflicts
 
 $caseNumber = $_GET['case'] ?? '1';
 

@@ -1,10 +1,21 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Prevent direct access. This file is a data/partial for routed templates only.
+if (!defined('ROUTER_CONTEXT')) {
+  $canonical = '/tools/schema-generator/';
+  $scheme = (!empty($_SERVER['HTTPS']) || !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ? 'https' : 'https';
+  $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+  if (!preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $canonical)) {
+    require_once __DIR__.'/../../config/locales.php';
+    $canonical = '/'.X_DEFAULT.$canonical;
+  }
+  $redirectUrl = $scheme.'://'.$host.$canonical;
+  header("Location: $redirectUrl", true, 301);
+  exit;
+}
 
 
-$GLOBALS['pageTitle'] = 'for AI SEO Optimization | NRLC.ai';
-$GLOBALS['pageDesc'] = 'Comprehensive review and optimization guide for  in AI search engine optimization and LLM citation strategies.';
+// Metadata set by router via ctx-based system
+
 
 $tool = $_GET['tool'] ?? '';
 $toolNames = [

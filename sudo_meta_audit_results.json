@@ -1,0 +1,2148 @@
+{
+    "duplicates": {
+        "https:\/\/nrlc.ai\/insights\/open-seo-tools\/": {
+            "1": "http:\/\/nrlc.ai\/insights\/open-seo-tools\/"
+        },
+        "https:\/\/nrlc.ai\/en-us\/services\/semantic-seo-ai\/jacksonville\/": {
+            "1": "http:\/\/nrlc.ai\/en-us\/services\/semantic-seo-ai\/jacksonville\/"
+        },
+        "https:\/\/nrlc.ai\/en-us\/services\/ranking-optimization-ai\/stockport\/": [
+            "http:\/\/nrlc.ai\/en-us\/services\/ranking-optimization-ai\/stockport\/"
+        ],
+        "https:\/\/nrlc.ai\/en-us\/services\/generative-seo\/huddersfield\/": {
+            "1": "http:\/\/nrlc.ai\/en-us\/services\/generative-seo\/huddersfield\/"
+        },
+        "https:\/\/nrlc.ai\/services\/llm-content-strategy\/edmonton\/": [
+            "http:\/\/nrlc.ai\/services\/llm-content-strategy\/edmonton\/"
+        ],
+        "https:\/\/nrlc.ai\/en-us\/services\/generative-seo\/montreal\/": {
+            "1": "http:\/\/nrlc.ai\/en-us\/services\/generative-seo\/montreal\/"
+        },
+        "https:\/\/nrlc.ai\/services\/generative-seo\/san-antonio\/": {
+            "1": "http:\/\/nrlc.ai\/services\/generative-seo\/san-antonio\/"
+        },
+        "https:\/\/nrlc.ai\/services\/generative-seo\/oklahoma-city\/": [
+            "http:\/\/nrlc.ai\/services\/generative-seo\/oklahoma-city\/"
+        ],
+        "https:\/\/nrlc.ai\/services\/site-audits\/raleigh\/": [
+            "http:\/\/nrlc.ai\/services\/site-audits\/raleigh\/"
+        ],
+        "https:\/\/nrlc.ai\/careers\/sheffield\/technical-writer\/": [
+            "http:\/\/nrlc.ai\/careers\/sheffield\/technical-writer\/"
+        ]
+    },
+    "intentClusters": {
+        "service": [
+            {
+                "query": "open source seo software",
+                "impressions": 133,
+                "position": 74.79,
+                "ctr": 0
+            },
+            {
+                "query": "open source seo tools",
+                "impressions": 60,
+                "position": 88.3,
+                "ctr": 0
+            },
+            {
+                "query": "copilot seo tracker",
+                "impressions": 57,
+                "position": 69.7,
+                "ctr": 0
+            },
+            {
+                "query": "open source seo platform",
+                "impressions": 50,
+                "position": 53,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo singapore",
+                "impressions": 36,
+                "position": 52.17,
+                "ctr": 0
+            },
+            {
+                "query": "seo southport",
+                "impressions": 35,
+                "position": 77.51,
+                "ctr": 0
+            },
+            {
+                "query": "best open source seo software",
+                "impressions": 29,
+                "position": 68.41,
+                "ctr": 0
+            },
+            {
+                "query": "seo audit belfast",
+                "impressions": 28,
+                "position": 88.71,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimization abbotsford",
+                "impressions": 21,
+                "position": 39.76,
+                "ctr": 0
+            },
+            {
+                "query": "jacksonville ai seo",
+                "impressions": 20,
+                "position": 57.2,
+                "ctr": 0
+            },
+            {
+                "query": "link building strategies in southampton",
+                "impressions": 18,
+                "position": 22.78,
+                "ctr": 0
+            },
+            {
+                "query": "singapore ai seo",
+                "impressions": 18,
+                "position": 48.72,
+                "ctr": 0
+            },
+            {
+                "query": "open source seo tool",
+                "impressions": 18,
+                "position": 72.72,
+                "ctr": 0
+            },
+            {
+                "query": "seo southend on sea",
+                "impressions": 17,
+                "position": 76.71,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimisation birmingham",
+                "impressions": 16,
+                "position": 52.5,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo glasgow",
+                "impressions": 15,
+                "position": 55.13,
+                "ctr": 0
+            },
+            {
+                "query": "seo tools open source",
+                "impressions": 14,
+                "position": 73.93,
+                "ctr": 0
+            },
+            {
+                "query": "seo southend-on-sea",
+                "impressions": 14,
+                "position": 74.64,
+                "ctr": 0
+            },
+            {
+                "query": "web audit newcastle",
+                "impressions": 13,
+                "position": 48.77,
+                "ctr": 0
+            },
+            {
+                "query": "seo huddersfield",
+                "impressions": 12,
+                "position": 90.83,
+                "ctr": 0
+            },
+            {
+                "query": "seo audit hull",
+                "impressions": 11,
+                "position": 62.18,
+                "ctr": 0
+            },
+            {
+                "query": "oshawa seo",
+                "impressions": 11,
+                "position": 83.36,
+                "ctr": 0
+            },
+            {
+                "query": "chatgpt visibility help for business in kansas city",
+                "impressions": 10,
+                "position": 3.7,
+                "ctr": 0
+            },
+            {
+                "query": "website audit newcastle",
+                "impressions": 10,
+                "position": 50,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo birmingham",
+                "impressions": 10,
+                "position": 77.4,
+                "ctr": 0
+            },
+            {
+                "query": "seo services oshawa",
+                "impressions": 10,
+                "position": 80.4,
+                "ctr": 0
+            },
+            {
+                "query": "chicago seo company audit",
+                "impressions": 9,
+                "position": 75.44,
+                "ctr": 0
+            },
+            {
+                "query": "copilot seo trackers",
+                "impressions": 9,
+                "position": 89.56,
+                "ctr": 0
+            },
+            {
+                "query": "seo west bromwich",
+                "impressions": 9,
+                "position": 92.89,
+                "ctr": 0
+            },
+            {
+                "query": "link building strategies southampton",
+                "impressions": 8,
+                "position": 21.75,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimization omaha",
+                "impressions": 8,
+                "position": 25.88,
+                "ctr": 0
+            },
+            {
+                "query": "generative seo agency for houston businesses",
+                "impressions": 8,
+                "position": 43.12,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference in middlesbrough",
+                "impressions": 8,
+                "position": 43.12,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo agency singapore",
+                "impressions": 8,
+                "position": 56.88,
+                "ctr": 0
+            },
+            {
+                "query": "seo audit newcastle",
+                "impressions": 8,
+                "position": 88.38,
+                "ctr": 0
+            },
+            {
+                "query": "schema markup jacksonville",
+                "impressions": 7,
+                "position": 3.14,
+                "ctr": 0
+            },
+            {
+                "query": "indianapolis ai seo",
+                "impressions": 7,
+                "position": 58,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo in huddersfield",
+                "impressions": 7,
+                "position": 70.86,
+                "ctr": 0
+            },
+            {
+                "query": "seo writer toronto",
+                "impressions": 7,
+                "position": 76.14,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist singapore",
+                "impressions": 7,
+                "position": 77.86,
+                "ctr": 0
+            },
+            {
+                "query": "seo ai automation colorado springs co",
+                "impressions": 6,
+                "position": 25.67,
+                "ctr": 0
+            },
+            {
+                "query": "search engine ranking optimization stockport",
+                "impressions": 6,
+                "position": 33.5,
+                "ctr": 0
+            },
+            {
+                "query": "columbus ai seo",
+                "impressions": 6,
+                "position": 39.83,
+                "ctr": 0
+            },
+            {
+                "query": "seo ai singapore",
+                "impressions": 6,
+                "position": 47.33,
+                "ctr": 0
+            },
+            {
+                "query": "open source seo reporting software",
+                "impressions": 6,
+                "position": 50.83,
+                "ctr": 0
+            },
+            {
+                "query": "seo packages for oldham",
+                "impressions": 6,
+                "position": 63.33,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation (seo)oldham",
+                "impressions": 6,
+                "position": 65.33,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo in middlesbrough",
+                "impressions": 6,
+                "position": 67.17,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist belfast",
+                "impressions": 6,
+                "position": 70.17,
+                "ctr": 0
+            },
+            {
+                "query": "international seo singapore",
+                "impressions": 6,
+                "position": 77,
+                "ctr": 0
+            },
+            {
+                "query": "generative ai content optimization in houston",
+                "impressions": 6,
+                "position": 77.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo audit sheffield",
+                "impressions": 6,
+                "position": 86.33,
+                "ctr": 0
+            },
+            {
+                "query": "seo kingston",
+                "impressions": 6,
+                "position": 92.33,
+                "ctr": 0
+            },
+            {
+                "query": "albuquerque conversion rate optimization services",
+                "impressions": 5,
+                "position": 22.8,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimization okc",
+                "impressions": 5,
+                "position": 28,
+                "ctr": 0
+            },
+            {
+                "query": "generative engine optimization montreal",
+                "impressions": 5,
+                "position": 32.8,
+                "ctr": 0
+            },
+            {
+                "query": "virginia beach conversion rate optimization services",
+                "impressions": 5,
+                "position": 46,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference in huddersfield",
+                "impressions": 5,
+                "position": 60.4,
+                "ctr": 0
+            },
+            {
+                "query": "ai optimization singapore",
+                "impressions": 5,
+                "position": 62.2,
+                "ctr": 0
+            },
+            {
+                "query": "website search optimization stockport",
+                "impressions": 5,
+                "position": 64,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference in plymouth",
+                "impressions": 5,
+                "position": 68.2,
+                "ctr": 0
+            },
+            {
+                "query": "best local seo in coventry",
+                "impressions": 5,
+                "position": 71,
+                "ctr": 0
+            },
+            {
+                "query": "seo stockport",
+                "impressions": 5,
+                "position": 71.4,
+                "ctr": 0
+            },
+            {
+                "query": "local seo huddersfield",
+                "impressions": 5,
+                "position": 74.4,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference in northampton",
+                "impressions": 5,
+                "position": 80,
+                "ctr": 0
+            },
+            {
+                "query": "seo search engine optimisation in huddersfield",
+                "impressions": 5,
+                "position": 82.4,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo inoldham",
+                "impressions": 5,
+                "position": 87.4,
+                "ctr": 0
+            },
+            {
+                "query": "southport seo",
+                "impressions": 5,
+                "position": 90.4,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference innorwich",
+                "impressions": 5,
+                "position": 90.8,
+                "ctr": 0
+            },
+            {
+                "query": "chatgpt visibility strategies for businesses kansas city",
+                "impressions": 4,
+                "position": 5.5,
+                "ctr": 0
+            },
+            {
+                "query": "voice search optimization san antonio",
+                "impressions": 4,
+                "position": 8.75,
+                "ctr": 0
+            },
+            {
+                "query": "albuquerque conversion rate optimization company",
+                "impressions": 4,
+                "position": 21,
+                "ctr": 0
+            },
+            {
+                "query": "tucson conversion rate optimization services",
+                "impressions": 4,
+                "position": 21,
+                "ctr": 0
+            },
+            {
+                "query": "oklahoma city ai seo",
+                "impressions": 4,
+                "position": 21.25,
+                "ctr": 0
+            },
+            {
+                "query": "columbus conversion rate optimization services",
+                "impressions": 4,
+                "position": 25.5,
+                "ctr": 0
+            },
+            {
+                "query": "tucson conversion rate optimization company",
+                "impressions": 4,
+                "position": 25.5,
+                "ctr": 0
+            },
+            {
+                "query": "albuquerque conversion rate optimization agency",
+                "impressions": 4,
+                "position": 27.25,
+                "ctr": 0
+            },
+            {
+                "query": "seo search engine optimisation inoldham",
+                "impressions": 4,
+                "position": 40,
+                "ctr": 0
+            },
+            {
+                "query": "web search optimization stockport",
+                "impressions": 4,
+                "position": 58,
+                "ctr": 0
+            },
+            {
+                "query": "seo service windsor",
+                "impressions": 4,
+                "position": 62,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference in oldham",
+                "impressions": 4,
+                "position": 68,
+                "ctr": 0
+            },
+            {
+                "query": "local seo oldham",
+                "impressions": 4,
+                "position": 71.25,
+                "ctr": 0
+            },
+            {
+                "query": "guelph seo services",
+                "impressions": 4,
+                "position": 74.5,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist in cambridge",
+                "impressions": 4,
+                "position": 81,
+                "ctr": 0
+            },
+            {
+                "query": "oshawa seo services",
+                "impressions": 4,
+                "position": 81.5,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation (seo)huddersfield",
+                "impressions": 4,
+                "position": 84.75,
+                "ctr": 0
+            },
+            {
+                "query": "seo services saskatoon",
+                "impressions": 4,
+                "position": 88,
+                "ctr": 0
+            },
+            {
+                "query": "omaha conversion rate optimization services",
+                "impressions": 3,
+                "position": 16.33,
+                "ctr": 0
+            },
+            {
+                "query": "seo kobe",
+                "impressions": 3,
+                "position": 19,
+                "ctr": 0
+            },
+            {
+                "query": "sacramento conversion rate optimization services",
+                "impressions": 3,
+                "position": 20.67,
+                "ctr": 0
+            },
+            {
+                "query": "columbus conversion rate optimization company",
+                "impressions": 3,
+                "position": 31,
+                "ctr": 0
+            },
+            {
+                "query": "omaha ai seo",
+                "impressions": 3,
+                "position": 34,
+                "ctr": 0
+            },
+            {
+                "query": "generative engine optimization san antonio",
+                "impressions": 3,
+                "position": 39.33,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo detroit",
+                "impressions": 3,
+                "position": 47.67,
+                "ctr": 0
+            },
+            {
+                "query": "virginia beach conversion rate optimization agency",
+                "impressions": 3,
+                "position": 50.33,
+                "ctr": 0
+            },
+            {
+                "query": "seo analyzer open source",
+                "impressions": 3,
+                "position": 57.33,
+                "ctr": 0
+            },
+            {
+                "query": "seo marketing strategy stockport",
+                "impressions": 3,
+                "position": 63.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo packages for huddersfield",
+                "impressions": 3,
+                "position": 64,
+                "ctr": 0
+            },
+            {
+                "query": "seo training houston",
+                "impressions": 3,
+                "position": 65,
+                "ctr": 0
+            },
+            {
+                "query": "chatgpt ranking optimisation service near me",
+                "impressions": 3,
+                "position": 67.67,
+                "ctr": 0
+            },
+            {
+                "query": "basic seo in huddersfield",
+                "impressions": 3,
+                "position": 68.33,
+                "ctr": 0
+            },
+            {
+                "query": "best local seo in middlesbrough",
+                "impressions": 3,
+                "position": 69,
+                "ctr": 0
+            },
+            {
+                "query": "seo audit cambridge",
+                "impressions": 3,
+                "position": 69.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo services guelph",
+                "impressions": 3,
+                "position": 71.33,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialists stockport",
+                "impressions": 3,
+                "position": 73.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo oshawa",
+                "impressions": 3,
+                "position": 77.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo services detroit",
+                "impressions": 3,
+                "position": 80.67,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation (seo)middlesbrough",
+                "impressions": 3,
+                "position": 81,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo singapore",
+                "impressions": 3,
+                "position": 81.33,
+                "ctr": 0
+            },
+            {
+                "query": "nashville seo audit",
+                "impressions": 3,
+                "position": 83.33,
+                "ctr": 0
+            },
+            {
+                "query": "seo services coventry",
+                "impressions": 3,
+                "position": 86.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo southend",
+                "impressions": 3,
+                "position": 86.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist in huddersfield",
+                "impressions": 3,
+                "position": 94.33,
+                "ctr": 0
+            },
+            {
+                "query": "phoenix technical seo site audit",
+                "impressions": 3,
+                "position": 97,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist in northampton",
+                "impressions": 3,
+                "position": 97,
+                "ctr": 0
+            },
+            {
+                "query": "site audit san francisco",
+                "impressions": 2,
+                "position": 3,
+                "ctr": 0
+            },
+            {
+                "query": "website audit san francisco",
+                "impressions": 2,
+                "position": 6.5,
+                "ctr": 0
+            },
+            {
+                "query": "ai search optimization boston",
+                "impressions": 2,
+                "position": 11,
+                "ctr": 0
+            },
+            {
+                "query": "how ai improves seo for charlotte websites",
+                "impressions": 2,
+                "position": 17.5,
+                "ctr": 0
+            },
+            {
+                "query": "memphis conversion rate optimization agency",
+                "impressions": 2,
+                "position": 26,
+                "ctr": 0
+            },
+            {
+                "query": "minneapolis conversion rate optimization services",
+                "impressions": 2,
+                "position": 31.5,
+                "ctr": 0
+            },
+            {
+                "query": "columbus conversion rate optimization agency",
+                "impressions": 2,
+                "position": 34.5,
+                "ctr": 0
+            },
+            {
+                "query": "seo writers kansas city",
+                "impressions": 2,
+                "position": 45,
+                "ctr": 0
+            },
+            {
+                "query": "seo ranking stockport",
+                "impressions": 2,
+                "position": 49.5,
+                "ctr": 0
+            },
+            {
+                "query": "oklahoma city conversion rate optimization company",
+                "impressions": 2,
+                "position": 51.5,
+                "ctr": 0
+            },
+            {
+                "query": "seo competitor analysis chicago il",
+                "impressions": 2,
+                "position": 52,
+                "ctr": 0
+            },
+            {
+                "query": "api seo chicago, il",
+                "impressions": 2,
+                "position": 52.5,
+                "ctr": 0
+            },
+            {
+                "query": "open source seo checker",
+                "impressions": 2,
+                "position": 57,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference in leicester",
+                "impressions": 2,
+                "position": 58.5,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimization minneapolis mn",
+                "impressions": 2,
+                "position": 59,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo derby",
+                "impressions": 2,
+                "position": 59,
+                "ctr": 0
+            },
+            {
+                "query": "charlotte seo agency using ai",
+                "impressions": 2,
+                "position": 64.5,
+                "ctr": 0
+            },
+            {
+                "query": "conversion optimization los angeles",
+                "impressions": 2,
+                "position": 66.5,
+                "ctr": 0
+            },
+            {
+                "query": "kansas city ai seo",
+                "impressions": 2,
+                "position": 67,
+                "ctr": 0
+            },
+            {
+                "query": "local seo coventry",
+                "impressions": 2,
+                "position": 70,
+                "ctr": 0
+            },
+            {
+                "query": "google search seo in oldham",
+                "impressions": 2,
+                "position": 77,
+                "ctr": 0
+            },
+            {
+                "query": "local seo in stoke-on-trent",
+                "impressions": 2,
+                "position": 78,
+                "ctr": 0
+            },
+            {
+                "query": "seo services for business in coventry",
+                "impressions": 2,
+                "position": 81,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist vancouver",
+                "impressions": 2,
+                "position": 84,
+                "ctr": 0
+            },
+            {
+                "query": "website search engine optimization stockport",
+                "impressions": 2,
+                "position": 84,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist in oldham",
+                "impressions": 2,
+                "position": 88,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist san francisco",
+                "impressions": 2,
+                "position": 89,
+                "ctr": 0
+            },
+            {
+                "query": "seo leicester",
+                "impressions": 2,
+                "position": 95.5,
+                "ctr": 0
+            },
+            {
+                "query": "seo expert in oldham",
+                "impressions": 2,
+                "position": 96.5,
+                "ctr": 0
+            },
+            {
+                "query": "guelph seo",
+                "impressions": 2,
+                "position": 99.5,
+                "ctr": 0
+            },
+            {
+                "query": "schema markup kansas",
+                "impressions": 1,
+                "position": 2,
+                "ctr": 0
+            },
+            {
+                "query": "stockport authority link building service",
+                "impressions": 1,
+                "position": 5,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimization halifax",
+                "impressions": 1,
+                "position": 8,
+                "ctr": 0
+            },
+            {
+                "query": "stockport link building service seo",
+                "impressions": 1,
+                "position": 9,
+                "ctr": 0
+            },
+            {
+                "query": "generative engine optimization geo kansas city",
+                "impressions": 1,
+                "position": 10,
+                "ctr": 0
+            },
+            {
+                "query": "phoenix semantic optimization",
+                "impressions": 1,
+                "position": 10,
+                "ctr": 0
+            },
+            {
+                "query": "seo",
+                "impressions": 1,
+                "position": 10,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimisation halifax",
+                "impressions": 1,
+                "position": 11,
+                "ctr": 0
+            },
+            {
+                "query": "ai optimization milwaukee",
+                "impressions": 1,
+                "position": 12,
+                "ctr": 0
+            },
+            {
+                "query": "google ai overview optimization san antonio",
+                "impressions": 1,
+                "position": 12,
+                "ctr": 0
+            },
+            {
+                "query": "stockport link building services for seo",
+                "impressions": 1,
+                "position": 12,
+                "ctr": 0
+            },
+            {
+                "query": "omaha conversion rate optimization company",
+                "impressions": 1,
+                "position": 17,
+                "ctr": 0
+            },
+            {
+                "query": "edmonton seo specialist",
+                "impressions": 1,
+                "position": 23,
+                "ctr": 0
+            },
+            {
+                "query": "albuquerque ai seo",
+                "impressions": 1,
+                "position": 25,
+                "ctr": 0
+            },
+            {
+                "query": "tucson conversion rate optimization agency",
+                "impressions": 1,
+                "position": 25,
+                "ctr": 0
+            },
+            {
+                "query": "san jose ai seo",
+                "impressions": 1,
+                "position": 26,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimisation wolverhampton",
+                "impressions": 1,
+                "position": 28,
+                "ctr": 0
+            },
+            {
+                "query": "seo gap analysis service stockport",
+                "impressions": 1,
+                "position": 28,
+                "ctr": 0
+            },
+            {
+                "query": "el paso conversion rate optimization services",
+                "impressions": 1,
+                "position": 30,
+                "ctr": 0
+            },
+            {
+                "query": "seo training stockport",
+                "impressions": 1,
+                "position": 32,
+                "ctr": 0
+            },
+            {
+                "query": "seattle ai seo",
+                "impressions": 1,
+                "position": 41,
+                "ctr": 0
+            },
+            {
+                "query": "nashville ai seo",
+                "impressions": 1,
+                "position": 42,
+                "ctr": 0
+            },
+            {
+                "query": "conversion tracking leicester",
+                "impressions": 1,
+                "position": 44,
+                "ctr": 0
+            },
+            {
+                "query": "conversion rate optimization baltimore",
+                "impressions": 1,
+                "position": 46,
+                "ctr": 0
+            },
+            {
+                "query": "atlanta ai seo",
+                "impressions": 1,
+                "position": 50,
+                "ctr": 0
+            },
+            {
+                "query": "charlotte ai seo",
+                "impressions": 1,
+                "position": 51,
+                "ctr": 0
+            },
+            {
+                "query": "seo audits stockport",
+                "impressions": 1,
+                "position": 52,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimization stockport",
+                "impressions": 1,
+                "position": 54,
+                "ctr": 0
+            },
+            {
+                "query": "sudbury seo",
+                "impressions": 1,
+                "position": 59,
+                "ctr": 0
+            },
+            {
+                "query": "link building minneapolis mn",
+                "impressions": 1,
+                "position": 64,
+                "ctr": 0
+            },
+            {
+                "query": "seo audit ottawa",
+                "impressions": 1,
+                "position": 64,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo audit phoenix",
+                "impressions": 1,
+                "position": 64,
+                "ctr": 0
+            },
+            {
+                "query": "generative engine optimization agency in singapore",
+                "impressions": 1,
+                "position": 65,
+                "ctr": 0
+            },
+            {
+                "query": "philadelphia ai seo",
+                "impressions": 1,
+                "position": 65,
+                "ctr": 0
+            },
+            {
+                "query": "seo norwich",
+                "impressions": 1,
+                "position": 65,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo audits chicago",
+                "impressions": 1,
+                "position": 65,
+                "ctr": 0
+            },
+            {
+                "query": "denver ai seo",
+                "impressions": 1,
+                "position": 66,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo services charlotte nc",
+                "impressions": 1,
+                "position": 68,
+                "ctr": 0
+            },
+            {
+                "query": "seo strategy stockport",
+                "impressions": 1,
+                "position": 68,
+                "ctr": 0
+            },
+            {
+                "query": "seo competition tracking chicago, il",
+                "impressions": 1,
+                "position": 69,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimization help stockport",
+                "impressions": 1,
+                "position": 70,
+                "ctr": 0
+            },
+            {
+                "query": "seo advice northampton",
+                "impressions": 1,
+                "position": 71,
+                "ctr": 0
+            },
+            {
+                "query": "baltimore ai seo company",
+                "impressions": 1,
+                "position": 73,
+                "ctr": 0
+            },
+            {
+                "query": "google search seo in middlesbrough",
+                "impressions": 1,
+                "position": 73,
+                "ctr": 0
+            },
+            {
+                "query": "kingston seo",
+                "impressions": 1,
+                "position": 73,
+                "ctr": 0
+            },
+            {
+                "query": "local seo omaha",
+                "impressions": 1,
+                "position": 73,
+                "ctr": 0
+            },
+            {
+                "query": "seo coventry",
+                "impressions": 1,
+                "position": 74,
+                "ctr": 0
+            },
+            {
+                "query": "seo firm stockport",
+                "impressions": 1,
+                "position": 74,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist northampton",
+                "impressions": 1,
+                "position": 74,
+                "ctr": 0
+            },
+            {
+                "query": "generative engine optimization singapore",
+                "impressions": 1,
+                "position": 76,
+                "ctr": 0
+            },
+            {
+                "query": "local seo service in coventry",
+                "impressions": 1,
+                "position": 76,
+                "ctr": 0
+            },
+            {
+                "query": "seo consultant stockport",
+                "impressions": 1,
+                "position": 76,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist in peterborough",
+                "impressions": 1,
+                "position": 77,
+                "ctr": 0
+            },
+            {
+                "query": "local seo middlesbrough",
+                "impressions": 1,
+                "position": 78,
+                "ctr": 0
+            },
+            {
+                "query": "google search seo in peterborough",
+                "impressions": 1,
+                "position": 79,
+                "ctr": 0
+            },
+            {
+                "query": "seo in huddersfield",
+                "impressions": 1,
+                "position": 79,
+                "ctr": 0
+            },
+            {
+                "query": "seo search engine optimisation in middlesbrough",
+                "impressions": 1,
+                "position": 79,
+                "ctr": 0
+            },
+            {
+                "query": "seo agency huddersfield",
+                "impressions": 1,
+                "position": 80,
+                "ctr": 0
+            },
+            {
+                "query": "virginia beach conversion rate optimization company",
+                "impressions": 1,
+                "position": 80,
+                "ctr": 0
+            },
+            {
+                "query": "ottawa seo specialist",
+                "impressions": 1,
+                "position": 81,
+                "ctr": 0
+            },
+            {
+                "query": "phoenix ai seo",
+                "impressions": 1,
+                "position": 81,
+                "ctr": 0
+            },
+            {
+                "query": "seo sudbury",
+                "impressions": 1,
+                "position": 81,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo northern ireland",
+                "impressions": 1,
+                "position": 82,
+                "ctr": 0
+            },
+            {
+                "query": "hull seo",
+                "impressions": 1,
+                "position": 82,
+                "ctr": 0
+            },
+            {
+                "query": "philadelphia seo audit",
+                "impressions": 1,
+                "position": 82,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist virginia",
+                "impressions": 1,
+                "position": 82,
+                "ctr": 0
+            },
+            {
+                "query": "seo saguenay",
+                "impressions": 1,
+                "position": 83,
+                "ctr": 0
+            },
+            {
+                "query": "seo content stockport",
+                "impressions": 1,
+                "position": 84,
+                "ctr": 0
+            },
+            {
+                "query": "google search seo in nottingham",
+                "impressions": 1,
+                "position": 85,
+                "ctr": 0
+            },
+            {
+                "query": "tucson search optimization",
+                "impressions": 1,
+                "position": 86,
+                "ctr": 0
+            },
+            {
+                "query": "seo company southport",
+                "impressions": 1,
+                "position": 89,
+                "ctr": 0
+            },
+            {
+                "query": "ongoing llm seo techniques",
+                "impressions": 1,
+                "position": 90,
+                "ctr": 0
+            },
+            {
+                "query": "nashville ai seo agency",
+                "impressions": 1,
+                "position": 91,
+                "ctr": 0
+            },
+            {
+                "query": "windsor seo",
+                "impressions": 1,
+                "position": 92,
+                "ctr": 0
+            },
+            {
+                "query": "online marketing search engine optimization stockport",
+                "impressions": 1,
+                "position": 93,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo consultant charlotte nc",
+                "impressions": 1,
+                "position": 94,
+                "ctr": 0
+            },
+            {
+                "query": "online search engine optimization stockport",
+                "impressions": 1,
+                "position": 94,
+                "ctr": 0
+            },
+            {
+                "query": "audit services blackpool",
+                "impressions": 1,
+                "position": 95,
+                "ctr": 0
+            },
+            {
+                "query": "b2b seo agency dallas",
+                "impressions": 1,
+                "position": 95,
+                "ctr": 0
+            },
+            {
+                "query": "ecommerce seo ottawa",
+                "impressions": 1,
+                "position": 95,
+                "ctr": 0
+            },
+            {
+                "query": "google search seo in huddersfield",
+                "impressions": 1,
+                "position": 95,
+                "ctr": 0
+            },
+            {
+                "query": "stockport seo consultants",
+                "impressions": 1,
+                "position": 95,
+                "ctr": 0
+            },
+            {
+                "query": "seo guelph",
+                "impressions": 1,
+                "position": 96,
+                "ctr": 0
+            },
+            {
+                "query": "seo open source",
+                "impressions": 1,
+                "position": 96,
+                "ctr": 0
+            },
+            {
+                "query": "seo services barrie",
+                "impressions": 1,
+                "position": 97,
+                "ctr": 0
+            },
+            {
+                "query": "seo conference in peterborough",
+                "impressions": 1,
+                "position": 98,
+                "ctr": 0
+            },
+            {
+                "query": "seo training dallas",
+                "impressions": 1,
+                "position": 98,
+                "ctr": 0
+            },
+            {
+                "query": "mobile seo services chicago",
+                "impressions": 1,
+                "position": 99,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo in northampton",
+                "impressions": 1,
+                "position": 99,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo tampa",
+                "impressions": 1,
+                "position": 99,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist in middlesbrough",
+                "impressions": 1,
+                "position": 100,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist abbotsford",
+                "impressions": 1,
+                "position": 101,
+                "ctr": 0
+            },
+            {
+                "query": "website audit toronto",
+                "impressions": 1,
+                "position": 102,
+                "ctr": 0
+            },
+            {
+                "query": "seo in kitchener",
+                "impressions": 1,
+                "position": 218,
+                "ctr": 0
+            }
+        ],
+        "general": [
+            {
+                "query": "generative engine optimisation glasgow",
+                "impressions": 30,
+                "position": 7.83,
+                "ctr": 0
+            },
+            {
+                "query": "track perplexity mentions continuously",
+                "impressions": 17,
+                "position": 57.88,
+                "ctr": 0
+            },
+            {
+                "query": "copilot services chicago",
+                "impressions": 7,
+                "position": 16.86,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation southend-on-sea",
+                "impressions": 7,
+                "position": 68.71,
+                "ctr": 0
+            },
+            {
+                "query": "ai search results in okc",
+                "impressions": 6,
+                "position": 17.5,
+                "ctr": 0
+            },
+            {
+                "query": "citation building nottingham",
+                "impressions": 6,
+                "position": 32.67,
+                "ctr": 0
+            },
+            {
+                "query": "sayama b2b",
+                "impressions": 5,
+                "position": 6,
+                "ctr": 0
+            },
+            {
+                "query": "kazo ai",
+                "impressions": 5,
+                "position": 6.2,
+                "ctr": 0
+            },
+            {
+                "query": "ai e commerce montreal",
+                "impressions": 4,
+                "position": 35.25,
+                "ctr": 0
+            },
+            {
+                "query": "search engine ranking stockport",
+                "impressions": 4,
+                "position": 53.75,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation in southport",
+                "impressions": 4,
+                "position": 82.75,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation southport",
+                "impressions": 4,
+                "position": 85.75,
+                "ctr": 0
+            },
+            {
+                "query": "search generative experience in okc",
+                "impressions": 3,
+                "position": 4.33,
+                "ctr": 0
+            },
+            {
+                "query": "wako ai",
+                "impressions": 3,
+                "position": 5,
+                "ctr": 0
+            },
+            {
+                "query": "core web vitals optimisation stockport",
+                "impressions": 3,
+                "position": 9,
+                "ctr": 0
+            },
+            {
+                "query": "copilot optimisation services",
+                "impressions": 3,
+                "position": 15.33,
+                "ctr": 0
+            },
+            {
+                "query": "miami technical soe",
+                "impressions": 3,
+                "position": 20,
+                "ctr": 0
+            },
+            {
+                "query": "searanking",
+                "impressions": 3,
+                "position": 59,
+                "ctr": 0
+            },
+            {
+                "query": "website audits san francisco",
+                "impressions": 2,
+                "position": 7,
+                "ctr": 0
+            },
+            {
+                "query": "edinburgh search engine optimisation",
+                "impressions": 2,
+                "position": 50,
+                "ctr": 0
+            },
+            {
+                "query": "keyword ranking check chicago, il",
+                "impressions": 2,
+                "position": 57.5,
+                "ctr": 0
+            },
+            {
+                "query": "llm seeding",
+                "impressions": 2,
+                "position": 77.5,
+                "ctr": 0
+            },
+            {
+                "query": "llmo services",
+                "impressions": 2,
+                "position": 88.5,
+                "ctr": 0
+            },
+            {
+                "query": "newcastle search optimisation",
+                "impressions": 2,
+                "position": 98,
+                "ctr": 0
+            },
+            {
+                "query": "knowledge engine arlington",
+                "impressions": 1,
+                "position": 5,
+                "ctr": 0
+            },
+            {
+                "query": "senior technical writer",
+                "impressions": 1,
+                "position": 5,
+                "ctr": 0
+            },
+            {
+                "query": "ai utsunomiya",
+                "impressions": 1,
+                "position": 8,
+                "ctr": 0
+            },
+            {
+                "query": "ai fukaya",
+                "impressions": 1,
+                "position": 9,
+                "ctr": 0
+            },
+            {
+                "query": "ai honjo",
+                "impressions": 1,
+                "position": 10,
+                "ctr": 0
+            },
+            {
+                "query": "citation drift",
+                "impressions": 1,
+                "position": 10,
+                "ctr": 0
+            },
+            {
+                "query": "ai optimisation bristol",
+                "impressions": 1,
+                "position": 11,
+                "ctr": 0
+            },
+            {
+                "query": "google analytics advice leicester",
+                "impressions": 1,
+                "position": 16,
+                "ctr": 0
+            },
+            {
+                "query": "perplexity optimisation services",
+                "impressions": 1,
+                "position": 17,
+                "ctr": 0
+            },
+            {
+                "query": "competitor analytics chicago, il",
+                "impressions": 1,
+                "position": 20,
+                "ctr": 0
+            },
+            {
+                "query": "sapporo competitor",
+                "impressions": 1,
+                "position": 30,
+                "ctr": 0
+            },
+            {
+                "query": "marketing audits raleigh",
+                "impressions": 1,
+                "position": 35,
+                "ctr": 0
+            },
+            {
+                "query": "ontology based search engine",
+                "impressions": 1,
+                "position": 38,
+                "ctr": 0
+            },
+            {
+                "query": "immutable crunchbase",
+                "impressions": 1,
+                "position": 48,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation huddersfield",
+                "impressions": 1,
+                "position": 56,
+                "ctr": 0
+            },
+            {
+                "query": "ai as a service kansas city",
+                "impressions": 1,
+                "position": 88,
+                "ctr": 0
+            },
+            {
+                "query": "windsor.ai competitors",
+                "impressions": 1,
+                "position": 91,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation in southend-on-sea",
+                "impressions": 1,
+                "position": 92,
+                "ctr": 0
+            },
+            {
+                "query": "ai implementation kc",
+                "impressions": 1,
+                "position": 95,
+                "ctr": 0
+            },
+            {
+                "query": "ai implementation kansas city",
+                "impressions": 1,
+                "position": 97,
+                "ctr": 0
+            },
+            {
+                "query": "search engine optimisation in sudbury",
+                "impressions": 1,
+                "position": 99,
+                "ctr": 0
+            },
+            {
+                "query": "ai brighton",
+                "impressions": 1,
+                "position": 100,
+                "ctr": 0
+            }
+        ],
+        "job": [
+            {
+                "query": "llm jobs",
+                "impressions": 9,
+                "position": 3,
+                "ctr": 0
+            },
+            {
+                "query": "technical seo jobs",
+                "impressions": 3,
+                "position": 3.67,
+                "ctr": 0
+            },
+            {
+                "query": "seo job",
+                "impressions": 2,
+                "position": 5.5,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs",
+                "impressions": 2,
+                "position": 5.5,
+                "ctr": 0
+            },
+            {
+                "query": "ai strategist jobs",
+                "impressions": 2,
+                "position": 6.5,
+                "ctr": 0
+            },
+            {
+                "query": "technical writer jobs charlotte nc",
+                "impressions": 2,
+                "position": 6.5,
+                "ctr": 0
+            },
+            {
+                "query": "technical writer jobs",
+                "impressions": 2,
+                "position": 7.5,
+                "ctr": 0
+            },
+            {
+                "query": "ai seo jobs",
+                "impressions": 1,
+                "position": 1,
+                "ctr": 0
+            },
+            {
+                "query": "ai technical writer jobs",
+                "impressions": 1,
+                "position": 1,
+                "ctr": 0
+            },
+            {
+                "query": "jobs near me since yesterday",
+                "impressions": 1,
+                "position": 2,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs boston",
+                "impressions": 1,
+                "position": 6,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs in the last week",
+                "impressions": 1,
+                "position": 8,
+                "ctr": 0
+            },
+            {
+                "query": "technical writing jobs",
+                "impressions": 1,
+                "position": 8,
+                "ctr": 0
+            },
+            {
+                "query": "writing jobs albuquerque",
+                "impressions": 1,
+                "position": 8,
+                "ctr": 0
+            },
+            {
+                "query": "seo specialist jobs in okc",
+                "impressions": 1,
+                "position": 11,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs plymouth",
+                "impressions": 1,
+                "position": 12,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs northampton",
+                "impressions": 1,
+                "position": 17,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs leicester",
+                "impressions": 1,
+                "position": 23,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs coventry",
+                "impressions": 1,
+                "position": 31,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs glasgow",
+                "impressions": 1,
+                "position": 37,
+                "ctr": 0
+            },
+            {
+                "query": "seo jobs belfast",
+                "impressions": 1,
+                "position": 59,
+                "ctr": 0
+            }
+        ]
+    },
+    "priority1": [
+        {
+            "url": "https:\/\/nrlc.ai\/careers\/blackpool\/technical-writer\/",
+            "position": 3.59,
+            "ctr": 0,
+            "impressions": 17
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/de-de\/services\/chatgpt-optimization\/kansas-city\/",
+            "position": 4.21,
+            "ctr": 0,
+            "impressions": 14
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/insights\/semantic-drift-tracking\/",
+            "position": 6.08,
+            "ctr": 0,
+            "impressions": 13
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/insights\/goldmine-google-title-selection\/",
+            "position": 7.33,
+            "ctr": 0,
+            "impressions": 12
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/careers\/tampa\/llm-strategist\/",
+            "position": 2.78,
+            "ctr": 0,
+            "impressions": 9
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/es-es\/services\/b2b-seo-ai\/sayama\/",
+            "position": 5.11,
+            "ctr": 0,
+            "impressions": 9
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/insights\/geo16-introduction\/",
+            "position": 4.5,
+            "ctr": 0,
+            "impressions": 8
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/services\/schema-markup-ai\/jacksonville\/",
+            "position": 3.14,
+            "ctr": 0,
+            "impressions": 7
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/careers\/vancouver\/llm-strategist\/",
+            "position": 3.86,
+            "ctr": 0,
+            "impressions": 7
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/careers\/charlotte\/technical-writer\/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "position": 6.5,
+            "ctr": 0,
+            "impressions": 6
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/ko-kr\/services\/json-ld-strategy\/yokohama\/",
+            "position": 3.6,
+            "ctr": 0,
+            "impressions": 5
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/insights\/semantic-drift-tracking\/",
+            "position": 6.2,
+            "ctr": 0,
+            "impressions": 5
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/services\/conversational-seo-ai\/kazo\/",
+            "position": 6.8,
+            "ctr": 0,
+            "impressions": 5
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/careers\/bristol\/llm-strategist\/",
+            "position": 4,
+            "ctr": 0,
+            "impressions": 4
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/careers\/albuquerque\/technical-writer\/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "position": 8,
+            "ctr": 0,
+            "impressions": 4
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/services\/generative-seo\/oklahoma-city\/",
+            "position": 4.33,
+            "ctr": 0,
+            "impressions": 3
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/insights\/yago-entity-mapping\/",
+            "position": 5,
+            "ctr": 0,
+            "impressions": 3
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/insights\/llm-ontology-generation\/",
+            "position": 6.67,
+            "ctr": 0,
+            "impressions": 3
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/insights\/geo16-conclusion\/",
+            "position": 7.67,
+            "ctr": 0,
+            "impressions": 3
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/ko-kr\/services\/technical-audit-ai\/kazo\/",
+            "position": 8,
+            "ctr": 0,
+            "impressions": 3
+        }
+    ],
+    "priority2": [
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/generative-seo\/glasgow\/",
+            "position": 14.86,
+            "ctr": 0,
+            "impressions": 35
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/de-de\/services\/link-building-ai\/southampton\/",
+            "position": 22.46,
+            "ctr": 0,
+            "impressions": 26
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/services\/conversion-optimization-ai\/albuquerque\/",
+            "position": 23.62,
+            "ctr": 0,
+            "impressions": 13
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/services\/conversion-optimization-ai\/omaha\/",
+            "position": 21.7,
+            "ctr": 0,
+            "impressions": 10
+        }
+    ],
+    "priority3": [
+        {
+            "url": "https:\/\/nrlc.ai\/insights\/open-seo-tools\/",
+            "position": 76.36,
+            "ctr": 0.41,
+            "impressions": 242
+        },
+        {
+            "url": "http:\/\/nrlc.ai\/insights\/open-seo-tools\/",
+            "position": 57.32,
+            "ctr": 0,
+            "impressions": 78
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/de-de\/services\/mobile-seo-ai\/singapore\/",
+            "position": 51.76,
+            "ctr": 0,
+            "impressions": 68
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/services\/copilot-optimization\/kuki\/",
+            "position": 51.22,
+            "ctr": 0,
+            "impressions": 32
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/es-es\/services\/site-audits\/newcastle\/",
+            "position": 57.88,
+            "ctr": 0,
+            "impressions": 32
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/fr-fr\/services\/site-audits\/belfast\/",
+            "position": 88.96,
+            "ctr": 0,
+            "impressions": 28
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/copilot-optimization\/san-francisco\/",
+            "position": 95.04,
+            "ctr": 0,
+            "impressions": 25
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/b2b-seo-ai\/southend-on-sea\/",
+            "position": 80.61,
+            "ctr": 0,
+            "impressions": 23
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/contextual-seo-ai\/southport\/",
+            "position": 82.14,
+            "ctr": 0,
+            "impressions": 22
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/services\/conversion-optimization-ai\/abbotsford\/",
+            "position": 41.62,
+            "ctr": 0,
+            "impressions": 21
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/services\/conversion-optimization-ai\/birmingham\/",
+            "position": 52.5,
+            "ctr": 0,
+            "impressions": 16
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/es-es\/services\/copilot-optimization\/busan\/",
+            "position": 73.56,
+            "ctr": 0,
+            "impressions": 16
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/local-seo-ai\/southport\/",
+            "position": 76.47,
+            "ctr": 0,
+            "impressions": 15
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/relevance-optimization-ai\/oshawa\/",
+            "position": 78.4,
+            "ctr": 0,
+            "impressions": 15
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/ecommerce-ai-seo\/huddersfield\/",
+            "position": 79.93,
+            "ctr": 0,
+            "impressions": 14
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/services\/generative-seo\/houston\/",
+            "position": 56.85,
+            "ctr": 0,
+            "impressions": 13
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/services\/local-seo-ai\/coventry\/",
+            "position": 76.38,
+            "ctr": 0,
+            "impressions": 13
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/services\/b2b-seo-ai\/southend-on-sea\/",
+            "position": 70.67,
+            "ctr": 0,
+            "impressions": 12
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-gb\/careers\/huddersfield\/seo-specialist\/",
+            "position": 68.91,
+            "ctr": 0,
+            "impressions": 11
+        },
+        {
+            "url": "https:\/\/nrlc.ai\/en-us\/services\/site-audits\/chicago\/",
+            "position": 70.45,
+            "ctr": 0,
+            "impressions": 11
+        }
+    ]
+}

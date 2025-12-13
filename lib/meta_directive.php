@@ -253,27 +253,61 @@ function generate_meta_title(array $intent, string $slug, ?string $currentTitle 
       $base = $base . ' | AI SEO Product' . $suffix;
       break;
       
-    case 'article':
-    case 'case-study':
-      $base = $base . ' | AI SEO Research' . $suffix;
-      break;
+      case 'article':
+      case 'insight':
+        // Insights title formula from audit: "{Topic} — Guide, Checklist, and Implementation Notes | Neural Command"
+        // But trim to fit 60 chars
+        if (strlen($base) > 40) {
+          $base = $base . ' Guide' . $suffix;
+        } else {
+          $base = $base . ' — Guide & Implementation' . $suffix;
+        }
+        // Ensure it fits
+        if (strlen($base) > 60) {
+          $base = substr($base, 0, 40) . ' Guide' . $suffix;
+        }
+        break;
+        
+      case 'case-study':
+        $base = $base . ' | AI SEO Research' . $suffix;
+        break;
       
-    case 'career':
-      $base = $base . ' | Careers' . $suffix;
-      break;
+      case 'career':
+        // Careers title formula from audit
+        $isRealJob = $intent['isRealJob'] ?? false;
+        $cityName = ucwords(str_replace(['-', '_'], ' ', $intent['city'] ?? ''));
+        if ($isRealJob) {
+          // "{Role Title} — {City} | Careers at Neural Command"
+          $base = $base . ' — ' . $cityName . ' | Careers at Neural Command';
+        } else {
+          // "{Role Title} Jobs in {City} — Hiring Guide | Neural Command"
+          $base = $base . ' Jobs in ' . $cityName . ' — Hiring Guide' . $suffix;
+        }
+        break;
       
-    case 'homepage':
-      $base = 'NRLC.ai — AI SEO & GEO-16 Framework | LLM Optimization';
-      break;
+      case 'homepage':
+        // Homepage title from audit report
+        $base = 'Neural Command — AI Search Optimization, Schema, and LLM Visibility';
+        // Trim to 60 chars if needed
+        if (strlen($base) > 60) {
+          $base = substr($base, 0, 57) . '...';
+        }
+        break;
       
     default:
       $base = $base . $suffix;
   }
   
-  // Ensure title is 50-60 characters (optimal for SEO)
-  if (strlen($base) > 60) {
-    // Truncate intelligently
-    $base = substr($base, 0, 57) . '...';
+  // Ensure title is 50-60 characters (optimal for SEO, hard max 65)
+  if (strlen($base) > 65) {
+    // Truncate intelligently at word boundary
+    $truncated = substr($base, 0, 62);
+    $lastSpace = strrpos($truncated, ' ');
+    if ($lastSpace !== false && $lastSpace > 50) {
+      $base = substr($truncated, 0, $lastSpace) . '...';
+    } else {
+      $base = $truncated . '...';
+    }
   } elseif (strlen($base) < 30) {
     // Add more context if too short
     $base = $base . ' | Expert AI SEO';
@@ -285,6 +319,7 @@ function generate_meta_title(array $intent, string $slug, ?string $currentTitle 
 /**
  * Generate optimal description based on intent analysis
  * SUDO: This is the authoritative description generator
+ * Uses deterministic rules from SUDO META DIRECTIVE KERNEL audit
  */
 function generate_meta_description(array $intent, string $slug, ?string $currentDesc = null): string {
   $lead = $intent['lead'] ?? '';
@@ -293,21 +328,38 @@ function generate_meta_description(array $intent, string $slug, ?string $current
   $pageType = $intent['pageType'] ?? 'general';
   $intentType = $intent['intent'] ?? 'informational';
   
-  // Use lead paragraph if available and good
-  if ($lead && strlen($lead) > 50 && strlen($lead) < 160) {
-    $desc = $lead;
+  // Use lead paragraph if available and good (but trim to 160 chars)
+  if ($lead && strlen($lead) > 50 && strlen($lead) < 175) {
+    $desc = substr($lead, 0, 160);
   } else {
-    // Generate from context
+    // Generate from context using deterministic rules
     switch ($pageType) {
+      case 'homepage':
+        // Homepage description (trimmed from audit report)
+        $desc = "NRLC provides a semantic operating layer for databases, APIs, and data streams. Transform your infrastructure into a queryable knowledge graph with ontologies, SQL reasoning, and automated relationships. Enterprise-ready AI SEO solutions.";
+        break;
+        
       case 'service':
         if ($slug === 'services/index') {
-          // Use lead paragraph if available, otherwise generate
+          // Services index - use lead or default
           $desc = $lead ?: "NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.";
+          // Trim to 160
+          if (strlen($desc) > 160) {
+            $desc = substr($desc, 0, 157) . '...';
+          }
         } elseif ($intentType === 'local') {
-          $serviceName = str_replace(' Services', '', $primaryKeyword);
-          $desc = "Expert $serviceName services. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
+          // Service + City format (deterministic rule from audit)
+          $serviceName = ucwords(str_replace(['-', '_'], ' ', $primaryKeyword));
+          $cityName = $intent['city'] ?? '';
+          if ($cityName) {
+            $cityName = ucwords(str_replace(['-', '_'], ' ', $cityName));
+          }
+          // Rotate outcome keywords to avoid duplication
+          $outcomes = ['rankings', 'CTR', 'leads', 'visibility', 'conversions'];
+          $outcome = $outcomes[abs(crc32($serviceName . $cityName)) % count($outcomes)];
+          $desc = "$serviceName for $cityName teams. Fix indexing, schema, and AI visibility. Fast audits, clear deliverables, measurable lift. Book a call.";
         } else {
-          $serviceName = str_replace(' Services', '', $primaryKeyword);
+          $serviceName = ucwords(str_replace(['-', '_'], ' ', $primaryKeyword));
           $desc = "Expert $serviceName services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness. Get results with proven AI SEO strategies.";
         }
         break;
@@ -317,16 +369,36 @@ function generate_meta_description(array $intent, string $slug, ?string $current
         break;
         
       case 'article':
+      case 'insight':
+        // Insights/Articles - deterministic rule from audit
+        $topic = ucwords(str_replace(['-', '_'], ' ', $primaryKeyword ?: $h1));
+        // Include deliverable word (guide, framework, checklist, templates)
+        $deliverables = ['guide', 'framework', 'checklist', 'templates'];
+        $deliverable = $deliverables[abs(crc32($topic)) % count($deliverables)];
+        $desc = "Complete $deliverable to $topic. Learn best practices, implementation strategies, and optimization techniques. Includes case studies and actionable insights for AI SEO professionals.";
+        break;
+        
       case 'case-study':
         $desc = "Research and insights on $primaryKeyword. Comprehensive guide with practical strategies for AI-first SEO optimization. Research-backed by NRLC.ai experts.";
         break;
         
       case 'career':
-        $desc = "Join NRLC.ai team. Careers in AI SEO, GEO-16 framework development, structured data optimization, and LLM citation strategies.";
+        // Careers - check if real job or informational
+        $isRealJob = $intent['isRealJob'] ?? false;
+        if ($isRealJob) {
+          $roleTitle = ucwords(str_replace(['-', '_'], ' ', $primaryKeyword ?: $h1));
+          $cityName = ucwords(str_replace(['-', '_'], ' ', $intent['city'] ?? ''));
+          $desc = "Apply for $roleTitle in $cityName. Remote-friendly role with competitive salary. Responsibilities include technical documentation, SEO content, and LLM optimization guides. Apply now.";
+        } else {
+          $roleTitle = ucwords(str_replace(['-', '_'], ' ', $primaryKeyword ?: $h1));
+          $cityName = ucwords(str_replace(['-', '_'], ' ', $intent['city'] ?? ''));
+          $desc = "What $roleTitle roles pay in $cityName, required skills, and how to apply when openings go live. Learn about responsibilities, qualifications, and application process.";
+        }
         break;
         
       case 'homepage':
-        $desc = "NRLC.ai engineers crawl clarity, structured data, and LLM seeding strategies. GEO-16 framework for AI engine optimization across major cities.";
+        // Homepage description (trimmed from audit report)
+        $desc = "NRLC provides a semantic operating layer for databases, APIs, and data streams. Transform your infrastructure into a queryable knowledge graph with ontologies, SQL reasoning, and automated relationships. Enterprise-ready AI SEO solutions.";
         break;
         
       default:
@@ -334,14 +406,22 @@ function generate_meta_description(array $intent, string $slug, ?string $current
     }
   }
   
-  // Ensure description is 150-160 characters (optimal for SEO)
-  if (strlen($desc) > 160) {
-    $desc = substr($desc, 0, 157) . '...';
-  } elseif (strlen($desc) < 120) {
+  // Ensure description is 140-160 characters (optimal for SEO, hard max 175)
+  if (strlen($desc) > 175) {
+    // Truncate intelligently at word boundary
+    $truncated = substr($desc, 0, 172);
+    $lastSpace = strrpos($truncated, ' ');
+    if ($lastSpace !== false && $lastSpace > 140) {
+      $desc = substr($truncated, 0, $lastSpace) . '...';
+    } else {
+      $desc = $truncated . '...';
+    }
+  } elseif (strlen($desc) < 100) {
     // Add more context if too short
-    $desc = $desc . ' Professional AI SEO services by NRLC.ai.';
-    if (strlen($desc) > 160) {
-      $desc = substr($desc, 0, 157) . '...';
+    $desc = $desc . ' Learn more about AI SEO, structured data, and LLM optimization strategies.';
+    // Re-trim if needed
+    if (strlen($desc) > 175) {
+      $desc = substr($desc, 0, 172) . '...';
     }
   }
   
@@ -349,7 +429,191 @@ function generate_meta_description(array $intent, string $slug, ?string $current
 }
 
 /**
- * SUDO-POWERED META DIRECTIVE
+ * SUDO-POWERED META DIRECTIVE (Context-Based)
+ * Generates deterministic, unique metadata from page context
+ * 
+ * @param array $ctx Required keys: type, slug. Optional: title, excerpt, city, service, role, canonicalPath
+ * @return array ['title' => string, 'description' => string, 'canonicalPath' => string]
+ */
+function sudo_meta_directive_ctx(array $ctx): array {
+  $type = $ctx['type'] ?? 'general';
+  $slug = $ctx['slug'] ?? 'unknown';
+  $title = $ctx['title'] ?? null;
+  $excerpt = $ctx['excerpt'] ?? null;
+  $city = $ctx['city'] ?? null;
+  $service = $ctx['service'] ?? null;
+  $role = $ctx['role'] ?? null;
+  $canonicalPath = $ctx['canonicalPath'] ?? null;
+  
+  // Generate title with fallbacks
+  if (!$title) {
+    // Derive from slug
+    $slugParts = explode('/', $slug);
+    $lastPart = end($slugParts);
+    $title = ucwords(str_replace(['-', '_'], ' ', $lastPart));
+  }
+  
+  // Generate description with type-specific lead-ins to ensure uniqueness
+  $desc = '';
+  switch ($type) {
+    case 'blog_post':
+      $leadIn = 'Learn how to';
+      $suffix = '| NRLC.ai';
+      if ($excerpt) {
+        $desc = $excerpt;
+      } else {
+        $desc = "$leadIn $title. Practical AI SEO strategies, implementation guides, and optimization techniques for modern search engines.";
+      }
+      $title = $title . ' ' . $suffix;
+      break;
+      
+    case 'case_study':
+      $leadIn = 'See how we';
+      $suffix = '| Case Study';
+      if ($excerpt) {
+        $desc = $excerpt;
+      } else {
+        $desc = "$leadIn helped achieve measurable results with $title. Real-world AI SEO implementation, data-driven outcomes, and actionable insights.";
+      }
+      $title = $title . ' ' . $suffix;
+      break;
+      
+    case 'resource':
+      $leadIn = 'Download or reference';
+      $suffix = '| Resource';
+      if ($excerpt) {
+        $desc = $excerpt;
+      } else {
+        $desc = "$leadIn $title. Comprehensive guides, templates, and tools for AI SEO optimization, structured data, and LLM visibility.";
+      }
+      $title = $title . ' ' . $suffix;
+      break;
+      
+    case 'tool':
+      $leadIn = 'Use this tool to';
+      $suffix = '| NRLC.ai Tools';
+      if ($excerpt) {
+        $desc = $excerpt;
+      } else {
+        $desc = "$leadIn $title. Free AI SEO tool for technical audits, schema validation, and search engine optimization.";
+      }
+      $title = $title . ' ' . $suffix;
+      break;
+      
+    case 'industry':
+      $leadIn = 'SEO and AI visibility for';
+      $suffix = '| Industry Playbook';
+      if ($excerpt) {
+        $desc = $excerpt;
+      } else {
+        $desc = "$leadIn $title industry. Specialized strategies, compliance considerations, and proven tactics for sector-specific SEO success.";
+      }
+      $title = $title . ' ' . $suffix;
+      break;
+      
+    case 'service':
+      if ($city && $service) {
+        $serviceName = ucwords(str_replace(['-', '_'], ' ', $service));
+        $cityName = ucwords(str_replace(['-', '_'], ' ', $city));
+        $title = "$serviceName in $cityName | Neural Command";
+        $desc = "$serviceName for $cityName teams. Fix indexing, schema, and AI visibility. Fast audits, clear deliverables, measurable lift. Book a call.";
+      } else {
+        $serviceName = ucwords(str_replace(['-', '_'], ' ', $service ?: $title));
+        $title = "$serviceName | Neural Command";
+        $desc = "Expert $serviceName services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.";
+      }
+      break;
+      
+    case 'careers':
+      if ($role && $city) {
+        $roleTitle = ucwords(str_replace(['-', '_'], ' ', $role));
+        $cityName = ucwords(str_replace(['-', '_'], ' ', $city));
+        $title = "$roleTitle — $cityName | Careers at Neural Command";
+        $desc = "Apply for $roleTitle in $cityName. Remote-friendly role with competitive salary. Responsibilities include technical documentation, SEO content, and LLM optimization guides.";
+      } else {
+        $roleTitle = ucwords(str_replace(['-', '_'], ' ', $role ?: $title));
+        $title = "$roleTitle Jobs | Careers at Neural Command";
+        $desc = "Explore $roleTitle opportunities at Neural Command. Learn about requirements, responsibilities, and how to apply for AI SEO positions.";
+      }
+      break;
+      
+    case 'insights':
+    case 'article':
+      $suffix = '| Neural Command';
+      if ($excerpt) {
+        $desc = $excerpt;
+      } else {
+        $deliverables = ['guide', 'framework', 'checklist', 'templates'];
+        $deliverable = $deliverables[abs(crc32($title)) % count($deliverables)];
+        $desc = "Complete $deliverable to $title. Learn best practices, implementation strategies, and optimization techniques. Includes case studies and actionable insights.";
+      }
+      $title = $title . ' ' . $suffix;
+      break;
+      
+    case 'home':
+      $title = 'Neural Command — AI Search Optimization, Schema, and LLM Visibility';
+      $desc = 'NRLC provides a semantic operating layer for databases, APIs, and data streams. Transform your infrastructure into a queryable knowledge graph with ontologies, SQL reasoning, and automated relationships. Enterprise-ready AI SEO solutions.';
+      break;
+      
+    case 'insights_hub':
+      // Insights hub: collection page, not article
+      $title = $title ?? 'Insights & Research on AI Search, SEO, and Structured Data | NRLC.ai';
+      $desc = $excerpt ?? 'Research and insights from NRLC.ai on AI-driven search, structured data, indexing systems, and modern SEO strategy.';
+      break;
+      
+    default:
+      $suffix = '| NRLC.ai';
+      if ($excerpt) {
+        $desc = $excerpt;
+      } else {
+        $desc = "$title on NRLC.ai. AI SEO services, structured data engineering, and LLM optimization solutions.";
+      }
+      $title = $title . ' ' . $suffix;
+  }
+  
+  // Enforce length limits
+  if (strlen($title) > 65) {
+    $truncated = substr($title, 0, 62);
+    $lastSpace = strrpos($truncated, ' ');
+    $title = ($lastSpace !== false && $lastSpace > 50) ? substr($truncated, 0, $lastSpace) . '...' : $truncated . '...';
+  }
+  
+  if (strlen($desc) > 175) {
+    $truncated = substr($desc, 0, 172);
+    $lastSpace = strrpos($truncated, ' ');
+    $desc = ($lastSpace !== false && $lastSpace > 140) ? substr($truncated, 0, $lastSpace) . '...' : $truncated . '...';
+  } elseif (strlen($desc) < 100) {
+    $desc = $desc . ' Professional AI SEO services by NRLC.ai.';
+    if (strlen($desc) > 175) {
+      $desc = substr($desc, 0, 172) . '...';
+    }
+  }
+  
+  // Generate canonical path if not provided
+  if (!$canonicalPath) {
+    $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    // Root stays as root, others get locale prefix
+    if ($requestPath === '/' || $requestPath === '') {
+      $canonicalPath = '/';
+    } else {
+      require_once __DIR__.'/../config/locales.php';
+      if (!preg_match('#^/([a-z]{2})-([a-z]{2})(/|$)#i', $requestPath)) {
+        $canonicalPath = '/'.X_DEFAULT.$requestPath;
+      } else {
+        $canonicalPath = $requestPath;
+      }
+    }
+  }
+  
+  return [
+    'title' => $title,
+    'description' => $desc,
+    'canonicalPath' => $canonicalPath
+  ];
+}
+
+/**
+ * SUDO-POWERED META DIRECTIVE (Legacy - file-based)
  * Analyzes page and enforces metadata that matches intent
  * Returns: [title, description] - authoritative metadata
  */

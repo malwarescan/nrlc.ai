@@ -1,0 +1,56 @@
+================================================================================
+A) DUPLICATE MAP (FROM Pages.csv)
+================================================================================
+
+canonical_target_url | duplicate_variant_url | duplicate_reason | impressions (canon) | impressions (dup) | clicks (canon) | clicks (dup)
+------------------------------------------------------------------------------------------------------------------------------------------------------
+https://nrlc.ai/insights/open-seo-tools/           | http://nrlc.ai/insights/open-seo-tools/            | http/https      | 242                | 78                 | 1             | 0            
+https://nrlc.ai/en-us/services/semantic-seo-ai/jac | http://nrlc.ai/en-us/services/semantic-seo-ai/jack | http/https      | 8                  | 5                  | 0             | 0            
+https://nrlc.ai/en-us/services/ranking-optimizatio | http://nrlc.ai/en-us/services/ranking-optimization | http/https      | 4                  | 7                  | 0             | 0            
+https://nrlc.ai/en-us/services/generative-seo/hudd | http://nrlc.ai/en-us/services/generative-seo/hudde | http/https      | 5                  | 1                  | 0             | 0            
+https://nrlc.ai/services/llm-content-strategy/edmo | http://nrlc.ai/services/llm-content-strategy/edmon | http/https      | 1                  | 2                  | 0             | 0            
+https://nrlc.ai/en-us/services/generative-seo/mont | http://nrlc.ai/en-us/services/generative-seo/montr | http/https      | 2                  | 1                  | 0             | 0            
+https://nrlc.ai/services/generative-seo/san-antoni | http://nrlc.ai/services/generative-seo/san-antonio | http/https      | 2                  | 1                  | 0             | 0            
+https://nrlc.ai/services/generative-seo/oklahoma-c | http://nrlc.ai/services/generative-seo/oklahoma-ci | http/https      | 1                  | 1                  | 0             | 0            
+https://nrlc.ai/services/site-audits/raleigh/      | http://nrlc.ai/services/site-audits/raleigh/       | http/https      | 1                  | 1                  | 0             | 0            
+https://nrlc.ai/careers/sheffield/technical-writer | http://nrlc.ai/careers/sheffield/technical-writer/ | http/https      | 1                  | 1                  | 0             | 0            
+
+Total duplicates found: 10
+
+================================================================================
+B) PRIORITY CTR FIX QUEUE (FROM Pages.csv)
+================================================================================
+
+PRIORITY 1: position <= 8 AND ctr == 0 AND impressions >= 30
+url | clicks | impressions | ctr | position | issue_guess
+------------------------------------------------------------------------------------------------------------------------
+
+Total Priority 1: 0
+
+PRIORITY 2: position <= 12 AND ctr < 0.5% AND impressions >= 100
+url | clicks | impressions | ctr | position | issue_guess
+------------------------------------------------------------------------------------------------------------------------
+
+Total Priority 2: 0
+
+PRIORITY 3: impressions >= 500 AND ctr < 0.8%
+url | clicks | impressions | ctr | position | issue_guess
+------------------------------------------------------------------------------------------------------------------------
+
+Total Priority 3: 0
+
+================================================================================
+C) QUERY INTENT CLUSTERS (FROM Queries.csv)
+================================================================================
+
+Cluster name | query count | total impressions | total clicks | representative queries (top 10)
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Services             | 228         | 1256              | 0            | open source seo software (133 imp), open source seo tools (60 imp), copilot seo tracker (57 imp), op
+Unmapped             | 33          | 77                | 0            | search engine optimisation southend-on-sea (7 imp), ai search results in okc (6 imp), citation build
+Careers/Jobs         | 37          | 73                | 0            | llm jobs (9 imp), seo specialist singapore (7 imp), seo specialist belfast (6 imp), seo specialist i
+Non-English/Geo      | 8           | 45                | 0            | generative engine optimisation glasgow (30 imp), ai e commerce montreal (4 imp), search engine ranki
+
+
+Unmapped high-impression queries (impressions >= 10):
+
+Evidence data saved to sudo_evidence_data.json

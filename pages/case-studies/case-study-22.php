@@ -1,10 +1,27 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Prevent direct access. This file is a data/partial for routed templates only.
+if (!defined('ROUTER_CONTEXT')) {
+  // Compute canonical routed URL
+  $canonical = '/case-studies/case-study-22/';
+  
+  // Ensure HTTPS and add locale prefix if needed
+  $scheme = (!empty($_SERVER['HTTPS']) || !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ? 'https' : 'https';
+  $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+  
+  // Add default locale if not present
+  if (!preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $canonical)) {
+    require_once __DIR__.'/../../config/locales.php';
+    $canonical = '/'.X_DEFAULT.$canonical;
+  }
+  
+  $redirectUrl = $scheme.'://'.$host.$canonical;
+  header("Location: $redirectUrl", true, 301);
+  exit;
+}
 
 
-$GLOBALS['pageTitle'] = 'AI SEO Success Story | NRLC.ai';
-$GLOBALS['pageDesc'] = 'How a  company achieved % increase in AI citations through strategic optimization and GEO-16 framework implementation.';
+
+
 
 $caseNumber = $_GET['case'] ?? '1';
 $industries = ['SaaS', 'E-commerce', 'Healthcare', 'Fintech', 'Education', 'Real Estate', 'Legal', 'Automotive', 'Travel', 'Manufacturing'];

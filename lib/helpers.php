@@ -97,9 +97,34 @@ function without_locale_prefix(string $path): string {
 }
 
 function current_breadcrumbs(): array {
-  return [
-    ['name'=>'Home','url'=>absolute_url('/')],
+  // Context-aware breadcrumbs based on current page
+  $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+  $crumbs = [
+    ['name'=>'Home','url'=>absolute_url('/en-us/')],
   ];
+  
+  // Remove locale prefix for matching (e.g., /en-us/insights/ -> /insights/)
+  $pathWithoutLocale = preg_replace('#^/[a-z]{2}-[a-z]{2}#i', '', $path);
+  if ($pathWithoutLocale === '') {
+    $pathWithoutLocale = '/';
+  }
+  
+  // Add Insights breadcrumb for insights hub and individual articles
+  if (preg_match('#^/insights/#', $pathWithoutLocale) || preg_match('#^/insights$#', $pathWithoutLocale)) {
+    $crumbs[] = ['name'=>'Insights','url'=>absolute_url('/en-us/insights/')];
+  }
+  
+  // Add Services breadcrumb for services pages
+  if (preg_match('#^/services/#', $pathWithoutLocale) || preg_match('#^/services$#', $pathWithoutLocale)) {
+    $crumbs[] = ['name'=>'Services','url'=>absolute_url('/en-us/services/')];
+  }
+  
+  // Add Careers breadcrumb for careers pages
+  if (preg_match('#^/careers/#', $pathWithoutLocale) || preg_match('#^/careers$#', $pathWithoutLocale)) {
+    $crumbs[] = ['name'=>'Careers','url'=>absolute_url('/en-us/careers/')];
+  }
+  
+  return $crumbs;
 }
 
 function inject_jsonld(array $schemas): void {

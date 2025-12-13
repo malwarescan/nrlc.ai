@@ -1,7 +1,7 @@
 <?php
 
-$GLOBALS['pageTitle'] = 'AI SEO Services | NRLC.ai';
-$GLOBALS['pageDesc'] = 'AI SEO Services. AI SEO services and solutions by NRLC.ai.';
+// Metadata is now set in router via ctx-based system
+// Remove old placeholder metadata to prevent conflicts
 
 $industrySlug = $_GET['industry'] ?? 'healthcare';
 $industryName = ucwords(str_replace('-', ' ', $industrySlug));

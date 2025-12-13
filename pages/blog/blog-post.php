@@ -3,8 +3,8 @@ require_once __DIR__ . '/../../lib/helpers.php';
 require_once __DIR__ . '/../../lib/deterministic.php';
 
 
-$GLOBALS['pageTitle'] = ': A Comprehensive Guide | AI SEO Research | NRLC.ai';
-$GLOBALS['pageDesc'] = ': A Comprehensive Guide. AI SEO services and solutions by NRLC.ai.';
+// Metadata is now set in router via ctx-based system
+// Remove old placeholder metadata to prevent conflicts
 
 $postNumber = $_GET['post'] ?? '1';
 

@@ -13,21 +13,37 @@ function base_schemas(): array {
 }
 
 function ld_organization(): array {
+  // Google Search Gallery compliant Organization schema for homepage
+  // @id required for entity resolution
+  // logo must be ImageObject for rich results eligibility
+  $homeUrl = SchemaFixes::ensureHttps(absolute_url('/en-us/'));
   return [
     '@context'=>'https://schema.org',
     '@type'=>'Organization',
+    '@id'=>$homeUrl.'#organization',
     'name'=>'NRLC.ai',
-    'url'=>SchemaFixes::ensureHttps(absolute_url('/')),
-    'logo'=>SchemaFixes::ensureHttps(absolute_url('/assets/logo.png')),
-    'sameAs'=>['https://www.linkedin.com/company/neural-command/']
+    'url'=>$homeUrl,
+    'logo'=>[
+      '@type'=>'ImageObject',
+      'url'=>SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlc-logo.png')),
+      'width'=>43,
+      'height'=>43
+    ],
+    'sameAs'=>[
+      'https://www.linkedin.com/company/neural-command/',
+      'https://g.co/kgs/EP6p5de'
+    ]
   ];
 }
 
 function ld_website_with_searchaction(): array {
+  // Google Search Gallery compliant WebSite schema with SearchAction
+  // Required for site search box rich result eligibility
+  $homeUrl = SchemaFixes::ensureHttps(absolute_url('/en-us/'));
   return [
     '@context'=>'https://schema.org',
     '@type'=>'WebSite',
-    'url'=>SchemaFixes::ensureHttps(absolute_url('/')),
+    'url'=>$homeUrl,
     'name'=>'NRLC.ai',
     'potentialAction'=>[
       '@type'=>'SearchAction',
@@ -38,13 +54,57 @@ function ld_website_with_searchaction(): array {
 }
 
 function ld_breadcrumbs(): array {
+  // Context-aware BreadcrumbList (Google Search Gallery compliant)
+  // Homepage: minimal (Home only)
+  // Hub pages: Home + Hub (e.g., Home + Insights)
+  // Article pages: Home + Hub + Article
   $crumbs = current_breadcrumbs();
   $items = [];
   $i=1;
   foreach ($crumbs as $c) {
-    $items[] = ['@type'=>'ListItem','position'=>$i++,'name'=>$c['name'],'item'=>$c['url']];
+    $items[] = [
+      '@type'=>'ListItem',
+      'position'=>$i++,
+      'name'=>$c['name'],
+      'item'=>SchemaFixes::ensureHttps($c['url'])
+    ];
   }
-  return ['@context'=>'https://schema.org','@type'=>'BreadcrumbList','itemListElement'=>$items];
+  // If no breadcrumbs, provide minimal Home breadcrumb
+  if (empty($items)) {
+    $homeUrl = SchemaFixes::ensureHttps(absolute_url('/en-us/'));
+    $items[] = [
+      '@type'=>'ListItem',
+      'position'=>1,
+      'name'=>'Home',
+      'item'=>$homeUrl
+    ];
+  }
+  
+  // Add @id for insights hub and other hub pages
+  $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+  $breadcrumbId = null;
+  // Remove locale prefix for matching
+  $pathWithoutLocale = preg_replace('#^/[a-z]{2}-[a-z]{2}#i', '', $path);
+  if ($pathWithoutLocale === '') {
+    $pathWithoutLocale = '/';
+  }
+  // Add @id for hub pages (insights, services, careers)
+  if (preg_match('#^/(insights|services|careers)/?$#', $pathWithoutLocale)) {
+    $canonicalUrl = SchemaFixes::ensureHttps(absolute_url($path));
+    $breadcrumbId = $canonicalUrl . '#breadcrumb';
+  }
+  
+  $breadcrumb = [
+    '@context'=>'https://schema.org',
+    '@type'=>'BreadcrumbList',
+    'itemListElement'=>$items
+  ];
+  
+  if ($breadcrumbId) {
+    $breadcrumb['@id'] = $breadcrumbId;
+  }
+  
+  return $breadcrumb;
 }
 
 function ld_faq(array $faqs): array {
