@@ -8,6 +8,7 @@ require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/deterministic.php';
 require_once __DIR__.'/../../lib/csv.php';
+require_once __DIR__.'/../../lib/service_enhancements.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'crawl-clarity';
