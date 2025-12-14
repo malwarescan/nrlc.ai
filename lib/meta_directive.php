@@ -586,6 +586,12 @@ function sudo_meta_directive_ctx(array $ctx): array {
       $desc = 'Research and analysis on AI-driven search, indexing systems, and modern technical SEO. Built to inform and guide implementation.';
       break;
       
+    case 'products_hub':
+      // Products hub: Collection of products (no commercial CTA in meta)
+      $title = 'AI SEO Products & Tools | NRLC.ai';
+      $desc = 'Complete product ecosystem for structured knowledge, AI visibility, and agentic intelligence. Explore our AI SEO tools and solutions.';
+      break;
+      
     default:
       $suffix = '| NRLC.ai';
       if ($excerpt) {

@@ -1,11 +1,8 @@
 <?php
-// Set unique metadata for products overview hub (BEFORE head.php)
-$GLOBALS['__page_slug'] = 'products/index';
-$GLOBALS['pageTitle'] = 'Products | NRLC.ai';
-$GLOBALS['pageDesc'] = 'Complete product ecosystem for structured knowledge, AI visibility, and agentic intelligence. AI SEO product by NRLC.ai.'s suite of AI-driven search visibility tools including Prompt Surface Intelligence, Schema Reverse Engineering, Authority Tracking, and Agentic SEO systems.";
-
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Metadata is now set by the router via sudo_meta_directive_ctx()
+// See bootstrap/router.php for products/index metadata configuration
+// Note: head.php and header.php are already included by router.php render_page()
+// Do not set $GLOBALS['pageTitle'] or $GLOBALS['pageDesc'] here - they are ignored
 ?>
 
 <main role="main" class="container">
@@ -249,4 +246,3 @@ $jsonld = [
 
 $GLOBALS['__jsonld'] = $jsonld;
 ?>
-
