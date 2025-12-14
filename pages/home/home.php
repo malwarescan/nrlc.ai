@@ -1,9 +1,8 @@
 <?php
-// Set consumer-friendly metadata for homepage
+// Metadata is now set by the router via sudo_meta_directive_ctx()
+// See bootstrap/router.php lines 64-76 for homepage metadata configuration
 // Note: head.php and header.php are already included by router.php render_page()
-// Do not duplicate them here to avoid double headers
-$GLOBALS['pageTitle'] = 'Are You Showing Up When People Ask ChatGPT About Your Bus...';
-$GLOBALS['pageDesc'] = 'Search behavior has shifted to AI-driven interfaces. Google AI Overviews, ChatGPT, Claude, and Perplexity now determine visibility through LLM comprehen...';
+// Do not set $GLOBALS['pageTitle'] or $GLOBALS['pageDesc'] here - they are ignored
 
 require_once __DIR__ . '/../../lib/csv.php';
 
