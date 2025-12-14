@@ -52,6 +52,25 @@ function canonical_guard(): void {
     return;
   }
 
+  // UK City Detection and Locale Consolidation
+  // If URL contains a UK city in services path, enforce en-gb locale
+  if (preg_match('#^/([a-z]{2}-[a-z]{2})/services/([^/]+)/([^/]+)/#', $uri, $m)) {
+    $locale = $m[1];
+    $citySlug = $m[3];
+    
+    require_once __DIR__.'/../lib/helpers.php';
+    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    
+    if ($isUK && $locale !== 'en-gb') {
+      // UK city detected but wrong locale - redirect to en-gb canonical
+      $canonical = '/en-gb/services/local-seo-ai/' . $citySlug . '/';
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
+    }
+  }
+  
   // Force locale prefix redirect (e.g., /services/... -> /en-us/services/...)
   // This prevents duplicate canonical issues where Google chooses a different canonical
   // Skip redirect for healthcheck requests (HEAD requests or Railway healthcheck)

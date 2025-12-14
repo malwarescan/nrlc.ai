@@ -36,8 +36,12 @@ foreach ($pageFiles as $file) {
     $title = $m[1];
     $len = strlen($title);
     
+    // SERP CONTROL: Title must be 45-65 chars (50-60 target)
     if ($len > 65) {
-      $errors[] = "Title too long ($len chars) in $slug: " . substr($title, 0, 60) . "...";
+      $errors[] = "Title too long ($len chars, max 65) in $slug: " . substr($title, 0, 60) . "...";
+    }
+    if ($len < 45) {
+      $errors[] = "Title too short ($len chars, min 45) in $slug: $title";
     }
     
     if (!isset($titles[$title])) {
@@ -51,8 +55,12 @@ foreach ($pageFiles as $file) {
     $desc = $m[1];
     $len = strlen($desc);
     
+    // SERP CONTROL: Description must be 130-175 chars (150-165 target)
     if ($len > 175) {
-      $errors[] = "Description too long ($len chars) in $slug: " . substr($desc, 0, 60) . "...";
+      $errors[] = "Description too long ($len chars, max 175) in $slug: " . substr($desc, 0, 60) . "...";
+    }
+    if ($len < 130) {
+      $errors[] = "Description too short ($len chars, min 130) in $slug: " . substr($desc, 0, 60) . "...";
     }
     
     if (!isset($descriptions[$desc])) {

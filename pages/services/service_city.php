@@ -19,7 +19,17 @@ det_seed($pathKey);
 
 $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
 $cityTitle = titleCaseCity($citySlug);
-$pageTitle = "$serviceTitle in $cityTitle";
+
+// Use router's meta title for H1 (ensures H1 matches title for SERP control)
+$meta = $GLOBALS['__page_meta'] ?? null;
+if ($meta && isset($meta['title'])) {
+  // Extract H1 from title (remove " | NRLC.ai" suffix for H1)
+  $h1Title = preg_replace('/\s*\|\s*NRLC\.ai\s*$/i', '', $meta['title']);
+  $pageTitle = $h1Title;
+} else {
+  // Fallback if meta not set
+  $pageTitle = "Local SEO Services in $cityTitle";
+}
 
 // Load city data for schema
 $citiesData = csv_read_data('cities.csv');
@@ -41,15 +51,6 @@ $GLOBALS['__page_slug'] = 'services/service_city';
 // Try to get enhanced intro from service_enhancements.json
 $enhancement = get_service_enhancement($serviceSlug, $citySlug);
 $enhancedIntro = $enhancement['intro'] ?? null;
-
-// Set page title and description
-$GLOBALS['pageTitle'] = $pageTitle;
-if ($enhancedIntro) {
-  $GLOBALS['pageDesc'] = $enhancedIntro;
-} else {
-  // We'll set this after generating intro, but set a default now
-  $GLOBALS['pageDesc'] = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
-}
 
 $intro   = $enhancedIntro ?? service_long_intro($serviceSlug, $citySlug);
 $local   = local_context_block($citySlug);
@@ -88,11 +89,15 @@ $content = $intro . $local;
             <p><?= htmlspecialchars($local) ?></p>
             <?php endif; ?>
             <?php endif; ?>
-            <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/geo16-introduction/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
-            <div class="btn-group text-center">
-              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($pageTitle) ?>')">Schedule Consultation</button>
-              <a href="/services/" class="btn">View All Services</a>
+            <!-- SERP CONTROL: Above-fold CTA row (Call | Email | Book) -->
+            <div class="btn-group text-center" style="margin: 1.5rem 0;">
+              <a href="tel:+1234567890" class="btn btn--primary">Call</a>
+              <a href="mailto:contact@neuralcommandllc.com" class="btn btn--primary">Email</a>
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($pageTitle) ?>')">Book a Call</button>
             </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Response within 24 hours</p>
+            
+            <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/geo16-introduction/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
           </div>
         </div>
 

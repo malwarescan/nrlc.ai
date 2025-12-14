@@ -513,14 +513,28 @@ function sudo_meta_directive_ctx(array $ctx): array {
       
     case 'service':
       if ($city && $service) {
-        $serviceName = ucwords(str_replace(['-', '_'], ' ', $service));
+        // Service + City pages: HIGHEST PRIORITY - Hire now intent
+        require_once __DIR__.'/helpers.php';
+        $isUK = function_exists('is_uk_city') ? is_uk_city($city) : false;
         $cityName = ucwords(str_replace(['-', '_'], ' ', $city));
-        $title = "$serviceName in $cityName | Neural Command";
-        $desc = "$serviceName for $cityName teams. Fix indexing, schema, and AI visibility. Fast audits, clear deliverables, measurable lift. Book a call.";
+        
+        // For UK cities, always use "Local SEO Services" regardless of service type
+        // This aligns with query intent ("seo norwich", "seo stockport")
+        // For US cities, also use "Local SEO Services" for consistency
+        $title = "Local SEO Services in $cityName | NRLC.ai";
+        $desc = "Local SEO for $cityName businesses. Technical audits, Google Business Profile optimization, and measurable leads. Call or email to start.";
       } else {
-        $serviceName = ucwords(str_replace(['-', '_'], ' ', $service ?: $title));
-        $title = "$serviceName | Neural Command";
-        $desc = "Expert $serviceName services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.";
+        // Service hub or non-local service pages
+        if ($service === 'services' || $slug === 'services/index') {
+          // Service hub page
+          $title = 'Technical SEO & AI Search Services | NRLC.ai';
+          $desc = 'Professional technical SEO, structured data, and AI search optimization services. Built for sites that need real fixes, not tactics.';
+        } else {
+          // Non-local service pages (AI SEO, Schema, etc.)
+          $serviceName = ucwords(str_replace(['-', '_'], ' ', $service ?: $title));
+          $title = "$serviceName — Technical SEO for AI Search | NRLC.ai";
+          $desc = "$serviceName focused on crawlability, indexing integrity, and AI-visible structure. Designed for long-term performance. Call or email.";
+        }
       }
       break;
       
@@ -539,26 +553,37 @@ function sudo_meta_directive_ctx(array $ctx): array {
       
     case 'insights':
     case 'article':
-      $suffix = '| Neural Command';
+      // Insight articles: Informational → trust → funnel
+      // Title formula: {Primary Topic}: What Actually Works | NRLC.ai
+      if (!$title || strpos($title, ':') === false) {
+        // If title doesn't have colon, add "What Actually Works"
+        $title = $title . ': What Actually Works';
+      }
+      $suffix = '| NRLC.ai';
+      $title = $title . ' ' . $suffix;
+      
+      // Description formula: practical breakdown + soft business bridge
       if ($excerpt) {
         $desc = $excerpt;
+        // Ensure it ends with business bridge if not already present
+        if (stripos($desc, 'call') === false && stripos($desc, 'email') === false) {
+          $desc = rtrim($desc, '.') . '. If you want this done, call or email.';
+        }
       } else {
-        $deliverables = ['guide', 'framework', 'checklist', 'templates'];
-        $deliverable = $deliverables[abs(crc32($title)) % count($deliverables)];
-        $desc = "Complete $deliverable to $title. Learn best practices, implementation strategies, and optimization techniques. Includes case studies and actionable insights.";
+        $desc = "A practical breakdown of $title, why it fails, and how to implement it correctly. If you want this done, call or email.";
       }
-      $title = $title . ' ' . $suffix;
       break;
       
     case 'home':
-      $title = 'Neural Command — AI Search Optimization, Schema, and LLM Visibility';
-      $desc = 'NRLC provides a semantic operating layer for databases, APIs, and data streams. Transform your infrastructure into a queryable knowledge graph with ontologies, SQL reasoning, and automated relationships. Enterprise-ready AI SEO solutions.';
+      // Homepage: Brand + hireability
+      $title = 'NRLC.ai — Technical SEO & AI Search Optimization';
+      $desc = 'Technical SEO and AI search optimization focused on crawlability, structured data, and intent clarity. Call or email to discuss your site.';
       break;
       
     case 'insights_hub':
-      // Insights hub: collection page, not article
-      $title = $title ?? 'Insights & Research on AI Search, SEO, and Structured Data | NRLC.ai';
-      $desc = $excerpt ?? 'Research and insights from NRLC.ai on AI-driven search, structured data, indexing systems, and modern SEO strategy.';
+      // Insights hub: Discovery + authority (no commercial CTA)
+      $title = 'AI Search & Technical SEO Insights | NRLC.ai';
+      $desc = 'Research and analysis on AI-driven search, indexing systems, and modern technical SEO. Built to inform and guide implementation.';
       break;
       
     default:
@@ -571,18 +596,29 @@ function sudo_meta_directive_ctx(array $ctx): array {
       $title = $title . ' ' . $suffix;
   }
   
-  // Enforce length limits
+  // Enforce length limits (SERP CONTROL: prevent Google rewrites)
+  // Title: 50-60 chars target, hard max 65
   if (strlen($title) > 65) {
     $truncated = substr($title, 0, 62);
     $lastSpace = strrpos($truncated, ' ');
     $title = ($lastSpace !== false && $lastSpace > 50) ? substr($truncated, 0, $lastSpace) . '...' : $truncated . '...';
   }
   
+  // Ensure title is not too short (weak signal)
+  if (strlen($title) < 45) {
+    // Add brand suffix if missing
+    if (strpos($title, '|') === false && strpos($title, 'NRLC') === false) {
+      $title = $title . ' | NRLC.ai';
+    }
+  }
+  
+  // Description: 150-165 chars target, hard max 175, min 130
   if (strlen($desc) > 175) {
     $truncated = substr($desc, 0, 172);
     $lastSpace = strrpos($truncated, ' ');
     $desc = ($lastSpace !== false && $lastSpace > 140) ? substr($truncated, 0, $lastSpace) . '...' : $truncated . '...';
-  } elseif (strlen($desc) < 100) {
+  } elseif (strlen($desc) < 130) {
+    // Add context if too short (weak signal)
     $desc = $desc . ' Professional AI SEO services by NRLC.ai.';
     if (strlen($desc) > 175) {
       $desc = substr($desc, 0, 172) . '...';

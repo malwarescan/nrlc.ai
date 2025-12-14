@@ -96,6 +96,32 @@ function without_locale_prefix(string $path): string {
   return preg_replace('#^/[a-z]{2}-[a-z]{2}#i','',$path);
 }
 
+/**
+ * Check if a city slug is a UK city
+ * Returns true if the city is known to be in the UK
+ */
+function is_uk_city(string $citySlug): bool {
+  $ukCities = [
+    'norwich', 'stockport', 'stoke-on-trent', 'derby', 'southport',
+    'huddersfield', 'blackpool', 'burnley', 'oldham', 'halifax',
+    'sudbury', 'nottingham', 'sheffield', 'southampton', 'london',
+    'manchester', 'birmingham', 'leeds', 'glasgow', 'liverpool',
+    'bristol', 'edinburgh', 'cardiff', 'belfast', 'newcastle',
+    'cambridge', 'oxford', 'brighton', 'plymouth', 'coventry',
+    'leicester', 'sunderland', 'wolverhampton', 'northampton',
+    'middlesbrough', 'peterborough', 'bolton', 'reading', 'bournemouth',
+    'swansea', 'southend-on-sea', 'hull', 'portsmouth', 'york'
+  ];
+  
+  $cityLower = strtolower($citySlug);
+  foreach ($ukCities as $ukCity) {
+    if ($cityLower === $ukCity || strpos($cityLower, str_replace('-', '', $ukCity)) !== false) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function current_breadcrumbs(): array {
   // Context-aware breadcrumbs based on current page
   $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);

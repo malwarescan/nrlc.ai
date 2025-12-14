@@ -67,8 +67,6 @@ function route_request(): void {
     $ctx = [
       'type' => 'home',
       'slug' => 'home/home',
-      'title' => 'Neural Command — AI Search Optimization, Schema, and LLM Visibility',
-      'excerpt' => 'NRLC provides a semantic operating layer for databases, APIs, and data streams. Transform your infrastructure into a queryable knowledge graph with ontologies, SQL reasoning, and automated relationships. Enterprise-ready AI SEO solutions.',
       'canonicalPath' => '/'
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
@@ -87,8 +85,6 @@ function route_request(): void {
     $ctx = [
       'type' => 'service',
       'slug' => 'services/service',
-      'title' => $serviceTitle,
-      'excerpt' => "Expert $serviceTitle services by NRLC.ai. GEO-16 framework implementation, structured data optimization, and AI engine citation readiness.",
       'service' => $serviceTitle,
       'canonicalPath' => $path
     ];
@@ -111,25 +107,22 @@ function route_request(): void {
     $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
     $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
     
-    // Try to get enhanced intro for description
-    $excerpt = null;
-    if (function_exists('get_service_enhancement')) {
-      $enhancement = get_service_enhancement($serviceSlug, $citySlug);
-      if (!empty($enhancement['intro'])) {
-        $excerpt = $enhancement['intro'];
-      }
-    }
-    if (!$excerpt) {
-      $excerpt = "$serviceTitle services in $cityTitle. Professional AI SEO optimization with GEO-16 framework, structured data, and LLM citation readiness.";
+    // Check if UK city - if so, enforce en-gb locale
+    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    $currentLocale = current_locale();
+    
+    if ($isUK && $currentLocale !== 'en-gb') {
+      // UK city detected but wrong locale - redirect to en-gb
+      $canonical = '/en-gb/services/local-seo-ai/' . $citySlug . '/';
+      header("Location: " . absolute_url($canonical), true, 301);
+      exit;
     }
     
     $ctx = [
       'type' => 'service',
       'slug' => "services/service_city",
-      'title' => "$serviceTitle in $cityTitle",
-      'excerpt' => $excerpt,
-      'service' => $serviceTitle,
-      'city' => $cityTitle,
+      'service' => $serviceSlug, // Pass slug, not title
+      'city' => $citySlug, // Pass slug, not title
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
@@ -183,8 +176,8 @@ function route_request(): void {
     $ctx = [
       'type' => 'insights',
       'slug' => "insights/$slug",
-      'title' => $articleTitle,
-      'excerpt' => $excerpt,
+      'title' => $articleTitle, // Will be formatted as "{Title}: What Actually Works | NRLC.ai"
+      'excerpt' => $excerpt, // Will have business bridge appended if not present
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
@@ -257,8 +250,6 @@ function route_request(): void {
     $ctx = [
       'type' => 'insights_hub',
       'slug' => 'insights/index',
-      'title' => 'Insights & Research on AI Search, SEO, and Structured Data | NRLC.ai',
-      'excerpt' => 'Research and insights from NRLC.ai on AI-driven search, structured data, indexing systems, and modern SEO strategy.',
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
@@ -270,10 +261,9 @@ function route_request(): void {
     // Generate unique metadata using ctx-based system
     require_once __DIR__.'/../lib/meta_directive.php';
     $ctx = [
-      'type' => 'home',
+      'type' => 'service',
       'slug' => 'services/index',
-      'title' => 'The Semantic Infrastructure for the AI Internet | NRLC.ai',
-      'excerpt' => 'NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.',
+      'service' => 'services',
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
