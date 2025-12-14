@@ -1,6 +1,23 @@
+<?php
+/**
+ * Open Source SEO Tools - Free Tools for AI Optimization
+ * 
+ * A comprehensive guide to open-source SEO tools that provide real value for
+ * AI-first optimization, including practical implementations and integrations
+ * with NRLC.ai's services for maximum impact.
+ */
 
-$GLOBALS['pageTitle'] = 'Open Source SEO Tools - Free Tools for AI Optimization | ...';
-$GLOBALS['pageDesc'] = 'A comprehensive guide to open-source SEO tools that provide real value for AI-first optimization, including practical implementations and integrations w...';
+$GLOBALS['__page_slug'] = 'insights/article';
+$GLOBALS['__insights_nav_added'] = true;
+
+// Note: Metadata is set by router via sudo_meta_directive_ctx()
+// See bootstrap/router.php for insights article metadata configuration
+// Note: head.php and header.php are already included by router.php render_page()
+
+$articleSlug = 'open-seo-tools';
+$canonical_url = absolute_url("/en-us/insights/$articleSlug/");
+$domain = 'https://nrlc.ai';
+?>
 
 <main role="main" class="container">
 <section class="section">
@@ -19,7 +36,7 @@ $GLOBALS['pageDesc'] = 'A comprehensive guide to open-source SEO tools that prov
       </div>
       <div class="content-block__body">
         <p>The open-source SEO tool landscape has evolved significantly with the rise of AI engines and generative search. While many tools still focus on traditional SEO metrics, a growing number of projects address AI-specific optimization needs including structured data, entity recognition, and content quality assessment.</p>
-        <p>This evolution represents a shift from keyword-focused tools to AI-comprehension-focused tools that prioritize content quality, technical excellence, and semantic structure. Organizations that leverage these tools effectively can achieve significant improvements in <a href="/services/ai-first-site-audits/">AI-first content optimization</a> and citation performance.</p>
+        <p>This evolution represents a shift from keyword-focused tools to AI-comprehension-focused tools that prioritize content quality, technical excellence, and semantic structure. Organizations that leverage these tools effectively can achieve significant improvements in <a href="/en-us/services/ai-first-site-audits/">AI-first content optimization</a> and citation performance.</p>
       </div>
     </div>
     <div class="content-block module">
@@ -163,7 +180,7 @@ $GLOBALS['pageDesc'] = 'A comprehensive guide to open-source SEO tools that prov
         <h2 class="content-block__title">GEO-16 Framework Integration</h2>
       </div>
       <div class="content-block__body">
-        <p>Open-source SEO tools can be integrated with the <a href="/insights/geo16-framework/">GEO-16 framework</a> to provide comprehensive optimization capabilities:</p>
+        <p>Open-source SEO tools can be integrated with the <a href="/en-us/insights/geo16-framework/">GEO-16 framework</a> to provide comprehensive optimization capabilities:</p>
       </div>
     </div>
     <div class="content-block module">
@@ -227,7 +244,7 @@ $GLOBALS['pageDesc'] = 'A comprehensive guide to open-source SEO tools that prov
         <h3 class="content-block__title" style="margin-top: 0; color: #000080;">Lighthouse Integration</h3>
       </div>
       <div class="content-block__body">
-        <p>Our <a href="/services/structured-data/">structured data service</a> integrates with Lighthouse to provide comprehensive performance auditing and structured data validation. This integration ensures optimal technical implementation and AI engine accessibility.</p>
+        <p>Our <a href="/en-us/services/structured-data/">structured data service</a> integrates with Lighthouse to provide comprehensive performance auditing and structured data validation. This integration ensures optimal technical implementation and AI engine accessibility.</p>
       </div>
     </div>
     <div class="content-block module">
@@ -235,7 +252,7 @@ $GLOBALS['pageDesc'] = 'A comprehensive guide to open-source SEO tools that prov
         <h3 class="content-block__title" style="margin-top: 0; color: #000080;">Stanford CoreNLP Integration</h3>
       </div>
       <div class="content-block__body">
-        <p>Our <a href="/services/llm-seeding/">LLM seeding service</a> integrates with Stanford CoreNLP to provide advanced natural language processing capabilities. This integration enables sophisticated content analysis and entity relationship mapping.</p>
+        <p>Our <a href="/en-us/services/llm-seeding/">LLM seeding service</a> integrates with Stanford CoreNLP to provide advanced natural language processing capabilities. This integration enables sophisticated content analysis and entity relationship mapping.</p>
       </div>
     </div>
     <div class="content-block module">
@@ -347,13 +364,21 @@ $GLOBALS['pageDesc'] = 'A comprehensive guide to open-source SEO tools that prov
         <li>Continuous optimization and improvement</li>
         </ul>
         <p>Clients see average improvements of 340% in AI citation rates within 90 days of implementing our integrated open-source tool approach.</p>
-        <div class="status-bar-field">Previous: <a href="/insights/ontology-based-search/">Ontology-Based Search</a></div>
-        </div>
+        <div class="status-bar-field">Previous: <a href="/en-us/insights/ontology-based-search/">Ontology-Based Search</a></div>
         <div class="center margin-top-20">
-        <a href="/api/book/" class="btn" data-ripple>Integrate Open Source Tools</a>
+          <a href="/en-us/api/book/" class="btn" data-ripple>Integrate Open Source Tools</a>
         </div>
       </div>
     </div>
+
+    <!-- Navigation back to insights -->
+    <div class="content-block module">
+      <div class="content-block__body">
+        <p><a href="/en-us/insights/" class="btn">← Latest Research & Insights</a></p>
+      </div>
+    </div>
+
   </div>
 </section>
 </main>
+

@@ -22,7 +22,9 @@ function canonical_guard(): void {
 
   // Force HTTPS redirect (fallback if .htaccess doesn't catch it)
   // Skip HTTPS enforcement for localhost/127.0.0.1 (local development)
-  $isLocalhost = in_array($host, ['localhost', '127.0.0.1', 'localhost:8000', '127.0.0.1:8000']);
+  $isLocalhost = in_array($host, ['localhost', '127.0.0.1', 'localhost:8000', '127.0.0.1:8000', 'localhost:8001', '127.0.0.1:8001']) || 
+                 strpos($host, 'localhost:') === 0 || 
+                 strpos($host, '127.0.0.1:') === 0;
   
   if (!$isLocalhost && 
       empty($_SERVER['HTTPS']) && 

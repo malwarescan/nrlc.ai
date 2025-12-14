@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/../../templates/head.php';
-require_once __DIR__ . '/../../templates/header.php';
+// Note: head.php and header.php are already included by router.php render_page()
+// Metadata is set by router via sudo_meta_directive_ctx()
+// See bootstrap/router.php for product page metadata configuration
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/googlebot-renderer-lab';

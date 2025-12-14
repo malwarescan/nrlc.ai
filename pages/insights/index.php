@@ -23,8 +23,8 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
           Latest research and insights on semantic infrastructure, knowledge graphs, data virtualization, and building reliable AI workflows on structured understanding.
         </p>
         <div class="btn-group text-center">
-          <a href="/insights/semantic-modeling/" class="btn">Learn Why Teams Adopt Semantic Modeling</a>
-          <a href="/api/book/" class="btn btn--primary">Schedule Research Consultation</a>
+          <a href="/en-us/insights/semantic-modeling/" class="btn">Learn Why Teams Adopt Semantic Modeling</a>
+          <a href="/en-us/api/book/" class="btn btn--primary">Schedule Research Consultation</a>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Semantic Queries & Query Optimization</h3>
             <p>How semantic relationships collapse query complexity and reduce time to value. Learn how traditional SQL queries with dozens of JOINs become concise, relationship-aware logic.</p>
             <div class="btn-group">
-              <a href="/insights/semantic-queries/" class="btn">Learn More About Semantic Queries</a>
+              <a href="/en-us/insights/semantic-queries/" class="btn">Learn More About Semantic Queries</a>
             </div>
           </div>
 
@@ -49,7 +49,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Performance & Caching Insights</h3>
             <p>Intelligent pushdown optimization, query performance tuning, and powerful caching engines that reduce compute spend while maintaining query speed and accuracy.</p>
             <div class="btn-group">
-              <a href="/insights/performance-caching/" class="btn">Performance & Caching Insights</a>
+              <a href="/en-us/insights/performance-caching/" class="btn">Performance & Caching Insights</a>
             </div>
           </div>
 
@@ -57,7 +57,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Why Teams Adopt Semantic Modeling</h3>
             <p>Understanding the business value of semantic infrastructure. How organizations achieve 90% reduction in time-to-consumption and enable reliable AI workflows.</p>
             <div class="btn-group">
-              <a href="/insights/semantic-modeling/" class="btn" title="Read full article: Why Teams Adopt Semantic Modeling" aria-label="Read full article: Why Teams Adopt Semantic Modeling">Read Article</a>
+              <a href="/en-us/insights/semantic-modeling/" class="btn" title="Read full article: Why Teams Adopt Semantic Modeling" aria-label="Read full article: Why Teams Adopt Semantic Modeling">Read Article</a>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Data Virtualization Best Practices</h3>
             <p>Connecting every source into a semantic, virtualized layer with no ingestion or duplication. Automatic mapping, federated queries, and unified graph views.</p>
             <div class="btn-group">
-              <a href="/insights/data-virtualization/" class="btn" title="Read full article: Data Virtualization Best Practices" aria-label="Read full article: Data Virtualization Best Practices">Read Article</a>
+              <a href="/en-us/insights/data-virtualization/" class="btn" title="Read full article: Data Virtualization Best Practices" aria-label="Read full article: Data Virtualization Best Practices">Read Article</a>
             </div>
           </div>
 
@@ -73,7 +73,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Enterprise LLM Foundation</h3>
             <p>Building reliable AI workflows on structured understanding. How structured semantic context, verified relationships, and virtualized access enable trustworthy LLM operations.</p>
             <div class="btn-group">
-              <a href="/insights/enterprise-llm/" class="btn" title="Read full article: Enterprise LLM Foundation" aria-label="Read full article: Enterprise LLM Foundation">Read Article</a>
+              <a href="/en-us/insights/enterprise-llm/" class="btn" title="Read full article: Enterprise LLM Foundation" aria-label="Read full article: Enterprise LLM Foundation">Read Article</a>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             <h3 class="content-block__title">Knowledge Graph Exploration</h3>
             <p>Interactive knowledge graph techniques for traversing relationships, surfacing insights, and generating SQL or natural-language queries automatically.</p>
             <div class="btn-group">
-              <a href="/insights/knowledge-graph/" class="btn" title="Read full article: Knowledge Graph Exploration" aria-label="Read full article: Knowledge Graph Exploration">Read Article</a>
+              <a href="/en-us/insights/knowledge-graph/" class="btn" title="Read full article: Knowledge Graph Exploration" aria-label="Read full article: Knowledge Graph Exploration">Read Article</a>
             </div>
           </div>
 
@@ -133,7 +133,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
           <?php foreach (array_reverse($featured_insights) as $insight): ?>
             <div class="list-item" style="padding: 0.5rem; border-bottom: 1px solid #ccc;">
               <h4 style="margin: 0 0 0.5rem 0; color: #000080;">
-                <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" style="text-decoration: none; color: inherit;">
+                <a href="/en-us/insights/<?= htmlspecialchars($insight['slug']) ?>/" style="text-decoration: none; color: inherit;">
                   <?= htmlspecialchars($insight['title']) ?>
                 </a>
               </h4>
@@ -141,7 +141,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
                 <?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 100)) ?>...
               </p>
               <div class="btn-group">
-                <a href="/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn" title="Read full article: <?= htmlspecialchars($insight['title']) ?>" aria-label="Read full article: <?= htmlspecialchars($insight['title']) ?>">Read Article</a>
+                <a href="/en-us/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn" title="Read full article: <?= htmlspecialchars($insight['title']) ?>" aria-label="Read full article: <?= htmlspecialchars($insight['title']) ?>">Read Article</a>
               </div>
           </div>
           <?php endforeach; ?>
@@ -162,8 +162,8 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
             Get the latest insights on semantic infrastructure, knowledge graphs, and building reliable AI workflows. Our research-driven approach ensures you stay ahead of evolving best practices and optimization opportunities.
           </p>
           <div class="btn-group text-center">
-            <a href="/api/book/" class="btn btn--primary">Schedule Research Consultation</a>
-            <a href="/services/" class="btn">Explore Our Services</a>
+            <a href="/en-us/api/book/" class="btn btn--primary">Schedule Research Consultation</a>
+            <a href="/en-us/services/" class="btn">Explore Our Services</a>
           </div>
         </div>
       </div>

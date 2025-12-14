@@ -9,15 +9,12 @@
 $GLOBALS['__page_slug'] = 'insights/article';
 $GLOBALS['__insights_nav_added'] = true;
 
-// Set unique metadata for this article
-$articleSlug = 'google-llms-txt-ai-seo';
-$GLOBALS['pageTitle'] = 'Google\'s LLMs.txt: The Hidden Syllabus Behind AI SEO and ...';
-$GLOBALS['pageDesc'] = 'TL;DR: Google's llms.txt is a machine-readable list of Search Central documentation that Google feeds to large language models. It's essentially Google's hidden syllabus for AI SEO.';
-
+// Note: Metadata is set by router via sudo_meta_directive_ctx()
+// See bootstrap/router.php for insights article metadata configuration
 // Note: head.php and header.php are already included by router.php render_page()
-// Do not duplicate them here to avoid double headers
 
-$canonical_url = absolute_url("/insights/$articleSlug/");
+$articleSlug = 'google-llms-txt-ai-seo';
+$canonical_url = absolute_url("/en-us/insights/$articleSlug/");
 $domain = 'https://nrlc.ai';
 ?>
 

@@ -112,7 +112,7 @@ function get_products(): array {
     if ($slug === 'index') continue;
     
     $products[] = [
-      'loc' => "https://nrlc.ai/products/{$slug}/",
+      'loc' => "https://nrlc.ai/en-us/products/{$slug}/",
       'lastmod' => date('Y-m-d', filemtime($file)),
       'changefreq' => 'monthly',
       'priority' => '0.8'
@@ -351,7 +351,7 @@ function get_catalog_items(): array {
     if (empty($slug)) continue;
     
     $catalogItems[] = [
-      'loc' => "https://nrlc.ai/catalog/{$slug}/",
+      'loc' => "https://nrlc.ai/en-us/catalog/{$slug}/",
       'lastmod' => date('Y-m-d'),
       'changefreq' => 'weekly',
       'priority' => '0.8'

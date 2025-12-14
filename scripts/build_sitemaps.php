@@ -384,6 +384,51 @@ if ($promptwareEntries) {
   echo "Built promptware sitemap: " . count($promptwareEntries) . " URLs\n";
 }
 
+// 14. Products sitemap
+$productEntries = [];
+$productFiles = glob(__DIR__.'/../pages/products/*.php');
+foreach ($productFiles as $file) {
+  $slug = basename($file, '.php');
+  if ($slug === 'index') continue;
+  
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/products/{$slug}/";
+  $productEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.8');
+}
+
+if ($productEntries) {
+  $xmlFile = "{$outDir}products-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($productEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built products sitemap: " . count($productEntries) . " URLs\n";
+}
+
+// 15. Catalog sitemap
+$catalogEntries = [];
+require_once __DIR__.'/../lib/csv.php';
+$catalogData = csv_read_data('catalog.csv');
+foreach ($catalogData as $item) {
+  $slug = $item['slug'] ?? '';
+  if (empty($slug)) continue;
+  
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/catalog/{$slug}/";
+  $catalogEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '0.8');
+}
+
+if ($catalogEntries) {
+  $xmlFile = "{$outDir}catalog-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($catalogEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built catalog sitemap: " . count($catalogEntries) . " URLs\n";
+}
+
 // Generate unified index
 $indexFile = "{$outDir}sitemap-index.xml";
 $indexContent = sitemap_render_index($sitemaps);

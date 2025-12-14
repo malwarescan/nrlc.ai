@@ -1,5 +1,5 @@
 {
-    "timestamp": "2025-12-14T11:36:36+00:00",
+    "timestamp": "2025-12-14T14:42:07+00:00",
     "total_errors": 22,
     "duplicate_titles": 0,
     "duplicate_descriptions": 0,
@@ -21,13 +21,13 @@
         "Title too short (21 chars, min 45) in products\/croutons-ai: Croutons.ai | NRLC.ai",
         "Description too short (125 chars, min 130) in products\/croutons-ai: Micro-fact data atomization engine that converts raw data in...",
         "Title too short (30 chars, min 45) in products\/data-but-structured: Data, But Structured | NRLC.ai",
-        "Title too short (18 chars, min 45) in products\/index: Products | NRLC.ai",
         "Title too short (27 chars, min 45) in products\/neural-command-os: Neural Command OS | NRLC.ai",
         "Description too short (108 chars, min 130) in products\/neural-command-os: Universal operating system powering all products in the Neur...",
         "Title too short (16 chars, min 45) in products\/newfaq: NEWFAQ | NRLC.ai",
         "Title too short (20 chars, min 45) in products\/ourcasa-ai: OurCasa.ai | NRLC.ai",
         "Title too short (17 chars, min 45) in products\/precogs: Precogs | NRLC.ai",
         "Title too short (37 chars, min 45) in products\/prompt-surface-intelligence: Prompt Surface Intelligence | NRLC.ai",
-        "Description too short (93 chars, min 130) in tools\/index: Comprehensive reviews and comparisons of AI SEO tools, platf..."
+        "Description too short (93 chars, min 130) in tools\/index: Comprehensive reviews and comparisons of AI SEO tools, platf...",
+        "Sitemap validation failed: \u274c SITEMAP VALIDATION FAILED\n\nErrors:\n  \u2717 Non-canonical URL in sitemap: https:\/\/nrlc.ai\/blog\/blog-post-1\/\n  \u2717 Non-canonical URL in sitemap: https:\/\/nrlc.ai\/blog\/blog-post-10\/\n  \u2717 Non-canonical URL in sitemap: https:\/\/nrlc.ai\/blog\/blog-post-100\/\n  \u2717 Non-canonical URL in sitemap: https:\/\/nrlc.ai\/blog\/blog-post-101\/\n  \u2717 Non-canonical URL in sitemap: https:\/\/nrlc.ai\/blog\/blog-post-102\/\n  \u2717 Non-canonical URL in sitemap: https:\/\/nrlc.ai\/blog\/blog-post-103\/\n  \u2717 Non-canonical URL in sitemap: https:\/\/nrlc.ai\/blog\/blog-post-104\/"
     ]
 }

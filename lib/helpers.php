@@ -8,9 +8,15 @@ function absolute_url(string $path): string {
     (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
     (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443')
   );
-  // Default to HTTPS for production (canonicals should always be HTTPS)
-  $scheme = $isHttps || (($_SERVER['APP_ENV'] ?? 'production') === 'production') ? 'https' : 'http';
+  
+  // Check if we're on localhost (any port)
   $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+  $isLocalhost = in_array($host, ['localhost', '127.0.0.1']) || 
+                 strpos($host, 'localhost:') === 0 || 
+                 strpos($host, '127.0.0.1:') === 0;
+  
+  // Use HTTP for localhost, HTTPS for production
+  $scheme = ($isLocalhost || !$isHttps) ? 'http' : 'https';
   if ($path === '') $path = '/';
   return $scheme.'://'.$host.$path;
 }

@@ -38,12 +38,12 @@ foreach ($pageFiles as $file) {
     $title = $m[1];
     $len = strlen($title);
     
-    // SERP CONTROL: Title must be 45-65 chars (50-60 target)
+    // C1: Title uniqueness law - 50-60 chars target, hard max 65, min 50
     if ($len > 65) {
       $errors[] = "Title too long ($len chars, max 65) in $slug: " . substr($title, 0, 60) . "...";
     }
-    if ($len < 45) {
-      $errors[] = "Title too short ($len chars, min 45) in $slug: $title";
+    if ($len < 50) {
+      $errors[] = "Title too short ($len chars, min 50) in $slug: $title";
     }
     
     if (!isset($titles[$title])) {
@@ -153,11 +153,54 @@ foreach ($cityLocales as $city => $locales) {
   }
 }
 
-// 6. Check for duplicate first 8 words in descriptions
+// 6. Check for duplicate first 8 words in descriptions (I3: Template anti-duplication rule)
 $duplicateFirst8 = array_filter($first8Words, fn($slugs) => count($slugs) > 1);
 if (!empty($duplicateFirst8)) {
+  // Group by template family to detect template-level duplication
+  $templateFamilies = [];
   foreach ($duplicateFirst8 as $words => $slugs) {
-    $errors[] = "Duplicate first 8 words '$words' in: " . implode(', ', $slugs);
+    foreach ($slugs as $slug) {
+      // Detect template family from slug pattern
+      $family = 'unknown';
+      if (preg_match('#^blog/blog-post#', $slug)) $family = 'blog_post';
+      elseif (preg_match('#^case-studies/case-study#', $slug)) $family = 'case_study';
+      elseif (preg_match('#^resources/resource#', $slug)) $family = 'resource';
+      elseif (preg_match('#^tools/#', $slug)) $family = 'tool';
+      elseif (preg_match('#^industries/#', $slug)) $family = 'industry';
+      
+      if (!isset($templateFamilies[$family])) {
+        $templateFamilies[$family] = [];
+      }
+      $templateFamilies[$family][] = $slug;
+    }
+    
+    // If ≥ 10 pages in family share first 8 words, it's a template duplication violation
+    if (count($slugs) >= 10) {
+      $errors[] = "Template duplication: '$words' repeated across " . count($slugs) . " pages: " . implode(', ', array_slice($slugs, 0, 5)) . "...";
+    } else {
+      $errors[] = "Duplicate first 8 words '$words' in: " . implode(', ', $slugs);
+    }
+  }
+}
+
+// 6b. Check for duplicate first 5 words in titles (I3: Template anti-duplication rule)
+$first5WordsTitles = [];
+foreach ($titles as $title => $slugs) {
+  $words = explode(' ', $title);
+  $first5 = implode(' ', array_slice($words, 0, 5));
+  if (!isset($first5WordsTitles[$first5])) {
+    $first5WordsTitles[$first5] = [];
+  }
+  $first5WordsTitles[$first5] = array_merge($first5WordsTitles[$first5], $slugs);
+}
+$duplicateFirst5Titles = array_filter($first5WordsTitles, fn($slugs) => count($slugs) > 1);
+foreach ($duplicateFirst5Titles as $words => $slugs) {
+  // Allow "Local SEO Services in" pattern (required by intent)
+  if (stripos($words, 'Local SEO Services in') === 0) {
+    continue; // This is intentional for LOCAL_SERVICE_CITY pages
+  }
+  if (count($slugs) >= 10) {
+    $errors[] = "Template title duplication: '$words' repeated across " . count($slugs) . " pages: " . implode(', ', array_slice($slugs, 0, 5)) . "...";
   }
 }
 
@@ -222,6 +265,41 @@ if (file_exists($allowlistFile)) {
   }
 } else {
   $warnings[] = "Hreflang allowlist file not found: $allowlistFile (hreflang will be disabled for all pages)";
+}
+
+// I) CI GUARDRAILS - Check 7: Allowlisted hreflang alternate redirects or non-200
+// This would require actual HTTP requests in CI environment
+// For now, validate allowlist structure and log that HTTP validation is needed
+if (file_exists($allowlistFile)) {
+  $allowlist = require $allowlistFile;
+  foreach ($allowlist as $path => $locales) {
+    // In CI, would check each locale URL returns 200 and is self-canonical
+    // For now, just note that HTTP validation is required
+    $warnings[] = "Hreflang quality gate: HTTP validation required for allowlisted path '$path' (check all locales return 200, are self-canonical, and have reciprocal tags)";
+  }
+}
+
+// I) CI GUARDRAILS - Check 9: Any sitemap URL redirects or is non-canonical
+// Run sitemap validation script
+$sitemapValidationScript = __DIR__.'/validate_sitemaps.php';
+if (file_exists($sitemapValidationScript)) {
+  $output = [];
+  $returnCode = 0;
+  exec("php $sitemapValidationScript 2>&1", $output, $returnCode);
+  if ($returnCode !== 0) {
+    $errors[] = "Sitemap validation failed: " . implode("\n", array_slice($output, 0, 10));
+  }
+} else {
+  $warnings[] = "Sitemap validation script not found: $sitemapValidationScript";
+}
+
+// I) CI GUARDRAILS - Check 10: Title/H1 intent mismatch (semantic mismatch detected via template rules)
+// This requires parsing rendered HTML, which is complex in file-based scan
+// For now, validate that router sets intent context
+$routerFile = __DIR__.'/../bootstrap/router.php';
+$routerContent = file_get_contents($routerFile);
+if (strpos($routerContent, 'sudo_meta_directive_ctx') === false) {
+  $warnings[] = "Router may not be using sudo_meta_directive_ctx() for all routes (intent contracts may not be enforced)";
 }
 
 // Output results with top offenders

@@ -468,14 +468,16 @@ function sudo_meta_directive_ctx(array $ctx): array {
       break;
       
     case 'case_study':
-      $leadIn = 'See how we';
-      $suffix = '| Case Study';
+      // G6: CASE_STUDY formula
+      // Title: Case Study: {Outcome} | NRLC.ai
+      // Description: What broke, what we changed, and the measurable outcome. Includes crawl/indexing fixes, structured data, and ranking stability.
+      $outcome = $title ?: ucwords(str_replace(['-', '_'], ' ', $slug));
+      $title = "Case Study: $outcome | NRLC.ai";
       if ($excerpt) {
         $desc = $excerpt;
       } else {
-        $desc = "$leadIn helped achieve measurable results with $title. Real-world AI SEO implementation, data-driven outcomes, and actionable insights.";
+        $desc = "What broke, what we changed, and the measurable outcome. Includes crawl/indexing fixes, structured data, and ranking stability.";
       }
-      $title = $title . ' ' . $suffix;
       break;
       
     case 'resource':
@@ -490,14 +492,16 @@ function sudo_meta_directive_ctx(array $ctx): array {
       break;
       
     case 'tool':
-      $leadIn = 'Use this tool to';
-      $suffix = '| NRLC.ai Tools';
+      // G5: TOOL_PAGE formula
+      // Title: {Tool Name} for AI Search Visibility | NRLC.ai
+      // Description: {Tool Name} to audit, score, and improve structure for AI search and indexing. Built for technical operators and teams.
+      $toolName = $title ?: ucwords(str_replace(['-', '_'], ' ', $slug));
+      $title = "$toolName for AI Search Visibility | NRLC.ai";
       if ($excerpt) {
         $desc = $excerpt;
       } else {
-        $desc = "$leadIn $title. Free AI SEO tool for technical audits, schema validation, and search engine optimization.";
+        $desc = "$toolName to audit, score, and improve structure for AI search and indexing. Built for technical operators and teams.";
       }
-      $title = $title . ' ' . $suffix;
       break;
       
     case 'industry':
@@ -618,16 +622,18 @@ function sudo_meta_directive_ctx(array $ctx): array {
     }
   }
   
-  // Description: 150-165 chars target, hard max 175, min 130
+  // Description: C2: Description uniqueness law - 150-165 chars target, hard max 175, min 130
   if (strlen($desc) > 175) {
     $truncated = substr($desc, 0, 172);
     $lastSpace = strrpos($truncated, ' ');
-    $desc = ($lastSpace !== false && $lastSpace > 140) ? substr($truncated, 0, $lastSpace) . '...' : $truncated . '...';
+    $desc = ($lastSpace !== false && $lastSpace > 150) ? substr($truncated, 0, $lastSpace) . '...' : $truncated . '...';
   } elseif (strlen($desc) < 130) {
-    // Add context if too short (weak signal)
+    // Add context if too short (weak signal) - C2: min 130 chars
     $desc = $desc . ' Professional AI SEO services by NRLC.ai.';
     if (strlen($desc) > 175) {
-      $desc = substr($desc, 0, 172) . '...';
+      $truncated = substr($desc, 0, 172);
+      $lastSpace = strrpos($truncated, ' ');
+      $desc = ($lastSpace !== false && $lastSpace > 150) ? substr($truncated, 0, $lastSpace) . '...' : $truncated . '...';
     }
   }
   
