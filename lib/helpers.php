@@ -100,6 +100,44 @@ function without_locale_prefix(string $path): string {
  * Check if a city slug is a UK city
  * Returns true if the city is known to be in the UK
  */
+/**
+ * SUDO POWERED: Detect if a page is LOCAL (city-based) vs GLOBAL (translatable)
+ * 
+ * LOCAL pages:
+ * - Have a city slug in the URL path
+ * - Are geography-anchored
+ * - Must NOT use hreflang
+ * 
+ * GLOBAL pages:
+ * - Do not have city slugs
+ * - Can be translated
+ * - May use hreflang if translations are real
+ * 
+ * @param string $pathWithoutLocale Path without locale prefix (e.g., /services/technical-seo/)
+ * @return bool True if LOCAL (city-based), false if GLOBAL
+ */
+function is_local_page(string $pathWithoutLocale): bool {
+  // Check for city-based service pages: /services/{service}/{city}/
+  if (preg_match('#^/services/([^/]+)/([^/]+)/#', $pathWithoutLocale, $m)) {
+    $citySlug = $m[2];
+    // If it's a known city (UK or US), it's LOCAL
+    if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
+      return true;
+    }
+    // For now, assume any city slug in service path is LOCAL
+    // Could enhance with US city detection
+    return true;
+  }
+  
+  // Check for city-based career pages: /careers/{city}/{role}/
+  if (preg_match('#^/careers/([^/]+)/([^/]+)/#', $pathWithoutLocale)) {
+    return true;
+  }
+  
+  // All other pages are GLOBAL
+  return false;
+}
+
 function is_uk_city(string $citySlug): bool {
   $ukCities = [
     'norwich', 'stockport', 'stoke-on-trent', 'derby', 'southport',

@@ -30,7 +30,14 @@ foreach ($servicesRows as $row) {
   if ($service && $city) {
     $path = "/services/{$service}/{$city}/";
     $hreflangUrls = sitemap_generate_hreflang_urls($path);
-    $serviceEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+    
+    // SITEMAP CANONICAL ONLY: Use the canonical locale URL
+    // For UK cities, canonical is en-gb; for others, en-us
+    $canonicalUrl = $hreflangUrls['x-default'] ?? $hreflangUrls['en-us'] ?? $hreflangUrls['en-gb'] ?? '';
+    if ($canonicalUrl) {
+      // Only include canonical URL in sitemap (no deprecated locales)
+      $serviceEntries[] = sitemap_entry_simple($canonicalUrl, $lastmod, 'weekly', '0.8');
+    }
   }
 }
 
@@ -55,7 +62,12 @@ foreach ($careersRows as $row) {
   if ($role && $city) {
     $path = "/careers/{$city}/{$role}/";
     $hreflangUrls = sitemap_generate_hreflang_urls($path);
-    $careerEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+    
+    // SITEMAP CANONICAL ONLY: Use the canonical locale URL
+    $canonicalUrl = $hreflangUrls['x-default'] ?? $hreflangUrls['en-us'] ?? $hreflangUrls['en-gb'] ?? '';
+    if ($canonicalUrl) {
+      $careerEntries[] = sitemap_entry_simple($canonicalUrl, $lastmod, 'monthly', '0.7');
+    }
   }
 }
 
@@ -76,9 +88,13 @@ foreach ($insightsRows as $row) {
   $lastmod = $row['lastmod'] ?? $today;
   
   if ($slug) {
-  $path = "/insights/{$slug}/";
+    $path = "/insights/{$slug}/";
     $hreflangUrls = sitemap_generate_hreflang_urls($path);
-    $insightEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+    // SITEMAP CANONICAL ONLY
+    $canonicalUrl = $hreflangUrls['x-default'] ?? $hreflangUrls['en-us'] ?? '';
+    if ($canonicalUrl) {
+      $insightEntries[] = sitemap_entry_simple($canonicalUrl, $lastmod, 'monthly', '0.8');
+    }
   }
 }
 
@@ -136,7 +152,9 @@ foreach ($insightsRows as $row) {
     if ($pubDateTime > $cutoff) {
       $path = "/insights/{$slug}/";
       $hreflangUrls = sitemap_generate_hreflang_urls($path);
-      $entry = "  <url>\n    <loc>{$hreflangUrls['en-us']}</loc>\n";
+      // SITEMAP CANONICAL ONLY
+      $canonicalUrl = $hreflangUrls['x-default'] ?? $hreflangUrls['en-us'] ?? '';
+      $entry = "  <url>\n    <loc>{$canonicalUrl}</loc>\n";
       $entry .= "    <lastmod>{$lastmod}</lastmod>\n";
       $entry .= "    <changefreq>monthly</changefreq>\n";
       $entry .= "    <priority>0.9</priority>\n";
@@ -211,11 +229,9 @@ $toolPages = [
 ];
 
 foreach ($toolPages as $tool) {
-  $hreflangUrls = [];
-  foreach (LOCALES as $locale => $data) {
-    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/tools/{$tool}/";
-  }
-  $toolEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/tools/{$tool}/";
+  $toolEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.7');
 }
 
 if ($toolEntries) {
@@ -231,11 +247,9 @@ if ($toolEntries) {
 // 8. Case studies sitemap
 $caseStudyEntries = [];
 for ($i = 1; $i <= 200; $i++) {
-  $hreflangUrls = [];
-  foreach (LOCALES as $locale => $data) {
-    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/case-studies/case-study-{$i}/";
-  }
-  $caseStudyEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/case-studies/case-study-{$i}/";
+  $caseStudyEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.7');
 }
 
 if ($caseStudyEntries) {
@@ -251,11 +265,9 @@ if ($caseStudyEntries) {
 // 9. Blog posts sitemap
 $blogEntries = [];
 for ($i = 1; $i <= 500; $i++) {
-  $hreflangUrls = [];
-  foreach (LOCALES as $locale => $data) {
-    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/blog/blog-post-{$i}/";
-  }
-  $blogEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/blog/blog-post-{$i}/";
+  $blogEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '0.8');
 }
 
 if ($blogEntries) {
@@ -271,11 +283,9 @@ if ($blogEntries) {
 // 10. Resources sitemap
 $resourceEntries = [];
 for ($i = 1; $i <= 1000; $i++) {
-  $hreflangUrls = [];
-  foreach (LOCALES as $locale => $data) {
-    $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/resources/resource-{$i}/";
-  }
-  $resourceEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/resources/resource-{$i}/";
+  $resourceEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.6');
 }
 
 if ($resourceEntries) {
@@ -305,16 +315,11 @@ $indexPages = [
 ];
 
 foreach ($indexPages as $path) {
-  $hreflangUrls = [];
-  foreach (LOCALES as $locale => $data) {
-    if ($path === '/') {
-      $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}/";
-    } else {
-      $hreflangUrls[$locale] = "https://nrlc.ai/{$locale}{$path}";
-    }
-  }
-  $hreflangUrls['x-default'] = $hreflangUrls['en-us'];
-  $indexPageEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+  // SITEMAP CANONICAL ONLY: Only include en-us canonical
+  $canonicalUrl = $path === '/' 
+    ? "https://nrlc.ai/en-us/" 
+    : "https://nrlc.ai/en-us{$path}";
+  $indexPageEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '1.0');
 }
 
 if ($indexPageEntries) {
@@ -340,9 +345,9 @@ $semanticServices = [
 ];
 
 foreach ($semanticServices as $service) {
-  $path = "/services/{$service}/";
-  $hreflangUrls = sitemap_generate_hreflang_urls($path);
-  $semanticServiceEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/services/{$service}/";
+  $semanticServiceEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '0.8');
 }
 
 if ($semanticServiceEntries) {
@@ -364,9 +369,9 @@ $promptwarePages = [
 ];
 
 foreach ($promptwarePages as $page) {
-  $path = "/{$page}";
-  $hreflangUrls = sitemap_generate_hreflang_urls($path);
-  $promptwareEntries[] = sitemap_entry_with_hreflang($hreflangUrls['en-us'], $hreflangUrls);
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us/{$page}";
+  $promptwareEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.7');
 }
 
 if ($promptwareEntries) {

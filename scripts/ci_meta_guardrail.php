@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 require_once __DIR__.'/../lib/meta_directive.php';
 require_once __DIR__.'/../lib/helpers.php';
+require_once __DIR__.'/../config/locales.php';
+require_once __DIR__.'/../lib/hreflang.php';
 
 $errors = [];
 $warnings = [];
@@ -99,7 +101,59 @@ if (!empty($duplicateDescs)) {
   }
 }
 
-// 5. Check for duplicate first 8 words
+// 5. SUDO POWERED: GLOBAL vs LOCAL INDEXING CHECKS
+require_once __DIR__.'/../lib/helpers.php';
+
+// H) CI GUARDRAILS - Check 1: LOCAL page outputs hreflang
+// This is a P0 defect - LOCAL pages must NEVER output hreflang
+$headFile = __DIR__.'/../templates/head.php';
+$headContent = file_get_contents($headFile);
+// Verify that hreflang_links() is called and returns empty for LOCAL pages
+if (strpos($headContent, 'hreflang_links') === false) {
+  $warnings[] = "templates/head.php may not be calling hreflang_links()";
+}
+
+// Check 2: City slug exists in >1 locale as indexable
+$cityPagePattern = '#/services/([^/]+)/([^/]+)/#';
+$cityLocales = []; // Track city slugs and their locales
+foreach ($pageFiles as $file) {
+  $content = file_get_contents($file);
+  $slug = str_replace([__DIR__.'/../pages/', '.php'], '', $file);
+  
+  // Check if this is a service city page
+  if (preg_match($cityPagePattern, $slug, $m)) {
+    $citySlug = $m[2];
+    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    
+    // Track city and locale
+    if (!isset($cityLocales[$citySlug])) {
+      $cityLocales[$citySlug] = [];
+    }
+    if (preg_match('#/([a-z]{2}-[a-z]{2})/#', $slug, $localeMatch)) {
+      $cityLocales[$citySlug][] = $localeMatch[1];
+    }
+    
+    // Check if UK city is under wrong locale
+    if ($isUK && preg_match('#/(en-us|es-es|fr-fr|de-de|ko-kr)/#', $slug)) {
+      $errors[] = "UK city '$citySlug' under wrong locale in: $slug (must be en-gb)";
+    }
+    
+    // Check if non-UK city is under en-gb (unless it's actually a UK city)
+    if (!$isUK && preg_match('#/en-gb/#', $slug)) {
+      $warnings[] = "Non-UK city '$citySlug' under en-gb in: $slug (verify locale)";
+    }
+  }
+}
+
+// Check for cities appearing in multiple locales (violation)
+foreach ($cityLocales as $city => $locales) {
+  $uniqueLocales = array_unique($locales);
+  if (count($uniqueLocales) > 1) {
+    $errors[] = "City '$city' exists in multiple locales: " . implode(', ', $uniqueLocales) . " (must be single canonical)";
+  }
+}
+
+// 6. Check for duplicate first 8 words in descriptions
 $duplicateFirst8 = array_filter($first8Words, fn($slugs) => count($slugs) > 1);
 if (!empty($duplicateFirst8)) {
   foreach ($duplicateFirst8 as $words => $slugs) {
@@ -107,7 +161,7 @@ if (!empty($duplicateFirst8)) {
   }
 }
 
-// 6. Check canonical == og:url (code path check)
+// 7. Check canonical == og:url (code path check)
 $headFile = __DIR__.'/../templates/head.php';
 $headContent = file_get_contents($headFile);
 $canonicalLine = null;
@@ -124,11 +178,50 @@ if ($canonicalLine !== $ogUrlLine) {
   $errors[] = "Canonical and og:url use different variables: canonical=$canonicalLine, og:url=$ogUrlLine";
 }
 
-// 7. Check HTTPS in absolute_url
+// 8. Check HTTPS in absolute_url
 $helpersFile = __DIR__.'/../lib/helpers.php';
 $helpersContent = file_get_contents($helpersFile);
 if (!preg_match('/\$scheme\s*=\s*\$isHttps.*production.*\?.*https.*:.*http/', $helpersContent)) {
   $warnings[] = "absolute_url() may not always return HTTPS - verify production behavior";
+}
+
+// 9. SUDO HREFLANG ALLOWLIST: Check for LOCAL pages with hreflang (P0 defect)
+// Verify LOCAL pages return empty hreflang even if somehow in allowlist
+if (function_exists('is_local_page')) {
+  $testLocalPaths = [
+    '/services/local-seo-ai/norwich/',
+    '/services/technical-seo/austin/',
+    '/careers/london/seo-specialist/'
+  ];
+  
+  foreach ($testLocalPaths as $testPath) {
+    if (is_local_page($testPath)) {
+      $hreflangResult = hreflang_links($testPath); // LOCAL should return empty regardless of allowlist
+      if (!empty($hreflangResult)) {
+        $errors[] = "LOCAL page '$testPath' returns hreflang (must return empty array)";
+      }
+    }
+  }
+}
+
+// 10. SUDO HREFLANG ALLOWLIST: Verify allowlist structure
+$allowlistFile = __DIR__.'/../lib/hreflang_allowlist.php';
+if (file_exists($allowlistFile)) {
+  $allowlist = require $allowlistFile;
+  
+  // Check for LOCAL pages in allowlist (should never happen)
+  foreach (array_keys($allowlist) as $path) {
+    if (function_exists('is_local_page') && is_local_page($path)) {
+      $errors[] = "LOCAL page '$path' found in hreflang allowlist (LOCAL pages must never be in allowlist)";
+    }
+    
+    // Validate allowlist entry has at least 2 locales
+    if (count($allowlist[$path]) < 2) {
+      $errors[] = "Allowlist entry '$path' has fewer than 2 locales (minimum 2 required for hreflang)";
+    }
+  }
+} else {
+  $warnings[] = "Hreflang allowlist file not found: $allowlistFile (hreflang will be disabled for all pages)";
 }
 
 // Output results with top offenders

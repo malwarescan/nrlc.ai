@@ -109,12 +109,19 @@ header('Content-Type: text/html; charset=utf-8');
 <!-- GSAP Animation Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <?php
+// SUDO HREFLANG ALLOWLIST — GLOBAL PAGE PILOT + SAFE SCALE
 // Use canonicalPath for hreflang (remove locale prefix for hreflang generation)
 $hreflangPath = $canonicalPath ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 if (function_exists('without_locale_prefix')) {
   $hreflangPath = without_locale_prefix($hreflangPath);
 }
-foreach (hreflang_links($hreflangPath) as $alt) {
+
+// Get hreflang links from allowlist (returns empty array for LOCAL pages or if not in allowlist)
+// Allowlist is the single source of truth - no need to pass hasRealTranslations parameter
+$hreflangLinks = hreflang_links($hreflangPath);
+
+// Output hreflang tags (will be empty for LOCAL pages or pages not in allowlist)
+foreach ($hreflangLinks as $alt) {
   echo '<link rel="'.$alt['rel'].'" hreflang="'.$alt['hreflang'].'" href="'.$alt['href'].'">'."\n";
 }
 foreach ($baseSchemas as $s) {

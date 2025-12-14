@@ -80,15 +80,40 @@ function sitemap_write_gzipped(string $filepath, string $content): bool {
   return true;
 }
 
+/**
+ * SITEMAP CANONICAL URL GENERATION (SUDO POWERED)
+ * 
+ * Returns ONLY canonical URLs - no deprecated locale variants
+ * For city-based service pages, locale is dictated by geography
+ */
 function sitemap_generate_hreflang_urls(string $path): array {
   $base = 'https://nrlc.ai';
+  
+  // Check if this is a city-based service page
+  if (preg_match('#^/services/([^/]+)/([^/]+)/#', $path, $m)) {
+    $citySlug = $m[2];
+    require_once __DIR__.'/helpers.php';
+    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    
+    if ($isUK) {
+      // UK city: ONLY en-gb canonical
+      return [
+        'en-gb' => "{$base}/en-gb{$path}",
+        'x-default' => "{$base}/en-gb{$path}"
+      ];
+    } else {
+      // US city or non-city: ONLY en-us canonical
+      return [
+        'en-us' => "{$base}/en-us{$path}",
+        'x-default' => "{$base}/en-us{$path}"
+      ];
+    }
+  }
+  
+  // Non-city pages: return default locale only (unless page has real translations)
+  // For now, assume en-us is canonical for all non-city pages
   return [
     'en-us' => "{$base}/en-us{$path}",
-    'en-gb' => "{$base}/en-gb{$path}",
-    'es-es' => "{$base}/es-es{$path}",
-    'fr-fr' => "{$base}/fr-fr{$path}",
-    'de-de' => "{$base}/de-de{$path}",
-    'ko-kr' => "{$base}/ko-kr{$path}",
     'x-default' => "{$base}/en-us{$path}"
   ];
 }
