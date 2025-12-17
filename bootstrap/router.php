@@ -77,6 +77,17 @@ function route_request(): void {
   if (preg_match('#^/services/([^/]+)/$#', $path, $m)) {
     $_GET['service'] = $m[1];
     
+    // SUDO CANONICAL: Special handling for AI Overviews Optimization
+    if ($m[1] === 'ai-overviews-optimization') {
+      $GLOBALS['__page_meta'] = [
+        'title' => 'AI Overview Optimization for Google AI Search | Neural Command',
+        'description' => 'Explains how Google AI Overviews select sources, what makes content citable by AI systems, and how websites optimize for AI-generated answers.',
+        'canonicalPath' => $path
+      ];
+      render_page('services/service');
+      return;
+    }
+    
     // Generate unique metadata using ctx-based system
     require_once __DIR__.'/../lib/meta_directive.php';
     $serviceSlug = $m[1];

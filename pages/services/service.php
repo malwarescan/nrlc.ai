@@ -15,7 +15,7 @@ $serviceName = ucwords(str_replace('-',' ',$service));
 $semanticServices = ['data-mapping', 'data-virtualization', 'rest-api', 'semantic-layer', 'enterprise-llm-foundation', 'knowledge-graph', 'ontology-modeling'];
 
 // Special handling for AI SEO services with custom content
-$aiSeoServices = ['ai-overview-optimization'];
+$aiSeoServices = ['ai-overviews-optimization'];
 
 if (in_array($service, $semanticServices)) {
   // Custom content for semantic infrastructure services
@@ -212,152 +212,445 @@ if (in_array($service, $semanticServices)) {
 }
 
 // Special handling for AI Overview Optimization
-if ($service === 'ai-overview-optimization') {
+if ($service === 'ai-overviews-optimization') {
   $domain = 'https://nrlc.ai';
-  $canonical_url = $domain . '/services/ai-overview-optimization/';
+  $canonical_url = $domain . '/services/ai-overviews-optimization/';
   
-  // Get enhancement data if available
-  $enhancement = get_service_enhancement('ai-overview-optimization', '');
-  $pageTitle = $enhancement['title'] ?? 'Google AI Overviews Optimization Services';
-  $pageDesc = $enhancement['description'] ?? 'Optimize your content for Google AI Overviews and AI-powered search experiences. Increase citation rates, improve AI visibility, and surface in AI-generated answers.';
+  // SUDO CANONICAL: Set meta title and description (final)
+  // Override router meta directive to use canonical values
+  $GLOBALS['__page_meta'] = [
+    'title' => 'AI Overview Optimization for Google AI Search | Neural Command',
+    'description' => 'Explains how Google AI Overviews select sources, what makes content citable by AI systems, and how websites optimize for AI-generated answers.',
+    'canonicalPath' => '/en-us/services/ai-overviews-optimization/'
+  ];
+  $GLOBALS['pageTitle'] = $GLOBALS['__page_meta']['title'];
+  $GLOBALS['pageDesc'] = $GLOBALS['__page_meta']['description'];
   
-  // Ensure title is 50-60 chars and unique
-  if (strlen($pageTitle) < 50 || strlen($pageTitle) > 60) {
-    $pageTitle = 'Google AI Overviews Optimization & Citation Services';
-  }
-  
-  $GLOBALS['pageTitle'] = $pageTitle;
-  $GLOBALS['pageDesc'] = $pageDesc;
-  
+  // SUDO PAGE RESTRUCTURE: Full @graph schema stack (production-ready)
   $GLOBALS['__jsonld'] = [
     [
       "@context" => "https://schema.org",
-      "@type" => "WebPage",
-      "@id" => $canonical_url . '#webpage',
-      "name" => "AI Overview Optimization",
-      "url" => $canonical_url,
-      "description" => $pageDesc,
-      "isPartOf" => [
-        "@type" => "WebSite",
-        "@id" => $domain . '/#website',
-        "name" => "NRLC.ai",
-        "url" => $domain
-      ]
-    ],
-    [
-      "@context" => "https://schema.org",
-      "@type" => "BreadcrumbList",
-      "@id" => $canonical_url . '#breadcrumb',
-      "itemListElement" => [
+      "@graph" => [
         [
-          "@type" => "ListItem",
-          "position" => 1,
-          "name" => "Home",
-          "item" => $domain . "/"
+          "@type" => "Organization",
+          "@id" => "https://nrlc.ai/#organization",
+          "name" => "Neural Command",
+          "url" => "https://nrlc.ai/",
+          "logo" => "https://nrlc.ai/logo.png",
+          "sameAs" => [
+            "https://www.linkedin.com/company/neural-command/",
+            "https://g.co/kgs/EP6p5de"
+          ]
         ],
         [
-          "@type" => "ListItem",
-          "position" => 2,
-          "name" => "Services",
-          "item" => $domain . "/services/"
+          "@type" => "WebPage",
+          "@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#webpage",
+          "url" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/",
+          "name" => "AI Overview Optimization for Google AI Search",
+          "description" => $GLOBALS['pageDesc'],
+          "isPartOf" => [
+            "@id" => "https://nrlc.ai/#organization"
+          ],
+          "mainEntity" => [
+            ["@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#article"],
+            ["@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#service"],
+            ["@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#faq"]
+          ],
+          "breadcrumb" => [
+            "@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#breadcrumbs"
+          ]
         ],
         [
-          "@type" => "ListItem",
-          "position" => 3,
+          "@type" => "Article",
+          "@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#article",
+          "headline" => "What AI Overview Optimization Is and Why It Determines AI Visibility",
+          "description" => "Explains how Google AI Overviews select sources and what structural signals make content citable by AI systems.",
+          "author" => [
+            "@id" => "https://nrlc.ai/#organization"
+          ],
+          "publisher" => [
+            "@id" => "https://nrlc.ai/#organization"
+          ],
+          "mainEntityOfPage" => [
+            "@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#webpage"
+          ]
+        ],
+        [
+          "@type" => "Service",
+          "@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#service",
           "name" => "AI Overview Optimization",
-          "item" => $canonical_url
+          "serviceType" => "AI Search Optimization",
+          "provider" => [
+            "@id" => "https://nrlc.ai/#organization"
+          ],
+          "description" => "A service that restructures content to improve eligibility for citation and visibility in Google AI Overviews and AI-powered search systems.",
+          "areaServed" => "Worldwide"
+        ],
+        [
+          "@type" => "FAQPage",
+          "@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#faq",
+          "mainEntity" => [
+            [
+              "@type" => "Question",
+              "name" => "What are Google AI Overviews?",
+              "acceptedAnswer" => [
+                "@type" => "Answer",
+                "text" => "Google AI Overviews are AI-generated summaries in search results that answer informational or complex queries using multiple sources."
+              ]
+            ],
+            [
+              "@type" => "Question",
+              "name" => "How does Google choose sources for AI Overviews?",
+              "acceptedAnswer" => [
+                "@type" => "Answer",
+                "text" => "Sources are chosen based on clarity, topical relevance, structure, and how safely the information can be summarized without distortion."
+              ]
+            ],
+            [
+              "@type" => "Question",
+              "name" => "Can a service page be cited in AI Overviews?",
+              "acceptedAnswer" => [
+                "@type" => "Answer",
+                "text" => "Yes. Service pages can be cited when they include neutral explanations, question-based headings, and schema that mirrors visible content."
+              ]
+            ],
+            [
+              "@type" => "Question",
+              "name" => "Does structured data guarantee AI Overview visibility?",
+              "acceptedAnswer" => [
+                "@type" => "Answer",
+                "text" => "No. Structured data improves understanding and eligibility, but inclusion depends on query type, confidence, and source selection behavior."
+              ]
+            ]
+          ]
+        ],
+        [
+          "@type" => "BreadcrumbList",
+          "@id" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/#breadcrumbs",
+          "itemListElement" => [
+            [
+              "@type" => "ListItem",
+              "position" => 1,
+              "name" => "Services",
+              "item" => "https://nrlc.ai/en-us/services/"
+            ],
+            [
+              "@type" => "ListItem",
+              "position" => 2,
+              "name" => "AI Overview Optimization",
+              "item" => "https://nrlc.ai/en-us/services/ai-overviews-optimization/"
+            ]
+          ]
         ]
-      ]
-    ],
-    [
-      "@context" => "https://schema.org",
-      "@type" => "Service",
-      "name" => "AI Overview Optimization",
-      "description" => $pageDesc,
-      "provider" => [
-        "@type" => "Organization",
-        "name" => "Neural Command LLC",
-        "url" => "https://nrlc.ai"
-      ],
-      "serviceType" => "AI SEO Optimization",
-      "areaServed" => "Global",
-      "url" => $canonical_url,
-      "offers" => [
-        "@type" => "Offer",
-        "name" => "Free Consultation",
-        "price" => "0",
-        "priceCurrency" => "USD",
-        "availability" => "https://schema.org/InStock"
       ]
     ]
   ];
   ?>
   <main role="main">
-  <section class="container section">
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h1 class="content-block__title">AI Overview Optimization</h1>
+  
+  <!-- SECTION 1: HERO (EXPLAINER-FIRST, CRO-SECOND) -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">What AI Overview Optimization Is and Why It Determines AI Visibility</h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead">Google AI Overviews select sources based on clarity, structure, and citation safety — not just classic ranking signals.</p>
+        <p>This page explains how source selection works and how websites structure content to become citable.</p>
+        
+        <div style="margin: var(--spacing-12) 0;">
+          <p><strong>Hero Microproof:</strong></p>
+          <ul>
+            <li>How AI Overviews select sources</li>
+            <li>Signals that make content citable</li>
+            <li>What this service changes on your site</li>
+          </ul>
         </div>
-        <div class="content-block__body">
-          <p class="lead">Optimize your content for Google AI Overviews and AI-powered search experiences. Increase citation rates, improve AI visibility, and surface in AI-generated answers.</p>
-          
-          <h2>What Is AI Overview Optimization?</h2>
-          <p>AI Overview Optimization ensures your content is structured, cited, and surfaced in Google AI Overviews and other AI-powered search experiences. Unlike traditional SEO that targets search rankings, AI Overview Optimization focuses on making your content citable, verifiable, and authoritative for large language models.</p>
-          
-          <h3>How AI Overviews Work</h3>
-          <p>Google AI Overviews use large language models to generate direct answers from web content. These models prioritize:</p>
+        
+        <div class="btn-group" style="margin-top: var(--spacing-16);">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI Overview Optimization')">See how this applies to your site</button>
+          <a href="#how-ai-overviews-select" class="btn">Read the source-selection signals</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: HOW AI OVERVIEWS SELECT SOURCES (MECHANISM BLOCK) -->
+  <section id="how-ai-overviews-select" class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">How Google AI Overviews Select Sources</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Google AI Overviews generate answers by synthesizing information from multiple trusted sources. Pages are selected based on how clearly they explain a concept, how easily the information can be extracted, and whether the content appears reliable and neutral.</p>
+        
+        <p>AI systems favor pages that define topics, explain mechanisms, and answer common questions directly. Pages that read primarily as sales or promotional content are less likely to be cited.</p>
+        
+        <p>Source selection prioritizes content that can be summarized safely without distortion. This means pages with clear definitions, consistent terminology, and neutral explanations are more likely to be selected.</p>
+        
+        <p>The selection process evaluates structural signals: heading hierarchy, paragraph clarity, and how well the content answers specific questions. Pages that require interpretation or contain ambiguous claims are deprioritized.</p>
+        
+        <p>This mechanism ensures AI Overviews cite reliable, extractable information rather than promotional claims or vague statements.</p>
+        
+        <div style="margin: var(--spacing-12) 0; padding: var(--spacing-12); background: var(--color-bg-secondary, #f5f5f5); border-radius: 4px;">
+          <p><strong>AI Overviews prefer pages that:</strong></p>
           <ul>
-            <li><strong>Structured Data:</strong> Content marked up with JSON-LD schema (Article, FAQPage, HowTo, etc.)</li>
-            <li><strong>Verifiability:</strong> Clear citations, sources, and factual claims</li>
-            <li><strong>Completeness:</strong> Comprehensive answers that address the full query</li>
-            <li><strong>Authority:</strong> Content from trusted, authoritative sources</li>
-            <li><strong>Freshness:</strong> Recent publication dates and regular updates</li>
+            <li>Define concepts directly</li>
+            <li>Use consistent terminology (entities)</li>
+            <li>Use structured headings that match real questions</li>
+            <li>Provide neutral explanations that can be quoted safely</li>
+            <li>Reinforce meaning with accurate JSON-LD</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SIGNALS AI TRUSTS (FEATURES) -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Signals AI Models Trust on Service Pages</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit" style="gap: var(--spacing-12); margin-top: var(--spacing-12);">
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Extractability</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Short, declarative paragraphs and question-based headings that AI can summarize without guessing.</p>
+            </div>
+          </div>
           
-          <h3>Our Approach</h3>
-          <p>NRLC.ai implements the GEO-16 framework for AI Overview Optimization:</p>
-          <ul>
-            <li><strong>Structured Data Implementation:</strong> Comprehensive JSON-LD schema markup for all content types</li>
-            <li><strong>Content Optimization:</strong> Rewrite content for AI citation with clear facts, sources, and structure</li>
-            <li><strong>Technical SEO:</strong> Ensure proper rendering, canonical URLs, and metadata for AI crawlers</li>
-            <li><strong>Citation Readiness:</strong> Format content for easy extraction and citation by AI models</li>
-            <li><strong>Monitoring & Measurement:</strong> Track AI Overview appearances and citation rates</li>
-          </ul>
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Entity Consistency</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Clean definitions and consistent terms so AI can map meaning without ambiguity.</p>
+            </div>
+          </div>
           
-          <h3>Key Benefits</h3>
-          <ul>
-            <li>Increase visibility in Google AI Overviews and AI-powered search</li>
-            <li>Improve citation rates from AI answer engines</li>
-            <li>Surface in AI-generated answers across ChatGPT, Perplexity, Claude, and other LLMs</li>
-            <li>Build authority and trust signals for AI systems</li>
-            <li>Future-proof your SEO strategy for AI-first search</li>
-          </ul>
-          
-          <h3>Implementation Process</h3>
-          <ol>
-            <li><strong>Audit:</strong> Analyze current content structure, schema markup, and AI visibility</li>
-            <li><strong>Strategy:</strong> Develop AI Overview optimization plan based on GEO-16 framework</li>
-            <li><strong>Implementation:</strong> Add structured data, optimize content, and improve technical signals</li>
-            <li><strong>Testing:</strong> Validate schema markup and test AI Overview appearance</li>
-            <li><strong>Monitoring:</strong> Track AI Overview citations and optimize based on performance</li>
-          </ol>
-          
-          <h3>Related Services</h3>
-          <p>AI Overview Optimization works best when combined with:</p>
-          <ul>
-            <li><a href="/services/llm-seeding/">LLM Seeding & Citation Readiness</a> — Prepare content for AI citation</li>
-            <li><a href="/services/json-ld-strategy/">JSON-LD & Structured Data Strategy</a> — Implement comprehensive schema markup</li>
-            <li><a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> — Ensure technical SEO for AI crawlers</li>
-          </ul>
-          
-          <div class="btn-group text-center" style="margin-top: var(--spacing-32);">
-            <button type="button" class="btn btn--primary" onclick="openContactSheet('AI Overview Optimization')">Schedule Consultation</button>
-            <a href="/services/" class="btn">View All Services</a>
-            <a href="/insights/google-llms-txt-ai-seo/" class="btn">Learn About LLMs.txt</a>
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Structured Reinforcement</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Schema that mirrors visible content and declares relationships explicitly.</p>
+            </div>
           </div>
         </div>
       </div>
+    </div>
   </section>
+
+  <!-- SECTION 4: WHY TRADITIONAL SEO IS NOT ENOUGH (OBJECTION HANDLING) -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Why Traditional SEO Often Fails in AI Overviews</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Traditional SEO focuses on rankings, backlinks, and keyword relevance. AI Overviews focus on comprehension, confidence, and summarization safety.</p>
+        
+        <p>A page can rank well in classic search while being ignored by AI systems if the content is difficult to summarize, overly promotional, or lacks clear conceptual structure.</p>
+        
+        <ul>
+          <li>A page can rank but be non-citable</li>
+          <li>Promotional framing reduces extraction safety</li>
+          <li>Lack of explicit definitions lowers confidence</li>
+          <li>Missing FAQ/schema reduces structured answer eligibility</li>
+        </ul>
+        
+        <p>AI optimization addresses this gap by aligning content with how AI models interpret and reuse information.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: TRANSFORMATION / PROCESS -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">How Content Moves From Ignored to Cited</h2>
+      </div>
+      <div class="content-block__body">
+        <div style="margin-top: var(--spacing-12);">
+          <div style="margin-bottom: var(--spacing-16);">
+            <h3>Step 1 — Classification Fix</h3>
+            <p>We rewrite early sections so the page reads as an explainer, not an ad.</p>
+          </div>
+          
+          <div style="margin-bottom: var(--spacing-16);">
+            <h3>Step 2 — Structural Alignment</h3>
+            <p>We reshape headings and paragraphs so answers are extractable.</p>
+          </div>
+          
+          <div style="margin-bottom: var(--spacing-16);">
+            <h3>Step 3 — Schema Reinforcement</h3>
+            <p>We implement layered JSON-LD that mirrors the on-page explanation.</p>
+          </div>
+          
+          <div style="margin-bottom: var(--spacing-16);">
+            <h3>Step 4 — Internal Graph Support</h3>
+            <p>We link the page as a canonical explainer node across your site.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: PROOF BLOCKS (DELIVERABLES) -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">What This Service Produces (Concrete Outputs)</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit" style="gap: var(--spacing-12); margin-top: var(--spacing-12);">
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">AI Overview Source-Selection Audit</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Page-by-page analysis of citation eligibility and structural gaps.</p>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Rewrite Spec for Extraction Zones</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Hero and first 30% restructured for AI-safe explanation.</p>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Schema Stack</h3>
+            </div>
+            <div class="content-block__body">
+              <p>WebPage + Article + FAQPage + Service + BreadcrumbList implementation.</p>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Internal Linking Map</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Canonical explainer node establishment across your site.</p>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Query Intent Alignment</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Prompt-surface and query intent alignment recommendations.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-16); padding: var(--spacing-12); background: var(--color-bg-secondary, #f5f5f5); border-radius: 4px;">
+          <p><strong>What we do NOT do:</strong></p>
+          <ul>
+            <li>We do not guarantee inclusion in AI Overviews</li>
+            <li>We do not fabricate authority signals or reviews</li>
+            <li>We do not publish schema that contradicts visible content</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: SERVICE SHOWCASE (PACKAGE OPTIONS) -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Engagement Options</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit" style="gap: var(--spacing-12); margin-top: var(--spacing-12);">
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Audit Only</h3>
+            </div>
+            <div class="content-block__body">
+              <p>For teams who will implement changes internally.</p>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Audit + Implementation</h3>
+            </div>
+            <div class="content-block__body">
+              <p>We implement the structural + schema changes directly.</p>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Ongoing Monitoring</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Ongoing updates as AI search layouts and citation behavior change.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="btn-group text-center" style="margin-top: var(--spacing-16);">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI Overview Optimization')">Request an evaluation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: FAQ (MUST MATCH FAQPAGE SCHEMA VERBATIM) -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">FAQ</h2>
+      </div>
+      <div class="content-block__body">
+        <dl>
+          <dt><strong>What are Google AI Overviews?</strong></dt>
+          <dd>Google AI Overviews are AI-generated summaries in search results that answer informational or complex queries using multiple sources.</dd>
+          
+          <dt><strong>How does Google choose sources for AI Overviews?</strong></dt>
+          <dd>Sources are chosen based on clarity, topical relevance, structure, and how safely the information can be summarized without distortion.</dd>
+          
+          <dt><strong>Can a service page be cited in AI Overviews?</strong></dt>
+          <dd>Yes. Service pages can be cited when they include neutral explanations, question-based headings, and schema that mirrors visible content.</dd>
+          
+          <dt><strong>Does structured data guarantee AI Overview visibility?</strong></dt>
+          <dd>No. Structured data improves understanding and eligibility, but inclusion depends on query type, confidence, and source selection behavior.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: FINAL CTA (CONVERSION RELEASE VALVE) -->
+  <section class="container section" style="padding: var(--spacing-16) 0;">
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">See How This Applies to Your Site</h2>
+      </div>
+      <div class="content-block__body">
+        <p>If your pages are ranking but not being cited, the issue is usually structure and extractability — not keywords.</p>
+        <p>We can identify which pages are non-citable and specify the exact changes required.</p>
+        
+        <div class="btn-group text-center" style="margin-top: var(--spacing-16);">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI Overview Optimization')">Request an evaluation</button>
+          <a href="/contact/" class="btn">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </main>
   <?php
   exit; // Exit early for AI Overview Optimization
