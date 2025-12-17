@@ -31,6 +31,27 @@
         <a href="/services/" class="nav-primary__link" title="<?= $servicesAttrs['title'] ?>" aria-label="<?= $servicesAttrs['aria-label'] ?>"<?= $isServices ? ' aria-current="page"' : '' ?>>Services</a>
       </li>
       <?php
+      // AI Visibility Industries Dropdown
+      $aiVisibilityAttrs = menu_item_seo_attrs('AI Visibility');
+      $isAiVisibility = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-visibility/') === 0;
+      $industries = [];
+      if (file_exists(__DIR__ . '/../lib/ai_visibility_industries.php')) {
+        $industries = require __DIR__ . '/../lib/ai_visibility_industries.php';
+      }
+      ?>
+      <li class="nav-primary__item nav-primary__item--has-dropdown">
+        <a href="/ai-visibility/" class="nav-primary__link" title="<?= $aiVisibilityAttrs['title'] ?>" aria-label="<?= $aiVisibilityAttrs['aria-label'] ?>"<?= $isAiVisibility ? ' aria-current="page"' : '' ?>>AI Visibility</a>
+        <ul class="nav-primary__dropdown" aria-label="AI Visibility Industries submenu">
+          <?php foreach ($industries as $slug => $industry): ?>
+            <?php
+            $industryAttrs = menu_item_seo_attrs($industry['name']);
+            $isCurrentIndustry = strpos($_SERVER['REQUEST_URI'] ?? '', "/ai-visibility/{$slug}/") !== false;
+            ?>
+            <li><a href="/ai-visibility/<?= htmlspecialchars($slug) ?>/" class="nav-primary__dropdown-link" title="<?= $industryAttrs['title'] ?>" aria-label="<?= $industryAttrs['aria-label'] ?>"<?= $isCurrentIndustry ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($industry['name']) ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </li>
+      <?php
       $insightsAttrs = menu_item_seo_attrs('Insights');
       $isInsights = strpos($_SERVER['REQUEST_URI'] ?? '', '/insights/') === 0;
       ?>

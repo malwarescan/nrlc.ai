@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'Industry AI SEO Insights: Sector Analysis & Optimization ...';
-$GLOBALS['pageDesc'] = 'Sector-specific analysis of AI SEO optimization strategies, examining industry trends, challenges, and opportunities for generative engine optimization ...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

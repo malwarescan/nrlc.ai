@@ -1,0 +1,6 @@
+url,gsc_impressions,gsc_clicks,http_status,render_success,js_only_content,gsc_ghost_url,indexable,canonical_ok,intent,primary_service,schema_ok,internal_links_ok,score,required_action
+https://nrlc.ai/en-us/products/applicants-io/,5,1,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/en-us/products/,3,1,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/en-us/services/llm-optimization/new-york/,2,1,200,yes,no,no,no,no,transactional,"Local SEO Services in New York",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-seeding/southport/,2,1,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/ko-kr/services/rest-api/,1,1,200,yes,no,no,no,no,transactional,"REST API Documentation",no,yes,58,block

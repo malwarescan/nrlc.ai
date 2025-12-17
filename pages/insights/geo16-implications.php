@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'Strategic Implications: Playbook for Generative Engine Op...';
-$GLOBALS['pageDesc'] = 'The GEO-16 framework provides actionable insights for B2B SaaS companies, content teams, and SEO professionals seeking to optimize for AI citation succe...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

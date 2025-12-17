@@ -349,8 +349,8 @@ if ($service === 'ai-overviews-optimization') {
   <main role="main">
   
   <!-- SECTION 1: HERO (EXPLAINER-FIRST, CRO-SECOND) -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h1 class="content-block__title">What AI Overview Optimization Is and Why It Determines AI Visibility</h1>
       </div>
@@ -376,8 +376,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 2: HOW AI OVERVIEWS SELECT SOURCES (MECHANISM BLOCK) -->
-  <section id="how-ai-overviews-select" class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section id="how-ai-overviews-select" class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">How Google AI Overviews Select Sources</h2>
       </div>
@@ -407,8 +407,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 3: SIGNALS AI TRUSTS (FEATURES) -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">Signals AI Models Trust on Service Pages</h2>
       </div>
@@ -446,8 +446,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 4: WHY TRADITIONAL SEO IS NOT ENOUGH (OBJECTION HANDLING) -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">Why Traditional SEO Often Fails in AI Overviews</h2>
       </div>
@@ -469,8 +469,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 5: TRANSFORMATION / PROCESS -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">How Content Moves From Ignored to Cited</h2>
       </div>
@@ -501,8 +501,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 6: PROOF BLOCKS (DELIVERABLES) -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">What This Service Produces (Concrete Outputs)</h2>
       </div>
@@ -567,8 +567,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 7: SERVICE SHOWCASE (PACKAGE OPTIONS) -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">Engagement Options</h2>
       </div>
@@ -610,8 +610,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 8: FAQ (MUST MATCH FAQPAGE SCHEMA VERBATIM) -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">FAQ</h2>
       </div>
@@ -634,8 +634,8 @@ if ($service === 'ai-overviews-optimization') {
   </section>
 
   <!-- SECTION 9: FINAL CTA (CONVERSION RELEASE VALVE) -->
-  <section class="container section" style="padding: var(--spacing-16) 0;">
-    <div class="content-block module">
+  <section class="container section" style="padding: var(--spacing-8) 0;">
+    <div class="content-block module" style="margin-bottom: 0;">
       <div class="content-block__header">
         <h2 class="content-block__title">See How This Applies to Your Site</h2>
       </div>

@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'YAGO and Entity Disambiguation: Canonical Entity Mapping ...';
-$GLOBALS['pageDesc'] = 'The YAGO knowledge graph provides a comprehensive framework for entity disambiguation and canonical mapping, enabling organizations to align their conte...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

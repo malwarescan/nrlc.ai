@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'Semantic SEO in News Media: How Publishers Use Structured...';
-$GLOBALS['pageDesc'] = 'Major news publishers have pioneered semantic SEO techniques that significantly improve AI engine visibility and citation rates. Their structured metada...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'Tracking Topic Drift in AI Citations: Time-Decay and Fres...';
-$GLOBALS['pageDesc'] = 'Recent research reveals how AI engines track semantic drift and topic evolution over time, prioritizing fresh, relevant content while deprioritizing out...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

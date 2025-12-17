@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'Large Language Models for Scholarly Ontology Generation |...';
-$GLOBALS['pageDesc'] = 'Recent research demonstrates how LLMs can automatically generate structured ontologies and schema graphs from unstructured text, revolutionizing how we ...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

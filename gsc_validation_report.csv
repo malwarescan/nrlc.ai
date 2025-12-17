@@ -1,0 +1,713 @@
+url,gsc_impressions,gsc_clicks,http_status,render_success,js_only_content,gsc_ghost_url,indexable,canonical_ok,intent,primary_service,schema_ok,internal_links_ok,score,required_action
+https://nrlc.ai/en-us/products/applicants-io/,5,1,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/en-us/products/,3,1,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/en-us/services/llm-optimization/new-york/,2,1,200,yes,no,no,no,no,transactional,"Local SEO Services in New York",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-seeding/southport/,2,1,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/ko-kr/services/rest-api/,1,1,200,yes,no,no,no,no,transactional,"REST API Documentation",no,yes,58,block
+https://nrlc.ai/en-us/insights/ocrplus-data-ingestion/,1,1,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/es-es/services/entity-optimization-ai/whitehorse/,1,1,200,yes,no,no,no,no,transactional,"Local SEO Services in Whitehorse",no,yes,58,block
+https://nrlc.ai/ko-kr/services/perplexity-optimization/whitehorse/,1,1,200,yes,no,no,no,no,transactional,"Local SEO Services in Whitehorse",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-overviews-optimization/kingston/,1,1,200,yes,no,no,no,no,transactional,"Local SEO Services in Kingston",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/norwich/,1706,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/en-us/services/semantic-seo-ai/stoke-on-trent/,340,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/es-es/services/international-seo/blackpool/,318,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/fr-fr/services/local-seo-ai/sudbury/,174,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sudbury",no,yes,58,block
+https://nrlc.ai/de-de/services/voice-search-optimization/sheffield/,150,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sheffield",no,yes,58,block
+https://nrlc.ai/en-us/services/voice-search-optimization/derby/,138,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/southport/,125,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/stockport/,121,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-us/services/verification-optimization-ai/blackpool/,113,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/ko-kr/services/multimodal-seo-ai/burnley/,97,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/southport/,83,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/en-gb/services/freshness-optimization-ai/derby/,74,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/en-us/insights/open-seo-tools/,72,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/ko-kr/services/completeness-optimization-ai/southport/,66,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/burnley/,62,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-optimization/northampton/,59,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/es-es/services/international-seo/southend-on-sea/,43,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southend On Sea",no,yes,58,block
+https://nrlc.ai/de-de/services/conversion-optimization-ai/colorado-springs/,42,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Colorado Springs",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/southampton/,40,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southampton",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/southport/,36,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/ko-kr/services/metadata-optimization-ai/peterborough/,36,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Peterborough",no,yes,58,block
+https://nrlc.ai/de-de/services/technical-seo/nottingham/,32,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/de-de/services/generative-seo/houston/,31,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Houston",no,yes,58,block
+https://nrlc.ai/en-gb/services/multimodal-seo-ai/huddersfield/,31,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/ko-kr/services/local-seo-ai/oldham/,28,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/kelowna/,28,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kelowna",no,yes,58,block
+https://nrlc.ai/ko-kr/services/conversational-seo-ai/stockport/,28,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/virginia-beach/,27,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Virginia Beach",no,yes,58,block
+https://nrlc.ai/en-us/services/bard-optimization/huddersfield/,27,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/fr-fr/services/multimodal-seo-ai/blackpool/,27,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/en-us/,26,0,200,yes,no,no,no,no,transactional,,no,yes,55,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/long-beach/,26,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Long Beach",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/barrie/,26,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/en-gb/services/ai-search-optimization/glasgow/,25,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/raleigh/,24,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-us/insights/google-llms-txt-ai-seo/,24,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/en-us/services/technical-seo/nottingham/,24,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/en-us/services/perplexity-optimization/blackpool/,24,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/fr-fr/services/generative-seo/southend-on-sea/,23,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southend On Sea",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/jacksonville/,23,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Jacksonville",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/huddersfield/,22,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-us/services/claude-optimization/victoria/,21,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Victoria",no,yes,58,block
+https://nrlc.ai/ko-kr/services/agentic-seo/west-bromwich/,21,0,200,yes,no,no,no,no,transactional,"Local SEO Services in West Bromwich",no,yes,58,block
+https://nrlc.ai/es-es/services/training/houston/,21,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Houston",no,yes,58,block
+https://nrlc.ai/de-de/services/entity-optimization-ai/southport/,20,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/es-es/services/training/nottingham/,19,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/ko-kr/services/site-audits/belfast/,19,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/es-es/services/conversion-optimization-ai/nashville/,18,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nashville",no,yes,58,block
+https://nrlc.ai/en-us/services/featured-snippets-ai/burnley/,18,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/en-us/services/training/denver/,18,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Denver",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-search-optimization/nottingham/,17,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/singapore/,17,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/derby/,17,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/ko-kr/services/perplexity-optimization/stoke-on-trent/,17,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/en-us/services/perplexity-optimization/victoria/,16,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Victoria",no,yes,58,block
+https://nrlc.ai/en-gb/services/ai-overviews-optimization/abbotsford/,16,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Abbotsford",no,yes,58,block
+https://nrlc.ai/es-es/services/contextual-seo-ai/huddersfield/,16,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-gb/services/international-seo/huddersfield/,16,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/chicago/,15,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/fr-fr/services/technical-seo/phoenix/,15,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Phoenix",no,yes,58,block
+https://nrlc.ai/es-es/services/copilot-optimization/kawagoe/,15,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kawagoe",no,yes,58,block
+https://nrlc.ai/de-de/services/intent-optimization-ai/southport/,15,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/new-orleans/,14,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New Orleans",no,yes,58,block
+https://nrlc.ai/es-es/services/ai-search-optimization/norwich/,14,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/en-gb/services/knowledge-graph-ai/albuquerque/,14,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Albuquerque",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-citation-optimization/stoke-on-trent/,14,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/derby/,14,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversational-seo-ai/swansea/,14,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Swansea",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/san-antonio/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Antonio",no,yes,58,block
+https://nrlc.ai/en-us/services/perplexity-optimization/london/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/los-angeles/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Los Angeles",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/middlesbrough/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/en-us/services/conversational-seo-ai/glasgow/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/tampa/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tampa",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-optimization/victoria/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Victoria",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-overviews-optimization/oakland/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oakland",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-content-strategy/burnley/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-content-strategy/norwich/,13,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/en-gb/services/ai-search-optimization/san-antonio/,12,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Antonio",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/san-francisco/,12,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Francisco",no,yes,58,block
+https://nrlc.ai/en-us/services/multimodal-seo-ai/indianapolis/,12,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/claude-optimization/derby/,12,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/southampton/,12,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southampton",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-audit-ai/burnley/,12,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/en-us/insights/silent-hydration-seo/,11,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/en-us/services/ranking-optimization-ai/omaha/,11,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Omaha",no,yes,58,block
+https://nrlc.ai/en-us/services/training/dallas/,11,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/es-es/services/technical-seo/cambridge/,11,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cambridge",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/oldham/,11,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-gb/services/chatgpt-optimization/london/,11,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/en-us/services/metadata-optimization-ai/detroit/,11,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Detroit",no,yes,58,block
+https://nrlc.ai/de-de/services/voice-search-optimization/san-antonio/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Antonio",no,yes,58,block
+https://nrlc.ai/insights/geo16-introduction/,10,0,200,yes,no,no,no,no,transactional,,no,yes,55,block
+https://nrlc.ai/de-de/services/mobile-seo-ai/chicago/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/en-us/services/intent-optimization-ai/singapore/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/fr-fr/services/agentic-seo/indianapolis/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/chicago/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/fr-fr/services/generative-seo/bristol/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Bristol",no,yes,58,block
+https://nrlc.ai/es-es/services/international-seo/oakland/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oakland",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/halifax/,10,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Halifax",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/baltimore/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Baltimore",no,yes,58,block
+https://nrlc.ai/en-gb/services/conversion-optimization-ai/oklahoma-city/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oklahoma City",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/kansas-city/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/peterborough/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Peterborough",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/oldham/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/austin/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Austin",no,yes,58,block
+https://nrlc.ai/fr-fr/services/technical-seo/calgary/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Calgary",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/wolverhampton/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wolverhampton",no,yes,58,block
+https://nrlc.ai/en-us/services/multimodal-seo-ai/middlesbrough/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/en-us/services/conversational-seo-ai/singapore/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/es-es/services/b2b-seo-ai/singapore/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/fr-fr/services/voice-search-optimization/kelowna/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kelowna",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-seeding/jacksonville/,9,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Jacksonville",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/kazo/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kazo",no,yes,58,block
+https://nrlc.ai/en-us/services/competitor-analysis-ai/colorado-springs/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Colorado Springs",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/nashville/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nashville",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-search-optimization/bristol/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Bristol",no,yes,58,block
+https://nrlc.ai/ko-kr/services/claude-optimization/san-francisco/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Francisco",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/charlotte/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Charlotte",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/omaha/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Omaha",no,yes,58,block
+https://nrlc.ai/fr-fr/services/b2b-seo-ai/detroit/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Detroit",no,yes,58,block
+https://nrlc.ai/en-us/services/contextual-seo-ai/oldham/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-gb/services/generative-seo/hull/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hull",no,yes,58,block
+https://nrlc.ai/fr-fr/services/training/norwich/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/es-es/services/generative-seo/hull/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hull",no,yes,58,block
+https://nrlc.ai/es-es/services/conversational-seo-ai/oldham/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-us/services/topic-modeling-ai/detroit/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Detroit",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-citation-optimization/middlesbrough/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/fr-fr/services/ai-overviews-optimization/omaha/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Omaha",no,yes,58,block
+https://nrlc.ai/en-us/services/agentic-seo/glasgow/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/birmingham/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Birmingham",no,yes,58,block
+https://nrlc.ai/de-de/services/international-seo/belfast/,8,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/en-us/services/,7,0,200,yes,no,no,no,no,transactional,"The Semantic Infrastructure for the AI Internet",yes,yes,68,block
+https://nrlc.ai/services/authority-optimization-ai/detroit/,7,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Detroit",no,yes,73,block
+https://nrlc.ai/en-us/services/generative-seo/san-diego/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Diego",no,yes,58,block
+https://nrlc.ai/en-us/services/conversational-seo-ai/nashville/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nashville",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/kansas-city/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/ottawa/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-gb/services/mobile-seo-ai/belfast/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/en-us/services/featured-snippets-ai/leeds/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Leeds",no,yes,58,block
+https://nrlc.ai/services/accuracy-optimization-ai/bristol/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Bristol",no,yes,58,block
+https://nrlc.ai/en-us/services/agentic-seo/dallas/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/ko-kr/services/recommendation-ai/southport/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/chicago/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/es-es/services/link-building-ai/northampton/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/coventry/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Coventry",no,yes,58,block
+https://nrlc.ai/es-es/services/site-audits/sudbury/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sudbury",no,yes,58,block
+https://nrlc.ai/es-es/services/local-seo-ai/stockport/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-us/services/international-seo/miami/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Miami",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/huddersfield/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/northampton/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/fr-fr/services/local-seo-ai/calgary/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Calgary",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-search-optimization/kansas-city/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/trust-optimization-ai/singapore/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/en-gb/services/llm-optimization/cambridge/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cambridge",no,yes,58,block
+https://nrlc.ai/es-es/services/conversational-seo-ai/oakland/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oakland",no,yes,58,block
+https://nrlc.ai/fr-fr/services/entity-optimization-ai/stoke-on-trent/,7,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/barrie/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/en-us/services/claude-optimization/hasuda/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hasuda",no,yes,58,block
+https://nrlc.ai/en-gb/services/b2b-seo-ai/indianapolis/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/en-gb/services/conversational-seo-ai/northampton/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/columbus/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Columbus",no,yes,58,block
+https://nrlc.ai/de-de/services/technical-seo/plymouth/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Plymouth",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/northampton/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/fr-fr/services/generative-seo/stoke-on-trent/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-audit-ai/calgary/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Calgary",no,yes,58,block
+https://nrlc.ai/ko-kr/services/recommendation-ai/huddersfield/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-citation-optimization/abbotsford/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Abbotsford",no,yes,58,block
+https://nrlc.ai/en-us/services/trust-optimization-ai/northampton/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/es-es/services/mobile-seo-ai/oldham/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/arlington/,6,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Arlington",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-overviews-optimization/cambridge/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cambridge",no,yes,58,block
+https://nrlc.ai/en-gb/insights/google-llms-txt-ai-seo/,5,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/services/schema-markup-ai/jacksonville/,5,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Jacksonville",no,yes,73,block
+https://nrlc.ai/promptware/llm-data-to-citation/,5,0,200,yes,no,no,yes,yes,transactional,,yes,yes,75,fix
+https://nrlc.ai/ko-kr/services/link-building-ai/wolverhampton/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wolverhampton",no,yes,58,block
+https://nrlc.ai/en-gb/services/ai-search-optimization/edinburgh/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Edinburgh",no,yes,58,block
+https://nrlc.ai/en-us/services/training/norwich/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-content-strategy/stockport/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/chicago/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/norwich/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/en-gb/services/ecommerce-ai-seo/stoke-on-trent/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/fr-fr/services/training/montreal/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/ko-kr/services/schema-markup-ai/huddersfield/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/huddersfield/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/minneapolis/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/oldham/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-gb/services/competitor-analysis-ai/leicester/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Leicester",no,yes,58,block
+https://nrlc.ai/fr-fr/services/analytics/wolverhampton/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wolverhampton",no,yes,58,block
+https://nrlc.ai/es-es/services/semantic-seo-ai/burnley/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/de-de/services/bard-optimization/stoke-on-trent/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-citation-optimization/norwich/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/de-de/services/technical-seo/chicago/,5,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/es-es/services/generative-seo/kansas-city/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/ageo/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ageo",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/mito/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Mito",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/kansas-city/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/de-de/services/local-seo-ai/fukushima/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fukushima",no,yes,58,block
+https://nrlc.ai/en-gb/services/ai-citation-optimization/dallas/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/es-es/services/claude-optimization/louisville/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Louisville",no,yes,58,block
+https://nrlc.ai/en-us/services/training/charlotte/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Charlotte",no,yes,58,block
+https://nrlc.ai/services/technical-seo/minneapolis/,4,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Minneapolis",no,yes,73,block
+https://nrlc.ai/en-us/services/ai-search-optimization/montreal/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-us/services/multimodal-seo-ai/kansas-city/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/san-antonio/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Antonio",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-content-strategy/halifax/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Halifax",no,yes,58,block
+https://nrlc.ai/fr-fr/services/local-seo-ai/oldham/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-gb/services/conversion-optimization-ai/belfast/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/new-orleans/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New Orleans",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/stockport/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-gb/services/technical-seo/newcastle/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Newcastle",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-audit-ai/san-francisco/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Francisco",no,yes,58,block
+https://nrlc.ai/services/generative-seo/singapore/,4,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Singapore",no,yes,73,block
+https://nrlc.ai/en-us/services/technical-seo/kansas-city/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/detroit/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Detroit",no,yes,58,block
+https://nrlc.ai/en-us/services/trust-optimization-ai/blackpool/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/charlotte/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Charlotte",no,yes,58,block
+https://nrlc.ai/de-de/services/training/southport/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/ko-kr/services/authority-optimization-ai/norwich/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/ko-kr/services/technical-seo/ottawa/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-gb/services/training/philadelphia/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Philadelphia",no,yes,58,block
+https://nrlc.ai/es-es/services/conversion-optimization-ai/oklahoma-city/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oklahoma City",no,yes,58,block
+https://nrlc.ai/de-de/services/agentic-seo/stoke-on-trent/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/ko-kr/services/technical-seo/guelph/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Guelph",no,yes,58,block
+https://nrlc.ai/fr-fr/services/contextual-seo-ai/derby/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/fr-fr/services/competitor-analysis-ai/norwich/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/en-us/services/perplexity-optimization/oldham/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/de-de/services/llm-optimization/san-antonio/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Antonio",no,yes,58,block
+https://nrlc.ai/fr-fr/services/international-seo/montreal/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-gb/services/perplexity-optimization/belfast/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/en-gb/services/link-building-ai/southport/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/fr-fr/services/relevance-optimization-ai/indianapolis/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/cardiff/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cardiff",no,yes,58,block
+https://nrlc.ai/fr-fr/services/entity-optimization-ai/huddersfield/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/fr-fr/services/technical-audit-ai/oldham/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/fr-fr/services/international-seo/hull/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hull",no,yes,58,block
+https://nrlc.ai/ko-kr/services/featured-snippets-ai/abbotsford/,4,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Abbotsford",no,yes,58,block
+https://nrlc.ai/catalog/,3,0,200,yes,no,no,no,no,commercial,,no,yes,55,block
+https://nrlc.ai/en-us/services/international-seo/kingston/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kingston",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-content-strategy/london/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/es-es/services/metadata-optimization-ai/wako/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wako",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/chicago/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/fr-fr/services/b2b-seo-ai/sayama/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sayama",no,yes,58,block
+https://nrlc.ai/de-de/services/claude-optimization/kyoto/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kyoto",no,yes,58,block
+https://nrlc.ai/blog/blog-post-269/,3,0,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/blog/blog-post-384/,3,0,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/es-es/services/contextual-seo-ai/san-antonio/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Antonio",no,yes,58,block
+https://nrlc.ai/en-us/services/trust-optimization-ai/dallas/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/en-gb/services/competitor-analysis-ai/windsor/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Windsor",no,yes,58,block
+https://nrlc.ai/fr-fr/services/structured-data-ai/otsu/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Otsu",no,yes,58,block
+https://nrlc.ai/en-gb/services/competitor-analysis-ai/ottawa/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/es-es/services/chatgpt-optimization/sapporo/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sapporo",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/columbus/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Columbus",no,yes,58,block
+https://nrlc.ai/es-es/services/conversion-optimization-ai/dallas/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/fr-fr/services/training/baltimore/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Baltimore",no,yes,58,block
+https://nrlc.ai/en-us/services/accuracy-optimization-ai/hull/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hull",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/montreal/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/raleigh/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/las-vegas/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Las Vegas",no,yes,58,block
+https://nrlc.ai/en-gb/services/copilot-optimization/barrie/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/ottawa/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-gb/services/llm-optimization/glasgow/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/calgary/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Calgary",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/montreal/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/es-es/services/voice-search-optimization/hull/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hull",no,yes,58,block
+https://nrlc.ai/en-us/services/claude-optimization/london/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/raleigh/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/brighton/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Brighton",no,yes,58,block
+https://nrlc.ai/en-us/services/semantic-seo-ai/dallas/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/london/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/fr-fr/services/claude-optimization/victoria/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Victoria",no,yes,58,block
+https://nrlc.ai/en-gb/services/contextual-seo-ai/manchester/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Manchester",no,yes,58,block
+https://nrlc.ai/fr-fr/services/mobile-seo-ai/singapore/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/en-us/services/semantic-seo-ai/omaha/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Omaha",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-optimization/west-bromwich/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in West Bromwich",no,yes,58,block
+https://nrlc.ai/de-de/services/local-seo-ai/detroit/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Detroit",no,yes,58,block
+https://nrlc.ai/en-us/services/ecommerce-ai-seo/ottawa/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/ottawa/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/fr-fr/services/semantic-seo-ai/montreal/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-optimization/norwich/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/fr-fr/services/site-audits/atlanta/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Atlanta",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/montreal/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/barrie/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/fr-fr/services/copilot-optimization/montreal/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-us/services/multimodal-seo-ai/stockport/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/ko-kr/services/entity-optimization-ai/indianapolis/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/fr-fr/services/technical-seo/plymouth/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Plymouth",no,yes,58,block
+https://nrlc.ai/ko-kr/services/site-audits/nottingham/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/ko-kr/services/metadata-optimization-ai/blackpool/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/new-orleans/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New Orleans",no,yes,58,block
+https://nrlc.ai/fr-fr/services/ai-search-optimization/huddersfield/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-us/services/ecommerce-ai-seo/glasgow/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/en-us/services/recommendation-ai/halifax/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Halifax",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-content-strategy/manchester/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Manchester",no,yes,58,block
+https://nrlc.ai/en-us/services/competitor-analysis-ai/blackpool/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/de-de/services/conversational-seo-ai/hamilton/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hamilton",no,yes,58,block
+https://nrlc.ai/es-es/services/accuracy-optimization-ai/indianapolis/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/services/ranking-optimization-ai/newcastle/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Newcastle",no,yes,58,block
+https://nrlc.ai/fr-fr/services/agentic-seo/hull/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hull",no,yes,58,block
+https://nrlc.ai/en-us/services/authority-optimization-ai/southend-on-sea/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southend On Sea",no,yes,58,block
+https://nrlc.ai/fr-fr/services/technical-audit-ai/houston/,3,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Houston",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/glasgow/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-seeding/tulsa/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tulsa",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/namyangju/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Namyangju",no,yes,58,block
+https://nrlc.ai/services/agentic-seo/souka/,2,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Souka",no,yes,73,block
+https://nrlc.ai/services/training/sacramento/,2,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Sacramento",no,yes,73,block
+https://nrlc.ai/en-us/services/metadata-optimization-ai/toronto/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Toronto",no,yes,58,block
+https://nrlc.ai/es-es/services/training/minneapolis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/de-de/catalog/,2,0,200,yes,no,no,no,yes,transactional,,no,yes,60,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/windsor/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Windsor",no,yes,58,block
+https://nrlc.ai/services/analytics/windsor/,2,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Windsor",no,yes,73,block
+https://nrlc.ai/en-us/insights/goldmine-google-title-selection/,2,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/en-us/insights/yago-entity-mapping/,2,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/en-us/services/claude-optimization/birmingham/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Birmingham",no,yes,58,block
+https://nrlc.ai/en-us/services/international-seo/albuquerque/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Albuquerque",no,yes,58,block
+https://nrlc.ai/en-us/services/training/memphis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Memphis",no,yes,58,block
+https://nrlc.ai/es-es/services/llm-content-strategy/singapore/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/en-gb/services/competitor-analysis-ai/new-york/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New York",no,yes,58,block
+https://nrlc.ai/fr-fr/services/competitor-analysis-ai/houston/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Houston",no,yes,58,block
+https://nrlc.ai/ko-kr/services/conversational-seo-ai/wako/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wako",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/detroit/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Detroit",no,yes,58,block
+https://nrlc.ai/services/chatgpt-optimization/kuki/,2,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Kuki",no,yes,73,block
+https://nrlc.ai/blog/blog-post-154/,2,0,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/en-us/services/personalization-ai/whitehorse/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Whitehorse",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/barrie/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/dallas/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/en-us/services/training/mesa/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Mesa",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/kansas-city/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/intent-optimization-ai/charlotte/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Charlotte",no,yes,58,block
+https://nrlc.ai/de-de/services/training/kansas-city/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-gb/services/semantic-seo-ai/phoenix/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Phoenix",no,yes,58,block
+https://nrlc.ai/en-us/services/copilot-optimization/baltimore/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Baltimore",no,yes,58,block
+https://nrlc.ai/fr-fr/services/b2b-seo-ai/minneapolis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/insights/llm-ontology-generation/,2,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/en-us/services/content-optimization-ai/windsor/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Windsor",no,yes,58,block
+https://nrlc.ai/en-gb/services/voice-search-optimization/colorado-springs/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Colorado Springs",no,yes,58,block
+https://nrlc.ai/en-gb/services/mobile-seo-ai/calgary/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Calgary",no,yes,58,block
+https://nrlc.ai/en-gb/services/international-seo/anyang/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Anyang",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/boston/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Boston",no,yes,58,block
+https://nrlc.ai/fr-fr/services/semantic-seo-ai/phoenix/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Phoenix",no,yes,58,block
+https://nrlc.ai/de-de/services/b2b-seo-ai/minneapolis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/chicago/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/en-gb/services/freshness-optimization-ai/glasgow/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/ko-kr/services/semantic-seo-ai/barrie/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/en-us/services/relevance-optimization-ai/san-diego/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Diego",no,yes,58,block
+https://nrlc.ai/ko-kr/services/training/sakado/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sakado",no,yes,58,block
+https://nrlc.ai/en-gb/services/crawl-clarity/stoke-on-trent/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/portland/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Portland",no,yes,58,block
+https://nrlc.ai/de-de/services/technical-audit-ai/barrie/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/fr-fr/services/perplexity-optimization/fresno/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/de-de/services/local-seo-ai/oshawa/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oshawa",no,yes,58,block
+https://nrlc.ai/es-es/services/b2b-seo-ai/minneapolis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/services/copilot-optimization/glasgow/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/minneapolis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/es-es/services/mobile-seo-ai/chicago/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-seeding/sejong/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sejong",no,yes,58,block
+https://nrlc.ai/en-gb/services/knowledge-graph-ai/northampton/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/indianapolis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/de-de/services/conversational-seo-ai/colorado-springs/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Colorado Springs",no,yes,58,block
+https://nrlc.ai/ko-kr/services/training/colorado-springs/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Colorado Springs",no,yes,58,block
+https://nrlc.ai/fr-fr/services/technical-seo/colorado-springs/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Colorado Springs",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/newcastle/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Newcastle",no,yes,58,block
+https://nrlc.ai/en-us/services/verification-optimization-ai/oklahoma-city/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oklahoma City",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-search-optimization/stoke-on-trent/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/services/topic-modeling-ai/middlesbrough/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/en-us/services/entity-optimization-ai/san-diego/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Diego",no,yes,58,block
+https://nrlc.ai/es-es/services/local-seo-ai/indianapolis/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/claude-optimization/ottawa/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-us/services/ecommerce-ai-seo/milwaukee/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Milwaukee",no,yes,58,block
+https://nrlc.ai/es-es/services/analytics/bristol/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Bristol",no,yes,58,block
+https://nrlc.ai/es-es/services/completeness-optimization-ai/baltimore/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Baltimore",no,yes,58,block
+https://nrlc.ai/ko-kr/services/crawl-clarity/dallas/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/fr-fr/services/site-audits/cambridge/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cambridge",no,yes,58,block
+https://nrlc.ai/de-de/services/semantic-seo-ai/middlesbrough/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/es-es/services/retrieval-optimization-ai/virginia-beach/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Virginia Beach",no,yes,58,block
+https://nrlc.ai/ko-kr/services/semantic-seo-ai/las-vegas/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Las Vegas",no,yes,58,block
+https://nrlc.ai/ko-kr/services/explainability-optimization-ai/glasgow/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/es-es/services/ecommerce-ai-seo/derby/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/fr-fr/services/site-audits/glasgow/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-optimization/yokohama/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Yokohama",no,yes,58,block
+https://nrlc.ai/ko-kr/services/conversational-seo-ai/montreal/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/ottawa/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-us/services/voice-search-optimization/oldham/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/fr-fr/services/copilot-optimization/belfast/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/san-diego/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Diego",no,yes,58,block
+https://nrlc.ai/es-es/services/perplexity-optimization/west-bromwich/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in West Bromwich",no,yes,58,block
+https://nrlc.ai/fr-fr/services/international-seo/oshawa/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oshawa",no,yes,58,block
+https://nrlc.ai/es-es/services/conversational-seo-ai/edinburgh/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Edinburgh",no,yes,58,block
+https://nrlc.ai/en-gb/services/multimodal-seo-ai/singapore/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-content-strategy/oldham/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/ko-kr/services/entity-optimization-ai/montreal/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/es-es/services/ai-overviews-optimization/huddersfield/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/de-de/services/llm-optimization/sheffield/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sheffield",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/kingston/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kingston",no,yes,58,block
+https://nrlc.ai/ko-kr/services/content-optimization-ai/kansas-city/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/completeness-optimization-ai/stoke-on-trent/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/fr-fr/services/perplexity-optimization/burnley/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/en-gb/services/bard-optimization/london/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/ko-kr/services/intent-optimization-ai/raleigh/,2,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-gb/services/agentic-seo/cambridge/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cambridge",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/akita/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Akita",no,yes,58,block
+https://nrlc.ai/en-us/services/completeness-optimization-ai/detroit/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Detroit",no,yes,58,block
+https://nrlc.ai/en-us/services/crawl-clarity/northampton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/en-us/services/crawl-clarity/okegawa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Okegawa",no,yes,58,block
+https://nrlc.ai/en-us/services/crawl-clarity/san-antonio/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Antonio",no,yes,58,block
+https://nrlc.ai/en-us/services/entity-recognition-ai/utsunomiya/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Utsunomiya",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/knowledge-graph-ai/barrie/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/en-us/services/perplexity-optimization/milwaukee/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Milwaukee",no,yes,58,block
+https://nrlc.ai/en-us/services/personalization-ai/goyang/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Goyang",no,yes,58,block
+https://nrlc.ai/en-us/services/transparency-optimization-ai/oklahoma-city/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oklahoma City",no,yes,58,block
+https://nrlc.ai/es-es/services/analytics/sayama/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sayama",no,yes,58,block
+https://nrlc.ai/es-es/services/chatgpt-optimization/barrie/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/es-es/services/copilot-optimization/yongin/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Yongin",no,yes,58,block
+https://nrlc.ai/es-es/services/explainability-optimization-ai/utsunomiya/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Utsunomiya",no,yes,58,block
+https://nrlc.ai/es-es/services/trust-optimization-ai/barrie/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/fr-fr/services/analytics/otsu/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Otsu",no,yes,58,block
+https://nrlc.ai/fr-fr/services/authority-optimization-ai/hiroshima/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hiroshima",no,yes,58,block
+https://nrlc.ai/fr-fr/services/generative-seo/yongin/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Yongin",no,yes,58,block
+https://nrlc.ai/fr-fr/services/json-ld-strategy/chicago/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/ko-kr/services/claude-optimization/cardiff/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cardiff",no,yes,58,block
+https://nrlc.ai/ko-kr/services/crawl-clarity/brighton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Brighton",no,yes,58,block
+https://nrlc.ai/ko-kr/services/entity-optimization-ai/utsunomiya/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Utsunomiya",no,yes,58,block
+https://nrlc.ai/ko-kr/services/metadata-optimization-ai/ageo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ageo",no,yes,58,block
+https://nrlc.ai/ko-kr/services/voice-search-optimization/manchester/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Manchester",no,yes,58,block
+https://nrlc.ai/services/chatgpt-optimization/honjo/,1,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Honjo",no,yes,73,block
+https://nrlc.ai/services/voice-search-optimization/ottawa/,1,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Ottawa",no,yes,73,block
+https://nrlc.ai/de-de/insights/goldmine-google-titelauswahl/,1,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/de-de/services/ai-search-optimization/nagoya/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nagoya",no,yes,58,block
+https://nrlc.ai/en-gb/services/agentic-seo/akita/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Akita",no,yes,58,block
+https://nrlc.ai/en-us/insights/semantic-drift-tracking/,1,0,200,yes,no,no,yes,yes,transactional,,no,yes,70,fix
+https://nrlc.ai/en-us/services/agentic-seo/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/atlanta/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Atlanta",no,yes,58,block
+https://nrlc.ai/en-us/services/crawl-clarity/busan/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Busan",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/nagoya/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nagoya",no,yes,58,block
+https://nrlc.ai/en-us/services/international-seo/kansas-city/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/international-seo/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-content-strategy/daejeon/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Daejeon",no,yes,58,block
+https://nrlc.ai/en-us/services/voice-search-optimization/raleigh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversational-seo-ai/mito/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Mito",no,yes,58,block
+https://nrlc.ai/ko-kr/services/technical-seo/nagoya/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nagoya",no,yes,58,block
+https://nrlc.ai/de-de/services/knowledge-graph-ai/phoenix/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Phoenix",no,yes,58,block
+https://nrlc.ai/en-gb/services/copilot-optimization/kobe/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kobe",no,yes,58,block
+https://nrlc.ai/en-gb/services/entity-optimization-ai/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/kazo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kazo",no,yes,58,block
+https://nrlc.ai/en-us/services/completeness-optimization-ai/swansea/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Swansea",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/fukushima/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fukushima",no,yes,58,block
+https://nrlc.ai/en-us/services/conversational-seo-ai/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/json-ld-strategy/wako/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wako",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-content-strategy/sendai/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sendai",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/tokyo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tokyo",no,yes,58,block
+https://nrlc.ai/en-us/services/semantic-seo-ai/edinburgh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Edinburgh",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-content-strategy/wako/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wako",no,yes,58,block
+https://nrlc.ai/de-de/services/chatgpt-optimization/albuquerque/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Albuquerque",no,yes,58,block
+https://nrlc.ai/en-gb/services/conversational-seo-ai/anyang/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Anyang",no,yes,58,block
+https://nrlc.ai/en-us/insights/,1,0,200,yes,no,no,no,no,transactional,,no,yes,55,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/montreal/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-us/services/freshness-optimization-ai/windsor/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Windsor",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/sudbury/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sudbury",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-optimization/sapporo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sapporo",no,yes,58,block
+https://nrlc.ai/en-us/services/voice-search-optimization/austin/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Austin",no,yes,58,block
+https://nrlc.ai/en-us/services/voice-search-optimization/regina/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Regina",no,yes,58,block
+https://nrlc.ai/es-es/services/trust-optimization-ai/swansea/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Swansea",no,yes,58,block
+https://nrlc.ai/fr-fr/services/ai-overview-optimization/,1,0,200,yes,no,no,no,no,commercial,"ai overview optimization",no,yes,58,block
+https://nrlc.ai/fr-fr/services/explainability-optimization-ai/cambridge/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cambridge",no,yes,58,block
+https://nrlc.ai/fr-fr/services/international-seo/edinburgh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Edinburgh",no,yes,58,block
+https://nrlc.ai/de-de/services/b2b-seo-ai/sayama/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sayama",no,yes,58,block
+https://nrlc.ai/en-us/promptware/json-stream-seo-ai/,1,0,200,yes,no,no,no,yes,transactional,,no,yes,60,block
+https://nrlc.ai/en-us/services/ai-citation-optimization/middlesbrough/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/gimhae/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Gimhae",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/manchester/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Manchester",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/ottawa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/montreal/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/san-francisco/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Francisco",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/souka/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Souka",no,yes,58,block
+https://nrlc.ai/en-us/services/data-virtualization/,1,0,200,yes,no,no,no,no,transactional,"Explore Data Virtualization",no,yes,58,block
+https://nrlc.ai/en-us/services/json-ld-strategy/hamilton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hamilton",no,yes,58,block
+https://nrlc.ai/en-us/services/personalization-ai/kurashiki/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kurashiki",no,yes,58,block
+https://nrlc.ai/ko-kr/services/json-ld-strategy/los-angeles/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Los Angeles",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ranking-optimization-ai/warabi/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Warabi",no,yes,58,block
+https://nrlc.ai/services/,1,0,200,yes,no,no,yes,yes,transactional,"The Semantic Infrastructure for the AI Internet",yes,yes,83,fix
+https://nrlc.ai/en-gb/services/voice-search-optimization/swansea/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Swansea",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-overviews-optimization/,1,0,200,yes,no,no,no,no,transactional,"What AI Overview Optimization Is and Why It Determines AI Visibility",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/ottawa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/iruma/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Iruma",no,yes,58,block
+https://nrlc.ai/es-es/services/b2b-seo-ai/nara/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nara",no,yes,58,block
+https://nrlc.ai/es-es/services/ecommerce-ai-seo/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/es-es/services/semantic-seo-ai/bristol/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Bristol",no,yes,58,block
+https://nrlc.ai/es-es/services/semantic-seo-ai/memphis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Memphis",no,yes,58,block
+https://nrlc.ai/fr-fr/services/international-seo/yongin/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Yongin",no,yes,58,block
+https://nrlc.ai/insights/geo16-conclusion/,1,0,200,yes,no,no,no,no,transactional,,no,yes,55,block
+https://nrlc.ai/ko-kr/services/analytics/nishinomiya/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nishinomiya",no,yes,58,block
+https://nrlc.ai/ko-kr/services/copilot-optimization/ichikawa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ichikawa",no,yes,58,block
+https://nrlc.ai/de-de/services/schema-markup-ai/kawasaki/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kawasaki",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/daejeon/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Daejeon",no,yes,58,block
+https://nrlc.ai/en-us/services/crawl-clarity/albuquerque/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Albuquerque",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/kuki/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kuki",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/vancouver/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Vancouver",no,yes,58,block
+https://nrlc.ai/en-us/services/perplexity-optimization/indianapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Indianapolis",no,yes,58,block
+https://nrlc.ai/es-es/services/json-ld-strategy/kelowna/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kelowna",no,yes,58,block
+https://nrlc.ai/es-es/services/llm-optimization/southport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/fr-fr/services/voice-search-optimization/manchester/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Manchester",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-optimization/trois-rivieres/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Trois Rivieres",no,yes,58,block
+https://nrlc.ai/ko-kr/services/personalization-ai/cambridge/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cambridge",no,yes,58,block
+https://nrlc.ai/ko-kr/services/recommendation-ai/new-orleans/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New Orleans",no,yes,58,block
+https://nrlc.ai/ko-kr/services/site-audits/wako/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wako",no,yes,58,block
+https://nrlc.ai/en-gb/services/analytics/yashio/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Yashio",no,yes,58,block
+https://nrlc.ai/en-us/services/accuracy-optimization-ai/soka/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Soka",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/seongnam/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Seongnam",no,yes,58,block
+https://nrlc.ai/es-es/services/competitor-analysis-ai/wako/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wako",no,yes,58,block
+https://nrlc.ai/fr-fr/services/ai-citation-optimization/fukuoka/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fukuoka",no,yes,58,block
+https://nrlc.ai/ko-kr/services/analytics/regina/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Regina",no,yes,58,block
+https://nrlc.ai/ko-kr/services/copilot-optimization/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-content-strategy/osaka/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Osaka",no,yes,58,block
+https://nrlc.ai/ko-kr/services/trust-optimization-ai/charlotte/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Charlotte",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/kuki/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kuki",no,yes,58,block
+https://nrlc.ai/en-us/services/claude-optimization/saitama/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Saitama",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/swansea/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Swansea",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/kuki/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kuki",no,yes,58,block
+https://nrlc.ai/en-us/services/json-ld-strategy/new-york/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New York",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/kazo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kazo",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/kazo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kazo",no,yes,58,block
+https://nrlc.ai/en-us/services/training/sapporo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sapporo",no,yes,58,block
+https://nrlc.ai/es-es/services/ai-search-optimization/asaka/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Asaka",no,yes,58,block
+https://nrlc.ai/fr-fr/services/agentic-seo/windsor/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Windsor",no,yes,58,block
+https://nrlc.ai/fr-fr/services/multimodal-seo-ai/regina/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Regina",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-search-optimization/plymouth/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Plymouth",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-search-optimization/portland/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Portland",no,yes,58,block
+https://nrlc.ai/blog/blog-post-364/,1,0,200,yes,no,no,yes,yes,transactional,,yes,yes,80,fix
+https://nrlc.ai/de-de/services/link-building-ai/washington/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Washington",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-first-site-audits/,1,0,200,yes,no,no,no,no,commercial,"ai first site audits",no,yes,53,block
+https://nrlc.ai/en-us/services/analytics/sakado/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sakado",no,yes,58,block
+https://nrlc.ai/en-us/services/claude-optimization/cardiff/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cardiff",no,yes,58,block
+https://nrlc.ai/en-us/services/competitor-analysis-ai/nara/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nara",no,yes,58,block
+https://nrlc.ai/en-us/services/crawl-clarity/asahikawa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Asahikawa",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-content-strategy/kazo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kazo",no,yes,58,block
+https://nrlc.ai/en-us/services/recommendation-ai/hamamatsu/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hamamatsu",no,yes,58,block
+https://nrlc.ai/es-es/services/chatgpt-optimization/baltimore/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Baltimore",no,yes,58,block
+https://nrlc.ai/es-es/services/entity-recognition-ai/tulsa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tulsa",no,yes,58,block
+https://nrlc.ai/ko-kr/services/contextual-seo-ai/brighton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Brighton",no,yes,58,block
+https://nrlc.ai/ko-kr/services/conversational-seo-ai/sejong/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sejong",no,yes,58,block
+https://nrlc.ai/services/llm-content-strategy/edmonton/,1,0,200,yes,no,no,yes,yes,transactional,"Local SEO Services in Edmonton",no,yes,73,block
+https://nrlc.ai/de-de/services/intent-optimization-ai/singapore/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Singapore",no,yes,58,block
+https://nrlc.ai/en-gb/services/local-seo-ai/southport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southport",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/fresno/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/kawaguchi/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kawaguchi",no,yes,58,block
+https://nrlc.ai/en-us/services/featured-snippets-ai/swansea/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Swansea",no,yes,58,block
+https://nrlc.ai/en-us/services/multimodal-seo-ai/baltimore/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Baltimore",no,yes,58,block
+https://nrlc.ai/en-us/services/perplexity-optimization/philadelphia/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Philadelphia",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/san-diego/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Diego",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/arlington/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Arlington",no,yes,58,block
+https://nrlc.ai/es-es/services/competitor-analysis-ai/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/fr-fr/resources/resource-897/,1,0,200,yes,no,no,no,no,informational,,no,yes,55,block
+https://nrlc.ai/fr-fr/services/claude-optimization/saguenay/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Saguenay",no,yes,58,block
+https://nrlc.ai/fr-fr/services/semantic-seo-ai/kazo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kazo",no,yes,58,block
+https://nrlc.ai/ko-kr/services/analytics/miami/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Miami",no,yes,58,block
+https://nrlc.ai/ko-kr/services/b2b-seo-ai/denver/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Denver",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-seeding/kuki/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kuki",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-overviews-optimization/nashville/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nashville",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/fukuoka/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fukuoka",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/ageo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ageo",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-content-strategy/busan/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Busan",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/fresno/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/ageo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ageo",no,yes,58,block
+https://nrlc.ai/es-es/services/recommendation-ai/windsor/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Windsor",no,yes,58,block
+https://nrlc.ai/ko-kr/services/entity-recognition-ai/incheon/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Incheon",no,yes,58,block
+https://nrlc.ai/ko-kr/services/schema-markup-ai/kansas-city/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/ko-kr/services/technical-audit-ai/asaka/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Asaka",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/nashville/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nashville",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/el-paso/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in El Paso",no,yes,58,block
+https://nrlc.ai/ko-kr/services/training/louisville/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Louisville",no,yes,58,block
+https://nrlc.ai/en-gb/services/analytics/san-diego/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Diego",no,yes,58,block
+https://nrlc.ai/en-us/services/entity-optimization-ai/new-orleans/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New Orleans",no,yes,58,block
+https://nrlc.ai/fr-fr/services/link-building-ai/huddersfield/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/ko-kr/services/voice-search-optimization/phoenix/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Phoenix",no,yes,58,block
+https://nrlc.ai/en-gb/services/semantic-seo-ai/leicester/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Leicester",no,yes,58,block
+https://nrlc.ai/en-us/services/training/sheffield/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sheffield",no,yes,58,block
+https://nrlc.ai/fr-fr/services/ai-overviews-optimization/barrie/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-optimization/mesa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Mesa",no,yes,58,block
+https://nrlc.ai/en-us/services/link-building-ai/belfast/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/es-es/services/training/ottawa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ottawa",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/san-jose/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Jose",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-optimization/oldham/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-us/services/analytics/raleigh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-gb/services/multimodal-seo-ai/portland/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Portland",no,yes,58,block
+https://nrlc.ai/es-es/services/competitor-analysis-ai/dallas/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/en-us/services/multimodal-seo-ai/glasgow/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/portland/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Portland",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/wolverhampton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wolverhampton",no,yes,58,block
+https://nrlc.ai/services/analytics/london/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/tulsa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tulsa",no,yes,58,block
+https://nrlc.ai/es-es/services/b2b-seo-ai/philadelphia/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Philadelphia",no,yes,58,block
+https://nrlc.ai/en-gb/services/site-audits/stockport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-gb/services/training/barrie/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Barrie",no,yes,58,block
+https://nrlc.ai/en-us/services/mobile-seo-ai/houston/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Houston",no,yes,58,block
+https://nrlc.ai/en-us/services/chatgpt-optimization/fresno/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/es-es/services/ai-search-optimization/brighton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Brighton",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/denver/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Denver",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/denver/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Denver",no,yes,58,block
+https://nrlc.ai/fr-fr/services/ai-search-optimization/swansea/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Swansea",no,yes,58,block
+https://nrlc.ai/en-gb/services/technical-seo/denver/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Denver",no,yes,58,block
+https://nrlc.ai/fr-fr/services/local-seo-ai/quebec-city/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Quebec City",no,yes,58,block
+https://nrlc.ai/ko-kr/services/relevance-optimization-ai/phoenix/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Phoenix",no,yes,58,block
+https://nrlc.ai/de-de/services/b2b-seo-ai/kansas-city/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kansas City",no,yes,58,block
+https://nrlc.ai/en-us/services/relevance-optimization-ai/raleigh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-us/services/voice-search-optimization/stockport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/fr-fr/services/recommendation-ai/dallas/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/en-us/services/ecommerce-ai-seo/atlanta/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Atlanta",no,yes,58,block
+https://nrlc.ai/fr-fr/services/voice-search-optimization/nottingham/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/en-us/services/semantic-seo-ai/minneapolis/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Minneapolis",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/leicester/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Leicester",no,yes,58,block
+https://nrlc.ai/es-es/services/generative-seo/tokyo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tokyo",no,yes,58,block
+https://nrlc.ai/en-us/services/conversion-optimization-ai/new-orleans/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in New Orleans",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/stockport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-seeding/ulsan/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Ulsan",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/nottingham/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/fr-fr/services/b2b-seo-ai/columbus/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Columbus",no,yes,58,block
+https://nrlc.ai/en-us/services/international-seo/arlington/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Arlington",no,yes,58,block
+https://nrlc.ai/en-gb/services/multimodal-seo-ai/manchester/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Manchester",no,yes,58,block
+https://nrlc.ai/de-de/services/claude-optimization/san-jose/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Jose",no,yes,58,block
+https://nrlc.ai/en-us/services/voice-search-optimization/fresno/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/en-us/services/semantic-seo-ai/milwaukee/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Milwaukee",no,yes,58,block
+https://nrlc.ai/fr-fr/services/conversion-optimization-ai/oldham/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/en-gb/services/retrieval-optimization-ai/louisville/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Louisville",no,yes,58,block
+https://nrlc.ai/fr-fr/services/json-ld-strategy/kelowna/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kelowna",no,yes,58,block
+https://nrlc.ai/es-es/services/verification-optimization-ai/west-bromwich/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in West Bromwich",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/portland/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Portland",no,yes,58,block
+https://nrlc.ai/en-us/services/explainability-optimization-ai/fresno/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/fr-fr/services/json-ld-strategy/fujimi/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fujimi",no,yes,58,block
+https://nrlc.ai/ko-kr/services/claude-optimization/tokyo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tokyo",no,yes,58,block
+https://nrlc.ai/de-de/services/link-building-ai/tampa/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tampa",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/chicago/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Chicago",no,yes,58,block
+https://nrlc.ai/fr-fr/services/competitor-analysis-ai/dallas/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Dallas",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/baltimore/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Baltimore",no,yes,58,block
+https://nrlc.ai/en-us/services/content-optimization-ai/raleigh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-seeding/leeds/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Leeds",no,yes,58,block
+https://nrlc.ai/en-us/services/ai-search-optimization/stockport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-us/services/intent-optimization-ai/raleigh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/fr-fr/services/schema-markup-ai/stockport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/en-gb/services/bard-optimization/stockport/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stockport",no,yes,58,block
+https://nrlc.ai/es-es/services/b2b-seo-ai/nottingham/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Nottingham",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/plymouth/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Plymouth",no,yes,58,block
+https://nrlc.ai/es-es/services/technical-seo/columbus/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Columbus",no,yes,58,block
+https://nrlc.ai/de-de/services/ecommerce-ai-seo/leeds/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Leeds",no,yes,58,block
+https://nrlc.ai/de-de/services/llm-optimization/sherbrooke/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sherbrooke",no,yes,58,block
+https://nrlc.ai/en-gb/services/international-seo/glasgow/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Glasgow",no,yes,58,block
+https://nrlc.ai/en-us/services/explainability-optimization-ai/oldham/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/fr-fr/services/completeness-optimization-ai/bristol/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Bristol",no,yes,58,block
+https://nrlc.ai/en-gb/services/relevance-optimization-ai/tokyo/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Tokyo",no,yes,58,block
+https://nrlc.ai/services/structured-data-ai/middlesbrough/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/ko-kr/services/perplexity-optimization/london/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in London",no,yes,58,block
+https://nrlc.ai/fr-fr/services/local-seo-ai/blackpool/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Blackpool",no,yes,58,block
+https://nrlc.ai/es-es/services/local-seo-ai/oldham/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Oldham",no,yes,58,block
+https://nrlc.ai/fr-fr/services/intent-optimization-ai/halifax/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Halifax",no,yes,58,block
+https://nrlc.ai/en-gb/services/multimodal-seo-ai/belfast/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-seeding/liverpool/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Liverpool",no,yes,58,block
+https://nrlc.ai/en-us/services/generative-seo/fresno/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/en-us/services/local-seo-ai/huddersfield/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/ko-kr/services/personalization-ai/northampton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/de-de/services/json-ld-strategy/stoke-on-trent/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Stoke On Trent",no,yes,58,block
+https://nrlc.ai/es-es/services/ecommerce-ai-seo/raleigh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/fr-fr/services/agentic-seo/coventry/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Coventry",no,yes,58,block
+https://nrlc.ai/en-us/services/b2b-seo-ai/kingston/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kingston",no,yes,58,block
+https://nrlc.ai/fr-fr/services/structured-data-ai/middlesbrough/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/fr-fr/services/technical-seo/kingston/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Kingston",no,yes,58,block
+https://nrlc.ai/en-us/services/retrieval-optimization-ai/raleigh/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Raleigh",no,yes,58,block
+https://nrlc.ai/en-us/services/technical-seo/cardiff/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cardiff",no,yes,58,block
+https://nrlc.ai/es-es/services/b2b-seo-ai/norwich/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/es-es/services/technical-seo/calgary/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Calgary",no,yes,58,block
+https://nrlc.ai/fr-fr/services/llm-content-strategy/milwaukee/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Milwaukee",no,yes,58,block
+https://nrlc.ai/es-es/services/contextual-seo-ai/montreal/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/es-es/services/copilot-optimization/victoria/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Victoria",no,yes,58,block
+https://nrlc.ai/fr-fr/services/entity-optimization-ai/newcastle/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Newcastle",no,yes,58,block
+https://nrlc.ai/ko-kr/services/ai-search-optimization/fresno/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Fresno",no,yes,58,block
+https://nrlc.ai/en-us/services/explainability-optimization-ai/abbotsford/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Abbotsford",no,yes,58,block
+https://nrlc.ai/fr-fr/services/json-ld-strategy/seongnam/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Seongnam",no,yes,58,block
+https://nrlc.ai/en-us/services/site-audits/jacksonville/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Jacksonville",no,yes,58,block
+https://nrlc.ai/en-us/services/authority-optimization-ai/peterborough/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Peterborough",no,yes,58,block
+https://nrlc.ai/es-es/services/personalization-ai/sherbrooke/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Sherbrooke",no,yes,58,block
+https://nrlc.ai/en-us/services/personalization-ai/wolverhampton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Wolverhampton",no,yes,58,block
+https://nrlc.ai/es-es/services/explainability-optimization-ai/montreal/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Montreal",no,yes,58,block
+https://nrlc.ai/es-es/services/competitor-analysis-ai/hamilton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hamilton",no,yes,58,block
+https://nrlc.ai/fr-fr/services/b2b-seo-ai/cheongju/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Cheongju",no,yes,58,block
+https://nrlc.ai/fr-fr/services/entity-recognition-ai/derby/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Derby",no,yes,58,block
+https://nrlc.ai/ko-kr/services/claude-optimization/belfast/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Belfast",no,yes,58,block
+https://nrlc.ai/de-de/services/voice-search-optimization/southend-on-sea/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southend On Sea",no,yes,58,block
+https://nrlc.ai/en-us/services/international-seo/abbotsford/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Abbotsford",no,yes,58,block
+https://nrlc.ai/de-de/services/copilot-optimization/hamilton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hamilton",no,yes,58,block
+https://nrlc.ai/fr-fr/services/multimodal-seo-ai/hamilton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Hamilton",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-seeding/calgary/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Calgary",no,yes,58,block
+https://nrlc.ai/en-us/services/llm-content-strategy/winnipeg/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Winnipeg",no,yes,58,block
+https://nrlc.ai/en-us/services/structured-data-ai/middlesbrough/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Middlesbrough",no,yes,58,block
+https://nrlc.ai/en-us/services/trust-optimization-ai/newcastle/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Newcastle",no,yes,58,block
+https://nrlc.ai/ko-kr/services/llm-seeding/san-diego/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in San Diego",no,yes,58,block
+https://nrlc.ai/es-es/services/training/manchester/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Manchester",no,yes,58,block
+https://nrlc.ai/ko-kr/services/mobile-seo-ai/southampton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Southampton",no,yes,58,block
+https://nrlc.ai/ko-kr/services/intent-optimization-ai/northampton/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Northampton",no,yes,58,block
+https://nrlc.ai/de-de/services/copilot-optimization/burnley/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Burnley",no,yes,58,block
+https://nrlc.ai/en-us/services/multimodal-seo-ai/norwich/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Norwich",no,yes,58,block
+https://nrlc.ai/es-es/services/featured-snippets-ai/bristol/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Bristol",no,yes,58,block
+https://nrlc.ai/fr-fr/services/agentic-seo/halifax/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Halifax",no,yes,58,block
+https://nrlc.ai/ko-kr/services/knowledge-graph-ai/huddersfield/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Huddersfield",no,yes,58,block
+https://nrlc.ai/en-us/services/ranking-optimization-ai/houston/,1,0,200,yes,no,no,no,no,transactional,"Local SEO Services in Houston",no,yes,58,block

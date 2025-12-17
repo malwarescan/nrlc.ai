@@ -307,9 +307,24 @@ hr {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: var(--spacing-lg);
   padding: var(--spacing-md) var(--container-padding);
   background-color: var(--color-bg-primary);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .nav-primary {
+    padding: var(--spacing-md) var(--container-padding-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-primary {
+    padding: var(--spacing-md) var(--container-padding-lg);
+  }
 }
 
 .nav-primary__brand {
@@ -510,6 +525,20 @@ hr {
   background-color: var(--color-bg-secondary);
   border-bottom: var(--border-width) solid var(--color-border);
   padding: var(--spacing-sm) var(--container-padding);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .nav-secondary {
+    padding: var(--spacing-sm) var(--container-padding-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-secondary {
+    padding: var(--spacing-sm) var(--container-padding-lg);
+  }
 }
 
 .nav-secondary__menu {
@@ -1157,7 +1186,7 @@ label {
   .nav-primary {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
   }
   

@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'Mapping the Optimized Web Landscape: SEO Manipulation vs ...';
-$GLOBALS['pageDesc'] = 'The web optimization landscape has evolved dramatically with the rise of AI engines, creating a clear distinction between traditional SEO manipulation t...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">

@@ -529,6 +529,16 @@ function route_request(): void {
   }
 
   if ($path === '/blog/') {
+    // Generate metadata for blog index
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'blog',
+      'slug' => 'blog/index',
+      'title' => 'Blog | AI SEO Insights & Guides',
+      'excerpt' => 'Insights, guides, and updates on AI SEO, structured data, and LLM optimization strategies.',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('blog/index');
     return;
   }
@@ -559,6 +569,65 @@ function route_request(): void {
   if ($path === '/resources/') {
     render_page('resources/index');
     return;
+  }
+
+  // AI Visibility Audit Example Pages
+  if (preg_match('#^/ai-visibility/audit-example/([^/]+)/$#', $path, $m)) {
+    $_GET['industry'] = $m[1];
+    $industrySlug = $m[1];
+    require_once __DIR__.'/../lib/meta_directive.php';
+    require_once __DIR__.'/../lib/ai_visibility_industries.php';
+    $industryData = AI_VISIBILITY_INDUSTRIES[$industrySlug] ?? null;
+
+    if ($industryData) {
+      $title = "AI Visibility Audit Example: {$industryData['name']} | Neural Command";
+      $excerpt = "See how we diagnose AI visibility issues for {$industryData['name']}. This audit example demonstrates our diagnostic process without exposing client data.";
+      $ctx = [
+        'type' => 'case-study',
+        'slug' => "ai-visibility/audit-example/$industrySlug",
+        'title' => $title,
+        'excerpt' => $excerpt,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-visibility/audit-example');
+      return;
+    }
+  }
+
+  // AI Visibility Landing Pages
+  if ($path === '/ai-visibility/') {
+    // Set metadata directly for AI Visibility service page
+    $GLOBALS['__page_meta'] = [
+      'title' => 'AI Visibility | Control How AI Recommends Your Business',
+      'description' => 'Control how AI systems describe, recommend, and reference your business. Industry-specific AI visibility optimization for high-trust industries.',
+      'canonicalPath' => $path
+    ];
+    render_page('ai-visibility/index');
+    return;
+  }
+
+  if (preg_match('#^/ai-visibility/([^/]+)/$#', $path, $m)) {
+    $industrySlug = $m[1];
+    $_GET['industry'] = $industrySlug;
+    
+    // Load industry data
+    $industriesFile = __DIR__.'/../lib/ai_visibility_industries.php';
+    if (file_exists($industriesFile)) {
+      $industries = require $industriesFile;
+      if (isset($industries[$industrySlug])) {
+        $industry = $industries[$industrySlug];
+        
+        // Set metadata directly (override meta directive for exact control)
+        $GLOBALS['__page_meta'] = [
+          'title' => "AI Visibility for {$industry['name']} | Control How AI Recommends Your Business",
+          'description' => $industry['subheadline'],
+          'canonicalPath' => $path
+        ];
+        render_page('ai-visibility/industry');
+        return;
+      }
+    }
   }
 
   http_response_code(404);

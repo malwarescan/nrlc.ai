@@ -1,7 +1,6 @@
-
-$GLOBALS['pageTitle'] = 'Research Methodology: Data Collection and Analysis | AI S...';
-$GLOBALS['pageDesc'] = 'Our comprehensive analysis of AI citation behavior involved systematic data collection across multiple engines, rigorous scoring methodology, and statis...';
-
+<?php
+// Metadata is handled by router via $GLOBALS['__page_meta']
+?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">
