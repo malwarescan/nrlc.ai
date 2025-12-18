@@ -286,20 +286,14 @@ function route_request(): void {
     }
   }
 
-  // Book page route (GET requests to /api/book/)
+  // Book page route (GET requests to /api/book/) - BLOCKED: Governance violation
+  // Direct booking endpoints are NOT permitted before intent qualification
+  // Endpoint is POST-only for form submissions, GET requests blocked
   if ($path === '/api/book/' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Generate unique metadata using ctx-based system
-    require_once __DIR__.'/../lib/meta_directive.php';
-    $ctx = [
-      'type' => 'general', // Book page type
-      'slug' => 'book/index',
-      'title' => 'Schedule Research Consultation',
-      'excerpt' => 'Get expert guidance on implementing the GEO-16 framework, optimizing for AI engines, and improving your LLM citation rates.',
-      'canonicalPath' => $path
-    ];
-    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    render_page('book/index');
-    return;
+    http_response_code(403);
+    header('Content-Type: application/json');
+    echo json_encode(['ok' => false, 'error' => 'Direct access not permitted. Please use the contact form.']);
+    exit;
   }
 
   // Book API route (POST requests to /api/book/)

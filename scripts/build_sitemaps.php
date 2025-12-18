@@ -356,7 +356,6 @@ $indexPages = [
   '/blog/',
   '/resources/',
   '/catalog/',
-  '/api/book/',
   '/ai-visibility/'  // AI Visibility main hub page
 ];
 

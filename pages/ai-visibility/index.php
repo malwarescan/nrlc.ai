@@ -173,8 +173,8 @@ $GLOBALS['__jsonld'] = [
         <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>WHO:</strong> For businesses in high-trust industries where customers research extensively before making decisions.</p>
         <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>PROBLEM:</strong> AI assistants now answer customer questions directly, summarizing information instead of linking to websites. If AI systems don't understand or trust your business, they recommend competitors. <strong>This is NOT traditional SEO.</strong> SEO targets search rankings. AI Visibility targets how AI systems understand, describe, and trust your business.</p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
-          <a href="/api/book/" class="btn btn--primary" data-ripple>Request AI Visibility Audit</a>
-          <a href="/api/book/" class="btn" data-ripple>See How AI Describes Your Business</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Request AI Visibility Audit')" data-ripple>Request AI Visibility Audit</button>
+          <button type="button" class="btn" onclick="openContactSheet('See How AI Describes Your Business')" data-ripple>See How AI Describes Your Business</button>
         </div>
       </div>
     </div>
@@ -284,7 +284,7 @@ $GLOBALS['__jsonld'] = [
         </ul>
         <p><strong>This is a diagnostic, not a contract.</strong> This is: a diagnostic + prioritized fix list. This isn't: a promise to control AI output or guaranteed rankings.</p>
         <p style="margin-top: var(--spacing-lg);">
-          <a href="/api/book/" class="btn btn--primary" data-ripple>Request AI Visibility Audit</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Request AI Visibility Audit')" data-ripple>Request AI Visibility Audit</button>
         </p>
       </div>
     </div>

@@ -841,7 +841,7 @@ $GLOBALS['__jsonld'] = [
         <p class="text-center">
           <?php if ($service === 'ai-search-optimization'): ?>
           <!-- Tier 1 CTA Replacement: Aligns with informational → commercial hybrid intent -->
-          <a href="/api/book/" class="btn btn--primary">Get a Free AI Visibility Audit</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Get a Free AI Visibility Audit')">Get a Free AI Visibility Audit</button>
           <p style="margin-top: var(--spacing-sm); font-size: 0.9rem; color: #666;">See how your site appears in Google AI Overviews and ChatGPT</p>
           <?php else: ?>
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>

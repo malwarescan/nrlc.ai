@@ -110,8 +110,62 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <p class="text-center">
-          <a href="/api/book/" class="btn btn--primary">Get a Free AI Visibility Audit for Your Norwich Business</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Get a Free AI Visibility Audit for Your Norwich Business')">Get a Free AI Visibility Audit for Your Norwich Business</button>
         </p>
+      </div>
+    </div>
+
+    <!-- PROOF & AUTHORITY SECTION (Conversion Upgrade) -->
+    <div class="content-block module" id="norwich-proof">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Why Norwich Companies Trust Us With High-Value Search Visibility</h2>
+      </div>
+      <div class="content-block__body">
+        <p>When businesses in Norwich invest in SEO, they're often paying for rankings that don't translate into AI visibility. Google AI Overviews, ChatGPT summaries, and Perplexity answers bypass traditional search results entirely. If your competitors have clearer service definitions, consistent terminology, and structured authority signals, AI systems will recommend them instead of you—regardless of your search rankings. This isn't a traffic problem. It's a trust gap that wastes retainers and hands competitive advantage to firms that understand how AI systems choose who gets cited.</p>
+        
+        <p>Traditional SEO agencies optimize for keywords and backlinks. They measure success by position and traffic volume. But AI systems don't rank pages the way Google does. They evaluate which sources provide clear, structured, trustworthy information that can be safely summarized and cited. NRLC.ai addresses this structural trust layer directly—we engineer content so AI systems understand your business, map your expertise, and cite you when answering relevant questions.</p>
+
+        <h3>Recent Work With Norwich-Area Businesses</h3>
+
+        <div style="margin-bottom: var(--spacing-lg);">
+          <h4 style="margin-top: 0;">Norwich-Based Professional Services Firm</h4>
+          <ul>
+            <li><strong>Diagnosis:</strong> Identified that competitors were appearing in AI-generated answers despite lower search rankings, due to clearer service definitions and consistent entity signals.</li>
+            <li><strong>Entity / Service Signal Restructuring:</strong> Restructured service pages to provide unambiguous definitions that AI systems could extract and cite confidently.</li>
+            <li><strong>Intent Mismatch Correction:</strong> Aligned content with actual search and AI intent, removing keyword-focused pages that confused both users and AI systems.</li>
+            <li><strong>Outcome:</strong> Sustained trust visibility across Google AI Overviews and ChatGPT responses, with the firm now consistently referenced when AI systems explain their service category.</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: var(--spacing-lg);">
+          <h4 style="margin-top: 0;">Norwich-Based B2B Company With National Reach</h4>
+          <ul>
+            <li><strong>Authority Gap Identification:</strong> Discovered that while the company ranked well, AI systems couldn't confidently extract their expertise or service boundaries, leading to generic or competitor recommendations.</li>
+            <li><strong>LLM-Oriented Content Restructuring:</strong> Rebuilt key pages with structured signals, clear entity relationships, and verifiable authority markers that AI systems prioritize for citation.</li>
+            <li><strong>Removal of Indexed-But-Untrusted Pages:</strong> Eliminated pages that appeared in search but lacked the structural signals needed for AI citation, consolidating authority to core service pages.</li>
+            <li><strong>Outcome:</strong> Qualified inquiries tied to trust signals, with prospects referencing AI-generated summaries that now accurately describe the company's services and expertise.</li>
+          </ul>
+        </div>
+
+        <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: var(--spacing-md);">
+          <strong>Note:</strong> No sensitive client data is published here. No vanity screenshots or unverifiable metrics. Our focus is on the durable trust signals that Google and AI systems actually use—service definition clarity, consistent terminology, structured data completeness, and authority patterns that survive algorithmic changes.
+        </p>
+
+        <h3>Why This Matters If You're Competing in Norwich</h3>
+        
+        <p>Norwich is deceptively competitive. Local agencies recycle outdated playbooks—keyword optimization, content volume, link building. But AI systems now bypass those tactics entirely. When someone asks ChatGPT "What's the best [service] in Norwich?" or when Google AI Overviews summarize options, they're not ranking pages. They're evaluating which businesses provide clear, trustworthy information that can be safely cited.</p>
+        
+        <p>If your competitors have structured their digital presence for AI understanding while you're still optimizing for search rankings, you're losing visibility in the fastest-growing segment of search. The buyer's problem isn't content volume or keyword density. It's structural trust—how AI systems understand, describe, and recommend your business.</p>
+
+        <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-lg);">
+          <div class="content-block__body">
+            <p style="margin: 0 0 var(--spacing-sm) 0; font-weight: 500;"><strong>See Why Google Chooses Your Competitors Instead</strong></p>
+            <p style="margin: 0 0 var(--spacing-md) 0; font-size: 0.9rem; color: #666;">Free AI Visibility Audit • Norwich & UK Businesses</p>
+            <p style="margin: 0;">
+              <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 

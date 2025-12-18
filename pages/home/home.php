@@ -30,7 +30,7 @@ $domain = absolute_url('/');
           Serving companies across the United States and United Kingdom, with proven results in competitive local and international markets.
         </p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
-          <a href="/api/book/" class="btn btn--primary">Free AI Visibility Audit (US & UK)</a>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Free AI Visibility Audit (US & UK)')">Free AI Visibility Audit (US & UK)</button>
           <a href="#authority-explanation" class="btn btn--secondary">Why Traditional SEO Stops Working</a>
         </div>
       </div>
