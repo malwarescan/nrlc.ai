@@ -13,21 +13,66 @@ if (!is_dir($outDir)) {
 }
 
 // Load data
-$servicesRows = csv_read_data('matrix.csv');
 $careersRows = csv_read_data('career_matrix.csv');
 $insightsRows = csv_read_data('insights.csv');
 $imagesMap = csv_read_data('images_map.csv');
 
+// Get all service types (from service map in meta_directive.php)
+$allServices = [
+  'llm-optimization',
+  'semantic-seo-ai',
+  'voice-search-optimization',
+  'chatgpt-optimization',
+  'conversion-optimization-ai',
+  'verification-optimization-ai',
+  'multimodal-seo-ai',
+  'generative-seo',
+  'freshness-optimization-ai',
+  'completeness-optimization-ai',
+  'metadata-optimization-ai',
+  'local-seo-ai',
+  'technical-seo',
+  'link-building-ai',
+  'site-audits',
+  'analytics',
+  'perplexity-optimization',
+  'ai-overviews-optimization',
+  'entity-optimization-ai',
+  'international-seo',
+  'mobile-seo-ai',
+  'bard-optimization',
+  'conversational-seo-ai',
+  'ai-search-optimization',
+  'llm-seeding',
+  'agentic-seo',
+  'ecommerce-ai-seo',
+  'b2b-seo-ai',
+  'content-optimization-ai',
+  'technical-audit-ai',
+  'competitor-analysis-ai',
+  'crawl-clarity',
+  'json-ld-strategy',
+  'training'
+];
+
+// Get all cities
+$citiesData = csv_read_data('cities.csv');
+$allCities = [];
+foreach ($citiesData as $row) {
+  $citySlug = $row['city_name'] ?? '';
+  if ($citySlug) {
+    $allCities[] = $citySlug;
+  }
+}
+
 $sitemaps = [];
 
-// 1. Services sitemap
+// 1. Services sitemap - Generate ALL service+city combinations
 $serviceEntries = [];
-foreach ($servicesRows as $row) {
-  $service = $row['service'] ?? '';
-  $city = $row['city'] ?? '';
-  $lastmod = $row['lastmod'] ?? $today;
-  
-  if ($service && $city) {
+require_once __DIR__ . '/../lib/helpers.php';
+
+foreach ($allServices as $service) {
+  foreach ($allCities as $city) {
     $path = "/services/{$service}/{$city}/";
     $hreflangUrls = sitemap_generate_hreflang_urls($path);
     
@@ -36,7 +81,7 @@ foreach ($servicesRows as $row) {
     $canonicalUrl = $hreflangUrls['x-default'] ?? $hreflangUrls['en-us'] ?? $hreflangUrls['en-gb'] ?? '';
     if ($canonicalUrl) {
       // Only include canonical URL in sitemap (no deprecated locales)
-      $serviceEntries[] = sitemap_entry_simple($canonicalUrl, $lastmod, 'weekly', '0.8');
+      $serviceEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '0.8');
     }
   }
 }
