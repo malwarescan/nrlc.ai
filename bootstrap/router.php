@@ -101,6 +101,17 @@ function route_request(): void {
       return;
     }
     
+    // Tier 1 Reinforcement: Custom Norwich page
+    if ($m[1] === 'ai-seo-norwich') {
+      $GLOBALS['__page_meta'] = [
+        'title' => 'AI SEO & AI Visibility Services in Norwich | NRLC.ai',
+        'description' => 'AI SEO and AI visibility services for businesses in Norwich. Improve visibility across Google Search, Google AI Overviews, and AI-driven platforms like ChatGPT. Remote delivery.',
+        'canonicalPath' => $path
+      ];
+      render_page('services/ai-seo-norwich');
+      return;
+    }
+    
     // Generate unique metadata using ctx-based system
     require_once __DIR__.'/../lib/meta_directive.php';
     $serviceSlug = $m[1];

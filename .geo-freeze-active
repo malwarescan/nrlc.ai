@@ -1,0 +1,27 @@
+GEO REINFORCEMENT CHANGE FREEZE ACTIVE
+========================================
+
+Status: MONITORING-ONLY MODE
+Date: 2025-01-XX
+Authority: NRLC.ai Governance Kernel
+
+ALL CHANGES FROZEN EXCEPT:
+- Emergency technical fixes (500s, blocking, indexing failures)
+- Copy refinements (authorized after Week 4 only)
+
+DEFAULT ACTION: DENY → DEFER TO WEEK 4-6 DECISION WINDOW
+
+Monitoring Phase: ACTIVE
+Validation Node: /en-gb/services/ai-seo-norwich/
+
+DO NOT MODIFY:
+- URLs
+- Page structure
+- Canonicals
+- Internal linking
+- Schema scope
+- Geo language
+- Sitemap composition
+
+This file serves as a reminder that the system is in monitoring-only mode.
+

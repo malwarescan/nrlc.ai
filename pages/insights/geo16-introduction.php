@@ -19,6 +19,7 @@
       <div class="content-block__body">
         <p>As AI answer engines like ChatGPT, Perplexity, and Claude become primary information sources, traditional SEO metrics fail to predict citation success. Pages ranking #1 on Google may receive zero citations from AI engines, while lower-ranked content frequently appears in AI-generated responses. This disconnect stems from fundamentally different ranking signals between traditional search and generative AI systems.</p>
         <p>The challenge is particularly acute for B2B SaaS companies, technical documentation, and research content. These pages often contain authoritative information but lack the specific structural signals that AI engines prioritize for citation. Without understanding these signals, organizations risk becoming invisible in the most rapidly growing segment of search.</p>
+        <p>We frequently see these visibility gaps surface for businesses in the US and UK, including city-specific markets like Norwich, where AI and search intent often diverge.</p>
       </div>
     </div>
     <div class="content-block module">
@@ -53,7 +54,8 @@
       </div>
       <div class="content-block__body">
         <p>At NRLC.ai, we've integrated GEO-16 scoring into our <a href="/services/crawl-clarity/">crawl clarity service</a>, providing real-time assessment of citation readiness. Our clients receive detailed reports showing which of the 16 pillars need attention, along with specific remediation steps for each identified gap.</p>
-        <p>The framework aligns perfectly with our approach to <a href="/services/llm-seeding/">LLM seeding</a> and structured data optimization. By combining GEO-16 assessment with deterministic content generation, we ensure that every page meets the technical requirements for AI engine citation while maintaining human readability.</p>
+        <p>The framework aligns perfectly with our approach to <a href="/en-us/services/ai-search-optimization/">AI search optimization services</a> and structured data optimization. By combining GEO-16 assessment with deterministic content generation, we ensure that every page meets the technical requirements for AI engine citation while maintaining human readability.</p>
+        <p>For businesses in the UK, we provide specialized <a href="/en-gb/services/ai-seo-norwich/">AI SEO services in Norwich</a> that address the unique visibility challenges in local and regional markets.</p>
       </div>
     </div>
     <div class="content-block module">

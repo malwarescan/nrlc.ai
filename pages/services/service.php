@@ -719,7 +719,13 @@ $GLOBALS['__jsonld'] = [
       "name" => "Neural Command LLC",
       "url" => "https://nrlc.ai"
     ],
-    "areaServed" => "Global",
+    "areaServed" => $service === 'ai-search-optimization' 
+      ? [
+          ["@type" => "Country", "name" => "United States"],
+          ["@type" => "Country", "name" => "United Kingdom"],
+          ["@type" => "City", "name" => "Norwich"]
+        ]
+      : "Global",
     "url" => $canonical_url
   ]
 ];
@@ -747,6 +753,15 @@ $GLOBALS['__jsonld'] = [
         <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
       </div>
     </div>
+
+    <?php if ($service === 'ai-search-optimization'): ?>
+    <!-- GEO CONFIRMATION BLOCK (Tier 1 Reinforcement) -->
+    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin: var(--spacing-md) 0;">
+      <div class="content-block__body">
+        <p style="margin: 0; font-weight: 500;"><strong>We work with companies across the United States and United Kingdom, including businesses in Norwich, London, and major technology hubs. All services are delivered remotely.</strong></p>
+      </div>
+    </div>
+    <?php endif; ?>
 
     <!-- City Selection Content Block -->
     <div class="content-block module">
@@ -806,6 +821,15 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
 
+    <?php if ($service === 'ai-search-optimization'): ?>
+    <!-- Mid-page Internal Link to Norwich (Tier 1 Reinforcement) -->
+    <div class="content-block module">
+      <div class="content-block__body">
+        <p>Looking for <a href="/en-gb/services/ai-seo-norwich/">AI SEO services in Norwich</a>? We provide specialized AI visibility optimization for businesses in Norwich and across the UK.</p>
+      </div>
+    </div>
+    <?php endif; ?>
+
     <!-- Consultation Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
@@ -815,8 +839,14 @@ $GLOBALS['__jsonld'] = [
         <p>Our team can help you select the right city and service package for your needs. Contact us for personalized recommendations.</p>
         <p>Learn more about our <a href="/insights/">AI SEO Research & Insights</a> and explore our <a href="/tools/">SEO Tools & Resources</a> to enhance your search visibility.</p>
         <p class="text-center">
+          <?php if ($service === 'ai-search-optimization'): ?>
+          <!-- Tier 1 CTA Replacement: Aligns with informational → commercial hybrid intent -->
+          <a href="/api/book/" class="btn btn--primary">Get a Free AI Visibility Audit</a>
+          <p style="margin-top: var(--spacing-sm); font-size: 0.9rem; color: #666;">See how your site appears in Google AI Overviews and ChatGPT</p>
+          <?php else: ?>
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
           <button type="button" class="btn" onclick="openContactSheet('<?= htmlspecialchars($serviceName) ?>')">Schedule Consultation</button>
+          <?php endif; ?>
         </p>
       </div>
     </div>

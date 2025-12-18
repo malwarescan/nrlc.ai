@@ -482,6 +482,9 @@ $aiVisibilityIndustries = require __DIR__.'/../lib/ai_visibility_industries.php'
 // Add main AI Visibility hub page
 $aiVisibilityEntries[] = sitemap_entry_simple("https://nrlc.ai/en-us/ai-visibility/", $today, 'weekly', '0.9');
 
+// Tier 1 Geo Reinforcement: Add Norwich page
+$aiVisibilityEntries[] = sitemap_entry_simple("https://nrlc.ai/en-gb/services/ai-seo-norwich/", $today, 'weekly', '0.8');
+
 // Add all industry-specific AI Visibility pages
 foreach ($aiVisibilityIndustries as $industrySlug => $industryData) {
   $path = "/ai-visibility/{$industrySlug}/";

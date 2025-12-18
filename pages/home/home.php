@@ -23,11 +23,14 @@ $domain = absolute_url('/');
         <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-md);">
           We help brands turn search authority into AI citations across Google AI Overviews, ChatGPT, and emerging answer engines.
         </p>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: var(--spacing-lg);">
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: var(--spacing-sm);">
           Led by Joel Maldonado - 20+ years in search, structured data, and algorithmic visibility.
         </p>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: var(--spacing-lg);">
+          Serving companies across the United States and United Kingdom, with proven results in competitive local and international markets.
+        </p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
-          <button type="button" class="btn" onclick="openContactSheet('AI Visibility Analysis')">See How AI Sees Your Brand</button>
+          <a href="/api/book/" class="btn btn--primary">Free AI Visibility Audit (US & UK)</a>
           <a href="#authority-explanation" class="btn btn--secondary">Why Traditional SEO Stops Working</a>
         </div>
       </div>
