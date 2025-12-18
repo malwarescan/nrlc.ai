@@ -356,7 +356,8 @@ $indexPages = [
   '/blog/',
   '/resources/',
   '/catalog/',
-  '/api/book/'
+  '/api/book/',
+  '/ai-visibility/'  // AI Visibility main hub page
 ];
 
 foreach ($indexPages as $path) {
@@ -472,6 +473,45 @@ if ($catalogEntries) {
   sitemap_write_gzipped($gzFile, $content);
   $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
   echo "Built catalog sitemap: " . count($catalogEntries) . " URLs\n";
+}
+
+// 16. AI Visibility pages sitemap
+$aiVisibilityEntries = [];
+$aiVisibilityIndustries = require __DIR__.'/../lib/ai_visibility_industries.php';
+
+// Add main AI Visibility hub page
+$aiVisibilityEntries[] = sitemap_entry_simple("https://nrlc.ai/en-us/ai-visibility/", $today, 'weekly', '0.9');
+
+// Add all industry-specific AI Visibility pages
+foreach ($aiVisibilityIndustries as $industrySlug => $industryData) {
+  $path = "/ai-visibility/{$industrySlug}/";
+  $hreflangUrls = sitemap_generate_hreflang_urls($path);
+  
+  // SITEMAP CANONICAL ONLY: Use the canonical locale URL
+  $canonicalUrl = $hreflangUrls['x-default'] ?? $hreflangUrls['en-us'] ?? '';
+  if ($canonicalUrl) {
+    $aiVisibilityEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '0.8');
+  }
+  
+  // Add audit example page for each industry (if exists)
+  $auditExamplePath = "/ai-visibility/audit-example/{$industrySlug}/";
+  $auditHreflangUrls = sitemap_generate_hreflang_urls($auditExamplePath);
+  $auditCanonicalUrl = $auditHreflangUrls['x-default'] ?? $auditHreflangUrls['en-us'] ?? '';
+  if ($auditCanonicalUrl) {
+    // Check if audit example page exists (at minimum, immigration exists)
+    // For now, include all - router will handle 404s if page doesn't exist
+    $aiVisibilityEntries[] = sitemap_entry_simple($auditCanonicalUrl, $today, 'monthly', '0.7');
+  }
+}
+
+if ($aiVisibilityEntries) {
+  $xmlFile = "{$outDir}ai-visibility-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($aiVisibilityEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built AI Visibility sitemap: " . count($aiVisibilityEntries) . " URLs\n";
 }
 
 // Generate unified index

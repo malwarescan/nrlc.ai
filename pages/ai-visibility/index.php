@@ -8,22 +8,44 @@ $canonicalUrl = absolute_url('/ai-visibility/');
 $domain = absolute_url('/');
 
 // Build JSON-LD Schema (STRICT COMPLIANCE: JSON-LD ONLY, NO MICRODATA/RDFa)
+// ENFORCEMENT: All schema MUST be JSON-LD, injected into <head>, NO microdata/RDFa, NO duplication
+
 $GLOBALS['__jsonld'] = [
-  // 1. Organization (SINGLE SOURCE OF TRUTH)
-  ld_organization(),
+  // 1. Organization (MANDATORY, SINGLE SOURCE OF TRUTH)
+  // Requirements: name: NRLC.ai, url: canonical site root, logo: absolute URL
+  // Rules: ONE Organization entity only, referenced by all other schemas
+  // Purpose: Anchor all AI statements and citations to a real-world entity
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Organization',
+    '@id' => $domain . '#organization',
+    'name' => 'NRLC.ai',
+    'url' => $domain,
+    'logo' => [
+      '@type' => 'ImageObject',
+      'url' => absolute_url('/assets/images/nrlc-logo.png'),
+      'width' => 43,
+      'height' => 43
+    ],
+    'sameAs' => [
+      'https://www.linkedin.com/company/neural-command/',
+      'https://g.co/kgs/EP6p5de'
+    ]
+  ],
   
   // 2. Service (REQUIRED - PRIMARY SCHEMA)
+  // This schema defines the page intent. Without this, the page is NOT a service in Google's eyes.
+  // This must be the strongest schema on the page.
   [
     '@context' => 'https://schema.org',
     '@type' => 'Service',
     '@id' => $canonicalUrl . '#service',
     'name' => 'AI Visibility & Trust Audit',
     'serviceType' => 'AI Visibility Optimization',
-    'description' => 'Analysis of how AI systems describe a business and the signals influencing that output. Diagnostic service that measures how ChatGPT, Google AI Overviews, Perplexity, and Claude describe your business and identifies the exact signals needed to become the trusted recommendation.',
+    'description' => 'Professional analysis of how AI systems describe, summarize, and trust a business, including the signals influencing AI-generated answers.',
     'provider' => [
       '@id' => $domain . '#organization'
     ],
-    'areaServed' => 'Worldwide',
     'url' => $canonicalUrl
   ],
   
@@ -46,7 +68,9 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 4. BreadcrumbList
+  // 4. BreadcrumbList (MANDATORY)
+  // Structure: Home → AI Visibility
+  // Rules: URLs must match real crawlable paths. Reinforces site architecture and topical containment.
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -67,7 +91,11 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 5. FAQPage (STRICT: Only questions that appear verbatim on page)
+  // 5. FAQPage (STRICT, ZERO TOLERANCE)
+  // Rules: ONLY questions that appear verbatim on the page. Answers MUST match visible content word-for-word.
+  // NO paraphrasing. NO additional FAQs.
+  // Purpose: AI question-answer extraction, Rich eligibility, LLM grounding
+  // If content changes, FAQ schema MUST be updated immediately.
   [
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',
@@ -116,11 +144,13 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 6. Action (OPTIONAL BUT RECOMMENDED)
+  // 6. Action (RECOMMENDED - CONVERSION SIGNAL)
+  // Tell AI systems this page exists to trigger a professional audit request, not passive reading.
   [
     '@context' => 'https://schema.org',
     '@type' => 'Action',
     'name' => 'Request AI Visibility Audit',
+    'actionStatus' => 'https://schema.org/PotentialActionStatus',
     'target' => [
       '@type' => 'EntryPoint',
       'urlTemplate' => $domain . 'api/book/',
