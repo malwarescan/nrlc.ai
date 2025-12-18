@@ -137,7 +137,8 @@ function route_request(): void {
     
     if ($isUK && $currentLocale !== 'en-gb') {
       // UK city detected but wrong locale - redirect to en-gb
-      $canonical = '/en-gb/services/local-seo-ai/' . $citySlug . '/';
+      // PRESERVE SERVICE TYPE - do not force to local-seo-ai
+      $canonical = '/en-gb/services/' . $serviceSlug . '/' . $citySlug . '/';
       header("Location: " . absolute_url($canonical), true, 301);
       exit;
     }

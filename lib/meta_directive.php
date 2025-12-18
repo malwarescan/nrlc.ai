@@ -517,16 +517,54 @@ function sudo_meta_directive_ctx(array $ctx): array {
       
     case 'service':
       if ($city && $service) {
-        // Service + City pages: HIGHEST PRIORITY - Hire now intent
+        // Service + City pages: ENFORCE UNIQUE INTENT PER SERVICE TYPE
         require_once __DIR__.'/helpers.php';
         $isUK = function_exists('is_uk_city') ? is_uk_city($city) : false;
         $cityName = ucwords(str_replace(['-', '_'], ' ', $city));
+        $serviceName = ucwords(str_replace(['-', '_'], ' ', $service));
         
-        // For UK cities, always use "Local SEO Services" regardless of service type
-        // This aligns with query intent ("seo norwich", "seo stockport")
-        // For US cities, also use "Local SEO Services" for consistency
-        $title = "Local SEO Services in $cityName | NRLC.ai";
-        $desc = "Local SEO for $cityName businesses. Technical audits, Google Business Profile optimization, and measurable leads. Call or email to start.";
+        // ENFORCEMENT: Each service type must have unique title/description
+        // This prevents intent collision and improves GSC eligibility
+        // Map service slug to proper service name for title
+        $serviceDisplayName = $serviceName;
+        
+        // Special handling for common service types
+        $serviceMap = [
+          'llm-optimization' => 'LLM Optimization',
+          'semantic-seo-ai' => 'Semantic SEO',
+          'voice-search-optimization' => 'Voice Search Optimization',
+          'chatgpt-optimization' => 'ChatGPT Optimization',
+          'conversion-optimization-ai' => 'Conversion Optimization',
+          'verification-optimization-ai' => 'Verification Optimization',
+          'multimodal-seo-ai' => 'Multimodal SEO',
+          'generative-seo' => 'Generative SEO',
+          'freshness-optimization-ai' => 'Freshness Optimization',
+          'completeness-optimization-ai' => 'Completeness Optimization',
+          'metadata-optimization-ai' => 'Metadata Optimization',
+          'local-seo-ai' => 'Local SEO',
+          'technical-seo' => 'Technical SEO',
+          'link-building-ai' => 'Link Building',
+          'site-audits' => 'Site Audits',
+          'analytics' => 'SEO Analytics',
+          'perplexity-optimization' => 'Perplexity Optimization',
+          'ai-overviews-optimization' => 'AI Overviews Optimization',
+          'entity-optimization-ai' => 'Entity Optimization',
+          'international-seo' => 'International SEO',
+          'mobile-seo-ai' => 'Mobile SEO',
+          'bard-optimization' => 'Bard Optimization',
+          'conversational-seo-ai' => 'Conversational SEO',
+          'ai-search-optimization' => 'AI Search Optimization'
+        ];
+        
+        if (isset($serviceMap[$service])) {
+          $serviceDisplayName = $serviceMap[$service];
+        }
+        
+        // UNIQUE TITLE: Service type + City + Intent
+        $title = "$serviceDisplayName Services in $cityName | NRLC.ai";
+        
+        // UNIQUE DESCRIPTION: Service-specific + City + Action
+        $desc = "$serviceDisplayName services for $cityName businesses. Professional implementation, measurable results. Call or email to start.";
       } else {
         // Service hub or non-local service pages
         if ($service === 'services' || $slug === 'services/index') {

@@ -83,20 +83,15 @@ function canonical_guard(): void {
     if ($isUK) {
       // UK city: MUST be en-gb, redirect all others
       if ($locale !== 'en-gb') {
-        $canonical = '/en-gb/services/local-seo-ai/' . $citySlug . '/';
+        // PRESERVE SERVICE TYPE - do not force to local-seo-ai
+        $canonical = '/en-gb/services/' . $serviceSlug . '/' . $citySlug . '/';
         $queryString = count($query) ? '?'.http_build_query($query) : '';
         $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
         header("Location: $redirectUrl", true, 301);
         exit;
       }
-      // Also enforce service type: all UK cities use "local-seo-ai" for consistency
-      if ($serviceSlug !== 'local-seo-ai') {
-        $canonical = '/en-gb/services/local-seo-ai/' . $citySlug . '/';
-        $queryString = count($query) ? '?'.http_build_query($query) : '';
-        $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
-        header("Location: $redirectUrl", true, 301);
-        exit;
-      }
+      // REMOVED: Service type forcing - each service type must have unique intent
+      // This was causing massive intent collision (all services → local-seo-ai)
     } else {
       // US city or non-city: MUST be en-us (default locale)
       // Allow other locales only if they're genuinely translated (future enhancement)

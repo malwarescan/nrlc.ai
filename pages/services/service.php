@@ -198,8 +198,14 @@ if (in_array($service, $semanticServices)) {
           <div class="content-block__body">
             <p class="lead"><?= htmlspecialchars($content['description']) ?></p>
             <?= $content['content'] ?>
-            <p class="text-center">
+            <!-- CONVERSION PRIMITIVES: Phone, Email, CTA -->
+            <div class="btn-group text-center" style="margin: 1.5rem 0;">
+              <a href="tel:+12135628438" class="btn btn--primary">Call</a>
+              <a href="mailto:hirejoelm@gmail.com" class="btn btn--primary">Email</a>
               <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($content['title']) ?>')">Book a Demo</button>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Response within 24 hours</p>
+            <p class="text-center">
               <a href="/services/" class="btn">View All Services</a>
             </p>
           </div>
