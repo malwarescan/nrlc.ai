@@ -635,9 +635,11 @@ function route_request(): void {
   // AI Visibility Landing Pages
   if ($path === '/ai-visibility/') {
     // Set metadata directly for AI Visibility service page
+    // ENFORCEMENT: Meta title must include "AI Visibility" + "NRLC"
+    // Meta description must explain AI summaries, not rankings
     $GLOBALS['__page_meta'] = [
-      'title' => 'AI Visibility | Control How AI Recommends Your Business',
-      'description' => 'Control how AI systems describe, recommend, and reference your business. Industry-specific AI visibility optimization for high-trust industries.',
+      'title' => 'AI Visibility | How AI Describes Your Business | NRLC.ai',
+      'description' => 'AI Visibility & Trust Audit: Analysis of how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude describe businesses and the signals influencing AI-generated summaries. Professional diagnostic service from NRLC.ai.',
       'canonicalPath' => $path
     ];
     render_page('ai-visibility/index');

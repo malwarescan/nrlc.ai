@@ -7,15 +7,34 @@ $industries = require __DIR__ . '/../../lib/ai_visibility_industries.php';
 $canonicalUrl = absolute_url('/ai-visibility/');
 $domain = absolute_url('/');
 
-// Build JSON-LD Schema
+// Build JSON-LD Schema (STRICT COMPLIANCE: JSON-LD ONLY, NO MICRODATA/RDFa)
 $GLOBALS['__jsonld'] = [
+  // 1. Organization (SINGLE SOURCE OF TRUTH)
+  ld_organization(),
+  
+  // 2. Service (REQUIRED - PRIMARY SCHEMA)
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    '@id' => $canonicalUrl . '#service',
+    'name' => 'AI Visibility & Trust Audit',
+    'serviceType' => 'AI Visibility Optimization',
+    'description' => 'Analysis of how AI systems describe a business and the signals influencing that output. Diagnostic service that measures how ChatGPT, Google AI Overviews, Perplexity, and Claude describe your business and identifies the exact signals needed to become the trusted recommendation.',
+    'provider' => [
+      '@id' => $domain . '#organization'
+    ],
+    'areaServed' => 'Worldwide',
+    'url' => $canonicalUrl
+  ],
+  
+  // 3. WebPage
   [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     '@id' => $canonicalUrl . '#webpage',
     'url' => $canonicalUrl,
-    'name' => 'AI Visibility | Control How AI Recommends Your Business',
-    'description' => 'Control how AI systems describe, recommend, and reference your business. Industry-specific AI visibility optimization for high-trust industries.',
+    'name' => 'AI Visibility',
+    'description' => 'Professional service offering AI Visibility & Trust Audit. Analysis of how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude describe businesses and the signals that influence AI-generated summaries.',
     'isPartOf' => [
       '@type' => 'WebSite',
       '@id' => $domain . '#website',
@@ -26,22 +45,8 @@ $GLOBALS['__jsonld'] = [
       '@id' => $canonicalUrl . '#service'
     ]
   ],
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Service',
-    '@id' => $canonicalUrl . '#service',
-    'name' => 'AI Visibility Optimization',
-    'serviceType' => 'AI Search Optimization',
-    'description' => 'Control how AI systems describe, recommend, and reference your business. We restructure your website and digital signals so AI assistants understand exactly what you do, trust your expertise, and prefer you when explaining options.',
-    'provider' => [
-      '@type' => 'Organization',
-      '@id' => $domain . '#organization',
-      'name' => 'Neural Command',
-      'url' => $domain
-    ],
-    'areaServed' => 'Worldwide',
-    'url' => $canonicalUrl
-  ],
+  
+  // 4. BreadcrumbList
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -61,23 +66,85 @@ $GLOBALS['__jsonld'] = [
       ]
     ]
   ],
-  ld_organization()
+  
+  // 5. FAQPage (STRICT: Only questions that appear verbatim on page)
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    '@id' => $canonicalUrl . '#faq',
+    'mainEntity' => [
+      [
+        '@type' => 'Question',
+        'name' => 'Can you control what ChatGPT says about my business?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'We can\'t force AI to say anything, but we can control the signals it learns from.'
+        ]
+      ],
+      [
+        '@type' => 'Question',
+        'name' => 'Is this different from SEO?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'Yes. SEO targets rankings. This targets AI understanding and trust.'
+        ]
+      ],
+      [
+        '@type' => 'Question',
+        'name' => 'Will this replace Google rankings?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'No. It complements SEO and protects you as AI replaces clicks.'
+        ]
+      ],
+      [
+        '@type' => 'Question',
+        'name' => 'Is this safe and compliant?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'Yes. We use transparent, compliance-safe methods.'
+        ]
+      ],
+      [
+        '@type' => 'Question',
+        'name' => 'How long does it take to see changes?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'AI visibility changes as signals propagate. Early improvements often appear within weeks.'
+        ]
+      ]
+    ]
+  ],
+  
+  // 6. Action (OPTIONAL BUT RECOMMENDED)
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Action',
+    'name' => 'Request AI Visibility Audit',
+    'target' => [
+      '@type' => 'EntryPoint',
+      'urlTemplate' => $domain . 'api/book/',
+      'actionPlatform' => 'http://schema.org/DesktopWebPlatform'
+    ]
+  ]
 ];
 ?>
 <main role="main" class="container">
 <section class="section">
   <div class="section__content">
     
-    <!-- HERO -->
+    <!-- HERO (ABOVE THE FOLD: WHAT, WHO, WHAT PROBLEM) -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">Control How AI Talks About Your Business</h1>
+        <h1 class="content-block__title">AI Visibility & Trust Audit</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">AI assistants like ChatGPT now answer the exact questions your customers ask before they ever search Google. We make sure your business is the one AI systems trust, reference, and recommend.</p>
+        <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>WHAT:</strong> A professional diagnostic service that analyzes how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude describe your business.</p>
+        <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>WHO:</strong> For businesses in high-trust industries where customers research extensively before making decisions.</p>
+        <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>PROBLEM:</strong> AI assistants now answer customer questions directly, summarizing information instead of linking to websites. If AI systems don't understand or trust your business, they recommend competitors. <strong>This is NOT traditional SEO.</strong> SEO targets search rankings. AI Visibility targets how AI systems understand, describe, and trust your business.</p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
+          <a href="/api/book/" class="btn btn--primary" data-ripple>Request AI Visibility Audit</a>
           <a href="/api/book/" class="btn" data-ripple>See How AI Describes Your Business</a>
-          <a href="/api/book/" class="btn btn--secondary" data-ripple>Request an AI Visibility Audit</a>
         </div>
       </div>
     </div>
@@ -105,15 +172,15 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">SEO Gets You Ranked. AI Decides Who Gets Trusted.</h2>
       </div>
       <div class="content-block__body">
-        <p>Search results are shrinking. AI assistants summarize instead of linking.</p>
-        <p>AI doesn't rank pages the way Google does. It pulls from:</p>
+        <p>Search results are shrinking. AI assistants like ChatGPT, Google AI Overviews, Perplexity, and Claude summarize instead of linking.</p>
+        <p>AI doesn't rank pages the way Google does. It pulls from AI Trust Signals:</p>
         <ul>
           <li>Clear service definitions</li>
           <li>Consistent explanations</li>
           <li>Structured, machine-readable signals</li>
           <li>Repeated authority patterns across the web</li>
         </ul>
-        <p>If your business is unclear, AI fills in the gaps — often with competitors.</p>
+        <p>If your business is unclear, AI fills in the gaps — often with competitors. This is about how AI describes your business, not search rankings.</p>
       </div>
     </div>
 
@@ -123,7 +190,7 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">What We Do (In Plain English)</h2>
       </div>
       <div class="content-block__body">
-        <p>We analyze how AI systems currently describe your business, your services, and your competitors.</p>
+        <p>We analyze how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude currently describe your business, your services, and your competitors.</p>
         <p>Then we restructure your website and digital signals so AI assistants:</p>
         <ul>
           <li>Understand exactly what you do</li>
@@ -132,6 +199,7 @@ $GLOBALS['__jsonld'] = [
           <li>Prefer you when explaining options</li>
         </ul>
         <p><strong>We don't try to trick AI. We make your business unambiguous.</strong></p>
+        <p><strong>This is NOT SEO.</strong> We focus on AI Trust Signals and how AI describes your business, not search rankings or keyword optimization.</p>
       </div>
     </div>
 
@@ -159,64 +227,60 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">This Is Already Happening</h2>
       </div>
       <div class="content-block__body">
-        <p>AI assistants already:</p>
+        <p>AI assistants like ChatGPT, Google AI Overviews, Perplexity, and Claude already:</p>
         <ul>
           <li>Summarize reviews instead of users reading them</li>
           <li>Answer "do I need a [service provider]?" directly</li>
           <li>Explain risks and timelines without visiting websites</li>
           <li>Mention specific businesses by name when authority is clear</li>
         </ul>
-        <p><strong>Ignoring this layer means losing control of how your business is represented.</strong></p>
+        <p><strong>Ignoring AI Visibility means losing control of how your business is represented in AI-generated summaries.</strong></p>
       </div>
     </div>
 
     <!-- SECTION: THE OFFER -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">The Offer</h2>
+        <h2 class="content-block__title">The Offer: AI Visibility & Trust Audit</h2>
       </div>
       <div class="content-block__body">
-        <h3>AI Visibility & Trust Audit</h3>
+        <p><strong>AI Visibility & Trust Audit</strong> is a diagnostic that measures how AI systems describe your business and identifies the exact signals needed to become the trusted recommendation.</p>
         <p>You receive:</p>
         <ul>
           <li>A breakdown of how AI currently describes your business</li>
           <li>Where competitors are being favored</li>
-          <li>What signals are missing or unclear</li>
+          <li>What AI Trust Signals are missing or unclear</li>
           <li>A prioritized fix list</li>
         </ul>
-        <p><strong>This is a diagnostic, not a contract.</strong></p>
+        <p><strong>This is a diagnostic, not a contract.</strong> This is: a diagnostic + prioritized fix list. This isn't: a promise to control AI output or guaranteed rankings.</p>
         <p style="margin-top: var(--spacing-lg);">
-          <a href="/api/book/" class="btn" data-ripple>Request Your AI Visibility Audit</a>
+          <a href="/api/book/" class="btn btn--primary" data-ripple>Request AI Visibility Audit</a>
         </p>
       </div>
     </div>
 
-    <!-- FAQ SECTION -->
+    <!-- FAQ SECTION (STRICT: Must match FAQPage schema verbatim) -->
     <div class="content-block module">
       <div class="content-block__header">
         <h2 class="content-block__title">FAQ</h2>
       </div>
       <div class="content-block__body">
-        <div style="margin-bottom: var(--spacing-md);">
-          <h3 style="margin-top: 0; font-size: 1.1rem;">Can you control what ChatGPT says about my business?</h3>
-          <p>We can't force AI to say anything, but we can control the signals it learns from.</p>
-        </div>
-        <div style="margin-bottom: var(--spacing-md);">
-          <h3 style="margin-top: 0; font-size: 1.1rem;">Is this different from SEO?</h3>
-          <p>Yes. SEO targets rankings. This targets AI understanding and trust.</p>
-        </div>
-        <div style="margin-bottom: var(--spacing-md);">
-          <h3 style="margin-top: 0; font-size: 1.1rem;">Will this replace Google rankings?</h3>
-          <p>No. It complements SEO and protects you as AI replaces clicks.</p>
-        </div>
-        <div style="margin-bottom: var(--spacing-md);">
-          <h3 style="margin-top: 0; font-size: 1.1rem;">Is this safe and compliant?</h3>
-          <p>Yes. We use transparent, compliance-safe methods.</p>
-        </div>
-        <div style="margin-bottom: var(--spacing-md);">
-          <h3 style="margin-top: 0; font-size: 1.1rem;">How long does it take to see changes?</h3>
-          <p>AI visibility changes as signals propagate. Early improvements often appear within weeks.</p>
-        </div>
+        <dl>
+          <dt><strong>Can you control what ChatGPT says about my business?</strong></dt>
+          <dd>We can't force AI to say anything, but we can control the signals it learns from.</dd>
+          
+          <dt><strong>Is this different from SEO?</strong></dt>
+          <dd>Yes. SEO targets rankings. This targets AI understanding and trust.</dd>
+          
+          <dt><strong>Will this replace Google rankings?</strong></dt>
+          <dd>No. It complements SEO and protects you as AI replaces clicks.</dd>
+          
+          <dt><strong>Is this safe and compliant?</strong></dt>
+          <dd>Yes. We use transparent, compliance-safe methods.</dd>
+          
+          <dt><strong>How long does it take to see changes?</strong></dt>
+          <dd>AI visibility changes as signals propagate. Early improvements often appear within weeks.</dd>
+        </dl>
       </div>
     </div>
 
