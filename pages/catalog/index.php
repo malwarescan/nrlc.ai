@@ -27,10 +27,13 @@ $title='Catalog — Services & Software | '.$brand;
 $desc='Complete catalog of NRLC.ai services and software. Professional AI SEO services, structured data implementation, and open source tools for developers.';
 
 $GLOBALS['__page_slug'] = 'catalog/index';
-$GLOBALS['pageTitle'] = 'Catalog | NRLC.ai';
-$GLOBALS['pageDesc'] = 'Complete catalog of professional services and software tools from NRLC.ai.';
-
-
+// Set metadata in router format
+$GLOBALS['__page_meta'] = [
+  'title' => $title,
+  'description' => $desc,
+  'canonicalPath' => '/catalog/'
+];
+// Legacy format for backwards compatibility
 $GLOBALS['pageTitle'] = $title;
 $GLOBALS['pageDesc'] = $desc;
 ?>
@@ -78,13 +81,19 @@ $GLOBALS['pageDesc'] = $desc;
                   <strong style="display: block; margin-bottom: 0.5rem; color: var(--color-text-primary, #1a1a1a); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.75rem;">Reference Links</strong>
                   <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.375rem;">
                     <li><a href="<?= htmlspecialchars($u) ?>" title="View detailed information about <?= htmlspecialchars($it['name']) ?> - <?= htmlspecialchars($it['short']) ?>" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Details</a></li>
-                    <?php if (!empty($it['landing_url'])): ?>
+                    <?php if (!empty($it['landing_url'])): 
+                      // Convert absolute URLs to relative paths
+                      $landingUrl = $it['landing_url'];
+                      if (preg_match('#^https?://[^/]+(/.+)$#', $landingUrl, $m)) {
+                        $landingUrl = $m[1];
+                      }
+                    ?>
                       <?php if ($it['type'] === 'service'): ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service page with implementation details, pricing, and availability" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Service Page</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service page with implementation details, pricing, and availability" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Service Page</a></li>
                       <?php elseif ($it['type'] === 'software'): ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Access <?= htmlspecialchars($it['name']) ?> documentation, API reference, and technical specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Documentation</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="Access <?= htmlspecialchars($it['name']) ?> documentation, API reference, and technical specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Documentation</a></li>
                       <?php else: ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> product information, features, and specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;">Product Page</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> product information, features, and specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;">Product Page</a></li>
                       <?php endif; ?>
                     <?php endif; ?>
                     <?php if ($it['type'] === 'service'): ?>
@@ -109,13 +118,19 @@ $GLOBALS['pageDesc'] = $desc;
                 </div>
                 
                 <div class="btn-group">
-                  <?php if (!empty($it['landing_url'])): ?>
+                  <?php if (!empty($it['landing_url'])): 
+                    // Convert absolute URLs to relative paths
+                    $landingUrl = $it['landing_url'];
+                    if (preg_match('#^https?://[^/]+(/.+)$#', $landingUrl, $m)) {
+                      $landingUrl = $m[1];
+                    }
+                  ?>
                     <?php if ($it['type'] === 'service'): ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service - <?= htmlspecialchars($it['short']) ?>" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Service</a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service - <?= htmlspecialchars($it['short']) ?>" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Service</a>
                     <?php elseif ($it['type'] === 'software'): ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> documentation and technical specifications" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Docs</a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> documentation and technical specifications" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Docs</a>
                     <?php else: ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> product details and features" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?></a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> product details and features" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?></a>
                     <?php endif; ?>
                   <?php else: ?>
                     <a href="<?= htmlspecialchars($u) ?>" title="View detailed information about <?= htmlspecialchars($it['name']) ?>" class="btn btn--primary">View Details</a>
@@ -157,13 +172,19 @@ $GLOBALS['pageDesc'] = $desc;
                   <strong style="display: block; margin-bottom: 0.5rem; color: var(--color-text-primary, #1a1a1a); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.75rem;">Reference Links</strong>
                   <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.375rem;">
                     <li><a href="<?= htmlspecialchars($u) ?>" title="View detailed information about <?= htmlspecialchars($it['name']) ?> - <?= htmlspecialchars($it['short']) ?>" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Details</a></li>
-                    <?php if (!empty($it['landing_url'])): ?>
+                    <?php if (!empty($it['landing_url'])): 
+                      // Convert absolute URLs to relative paths
+                      $landingUrl = $it['landing_url'];
+                      if (preg_match('#^https?://[^/]+(/.+)$#', $landingUrl, $m)) {
+                        $landingUrl = $m[1];
+                      }
+                    ?>
                       <?php if ($it['type'] === 'service'): ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service page with implementation details, pricing, and availability" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Service Page</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service page with implementation details, pricing, and availability" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Service Page</a></li>
                       <?php elseif ($it['type'] === 'software'): ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Access <?= htmlspecialchars($it['name']) ?> documentation, API reference, and technical specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Documentation</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="Access <?= htmlspecialchars($it['name']) ?> documentation, API reference, and technical specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Documentation</a></li>
                       <?php else: ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> product information, features, and specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;">Product Page</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> product information, features, and specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;">Product Page</a></li>
                       <?php endif; ?>
                     <?php endif; ?>
                     <?php if ($it['type'] === 'service'): ?>
@@ -188,13 +209,19 @@ $GLOBALS['pageDesc'] = $desc;
                 </div>
                 
                 <div class="btn-group">
-                  <?php if (!empty($it['landing_url'])): ?>
+                  <?php if (!empty($it['landing_url'])): 
+                    // Convert absolute URLs to relative paths
+                    $landingUrl = $it['landing_url'];
+                    if (preg_match('#^https?://[^/]+(/.+)$#', $landingUrl, $m)) {
+                      $landingUrl = $m[1];
+                    }
+                  ?>
                     <?php if ($it['type'] === 'service'): ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service - <?= htmlspecialchars($it['short']) ?>" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Service</a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service - <?= htmlspecialchars($it['short']) ?>" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Service</a>
                     <?php elseif ($it['type'] === 'software'): ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> documentation and technical specifications" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Docs</a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> documentation and technical specifications" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Docs</a>
                     <?php else: ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> product details and features" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?></a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> product details and features" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?></a>
                     <?php endif; ?>
                   <?php else: ?>
                     <a href="<?= htmlspecialchars($u) ?>" title="View detailed information about <?= htmlspecialchars($it['name']) ?>" class="btn btn--primary">View Details</a>
@@ -235,13 +262,19 @@ $GLOBALS['pageDesc'] = $desc;
                   <strong style="display: block; margin-bottom: 0.5rem; color: var(--color-text-primary, #1a1a1a); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.75rem;">Reference Links</strong>
                   <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.375rem;">
                     <li><a href="<?= htmlspecialchars($u) ?>" title="View detailed information about <?= htmlspecialchars($it['name']) ?> - <?= htmlspecialchars($it['short']) ?>" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Details</a></li>
-                    <?php if (!empty($it['landing_url'])): ?>
+                    <?php if (!empty($it['landing_url'])): 
+                      // Convert absolute URLs to relative paths
+                      $landingUrl = $it['landing_url'];
+                      if (preg_match('#^https?://[^/]+(/.+)$#', $landingUrl, $m)) {
+                        $landingUrl = $m[1];
+                      }
+                    ?>
                       <?php if ($it['type'] === 'service'): ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service page with implementation details, pricing, and availability" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Service Page</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service page with implementation details, pricing, and availability" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Service Page</a></li>
                       <?php elseif ($it['type'] === 'software'): ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Access <?= htmlspecialchars($it['name']) ?> documentation, API reference, and technical specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Documentation</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="Access <?= htmlspecialchars($it['name']) ?> documentation, API reference, and technical specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;"><?= htmlspecialchars($it['name']) ?> Documentation</a></li>
                       <?php else: ?>
-                        <li><a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> product information, features, and specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;">Product Page</a></li>
+                        <li><a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> product information, features, and specifications" style="color: var(--color-brand, #0066cc); text-decoration: none; border-bottom: 1px dotted currentColor;">Product Page</a></li>
                       <?php endif; ?>
                     <?php endif; ?>
                     <?php if ($it['type'] === 'service'): ?>
@@ -266,13 +299,19 @@ $GLOBALS['pageDesc'] = $desc;
                 </div>
                 
                 <div class="btn-group">
-                  <?php if (!empty($it['landing_url'])): ?>
+                  <?php if (!empty($it['landing_url'])): 
+                    // Convert absolute URLs to relative paths
+                    $landingUrl = $it['landing_url'];
+                    if (preg_match('#^https?://[^/]+(/.+)$#', $landingUrl, $m)) {
+                      $landingUrl = $m[1];
+                    }
+                  ?>
                     <?php if ($it['type'] === 'service'): ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service - <?= htmlspecialchars($it['short']) ?>" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Service</a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="Explore <?= htmlspecialchars($it['name']) ?> service - <?= htmlspecialchars($it['short']) ?>" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Service</a>
                     <?php elseif ($it['type'] === 'software'): ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> documentation and technical specifications" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Docs</a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> documentation and technical specifications" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?> Docs</a>
                     <?php else: ?>
-                      <a href="<?= htmlspecialchars($it['landing_url']) ?>" title="View <?= htmlspecialchars($it['name']) ?> product details and features" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?></a>
+                      <a href="<?= htmlspecialchars($landingUrl) ?>" title="View <?= htmlspecialchars($it['name']) ?> product details and features" class="btn btn--primary"><?= htmlspecialchars($it['name']) ?></a>
                     <?php endif; ?>
                   <?php else: ?>
                     <a href="<?= htmlspecialchars($u) ?>" title="View detailed information about <?= htmlspecialchars($it['name']) ?>" class="btn btn--primary">View Details</a>

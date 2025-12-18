@@ -64,12 +64,25 @@ function route_request(): void {
   if ($path === '/' || $path === '') {
     // Generate unique metadata using ctx-based system
     require_once __DIR__.'/../lib/meta_directive.php';
+    require_once __DIR__.'/../lib/SchemaFixes.php';
+    
     $ctx = [
       'type' => 'home',
       'slug' => 'home/home',
       'canonicalPath' => '/'
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
+    // Set founder relationship for Organization schema (homepage only)
+    require_once __DIR__.'/../lib/SchemaFixes.php';
+    $baseUrl = \NRLC\Schema\SchemaFixes::ensureHttps(absolute_url('/en-us/'));
+    $joelPersonId = $baseUrl . '#joel-maldonado';
+    $GLOBALS['__homepage_org_founder'] = [
+      '@type' => 'Person',
+      '@id' => $joelPersonId,
+      'name' => 'Joel Maldonado'
+    ];
+    
     render_page('home/home');
     return;
   }
@@ -129,12 +142,15 @@ function route_request(): void {
       exit;
     }
     
+    // Use actual request path (includes locale prefix) for canonical
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    
     $ctx = [
       'type' => 'service',
       'slug' => "services/service_city",
       'service' => $serviceSlug, // Pass slug, not title
       'city' => $citySlug, // Pass slug, not title
-      'canonicalPath' => $path
+      'canonicalPath' => $actualPath // Use actual request path (includes locale prefix)
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
@@ -401,11 +417,31 @@ function route_request(): void {
   }
 
   if ($path === '/promptware/json-stream-seo-ai/') {
+    // Set metadata before rendering
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'tool',
+      'slug' => 'promptware/json-stream-seo-ai/index',
+      'title' => 'JSON Stream + SEO AI · Promptware · NRLC.ai',
+      'excerpt' => 'Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.',
+      'canonicalPath' => '/promptware/json-stream-seo-ai/'
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('promptware/json-stream-seo-ai/index');
     return;
   }
 
   if ($path === '/promptware/llm-data-to-citation/') {
+    // Set metadata before rendering
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'tool',
+      'slug' => 'promptware/llm-data-to-citation/index',
+      'title' => 'LLM Data-to-Citation Guide — How Schema & NDJSON Earn Citations',
+      'excerpt' => 'A practical playbook for turning your site\'s schema and NDJSON into citations inside LLM answers and AI Overviews.',
+      'canonicalPath' => '/promptware/llm-data-to-citation/'
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('promptware/llm-data-to-citation/index');
     return;
   }
@@ -703,14 +739,25 @@ function render_page(string $slug): void {
 
   // Special handling for catalog pages - use pages/ directory
   if (strpos($slug, 'catalog/') === 0) {
-    // Load metadata before head.php
     $pageFile = __DIR__.'/../pages/'.$slug.'.php';
-    load_page_metadata($pageFile);
-    include __DIR__.'/../templates/head.php';
-    include __DIR__.'/../templates/header.php';
-    include $pageFile;
-    include __DIR__.'/../templates/footer.php';
-    return;
+    if (file_exists($pageFile)) {
+      // Include page file to set metadata (capture output to prevent headers sent)
+      ob_start();
+      include $pageFile;
+      $pageOutput = ob_get_clean();
+      
+      // Only call load_page_metadata if page didn't set __page_meta
+      if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
+        load_page_metadata($pageFile);
+      }
+      
+      // Now include templates (metadata should be set by now)
+      include __DIR__.'/../templates/head.php';
+      include __DIR__.'/../templates/header.php';
+      echo $pageOutput;
+      include __DIR__.'/../templates/footer.php';
+      return;
+    }
   }
 
   // Load page metadata BEFORE head.php is included

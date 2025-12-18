@@ -17,6 +17,13 @@ $url   = $domain . '/promptware/' . $slug . '/';
 // Set page slug for metadata
 $GLOBALS['__page_slug'] = 'promptware/llm-data-to-citation';
 
+// Set metadata in router format
+$GLOBALS['__page_meta'] = [
+  'title' => $title,
+  'description' => $desc,
+  'canonicalPath' => '/promptware/llm-data-to-citation/'
+];
+// Legacy format for backwards compatibility
 // Override metadata for this page
 $GLOBALS['pageTitle'] = $title;
 $GLOBALS['pageDesc'] = $desc;

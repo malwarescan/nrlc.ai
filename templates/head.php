@@ -5,6 +5,11 @@ if (defined('HEAD_PHP_INCLUDED')) {
 }
 define('HEAD_PHP_INCLUDED', true);
 
+// Set header FIRST before any output
+if (!headers_sent()) {
+  header('Content-Type: text/html; charset=utf-8');
+}
+
 require_once __DIR__.'/../lib/helpers.php';
 require_once __DIR__.'/../lib/schema_builders.php';
 require_once __DIR__.'/../lib/hreflang.php';
@@ -19,7 +24,8 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
   
   if ($isProduction) {
     // Production: Output noindex to prevent indexing of bypassed pages
-    echo '<meta name="robots" content="noindex,nofollow">' . "\n";
+    // Note: This output happens AFTER header is set, so it's safe
+    $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
     // Still provide minimal metadata to prevent errors
     $title = 'NRLC.ai';
     $desc = 'AI SEO services and solutions';
@@ -28,6 +34,7 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
     trigger_error("CRITICAL: templates/head.php called without router metadata. Page bypassed router meta system. Slug: $slug", E_USER_ERROR);
     $title = 'ERROR: Missing Metadata';
     $desc = 'This page bypassed the router metadata system';
+    $noindexMeta = '';
   }
   
   // Build canonical from request path
@@ -48,14 +55,49 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
   $title = $meta['title'] ?? 'NRLC.ai';
   $desc = $meta['description'] ?? 'AI SEO services and solutions';
   $canonicalPath = $meta['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+  $noindexMeta = '';
+  
+  // GSC FIX: Fix canonical tag for non-canonical locale versions
+  // This prevents "Duplicate, Google chose different canonical than user" issues
+  $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+  if (preg_match('#^/([a-z]{2})-([a-z]{2})(.+)$#i', $requestPath, $m)) {
+    $currentLocale = strtolower($m[1] . '-' . $m[2]);
+    $pathWithoutLocale = $m[3];
+    
+    // Check if this is a LOCAL page
+    if (function_exists('is_local_page') && is_local_page($pathWithoutLocale)) {
+      // Check if current locale is canonical for this LOCAL page
+      if (function_exists('is_canonical_locale_for_local_page')) {
+        if (!is_canonical_locale_for_local_page($pathWithoutLocale, $currentLocale)) {
+          // Non-canonical locale version of LOCAL page
+          // CRITICAL: Set canonical tag to canonical locale version, NOT to self
+          if (function_exists('get_canonical_locale_for_city')) {
+            // Extract city from path
+            if (preg_match('#/services/[^/]+/([^/]+)/#', $pathWithoutLocale, $cityMatch)) {
+              $citySlug = $cityMatch[1];
+              $canonicalLocale = get_canonical_locale_for_city($citySlug);
+              // Override canonical path to point to canonical locale version
+              $canonicalPath = '/' . $canonicalLocale . $pathWithoutLocale;
+            } else if (preg_match('#/careers/([^/]+)/#', $pathWithoutLocale, $cityMatch)) {
+              $citySlug = $cityMatch[1];
+              $canonicalLocale = get_canonical_locale_for_city($citySlug);
+              // Override canonical path to point to canonical locale version
+              $canonicalPath = '/' . $canonicalLocale . $pathWithoutLocale;
+            }
+          }
+          // Also add noindex as backup (redirects should catch these, but noindex is extra protection)
+          $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+        }
+      }
+    }
+  }
 }
 
 $baseSchemas = base_schemas();
-
-header('Content-Type: text/html; charset=utf-8');
 ?><!doctype html>
 <html lang="<?=htmlspecialchars(substr(current_locale(),0,2))?>">
 <head>
+<?php if (isset($noindexMeta)) echo $noindexMeta; ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?=htmlspecialchars($title)?></title>

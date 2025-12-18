@@ -51,6 +51,13 @@ if ($item['type'] === 'service') {
 }
 
 $GLOBALS['__page_slug'] = 'catalog/item';
+// Set metadata in router format
+$GLOBALS['__page_meta'] = [
+  'title' => $title,
+  'description' => $seoDesc,
+  'canonicalPath' => '/catalog/' . $slug . '/'
+];
+// Legacy format for backwards compatibility
 $GLOBALS['pageTitle'] = $title;
 $GLOBALS['pageDesc'] = $seoDesc;
 ?>

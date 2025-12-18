@@ -53,6 +53,14 @@ function canonical_guard(): void {
   if ($uri === '/' || $uri === '') {
     return;
   }
+  
+  // Handle /products/ paths - redirect to homepage or noindex (products are deprecated)
+  if (preg_match('#^/([a-z]{2}-[a-z]{2})?/products/#', $uri)) {
+    // Redirect products paths to homepage
+    $redirectUrl = $scheme.'://'.$host.'/';
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
 
   // ========================================================================
   // SUDO POWERED LOCALE AUTHORITY ENFORCEMENT (HARD)
@@ -63,6 +71,7 @@ function canonical_guard(): void {
   // Any other locale variant MUST 301 redirect immediately
   // ========================================================================
   
+  // Handle service+city LOCAL pages
   if (preg_match('#^/([a-z]{2}-[a-z]{2})/services/([^/]+)/([^/]+)/#', $uri, $m)) {
     $locale = $m[1];
     $serviceSlug = $m[2];
@@ -101,6 +110,27 @@ function canonical_guard(): void {
         header("Location: $redirectUrl", true, 301);
         exit;
       }
+    }
+  }
+  
+  // Handle career+city LOCAL pages
+  if (preg_match('#^/([a-z]{2}-[a-z]{2})/careers/([^/]+)/([^/]+)/#', $uri, $m)) {
+    $locale = $m[1];
+    $citySlug = $m[2];
+    $roleSlug = $m[3];
+    
+    require_once __DIR__.'/../lib/helpers.php';
+    $canonicalLocale = function_exists('get_canonical_locale_for_city') 
+      ? get_canonical_locale_for_city($citySlug) 
+      : 'en-us';
+    
+    // Redirect non-canonical locale versions to canonical locale
+    if ($locale !== $canonicalLocale) {
+      $canonical = '/' . $canonicalLocale . '/careers/' . $citySlug . '/' . $roleSlug . '/';
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
     }
   }
   

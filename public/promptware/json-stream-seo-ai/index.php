@@ -12,7 +12,13 @@ $contact = 'team@nrlc.ai';
 // Set page slug for metadata
 $GLOBALS['__page_slug'] = 'promptware/json-stream-seo-ai';
 
-// Override metadata for this page
+// Set metadata in router format
+$GLOBALS['__page_meta'] = [
+  'title' => 'JSON Stream + SEO AI · Promptware · NRLC.ai',
+  'description' => 'Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.',
+  'canonicalPath' => '/promptware/json-stream-seo-ai/'
+];
+// Legacy format for backwards compatibility
 $GLOBALS['pageTitle'] = 'JSON Stream + SEO AI · Promptware · NRLC.ai';
 $GLOBALS['pageDesc'] = 'Open-source JSON streaming (NDJSON) utilities and AI manifests for LLM/RAG and internal crawlers.';
 

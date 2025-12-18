@@ -17,11 +17,12 @@ function ld_organization(): array {
   // @id required for entity resolution
   // logo must be ImageObject for rich results eligibility
   $homeUrl = SchemaFixes::ensureHttps(absolute_url('/en-us/'));
-  return [
+  $org = [
     '@context'=>'https://schema.org',
     '@type'=>'Organization',
     '@id'=>$homeUrl.'#organization',
-    'name'=>'NRLC.ai',
+    'name'=>'Neural Command LLC',
+    'legalName'=>'Neural Command LLC',
     'url'=>$homeUrl,
     'logo'=>[
       '@type'=>'ImageObject',
@@ -34,6 +35,13 @@ function ld_organization(): array {
       'https://g.co/kgs/EP6p5de'
     ]
   ];
+  
+  // Add founder relationship if set on homepage
+  if (isset($GLOBALS['__homepage_org_founder'])) {
+    $org['founder'] = $GLOBALS['__homepage_org_founder'];
+  }
+  
+  return $org;
 }
 
 function ld_website_with_searchaction(): array {

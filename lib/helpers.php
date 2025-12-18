@@ -166,6 +166,45 @@ function is_uk_city(string $citySlug): bool {
   return false;
 }
 
+/**
+ * Determine the canonical locale for a LOCAL page based on city
+ * 
+ * @param string $citySlug City slug from URL
+ * @return string Canonical locale code (e.g., 'en-gb' for UK cities, 'en-us' for others)
+ */
+function get_canonical_locale_for_city(string $citySlug): string {
+  if (is_uk_city($citySlug)) {
+    return 'en-gb';
+  }
+  // Default to en-us for all other cities (US, Canadian, etc.)
+  return 'en-us';
+}
+
+/**
+ * Check if current locale is canonical for a LOCAL page
+ * 
+ * @param string $pathWithoutLocale Path without locale prefix (e.g., /services/technical-seo/london/)
+ * @param string $currentLocale Current locale code (e.g., 'en-gb')
+ * @return bool True if current locale is canonical for this LOCAL page
+ */
+function is_canonical_locale_for_local_page(string $pathWithoutLocale, string $currentLocale): bool {
+  // Extract city from path
+  if (preg_match('#^/services/([^/]+)/([^/]+)/#', $pathWithoutLocale, $m)) {
+    $citySlug = $m[2];
+    $canonicalLocale = get_canonical_locale_for_city($citySlug);
+    return $currentLocale === $canonicalLocale;
+  }
+  
+  if (preg_match('#^/careers/([^/]+)/([^/]+)/#', $pathWithoutLocale, $m)) {
+    $citySlug = $m[1];
+    $canonicalLocale = get_canonical_locale_for_city($citySlug);
+    return $currentLocale === $canonicalLocale;
+  }
+  
+  // Not a LOCAL page, so locale is always canonical
+  return true;
+}
+
 function current_breadcrumbs(): array {
   // Context-aware breadcrumbs based on current page
   $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);

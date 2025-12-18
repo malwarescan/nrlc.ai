@@ -17,6 +17,12 @@ if (php_sapi_name() === 'cli-server') {
         return true;
     }
     
+    // Route catalog requests through main index.php
+    if (strpos($path, '/catalog/') === 0) {
+        require_once __DIR__ . '/index.php';
+        return true;
+    }
+    
     // If it's a real file (not a directory), serve it
     if (is_file($file)) {
         return false;
