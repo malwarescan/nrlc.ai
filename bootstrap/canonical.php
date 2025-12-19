@@ -54,13 +54,8 @@ function canonical_guard(): void {
     return;
   }
   
-  // Handle /products/ paths - redirect to homepage or noindex (products are deprecated)
-  if (preg_match('#^/([a-z]{2}-[a-z]{2})?/products/#', $uri)) {
-    // Redirect products paths to homepage
-    $redirectUrl = $scheme.'://'.$host.'/';
-    header("Location: $redirectUrl", true, 301);
-    exit;
-  }
+  // Products paths are now active - removed redirect to homepage
+  // Products page is accessible at /products/ and individual product pages
 
   // ========================================================================
   // SUDO POWERED LOCALE AUTHORITY ENFORCEMENT (HARD)

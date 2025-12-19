@@ -78,7 +78,7 @@
       $neuralCommandOsAttrs = menu_item_seo_attrs('Neural Command OS');
       ?>
       <li class="nav-primary__item nav-primary__item--has-dropdown">
-        <a href="/products/" class="nav-primary__link" title="<?= $productsAttrs['title'] ?>" aria-label="<?= $productsAttrs['aria-label'] ?>"<?= $isProducts ? ' aria-current="page"' : '' ?>>Products</a>
+        <a href="/en-us/products/" class="nav-primary__link" title="<?= $productsAttrs['title'] ?>" aria-label="<?= $productsAttrs['aria-label'] ?>"<?= $isProducts ? ' aria-current="page"' : '' ?>>Products</a>
         <ul class="nav-primary__dropdown" aria-label="Products submenu">
           <li><a href="/products/data-but-structured/" class="nav-primary__dropdown-link" title="<?= $dataButStructuredAttrs['title'] ?>" aria-label="<?= $dataButStructuredAttrs['aria-label'] ?>">Data, But Structured</a></li>
           <li><a href="/products/applicants-io/" class="nav-primary__dropdown-link" title="<?= $applicantsIoAttrs['title'] ?>" aria-label="<?= $applicantsIoAttrs['aria-label'] ?>">Applicants.io</a></li>

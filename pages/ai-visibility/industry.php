@@ -222,7 +222,7 @@ $GLOBALS['__jsonld'] = [
         </div>
         <?php if ($industrySlug === 'immigration'): ?>
           <p style="margin-top: var(--spacing-md);">
-            <a href="/ai-visibility/audit-example/immigration/" class="btn btn--secondary" data-ripple>See an Audit Example</a>
+            <a href="/ai-visibility/audit-example/immigration/" class="btn btn--secondary" data-ripple title="See an example AI Visibility Audit for immigration services">See an Audit Example</a>
           </p>
         <?php endif; ?>
         <p style="margin-top: var(--spacing-lg);">

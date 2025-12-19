@@ -356,7 +356,8 @@ $indexPages = [
   '/blog/',
   '/resources/',
   '/catalog/',
-  '/ai-visibility/'  // AI Visibility main hub page
+  '/ai-visibility/',  // AI Visibility main hub page
+  '/training/ai-search-systems/'  // Training page
 ];
 
 foreach ($indexPages as $path) {
@@ -431,6 +432,9 @@ if ($promptwareEntries) {
 
 // 14. Products sitemap
 $productEntries = [];
+// Add products index page
+$productEntries[] = sitemap_entry_simple("https://nrlc.ai/en-us/products/", $today, 'weekly', '0.9');
+// Add individual product pages
 $productFiles = glob(__DIR__.'/../pages/products/*.php');
 foreach ($productFiles as $file) {
   $slug = basename($file, '.php');

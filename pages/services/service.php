@@ -833,7 +833,7 @@ $GLOBALS['__jsonld'] = [
     <!-- Mid-page Internal Link to Norwich (Tier 1 Reinforcement) -->
     <div class="content-block module">
       <div class="content-block__body">
-        <p>Looking for <a href="/en-gb/services/ai-seo-norwich/">AI SEO services in Norwich</a>? We provide specialized AI visibility optimization for businesses in Norwich and across the UK.</p>
+        <p>Looking for <a href="/en-gb/services/ai-seo-norwich/" title="AI SEO and AI visibility services for businesses in Norwich">AI SEO services in Norwich</a>? We provide specialized AI visibility optimization for businesses in Norwich and across the UK.</p>
       </div>
     </div>
     <?php endif; ?>

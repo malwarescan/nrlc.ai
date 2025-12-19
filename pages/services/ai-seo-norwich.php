@@ -81,7 +81,7 @@ $GLOBALS['__jsonld'] = [
         
         <!-- PRIMARY CTA (Placement 1: Above-the-fold) -->
         <div class="text-center" style="margin: 1.5rem 0;">
-          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
+          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary" title="Get your AI Visibility Audit to see how AI systems describe your business">Get Your AI Visibility Audit</a>
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@ $GLOBALS['__jsonld'] = [
       <div class="content-block__body">
         <p>See how AI systems currently describe your business and identify the exact signals needed to become the trusted recommendation.</p>
         <p class="text-center">
-          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
+          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary" title="Get your AI Visibility Audit to see how AI systems describe your business">Get Your AI Visibility Audit</a>
         </p>
       </div>
     </div>
@@ -181,7 +181,7 @@ $GLOBALS['__jsonld'] = [
     <div class="content-block module" style="margin-top: var(--spacing-lg);">
       <div class="content-block__body">
         <p class="text-center">
-          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
+          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary" title="Get your AI Visibility Audit to see how AI systems describe your business">Get Your AI Visibility Audit</a>
         </p>
       </div>
     </div>

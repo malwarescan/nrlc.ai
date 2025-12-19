@@ -87,6 +87,22 @@ function route_request(): void {
     return;
   }
 
+  // Training page route
+  if ($path === '/training/ai-search-systems/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'training/ai-search-systems',
+      'canonicalPath' => '/training/ai-search-systems/'
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    // Override meta for training page
+    $GLOBALS['__page_meta']['title'] = 'Training Marketing and SEO Teams for AI Search Systems | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Technical training for marketing and SEO teams on how LLMs ingest web content, vector representations, and structured information for AI search systems like Google AI Overviews and ChatGPT.';
+    render_page('training/ai-search-systems');
+    return;
+  }
+
   if (preg_match('#^/services/([^/]+)/$#', $path, $m)) {
     $_GET['service'] = $m[1];
     

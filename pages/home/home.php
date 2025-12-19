@@ -30,9 +30,20 @@ $domain = absolute_url('/');
           Serving companies across the United States and United Kingdom, with proven results in competitive local and international markets.
         </p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('Free AI Visibility Audit (US & UK)')">Free AI Visibility Audit (US & UK)</button>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Free AI Visibility Audit')">Free AI Visibility Audit</button>
           <a href="#authority-explanation" class="btn btn--secondary" title="Learn why traditional SEO stops working with AI systems">Why Traditional SEO Stops Working</a>
         </div>
+      </div>
+    </div>
+
+    <!-- TRAINING BOX: AGENCY TRAINING SURFACE -->
+    <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
+      <div class="content-block__body">
+        <h3 style="margin-top: 0;">Training for Marketing and SEO Teams Working in AI Search</h3>
+        <p>Traditional SEO training focuses on rankings, keywords, and crawl behavior. Modern AI search systems work differently. Large language models evaluate whether information can be extracted, embedded, verified, and cited safely rather than whether a page simply ranks.</p>
+        <p>Neural Command provides technical training for marketing and SEO teams on how LLMs ingest web content, how vector representations are formed, and how pre chunked, structured information affects retrieval and citation in systems such as Google AI Overviews and ChatGPT.</p>
+        <p>This training is designed for agencies and in house teams responsible for search strategy, content architecture, and information systems. It is not intended for beginners or general marketing education.</p>
+        <p><a href="/training/ai-search-systems/" title="View training program for marketing and SEO agencies">View training program for agencies</a></p>
       </div>
     </div>
 
@@ -44,7 +55,7 @@ $domain = absolute_url('/');
       <div class="content-block__body">
         <dl>
           <dt><strong>How do I get my business mentioned by ChatGPT or AI search tools?</strong></dt>
-          <dd>AI systems like ChatGPT don't browse the web or "list" businesses the way directories do. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. To be mentioned, a business needs clear entity signals, machine-readable content, and external references that AI systems can safely cite.</dd>
+          <dd>AI systems like ChatGPT do not browse the web or list businesses in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Businesses are more likely to be mentioned when their identity and services are clearly defined in machine readable formats across the web.</dd>
           
           <dt><strong>How does ChatGPT decide which brands to mention?</strong></dt>
           <dd>ChatGPT and similar systems evaluate whether information about a brand can be confidently extracted and verified across multiple sources. Brands are more likely to be mentioned when their content clearly defines who they are, what they do, and how they relate to a topic, using consistent language and structure across the web.</dd>
@@ -161,7 +172,7 @@ $domain = absolute_url('/');
 </main>
 
 <?php
-// PERSON + ORGANIZATION ENTITY DECLARATION — HOMEPAGE
+// PERSON + ORGANIZATION ENTITY DECLARATION - HOMEPAGE
 // SUDO META DIRECTIVE: Entity declaration for Knowledge Graph consolidation
 require_once __DIR__ . '/../../lib/SchemaFixes.php';
 use NRLC\Schema\SchemaFixes;
@@ -250,7 +261,7 @@ $GLOBALS['__jsonld'][] = [
       'name' => 'How do I get my business mentioned by ChatGPT or AI search tools?',
       'acceptedAnswer' => [
         '@type' => 'Answer',
-        'text' => 'AI systems like ChatGPT don\'t browse the web or list businesses in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Businesses are more likely to be mentioned when their identity, services, and context are clearly defined in machine-readable formats across the web.'
+        'text' => 'AI systems like ChatGPT do not browse the web or list businesses in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Businesses are more likely to be mentioned when their identity and services are clearly defined in machine readable formats across the web.'
       ]
     ],
     [
