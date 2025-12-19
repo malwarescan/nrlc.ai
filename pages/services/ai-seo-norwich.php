@@ -79,11 +79,9 @@ $GLOBALS['__jsonld'] = [
       <div class="content-block__body">
         <p class="lead">We help businesses in Norwich improve visibility across Google Search, Google AI Overviews, and AI-driven platforms like ChatGPT. All services are delivered remotely, with a focus on search trust, citations, and intent alignment rather than traditional keyword tactics.</p>
         
-        <!-- Above-fold CTA -->
-        <div class="btn-group text-center" style="margin: 1.5rem 0;">
-          <a href="tel:+12135628438" class="btn btn--primary">Call</a>
-          <a href="mailto:hirejoelm@gmail.com" class="btn btn--primary">Email</a>
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI SEO Norwich')">Book a Call</button>
+        <!-- PRIMARY CTA (Placement 1: Above-the-fold) -->
+        <div class="text-center" style="margin: 1.5rem 0;">
+          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
         </div>
       </div>
     </div>
@@ -103,14 +101,15 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
 
-    <!-- CTA Section -->
+    <!-- PRIMARY CTA (Placement 2: After proof section) -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Get Started</h2>
+        <h2 class="content-block__title">Get Your AI Visibility Audit</h2>
       </div>
       <div class="content-block__body">
+        <p>See how AI systems currently describe your business and identify the exact signals needed to become the trusted recommendation.</p>
         <p class="text-center">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('Get a Free AI Visibility Audit for Your Norwich Business')">Get a Free AI Visibility Audit for Your Norwich Business</button>
+          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
         </p>
       </div>
     </div>
@@ -156,16 +155,6 @@ $GLOBALS['__jsonld'] = [
         <p>Norwich is deceptively competitive. Local agencies recycle outdated playbooks—keyword optimization, content volume, link building. But AI systems now bypass those tactics entirely. When someone asks ChatGPT "What's the best [service] in Norwich?" or when Google AI Overviews summarize options, they're not ranking pages. They're evaluating which businesses provide clear, trustworthy information that can be safely cited.</p>
         
         <p>If your competitors have structured their digital presence for AI understanding while you're still optimizing for search rankings, you're losing visibility in the fastest-growing segment of search. The buyer's problem isn't content volume or keyword density. It's structural trust—how AI systems understand, describe, and recommend your business.</p>
-
-        <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-lg);">
-          <div class="content-block__body">
-            <p style="margin: 0 0 var(--spacing-sm) 0; font-weight: 500;"><strong>See Why Google Chooses Your Competitors Instead</strong></p>
-            <p style="margin: 0 0 var(--spacing-md) 0; font-size: 0.9rem; color: #666;">Free AI Visibility Audit • Norwich & UK Businesses</p>
-            <p style="margin: 0;">
-              <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -185,6 +174,15 @@ $GLOBALS['__jsonld'] = [
           <dt><strong>How long until results appear?</strong></dt>
           <dd>AI visibility changes as signals propagate. Early improvements often appear within weeks, with more significant gains typically visible within 30-60 days.</dd>
         </dl>
+      </div>
+    </div>
+
+    <!-- PRIMARY CTA (Placement 3: Final CTA at end of page) -->
+    <div class="content-block module" style="margin-top: var(--spacing-lg);">
+      <div class="content-block__body">
+        <p class="text-center">
+          <a href="/en-us/services/ai-search-optimization/" class="btn btn--primary">Get Your AI Visibility Audit</a>
+        </p>
       </div>
     </div>
 

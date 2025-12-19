@@ -107,8 +107,8 @@ $GLOBALS['__jsonld'] = [
       <div class="content-block__body">
         <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><?= htmlspecialchars($industry['subheadline']) ?></p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
-          <a href="/api/book/" class="btn" data-ripple>See How AI Describes Your Firm</a>
-          <a href="/api/book/" class="btn btn--secondary" data-ripple>Request an AI Visibility Audit</a>
+          <button type="button" class="btn" onclick="openContactSheet('See How AI Describes Your Firm')" data-ripple>See How AI Describes Your Firm</button>
+          <button type="button" class="btn btn--secondary" onclick="openContactSheet('Request an AI Visibility Audit')" data-ripple>Request an AI Visibility Audit</button>
         </div>
       </div>
     </div>
@@ -226,7 +226,7 @@ $GLOBALS['__jsonld'] = [
           </p>
         <?php endif; ?>
         <p style="margin-top: var(--spacing-lg);">
-          <a href="/api/book/" class="btn" data-ripple>Request Your AI Visibility Audit</a>
+          <button type="button" class="btn" onclick="openContactSheet('Request Your AI Visibility Audit')" data-ripple>Request Your AI Visibility Audit</button>
         </p>
       </div>
     </div>

@@ -146,7 +146,7 @@ $GLOBALS['__jsonld'] = [
     <!-- CTA -->
     <div class="content-block module">
       <div class="content-block__body">
-        <p><a href="/api/book/" class="btn" data-ripple>Request Your AI Visibility Audit</a></p>
+        <p><button type="button" class="btn" onclick="openContactSheet('Request Your AI Visibility Audit')" data-ripple>Request Your AI Visibility Audit</button></p>
         <p><a href="/ai-visibility/<?= htmlspecialchars($industrySlug) ?>/" class="btn btn--secondary" data-ripple>← Back to <?= htmlspecialchars($industry['name']) ?> Page</a></p>
       </div>
     </div>

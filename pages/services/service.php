@@ -740,6 +740,11 @@ $GLOBALS['__jsonld'] = [
         <h1 class="content-block__title"><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?></h1>
       </div>
       <div class="content-block__body">
+        <?php if ($service === 'ai-search-optimization'): ?>
+        <p class="lead">AI Search Optimization is the practice of structuring your website so AI systems like Google AI Overviews, ChatGPT, Perplexity, and Claude can confidently understand, describe, and cite your business. Unlike traditional SEO that targets search rankings, AI Search Optimization targets how AI systems evaluate and recommend businesses.</p>
+        <p>When customers ask AI assistants questions about your industry or services, AI systems don't rank pages—they evaluate which sources provide clear, structured, trustworthy information that can be safely summarized and cited. If your competitors have clearer service definitions, consistent terminology, and structured authority signals, AI systems will recommend them instead of you, regardless of your search rankings.</p>
+        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
+        <?php else: ?>
         <?php
         $enhancement = get_service_enhancement($service, '');
         $intro = $enhancement['intro'] ?? null;
@@ -751,6 +756,7 @@ $GLOBALS['__jsonld'] = [
         <p class="lead">Select a city to see localized implementation and pricing for this service.<?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
         <?php endif; ?>
         <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
+        <?php endif; ?>
       </div>
     </div>
 
@@ -763,6 +769,7 @@ $GLOBALS['__jsonld'] = [
     </div>
     <?php endif; ?>
 
+    <?php if ($service !== 'ai-search-optimization'): ?>
     <!-- City Selection Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
@@ -820,6 +827,7 @@ $GLOBALS['__jsonld'] = [
         </div>
       </div>
     </div>
+    <?php endif; ?>
 
     <?php if ($service === 'ai-search-optimization'): ?>
     <!-- Mid-page Internal Link to Norwich (Tier 1 Reinforcement) -->
@@ -830,24 +838,58 @@ $GLOBALS['__jsonld'] = [
     </div>
     <?php endif; ?>
 
+    <?php if ($service === 'ai-search-optimization'): ?>
+    <!-- Service Explanation for AI Search Optimization -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">What We Do</h2>
+      </div>
+      <div class="content-block__body">
+        <p>We analyze how AI systems currently describe your business, your services, and your competitors. Then we restructure your website and digital signals so AI assistants understand exactly what you do, trust your expertise, reference your business accurately, and prefer you when explaining relevant options.</p>
+        <p>This includes:</p>
+        <ul>
+          <li>Service definition clarity—unambiguous descriptions that AI systems can extract and cite</li>
+          <li>Consistent terminology—using the same language across all pages and signals</li>
+          <li>Structured data completeness—schema markup that reinforces entity relationships</li>
+          <li>Authority signal alignment—content that demonstrates expertise without hype</li>
+          <li>Intent matching—pages that answer the questions AI systems are actually answering</li>
+        </ul>
+        <p>We don't try to trick AI. We make your business unambiguous.</p>
+      </div>
+    </div>
+
+    <!-- Primary CTA (Placement 1: Above-the-fold equivalent) -->
+    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin: var(--spacing-md) 0;">
+      <div class="content-block__body">
+        <p style="margin: 0 0 var(--spacing-sm) 0; font-weight: 500;"><strong>See How AI Systems Currently Describe Your Business</strong></p>
+        <p style="margin: 0;">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Get a Free AI Visibility Audit')">Get a Free AI Visibility Audit</button>
+        </p>
+        <p style="margin-top: var(--spacing-sm); font-size: 0.9rem; color: #666; margin-bottom: 0;">See how your site appears in Google AI Overviews and ChatGPT</p>
+      </div>
+    </div>
+    <?php endif; ?>
+
     <!-- Consultation Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Need Help Choosing?</h2>
+        <h2 class="content-block__title"><?= $service === 'ai-search-optimization' ? 'Next Steps' : 'Need Help Choosing?' ?></h2>
       </div>
       <div class="content-block__body">
+        <?php if ($service === 'ai-search-optimization'): ?>
+        <p>An AI Visibility Audit measures how ChatGPT, Google AI Overviews, Perplexity, and Claude currently describe your business. You'll receive a breakdown of where competitors are being favored, what AI Trust Signals are missing, and a prioritized fix list.</p>
+        <p class="text-center">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Get a Free AI Visibility Audit')">Get a Free AI Visibility Audit</button>
+        </p>
+        <p style="margin-top: var(--spacing-sm); font-size: 0.9rem; color: #666; text-align: center;">See how your site appears in Google AI Overviews and ChatGPT</p>
+        <?php else: ?>
         <p>Our team can help you select the right city and service package for your needs. Contact us for personalized recommendations.</p>
         <p>Learn more about our <a href="/insights/">AI SEO Research & Insights</a> and explore our <a href="/tools/">SEO Tools & Resources</a> to enhance your search visibility.</p>
         <p class="text-center">
-          <?php if ($service === 'ai-search-optimization'): ?>
-          <!-- Tier 1 CTA Replacement: Aligns with informational → commercial hybrid intent -->
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('Get a Free AI Visibility Audit')">Get a Free AI Visibility Audit</button>
-          <p style="margin-top: var(--spacing-sm); font-size: 0.9rem; color: #666;">See how your site appears in Google AI Overviews and ChatGPT</p>
-          <?php else: ?>
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
           <button type="button" class="btn" onclick="openContactSheet('<?= htmlspecialchars($serviceName) ?>')">Schedule Consultation</button>
-          <?php endif; ?>
         </p>
+        <?php endif; ?>
       </div>
     </div>
 

@@ -31,8 +31,30 @@ $domain = absolute_url('/');
         </p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
           <button type="button" class="btn btn--primary" onclick="openContactSheet('Free AI Visibility Audit (US & UK)')">Free AI Visibility Audit (US & UK)</button>
-          <a href="#authority-explanation" class="btn btn--secondary">Why Traditional SEO Stops Working</a>
+          <a href="#authority-explanation" class="btn btn--secondary" title="Learn why traditional SEO stops working with AI systems">Why Traditional SEO Stops Working</a>
         </div>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION: AI VISIBILITY QUESTIONS -->
+    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Questions About AI Search, ChatGPT, and Brand Visibility</h2>
+      </div>
+      <div class="content-block__body">
+        <dl>
+          <dt><strong>How do I get my business mentioned by ChatGPT or AI search tools?</strong></dt>
+          <dd>AI systems like ChatGPT don't browse the web or "list" businesses the way directories do. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. To be mentioned, a business needs clear entity signals, machine-readable content, and external references that AI systems can safely cite.</dd>
+          
+          <dt><strong>How does ChatGPT decide which brands to mention?</strong></dt>
+          <dd>ChatGPT and similar systems evaluate whether information about a brand can be confidently extracted and verified across multiple sources. Brands are more likely to be mentioned when their content clearly defines who they are, what they do, and how they relate to a topic, using consistent language and structure across the web.</dd>
+          
+          <dt><strong>Can businesses influence how they appear in AI-generated answers?</strong></dt>
+          <dd>Businesses can't control AI outputs directly, but they can influence eligibility. This is done by structuring content for machine comprehension, aligning on entity definitions, and reducing ambiguity so AI systems can reference the brand without risk of misinformation.</dd>
+          
+          <dt><strong>Is ranking on Google enough to be featured in AI Overviews or ChatGPT?</strong></dt>
+          <dd>No. Traditional rankings measure page relevance, while AI systems prioritize extractability and trust. A page can rank well and still be ignored by AI if its information isn't structured, explicit, and verifiable enough to be cited safely.</dd>
+        </dl>
       </div>
     </div>
 
@@ -129,7 +151,7 @@ $domain = absolute_url('/');
         </p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
           <button type="button" class="btn" onclick="openContactSheet('AI Visibility Analysis')">See How AI Sees Your Brand</button>
-          <a href="/services/" class="btn btn--secondary">View Services</a>
+          <a href="/services/" class="btn btn--secondary" title="View all AI SEO services offered by NRLC.ai">View Services</a>
         </div>
       </div>
     </div>
@@ -139,41 +161,123 @@ $domain = absolute_url('/');
 </main>
 
 <?php
-// Homepage-specific JSON-LD: Person (Joel Maldonado) + Organization with founder relationship
+// PERSON + ORGANIZATION ENTITY DECLARATION — HOMEPAGE
+// SUDO META DIRECTIVE: Entity declaration for Knowledge Graph consolidation
 require_once __DIR__ . '/../../lib/SchemaFixes.php';
 use NRLC\Schema\SchemaFixes;
 
-// Use consistent base URL with /en-us/ prefix to match Organization schema
-$baseUrl = SchemaFixes::ensureHttps(absolute_url('/en-us/'));
-$joelPersonId = $baseUrl . '#joel-maldonado';
-$orgId = $baseUrl . '#organization';
+// Canonical base URL (no locale prefix for entity resolution)
+$baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
+$logoUrl = SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlc-logo.png'));
 
-// Add Person schema for Joel Maldonado
+// Add @graph structure to global JSON-LD array
 $GLOBALS['__jsonld'] = $GLOBALS['__jsonld'] ?? [];
 $GLOBALS['__jsonld'][] = [
   '@context' => 'https://schema.org',
-  '@type' => 'Person',
-  '@id' => $joelPersonId,
-  'name' => 'Joel Maldonado',
-  'description' => 'Founder of Neural Command LLC. 20+ years in search, structured data, and algorithmic visibility. Expert in AI visibility, structured data strategy, and SEO to AI citation transition.',
-  'jobTitle' => 'Founder',
-  'worksFor' => [
-    '@type' => 'Organization',
-    '@id' => $orgId,
-    'name' => 'Neural Command LLC'
-  ],
-  'url' => $baseUrl,
-  'sameAs' => [
-    'https://www.linkedin.com/company/neural-command/'
+  '@graph' => [
+    [
+      '@type' => 'Person',
+      '@id' => $baseUrl . '#joel-maldonado',
+      'name' => 'Joel Maldonado',
+      'jobTitle' => 'Founder',
+      'description' => 'Joel Maldonado is the founder of Neural Command, LLC, where he builds systems that convert search authority into AI-readable, citation-safe knowledge for modern search engines and large language models.',
+      'worksFor' => [
+        '@type' => 'Organization',
+        '@id' => $baseUrl . '#neural-command'
+      ],
+      'affiliation' => [
+        '@type' => 'Organization',
+        '@id' => $baseUrl . '#neural-command'
+      ],
+      'url' => $baseUrl,
+      'sameAs' => [
+        'https://www.linkedin.com/company/neural-command/'
+      ]
+    ],
+    [
+      '@type' => 'Organization',
+      '@id' => $baseUrl . '#neural-command',
+      'name' => 'Neural Command, LLC',
+      'url' => $baseUrl,
+      'logo' => [
+        '@type' => 'ImageObject',
+        'url' => $logoUrl
+      ],
+      'founder' => [
+        '@type' => 'Person',
+        '@id' => $baseUrl . '#joel-maldonado'
+      ],
+      'sameAs' => [
+        'https://www.linkedin.com/company/neural-command/'
+      ]
+    ],
+    [
+      '@type' => 'WebPage',
+      '@id' => $baseUrl . '#why-i-built-this-system',
+      'name' => 'Why I Built This System',
+      'about' => [
+        '@type' => 'Person',
+        '@id' => $baseUrl . '#joel-maldonado'
+      ],
+      'isPartOf' => [
+        '@type' => 'WebSite',
+        '@id' => $baseUrl . '#website'
+      ]
+    ],
+    [
+      '@type' => 'WebSite',
+      '@id' => $baseUrl . '#website',
+      'url' => $baseUrl,
+      'name' => 'Neural Command'
+    ]
   ]
 ];
 
-// Update Organization schema to include founder
-// This will be merged with base schemas in head.php
+// Also set founder for backward compatibility with existing Organization schema
 $GLOBALS['__homepage_org_founder'] = [
   '@type' => 'Person',
-  '@id' => $joelPersonId,
+  '@id' => $baseUrl . '#joel-maldonado',
   'name' => 'Joel Maldonado'
+];
+
+// FAQ SCHEMA: AI Visibility Questions (matches visible FAQ content exactly)
+$GLOBALS['__jsonld'][] = [
+  '@context' => 'https://schema.org',
+  '@type' => 'FAQPage',
+  'mainEntity' => [
+    [
+      '@type' => 'Question',
+      'name' => 'How do I get my business mentioned by ChatGPT or AI search tools?',
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => 'AI systems like ChatGPT don\'t browse the web or list businesses in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Businesses are more likely to be mentioned when their identity, services, and context are clearly defined in machine-readable formats across the web.'
+      ]
+    ],
+    [
+      '@type' => 'Question',
+      'name' => 'How does ChatGPT decide which brands to mention?',
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => 'ChatGPT evaluates whether information about a brand can be confidently extracted and verified across multiple sources. Brands with clear entity definitions, consistent language, and corroborating references are more likely to be included in AI-generated answers.'
+      ]
+    ],
+    [
+      '@type' => 'Question',
+      'name' => 'Can businesses influence how they appear in AI-generated answers?',
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => 'Businesses cannot directly control AI outputs, but they can influence eligibility. This involves structuring content for machine comprehension, aligning on consistent entity signals, and reducing ambiguity so AI systems can reference the brand without risk.'
+      ]
+    ],
+    [
+      '@type' => 'Question',
+      'name' => 'Is ranking on Google enough to be featured in AI Overviews or ChatGPT?',
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => 'Traditional rankings measure relevance, but AI systems prioritize extractability and trust. A page may rank well and still be excluded from AI-generated answers if its information is not structured, explicit, and verifiable enough to be safely cited.'
+      ]
+    ]
+  ]
 ];
 ?>
 
