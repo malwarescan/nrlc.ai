@@ -777,8 +777,19 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">Pricing & Scope</h2>
       </div>
       <div class="content-block__body">
-        <p>Audit and diagnostic engagements typically range from <strong>£X,XXX to £XX,XXX</strong>, depending on scope and complexity.</p>
-        <p>The cost is driven by factors such as site architecture, content structure, scale, and the degree of ambiguity in how your site is currently interpreted by search engines and language models.</p>
+        <?php
+        // Currency detection: UK pages use GBP, US pages use USD
+        $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        $isUK = (strpos($currentPath, '/en-gb/') === 0);
+        if ($isUK) {
+          $priceRange = '£3,500 to £18,000';
+        } else {
+          // USD equivalent maintaining same positioning
+          $priceRange = '$4,500 to $23,000';
+        }
+        ?>
+        <p>Audit and diagnostic engagements typically range from <strong><?= htmlspecialchars($priceRange) ?></strong>, depending on scope and complexity.</p>
+        <p>Cost is driven by factors such as site architecture, content structure, scale, and the level of ambiguity in how your site is currently interpreted by search engines and language models.</p>
         <p>This is not a per-page or per-URL exercise. Smaller sites can be more complex than larger ones, and visibility issues are rarely linear.</p>
         <p>If your goal is a low-cost checklist or automated scan, this will not be a fit.</p>
       </div>
