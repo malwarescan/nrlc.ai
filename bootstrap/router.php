@@ -173,6 +173,24 @@ function route_request(): void {
     // Use actual request path (includes locale prefix) for canonical
     $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
     
+    // SPECIAL HANDLING: site-audits uses specialized conversion-focused template
+    if ($serviceSlug === 'site-audits') {
+      $ctx = [
+        'type' => 'service',
+        'slug' => "services/service_city_audit",
+        'service' => $serviceSlug,
+        'city' => $citySlug,
+        'canonicalPath' => $actualPath
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      // Override meta title for site-audits to match directive
+      $GLOBALS['__page_meta']['title'] = "Site Audit Services in $cityTitle | NRLC.ai";
+      $GLOBALS['__page_meta']['description'] = "Site audit services in $cityTitle. We explain why visibility breaks down, not just surface-level issues. Focus on how search engines and AI systems interpret your site.";
+      
+      render_page('services/service_city_audit');
+      return;
+    }
+    
     $ctx = [
       'type' => 'service',
       'slug' => "services/service_city",
