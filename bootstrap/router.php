@@ -141,6 +141,12 @@ function route_request(): void {
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
+    // Override meta title for site-audits overview to match directive
+    if ($serviceSlug === 'site-audits') {
+      $GLOBALS['__page_meta']['title'] = "Site Audits for AI & Search Visibility | NRLC.ai";
+      $GLOBALS['__page_meta']['description'] = "Site audits that explain why visibility breaks down, not just surface-level issues. Focus on how search engines and AI systems interpret your site.";
+    }
+    
     render_page('services/service');
     return;
   }
@@ -183,8 +189,8 @@ function route_request(): void {
         'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-      // Override meta title for site-audits to match directive
-      $GLOBALS['__page_meta']['title'] = "Site Audit Services in $cityTitle | NRLC.ai";
+      // Override meta title for site-audits to match directive (H1 pattern: Site Audits for AI & Search Visibility)
+      $GLOBALS['__page_meta']['title'] = "Site Audits for AI & Search Visibility in $cityTitle | NRLC.ai";
       $GLOBALS['__page_meta']['description'] = "Site audit services in $cityTitle. We explain why visibility breaks down, not just surface-level issues. Focus on how search engines and AI systems interpret your site.";
       
       render_page('services/service_city_audit');

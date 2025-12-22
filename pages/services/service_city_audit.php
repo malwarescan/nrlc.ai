@@ -65,7 +65,7 @@ $domain = absolute_url('/');
     <!-- SECTION 1: HERO (CONTEXT + DIFFERENTIATION) -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">Site Audit Services in <?= htmlspecialchars($cityTitle) ?></h1>
+        <h1 class="content-block__title">Site Audits for AI & Search Visibility in <?= htmlspecialchars($cityTitle) ?></h1>
       </div>
       <div class="content-block__body">
         <p class="lead">Most site audits surface issues. Very few explain why visibility actually breaks down.</p>

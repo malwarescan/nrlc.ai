@@ -738,13 +738,16 @@ $GLOBALS['__jsonld'] = [
     <!-- Hero Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title"><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?></h1>
+        <h1 class="content-block__title"><?php if ($service === 'site-audits'): ?>Site Audits for AI & Search Visibility<?php else: ?><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?><?php endif; ?></h1>
       </div>
       <div class="content-block__body">
         <?php if ($service === 'ai-search-optimization'): ?>
         <p class="lead">AI Search Optimization is the practice of structuring your website so AI systems like Google AI Overviews, ChatGPT, Perplexity, and Claude can confidently understand, describe, and cite your business. Unlike traditional SEO that targets search rankings, AI Search Optimization targets how AI systems evaluate and recommend businesses.</p>
         <p>When customers ask AI assistants questions about your industry or services, AI systems don't rank pages—they evaluate which sources provide clear, structured, trustworthy information that can be safely summarized and cited. If your competitors have clearer service definitions, consistent terminology, and structured authority signals, AI systems will recommend them instead of you, regardless of your search rankings.</p>
         <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
+        <?php elseif ($service === 'site-audits'): ?>
+        <p class="lead">Most site audits surface issues. Very few explain why visibility actually breaks down.</p>
+        <p>We approach audits differently. We look at how search engines and language models actually interpret your site, where ambiguity exists, and why visibility fails in practice even when everything looks "technically fine."</p>
         <?php else: ?>
         <?php
         $enhancement = get_service_enhancement($service, '');
@@ -818,6 +821,55 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <div class="grid grid-auto-fit">
+          <?php if ($service === 'site-audits'): ?>
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">New York</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Audit and implementation adapted for multi-entity, multi-location environments common in New York markets.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/new-york/" class="btn btn--primary">View in New York</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">London</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Audit and implementation adapted for international and regulated markets common in London business contexts.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/london/" class="btn btn--primary">View in London</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">San Francisco</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Audit and implementation adapted for high-growth and technically complex ecosystems common in San Francisco.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/san-francisco/" class="btn btn--primary">View in San Francisco</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="content-block">
+            <div class="content-block__header">
+              <h3 class="content-block__title">Toronto</h3>
+            </div>
+            <div class="content-block__body">
+              <p>Audit and implementation adapted for multi-jurisdictional and regulated business structures common in Toronto.</p>
+              <div class="btn-group">
+                <a href="/services/<?=htmlspecialchars($service)?>/toronto/" class="btn btn--primary">View in Toronto</a>
+              </div>
+            </div>
+          </div>
+          <?php else: ?>
           <div class="content-block">
             <div class="content-block__header">
               <h3 class="content-block__title">New York</h3>
@@ -865,6 +917,7 @@ $GLOBALS['__jsonld'] = [
               </div>
             </div>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -911,28 +964,51 @@ $GLOBALS['__jsonld'] = [
     </div>
     <?php endif; ?>
 
+    <?php if ($service === 'site-audits'): ?>
+    <!-- CTA STRUCTURE (DIAGNOSTIC-FIRST) -->
+    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-lg);">
+      <div class="content-block__body">
+        <p style="margin: 0 0 var(--spacing-md) 0; font-weight: 500;"><strong>Run a Diagnostic First</strong></p>
+        <p style="margin: 0 0 var(--spacing-md) 0; font-size: 0.9rem; color: #666;">Understand your visibility issues before requesting an audit.</p>
+        <p style="margin: 0 0 var(--spacing-md) 0;">
+          <a href="<?= htmlspecialchars($localePrefix . '/resources/diagnostic/') ?>" class="btn btn--primary" title="Run a diagnostic to understand your visibility issues">Run a Diagnostic First</a>
+        </p>
+        <p style="margin: var(--spacing-md) 0 0 0; font-size: 0.9rem; color: #666;">Or, if you are ready to request an audit:</p>
+        <p style="margin: var(--spacing-sm) 0 0 0;">
+          <button type="button" class="btn btn--secondary" onclick="openContactSheet('Site Audit Request')" title="Request a site audit">Request an Audit</button>
+        </p>
+      </div>
+    </div>
+    <?php elseif ($service === 'ai-search-optimization'): ?>
     <!-- Consultation Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title"><?= $service === 'ai-search-optimization' ? 'Next Steps' : 'Need Help Choosing?' ?></h2>
+        <h2 class="content-block__title">Next Steps</h2>
       </div>
       <div class="content-block__body">
-        <?php if ($service === 'ai-search-optimization'): ?>
         <p>An AI Visibility Audit measures how ChatGPT, Google AI Overviews, Perplexity, and Claude currently describe your business. You'll receive a breakdown of where competitors are being favored, what AI Trust Signals are missing, and a prioritized fix list.</p>
         <p class="text-center">
           <button type="button" class="btn btn--primary" onclick="openContactSheet('Get a Free AI Visibility Audit')">Get a Free AI Visibility Audit</button>
         </p>
         <p style="margin-top: var(--spacing-sm); font-size: 0.9rem; color: #666; text-align: center;">See how your site appears in Google AI Overviews and ChatGPT</p>
-        <?php else: ?>
+      </div>
+    </div>
+    <?php else: ?>
+    <!-- Consultation Content Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Need Help Choosing?</h2>
+      </div>
+      <div class="content-block__body">
         <p>Our team can help you select the right city and service package for your needs. Contact us for personalized recommendations.</p>
         <p>Learn more about our <a href="/insights/">AI SEO Research & Insights</a> and explore our <a href="/tools/">SEO Tools & Resources</a> to enhance your search visibility.</p>
         <p class="text-center">
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
           <button type="button" class="btn" onclick="openContactSheet('<?= htmlspecialchars($serviceName) ?>')">Schedule Consultation</button>
         </p>
-        <?php endif; ?>
       </div>
     </div>
+    <?php endif; ?>
 
     <?php
     // STEP 5: Internal Linking Repair
