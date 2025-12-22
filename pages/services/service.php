@@ -934,44 +934,45 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
 
+    <?php
+    // STEP 5: Internal Linking Repair
+    // Detect locale from URL
+    $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $locale = '';
+    if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
+      $locale = $matches[1];
+    }
+    $localePrefix = $locale ? "/$locale" : '';
+
+    // Get related services for lateral linking
+    $relatedServices = get_related_services_for_linking($service, $locale);
+    ?>
+
+    <!-- STEP 5: Related Services Footer Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Services</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+          <?php foreach ($relatedServices as $related): ?>
+          <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+        <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a></p>
+      </div>
+    </div>
+
+    <?php
+    // LINKING KERNEL: Add required internal links
+    if (function_exists('render_internal_links_section')) {
+      echo render_internal_links_section('services', $service, [], 'Related Resources');
+    }
+    ?>
+
+  </div>
 </section>
 </main>
-
-<?php
-// STEP 5: Internal Linking Repair
-// Detect locale from URL
-$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-$locale = '';
-if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
-  $locale = $matches[1];
-}
-$localePrefix = $locale ? "/$locale" : '';
-
-// Get related services for lateral linking
-$relatedServices = get_related_services_for_linking($service, $locale);
-?>
-
-<!-- STEP 5: Related Services Footer Block -->
-<section class="content-block module">
-  <div class="content-block__header">
-    <h2 class="content-block__title">Related Services</h2>
-  </div>
-  <div class="content-block__body">
-    <ul>
-      <?php foreach ($relatedServices as $related): ?>
-      <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
-      <?php endforeach; ?>
-    </ul>
-    <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a></p>
-  </div>
-</section>
-
-<?php
-// LINKING KERNEL: Add required internal links
-if (function_exists('render_internal_links_section')) {
-  echo render_internal_links_section('services', $service, [], 'Related Resources');
-}
-?>
 
 <?php
 // Note: footer.php is already included by router.php render_page()

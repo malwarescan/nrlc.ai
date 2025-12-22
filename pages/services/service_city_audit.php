@@ -8,6 +8,7 @@ require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/content_tokens.php';
 require_once __DIR__.'/../../lib/csv.php';
+require_once __DIR__.'/../../lib/nrlc_linking_kernel.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'site-audits';
@@ -200,6 +201,36 @@ $domain = absolute_url('/');
         </p>
       </div>
     </div>
+
+    <?php
+    // STEP 5: Internal Linking Repair
+    // Get related services for lateral linking
+    $relatedServices = get_related_services_for_linking('site-audits', $locale);
+    ?>
+
+    <!-- STEP 5: Related Services Footer Block -->
+    <?php if (!empty($relatedServices)): ?>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Services</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+          <?php foreach ($relatedServices as $related): ?>
+          <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+        <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a></p>
+      </div>
+    </div>
+    <?php endif; ?>
+
+    <?php
+    // LINKING KERNEL: Add required internal links
+    if (function_exists('render_internal_links_section')) {
+      echo render_internal_links_section('services', 'site-audits', ['city' => $citySlug], 'Related Resources');
+    }
+    ?>
 
   </div>
 </section>
