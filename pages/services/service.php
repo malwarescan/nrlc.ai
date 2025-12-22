@@ -3,6 +3,7 @@
 // Do not duplicate them here to avoid double headers
 require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/schema_builders.php';
+require_once __DIR__.'/../../lib/service_enhancements.php';
 require_once __DIR__.'/../../lib/nrlc_linking_kernel.php';
 
 $service = $_GET['service'] ?? '';
