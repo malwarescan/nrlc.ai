@@ -151,6 +151,33 @@ $domain = absolute_url('/');
       </div>
     </div>
 
+    <!-- PRICING & SCOPE SECTION (META DIRECTIVE: PRICING & RESULTS TRANSPARENCY) -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Pricing & Scope</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Audit and diagnostic engagements typically range from <strong>£X,XXX to £XX,XXX</strong>, depending on scope and complexity.</p>
+        <p>The cost is driven by factors such as site architecture, content structure, scale, and the degree of ambiguity in how your site is currently interpreted by search engines and language models.</p>
+        <p>This is not a per-page or per-URL exercise. Smaller sites can be more complex than larger ones, and visibility issues are rarely linear.</p>
+        <p>If your goal is a low-cost checklist or automated scan, this will not be a fit.</p>
+      </div>
+    </div>
+
+    <!-- HOW RESULTS ARE ACHIEVED SECTION (META DIRECTIVE: PRICING & RESULTS TRANSPARENCY) -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">How results are achieved</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Results do not come from applying fixes blindly.</p>
+        <p>They come from reducing ambiguity and aligning how systems interpret your site.</p>
+        <p>Our work focuses on clarifying entity relationships, resolving conflicting signals, and aligning structure and content with how search engines and language models actually process information.</p>
+        <p>This approach avoids surface-level recommendations and prioritizes changes that meaningfully affect how your site is understood and surfaced.</p>
+        <p>There are no shortcuts, and there are no guarantees. Results depend on implementation, context, and how systems evolve over time.</p>
+      </div>
+    </div>
+
     <!-- SECTION 8: CTA STRUCTURE (CRITICAL - DIAGNOSTIC FIRST) -->
     <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-lg);">
       <div class="content-block__body">
