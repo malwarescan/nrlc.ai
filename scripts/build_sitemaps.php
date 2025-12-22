@@ -67,11 +67,20 @@ foreach ($citiesData as $row) {
 
 $sitemaps = [];
 
-// 1. Services sitemap - Generate ALL service+city combinations
+// 1. Services sitemap - Generate ALL service+city combinations + service overview pages
 $serviceEntries = [];
 require_once __DIR__ . '/../lib/helpers.php';
 
+// Add service overview pages (e.g., /services/site-audits/)
 foreach ($allServices as $service) {
+  $overviewPath = "/services/{$service}/";
+  $overviewHreflangUrls = sitemap_generate_hreflang_urls($overviewPath);
+  $overviewCanonicalUrl = $overviewHreflangUrls['x-default'] ?? $overviewHreflangUrls['en-us'] ?? '';
+  if ($overviewCanonicalUrl) {
+    $serviceEntries[] = sitemap_entry_simple($overviewCanonicalUrl, $today, 'weekly', '0.9');
+  }
+  
+  // Add service+city combinations
   foreach ($allCities as $city) {
     $path = "/services/{$service}/{$city}/";
     $hreflangUrls = sitemap_generate_hreflang_urls($path);
