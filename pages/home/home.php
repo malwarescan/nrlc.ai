@@ -41,9 +41,23 @@ $domain = absolute_url('/');
       <div class="content-block__body">
         <h3 style="margin-top: 0;">Training for Marketing and SEO Teams Working in AI Search</h3>
         <p>Traditional SEO training focuses on rankings, keywords, and crawl behavior. Modern AI search systems work differently. Large language models evaluate whether information can be extracted, embedded, verified, and cited safely rather than whether a page simply ranks.</p>
-        <p>Neural Command provides technical training for marketing and SEO teams on how LLMs ingest web content, how vector representations are formed, and how pre chunked, structured information affects retrieval and citation in systems such as Google AI Overviews and ChatGPT.</p>
-        <p>This training is designed for agencies and in house teams responsible for search strategy, content architecture, and information systems. It is not intended for beginners or general marketing education.</p>
+        <p>Neural Command provides technical training for marketing and SEO teams on how LLMs ingest web content, how vector representations are formed, and how prechunked, structured information affects retrieval and citation in systems such as Google AI Overviews and ChatGPT.</p>
+        <p>This training is designed for agencies and in-house teams responsible for search strategy, content architecture, and information systems. It is not intended for beginners or general marketing education.</p>
         <p><a href="/training/ai-search-systems/" title="View training program for marketing and SEO agencies">View training program for agencies</a></p>
+      </div>
+    </div>
+
+    <!-- PRECHUNKING SEO COURSE CTA -->
+    <div class="content-block module" style="background: #fff3cd; border-left: 3px solid #ffc107; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
+      <div class="content-block__body">
+        <h3 style="margin-top: 0; color: #856404;">Prechunking SEO Operator Training</h3>
+        <p style="color: #856404;"><strong>A hands-on, skills-based course for controlling AI retrieval and citation.</strong></p>
+        <p style="color: #856404;">Learn how to structure content so facts survive AI extraction. This is not a reading course—it's an operator course. You'll complete structured modules, produce artifacts, and validate your work against strict criteria.</p>
+        <p style="color: #856404; margin-bottom: var(--spacing-md);"><strong>6 modules | 6+ hours | 100% hands-on</strong></p>
+        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+          <a href="/docs/prechunking-seo/course/" class="btn btn--primary" title="Start Prechunking SEO Operator Training course">Start Course</a>
+          <a href="/docs/prechunking-seo/" class="btn btn--secondary" title="Read Prechunking SEO documentation">View Documentation</a>
+        </div>
       </div>
     </div>
 

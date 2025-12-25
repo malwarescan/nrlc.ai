@@ -188,7 +188,7 @@ $domain = absolute_url('/');
     </div>
 
     <!-- SECTION 8: CTA STRUCTURE (CRITICAL - DIAGNOSTIC FIRST) -->
-    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-lg);">
+    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; margin-top: var(--spacing-lg);">
       <div class="content-block__body">
         <p style="margin: 0 0 var(--spacing-md) 0; font-weight: 500;"><strong>Run a Diagnostic First</strong></p>
         <p style="margin: 0 0 var(--spacing-md) 0; font-size: 0.9rem; color: #666;">Understand your visibility issues before requesting an audit.</p>

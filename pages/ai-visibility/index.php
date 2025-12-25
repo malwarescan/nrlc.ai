@@ -2,19 +2,25 @@
 // AI Visibility Service Landing Page
 // Metadata is handled by router via $GLOBALS['__page_meta']
 require_once __DIR__ . '/../../lib/schema_builders.php';
+require_once __DIR__ . '/../../lib/helpers.php';
 
 $industries = require __DIR__ . '/../../lib/ai_visibility_industries.php';
 $canonicalUrl = absolute_url('/ai-visibility/');
 $domain = absolute_url('/');
+
+// Detect locale from URL
+$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$locale = '';
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
+  $locale = $matches[1];
+}
+$localePrefix = $locale ? "/$locale" : '';
 
 // Build JSON-LD Schema (STRICT COMPLIANCE: JSON-LD ONLY, NO MICRODATA/RDFa)
 // ENFORCEMENT: All schema MUST be JSON-LD, injected into <head>, NO microdata/RDFa, NO duplication
 
 $GLOBALS['__jsonld'] = [
   // 1. Organization (MANDATORY, SINGLE SOURCE OF TRUTH)
-  // Requirements: name: NRLC.ai, url: canonical site root, logo: absolute URL
-  // Rules: ONE Organization entity only, referenced by all other schemas
-  // Purpose: Anchor all AI statements and citations to a real-world entity
   [
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
@@ -34,15 +40,13 @@ $GLOBALS['__jsonld'] = [
   ],
   
   // 2. Service (REQUIRED - PRIMARY SCHEMA)
-  // This schema defines the page intent. Without this, the page is NOT a service in Google's eyes.
-  // This must be the strongest schema on the page.
   [
     '@context' => 'https://schema.org',
     '@type' => 'Service',
     '@id' => $canonicalUrl . '#service',
-    'name' => 'AI Visibility & Trust Audit',
+    'name' => 'AI Visibility Services',
     'serviceType' => 'AI Visibility Optimization',
-    'description' => 'Professional analysis of how AI systems describe, summarize, and trust a business, including the signals influencing AI-generated answers.',
+    'description' => 'Professional AI visibility service that improves brand presence in AI-generated answers across ChatGPT, Google AI Overviews, Perplexity, and Claude. Improves AI citations, brand mentions, and generative search visibility.',
     'provider' => [
       '@id' => $domain . '#organization'
     ],
@@ -55,8 +59,8 @@ $GLOBALS['__jsonld'] = [
     '@type' => 'WebPage',
     '@id' => $canonicalUrl . '#webpage',
     'url' => $canonicalUrl,
-    'name' => 'AI Visibility',
-    'description' => 'Professional service offering AI Visibility & Trust Audit. Analysis of how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude describe businesses and the signals that influence AI-generated summaries.',
+    'name' => 'AI Visibility Services',
+    'description' => 'Professional AI visibility service that improves brand presence in AI-generated answers. Service includes AI engine visibility analysis, entity and citation optimization, and schema implementation for generative search engines.',
     'isPartOf' => [
       '@type' => 'WebSite',
       '@id' => $domain . '#website',
@@ -69,8 +73,6 @@ $GLOBALS['__jsonld'] = [
   ],
   
   // 4. BreadcrumbList (MANDATORY)
-  // Structure: Home → AI Visibility
-  // Rules: URLs must match real crawlable paths. Reinforces site architecture and topical containment.
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -85,17 +87,13 @@ $GLOBALS['__jsonld'] = [
       [
         '@type' => 'ListItem',
         'position' => 2,
-        'name' => 'AI Visibility',
+        'name' => 'AI Visibility Services',
         'item' => $canonicalUrl
       ]
     ]
   ],
   
   // 5. FAQPage (STRICT, ZERO TOLERANCE)
-  // Rules: ONLY questions that appear verbatim on the page. Answers MUST match visible content word-for-word.
-  // NO paraphrasing. NO additional FAQs.
-  // Purpose: AI question-answer extraction, Rich eligibility, LLM grounding
-  // If content changes, FAQ schema MUST be updated immediately.
   [
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',
@@ -142,20 +140,6 @@ $GLOBALS['__jsonld'] = [
         ]
       ]
     ]
-  ],
-  
-  // 6. Action (RECOMMENDED - CONVERSION SIGNAL)
-  // Tell AI systems this page exists to trigger a professional audit request, not passive reading.
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Action',
-    'name' => 'Request AI Visibility Audit',
-    'actionStatus' => 'https://schema.org/PotentialActionStatus',
-    'target' => [
-      '@type' => 'EntryPoint',
-      'urlTemplate' => $domain . 'api/book/',
-      'actionPlatform' => 'http://schema.org/DesktopWebPlatform'
-    ]
   ]
 ];
 ?>
@@ -163,129 +147,127 @@ $GLOBALS['__jsonld'] = [
 <section class="section">
   <div class="section__content">
     
-    <!-- HERO (ABOVE THE FOLD: WHAT, WHO, WHAT PROBLEM) -->
+    <!-- HERO (ABOVE THE FOLD: SERVICE CLASSIFICATION) -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI Visibility & Trust Audit</h1>
+        <h1 class="content-block__title">AI Visibility Services</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>WHAT:</strong> A professional diagnostic service that analyzes how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude describe your business.</p>
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>WHO:</strong> For businesses in high-trust industries where customers research extensively before making decisions.</p>
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>PROBLEM:</strong> AI assistants now answer customer questions directly, summarizing information instead of linking to websites. If AI systems don't understand or trust your business, they recommend competitors. <strong>This is NOT traditional SEO.</strong> SEO targets search rankings. AI Visibility targets how AI systems understand, describe, and trust your business.</p>
+        <p class="lead">Professional AI visibility service that improves brand presence in AI-generated answers across ChatGPT, Google AI Overviews, Perplexity, and Claude.</p>
+        <p>This is a hireable service that analyzes how AI systems describe your business and optimizes content structure, entity signals, and citation readiness to increase AI visibility, brand mentions, and recommendations in generative search engines.</p>
+        <p>We provide service engagements that improve AI citations, generative search visibility, and brand inclusion in AI-generated summaries. This service focuses on how AI systems understand, describe, and trust your business.</p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('Request AI Visibility Audit')" data-ripple>Request AI Visibility Audit</button>
-          <button type="button" class="btn" onclick="openContactSheet('See How AI Describes Your Business')" data-ripple>See How AI Describes Your Business</button>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Request AI Visibility Service')" title="Request AI visibility service">Request AI Visibility Service</button>
+          <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>" class="btn" title="View all AI SEO and AI visibility services">View All Services</a>
         </div>
       </div>
     </div>
 
-    <!-- SECTION: YOUR CUSTOMERS ARE ASKING AI FIRST -->
+    <!-- SERVICE SCOPE: AI Engine Visibility Analysis -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Your Customers Are Asking AI First</h2>
+        <h2 class="content-block__title">AI Engine Visibility Analysis – Brand Presence Across Generative Search</h2>
       </div>
       <div class="content-block__body">
-        <p>People no longer start with search results. They start by asking AI questions like:</p>
-        <ul>
-          <li>"Do I need a [service provider] for my situation?"</li>
-          <li>"What happens if I wait too long?"</li>
-          <li>"Which option applies to me?"</li>
-          <li>"What are the risks if I do this incorrectly?"</li>
-        </ul>
-        <p><strong>AI now answers these questions directly.</strong> Whoever AI trusts becomes the default option.</p>
+        <p>We analyze how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude currently describe your business, your services, and your competitors. This analysis identifies where your brand appears in AI-generated answers and where competitors are being favored.</p>
+        <p><strong>What improves:</strong> Brand visibility in AI answers, understanding of current AI representation, identification of visibility gaps.</p>
       </div>
     </div>
 
-    <!-- SECTION: SEO GETS YOU RANKED. AI DECIDES WHO GETS TRUSTED. -->
+    <!-- SERVICE SCOPE: Entity & Citation Optimization -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">SEO Gets You Ranked. AI Decides Who Gets Trusted.</h2>
+        <h2 class="content-block__title">Entity & Citation Optimization – Improving AI Answer Inclusion</h2>
       </div>
       <div class="content-block__body">
-        <p>Search results are shrinking. AI assistants like ChatGPT, Google AI Overviews, Perplexity, and Claude summarize instead of linking.</p>
-        <p>AI doesn't rank pages the way Google does. It pulls from AI Trust Signals:</p>
-        <ul>
-          <li>Clear service definitions</li>
-          <li>Consistent explanations</li>
-          <li>Structured, machine-readable signals</li>
-          <li>Repeated authority patterns across the web</li>
-        </ul>
-        <p>If your business is unclear, AI fills in the gaps — often with competitors. This is about how AI describes your business, not search rankings.</p>
+        <p>We optimize entity signals, content structure, and citation readiness so AI systems can confidently extract and reference your business. This includes structuring content for AI extraction, improving entity clarity, and building citation-ready authority signals.</p>
+        <p><strong>What improves:</strong> AI citations, brand mentions in AI answers, entity recognition by AI systems, citation eligibility.</p>
       </div>
     </div>
 
-    <!-- SECTION: WHAT WE DO -->
+    <!-- SERVICE SCOPE: Schema & Structured Data -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">What We Do (In Plain English)</h2>
+        <h2 class="content-block__title">Schema & Structured Data – Machine-Readable Brand Signals</h2>
       </div>
       <div class="content-block__body">
-        <p>We analyze how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude currently describe your business, your services, and your competitors.</p>
-        <p>Then we restructure your website and digital signals so AI assistants:</p>
-        <ul>
-          <li>Understand exactly what you do</li>
-          <li>Trust your expertise</li>
-          <li>Reference your business accurately</li>
-          <li>Prefer you when explaining options</li>
-        </ul>
-        <p><strong>We don't try to trick AI. We make your business unambiguous.</strong></p>
-        <p><strong>This is NOT SEO.</strong> We focus on AI Trust Signals and how AI describes your business, not search rankings or keyword optimization.</p>
+        <p>We implement JSON-LD, microdata, and structured data that structures your content for search engines and AI systems. This improves rich results, knowledge graph inclusion, and AI citation eligibility by making brand information machine-readable and verifiable.</p>
+        <p><strong>What improves:</strong> Rich results, knowledge graph inclusion, AI citation eligibility, structured data accuracy, machine-readable brand signals.</p>
       </div>
     </div>
 
-    <!-- SECTION: INDUSTRY-SPECIFIC PAGES -->
+    <!-- SERVICE SCOPE: AI Trust Signal Development -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Industry-Specific AI Visibility</h2>
+        <h2 class="content-block__title">AI Trust Signal Development – Building Authority for Generative Engines</h2>
       </div>
       <div class="content-block__body">
-        <p>We provide specialized AI visibility optimization for high-trust industries where customers research extensively before making decisions:</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-md);">
-          <?php foreach ($industries as $slug => $industry): ?>
-            <div style="padding: var(--spacing-md); border: 1px solid var(--color-border, #e0e0e0); border-radius: 4px;">
-              <h3 style="margin-top: 0; font-size: 1.1rem;"><a href="/ai-visibility/<?= htmlspecialchars($slug) ?>/"><?= htmlspecialchars($industry['name']) ?></a></h3>
-              <p style="font-size: 0.9rem; color: #666;"><?= htmlspecialchars($industry['core_fear']) ?></p>
-            </div>
-          <?php endforeach; ?>
-        </div>
+        <p>We develop and align AI Trust Signals including clear service definitions, consistent explanations, structured machine-readable signals, and repeated authority patterns across the web. This ensures AI systems understand and trust your business expertise.</p>
+        <p><strong>What improves:</strong> AI trust scoring, authority recognition, business understanding by AI systems, preference in AI recommendations.</p>
       </div>
     </div>
 
-    <!-- SECTION: THIS IS ALREADY HAPPENING -->
+    <!-- SERVICE SCOPE: Content Restructuring for AI Extraction -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">This Is Already Happening</h2>
+        <h2 class="content-block__title">Content Restructuring for AI Extraction – Optimizing for Generative Search</h2>
       </div>
       <div class="content-block__body">
-        <p>AI assistants like ChatGPT, Google AI Overviews, Perplexity, and Claude already:</p>
-        <ul>
-          <li>Summarize reviews instead of users reading them</li>
-          <li>Answer "do I need a [service provider]?" directly</li>
-          <li>Explain risks and timelines without visiting websites</li>
-          <li>Mention specific businesses by name when authority is clear</li>
-        </ul>
-        <p><strong>Ignoring AI Visibility means losing control of how your business is represented in AI-generated summaries.</strong></p>
+        <p>We restructure website content and digital signals so AI assistants understand exactly what you do, trust your expertise, reference your business accurately, and prefer you when explaining options. This work focuses on making your business unambiguous to AI systems.</p>
+        <p><strong>What improves:</strong> AI comprehension, content extractability, accurate business representation, preference in AI-generated summaries.</p>
       </div>
     </div>
 
-    <!-- SECTION: THE OFFER -->
+    <!-- SERVICE DELIVERABLES -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">The Offer: AI Visibility & Trust Audit</h2>
+        <h2 class="content-block__title">Service Deliverables</h2>
       </div>
       <div class="content-block__body">
-        <p><strong>AI Visibility & Trust Audit</strong> is a diagnostic that measures how AI systems describe your business and identifies the exact signals needed to become the trusted recommendation.</p>
-        <p>You receive:</p>
+        <p>When you hire this service, you receive:</p>
         <ul>
-          <li>A breakdown of how AI currently describes your business</li>
-          <li>Where competitors are being favored</li>
-          <li>What AI Trust Signals are missing or unclear</li>
-          <li>A prioritized fix list</li>
+          <li>Analysis of how AI systems currently describe your business</li>
+          <li>Identification of where competitors are being favored in AI answers</li>
+          <li>Assessment of missing or unclear AI Trust Signals</li>
+          <li>Prioritized implementation plan to improve AI visibility</li>
+          <li>Content restructuring and entity optimization work</li>
+          <li>Schema and structured data implementation</li>
+          <li>Ongoing monitoring and optimization recommendations</li>
         </ul>
-        <p><strong>This is a diagnostic, not a contract.</strong> This is: a diagnostic + prioritized fix list. This isn't: a promise to control AI output or guaranteed rankings.</p>
-        <p style="margin-top: var(--spacing-lg);">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('Request AI Visibility Audit')" data-ripple>Request AI Visibility Audit</button>
-        </p>
+        <p><strong>This is a service engagement, not a one-time audit.</strong> We provide ongoing work to improve and maintain AI visibility over time.</p>
+      </div>
+    </div>
+
+    <!-- WHO THIS SERVICE IS FOR -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Who This Service Is For</h2>
+      </div>
+      <div class="content-block__body">
+        <p>This service is designed for businesses in high-trust industries where customers research extensively before making decisions. This includes:</p>
+        <ul>
+          <li>Businesses where AI assistants answer customer questions directly</li>
+          <li>Companies that need accurate representation in AI-generated summaries</li>
+          <li>Organizations competing for AI citations and brand mentions</li>
+          <li>Businesses that want to improve visibility in generative search engines</li>
+        </ul>
+        <p>If your customers ask AI questions before visiting websites, this service improves how AI represents your business in those answers.</p>
+      </div>
+    </div>
+
+    <!-- RELATED SERVICES -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Services</h2>
+      </div>
+      <div class="content-block__body">
+        <p>This AI visibility service works alongside our other <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>" title="AI SEO and AI visibility services">AI SEO & AI Visibility services</a>:</p>
+        <ul>
+          <li><a href="<?= htmlspecialchars($localePrefix . '/services/ai-search-optimization/') ?>" title="AI search optimization service">AI Search Optimization</a> – AI Overview & Generative Search Visibility Service</li>
+          <li><a href="<?= htmlspecialchars($localePrefix . '/services/site-audits/') ?>" title="Site audit service for AI and search visibility">Site Audits</a> – AI & Search Visibility Diagnostic Service</li>
+          <li><a href="<?= htmlspecialchars($localePrefix . '/services/llm-seeding/') ?>" title="LLM seeding and citation service">LLM Seeding & Citation</a> – AI Citation Growth & Visibility Service</li>
+        </ul>
+        <p>Explore our comprehensive <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>" title="AI SEO and AI visibility services">AI SEO & AI Visibility services</a> for complete search and generative engine optimization.</p>
       </div>
     </div>
 
@@ -317,4 +299,3 @@ $GLOBALS['__jsonld'] = [
   </div>
 </section>
 </main>
-

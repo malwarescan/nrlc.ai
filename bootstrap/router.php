@@ -97,8 +97,8 @@ function route_request(): void {
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     // Override meta for training page
-    $GLOBALS['__page_meta']['title'] = 'Training Marketing and SEO Teams for AI Search Systems | NRLC.ai';
-    $GLOBALS['__page_meta']['description'] = 'Technical training for marketing and SEO teams on how LLMs ingest web content, vector representations, and structured information for AI search systems like Google AI Overviews and ChatGPT.';
+    $GLOBALS['__page_meta']['title'] = 'Training Marketing & SEO Teams for AI Search | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Technical training for marketing and SEO teams on how LLMs ingest web content, vector representations, and structured information for AI search systems.';
     render_page('training/ai-search-systems');
     return;
   }
@@ -190,8 +190,27 @@ function route_request(): void {
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       // Override meta title for site-audits to match directive (H1 pattern: Site Audits for AI & Search Visibility)
-      $GLOBALS['__page_meta']['title'] = "Site Audits for AI & Search Visibility in $cityTitle | NRLC.ai";
-      $GLOBALS['__page_meta']['description'] = "Site audit services in $cityTitle. We explain why visibility breaks down, not just surface-level issues. Focus on how search engines and AI systems interpret your site.";
+      // Dynamic title with truncation protection for long city names
+      $baseTitle = "Site Audits for AI & Search Visibility";
+      $cityTitleLen = strlen($cityTitle);
+      $suffix = " | NRLC.ai";
+      $infix = " in ";
+      $maxCityLen = 60 - strlen($baseTitle) - strlen($suffix) - strlen($infix);
+      
+      if ($cityTitleLen > $maxCityLen) {
+        // Truncate city name if needed (preserve at least 3 chars + ellipsis)
+        $truncatedLen = max(3, $maxCityLen - 3);
+        $cityTitle = substr($cityTitle, 0, $truncatedLen) . '...';
+      }
+      
+      $GLOBALS['__page_meta']['title'] = "$baseTitle$infix$cityTitle$suffix";
+      
+      // Description with truncation protection
+      $baseDesc = "Site audit services in $cityTitle. We explain why visibility breaks down, not just surface-level issues. Focus on how search engines and AI systems interpret your site.";
+      if (strlen($baseDesc) > 160) {
+        $baseDesc = substr($baseDesc, 0, 157) . '...';
+      }
+      $GLOBALS['__page_meta']['description'] = $baseDesc;
       
       render_page('services/service_city_audit');
       return;
@@ -653,6 +672,162 @@ function route_request(): void {
     return;
   }
 
+  // Diagnostic page
+  if ($path === '/resources/diagnostic/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'resource',
+      'slug' => 'resources/diagnostic',
+      'title' => 'AI Visibility Diagnostic',
+      'excerpt' => 'Diagnostic tool to understand AI visibility issues before requesting a professional audit. Analyze how AI systems interpret your business.',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    render_page('resources/diagnostic');
+    return;
+  }
+
+  // Prechunking SEO Documentation routes
+  if ($path === '/docs/prechunking-seo/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Prechunking SEO Documentation | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Official documentation for Prechunking SEO: an engineering discipline for structuring content for AI retrieval and citation. Core concepts, croutons, precogs.';
+    render_page('docs/prechunking-seo/index');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/core-concepts/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/core-concepts',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Prechunking SEO: Core Concepts | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Core concepts of prechunking SEO: data shaping, croutons, precogs, chunk boundaries, and retrieval vs ranking.';
+    render_page('docs/prechunking-seo/core-concepts');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/croutons/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/croutons',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Crouton Specification | Prechunking SEO | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Crouton specification for prechunking SEO. Atomic, retrievable fact structures that survive AI extraction.';
+    render_page('docs/prechunking-seo/croutons');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/precogs/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/precogs',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Precog Modeling | Prechunking SEO | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Precog modeling for prechunking SEO. Intent forecasting, follow-up questions, and trust-question identification.';
+    render_page('docs/prechunking-seo/precogs');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/workflow/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/workflow',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Prechunking Workflow | Prechunking SEO | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Prechunking SEO workflow. Intent decomposition, crouton inventory, data shaping, and structured publishing.';
+    render_page('docs/prechunking-seo/workflow');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/failure-modes/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/failure-modes',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Failure Modes | Prechunking SEO | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Prechunking SEO failure modes. Why AI ignores content, why facts mutate, and why competitors get cited instead.';
+    render_page('docs/prechunking-seo/failure-modes');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/measurement/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/measurement',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Measurement & KPIs | Prechunking SEO | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Prechunking SEO measurement and KPIs. AI citation rates, answer inclusion, cross-engine consistency, and zero-click dominance.';
+    render_page('docs/prechunking-seo/measurement');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/doctrine/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/doctrine',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'NRLC Doctrine | Prechunking SEO | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'NRLC doctrine for prechunking SEO. Pages are containers, chunks are assets, retrieval precedes ranking, truth must survive isolation.';
+    render_page('docs/prechunking-seo/doctrine');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/course/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/course',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Prechunking SEO Operator Training | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Prechunking SEO operator training course. Structured learning system for identifying bad chunks, writing valid croutons, and controlling AI retrieval outcomes.';
+    render_page('docs/prechunking-seo/course');
+    return;
+  }
+
+  if ($path === '/docs/prechunking-seo/academic-signals/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking-seo/academic-signals',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Academic Signals Informing Prechunking SEO | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Evidence-backed research alignment for prechunking SEO. Semantic overlap, atomic extractability, redundant truth reinforcement, and citation-ready assertion design.';
+    render_page('docs/prechunking-seo/academic-signals');
+    return;
+  }
+
   // AI Visibility Audit Example Pages
   if (preg_match('#^/ai-visibility/audit-example/([^/]+)/$#', $path, $m)) {
     $_GET['industry'] = $m[1];
@@ -680,18 +855,52 @@ function route_request(): void {
   // AI Visibility Landing Pages
   if ($path === '/ai-visibility/') {
     // Set metadata directly for AI Visibility service page
-    // ENFORCEMENT: Meta title must include "AI Visibility" + "NRLC"
-    // Meta description must explain AI summaries, not rankings
+    // ENFORCEMENT: Meta title must include "AI Visibility Services"
+    // Meta description must explain this is a hireable service
     $GLOBALS['__page_meta'] = [
-      'title' => 'AI Visibility | How AI Describes Your Business | NRLC.ai',
-      'description' => 'AI Visibility & Trust Audit: Analysis of how AI systems like ChatGPT, Google AI Overviews, Perplexity, and Claude describe businesses and the signals influencing AI-generated summaries. Professional diagnostic service from NRLC.ai.',
+      'title' => 'AI Visibility Services – Brand Presence in AI | NRLC.ai',
+      'description' => 'Professional AI visibility service that improves brand presence in AI-generated answers across ChatGPT, Google AI Overviews, Perplexity, and Claude.',
       'canonicalPath' => $path
     ];
     render_page('ai-visibility/index');
     return;
   }
 
+  // Special handling for Prechunking SEO structure industry pages
+  $prechunkingIndustries = [
+    'immigration' => ['name' => 'Immigration Services', 'term' => 'immigration'],
+    'financial-advisor' => ['name' => 'Financial Advisors', 'term' => 'financial planning'],
+    'contractor' => ['name' => 'High-End Contractors', 'term' => 'repairs and renovations'],
+    'veterinary' => ['name' => 'Veterinary Practices', 'term' => 'veterinary'],
+    'senior-care' => ['name' => 'Senior Care / Assisted Living Advisors', 'term' => 'senior care'],
+    'private-school' => ['name' => 'Private Schools / Tutoring', 'term' => 'education'],
+    'auto-repair' => ['name' => 'Auto Repair / Specialty Mechanics', 'term' => 'car repairs'],
+    'funeral' => ['name' => 'Funeral & Cremation Services', 'term' => 'funeral planning'],
+    'real-estate' => ['name' => 'Real Estate Agents (Relocation / Luxury)', 'term' => 'real estate'],
+    'private-investigator' => ['name' => 'Private Investigators', 'term' => 'private investigation']
+  ];
+  
   if (preg_match('#^/ai-visibility/([^/]+)/$#', $path, $m)) {
+    $industrySlug = $m[1];
+    
+    // Check if this industry uses Prechunking SEO structure
+    if (isset($prechunkingIndustries[$industrySlug])) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $industry = $prechunkingIndustries[$industrySlug];
+      $ctx = [
+        'type' => 'service',
+        'slug' => "ai-visibility/$industrySlug",
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      $GLOBALS['__page_meta']['title'] = "AI Visibility for {$industry['name']} | NRLC.ai";
+      $GLOBALS['__page_meta']['description'] = "Engineering service that structures {$industry['term']} information so AI systems can retrieve, verify, and cite it accurately. Prechunking methodology for {$industry['name']}.";
+      render_page("ai-visibility/$industrySlug");
+      return;
+    }
+    
+    // Fall back to generic industry template for any other industries
+    $_GET['industry'] = $industrySlug;
     $industrySlug = $m[1];
     $_GET['industry'] = $industrySlug;
     

@@ -246,22 +246,24 @@ a:focus-visible {
 /* ==========================================================================
    5. LAYOUT — Modular Segmentation
    ========================================================================== */
+/* MOBILE-FIRST: Uniform padding on all sides */
 .container {
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: var(--container-padding); /* Uniform padding on all sides - mobile first */
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
   .container {
-    padding: 0 var(--container-padding-sm);
+    padding: var(--container-padding-sm); /* Uniform padding on all sides - tablet */
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding:  var(--container-padding-lg);
+    padding: var(--container-padding-lg); /* Uniform padding on all sides - desktop */
   }
 }
 
@@ -605,9 +607,10 @@ hr {
 /* ==========================================================================
    7. CONTENT BLOCKS — High-Density Information Modules
    ========================================================================== */
+/* MOBILE-FIRST: Uniform padding on all sides */
 .content-block {
   margin-bottom: var(--module-spacing);
-  padding: var(--content-spacing);
+  padding: var(--content-spacing); /* Uniform padding on all sides - mobile first (1rem = 16px) */
   background-color: var(--color-bg-primary);
   border: var(--border-width) solid var(--color-border);
   animation: fadeInUp var(--duration-slow) var(--ease-functional) both;
@@ -616,6 +619,18 @@ hr {
   box-sizing: border-box; /* Include padding in width calculation */
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .content-block {
+    padding: var(--container-padding-sm); /* Uniform padding on all sides - tablet (1.5rem = 24px) */
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-block {
+    padding: var(--container-padding-lg); /* Uniform padding on all sides - desktop (2rem = 32px) */
+  }
 }
 
 .content-block__header {
@@ -1186,7 +1201,7 @@ label {
   .nav-primary {
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: relative;
   }
   

@@ -34,6 +34,35 @@ foreach ($blocks as $b) {
 </div>
 
 <script>
+// Make openContactSheet available IMMEDIATELY (before DOM ready)
+// This ensures inline onclick handlers can call it
+// This is a stub that will be replaced by the full implementation below
+window.openContactSheet = function(serviceType = '') {
+  // Store service type for later use
+  window.__pendingServiceType = serviceType;
+  
+  // If the full implementation is ready, use it
+  if (window.__openContactSheetFull) {
+    return window.__openContactSheetFull(serviceType);
+  }
+  
+  // Otherwise, wait for DOM and try again
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.__openContactSheetFull) {
+        window.__openContactSheetFull(window.__pendingServiceType || '');
+      }
+    });
+  } else {
+    // DOM already loaded, try to use full implementation
+    setTimeout(function() {
+      if (window.__openContactSheetFull) {
+        window.__openContactSheetFull(window.__pendingServiceType || '');
+      }
+    }, 100);
+  }
+};
+
 (function() {
   'use strict';
   
@@ -84,6 +113,9 @@ foreach ($blocks as $b) {
   const contactSheet = document.getElementById('contact-sheet');
   const contactBackdrop = contactSheet?.querySelector('.contact-sheet__backdrop');
   const contactOptions = document.getElementById('contact-options');
+  
+  // Store current service type globally
+  window.__currentServiceType = '';
   
   // Detect device type
   function detectDevice() {
@@ -163,17 +195,23 @@ foreach ($blocks as $b) {
       enabled: true
     });
     
+    options.push({
+      label: 'Live Chat',
+      action: () => {
+        window.open('https://tawk.to/chat/6773467849e2fd8dfe00cb58/1igd4mhq4', '_blank', 'noopener,noreferrer');
+      },
+      enabled: true
+    });
+    
     return options;
   }
-  
-  // Store current service type
-  let currentServiceType = '';
   
   // Render contact options
   function renderContactOptions() {
     if (!contactOptions) return;
     
-    const options = buildContactOptions(currentServiceType);
+    const serviceType = window.__currentServiceType || '';
+    const options = buildContactOptions(serviceType);
     
     contactOptions.innerHTML = options.map((option, index) => {
       const isDisabled = !option.enabled;
@@ -202,10 +240,16 @@ foreach ($blocks as $b) {
     });
   }
   
-  // Open contact sheet with optional service type
-  function openContactSheet(serviceType = '') {
-    if (!contactSheet) return;
-    currentServiceType = serviceType;
+  // Store renderContactOptions globally so window.openContactSheet can use it
+  window.__renderContactOptions = renderContactOptions;
+  
+  // Store the full implementation
+  window.__openContactSheetFull = function(serviceType = '') {
+    if (!contactSheet) {
+      console.error('Contact sheet element not found');
+      return;
+    }
+    window.__currentServiceType = serviceType;
     renderContactOptions();
     contactSheet.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -214,10 +258,10 @@ foreach ($blocks as $b) {
     setTimeout(() => {
       contactSheet.classList.add('contact-sheet--open');
     }, 10);
-  }
+  };
   
-  // Make openContactSheet globally available
-  window.openContactSheet = openContactSheet;
+  // Replace the stub with the full implementation
+  window.openContactSheet = window.__openContactSheetFull;
   
   // Close contact sheet
   function closeContactSheet() {
@@ -246,5 +290,18 @@ foreach ($blocks as $b) {
   }
 })();
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6773467849e2fd8dfe00cb58/1igd4mhq4';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body></html>
 

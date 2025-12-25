@@ -12,101 +12,135 @@
     <!-- Products Header Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">Products</h1>
+        <h1 class="content-block__title">AI SEO & AI Visibility Products</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Complete product ecosystem for structured knowledge, AI visibility, and agentic intelligence.</p>
-        <p>Explore our comprehensive <a href="/en-us/services/">AI SEO Services</a> and discover related <a href="/en-us/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/en-us/tools/">SEO Tools & Resources</a>.</p>
+        <p class="lead">AI SEO and AI visibility tools for structured knowledge, search optimization, and generative engine visibility.</p>
+        <p>Explore our comprehensive <a href="/en-us/services/" title="AI SEO services">AI SEO Services</a> and discover related <a href="/en-us/insights/" title="AI SEO research and insights">AI SEO Research & Insights</a>. Learn more about our <a href="/en-us/tools/" title="SEO tools and resources">SEO Tools & Resources</a>.</p>
       </div>
     </div>
 
-    <!-- Products Grid -->
+    <!-- Products List -->
     <div class="content-block module">
       <div class="content-block__body">
-        <div class="grid grid-auto-fit">
-          
-          <!-- Data, But Structured -->
-          <div class="content-block">
-            <h3 class="content-block__title">Data, But Structured</h3>
+        
+        <!-- Data, But Structured -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Data, But Structured – Structured Knowledge & Schema Literacy Book</h2>
+          </div>
+          <div class="content-block__body">
             <p>Foundational book defining structured knowledge, micro-fact cognition, agentic search, data ontology, AI visibility, and schema literacy.</p>
             <div class="btn-group">
-              <a href="/en-us/products/data-but-structured/" class="btn">Learn More</a>
+              <a href="/en-us/products/data-but-structured/" class="btn" title="Structured knowledge and schema literacy book">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- Applicants.io -->
-          <div class="content-block">
-            <h3 class="content-block__title">Applicants.io</h3>
+        <!-- Applicants.io -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Applicants.io – AI Recruiting & JobPosting Schema Automation Tool</h2>
+          </div>
+          <div class="content-block__body">
             <p>AI recruiting platform with JobPosting schema automation, Google Jobs indexing, resume crawling, and AI-driven applicant ranking.</p>
             <div class="btn-group">
-              <a href="/en-us/products/applicants-io/" class="btn">Learn More</a>
+              <a href="/en-us/products/applicants-io/" class="btn" title="AI recruiting and JobPosting schema automation tool">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- OurCasa.ai -->
-          <div class="content-block">
-            <h3 class="content-block__title">OurCasa.ai</h3>
+        <!-- OurCasa.ai -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">OurCasa.ai – Home Intelligence & Property Data Platform</h2>
+          </div>
+          <div class="content-block__body">
             <p>Home and neighborhood intelligence graph with property cognition, weather risk mapping, local incident history, and maintenance prediction.</p>
             <div class="btn-group">
-              <a href="/en-us/products/ourcasa-ai/" class="btn">Learn More</a>
+              <a href="/en-us/products/ourcasa-ai/" class="btn" title="Home intelligence and property data platform">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- Croutons.ai -->
-          <div class="content-block">
-            <h3 class="content-block__title">Croutons.ai</h3>
+        <!-- Croutons.ai -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Croutons.ai – Data Atomization & Machine-Verifiable Truth Engine</h2>
+          </div>
+          <div class="content-block__body">
             <p>Micro-fact data atomization engine converting HTML, PDFs, CSVs, NDJSON streams, and APIs into machine-verifiable truth infrastructure.</p>
             <div class="btn-group">
-              <a href="/en-us/products/croutons-ai/" class="btn">Learn More</a>
+              <a href="/en-us/products/croutons-ai/" class="btn" title="Data atomization and machine-verifiable truth engine">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- Precogs -->
-          <div class="content-block">
-            <h3 class="content-block__title">Precogs</h3>
+        <!-- Precogs -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Precogs – Ontological Intelligence & Predictive Reasoning Engine</h2>
+          </div>
+          <div class="content-block__body">
             <p>Ontological oracle intelligence engine with predictive reasoning, multi-domain cognition, temporal simulation, and real-time agentic intelligence.</p>
             <div class="btn-group">
-              <a href="/en-us/products/precogs/" class="btn">Learn More</a>
+              <a href="/en-us/products/precogs/" class="btn" title="Ontological intelligence and predictive reasoning engine">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- Googlebot Renderer Lab -->
-          <div class="content-block">
-            <h3 class="content-block__title">Googlebot Renderer Lab</h3>
+        <!-- Googlebot Renderer Lab -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Googlebot Renderer Lab – SEO Diagnostics & Googlebot Simulation Tool</h2>
+          </div>
+          <div class="content-block__body">
             <p>Real Googlebot DOM simulation solving hydration failures, CSR/SSR drift, and crawl-time abort replication for modern SEO diagnostics.</p>
             <div class="btn-group">
-              <a href="/en-us/products/googlebot-renderer-lab/" class="btn">Learn More</a>
+              <a href="/en-us/products/googlebot-renderer-lab/" class="btn" title="SEO diagnostics and Googlebot simulation tool">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- NEWFAQ -->
-          <div class="content-block">
-            <h3 class="content-block__title">NEWFAQ</h3>
+        <!-- NEWFAQ -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">NEWFAQ – FAQ & Business Intelligence Engine for SEO Visibility</h2>
+          </div>
+          <div class="content-block__body">
             <p>Sentient FAQ and business intelligence engine that learns from queries, expands dynamically, and generates breakthrough SEO visibility.</p>
             <div class="btn-group">
-              <a href="/en-us/products/newfaq/" class="btn">Learn More</a>
+              <a href="/en-us/products/newfaq/" class="btn" title="FAQ and business intelligence engine for SEO visibility">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- Neural Command OS -->
-          <div class="content-block">
-            <h3 class="content-block__title">Neural Command OS</h3>
+        <!-- Neural Command OS -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Neural Command OS – Agentic SEO & LLM Visibility Operating System</h2>
+          </div>
+          <div class="content-block__body">
             <p>Universal operating system powering agentic SEO, schema generation, authority scoring, LLM visibility modeling, and semantic linking.</p>
             <div class="btn-group">
-              <a href="/en-us/products/neural-command-os/" class="btn">Learn More</a>
+              <a href="/en-us/products/neural-command-os/" class="btn" title="Agentic SEO and LLM visibility operating system">Learn More</a>
             </div>
           </div>
+        </div>
 
-          <!-- Prompt Surface Intelligence -->
-          <div class="content-block">
-            <h3 class="content-block__title">Prompt Surface Intelligence</h3>
+        <!-- Prompt Surface Intelligence -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Prompt Surface Intelligence – AI Search Prompt Analysis & Visibility Tool</h2>
+          </div>
+          <div class="content-block__body">
             <p>Identify the real prompts your website appears in across Google, AI Overviews, ChatGPT, Claude, and Perplexity.</p>
             <div class="btn-group">
-              <a href="/en-us/products/prompt-surface-intelligence/" class="btn">Learn More</a>
+              <a href="/en-us/products/prompt-surface-intelligence/" class="btn" title="AI search prompt analysis and visibility tool">Learn More</a>
             </div>
           </div>
-
         </div>
+
       </div>
     </div>
 

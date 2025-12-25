@@ -1,6 +1,15 @@
 <?php
 // Note: head.php and header.php are already included by router.php render_page()
 // Metadata is set in router.php before head.php is included
+require_once __DIR__.'/../../lib/helpers.php';
+
+// Detect locale from URL
+$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$locale = '';
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
+  $locale = $matches[1];
+}
+$localePrefix = $locale ? "/$locale" : '';
 ?>
 
 <main role="main" class="container">
@@ -10,222 +19,159 @@
     <!-- Services Header Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">The Semantic Infrastructure for the AI Internet</h1>
+        <h1 class="content-block__title">AI SEO & AI Visibility Services</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">
-          NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.
-        </p>
-        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a>.</p>
+        <p class="lead">Professional AI SEO and AI visibility services for businesses that need real improvements in search rankings, AI citations, and generative engine visibility.</p>
+        <p>We provide hireable services that improve how search engines and AI systems find, understand, and cite your business. Services include AI visibility audits, structured data implementation, technical SEO optimization, and AI citation growth.</p>
+        <p>Explore our <a href="<?= htmlspecialchars($localePrefix . '/insights/') ?>" title="AI SEO research and insights">AI SEO Research & Insights</a> and learn more about our <a href="<?= htmlspecialchars($localePrefix . '/tools/') ?>" title="SEO tools and resources">SEO Tools & Resources</a>.</p>
+      </div>
+    </div>
+
+    <!-- AI SEO Services List -->
+    <div class="content-block module">
+      <div class="content-block__body">
+        
+        <!-- AI Search Optimization -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">AI Search Optimization – AI Overview & Generative Search Visibility Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Professional service that improves how your business appears in Google AI Overviews, ChatGPT, Perplexity, and other generative search engines. We optimize content structure, entity signals, and citation readiness to increase AI visibility and recommendations.</p>
+            <p><strong>What improves:</strong> AI citations, generative search visibility, AI Overview appearances, brand mentions in AI-generated answers.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/ai-search-optimization/') ?>" class="btn" title="AI search optimization service for generative engines">View AI Search Optimization Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Site Audits -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Site Audits – AI & Search Visibility Diagnostic Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Comprehensive site audits that explain why visibility breaks down, not just surface-level issues. We analyze how search engines and AI systems interpret your site, identify ambiguity, and provide prioritized fixes that improve rankings and AI citations.</p>
+            <p><strong>What improves:</strong> Search rankings, AI visibility, technical SEO issues, content structure, entity clarity.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/site-audits/') ?>" class="btn" title="Site audit service for AI and search visibility">View Site Audit Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Crawl Clarity Engineering -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Crawl Clarity Engineering – URL Normalization & Canonical Enforcement Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Systematic URL normalization and canonical enforcement service that eliminates duplicate content issues and ensures search engines crawl the correct versions of your pages. We fix crawl budget waste, canonical conflicts, and indexing problems.</p>
+            <p><strong>What improves:</strong> Crawl efficiency, indexing rates, duplicate content issues, search engine understanding of page relationships.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/crawl-clarity/') ?>" class="btn" title="Crawl clarity engineering service for URL normalization">View Crawl Clarity Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- JSON-LD & Structured Data -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">JSON-LD & Structured Data – Schema Markup Implementation Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Comprehensive schema markup implementation service that structures your content for search engines and AI systems. We implement JSON-LD, microdata, and structured data that improves rich results, knowledge graph inclusion, and AI citation eligibility.</p>
+            <p><strong>What improves:</strong> Rich results, knowledge graph inclusion, AI citation eligibility, structured data accuracy, search result appearance.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/json-ld-strategy/') ?>" class="btn" title="JSON-LD and structured data implementation service">View Structured Data Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LLM Seeding & Citation -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">LLM Seeding & Citation – AI Citation Growth & Visibility Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Content optimization service that prepares your business for AI citations in ChatGPT, Google AI Overviews, and other generative engines. We structure content for AI extraction, improve entity clarity, and build citation-ready authority signals.</p>
+            <p><strong>What improves:</strong> AI citations, brand mentions in AI answers, generative search visibility, entity recognition by AI systems.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/llm-seeding/') ?>" class="btn" title="LLM seeding and citation service for AI visibility">View LLM Seeding Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical SEO -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Technical SEO – Core Web Vitals & Crawl Optimization Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Technical SEO service that fixes crawl issues, improves site speed, and optimizes Core Web Vitals. We resolve technical barriers that prevent search engines from indexing and ranking your content effectively.</p>
+            <p><strong>What improves:</strong> Site speed, Core Web Vitals scores, crawl efficiency, indexing rates, technical SEO barriers.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/technical-seo/') ?>" class="btn" title="Technical SEO service for crawl optimization">View Technical SEO Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- International SEO -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">International SEO – Multi-Regional Search Optimization Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Multi-regional SEO service that implements hreflang tags, manages international site structure, and optimizes for multiple markets. We ensure search engines understand your international presence and serve the correct content to the right audiences.</p>
+            <p><strong>What improves:</strong> International rankings, hreflang accuracy, multi-regional visibility, local search performance.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/international-seo/') ?>" class="btn" title="International SEO service for multi-regional optimization">View International SEO Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Visibility & Analytics -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">AI Visibility & Analytics – AI Engine Performance Tracking Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Analytics and tracking service that measures how your business appears in AI-generated answers, tracks AI citations, and monitors generative search visibility. We provide reporting on AI Overview appearances, ChatGPT mentions, and AI citation frequency.</p>
+            <p><strong>What improves:</strong> AI visibility measurement, citation tracking, performance reporting, AI search analytics.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/analytics/') ?>" class="btn" title="AI visibility and analytics service for performance tracking">View Analytics Service</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Training -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Training – AI Search Systems Education & Implementation Service</h2>
+          </div>
+          <div class="content-block__body">
+            <p>Training service for marketing and SEO teams on how AI search systems work, how LLMs ingest content, and how to optimize for generative engines. We provide workshops, documentation, and implementation guidance for in-house teams and agencies.</p>
+            <p><strong>What improves:</strong> Team knowledge, implementation capability, AI search optimization skills, internal execution quality.</p>
+            <div class="btn-group">
+              <a href="<?= htmlspecialchars($localePrefix . '/services/training/') ?>" class="btn" title="Training service for AI search systems">View Training Service</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Related Resources -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Resources</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Explore our comprehensive <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>" title="AI SEO services">AI SEO Services</a> including <a href="<?= htmlspecialchars($localePrefix . '/services/crawl-clarity/') ?>" title="Crawl clarity engineering service">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="<?= htmlspecialchars($localePrefix . '/insights/') ?>" title="AI SEO research and insights">AI SEO Research & Insights</a> including the <a href="<?= htmlspecialchars($localePrefix . '/insights/geo16-introduction/') ?>" title="GEO-16 framework for AI citation optimization">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="<?= htmlspecialchars($localePrefix . '/tools/') ?>" title="SEO tools and resources">SEO Tools & Resources</a> for technical SEO optimization.</p>
         <div class="btn-group text-center">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI SEO Services Demo')" title="Book a demo to see our AI SEO services in action" aria-label="Book a demo for AI SEO services">Book a Demo</button>
-          <a href="/insights/" class="btn" title="Explore our AI SEO research and insights" aria-label="Explore AI SEO research">Explore Research</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Core Platform Services -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Core Platform</h2>
-      </div>
-      <div class="content-block__body">
-        <div class="grid grid-auto-fit">
-          
-          <div class="content-block">
-            <h3>Semantic Layer</h3>
-            <p>SQL-native ontologies exposing reusable logic, metrics, hierarchies, and reasoning without introducing new languages or paradigms. Transform your data into a semantic graph where relationships are explicit and queries collapse complexity.</p>
-            <a href="/services/semantic-layer/" class="btn" data-ripple title="Explore our Semantic Layer service - SQL-native ontologies and knowledge graphs" aria-label="Explore Semantic Layer Service">Explore Semantic Layer Service</a>
-          </div>
-
-          <div class="content-block">
-            <h3>Data Virtualization</h3>
-            <p>Connect every source into a semantic, virtualized layer with no ingestion or duplication. Your data stays where it lives — NRLC makes it usable. Automatic mapping to the ontology, federated queries, and intelligent pushdown optimization.</p>
-            <a href="/services/data-virtualization/" class="btn" data-ripple title="Explore our Data Virtualization service - connect all sources without ingestion" aria-label="Explore Data Virtualization Service">Explore Data Virtualization</a>
-          </div>
-
-          <div class="content-block">
-            <h3>Enterprise LLM Foundation</h3>
-            <p>Structured semantic context, verified relationships, and virtualized access to all data sources. LLMs become reliable once they operate on governed, contextualized, precise data. NRLC delivers that foundation.</p>
-            <a href="/services/enterprise-llm-foundation/" class="btn" data-ripple title="Explore our Enterprise LLM Foundation service - reliable AI workflows on structured data" aria-label="Explore Enterprise LLM Foundation Service">Explore Enterprise LLM Foundation</a>
-          </div>
-
-          <div class="content-block">
-            <h3>Knowledge Graph</h3>
-            <p>Interactive knowledge graph exploration with relationship traversal, insight surfacing, and natural-language query generation. Let LLMs act as your data analyst. Generate SQL or natural-language queries automatically.</p>
-            <a href="/services/knowledge-graph/" class="btn" data-ripple title="Explore our Knowledge Graph service - interactive relationship exploration" aria-label="Explore Knowledge Graph Service">Explore the Knowledge Graph</a>
-          </div>
-
-          <div class="content-block">
-            <h3>Ontology Modeling</h3>
-            <p>Rapid semantic modeling with LLM-assisted entity and metric creation. Model your business using SQL-native ontologies with up to 90% reduction in time-to-consumption. No new languages — everything in SQL.</p>
-            <a href="/services/ontology-modeling/" class="btn" data-ripple title="Explore our Ontology Modeling service - structured data relationships" aria-label="Explore Ontology Modeling Service">Explore Ontology Modeling Service</a>
-          </div>
-
-          <div class="content-block">
-            <h3>REST API</h3>
-            <p>Your REST layer becomes semantic, self-documenting, and deeply expressive. Nested semantic fetches, field-level precision, role & row-level governance, and automatic OpenAPI/Swagger generation.</p>
-            <a href="/services/rest-api/" class="btn" data-ripple title="View REST API documentation and integration guides" aria-label="View REST API Documentation">REST API Documentation</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    
-    <!-- AI Capabilities -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">AI Capabilities</h2>
-      </div>
-      <div class="content-block__body">
-        <h3>Build AI Workflows on Structured Understanding</h3>
-        <p>Power AI with structured semantic context, verified relationships, virtualized access to all data sources, SQL measures, and fine-grained access control.</p>
-        
-        <div class="grid grid-auto-fit">
-          <div class="content-block">
-            <h4>NL2SQL Generation</h4>
-            <p>Convert natural language queries into optimized SQL using semantic understanding of your data model.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>GraphRAG</h4>
-            <p>Retrieval-augmented generation powered by your knowledge graph for accurate, contextual AI responses.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>Graph Analytics</h4>
-            <p>Analyze relationships, patterns, and insights across your entire semantic graph with powerful graph algorithms.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>LLM Data Analyst</h4>
-            <p>Let LLMs act as your data analyst, generating queries, surfacing insights, and answering complex questions about your data.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Integrations -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Connect Anything</h2>
-      </div>
-      <div class="content-block__body">
-        <h3>No syncing. No lifting. No duplication.</h3>
-        <p>NRLC supports universal connectivity across data platforms, BI tools, AI frameworks, and protocols.</p>
-        
-        <div class="grid grid-auto-fit">
-          <div class="content-block">
-            <h4>Data Platforms</h4>
-            <p>Databricks, Snowflake, Fabric, GCP, AWS, SAP HANA, data warehouses, data lakes, databases, catalogs</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>BI Tools</h4>
-            <p>Power BI, Tableau, Looker, Qlik, Excel, Superset. Reuse metrics across BI tools without vendor lock-in.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>AI/ML Frameworks</h4>
-            <p>Python, LangChain, LangGraph, GraphRAG, Graph Algorithms. Native integration with modern AI tooling.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>Protocols</h4>
-            <p>REST, SQL, JDBC/ODBC, MDX, OLAP. Standard protocols with semantic enhancements.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Solutions -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Solutions</h2>
-      </div>
-      <div class="content-block__body">
-        <h3>Industry-Specific Semantic Solutions</h3>
-        <p>Pre-built semantic models and solutions for common use cases and industries.</p>
-        
-        <div class="grid grid-auto-fit">
-          <div class="content-block content-block--highlighted">
-            <h4>Intelligent Semantic Layer</h4>
-            <p>Unified semantic abstraction across all your data sources.</p>
-          </div>
-          
-          <div class="content-block content-block--highlighted">
-            <h4>Metrics Store</h4>
-            <p>Centralized, reusable metrics with consistent definitions.</p>
-          </div>
-          
-          <div class="content-block content-block--highlighted">
-            <h4>Data Mesh</h4>
-            <p>Federated data architecture with semantic governance.</p>
-          </div>
-          
-          <div class="content-block content-block--highlighted">
-            <h4>Data Fabric</h4>
-            <p>Unified data management across hybrid and multi-cloud environments.</p>
-          </div>
-          
-          <div class="content-block content-block--highlighted">
-            <h4>Digital Twin</h4>
-            <p>Semantic representation of physical systems and processes.</p>
-          </div>
-          
-          <div class="content-block content-block--highlighted">
-            <h4>Industry Models</h4>
-            <p>FHIR, FIBO, Supply Chain, Telecom, Analytics ontologies.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Benefits -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Key Benefits</h2>
-      </div>
-      <div class="content-block__body">
-        <h3>Why Organizations Choose NRLC</h3>
-        
-        <div class="grid grid-auto-fit">
-          <div class="content-block">
-            <h4>90% Faster Time-to-Consumption</h4>
-            <p>Rapid semantic modeling and LLM-assisted entity creation dramatically reduce implementation time.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>No Data Duplication</h4>
-            <p>Virtualized access means your data stays where it lives. No syncing, no lifting, no duplication.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>SQL-Native</h4>
-            <p>Everything in SQL. No new languages or paradigms to learn. Your team already knows how to use it.</p>
-          </div>
-          
-          <div class="content-block">
-            <h4>Enterprise-Ready</h4>
-            <p>Deploy in SaaS, cloud, or on-premises. Kubernetes-ready with fine-grained governance and access control.</p>
-          </div>
-    </div>
-  </div>
-</div>
-
-    <!-- Call to Action Content Block -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Ready to Get Started?</h2>
-      </div>
-      <div class="content-block__body">
-        <p class="text-center lead">Build Semantic Intelligence Into Your Stack</p>
-        <p class="text-center">
-          Transform your data into a semantic knowledge graph that powers reliable AI workflows. Book a demo to see how NRLC can accelerate your AI initiatives.
-        </p>
-        <div class="btn-group text-center">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('Live Demo')">Book a live demo</button>
-          <a href="/insights/" class="btn">Explore Research</a>
+          <a href="<?= htmlspecialchars($localePrefix . '/services/ai-search-optimization/') ?>" class="btn btn--primary" title="Get started with AI search optimization services">Get Started with AI SEO</a>
         </div>
       </div>
     </div>
@@ -243,17 +189,18 @@ if (function_exists('render_internal_links_section')) {
 
 <?php
 // JSON-LD Schema
+require_once __DIR__ . '/../../lib/helpers.php';
 $domain = 'https://nrlc.ai';
-$canonical_url = $domain . '/services/';
+$canonicalUrl = absolute_url('/services/');
 
 $jsonld = [
   [
     "@context" => "https://schema.org",
     "@type" => "WebPage",
-    "@id" => $canonical_url . '#webpage',
-    "name" => "AI SEO Services",
-    "url" => $canonical_url,
-    "description" => "NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.",
+    "@id" => $canonicalUrl . '#webpage',
+    "name" => "AI SEO & AI Visibility Services",
+    "url" => $canonicalUrl,
+    "description" => "Professional AI SEO and AI visibility services for businesses that need real improvements in search rankings, AI citations, and generative engine visibility.",
     "isPartOf" => [
       "@type" => "WebSite",
       "@id" => $domain . '/#website',
@@ -264,7 +211,7 @@ $jsonld = [
   [
     "@context" => "https://schema.org",
     "@type" => "BreadcrumbList",
-    "@id" => $canonical_url . '#breadcrumb',
+    "@id" => $canonicalUrl . '#breadcrumb',
     "itemListElement" => [
       [
         "@type" => "ListItem",
@@ -276,52 +223,87 @@ $jsonld = [
         "@type" => "ListItem",
         "position" => 2,
         "name" => "Services",
-        "item" => $canonical_url
+        "item" => $canonicalUrl
       ]
     ]
   ],
   [
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "Semantic Infrastructure Platform",
-    "description" => "A unified semantic layer for the AI era that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph",
+    "name" => "AI SEO & AI Visibility Services",
+    "description" => "Professional AI SEO and AI visibility services including site audits, structured data implementation, technical SEO optimization, and AI citation growth.",
     "provider" => [
       "@type" => "Organization",
       "name" => "NRLC.ai",
       "url" => "https://nrlc.ai"
     ],
-    "serviceType" => "Semantic Infrastructure Platform",
+    "serviceType" => "AI SEO Services",
     "areaServed" => "Worldwide",
     "hasOfferCatalog" => [
       "@type" => "OfferCatalog",
-      "name" => "Semantic Infrastructure Services",
+      "name" => "AI SEO Services Catalog",
       "itemListElement" => [
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "Semantic Layer"
+            "name" => "AI Search Optimization"
           ]
         ],
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "Data Virtualization"
+            "name" => "Site Audits"
           ]
         ],
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "Enterprise LLM Foundation"
+            "name" => "Crawl Clarity Engineering"
           ]
         ],
         [
           "@type" => "Offer",
           "itemOffered" => [
             "@type" => "Service",
-            "name" => "Knowledge Graph"
+            "name" => "JSON-LD & Structured Data"
+          ]
+        ],
+        [
+          "@type" => "Offer",
+          "itemOffered" => [
+            "@type" => "Service",
+            "name" => "LLM Seeding & Citation"
+          ]
+        ],
+        [
+          "@type" => "Offer",
+          "itemOffered" => [
+            "@type" => "Service",
+            "name" => "Technical SEO"
+          ]
+        ],
+        [
+          "@type" => "Offer",
+          "itemOffered" => [
+            "@type" => "Service",
+            "name" => "International SEO"
+          ]
+        ],
+        [
+          "@type" => "Offer",
+          "itemOffered" => [
+            "@type" => "Service",
+            "name" => "AI Visibility & Analytics"
+          ]
+        ],
+        [
+          "@type" => "Offer",
+          "itemOffered" => [
+            "@type" => "Service",
+            "name" => "Training"
           ]
         ]
       ]

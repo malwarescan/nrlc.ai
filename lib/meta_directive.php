@@ -342,7 +342,7 @@ function generate_meta_description(array $intent, string $slug, ?string $current
       case 'service':
         if ($slug === 'services/index') {
           // Services index - use lead or default
-          $desc = $lead ?: "NRLC provides a semantic operating layer that transforms databases, APIs, warehouses, and streams into a coherent, queryable knowledge graph powered by ontologies, SQL reasoning, and automated relationships.";
+          $desc = $lead ?: "Professional AI SEO and AI visibility services for businesses that need real improvements in search rankings, AI citations, and generative engine visibility.";
           // Trim to 160
           if (strlen($desc) > 160) {
             $desc = substr($desc, 0, 157) . '...';
@@ -569,8 +569,8 @@ function sudo_meta_directive_ctx(array $ctx): array {
         // Service hub or non-local service pages
         if ($service === 'services' || $slug === 'services/index') {
           // Service hub page
-          $title = 'Technical SEO & AI Search Services | NRLC.ai';
-          $desc = 'Professional technical SEO, structured data, and AI search optimization services. Built for sites that need real fixes, not tactics.';
+          $title = 'AI SEO & AI Visibility Services | NRLC.ai';
+          $desc = 'Professional AI SEO and AI visibility services for businesses that need real improvements in search rankings, AI citations, and generative engine visibility.';
         } else {
           // Non-local service pages (AI SEO, Schema, etc.)
           $serviceName = ucwords(str_replace(['-', '_'], ' ', $service ?: $title));
@@ -623,15 +623,16 @@ function sudo_meta_directive_ctx(array $ctx): array {
       break;
       
     case 'insights_hub':
-      // Insights hub: Discovery + authority (no commercial CTA)
-      $title = 'AI Search & Technical SEO Insights | NRLC.ai';
-      $desc = 'Research and analysis on AI-driven search, indexing systems, and modern technical SEO. Built to inform and guide implementation.';
+      // Insights hub: Technical analyses and research-backed explanations
+      // Intent: AI Search & Retrieval Insights (not blog, not thought leadership)
+      $title = 'AI Search Insights – Retrieval, Citation, and Trust | NRLC.ai';
+      $desc = 'Technical analyses and research-backed explanations of how AI search and answer engines extract, evaluate, and cite web content.';
       break;
       
     case 'products_hub':
       // Products hub: Collection of products (no commercial CTA in meta)
-      $title = 'AI SEO Products & Tools | NRLC.ai';
-      $desc = 'Complete product ecosystem for structured knowledge, AI visibility, and agentic intelligence. Explore our AI SEO tools and solutions.';
+      $title = 'AI SEO & AI Visibility Products | NRLC.ai';
+      $desc = 'AI SEO and AI visibility tools for structured knowledge, search optimization, and generative engine visibility. Product catalog of AI search optimization tools.';
       break;
       
     default:

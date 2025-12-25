@@ -487,7 +487,38 @@ if ($catalogEntries) {
   echo "Built catalog sitemap: " . count($catalogEntries) . " URLs\n";
 }
 
-// 16. AI Visibility pages sitemap
+// 16. Prechunking SEO Documentation sitemap
+$docsEntries = [];
+$docsPages = [
+  '/docs/prechunking-seo/',
+  '/docs/prechunking-seo/core-concepts/',
+  '/docs/prechunking-seo/croutons/',
+  '/docs/prechunking-seo/precogs/',
+  '/docs/prechunking-seo/workflow/',
+  '/docs/prechunking-seo/failure-modes/',
+  '/docs/prechunking-seo/measurement/',
+  '/docs/prechunking-seo/doctrine/',
+  '/docs/prechunking-seo/academic-signals/',
+  '/docs/prechunking-seo/course/'
+];
+
+foreach ($docsPages as $page) {
+  // SITEMAP CANONICAL ONLY
+  $canonicalUrl = "https://nrlc.ai/en-us{$page}";
+  $docsEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.8');
+}
+
+if ($docsEntries) {
+  $xmlFile = "{$outDir}docs-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($docsEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built docs sitemap: " . count($docsEntries) . " URLs\n";
+}
+
+// 17. AI Visibility pages sitemap
 $aiVisibilityEntries = [];
 $aiVisibilityIndustries = require __DIR__.'/../lib/ai_visibility_industries.php';
 

@@ -766,7 +766,7 @@ $GLOBALS['__jsonld'] = [
 
     <?php if ($service === 'ai-search-optimization'): ?>
     <!-- GEO CONFIRMATION BLOCK (Tier 1 Reinforcement) -->
-    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin: var(--spacing-md) 0;">
+    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; margin: var(--spacing-md) 0;">
       <div class="content-block__body">
         <p style="margin: 0; font-weight: 500;"><strong>We work with companies across the United States and United Kingdom, including businesses in Norwich, London, and major technology hubs. All services are delivered remotely.</strong></p>
       </div>
@@ -953,7 +953,7 @@ $GLOBALS['__jsonld'] = [
     </div>
 
     <!-- Primary CTA (Placement 1: Above-the-fold equivalent) -->
-    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin: var(--spacing-md) 0;">
+    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; margin: var(--spacing-md) 0;">
       <div class="content-block__body">
         <p style="margin: 0 0 var(--spacing-sm) 0; font-weight: 500;"><strong>See How AI Systems Currently Describe Your Business</strong></p>
         <p style="margin: 0;">
@@ -966,7 +966,7 @@ $GLOBALS['__jsonld'] = [
 
     <?php if ($service === 'site-audits'): ?>
     <!-- CTA STRUCTURE (DIAGNOSTIC-FIRST) -->
-    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-lg);">
+    <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; margin-top: var(--spacing-lg);">
       <div class="content-block__body">
         <p style="margin: 0 0 var(--spacing-md) 0; font-weight: 500;"><strong>Run a Diagnostic First</strong></p>
         <p style="margin: 0 0 var(--spacing-md) 0; font-size: 0.9rem; color: #666;">Understand your visibility issues before requesting an audit.</p>

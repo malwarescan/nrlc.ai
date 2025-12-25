@@ -12,76 +12,45 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
 <section class="section">
   <div class="section__content">
     
-    <!-- Insights Header Window -->
-    <div class="window module">
-      <div class="title-bar">
-        <div class="title-bar-text">Semantic Infrastructure Research</div>
+    <!-- Insights Header / Intent Declaration -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">AI Search & Retrieval Insights</h1>
       </div>
-      <div class="window-body">
-        <h1 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Research & Insights on Semantic AI</h1>
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">
-          Latest research and insights on semantic infrastructure, knowledge graphs, data virtualization, and building reliable AI workflows on structured understanding.
-        </p>
-        <div class="btn-group text-center">
-          <a href="/en-us/insights/semantic-modeling/" class="btn">Learn Why Teams Adopt Semantic Modeling</a>
-          <a href="/en-us/api/book/" class="btn btn--primary">Schedule Research Consultation</a>
-        </div>
+      <div class="content-block__body">
+        <p>This section contains technical analyses, research-backed explanations, and system-level insights into how AI search and answer engines extract, evaluate, and cite information.</p>
       </div>
     </div>
 
-    <!-- Featured Articles Window -->
-    <div class="window module">
-      <div class="title-bar">
-        <div class="title-bar-text">Featured Articles</div>
+    <!-- Featured Analysis -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Featured Analysis</h2>
       </div>
-      <div class="window-body">
+      <div class="content-block__body">
         <div class="grid grid-auto-fit">
           
           <div class="content-block">
             <h3 class="content-block__title">Semantic Queries & Query Optimization</h3>
-            <p>How semantic relationships collapse query complexity and reduce time to value. Learn how traditional SQL queries with dozens of JOINs become concise, relationship-aware logic.</p>
+            <p>Explains how semantic relationships collapse query complexity and reduce time to value. Technical breakdown of how traditional SQL queries with dozens of JOINs become concise, relationship-aware logic.</p>
             <div class="btn-group">
-              <a href="/en-us/insights/semantic-queries/" class="btn">Learn More About Semantic Queries</a>
+              <a href="/en-us/insights/semantic-queries/" class="btn">Read Analysis</a>
             </div>
           </div>
 
           <div class="content-block">
             <h3 class="content-block__title">Performance & Caching Insights</h3>
-            <p>Intelligent pushdown optimization, query performance tuning, and powerful caching engines that reduce compute spend while maintaining query speed and accuracy.</p>
+            <p>Explains intelligent pushdown optimization, query performance tuning, and caching engines that reduce compute spend while maintaining query speed and accuracy.</p>
             <div class="btn-group">
-              <a href="/en-us/insights/performance-caching/" class="btn">Performance & Caching Insights</a>
-            </div>
-          </div>
-
-          <div class="content-block">
-            <h3 class="content-block__title">Why Teams Adopt Semantic Modeling</h3>
-            <p>Understanding the business value of semantic infrastructure. How organizations achieve 90% reduction in time-to-consumption and enable reliable AI workflows.</p>
-            <div class="btn-group">
-              <a href="/en-us/insights/semantic-modeling/" class="btn" title="Read full article: Why Teams Adopt Semantic Modeling" aria-label="Read full article: Why Teams Adopt Semantic Modeling">Read Article</a>
+              <a href="/en-us/insights/performance-caching/" class="btn">Read Analysis</a>
             </div>
           </div>
 
           <div class="content-block">
             <h3 class="content-block__title">Data Virtualization Best Practices</h3>
-            <p>Connecting every source into a semantic, virtualized layer with no ingestion or duplication. Automatic mapping, federated queries, and unified graph views.</p>
+            <p>Explains how to connect every source into a semantic, virtualized layer with no ingestion or duplication. Covers automatic mapping, federated queries, and unified graph views.</p>
             <div class="btn-group">
-              <a href="/en-us/insights/data-virtualization/" class="btn" title="Read full article: Data Virtualization Best Practices" aria-label="Read full article: Data Virtualization Best Practices">Read Article</a>
-            </div>
-          </div>
-
-          <div class="content-block">
-            <h3 class="content-block__title">Enterprise LLM Foundation</h3>
-            <p>Building reliable AI workflows on structured understanding. How structured semantic context, verified relationships, and virtualized access enable trustworthy LLM operations.</p>
-            <div class="btn-group">
-              <a href="/en-us/insights/enterprise-llm/" class="btn" title="Read full article: Enterprise LLM Foundation" aria-label="Read full article: Enterprise LLM Foundation">Read Article</a>
-            </div>
-          </div>
-
-          <div class="content-block">
-            <h3 class="content-block__title">Knowledge Graph Exploration</h3>
-            <p>Interactive knowledge graph techniques for traversing relationships, surfacing insights, and generating SQL or natural-language queries automatically.</p>
-            <div class="btn-group">
-              <a href="/en-us/insights/knowledge-graph/" class="btn" title="Read full article: Knowledge Graph Exploration" aria-label="Read full article: Knowledge Graph Exploration">Read Article</a>
+              <a href="/en-us/insights/data-virtualization/" class="btn">Read Analysis</a>
             </div>
           </div>
 
@@ -89,14 +58,41 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
       </div>
     </div>
 
-    <!-- Research Categories Window -->
-    <div class="window module">
-      <div class="title-bar">
-        <div class="title-bar-text">Research Categories</div>
+    <!-- Technical Breakdowns -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Technical Breakdowns</h2>
       </div>
-      <div class="window-body">
-        <h2 style="color: #000080; margin-top: 0;">Comprehensive Semantic Infrastructure Research</h2>
-        <p>Our research spans multiple domains within semantic infrastructure, from ontology modeling to AI workflow optimization. Each category represents a critical aspect of building reliable AI systems on structured data.</p>
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit">
+          
+          <div class="content-block">
+            <h3 class="content-block__title">Enterprise LLM Foundation</h3>
+            <p>Explains how to build reliable AI workflows on structured understanding. Technical analysis of structured semantic context, verified relationships, and virtualized access for trustworthy LLM operations.</p>
+            <div class="btn-group">
+              <a href="/en-us/insights/enterprise-llm/" class="btn">Read Analysis</a>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3 class="content-block__title">Knowledge Graph Exploration</h3>
+            <p>Explains interactive knowledge graph techniques for traversing relationships, surfacing insights, and generating SQL or natural-language queries automatically.</p>
+            <div class="btn-group">
+              <a href="/en-us/insights/knowledge-graph/" class="btn">Read Analysis</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Research & Systems -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Research & Systems</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Technical analyses spanning multiple domains within AI search and retrieval systems, from extraction mechanics to citation behavior.</p>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
           <div style="padding: 1rem; background: #f8f8f8;">
@@ -122,52 +118,38 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
       </div>
     </div>
 
-    <!-- Latest Insights Feed -->
+    <!-- Additional Insights -->
     <?php if (!empty($featured_insights)): ?>
-    <div class="window module">
-      <div class="title-bar">
-        <div class="title-bar-text">Latest Research & Insights</div>
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Additional Insights</h2>
       </div>
-      <div class="window-body">
-        <div class="list-view">
+      <div class="content-block__body">
+        <ul style="list-style: none; padding: 0;">
           <?php foreach (array_reverse($featured_insights) as $insight): ?>
-            <div class="list-item" style="padding: 0.5rem; border-bottom: 1px solid #ccc;">
-              <h4 style="margin: 0 0 0.5rem 0; color: #000080;">
+            <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
+              <h3 class="content-block__title" style="margin: 0 0 0.5rem 0; font-size: 1.125rem;">
                 <a href="/en-us/insights/<?= htmlspecialchars($insight['slug']) ?>/" style="text-decoration: none; color: inherit;">
                   <?= htmlspecialchars($insight['title']) ?>
                 </a>
-              </h4>
-              <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem;">
-                <?= htmlspecialchars(substr($insight['keywords'] ?? '', 0, 100)) ?>...
-              </p>
-              <div class="btn-group">
-                <a href="/en-us/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn" title="Read full article: <?= htmlspecialchars($insight['title']) ?>" aria-label="Read full article: <?= htmlspecialchars($insight['title']) ?>">Read Article</a>
-              </div>
-          </div>
+              </h3>
+              <?php if (!empty($insight['excerpt'])): ?>
+                <p style="margin: 0 0 0.5rem 0; font-size: 0.9375rem;">
+                  <?= htmlspecialchars($insight['excerpt']) ?>
+                </p>
+              <?php elseif (!empty($insight['keywords'])): ?>
+                <p style="margin: 0 0 0.5rem 0; font-size: 0.9375rem;">
+                  <?= htmlspecialchars(substr($insight['keywords'], 0, 150)) ?>
+                </p>
+              <?php endif; ?>
+              <a href="/en-us/insights/<?= htmlspecialchars($insight['slug']) ?>/" class="btn" style="display: inline-block;">Read Analysis</a>
+            </li>
           <?php endforeach; ?>
-        </div>
+        </ul>
       </div>
     </div>
     <?php endif; ?>
 
-    <!-- Call to Action Window -->
-    <div class="window">
-      <div class="title-bar">
-        <div class="title-bar-text">Stay Updated</div>
-      </div>
-      <div class="window-body">
-        <div style="text-align: center;">
-          <h2 style="color: #000080; margin-top: 0;">Join the Semantic Infrastructure Research Community</h2>
-          <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Get the latest insights on semantic infrastructure, knowledge graphs, and building reliable AI workflows. Our research-driven approach ensures you stay ahead of evolving best practices and optimization opportunities.
-          </p>
-          <div class="btn-group text-center">
-            <a href="/en-us/api/book/" class="btn btn--primary">Schedule Research Consultation</a>
-            <a href="/en-us/services/" class="btn">Explore Our Services</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </div>
 </section>
