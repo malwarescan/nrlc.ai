@@ -4,10 +4,27 @@
 // Note: head.php and header.php are already included by router.php render_page()
 // Do not set $GLOBALS['pageTitle'] or $GLOBALS['pageDesc'] here - they are ignored
 
-require_once __DIR__ . '/../../lib/schema_builders.php';
+// GUARD ALL OPTIONAL FUNCTION CALLS - Fail closed, not fatal
+$canonicalUrl = '/';
+$domain = '/';
 
-$canonicalUrl = absolute_url('/');
-$domain = absolute_url('/');
+if (function_exists('absolute_url')) {
+  try {
+    $canonicalUrl = absolute_url('/');
+    $domain = absolute_url('/');
+  } catch (Throwable $e) {
+    // Silent fail - use defaults
+  }
+}
+
+// Guard schema_builders require
+if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
+  try {
+    require_once __DIR__ . '/../../lib/schema_builders.php';
+  } catch (Throwable $e) {
+    // Silent fail - schema is optional
+  }
+}
 ?>
 
 <main role="main" class="container">
@@ -187,89 +204,118 @@ $domain = absolute_url('/');
 
 <?php
 // PERSON + ORGANIZATION ENTITY DECLARATION - HOMEPAGE
+// GUARD ALL OPTIONAL FUNCTION CALLS - Fail closed, not fatal
 // SUDO META DIRECTIVE: Entity declaration for Knowledge Graph consolidation
-require_once __DIR__ . '/../../lib/SchemaFixes.php';
-use NRLC\Schema\SchemaFixes;
 
-// Canonical base URL (no locale prefix for entity resolution)
-$baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
-$logoUrl = SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlc-logo.png'));
+// Initialize defaults
+$baseUrl = $canonicalUrl;
+$logoUrl = $domain . '/assets/images/nrlc-logo.png';
 
-// Add @graph structure to global JSON-LD array
-$GLOBALS['__jsonld'] = $GLOBALS['__jsonld'] ?? [];
-$GLOBALS['__jsonld'][] = [
-  '@context' => 'https://schema.org',
-  '@graph' => [
-    [
-      '@type' => 'Person',
-      '@id' => $baseUrl . '#joel-maldonado',
-      'name' => 'Joel Maldonado',
-      'jobTitle' => 'Founder',
-      'description' => 'Joel Maldonado is the founder of Neural Command, LLC, where he builds systems that convert search authority into AI-readable, citation-safe knowledge for modern search engines and large language models.',
-      'worksFor' => [
-        '@type' => 'Organization',
-        '@id' => $baseUrl . '#neural-command'
-      ],
-      'affiliation' => [
-        '@type' => 'Organization',
-        '@id' => $baseUrl . '#neural-command'
-      ],
-      'url' => $baseUrl,
-      'sameAs' => [
-        'https://www.linkedin.com/company/neural-command/'
-      ]
-    ],
-    [
-      '@type' => 'Organization',
-      '@id' => $baseUrl . '#neural-command',
-      'name' => 'Neural Command, LLC',
-      'url' => $baseUrl,
-      'logo' => [
-        '@type' => 'ImageObject',
-        'url' => $logoUrl
-      ],
-      'founder' => [
+// Guard SchemaFixes require and usage
+if (file_exists(__DIR__ . '/../../lib/SchemaFixes.php')) {
+  try {
+    require_once __DIR__ . '/../../lib/SchemaFixes.php';
+    if (class_exists('\NRLC\Schema\SchemaFixes') && function_exists('absolute_url')) {
+      try {
+        $baseUrl = \NRLC\Schema\SchemaFixes::ensureHttps(absolute_url('/'));
+        $logoUrl = \NRLC\Schema\SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlc-logo.png'));
+      } catch (Throwable $e) {
+        // Silent fail - use defaults
+      }
+    }
+  } catch (Throwable $e) {
+    // Silent fail - use defaults
+  }
+}
+
+// Initialize JSON-LD array if not exists
+if (!isset($GLOBALS['__jsonld']) || !is_array($GLOBALS['__jsonld'])) {
+  $GLOBALS['__jsonld'] = [];
+}
+
+// Guard schema addition - wrap in try-catch
+try {
+  $GLOBALS['__jsonld'][] = [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+      [
         '@type' => 'Person',
-        '@id' => $baseUrl . '#joel-maldonado'
+        '@id' => $baseUrl . '#joel-maldonado',
+        'name' => 'Joel Maldonado',
+        'jobTitle' => 'Founder',
+        'description' => 'Joel Maldonado is the founder of Neural Command, LLC, where he builds systems that convert search authority into AI-readable, citation-safe knowledge for modern search engines and large language models.',
+        'worksFor' => [
+          '@type' => 'Organization',
+          '@id' => $baseUrl . '#neural-command'
+        ],
+        'affiliation' => [
+          '@type' => 'Organization',
+          '@id' => $baseUrl . '#neural-command'
+        ],
+        'url' => $baseUrl,
+        'sameAs' => [
+          'https://www.linkedin.com/company/neural-command/'
+        ]
       ],
-      'sameAs' => [
-        'https://www.linkedin.com/company/neural-command/'
-      ]
-    ],
-    [
-      '@type' => 'WebPage',
-      '@id' => $baseUrl . '#why-i-built-this-system',
-      'name' => 'Why I Built This System',
-      'about' => [
-        '@type' => 'Person',
-        '@id' => $baseUrl . '#joel-maldonado'
+      [
+        '@type' => 'Organization',
+        '@id' => $baseUrl . '#neural-command',
+        'name' => 'Neural Command, LLC',
+        'url' => $baseUrl,
+        'logo' => [
+          '@type' => 'ImageObject',
+          'url' => $logoUrl
+        ],
+        'founder' => [
+          '@type' => 'Person',
+          '@id' => $baseUrl . '#joel-maldonado'
+        ],
+        'sameAs' => [
+          'https://www.linkedin.com/company/neural-command/'
+        ]
       ],
-      'isPartOf' => [
+      [
+        '@type' => 'WebPage',
+        '@id' => $baseUrl . '#why-i-built-this-system',
+        'name' => 'Why I Built This System',
+        'about' => [
+          '@type' => 'Person',
+          '@id' => $baseUrl . '#joel-maldonado'
+        ],
+        'isPartOf' => [
+          '@type' => 'WebSite',
+          '@id' => $baseUrl . '#website'
+        ]
+      ],
+      [
         '@type' => 'WebSite',
-        '@id' => $baseUrl . '#website'
+        '@id' => $baseUrl . '#website',
+        'url' => $baseUrl,
+        'name' => 'Neural Command'
       ]
-    ],
-    [
-      '@type' => 'WebSite',
-      '@id' => $baseUrl . '#website',
-      'url' => $baseUrl,
-      'name' => 'Neural Command'
     ]
-  ]
-];
+  ];
+} catch (Throwable $e) {
+  // Silent fail - schema is optional
+}
 
-// Also set founder for backward compatibility with existing Organization schema
-$GLOBALS['__homepage_org_founder'] = [
-  '@type' => 'Person',
-  '@id' => $baseUrl . '#joel-maldonado',
-  'name' => 'Joel Maldonado'
-];
+// Also set founder for backward compatibility - GUARDED
+try {
+  $GLOBALS['__homepage_org_founder'] = [
+    '@type' => 'Person',
+    '@id' => $baseUrl . '#joel-maldonado',
+    'name' => 'Joel Maldonado'
+  ];
+} catch (Throwable $e) {
+  // Silent fail
+}
 
-// FAQ SCHEMA: AI Visibility Questions (matches visible FAQ content exactly)
-$GLOBALS['__jsonld'][] = [
-  '@context' => 'https://schema.org',
-  '@type' => 'FAQPage',
-  'mainEntity' => [
+// FAQ SCHEMA: AI Visibility Questions (matches visible FAQ content exactly) - GUARDED
+try {
+  $GLOBALS['__jsonld'][] = [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => [
     [
       '@type' => 'Question',
       'name' => 'How do I get my business mentioned by ChatGPT or AI search tools?',
@@ -302,8 +348,11 @@ $GLOBALS['__jsonld'][] = [
         'text' => 'Traditional rankings measure relevance, but AI systems prioritize extractability and trust. A page may rank well and still be excluded from AI-generated answers if its information is not structured, explicit, and verifiable enough to be safely cited.'
       ]
     ]
-  ]
-];
+    ]
+  ];
+} catch (Throwable $e) {
+  // Silent fail - FAQ schema is optional
+}
 ?>
 
 

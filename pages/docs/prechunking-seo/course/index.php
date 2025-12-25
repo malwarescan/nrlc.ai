@@ -271,6 +271,34 @@ $GLOBALS['__jsonld'][] = [
   ]
 ];
 
+// ItemList schema for modules (OPTIONAL BUT POWERFUL)
+// Helps Google and LLMs understand course structure, module boundaries, and sequence
+$moduleItems = [];
+foreach ($modules as $num => $module) {
+  $moduleUrl = SchemaFixes::ensureHttps(absolute_url("/docs/prechunking-seo/course/{$module['slug']}/"));
+  $moduleItems[] = [
+    '@type' => 'ListItem',
+    'position' => $num,
+    'name' => $module['title'],
+    'item' => $moduleUrl,
+    'description' => $module['description']
+  ];
+}
+
+$GLOBALS['__jsonld'][] = [
+  '@context' => 'https://schema.org',
+  '@type' => 'ItemList',
+  '@id' => $courseId . '#modules',
+  'name' => 'Prechunking SEO Course Modules',
+  'description' => 'List of all modules in the Prechunking SEO Operator Training course',
+  'numberOfItems' => count($modules),
+  'itemListElement' => $moduleItems,
+  'mainEntity' => [
+    '@type' => 'Course',
+    '@id' => $courseId
+  ]
+];
+
 // WebPage schema
 $GLOBALS['__jsonld'][] = [
   '@context' => 'https://schema.org',
