@@ -1032,6 +1032,12 @@ function route_request(): void {
 
   http_response_code(404);
   echo "Not Found";
+  } catch (Throwable $e) {
+    // FALLBACK: If routing fails, return minimal HTML - always 200
+    http_response_code(200);
+    header('Content-Type: text/html; charset=UTF-8');
+    echo '<!DOCTYPE html><html><head><title>NRLC.ai</title><meta charset="UTF-8"></head><body><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p></body></html>';
+  }
 }
 
 /**
