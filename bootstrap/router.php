@@ -1,9 +1,24 @@
 <?php
-require_once __DIR__.'/../lib/helpers.php';
-require_once __DIR__.'/../lib/i18n.php';
+// Guard all require_once calls - fail closed, not fatal
+if (file_exists(__DIR__.'/../lib/helpers.php')) {
+  try {
+    require_once __DIR__.'/../lib/helpers.php';
+  } catch (Throwable $e) {
+    // Silent fail - helpers are optional
+  }
+}
+if (file_exists(__DIR__.'/../lib/i18n.php')) {
+  try {
+    require_once __DIR__.'/../lib/i18n.php';
+  } catch (Throwable $e) {
+    // Silent fail - i18n is optional
+  }
+}
 
 function route_request(): void {
-  $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+  // GUARD: route_request must not throw fatal errors
+  try {
+    $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
   // /{lang}-{region}/ prefix e.g., /en-us/services/..., /ko-kr/...
   if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $path, $m)) {

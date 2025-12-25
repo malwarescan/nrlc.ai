@@ -1,5 +1,20 @@
 <?php
-require_once __DIR__.'/../config/locales.php';
+// Guard require_once for locales
+if (file_exists(__DIR__.'/../config/locales.php')) {
+  try {
+    require_once __DIR__.'/../config/locales.php';
+  } catch (Throwable $e) {
+    // Silent fail - define X_DEFAULT if not defined
+    if (!defined('X_DEFAULT')) {
+      define('X_DEFAULT', 'en-us');
+    }
+  }
+} else {
+  // Fallback if locales.php doesn't exist
+  if (!defined('X_DEFAULT')) {
+    define('X_DEFAULT', 'en-us');
+  }
+}
 
 function canonical_guard(): void {
   $scheme = 'https';
@@ -72,7 +87,14 @@ function canonical_guard(): void {
     $serviceSlug = $m[2];
     $citySlug = $m[3];
     
-    require_once __DIR__.'/../lib/helpers.php';
+    // Guard require_once and function calls
+    if (file_exists(__DIR__.'/../lib/helpers.php')) {
+      try {
+        require_once __DIR__.'/../lib/helpers.php';
+      } catch (Throwable $e) {
+        // Silent fail
+      }
+    }
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
     
     if ($isUK) {
@@ -109,7 +131,14 @@ function canonical_guard(): void {
     $citySlug = $m[2];
     $roleSlug = $m[3];
     
-    require_once __DIR__.'/../lib/helpers.php';
+    // Guard require_once and function calls
+    if (file_exists(__DIR__.'/../lib/helpers.php')) {
+      try {
+        require_once __DIR__.'/../lib/helpers.php';
+      } catch (Throwable $e) {
+        // Silent fail
+      }
+    }
     $canonicalLocale = function_exists('get_canonical_locale_for_city') 
       ? get_canonical_locale_for_city($citySlug) 
       : 'en-us';
@@ -146,7 +175,8 @@ function canonical_guard(): void {
     
     // Preserve query string (including UTMs for analytics)
     $queryString = count($query) ? '?'.http_build_query($query) : '';
-    $redirectUrl = $scheme.'://'.$host.'/'.X_DEFAULT.$uri.$queryString;
+    $defaultLocale = defined('X_DEFAULT') ? X_DEFAULT : 'en-us';
+    $redirectUrl = $scheme.'://'.$host.'/'.$defaultLocale.$uri.$queryString;
     header("Location: $redirectUrl", true, 301);
     exit;
   }
