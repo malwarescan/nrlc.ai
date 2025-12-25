@@ -499,7 +499,16 @@ $docsPages = [
   '/docs/prechunking-seo/measurement/',
   '/docs/prechunking-seo/doctrine/',
   '/docs/prechunking-seo/academic-signals/',
-  '/docs/prechunking-seo/course/'
+  '/docs/prechunking-seo/course/',
+  '/docs/prechunking-seo/course/how-llms-chunk-content/',
+  '/docs/prechunking-seo/course/chunk-atomicity-inference-cost/',
+  '/docs/prechunking-seo/course/vectorization-semantic-collisions/',
+  '/docs/prechunking-seo/course/data-structuring-beyond-pages/',
+  '/docs/prechunking-seo/course/cross-page-consistency/',
+  '/docs/prechunking-seo/course/prompt-reverse-engineering/',
+  '/docs/prechunking-seo/course/citation-eligibility-engineering/',
+  '/docs/prechunking-seo/course/measuring-prechunking-success/',
+  '/docs/prechunking-seo/course/failure-modes-why-chunks-die/'
 ];
 
 foreach ($docsPages as $page) {

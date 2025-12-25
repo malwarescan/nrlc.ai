@@ -198,7 +198,13 @@ window.openContactSheet = function(serviceType = '') {
     options.push({
       label: 'Live Chat',
       action: () => {
-        window.open('https://tawk.to/chat/6773467849e2fd8dfe00cb58/1igd4mhq4', '_blank', 'noopener,noreferrer');
+        // Trigger the embedded Tawk.to widget instead of opening new tab
+        if (typeof Tawk_API !== 'undefined' && Tawk_API.showWidget) {
+          Tawk_API.showWidget();
+        } else {
+          // Fallback: open in same window if widget not loaded
+          window.location.href = 'https://tawk.to/chat/6773467849e2fd8dfe00cb58/1igd4mhq4';
+        }
       },
       enabled: true
     });

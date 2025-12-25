@@ -800,17 +800,47 @@ function route_request(): void {
     return;
   }
 
+  // Prechunking SEO Course routes - must come before the base course route
+  if (preg_match('#^/docs/prechunking-seo/course/([^/]+)/$#', $path, $m)) {
+    $moduleSlug = $m[1];
+    require_once __DIR__.'/../lib/meta_directive.php';
+    
+    // Map module slugs to page names
+    $modulePages = [
+      'how-llms-chunk-content' => 'docs/prechunking-seo/course/how-llms-chunk-content',
+      'chunk-atomicity-inference-cost' => 'docs/prechunking-seo/course/chunk-atomicity-inference-cost',
+      'vectorization-semantic-collisions' => 'docs/prechunking-seo/course/vectorization-semantic-collisions',
+      'data-structuring-beyond-pages' => 'docs/prechunking-seo/course/data-structuring-beyond-pages',
+      'cross-page-consistency' => 'docs/prechunking-seo/course/cross-page-consistency',
+      'prompt-reverse-engineering' => 'docs/prechunking-seo/course/prompt-reverse-engineering',
+      'citation-eligibility-engineering' => 'docs/prechunking-seo/course/citation-eligibility-engineering',
+      'measuring-prechunking-success' => 'docs/prechunking-seo/course/measuring-prechunking-success',
+      'failure-modes-why-chunks-die' => 'docs/prechunking-seo/course/failure-modes-why-chunks-die'
+    ];
+    
+    if (isset($modulePages[$moduleSlug])) {
+      $ctx = [
+        'type' => 'training',
+        'slug' => $modulePages[$moduleSlug],
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page($modulePages[$moduleSlug]);
+      return;
+    }
+  }
+  
   if ($path === '/docs/prechunking-seo/course/') {
     require_once __DIR__.'/../lib/meta_directive.php';
     $ctx = [
-      'type' => 'page',
+      'type' => 'training',
       'slug' => 'docs/prechunking-seo/course',
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'Prechunking SEO Operator Training | NRLC.ai';
-    $GLOBALS['__page_meta']['description'] = 'Prechunking SEO operator training course. Structured learning system for identifying bad chunks, writing valid croutons, and controlling AI retrieval outcomes.';
-    render_page('docs/prechunking-seo/course');
+    $GLOBALS['__page_meta']['title'] = 'Prechunking Content Engineering Course | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'A systems-level course for LLM ingestion, retrieval, and citation. Multi-page course structure optimized for AI ingestion and retrieval.';
+    render_page('docs/prechunking-seo/course/index');
     return;
   }
 

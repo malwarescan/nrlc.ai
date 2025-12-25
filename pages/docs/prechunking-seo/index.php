@@ -21,9 +21,6 @@ $canonicalUrl = absolute_url('/docs/prechunking-seo/');
       <div class="content-block__header">
         <h1 class="content-block__title">Prechunking SEO</h1>
       </div>
-      <div class="content-block__body">
-        <p><a href="/docs/prechunking-seo/course/" class="link--primary">Prechunking SEO Operator Training</a> - Structured learning system for applying prechunking to real content systems.</p>
-      </div>
     </div>
 
     <!-- What Is Prechunking SEO -->
@@ -79,15 +76,6 @@ $canonicalUrl = absolute_url('/docs/prechunking-seo/');
         <p>It does not require AI systems to access your site directly.</p>
         <p>It does not prevent competitors from being cited.</p>
         <p>It does not work if content quality is low or facts are incorrect.</p>
-      </div>
-    </div>
-
-    <!-- What It Does Not Guarantee -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">What It Does Not Guarantee</h2>
-      </div>
-      <div class="content-block__body">
         <p>Prechunking SEO does not guarantee rankings.</p>
         <p>It does not guarantee AI systems will cite your content.</p>
         <p>It does not guarantee increased traffic or conversions.</p>
@@ -95,43 +83,10 @@ $canonicalUrl = absolute_url('/docs/prechunking-seo/');
       </div>
     </div>
 
-    <!-- Related Documentation -->
+    <!-- Core Axioms of Prechunking SEO -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Related Documentation</h2>
-      </div>
-      <div class="content-block__body">
-        <p>For implementation details, see:</p>
-        <ul>
-          <li><a href="/docs/prechunking-seo/core-concepts/">Core Concepts</a> - Data shaping, croutons, precogs, chunk boundaries, retrieval vs ranking</li>
-          <li><a href="/docs/prechunking-seo/croutons/">Crouton Specification</a> - Atomic fact structures that survive extraction</li>
-          <li><a href="/docs/prechunking-seo/precogs/">Precog Modeling</a> - Intent forecasting and follow-up question mapping</li>
-          <li><a href="/docs/prechunking-seo/workflow/">Prechunking Workflow</a> - Intent decomposition, crouton inventory, data shaping, publishing</li>
-          <li><a href="/docs/prechunking-seo/failure-modes/">Failure Modes</a> - Why AI ignores content, why facts mutate, common anti-patterns</li>
-          <li><a href="/docs/prechunking-seo/measurement/">Measurement & KPIs</a> - AI citation rates, answer inclusion, cross-engine consistency</li>
-          <li><a href="/docs/prechunking-seo/doctrine/">NRLC Doctrine</a> - Core axioms: pages are containers, chunks are assets, truth must survive isolation</li>
-          <li><a href="/docs/prechunking-seo/academic-signals/">Academic Signals</a> - Evidence-backed research alignment for extractability and citation</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Related Resources -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Related Resources</h2>
-      </div>
-      <div class="content-block__body">
-        <p>For training and implementation:</p>
-        <ul>
-          <li><a href="/docs/prechunking-seo/course/">Prechunking SEO Operator Training</a> - Structured learning system for applying prechunking</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Core Axioms -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Core Axioms</h2>
+        <h2 class="content-block__title">Core Axioms of Prechunking SEO</h2>
       </div>
       <div class="content-block__body">
         <p>All prechunking work must align with these axioms:</p>
@@ -143,6 +98,27 @@ $canonicalUrl = absolute_url('/docs/prechunking-seo/');
           <li>Truth must be engineered to survive extraction.</li>
         </ol>
         <p>Any practice that contradicts these axioms is not prechunking SEO.</p>
+      </div>
+    </div>
+
+    <!-- Related Documentation and Training -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Documentation and Training</h2>
+      </div>
+      <div class="content-block__body">
+        <p>For implementation details and training:</p>
+        <ul>
+          <li><a href="/docs/prechunking-seo/core-concepts/">Core Concepts</a> - Data shaping, croutons, precogs, chunk boundaries, retrieval vs ranking</li>
+          <li><a href="/docs/prechunking-seo/croutons/">Crouton Specification</a> - Atomic fact structures that survive extraction</li>
+          <li><a href="/docs/prechunking-seo/precogs/">Precog Modeling</a> - Intent forecasting and follow-up question mapping</li>
+          <li><a href="/docs/prechunking-seo/workflow/">Prechunking Workflow</a> - Intent decomposition, crouton inventory, data shaping, publishing</li>
+          <li><a href="/docs/prechunking-seo/failure-modes/">Failure Modes</a> - Why AI ignores content, why facts mutate, common anti-patterns</li>
+          <li><a href="/docs/prechunking-seo/measurement/">Measurement & KPIs</a> - AI citation rates, answer inclusion, cross-engine consistency</li>
+          <li><a href="/docs/prechunking-seo/doctrine/">NRLC Doctrine</a> - Core axioms: pages are containers, chunks are assets, truth must survive isolation</li>
+          <li><a href="/docs/prechunking-seo/academic-signals/">Academic Signals</a> - Evidence-backed research alignment for extractability and citation</li>
+          <li><a href="/docs/prechunking-seo/course/">Prechunking SEO Operator Training</a> - Structured learning system for applying prechunking to real content systems</li>
+        </ul>
       </div>
     </div>
 
