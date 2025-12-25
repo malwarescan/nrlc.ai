@@ -21,6 +21,7 @@ $moduleTitle = 'Chunk Atomicity and Inference Cost';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
 
@@ -31,7 +32,7 @@ $moduleTitle = 'Chunk Atomicity and Inference Cost';
       </div>
       <div class="content-block__body">
         <p>Why multi-fact chunks fail retrieval.</p>
-        <p>This module explains the data engineering principle: each chunk is a row, and each row should answer one question.</p>
+        <p>This module explains the data engineering principle: each chunk is a row, and each row should answer one question. <em>Related: <a href="/docs/prechunking-seo/croutons/">Crouton Specification</a></em></p>
       </div>
     </div>
 
@@ -78,6 +79,19 @@ $moduleTitle = 'Chunk Atomicity and Inference Cost';
       <div class="content-block__body">
         <p><strong>One chunk = one assertion = one retrieval target.</strong></p>
         <p>If a chunk contains multiple facts, split it. If a chunk requires context, make the context explicit within the chunk.</p>
+      </div>
+    </div>
+
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Take a narrative paragraph from any existing page. Extract exactly five atomic facts (croutons) from it. Each fact must be a single declarative sentence.</p>
+        <p><strong>Constraint:</strong> No fact may contain pronouns, conjunctions, or implied context. Each fact must explicitly name all entities and relationships.</p>
+        <p><strong>What success looks like:</strong> You produce five sentences where each sentence can be read in isolation without ambiguity. If a sentence requires the previous sentence to be understood, it's not atomic.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
       </div>
     </div>
 

@@ -19,6 +19,7 @@ $moduleTitle = 'Measuring Prechunking Success';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
     <div class="content-block module">
@@ -27,7 +28,7 @@ $moduleTitle = 'Measuring Prechunking Success';
       </div>
       <div class="content-block__body">
         <p>What to measure instead of rankings.</p>
-        <p>Real metrics focus on retrieval and citation, not traffic and impressions.</p>
+        <p>Real metrics focus on retrieval and citation, not traffic and impressions. <em>See also: <a href="/docs/prechunking-seo/measurement/">Measurement & KPIs</a></em></p>
       </div>
     </div>
     <div class="content-block module">
@@ -68,6 +69,19 @@ $moduleTitle = 'Measuring Prechunking Success';
         <p>Focus on what you can control: chunk quality, atomicity, and citation eligibility.</p>
       </div>
     </div>
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Query an AI system (ChatGPT, Claude, or Google AI Overviews) using a topic from your content. Capture the generated answer and identify which of your chunks appeared.</p>
+        <p><strong>Constraint:</strong> Look for near-verbatim reuse, not paraphrasing. Track citation frequency, not traffic or impressions.</p>
+        <p><strong>What success looks like:</strong> You produce a measurement report showing which chunks were retrieved, which were cited, and which were ignored. You've measured retrieval and citation, not downstream effects like traffic.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
+      </div>
+    </div>
+
     <div class="content-block module">
       <p><strong>Next:</strong> <a href="/docs/prechunking-seo/course/failure-modes-why-chunks-die/">Module 9: Failure Modes (Why Chunks Die)</a></p>
     </div>

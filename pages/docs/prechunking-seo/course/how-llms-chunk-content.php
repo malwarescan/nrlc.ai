@@ -21,6 +21,7 @@ $moduleTitle = 'How LLMs Actually Chunk Content';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
 
@@ -31,7 +32,7 @@ $moduleTitle = 'How LLMs Actually Chunk Content';
       </div>
       <div class="content-block__body">
         <p>Why "sections" are not real chunks.</p>
-        <p>This module explains how LLMs actually break content into chunks, and why visual structure does not determine chunk boundaries.</p>
+        <p>This module explains how LLMs actually break content into chunks, and why visual structure does not determine chunk boundaries. <em>See also: <a href="/docs/prechunking-seo/core-concepts/">Core Concepts</a></em></p>
       </div>
     </div>
 
@@ -81,6 +82,19 @@ $moduleTitle = 'How LLMs Actually Chunk Content';
       <div class="content-block__body">
         <p><strong>If a fact requires previous text, it is already broken.</strong></p>
         <p>Design every chunk to be self-contained. Never assume surrounding context will be preserved.</p>
+      </div>
+    </div>
+
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Select any existing webpage (yours or a competitor's). Copy three consecutive paragraphs. Split them into extraction-sized chunks as an LLM would, ignoring visual structure.</p>
+        <p><strong>Constraint:</strong> Each chunk must be token-limited (approximately 512 tokens). Split at semantic boundaries, not sentence boundaries.</p>
+        <p><strong>What success looks like:</strong> You produce a list of chunks where each chunk can be read in isolation without losing meaning. If a chunk requires previous context to be understood, you've identified a chunking failure.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
       </div>
     </div>
 

@@ -19,6 +19,7 @@ $moduleTitle = 'Prompt Reverse-Engineering (Safely)';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
     <div class="content-block module">
@@ -27,7 +28,7 @@ $moduleTitle = 'Prompt Reverse-Engineering (Safely)';
       </div>
       <div class="content-block__body">
         <p>How to infer questions without prompt injection.</p>
-        <p><strong>Correct Framing:</strong> You are not manipulating prompts. You are modeling question distributions.</p>
+        <p><strong>Correct Framing:</strong> You are not manipulating prompts. You are modeling question distributions. <em>Related: <a href="/docs/prechunking-seo/precogs/">Precog Modeling</a></em></p>
       </div>
     </div>
     <div class="content-block module">
@@ -52,6 +53,19 @@ $moduleTitle = 'Prompt Reverse-Engineering (Safely)';
         <p>Don't wait for questions. Anticipate them and publish answers in advance.</p>
       </div>
     </div>
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Identify one primary question users ask about your service. List the next five follow-up questions they would naturally ask. For each question, identify what chunk must exist to answer it.</p>
+        <p><strong>Constraint:</strong> Each follow-up question must be logically necessary, not speculative. Each required chunk must be a single atomic fact.</p>
+        <p><strong>What success looks like:</strong> You produce a question tree where every question has a corresponding chunk that answers it. You've modeled the question distribution and ensured answers exist before questions are asked.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
+      </div>
+    </div>
+
     <div class="content-block module">
       <p><strong>Next:</strong> <a href="/docs/prechunking-seo/course/citation-eligibility-engineering/">Module 7: Citation Eligibility Engineering</a></p>
     </div>

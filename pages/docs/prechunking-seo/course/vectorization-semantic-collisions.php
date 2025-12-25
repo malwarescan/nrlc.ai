@@ -19,6 +19,7 @@ $moduleTitle = 'Vectorization and Semantic Collisions';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
     <div class="content-block module">
@@ -59,6 +60,19 @@ $moduleTitle = 'Vectorization and Semantic Collisions';
         </ul>
       </div>
     </div>
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Take three chunks from an existing page. Rewrite each chunk to be semantically narrow and intent-pure. Remove generic language and mixed ideas.</p>
+        <p><strong>Constraint:</strong> Each rewritten chunk must focus on a single concept. If a chunk contains multiple ideas, split it into separate chunks.</p>
+        <p><strong>What success looks like:</strong> You produce chunks where each chunk has a dominant semantic vector. When you read a chunk, you can immediately identify its single purpose without inference.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
+      </div>
+    </div>
+
     <div class="content-block module">
       <p><strong>Next:</strong> <a href="/docs/prechunking-seo/course/data-structuring-beyond-pages/">Module 4: Data Structuring Beyond Pages</a></p>
     </div>

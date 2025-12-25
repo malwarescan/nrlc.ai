@@ -19,6 +19,7 @@ $moduleTitle = 'Failure Modes (Why Chunks Die)';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
     <div class="content-block module">
@@ -27,7 +28,7 @@ $moduleTitle = 'Failure Modes (Why Chunks Die)';
       </div>
       <div class="content-block__body">
         <p>Why content disappears from AI answers.</p>
-        <p>Common failures prevent chunks from being retrieved, cited, or reused.</p>
+        <p>Common failures prevent chunks from being retrieved, cited, or reused. <em>Related: <a href="/docs/prechunking-seo/failure-modes/">Failure Modes Documentation</a></em></p>
       </div>
     </div>
     <div class="content-block module">
@@ -67,6 +68,19 @@ $moduleTitle = 'Failure Modes (Why Chunks Die)';
         <p>Rewrite it as an atomic fact, or remove it entirely. Broken chunks are worse than no chunks.</p>
       </div>
     </div>
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Audit one page of your content. Identify every chunk that contains pronouns, implied context, marketing adjectives, or narrative transitions. Delete or rewrite each broken chunk.</p>
+        <p><strong>Constraint:</strong> Every remaining chunk must be able to stand alone. If a chunk requires previous context, it fails the isolation test.</p>
+        <p><strong>What success looks like:</strong> You produce a page where every chunk is atomic, explicit, and self-contained. No chunk dies during retrieval because no chunk depends on context that may not be preserved.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
+      </div>
+    </div>
+
     <div class="content-block module">
       <p><strong>Course Complete:</strong> <a href="/docs/prechunking-seo/course/">Return to Course Overview</a></p>
     </div>

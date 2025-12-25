@@ -19,6 +19,7 @@ $moduleTitle = 'Data Structuring Beyond Pages';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
     <div class="content-block module">
@@ -27,7 +28,7 @@ $moduleTitle = 'Data Structuring Beyond Pages';
       </div>
       <div class="content-block__body">
         <p>Prechunking is not just page layout.</p>
-        <p>This is where most SEO thinking breaks. Structured layers matter more than prose.</p>
+        <p>This is where most SEO thinking breaks. Structured layers matter more than prose. <em>See also: <a href="/docs/prechunking-seo/workflow/">Prechunking Workflow</a></em></p>
       </div>
     </div>
     <div class="content-block module">
@@ -67,6 +68,19 @@ $moduleTitle = 'Data Structuring Beyond Pages';
         <p>Don't rely on prose alone. Use JSON-LD, lists, tables, and definitions to reinforce key facts.</p>
       </div>
     </div>
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Select an important fact from your content. Express it in three different structural forms: as a JSON-LD property, as a list item, and as a table row.</p>
+        <p><strong>Constraint:</strong> The fact must remain identical across all three forms. Only the structure changes, not the meaning.</p>
+        <p><strong>What success looks like:</strong> You produce three representations of the same fact where an LLM could extract the identical information from any of them. The structural redundancy increases retrieval probability without changing meaning.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
+      </div>
+    </div>
+
     <div class="content-block module">
       <p><strong>Next:</strong> <a href="/docs/prechunking-seo/course/cross-page-consistency/">Module 5: Cross-Page Consistency as Signal Amplification</a></p>
     </div>

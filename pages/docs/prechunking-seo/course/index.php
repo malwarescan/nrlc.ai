@@ -106,6 +106,23 @@ $modules = [
       </div>
     </div>
 
+    <!-- How to Use This Course -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">How to Use This Course</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>This course is designed for flexible learning:</strong></p>
+        <ul>
+          <li>You can read sequentially (Module 1 → 9) or jump to specific topics</li>
+          <li>Each module is atomic and self-contained—no prerequisites required</li>
+          <li>This is not a checklist course. Mastery comes from understanding constraints, not finishing pages</li>
+          <li>Modules reference each other, but you can read them in any order</li>
+        </ul>
+        <p><strong>Think of this as a knowledge system, not a linear curriculum.</strong> Return to modules as needed. Deep understanding matters more than completion.</p>
+      </div>
+    </div>
+
     <!-- Course Mental Model -->
     <div class="content-block module" style="background: #f5f5f5; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #000080;">
       <div class="content-block__header">

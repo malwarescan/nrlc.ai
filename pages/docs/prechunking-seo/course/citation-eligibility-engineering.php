@@ -19,6 +19,7 @@ $moduleTitle = 'Citation Eligibility Engineering';
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title">Module <?= $moduleNum ?>: <?= htmlspecialchars($moduleTitle) ?></h1>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">Module <?= $moduleNum ?> of 9</p>
       </div>
     </div>
     <div class="content-block module">
@@ -27,7 +28,7 @@ $moduleTitle = 'Citation Eligibility Engineering';
       </div>
       <div class="content-block__body">
         <p>Why AI avoids citing most content.</p>
-        <p>LLMs apply citation filters to avoid citing content that sounds promotional, makes guarantees, lacks scope, or mixes opinion and fact.</p>
+        <p>LLMs apply citation filters to avoid citing content that sounds promotional, makes guarantees, lacks scope, or mixes opinion and fact. <em>Related: <a href="/docs/prechunking-seo/failure-modes/">Failure Modes</a></em></p>
       </div>
     </div>
     <div class="content-block module">
@@ -61,6 +62,19 @@ $moduleTitle = 'Citation Eligibility Engineering';
         <p>Remove marketing language, superlatives, and emotional framing. Write declarative facts.</p>
       </div>
     </div>
+    <!-- Optional Operator Task -->
+    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #6c757d;">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Optional Operator Task</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Task:</strong> Take a promotional paragraph from your content. Rewrite it as a factual, scoped, boring chunk that is safe to cite.</p>
+        <p><strong>Constraint:</strong> Remove all marketing language, superlatives, emotional framing, and guarantees. Keep only declarative facts with explicit scope.</p>
+        <p><strong>What success looks like:</strong> You produce a chunk that sounds like a reference manual entry, not a sales page. An LLM reading this chunk would feel confident citing it because it's factual, scoped, and safe.</p>
+        <p style="font-size: 0.875rem; color: #666; margin-top: 1rem;"><em>This task is optional. No submission required. No validation. Use it to convert theory into applied thinking.</em></p>
+      </div>
+    </div>
+
     <div class="content-block module">
       <p><strong>Next:</strong> <a href="/docs/prechunking-seo/course/measuring-prechunking-success/">Module 8: Measuring Prechunking Success</a></p>
     </div>
