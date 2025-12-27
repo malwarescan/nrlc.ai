@@ -63,16 +63,16 @@ function service_intent_content(string $serviceSlug, ?string $citySlug = null, ?
       }
       return [
         'h1' => "$serviceTitle for $cityTitle Businesses",
-        'subhead' => "We audit websites in $cityTitle to uncover why they don't rank, convert, or earn trust — and what to fix first.",
+        'subhead' => "Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).",
         'cta' => "Request a $cityTitle $ctaServiceTitle",
         'cta_qualifier' => "You receive a written diagnostic. No obligation."
       ];
     } else {
-      // CLASS 2: Geo Service
+      // CLASS 2: Geo Service - CONVERSION-FIRST STRUCTURE
       return [
         'h1' => "$serviceTitle for $cityTitle Businesses",
-        'subhead' => "We provide $serviceTitle services in $cityTitle to help businesses improve search rankings, AI visibility, and conversion rates.",
-        'cta' => "Request $serviceTitle Services for $cityTitle",
+        'subhead' => "Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).",
+        'cta' => "Request a $cityTitle $serviceTitle",
         'cta_qualifier' => "No obligation. Response within 24 hours."
       ];
     }
@@ -109,22 +109,20 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
   $serviceTitle = ucwords(str_replace(['-', '_'], ' ', $serviceSlug));
   $cityTitle = $citySlug ? (function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug))) : null;
   
-  // For audit services, use specific modifier
-  if (in_array($serviceSlug, ['site-audits', 'technical-seo-audits'])) {
-    $modifier = $serviceSlug === 'site-audits' ? 'Technical & Structural Website Audits' : 'Crawl & Indexing Diagnostics';
-    if ($cityTitle) {
-      return "$serviceTitle in $cityTitle | $modifier";
-    }
-    return "$serviceTitle | $modifier";
-  }
+  // CONVERSION-FIRST: All geo service pages use "Conversion + AI Visibility" modifier
+  $modifier = "Conversion + AI Visibility";
   
-  // Default modifier
-  $modifier = "$serviceTitle Services";
   if ($cityTitle) {
-    return "$serviceTitle in $cityTitle | $modifier";
+    return "$serviceTitle in $cityTitle | $modifier | NRLC.ai";
   }
   
-  return "$serviceTitle | $modifier";
+  // Non-geo services
+  if (in_array($serviceSlug, ['site-audits', 'technical-seo-audits'])) {
+    $auditModifier = $serviceSlug === 'site-audits' ? 'Technical & Structural Website Audits' : 'Crawl & Indexing Diagnostics';
+    return "$serviceTitle | $auditModifier | NRLC.ai";
+  }
+  
+  return "$serviceTitle | $serviceTitle Services | NRLC.ai";
 }
 
 /**
@@ -135,14 +133,8 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
  * @return string
  */
 function service_meta_description(string $serviceSlug, ?string $citySlug = null): string {
-  $serviceTitle = ucwords(str_replace(['-', '_'], ' ', $serviceSlug));
-  $cityTitle = $citySlug ? (function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug))) : null;
-  
-  if ($cityTitle) {
-    return "Professional $serviceTitle for $cityTitle businesses. We identify the issues holding your website back and provide clear, actionable fixes.";
-  }
-  
-  return "Professional $serviceTitle services. We identify the issues holding your website back and provide clear, actionable fixes.";
+  // CONVERSION-FIRST: Standard meta description for all geo service pages
+  return "Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).";
 }
 
 /**

@@ -85,9 +85,10 @@ $content = $intro . $local;
               echo "<p>We've worked with businesses across $cityTitle and $region and consistently deliver results that automated tools miss.</p>";
             }
             ?>
-            <!-- INTENT TAXONOMY CTA: Must name the service explicitly -->
-            <div class="btn-group text-center" style="margin: 1.5rem 0;">
+            <!-- CONVERSION-FIRST CTAs: Primary (service-named) + Secondary (proof) -->
+            <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
+              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">See Proof / Case Studies</a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
           </div>
