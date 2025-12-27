@@ -28,7 +28,7 @@ function canonical_guard(): void {
   }
 
   // Skip redirects for static files and special paths
-  $staticPaths = ['/robots.txt', '/favicon.ico', '/sitemap', '/sitemaps', '/healthcheck.html'];
+  $staticPaths = ['/robots.txt', '/favicon.ico', '/sitemap', '/sitemaps', '/healthcheck.html', '/healthz'];
   foreach ($staticPaths as $staticPath) {
     if (strpos($uri, $staticPath) === 0) {
       return;

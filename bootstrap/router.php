@@ -51,6 +51,15 @@ function route_request(): void {
     }
   }
 
+  // /healthz - Always return 200 OK (Railway healthcheck)
+  if ($path === '/healthz') {
+    http_response_code(200);
+    header('Content-Type: text/plain; charset=UTF-8');
+    header('Cache-Control: no-cache, no-store, must-revalidate');
+    echo 'OK';
+    return;
+  }
+
   // robots.txt
   if ($path === '/robots.txt') {
     $robots_file = __DIR__.'/../public/robots.txt';
