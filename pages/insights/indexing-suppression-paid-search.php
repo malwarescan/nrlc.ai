@@ -32,7 +32,7 @@ $domain = 'https://nrlc.ai';
         <div style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #e0e0e0;">
           <p style="margin: 0.5rem 0;"><strong>Author:</strong> Joel Maldonado</p>
           <p style="margin: 0.5rem 0;"><strong>Affiliation:</strong> NRLC.ai</p>
-          <p style="margin: 0.5rem 0;"><strong>Correspondence:</strong> <a href="mailto:hirejoelm@gmail.com">hirejoelm@gmail.com</a></p>
+          <p style="margin: 0.5rem 0;"><strong>Correspondence:</strong> <a href="mailto:contact@neuralcommandllc.com">contact@neuralcommandllc.com</a></p>
           <p style="margin: 0.5rem 0;"><strong>Date:</strong> <?= date('F Y') ?></p>
         </div>
 
@@ -239,7 +239,7 @@ $articleLd = [
       'name' => 'NRLC.ai',
       'url' => $domain
     ],
-    'email' => 'hirejoelm@gmail.com'
+    'email' => 'contact@neuralcommandllc.com'
   ],
   'publisher' => [
     '@type' => 'Organization',
