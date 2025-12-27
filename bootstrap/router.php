@@ -306,6 +306,15 @@ function route_request(): void {
     return;
   }
 
+  // Handle career pages with city only (redirect to careers index)
+  if (preg_match('#^/careers/([^/]+)/$#', $path, $m)) {
+    // Redirect city-only career URLs to careers index
+    // These URLs don't have a role slug, so they're invalid
+    $careersIndex = current_locale() ? '/' . current_locale() . '/careers/' : '/en-us/careers/';
+    header("Location: " . absolute_url($careersIndex), true, 301);
+    exit;
+  }
+
   if (preg_match('#^/careers/([^/]+)/([^/]+)/$#', $path, $m)) {
     $_GET['city'] = $m[1];
     $_GET['role'] = $m[2];
