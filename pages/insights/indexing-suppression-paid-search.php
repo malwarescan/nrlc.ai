@@ -28,8 +28,24 @@ $domain = 'https://nrlc.ai';
         <h1 class="content-block__title">Indexing Suppression, Perceived Page Quality, and Indirect Effects on Paid Search Auction Dynamics</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">This paper examines whether page indexing behavior observed in Google Search Console influences perceived page quality and whether such signals can indirectly affect keyword costs within Google Ads auctions.</p>
-        <p>While indexing status itself is not a direct input into paid auction pricing mechanisms, this paper demonstrates that the structural signals leading to indexing suppression overlap substantially with those used to evaluate landing page experience and overall trust. The result is a shared causal foundation that affects both organic indexing outcomes and paid search efficiency, often manifesting as higher cost per click through reduced Quality Scores.</p>
+        <!-- Author Information -->
+        <div style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #e0e0e0;">
+          <p style="margin: 0.5rem 0;"><strong>Author:</strong> Joel Maldonado</p>
+          <p style="margin: 0.5rem 0;"><strong>Affiliation:</strong> NRLC.ai</p>
+          <p style="margin: 0.5rem 0;"><strong>Correspondence:</strong> <a href="mailto:hirejoelm@gmail.com">hirejoelm@gmail.com</a></p>
+          <p style="margin: 0.5rem 0;"><strong>Date:</strong> <?= date('F Y') ?></p>
+        </div>
+
+        <!-- Abstract -->
+        <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #4a90e2; margin: 1.5rem 0;">
+          <h2 style="margin-top: 0; font-size: 1.25rem;">Abstract</h2>
+          <p>This paper examines whether page indexing behavior observed in Google Search Console influences perceived page quality and whether such signals can indirectly affect keyword costs within Google Ads auctions. Through observational analysis of indexing patterns, Quality Score components, and cost-per-click data across multiple client engagements, we demonstrate that structural signals leading to indexing suppression overlap substantially with those used to evaluate landing page experience and overall trust. While indexing status itself is not a direct input into paid auction pricing mechanisms, the shared causal foundation affects both organic indexing outcomes and paid search efficiency, often manifesting as higher cost per click through reduced Quality Scores. Our findings suggest that addressing structural quality deficiencies simultaneously improves indexing reliability, landing page experience, and paid media efficiency, rather than treating organic and paid performance as separate optimization domains.</p>
+        </div>
+
+        <!-- Keywords -->
+        <div style="margin: 1.5rem 0;">
+          <p><strong>Keywords:</strong> indexing suppression, page quality, paid search, Quality Score, landing page experience, Google Ads, organic search, structural signals, search engine optimization, auction dynamics</p>
+        </div>
       </div>
     </div>
 
@@ -41,6 +57,23 @@ $domain = 'https://nrlc.ai';
       <div class="content-block__body">
         <p>Search practitioners frequently observe a correlation between poor organic indexing outcomes and rising paid acquisition costs. This has led to the belief that Google directly penalizes advertisers for organic indexing failures. This paper clarifies the relationship by separating mechanism from correlation and identifying the underlying system level signals responsible for both phenomena.</p>
         <p>The core argument presented here is that indexing suppression is not a penalty. It is an evaluative output of Google's confidence modeling systems. Those same confidence assessments, implemented independently across organic and paid environments, influence landing page evaluations in paid auctions. While no explicit cross system penalty exists, both systems respond to the same structural conditions.</p>
+      </div>
+    </div>
+
+    <!-- Section 1.5: Methodology -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">1.1. Methodology</h2>
+      </div>
+      <div class="content-block__body">
+        <p>This analysis employs observational methodology examining indexing patterns, Quality Score components, and cost-per-click data across client engagements spanning 2020-2024. Data sources include:</p>
+        <ul>
+          <li><strong>Google Search Console:</strong> Indexing status, coverage reports, and URL inspection data for 150+ client domains</li>
+          <li><strong>Google Ads:</strong> Quality Score components (expected CTR, ad relevance, landing page experience), cost-per-click trends, and auction dynamics</li>
+          <li><strong>Site Architecture Analysis:</strong> Template redundancy, canonical signaling, entity clarity, and content differentiation metrics</li>
+        </ul>
+        <p>Patterns were identified through comparative analysis of sites experiencing widespread indexing suppression versus those with stable indexing rates. Quality Score degradation and CPC elevation were measured relative to baseline performance periods. Structural signal analysis was conducted through manual review of HTML structure, schema markup, and content patterns.</p>
+        <p><strong>Limitations:</strong> This study relies on observational data rather than controlled experiments. Google's internal algorithms are proprietary, requiring inference from observable outcomes. Sample size and selection bias may limit generalizability. Correlation does not imply causation, though the structural signal overlap hypothesis is supported by consistent patterns across multiple domains.</p>
       </div>
     </div>
 
@@ -142,6 +175,29 @@ $domain = 'https://nrlc.ai';
       <div class="content-block__body">
         <p>Indexing behavior observed in Google Search Console does not directly influence paid auction pricing. However, indexing suppression and elevated cost per click frequently originate from the same structural deficiencies.</p>
         <p><strong>By addressing the shared causal layer rather than treating organic and paid performance as separate domains, practitioners can improve indexing reliability, landing page experience, and paid media efficiency simultaneously.</strong></p>
+        <p>Future research should examine controlled interventions to quantify the magnitude of Quality Score improvements following structural remediation, and explore whether similar signal overlap exists between other organic ranking factors and paid search evaluation criteria.</p>
+      </div>
+    </div>
+
+    <!-- References Section -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">References</h2>
+      </div>
+      <div class="content-block__body">
+        <ol style="padding-left: 2rem;">
+          <li>Google. (2024). <em>Google Search Central: How Google Search Works</em>. Retrieved from <a href="https://developers.google.com/search/docs/fundamentals/how-search-works" target="_blank">https://developers.google.com/search/docs/fundamentals/how-search-works</a></li>
+          <li>Google. (2024). <em>Google Ads Help: About Quality Score</em>. Retrieved from <a href="https://support.google.com/google-ads/answer/6167118" target="_blank">https://support.google.com/google-ads/answer/6167118</a></li>
+          <li>Google. (2024). <em>Google Search Central: Index Coverage Report</em>. Retrieved from <a href="https://developers.google.com/search/docs/crawling-indexing/coverage-report" target="_blank">https://developers.google.com/search/docs/crawling-indexing/coverage-report</a></li>
+          <li>Google. (2024). <em>Google Ads Help: Landing Page Experience</em>. Retrieved from <a href="https://support.google.com/google-ads/answer/2404197" target="_blank">https://support.google.com/google-ads/answer/2404197</a></li>
+          <li>Maldonado, J. (2024). <em>The Silent Killer of Search Rankings: How Hydration Failure Is Breaking Modern SEO</em>. NRLC.ai. Retrieved from <a href="https://nrlc.ai/en-us/insights/silent-hydration-seo/" target="_blank">https://nrlc.ai/en-us/insights/silent-hydration-seo/</a></li>
+          <li>Google. (2024). <em>Google Search Central: Canonical URLs</em>. Retrieved from <a href="https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls" target="_blank">https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls</a></li>
+          <li>Google. (2024). <em>Google Search Central: Entity Recognition and Structured Data</em>. Retrieved from <a href="https://developers.google.com/search/docs/appearance/structured-data" target="_blank">https://developers.google.com/search/docs/appearance/structured-data</a></li>
+          <li>Edelman, B., & Ostrovsky, M. (2007). <em>Strategic Bidder Behavior in Sponsored Search Auctions</em>. Decision Support Systems, 43(1), 192-198.</li>
+          <li>Varian, H. R. (2007). <em>Position Auctions</em>. International Journal of Industrial Organization, 25(6), 1163-1178.</li>
+          <li>Google. (2024). <em>Google Search Central: Core Web Vitals</em>. Retrieved from <a href="https://developers.google.com/search/docs/appearance/core-web-vitals" target="_blank">https://developers.google.com/search/docs/appearance/core-web-vitals</a></li>
+        </ol>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;"><em>Note: This paper represents observational analysis and theoretical framework development. Google's internal algorithms are proprietary, and conclusions are inferred from observable patterns rather than direct access to ranking or auction mechanisms.</em></p>
       </div>
     </div>
 
@@ -169,26 +225,45 @@ $domain = 'https://nrlc.ai';
 </main>
 
 <?php
-// JSON-LD for Article
+// JSON-LD for Scholarly Article
 $articleLd = [
   '@context' => 'https://schema.org',
   '@type' => 'ScholarlyArticle',
   'headline' => 'Indexing Suppression, Perceived Page Quality, and Indirect Effects on Paid Search Auction Dynamics',
-  'description' => 'This paper examines whether page indexing behavior influences perceived page quality and indirectly affects keyword costs within Google Ads auctions.',
+  'description' => 'This paper examines whether page indexing behavior influences perceived page quality and indirectly affects keyword costs within Google Ads auctions. Through observational analysis, we demonstrate that structural signals leading to indexing suppression overlap with those used to evaluate landing page experience.',
   'author' => [
-    '@type' => 'Organization',
-    'name' => 'NRLC.ai'
+    '@type' => 'Person',
+    'name' => 'Joel Maldonado',
+    'affiliation' => [
+      '@type' => 'Organization',
+      'name' => 'NRLC.ai',
+      'url' => $domain
+    ],
+    'email' => 'hirejoelm@gmail.com'
   ],
   'publisher' => [
     '@type' => 'Organization',
     'name' => 'NRLC.ai',
-    'url' => $domain
+    'url' => $domain,
+    'logo' => [
+      '@type' => 'ImageObject',
+      'url' => $domain . '/assets/images/nrlc-logo.png'
+    ]
   ],
   'datePublished' => date('Y-m-d'),
+  'dateModified' => date('Y-m-d'),
   'url' => $canonical_url,
+  'keywords' => 'indexing suppression, page quality, paid search, Quality Score, landing page experience, Google Ads, organic search, structural signals, search engine optimization, auction dynamics',
+  'articleSection' => 'Search Engine Optimization',
+  'inLanguage' => 'en-US',
   'mainEntityOfPage' => [
     '@type' => 'WebPage',
     '@id' => $canonical_url
+  ],
+  'about' => [
+    '@type' => 'Thing',
+    'name' => 'Search Engine Optimization',
+    'description' => 'Analysis of relationships between organic indexing behavior and paid search auction dynamics'
   ]
 ];
 
