@@ -86,9 +86,14 @@ $content = $intro . $local;
             }
             ?>
             <!-- CONVERSION-FIRST CTAs: Primary (service-named) + Secondary (proof) -->
+            <?php
+            $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+            $localized = get_localized_service_strings($locale);
+            $secondaryCta = $localized['cta_secondary'] ?? 'See Proof / Case Studies';
+            ?>
             <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
-              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">See Proof / Case Studies</a>
+              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;"><?= htmlspecialchars($secondaryCta) ?></a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
           </div>

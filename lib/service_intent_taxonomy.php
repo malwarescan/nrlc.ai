@@ -9,7 +9,61 @@
  * 2. Geo Service (Primary): /services/{service}/{city}/
  * 3. Sub-Service: /services/{service}/{sub-service}/
  * 4. Audit/Diagnostic: /services/{audit-type}/ or /services/{audit-type}/{city}/
+ * 
+ * LOCALE-AWARE: All content is localized for fr-fr, es-es, de-de, ko-kr
  */
+
+/**
+ * Get localized strings for service content
+ */
+function get_localized_service_strings(string $locale): array {
+  $strings = [
+    'en-us' => [
+      'meta_modifier' => 'Conversion + AI Visibility',
+      'meta_desc' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'subhead' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'cta_secondary' => 'See Proof / Case Studies',
+      'cta_qualifier' => 'No obligation. Response within 24 hours.',
+    ],
+    'en-gb' => [
+      'meta_modifier' => 'Conversion + AI Visibility',
+      'meta_desc' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'subhead' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'cta_secondary' => 'See Proof / Case Studies',
+      'cta_qualifier' => 'No obligation. Response within 24 hours.',
+    ],
+    'fr-fr' => [
+      'meta_modifier' => 'Conversion + visibilité IA',
+      'meta_desc' => 'Un plan clair pour améliorer le classement et la conversion: technique, contenu, et visibilité IA (ChatGPT, Claude, Google AI Overviews).',
+      'subhead' => 'Un plan clair pour améliorer le classement et la conversion: technique, contenu, et visibilité IA (ChatGPT, Claude, Google AI Overviews).',
+      'cta_secondary' => 'Voir des preuves / études de cas',
+      'cta_qualifier' => 'Sans engagement. Réponse sous 24 heures.',
+    ],
+    'es-es' => [
+      'meta_modifier' => 'Conversión + visibilidad IA',
+      'meta_desc' => 'Un plan accionable para subir rankings y conversión: técnica, contenido y visibilidad IA (ChatGPT, Claude, Google AI Overviews).',
+      'subhead' => 'Un plan accionable para subir rankings y conversión: técnica, contenido y visibilidad IA (ChatGPT, Claude, Google AI Overviews).',
+      'cta_secondary' => 'Ver pruebas / casos',
+      'cta_qualifier' => 'Sin compromiso. Respuesta en 24 horas.',
+    ],
+    'de-de' => [
+      'meta_modifier' => 'Conversion + KI-Sichtbarkeit',
+      'meta_desc' => 'Ein klarer Plan für bessere Rankings und Conversion: Technik, Content-Lücken und KI-Auffindbarkeit (ChatGPT, Claude, Google AI Overviews).',
+      'subhead' => 'Ein klarer Plan für bessere Rankings und Conversion: Technik, Content-Lücken und KI-Auffindbarkeit (ChatGPT, Claude, Google AI Overviews).',
+      'cta_secondary' => 'Nachweise / Cases ansehen',
+      'cta_qualifier' => 'Keine Verpflichtung. Antwort innerhalb von 24 Stunden.',
+    ],
+    'ko-kr' => [
+      'meta_modifier' => '전환 + AI 가시성',
+      'meta_desc' => '순위와 전환을 빠르게 끌어올리는 실행 계획: 기술 문제, 콘텐츠 공백, AI 검색 노출(챗GPT/클로드/Google AI Overviews).',
+      'subhead' => '순위와 전환을 빠르게 끌어올리는 실행 계획: 기술 문제, 콘텐츠 공백, AI 검색 노출(챗GPT/클로드/Google AI Overviews).',
+      'cta_secondary' => '사례/증거 보기',
+      'cta_qualifier' => '의무 없음. 24시간 내 응답.',
+    ],
+  ];
+  
+  return $strings[$locale] ?? $strings['en-us'];
+}
 
 /**
  * Generate H1, subhead, and CTA based on service URL pattern
@@ -54,6 +108,24 @@ function service_intent_content(string $serviceSlug, ?string $citySlug = null, ?
   
   // CLASS 2: Geo Service (Primary) - /services/{service}/{city}/
   if ($citySlug && !$subService) {
+    // Get current locale for localization (check GLOBALS first, then URL)
+    $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+    $localized = get_localized_service_strings($locale);
+    
+    // Localize service and city titles
+    $serviceTitleLocalized = $serviceTitle; // Keep English for now (service names are often kept in English)
+    $cityTitleLocalized = $cityTitle;
+    
+    // Localize CTA patterns based on locale
+    $ctaPatterns = [
+      'en-us' => "Request a $cityTitle $serviceTitle",
+      'en-gb' => "Request a $cityTitle $serviceTitle",
+      'fr-fr' => "Demander $serviceTitle à $cityTitle",
+      'es-es' => "Solicitar $serviceTitle en $cityTitle",
+      'de-de' => "$serviceTitle in $cityTitle anfordern",
+      'ko-kr' => "$cityTitle $serviceTitle 요청하기",
+    ];
+    
     if ($isAudit) {
       // CLASS 4: Audit/Diagnostic (geo)
       // Fix pluralization: "Site Audits" -> "Site Audit" for CTA
@@ -61,19 +133,42 @@ function service_intent_content(string $serviceSlug, ?string $citySlug = null, ?
       if (substr($serviceTitle, -1) === 's' && strpos($serviceTitle, ' ') !== false) {
         $ctaServiceTitle = rtrim($serviceTitle, 's');
       }
+      
+      // Localize audit CTAs
+      $auditCtaPatterns = [
+        'en-us' => "Request a $cityTitle $ctaServiceTitle",
+        'en-gb' => "Request a $cityTitle $ctaServiceTitle",
+        'fr-fr' => "Demander $ctaServiceTitle à $cityTitle",
+        'es-es' => "Solicitar $ctaServiceTitle en $cityTitle",
+        'de-de' => "$ctaServiceTitle in $cityTitle anfordern",
+        'ko-kr' => "$cityTitle $ctaServiceTitle 요청하기",
+      ];
+      
       return [
-        'h1' => "$serviceTitle for $cityTitle Businesses",
-        'subhead' => "Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).",
-        'cta' => "Request a $cityTitle $ctaServiceTitle",
-        'cta_qualifier' => "You receive a written diagnostic. No obligation."
+        'h1' => $locale === 'fr-fr' ? "$serviceTitle pour les entreprises de $cityTitle" :
+               ($locale === 'es-es' ? "$serviceTitle para negocios en $cityTitle" :
+               ($locale === 'de-de' ? "$serviceTitle für Unternehmen in $cityTitle" :
+               ($locale === 'ko-kr' ? "$cityTitle 비즈니스를 위한 $serviceTitle" :
+               "$serviceTitle for $cityTitle Businesses"))),
+        'subhead' => $localized['subhead'],
+        'cta' => $auditCtaPatterns[$locale] ?? $auditCtaPatterns['en-us'],
+        'cta_qualifier' => $locale === 'fr-fr' ? "Vous recevez un diagnostic écrit. Sans engagement." :
+                          ($locale === 'es-es' ? "Recibes un diagnóstico escrito. Sin compromiso." :
+                          ($locale === 'de-de' ? "Sie erhalten eine schriftliche Diagnose. Keine Verpflichtung." :
+                          ($locale === 'ko-kr' ? "서면 진단을 받습니다. 의무 없음." :
+                          "You receive a written diagnostic. No obligation.")))
       ];
     } else {
-      // CLASS 2: Geo Service - CONVERSION-FIRST STRUCTURE
+      // CLASS 2: Geo Service - CONVERSION-FIRST STRUCTURE (LOCALIZED)
       return [
-        'h1' => "$serviceTitle for $cityTitle Businesses",
-        'subhead' => "Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).",
-        'cta' => "Request a $cityTitle $serviceTitle",
-        'cta_qualifier' => "No obligation. Response within 24 hours."
+        'h1' => $locale === 'fr-fr' ? "$serviceTitle pour les entreprises de $cityTitle" :
+               ($locale === 'es-es' ? "$serviceTitle para negocios en $cityTitle" :
+               ($locale === 'de-de' ? "$serviceTitle für Unternehmen in $cityTitle" :
+               ($locale === 'ko-kr' ? "$cityTitle 비즈니스를 위한 $serviceTitle" :
+               "$serviceTitle for $cityTitle Businesses"))),
+        'subhead' => $localized['subhead'],
+        'cta' => $ctaPatterns[$locale] ?? $ctaPatterns['en-us'],
+        'cta_qualifier' => $localized['cta_qualifier']
       ];
     }
   }
@@ -109,11 +204,28 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
   $serviceTitle = ucwords(str_replace(['-', '_'], ' ', $serviceSlug));
   $cityTitle = $citySlug ? (function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug))) : null;
   
-  // CONVERSION-FIRST: All geo service pages use "Conversion + AI Visibility" modifier
-  $modifier = "Conversion + AI Visibility";
+  // Get current locale for localization (check GLOBALS first, then URL)
+  $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+  $localized = get_localized_service_strings($locale);
+  $modifier = $localized['meta_modifier'];
   
   if ($cityTitle) {
-    return "$serviceTitle in $cityTitle | $modifier | NRLC.ai";
+    // Localize "in" preposition
+    $prepositions = [
+      'en-us' => 'in',
+      'en-gb' => 'in',
+      'fr-fr' => 'à',
+      'es-es' => 'en',
+      'de-de' => 'in',
+      'ko-kr' => '', // Korean puts city first
+    ];
+    $prep = $prepositions[$locale] ?? 'in';
+    
+    if ($locale === 'ko-kr') {
+      return "$cityTitle $serviceTitle | $modifier | NRLC.ai";
+    }
+    
+    return "$serviceTitle $prep $cityTitle | $modifier | NRLC.ai";
   }
   
   // Non-geo services
@@ -133,8 +245,10 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
  * @return string
  */
 function service_meta_description(string $serviceSlug, ?string $citySlug = null): string {
-  // CONVERSION-FIRST: Standard meta description for all geo service pages
-  return "Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).";
+  // CONVERSION-FIRST: Localized meta description for all geo service pages
+  $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+  $localized = get_localized_service_strings($locale);
+  return $localized['meta_desc'];
 }
 
 /**
