@@ -245,12 +245,12 @@ function route_request(): void {
         'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-      // Override meta title/description (locked template, matches GSC Cluster 1)
-      // Meta Title: 50 chars - "AI & SEO Services for {City} Businesses | NRLC.ai"
-      // Meta Description: 136 chars - bridges traditional + AI
-      $cityTitleFormatted = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
-      $GLOBALS['__page_meta']['title'] = "AI & SEO Services for $cityTitleFormatted Businesses | NRLC.ai";
-      $GLOBALS['__page_meta']['description'] = "We help $cityTitleFormatted businesses improve search rankings and AI visibility by structuring local data for safe extraction, trust, and citation.";
+      
+      // INTENT TAXONOMY: Use intent-based meta (formula: {Service} in {Location} | {Modifier})
+      require_once __DIR__.'/../lib/service_intent_taxonomy.php';
+      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug) . ' | NRLC.ai';
+      $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
+      
       render_page('services/service_local_seo_ai_city');
       return;
     }
