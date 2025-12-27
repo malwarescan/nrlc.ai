@@ -1,22 +1,16 @@
 <?php
 function absolute_url(string $path): string {
-  // Always use HTTPS for canonicals (modern hosting like Railway/Vercel handles SSL)
-  // Check common proxy headers for HTTPS detection
-  $isHttps = (
-    (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
-    (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
-    (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
-    (!empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443')
-  );
-  
+  // Always use HTTPS for canonicals in production (modern hosting like Railway/Vercel handles SSL)
   // Check if we're on localhost (any port)
   $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
   $isLocalhost = in_array($host, ['localhost', '127.0.0.1']) || 
                  strpos($host, 'localhost:') === 0 || 
                  strpos($host, '127.0.0.1:') === 0;
   
-  // Use HTTP for localhost, HTTPS for production
-  $scheme = ($isLocalhost || !$isHttps) ? 'http' : 'https';
+  // CRITICAL: Always use HTTPS in production (non-localhost) to prevent GSC "not served over HTTPS" errors
+  // Even if headers aren't detected correctly, production domains should always be HTTPS
+  // Use HTTP only for localhost development
+  $scheme = $isLocalhost ? 'http' : 'https';
   if ($path === '') $path = '/';
   return $scheme.'://'.$host.$path;
 }
