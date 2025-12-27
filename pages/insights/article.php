@@ -37,6 +37,7 @@ $insight_articles = [
   'goldmine-google-title-selection' => 'goldmine-google-title-selection.php',
   'silent-hydration-seo' => 'silent-hydration-seo.php',
   'google-llms-txt-ai-seo' => 'google-llms-txt-ai-seo.php',
+  'indexing-suppression-paid-search' => 'indexing-suppression-paid-search.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
   'goldmine-seleccion-titulos-google' => 'goldmine-google-title-selection.php',
   'goldmine-selection-titres-google' => 'goldmine-google-title-selection.php',
