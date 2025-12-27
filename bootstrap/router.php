@@ -73,6 +73,8 @@ function route_request(): void {
 
   // Handle invalid search URLs (404)
   if (preg_match('#^/search#', $path)) {
+    // Search pages should not be indexed
+    header('X-Robots-Tag: noindex, nofollow');
     http_response_code(404);
     echo "Not Found";
     return;
@@ -80,6 +82,8 @@ function route_request(): void {
 
   // Handle /audit/ URL (404)
   if ($path === '/audit/' || $path === '/audit') {
+    // Audit page should not be indexed
+    header('X-Robots-Tag: noindex, nofollow');
     http_response_code(404);
     echo "Not Found";
     return;
@@ -321,7 +325,13 @@ function route_request(): void {
   if (preg_match('#^/careers/([^/]+)/$#', $path, $m)) {
     // Redirect city-only career URLs to careers index
     // These URLs don't have a role slug, so they're invalid
-    $careersIndex = current_locale() ? '/' . current_locale() . '/careers/' : '/en-us/careers/';
+    // Determine canonical locale based on city (UK cities → en-gb, others → en-us)
+    $citySlug = $m[1];
+    require_once __DIR__.'/../lib/helpers.php';
+    // Check if UK city to determine correct locale
+    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    $canonicalLocale = $isUK ? 'en-gb' : 'en-us';
+    $careersIndex = '/' . $canonicalLocale . '/careers/';
     header("Location: " . absolute_url($careersIndex), true, 301);
     exit;
   }
@@ -445,18 +455,22 @@ function route_request(): void {
     }
   }
 
-  // Book page route (GET requests to /api/book/) - BLOCKED: Governance violation
+  // Book page route (GET/HEAD requests to /api/book/) - BLOCKED: Governance violation
   // Direct booking endpoints are NOT permitted before intent qualification
-  // Endpoint is POST-only for form submissions, GET requests blocked
-  if ($path === '/api/book/' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+  // Endpoint is POST-only for form submissions, GET/HEAD requests blocked
+  if ($path === '/api/book/' && ($_SERVER['REQUEST_METHOD'] === 'GET' || $_SERVER['REQUEST_METHOD'] === 'HEAD')) {
     http_response_code(403);
     header('Content-Type: application/json');
-    echo json_encode(['ok' => false, 'error' => 'Direct access not permitted. Please use the contact form.']);
+    header('X-Robots-Tag: noindex, nofollow'); // Prevent indexing of API endpoints
+    if ($_SERVER['REQUEST_METHOD'] !== 'HEAD') {
+      echo json_encode(['ok' => false, 'error' => 'Direct access not permitted. Please use the contact form.']);
+    }
     exit;
   }
 
   // Book API route (POST requests to /api/book/)
   if ($path === '/api/book/' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('X-Robots-Tag: noindex, nofollow'); // Prevent indexing of API endpoints
     $api_file = __DIR__.'/../api/book.php';
     if (file_exists($api_file)) {
       include $api_file;
@@ -464,8 +478,9 @@ function route_request(): void {
     }
   }
 
-  // Other API routes
+  // Other API routes - Add noindex to prevent indexing
   if (preg_match('#^/api/([^/]+)/?$#', $path, $m)) {
+    header('X-Robots-Tag: noindex, nofollow'); // Prevent indexing of API endpoints
     $api_file = __DIR__.'/../api/'.$m[1].'.php';
     if (file_exists($api_file)) {
       include $api_file;

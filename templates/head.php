@@ -55,7 +55,9 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
   $title = $meta['title'] ?? 'NRLC.ai';
   $desc = $meta['description'] ?? 'AI SEO services and solutions';
   $canonicalPath = $meta['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-  $noindexMeta = '';
+  
+  // Check if noindex is explicitly set in metadata (e.g., for API endpoints)
+  $noindexMeta = (!empty($meta['noindex'])) ? '<meta name="robots" content="noindex,nofollow">' . "\n" : '';
   
   // GSC FIX: Fix canonical tag for non-canonical locale versions
   // This prevents "Duplicate, Google chose different canonical than user" issues
