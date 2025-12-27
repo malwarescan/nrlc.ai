@@ -187,6 +187,7 @@ function route_request(): void {
     
     // Generate unique metadata using ctx-based system
     require_once __DIR__.'/../lib/meta_directive.php';
+    require_once __DIR__.'/../lib/service_intent_taxonomy.php';
     $serviceSlug = $m[1];
     $serviceTitle = ucfirst(str_replace(['-', '_'], ' ', $serviceSlug));
     
@@ -198,11 +199,9 @@ function route_request(): void {
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
-    // Override meta title for site-audits overview to match directive
-    if ($serviceSlug === 'site-audits') {
-      $GLOBALS['__page_meta']['title'] = "Site Audits for AI & Search Visibility | NRLC.ai";
-      $GLOBALS['__page_meta']['description'] = "Site audits that explain why visibility breaks down, not just surface-level issues. Focus on how search engines and AI systems interpret your site.";
-    }
+    // Override with intent taxonomy meta (CLASS 1: Core Service or CLASS 4: Audit)
+    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, null) . ' | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, null);
     
     render_page('services/service');
     return;
@@ -256,6 +255,9 @@ function route_request(): void {
       return;
     }
     
+    // INTENT TAXONOMY: Use service intent taxonomy for meta generation
+    require_once __DIR__.'/../lib/service_intent_taxonomy.php';
+    
     // SPECIAL HANDLING: site-audits uses specialized conversion-focused template
     if ($serviceSlug === 'site-audits') {
       $ctx = [
@@ -266,28 +268,10 @@ function route_request(): void {
         'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-      // Override meta title for site-audits to match directive (H1 pattern: Site Audits for AI & Search Visibility)
-      // Dynamic title with truncation protection for long city names
-      $baseTitle = "Site Audits for AI & Search Visibility";
-      $cityTitleLen = strlen($cityTitle);
-      $suffix = " | NRLC.ai";
-      $infix = " in ";
-      $maxCityLen = 60 - strlen($baseTitle) - strlen($suffix) - strlen($infix);
       
-      if ($cityTitleLen > $maxCityLen) {
-        // Truncate city name if needed (preserve at least 3 chars + ellipsis)
-        $truncatedLen = max(3, $maxCityLen - 3);
-        $cityTitle = substr($cityTitle, 0, $truncatedLen) . '...';
-      }
-      
-      $GLOBALS['__page_meta']['title'] = "$baseTitle$infix$cityTitle$suffix";
-      
-      // Description with truncation protection
-      $baseDesc = "Site audit services in $cityTitle. We explain why visibility breaks down, not just surface-level issues. Focus on how search engines and AI systems interpret your site.";
-      if (strlen($baseDesc) > 160) {
-        $baseDesc = substr($baseDesc, 0, 157) . '...';
-      }
-      $GLOBALS['__page_meta']['description'] = $baseDesc;
+      // Override with intent taxonomy meta (formula: {Service} in {Location} | {Modifier})
+      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug) . ' | NRLC.ai';
+      $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
       
       render_page('services/service_city_audit');
       return;
@@ -301,6 +285,10 @@ function route_request(): void {
       'canonicalPath' => $actualPath // Use actual request path (includes locale prefix)
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
+    // Override with intent taxonomy meta (formula: {Service} in {Location} | {Modifier})
+    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug) . ' | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
     
     render_page('services/service_city');
     return;

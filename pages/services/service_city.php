@@ -9,6 +9,7 @@ require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/deterministic.php';
 require_once __DIR__.'/../../lib/csv.php';
 require_once __DIR__.'/../../lib/service_enhancements.php';
+require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'crawl-clarity';
@@ -20,16 +21,12 @@ det_seed($pathKey);
 $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
 $cityTitle = titleCaseCity($citySlug);
 
-// Use router's meta title for H1 (ensures H1 matches title for SERP control)
-$meta = $GLOBALS['__page_meta'] ?? null;
-if ($meta && isset($meta['title'])) {
-  // Extract H1 from title (remove " | NRLC.ai" suffix for H1)
-  $h1Title = preg_replace('/\s*\|\s*NRLC\.ai\s*$/i', '', $meta['title']);
-  $pageTitle = $h1Title;
-} else {
-  // Fallback if meta not set
-  $pageTitle = "Local SEO Services in $cityTitle";
-}
+// INTENT TAXONOMY: Generate H1, subhead, and CTA based on URL contract (CLASS 2: Geo Service)
+$intentContent = service_intent_content($serviceSlug, $citySlug);
+$pageTitle = $intentContent['h1'];
+$subhead = $intentContent['subhead'];
+$ctaText = $intentContent['cta'];
+$ctaQualifier = $intentContent['cta_qualifier'];
 
 // Load city data for schema
 $citiesData = csv_read_data('cities.csv');
@@ -78,26 +75,21 @@ $content = $intro . $local;
             <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
           </div>
           <div class="content-block__body">
+            <p class="lead"><?= htmlspecialchars($subhead) ?></p>
             <?php
-            $queryAlignedContent = get_query_aligned_content($serviceSlug, $citySlug);
+            // Add local proof line for UK cities
+            if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
+              $region = 'Merseyside';
+              if (strpos($citySlug, 'norwich') !== false) $region = 'Norfolk';
+              elseif (strpos($citySlug, 'stockport') !== false || strpos($citySlug, 'manchester') !== false) $region = 'Greater Manchester';
+              echo "<p>We've worked with businesses across $cityTitle and $region and consistently deliver results that automated tools miss.</p>";
+            }
             ?>
-            <?php if ($enhancedIntro): ?>
-            <p class="lead"><?= htmlspecialchars($enhancedIntro) ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
-            <?php else: ?>
-            <p class="lead"><?= htmlspecialchars($intro) ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
-            <?php if (!empty($local)): ?>
-            <p><?= htmlspecialchars($local) ?></p>
-            <?php endif; ?>
-            <?php endif; ?>
-            <!-- SERP CONTROL: Above-fold CTA row (Call | Email | Book) -->
+            <!-- INTENT TAXONOMY CTA: Must name the service explicitly -->
             <div class="btn-group text-center" style="margin: 1.5rem 0;">
-              <a href="tel:+12135628438" class="btn btn--primary">Call</a>
-              <a href="mailto:hirejoelm@gmail.com" class="btn btn--primary">Email</a>
-              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($pageTitle) ?>')">Book a Call</button>
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
             </div>
-            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Response within 24 hours</p>
-            
-            <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/geo16-introduction/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
           </div>
         </div>
 

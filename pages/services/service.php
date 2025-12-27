@@ -5,9 +5,17 @@ require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/service_enhancements.php';
 require_once __DIR__.'/../../lib/nrlc_linking_kernel.php';
+require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
 
 $service = $_GET['service'] ?? '';
 $GLOBALS['__page_slug'] = 'services/service';
+
+// INTENT TAXONOMY: Generate H1, subhead, and CTA based on URL contract (CLASS 1: Core Service or CLASS 4: Audit)
+$intentContent = service_intent_content($service, null);
+$pageTitle = $intentContent['h1'];
+$subhead = $intentContent['subhead'];
+$ctaText = $intentContent['cta'];
+$ctaQualifier = $intentContent['cta_qualifier'];
 
 // Service schema for the selection page
 $serviceName = ucwords(str_replace('-',' ',$service));
@@ -738,29 +746,15 @@ $GLOBALS['__jsonld'] = [
     <!-- Hero Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title"><?php if ($service === 'site-audits'): ?>Site Audits for AI & Search Visibility<?php else: ?><?=htmlspecialchars(ucwords(str_replace('-',' ',$service)))?><?php endif; ?></h1>
+        <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
       </div>
       <div class="content-block__body">
-        <?php if ($service === 'ai-search-optimization'): ?>
-        <p class="lead">AI Search Optimization is the practice of structuring your website so AI systems like Google AI Overviews, ChatGPT, Perplexity, and Claude can confidently understand, describe, and cite your business. Unlike traditional SEO that targets search rankings, AI Search Optimization targets how AI systems evaluate and recommend businesses.</p>
-        <p>When customers ask AI assistants questions about your industry or services, AI systems don't rank pages—they evaluate which sources provide clear, structured, trustworthy information that can be safely summarized and cited. If your competitors have clearer service definitions, consistent terminology, and structured authority signals, AI systems will recommend them instead of you, regardless of your search rankings.</p>
-        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
-        <?php elseif ($service === 'site-audits'): ?>
-        <p class="lead">Most site audits surface issues. Very few explain why visibility actually breaks down.</p>
-        <p>We approach audits differently. We look at how search engines and language models actually interpret your site, where ambiguity exists, and why visibility fails in practice even when everything looks "technically fine."</p>
-        <?php else: ?>
-        <?php
-        $enhancement = get_service_enhancement($service, '');
-        $intro = $enhancement['intro'] ?? null;
-        $queryAlignedContent = get_query_aligned_content($service, '');
-        ?>
-        <?php if ($intro): ?>
-        <p class="lead"><?= htmlspecialchars($intro) ?><?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
-        <?php else: ?>
-        <p class="lead">Select a city to see localized implementation and pricing for this service.<?= $queryAlignedContent ? ' ' . htmlspecialchars($queryAlignedContent) : '' ?></p>
-        <?php endif; ?>
-        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover how <a href="/insights/geo16-introduction/">GEO-16 Framework</a> can optimize your AI citation rates. Learn more about our <a href="/tools/">SEO Tools & Resources</a> for technical SEO optimization.</p>
-        <?php endif; ?>
+        <p class="lead"><?= htmlspecialchars($subhead) ?></p>
+        <!-- INTENT TAXONOMY CTA: Must name the service explicitly -->
+        <div class="btn-group text-center" style="margin: 1.5rem 0;">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
       </div>
     </div>
 

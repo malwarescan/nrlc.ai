@@ -9,6 +9,7 @@ require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/content_tokens.php';
 require_once __DIR__.'/../../lib/csv.php';
 require_once __DIR__.'/../../lib/nrlc_linking_kernel.php';
+require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'site-audits';
@@ -18,16 +19,12 @@ $pathKey = "/services/$serviceSlug/$citySlug/";
 $serviceTitle = 'Site Audit';
 $cityTitle = titleCaseCity($citySlug);
 
-// Use router's meta title for H1 (ensures H1 matches title for SERP control)
-$meta = $GLOBALS['__page_meta'] ?? null;
-if ($meta && isset($meta['title'])) {
-  // Extract H1 from title (remove " | NRLC.ai" suffix for H1)
-  $h1Title = preg_replace('/\s*\|\s*NRLC\.ai\s*$/i', '', $meta['title']);
-  $pageTitle = $h1Title;
-} else {
-  // Fallback if meta not set
-  $pageTitle = "Site Audit Services in $cityTitle";
-}
+// INTENT TAXONOMY: Generate H1, subhead, and CTA based on URL contract (CLASS 4: Audit/Diagnostic with geo)
+$intentContent = service_intent_content($serviceSlug, $citySlug);
+$pageTitle = $intentContent['h1'];
+$subhead = $intentContent['subhead'];
+$ctaText = $intentContent['cta'];
+$ctaQualifier = $intentContent['cta_qualifier'];
 
 // Load city data for schema
 $citiesData = csv_read_data('cities.csv');
@@ -65,10 +62,19 @@ $domain = absolute_url('/');
     <!-- SECTION 1: HERO (CONTEXT + DIFFERENTIATION) -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">Site Audits for AI & Search Visibility in <?= htmlspecialchars($cityTitle) ?></h1>
+        <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Most site audits surface issues. Very few explain why visibility actually breaks down.</p>
+        <p class="lead"><?= htmlspecialchars($subhead) ?></p>
+        <?php
+        // Add local proof line for UK cities
+        if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
+          $region = 'Merseyside';
+          if (strpos($citySlug, 'norwich') !== false) $region = 'Norfolk';
+          elseif (strpos($citySlug, 'stockport') !== false || strpos($citySlug, 'manchester') !== false) $region = 'Greater Manchester';
+          echo "<p>We've audited sites across $cityTitle and $region and consistently uncover issues automated tools miss.</p>";
+        }
+        ?>
       </div>
     </div>
 
@@ -197,8 +203,9 @@ $domain = absolute_url('/');
         </p>
         <p style="margin: var(--spacing-md) 0 0 0; font-size: 0.9rem; color: #666;">Or, if you are ready to request an audit:</p>
         <p style="margin: var(--spacing-sm) 0 0 0;">
-          <button type="button" class="btn btn--secondary" onclick="openContactSheet('Site Audit Request - <?= htmlspecialchars($cityTitle) ?>')" title="Request a site audit">Request an Audit</button>
+          <button type="button" class="btn btn--secondary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')" title="<?= htmlspecialchars($ctaText) ?>"><?= htmlspecialchars($ctaText) ?></button>
         </p>
+        <p style="margin: var(--spacing-sm) 0 0 0; font-size: 0.9rem; color: #666;"><?= htmlspecialchars($ctaQualifier) ?></p>
       </div>
     </div>
 
