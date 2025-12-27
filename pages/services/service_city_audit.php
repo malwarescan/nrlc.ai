@@ -245,7 +245,11 @@ $domain = absolute_url('/');
 
 <?php
 // SCHEMA: Service, WebPage, BreadcrumbList only (no Offer, Product, Review, AggregateRating)
-$GLOBALS['__jsonld'] = array_merge($GLOBALS['__jsonld'] ?? [], [
+// Initialize __jsonld if not exists
+if (!isset($GLOBALS['__jsonld']) || !is_array($GLOBALS['__jsonld'])) {
+  $GLOBALS['__jsonld'] = [];
+}
+$GLOBALS['__jsonld'] = array_merge($GLOBALS['__jsonld'], [
   [
     '@context' => 'https://schema.org',
     '@type' => 'Service',
