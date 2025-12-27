@@ -6,7 +6,9 @@
 
 require_once __DIR__ . '/../../lib/schema_builders.php';
 
-$canonicalUrl = absolute_url('/ai-visibility/senior-care/');
+// Use canonical path from router metadata (includes locale prefix)
+$canonicalPath = $GLOBALS['__page_meta']['canonicalPath'] ?? '/en-us/ai-visibility/senior-care/';
+$canonicalUrl = absolute_url($canonicalPath);
 $domain = absolute_url('/');
 
 // Build JSON-LD Schema
