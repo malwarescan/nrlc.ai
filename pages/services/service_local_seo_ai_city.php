@@ -11,6 +11,7 @@ require_once __DIR__.'/../../lib/helpers.php';
 require_once __DIR__.'/../../lib/deterministic.php';
 require_once __DIR__.'/../../lib/csv.php';
 require_once __DIR__.'/../../lib/service_enhancements.php';
+require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
 
 // Get service and city from router
 $serviceSlug = $_GET['service'] ?? 'local-seo-ai';
@@ -21,19 +22,12 @@ det_seed($pathKey);
 
 $cityTitle = titleCaseCity($citySlug);
 
-// Override meta title/description (locked template, non-truncating)
-$meta = $GLOBALS['__page_meta'] ?? null;
-if ($meta) {
-  // Meta Title: 54 chars - matches GSC Cluster 1 (Commercial/Transactional)
-  $meta['title'] = "AI & SEO Services for $cityTitle Businesses | NRLC.ai";
-  // Meta Description: 152 chars - bridges traditional + AI
-  $meta['description'] = "We help $cityTitle businesses improve search rankings and AI visibility by structuring local data for safe extraction, trust, and citation.";
-  $GLOBALS['__page_meta'] = $meta;
-}
-
-// H1 matches meta title (remove brand suffix)
-$h1Title = preg_replace('/\s*\|\s*NRLC\.ai\s*$/i', '', $meta['title'] ?? "AI & SEO Services for $cityTitle Businesses");
-$pageTitle = $h1Title;
+// INTENT TAXONOMY: Generate H1, subhead, and CTA based on URL contract (CLASS 2: Geo Service)
+$intentContent = service_intent_content($serviceSlug, $citySlug);
+$pageTitle = $intentContent['h1'];
+$subhead = $intentContent['subhead'];
+$ctaText = $intentContent['cta'];
+$ctaQualifier = $intentContent['cta_qualifier'];
 
 // Load city data for schema
 $citiesData = csv_read_data('cities.csv');
@@ -59,14 +53,22 @@ $domain = absolute_url('/');
 <section class="section">
   <div class="section__content">
     
-    <!-- H1: ONE ONLY - Matches GSC Cluster 1 (Commercial/Transactional) -->
+    <!-- H1: ONE ONLY - Intent Taxonomy: URL contract restated -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI & SEO Services for <?= htmlspecialchars($cityTitle) ?> Businesses</h1>
+        <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Many <?= htmlspecialchars($cityTitle) ?> businesses rank in Google search results but are skipped when AI systems generate answers. This happens because AI systems do not rank pages. They extract, verify, and cite information based on structure and clarity.</p>
-        <p>This service exists to address that gap. We help <?= htmlspecialchars($cityTitle) ?> businesses improve traditional search visibility while also becoming eligible for AI-generated answers.</p>
+        <p class="lead"><?= htmlspecialchars($subhead) ?></p>
+        <?php
+        // Add local proof line for UK cities
+        if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
+          $region = 'Merseyside';
+          if (strpos($citySlug, 'norwich') !== false) $region = 'Norfolk';
+          elseif (strpos($citySlug, 'stockport') !== false || strpos($citySlug, 'manchester') !== false) $region = 'Greater Manchester';
+          echo "<p>We've worked with businesses across $cityTitle and $region and consistently deliver results that automated tools miss.</p>";
+        }
+        ?>
       </div>
     </div>
 
@@ -221,17 +223,17 @@ $domain = absolute_url('/');
       </div>
     </div>
 
-    <!-- H2: CTA - Request an AI Visibility Audit for {City} -->
+    <!-- H2: CTA - Intent Taxonomy: Service-named CTA -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Request an AI Visibility Audit for <?= htmlspecialchars($cityTitle) ?></h2>
+        <h2 class="content-block__title">Request <?= htmlspecialchars($cityTitle) ?> Local SEO AI Services</h2>
       </div>
       <div class="content-block__body">
-        <p>To understand how AI systems currently interpret your business and identify opportunities for improvement, request an AI visibility audit.</p>
+        <p>To understand how AI systems currently interpret your business and identify opportunities for improvement, request local SEO AI services.</p>
         <div class="text-center" style="margin: 1.5rem 0;">
-          <button type="button" class="btn btn--primary" onclick="openContactSheet('AI & SEO Services for <?= htmlspecialchars($cityTitle) ?>')">Request an Audit</button>
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
         </div>
-        <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Response within 24 hours</p>
+        <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
       </div>
     </div>
 
