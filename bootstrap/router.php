@@ -1017,10 +1017,14 @@ function route_request(): void {
     if (isset($prechunkingIndustries[$industrySlug])) {
       require_once __DIR__.'/../lib/meta_directive.php';
       $industry = $prechunkingIndustries[$industrySlug];
+      
+      // Use actual request path (includes locale prefix) for canonical
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+      
       $ctx = [
         'type' => 'service',
         'slug' => "ai-visibility/$industrySlug",
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       $GLOBALS['__page_meta']['title'] = "AI Visibility for {$industry['name']} | NRLC.ai";
