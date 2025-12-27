@@ -209,7 +209,8 @@ function route_request(): void {
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
     // Override with intent taxonomy meta (CLASS 1: Core Service or CLASS 4: Audit)
-    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, null) . ' | NRLC.ai';
+    // service_meta_title() already includes | NRLC.ai
+    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, null);
     $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, null);
     
     render_page('services/service');
@@ -257,7 +258,8 @@ function route_request(): void {
       
       // INTENT TAXONOMY: Use intent-based meta (formula: {Service} in {Location} | {Modifier})
       require_once __DIR__.'/../lib/service_intent_taxonomy.php';
-      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug) . ' | NRLC.ai';
+      // service_meta_title() already includes | NRLC.ai
+      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug);
       $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
       
       render_page('services/service_local_seo_ai_city');
@@ -279,7 +281,8 @@ function route_request(): void {
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       
       // Override with intent taxonomy meta (formula: {Service} in {Location} | {Modifier})
-      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug) . ' | NRLC.ai';
+      // service_meta_title() already includes | NRLC.ai
+      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug);
       $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
       
       render_page('services/service_city_audit');
@@ -296,7 +299,18 @@ function route_request(): void {
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
     // Override with intent taxonomy meta (formula: {Service} in {Location} | {Modifier})
-    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug) . ' | NRLC.ai';
+    // Ensure locale is available for meta generation (router sets it, but ensure it persists)
+    if (!isset($GLOBALS['locale'])) {
+      // Fallback: detect from original request URI
+      $originalPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+      if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath, $m)) {
+        $GLOBALS['locale'] = strtolower($m[1].'-'.$m[2]);
+      } else {
+        $GLOBALS['locale'] = 'en-us';
+      }
+    }
+    // service_meta_title() already includes | NRLC.ai
+    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug);
     $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
     
     render_page('services/service_city');

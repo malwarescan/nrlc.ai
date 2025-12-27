@@ -22,6 +22,15 @@ $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
 $cityTitle = titleCaseCity($citySlug);
 
 // INTENT TAXONOMY: Generate H1, subhead, and CTA based on URL contract (CLASS 2: Geo Service)
+// Ensure locale is set from original REQUEST_URI (router may have modified path)
+if (!isset($GLOBALS['locale'])) {
+  $originalPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+  if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath, $m)) {
+    $GLOBALS['locale'] = strtolower($m[1].'-'.$m[2]);
+  } else {
+    $GLOBALS['locale'] = 'en-us';
+  }
+}
 $intentContent = service_intent_content($serviceSlug, $citySlug);
 $pageTitle = $intentContent['h1'];
 $subhead = $intentContent['subhead'];
