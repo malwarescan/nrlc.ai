@@ -231,6 +231,7 @@ $content = $intro . $local;
 </section>
 </main>
 
+<?php
 // JSON-LD (Service + FAQPage embedded)
 $ppMap = csv_rows_local('painpoint_token_map.csv');
 $ppForService = array_values(array_filter($ppMap, fn($r)=>$r['service']===$serviceSlug));
