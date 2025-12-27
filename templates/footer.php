@@ -198,12 +198,39 @@ window.openContactSheet = function(serviceType = '') {
     options.push({
       label: 'Live Chat',
       action: () => {
-        // Trigger the embedded Tawk.to widget instead of opening new tab
-        if (typeof Tawk_API !== 'undefined' && Tawk_API.showWidget) {
-          Tawk_API.showWidget();
+        // Trigger the embedded Tawk.to widget
+        // Wait for Tawk.to to load if not ready yet
+        if (typeof Tawk_API !== 'undefined') {
+          // Try multiple methods to ensure widget opens
+          if (Tawk_API.maximize) {
+            Tawk_API.maximize();
+          } else if (Tawk_API.showWidget) {
+            Tawk_API.showWidget();
+          } else if (Tawk_API.toggle) {
+            Tawk_API.toggle();
+          }
         } else {
-          // Fallback: open in same window if widget not loaded
-          window.location.href = 'https://tawk.to/chat/6773467849e2fd8dfe00cb58/1igd4mhq4';
+          // Tawk.to not loaded yet - wait for it or open in new tab
+          const checkTawk = setInterval(() => {
+            if (typeof Tawk_API !== 'undefined') {
+              clearInterval(checkTawk);
+              if (Tawk_API.maximize) {
+                Tawk_API.maximize();
+              } else if (Tawk_API.showWidget) {
+                Tawk_API.showWidget();
+              } else if (Tawk_API.toggle) {
+                Tawk_API.toggle();
+              }
+            }
+          }, 100);
+          
+          // Timeout after 2 seconds - open in new tab as fallback
+          setTimeout(() => {
+            clearInterval(checkTawk);
+            if (typeof Tawk_API === 'undefined') {
+              window.open('https://tawk.to/chat/6773467849e2fd8dfe00cb58/1igd4mhq4', '_blank');
+            }
+          }, 2000);
         }
       },
       enabled: true
@@ -239,8 +266,16 @@ window.openContactSheet = function(serviceType = '') {
       const button = contactOptions.querySelector(`[data-action="${index}"]`);
       if (button && option.enabled) {
         button.addEventListener('click', function() {
+          const isLiveChat = option.label === 'Live Chat';
           option.action();
-          closeContactSheet();
+          // Delay closing for live chat to allow Tawk.to widget to open
+          if (isLiveChat) {
+            setTimeout(() => {
+              closeContactSheet();
+            }, 300);
+          } else {
+            closeContactSheet();
+          }
         });
       }
     });
