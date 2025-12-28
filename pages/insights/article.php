@@ -38,6 +38,14 @@ $insight_articles = [
   'silent-hydration-seo' => 'silent-hydration-seo.php',
   'google-llms-txt-ai-seo' => 'google-llms-txt-ai-seo.php',
   'indexing-suppression-paid-search' => 'indexing-suppression-paid-search.php',
+  // LLM Strategist cluster pages
+  'glossary/llm-strategist' => 'glossary-llm-strategist.php',
+  'llm-strategist-vs-seo-strategist' => 'llm-strategist-vs-seo-strategist.php',
+  'ai-search-roles' => 'ai-search-roles.php',
+  'llm-search-strategy-framework' => 'llm-search-strategy-framework.php',
+  'how-llm-strategists-influence-retrieval' => 'how-llm-strategists-influence-retrieval.php',
+  'llm-strategist-faq' => 'llm-strategist-faq.php',
+  'how-to-become-an-llm-strategist' => 'how-to-become-an-llm-strategist.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
   'goldmine-seleccion-titulos-google' => 'goldmine-google-title-selection.php',
   'goldmine-selection-titres-google' => 'goldmine-google-title-selection.php',

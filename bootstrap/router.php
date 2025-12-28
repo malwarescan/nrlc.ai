@@ -340,10 +340,31 @@ function route_request(): void {
     $_GET['city'] = $m[1];
     $_GET['role'] = $m[2];
     
-    // Generate unique metadata using ctx-based system
-    require_once __DIR__.'/../lib/meta_directive.php';
     $citySlug = $m[1];
     $roleSlug = $m[2];
+    
+    // TIER 0 HUB: Use definition-first template for LLM Strategist
+    if ($roleSlug === 'llm-strategist') {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $cityTitle = ucwords(str_replace(['-', '_'], ' ', $citySlug));
+      
+      $ctx = [
+        'type' => 'careers',
+        'slug' => "careers/llm_strategist_hub",
+        'title' => "LLM Strategist",
+        'excerpt' => "An LLM Strategist designs and runs the systems that influence how large language models retrieve, cite, and summarize information about a brand, product, or topic across AI answer engines.",
+        'city' => $cityTitle,
+        'role' => 'LLM Strategist',
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      render_page('careers/llm_strategist_hub');
+      return;
+    }
+    
+    // Standard career page for other roles
+    require_once __DIR__.'/../lib/meta_directive.php';
     $cityTitle = ucwords(str_replace(['-', '_'], ' ', $citySlug));
     $roleTitle = ucwords(str_replace(['-', '_'], ' ', $roleSlug));
     
@@ -362,7 +383,20 @@ function route_request(): void {
     return;
   }
 
-  if (preg_match('#^/insights/([^/]+)/$#', $path, $m)) {
+  // Handle nested insights paths (e.g., /insights/glossary/llm-strategist/)
+  if (preg_match('#^/insights/([^/]+)/([^/]+)/$#', $path, $m)) {
+    $category = $m[1];
+    $articleSlug = $m[2];
+    // Handle glossary/llm-strategist
+    if ($category === 'glossary' && $articleSlug === 'llm-strategist') {
+      $_GET['slug'] = 'glossary/llm-strategist';
+      $slug = 'glossary/llm-strategist';
+    } else {
+      // Other nested paths - treat as regular insight
+      $_GET['slug'] = $category . '/' . $articleSlug;
+      $slug = $category . '/' . $articleSlug;
+    }
+  } elseif (preg_match('#^/insights/([^/]+)/$#', $path, $m)) {
     $_GET['slug'] = $m[1];
     $slug = $m[1];
     
@@ -484,6 +518,24 @@ function route_request(): void {
     $api_file = __DIR__.'/../api/'.$m[1].'.php';
     if (file_exists($api_file)) {
       include $api_file;
+      return;
+    }
+  }
+
+  // About pages
+  if (preg_match('#^/about/([^/]+)/$#', $path, $m)) {
+    $aboutSlug = $m[1];
+    if ($aboutSlug === 'llm-strategy-team') {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'about',
+        'slug' => "about/llm-strategy-team",
+        'title' => "LLM Strategy Team",
+        'excerpt' => "The LLM Strategy team at NRLC.ai defines the methodology, frameworks, and best practices for LLM Strategist roles.",
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('about/llm-strategy-team');
       return;
     }
   }

@@ -104,7 +104,9 @@ foreach ($sitemapFiles as $sitemapUrl) {
             'city' => $citySlug,
             'service_slug' => $serviceSlug,
             'alternates' => $alternates,
-            'sitemap' => $filename
+            'sitemap' => $filename,
+            'is_canonical' => true, // All URLs in sitemap are canonical
+            'sitemap_included' => true // All URLs in registry are from sitemap
         ];
     }
 }

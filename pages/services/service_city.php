@@ -282,55 +282,61 @@ $serviceLd = [
   "url" => $canonical_url
 ];
 
-// Add WebPage and BreadcrumbList schema
-$GLOBALS['__jsonld'] = array_merge($GLOBALS['__jsonld'] ?? [], [
-  [
-    "@context" => "https://schema.org",
-    "@type" => "WebPage",
-    "@id" => $canonical_url . '#webpage',
-    "name" => $pageTitle,
-    "url" => $canonical_url,
-    "description" => "$serviceTitle implementation in $cityTitle with localized expertise and support.",
-    "isPartOf" => [
-      "@type" => "WebSite",
-      "@id" => $domain . '/#website',
-      "name" => "NRLC.ai",
-      "url" => $domain
+// Build complete schema array (avoid duplicates)
+// Start with existing schemas if any (from router or other includes)
+$jsonldSchemas = $GLOBALS['__jsonld'] ?? [];
+
+// Add WebPage schema
+$jsonldSchemas[] = [
+  "@context" => "https://schema.org",
+  "@type" => "WebPage",
+  "@id" => $canonical_url . '#webpage',
+  "name" => $pageTitle,
+  "url" => $canonical_url,
+  "description" => "$serviceTitle implementation in $cityTitle with localized expertise and support.",
+  "isPartOf" => [
+    "@type" => "WebSite",
+    "@id" => $domain . '/#website',
+    "name" => "NRLC.ai",
+    "url" => $domain
+  ]
+];
+
+// Add BreadcrumbList schema
+$jsonldSchemas[] = [
+  "@context" => "https://schema.org",
+  "@type" => "BreadcrumbList",
+  "@id" => $canonical_url . '#breadcrumb',
+  "itemListElement" => [
+    [
+      "@type" => "ListItem",
+      "position" => 1,
+      "name" => "Home",
+      "item" => $domain . "/"
+    ],
+    [
+      "@type" => "ListItem",
+      "position" => 2,
+      "name" => "Services",
+      "item" => $domain . "/services/"
+    ],
+    [
+      "@type" => "ListItem",
+      "position" => 3,
+      "name" => $serviceTitle,
+      "item" => $domain . "/services/$serviceSlug/"
+    ],
+    [
+      "@type" => "ListItem",
+      "position" => 4,
+      "name" => $cityTitle,
+      "item" => $canonical_url
     ]
-  ],
-  [
-    "@context" => "https://schema.org",
-    "@type" => "BreadcrumbList",
-    "@id" => $canonical_url . '#breadcrumb',
-    "itemListElement" => [
-      [
-        "@type" => "ListItem",
-        "position" => 1,
-        "name" => "Home",
-        "item" => $domain . "/"
-      ],
-      [
-        "@type" => "ListItem",
-        "position" => 2,
-        "name" => "Services",
-        "item" => $domain . "/services/"
-      ],
-      [
-        "@type" => "ListItem",
-        "position" => 3,
-        "name" => $serviceTitle,
-        "item" => $domain . "/services/$serviceSlug/"
-      ],
-      [
-        "@type" => "ListItem",
-        "position" => 4,
-        "name" => $cityTitle,
-        "item" => $canonical_url
-      ]
-    ]
-  ],
-  $serviceLd
-]);
+  ]
+];
+
+// Add Service schema
+$jsonldSchemas[] = $serviceLd;
 
 // Add LocalBusiness schema
 $localBusinessLd = [
@@ -359,11 +365,19 @@ $localBusinessLd = [
   'paymentAccepted' => 'Credit Card, Bank Transfer',
   'openingHours' => 'Mo-Fr 09:00-17:00'
 ];
+$jsonldSchemas[] = $localBusinessLd;
 
-// Add FAQPage schema only if FAQs exist
-$jsonldSchemas = [$serviceLd, $localBusinessLd];
+// Add FAQPage schema ONLY ONCE if FAQs exist
+// Check if FAQPage already exists in schemas to avoid duplicates
+$hasFAQPage = false;
+foreach ($jsonldSchemas as $schema) {
+  if (isset($schema['@type']) && $schema['@type'] === 'FAQPage') {
+    $hasFAQPage = true;
+    break;
+  }
+}
 
-if (!empty($faqs)) {
+if (!empty($faqs) && !$hasFAQPage) {
   $faqLd = [
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',

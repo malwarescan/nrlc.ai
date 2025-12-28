@@ -39,6 +39,21 @@ $jobListings = [
       </div>
     </div>
 
+    <!-- TIER 4: Prominent LLM Strategist Card -->
+    <div class="content-block module" style="background:#f0f7ff; border:2px solid #0066cc; padding:1.5rem; margin:1.5rem 0;">
+      <div class="content-block__header">
+        <h2 class="content-block__title" style="margin-top:0;">LLM Strategist</h2>
+      </div>
+      <div class="content-block__body">
+        <p class="lead">An LLM Strategist designs and runs the systems that influence how large language models retrieve, cite, and summarize information about brands, products, or topics across AI answer engines.</p>
+        <p>This role is central to our AI-first SEO approach, optimizing for citation accuracy, retrieval surface area, and entity alignment in ChatGPT, Claude, Perplexity, and Google AI Overviews.</p>
+        <div class="btn-group">
+          <a href="/en-gb/careers/norwich/llm-strategist/" class="btn btn--primary">Learn More About LLM Strategist</a>
+          <a href="/en-gb/insights/glossary/llm-strategist/" class="btn">What is an LLM Strategist?</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Open Positions -->
     <div class="content-block module">
       <div class="content-block__header">

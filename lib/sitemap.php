@@ -110,6 +110,27 @@ function sitemap_generate_hreflang_urls(string $path): array {
     }
   }
   
+  // Check if this is a city-based career page
+  if (preg_match('#^/careers/([^/]+)/([^/]+)/#', $path, $m)) {
+    $citySlug = $m[1];
+    require_once __DIR__.'/helpers.php';
+    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    
+    if ($isUK) {
+      // UK city: ONLY en-gb canonical
+      return [
+        'en-gb' => "{$base}/en-gb{$path}",
+        'x-default' => "{$base}/en-gb{$path}"
+      ];
+    } else {
+      // US city or non-city: ONLY en-us canonical
+      return [
+        'en-us' => "{$base}/en-us{$path}",
+        'x-default' => "{$base}/en-us{$path}"
+      ];
+    }
+  }
+  
   // Non-city pages: return default locale only (unless page has real translations)
   // For now, assume en-us is canonical for all non-city pages
   return [

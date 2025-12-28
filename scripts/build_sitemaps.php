@@ -172,6 +172,10 @@ foreach ($careersRows as $row) {
   }
 }
 
+// Add LLM Strategist hub (en-gb canonical only, high priority)
+$llmHubUrl = "https://nrlc.ai/en-gb/careers/norwich/llm-strategist/";
+$careerEntries[] = sitemap_entry_simple($llmHubUrl, $today, 'weekly', '0.9');
+
 if ($careerEntries) {
   $xmlFile = "{$outDir}careers-1.xml";
   $gzFile = "{$xmlFile}.gz";
@@ -197,6 +201,25 @@ foreach ($insightsRows as $row) {
       $insightEntries[] = sitemap_entry_simple($canonicalUrl, $lastmod, 'monthly', '0.8');
     }
   }
+}
+
+// Add LLM Strategist cluster pages (en-gb canonical only)
+$llmClusterPages = [
+  ['slug' => 'glossary/llm-strategist', 'priority' => '0.9'],
+  ['slug' => 'llm-strategist-vs-seo-strategist', 'priority' => '0.9'],
+  ['slug' => 'ai-search-roles', 'priority' => '0.8'],
+  ['slug' => 'llm-search-strategy-framework', 'priority' => '0.8'],
+  ['slug' => 'how-llm-strategists-influence-retrieval', 'priority' => '0.8'],
+  ['slug' => 'llm-strategist-faq', 'priority' => '0.8'],
+  ['slug' => 'how-to-become-an-llm-strategist', 'priority' => '0.7']
+];
+
+foreach ($llmClusterPages as $page) {
+  $slug = $page['slug'];
+  $path = "/insights/{$slug}/";
+  // These are en-gb canonical only
+  $canonicalUrl = "https://nrlc.ai/en-gb{$path}";
+  $insightEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', $page['priority']);
 }
 
 if ($insightEntries) {
@@ -423,6 +446,12 @@ foreach ($indexPages as $path) {
     : "https://nrlc.ai/en-us{$path}";
   $indexPageEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '1.0');
 }
+
+// Add en-gb careers index (canonical for UK)
+$indexPageEntries[] = sitemap_entry_simple('https://nrlc.ai/en-gb/careers/', $today, 'weekly', '0.9');
+
+// Add LLM Strategy Team about page (en-gb canonical only)
+$indexPageEntries[] = sitemap_entry_simple('https://nrlc.ai/en-gb/about/llm-strategy-team/', $today, 'monthly', '0.7');
 
 if ($indexPageEntries) {
   $xmlFile = "{$outDir}index-pages-1.xml";
