@@ -90,15 +90,66 @@ if ($options['mode'] === 'sitemap') {
     echo "Loaded " . count($pages) . " URLs from Pages.csv\n\n";
 }
 
-// Load sitemap
-$sitemapFile = __DIR__ . '/public/sitemaps/services-1.xml';
+// Load ALL sitemaps (not just services-1.xml)
 $sitemapUrls = [];
-if (file_exists($sitemapFile)) {
-    $sitemapContent = file_get_contents($sitemapFile);
-    preg_match_all('#<loc>(https://nrlc\.ai[^<]+)</loc>#', $sitemapContent, $matches);
-    $sitemapUrls = $matches[1] ?? [];
+$sitemapDir = __DIR__ . '/public/sitemaps/';
+if (is_dir($sitemapDir)) {
+    // Load from sitemap index if available
+    $sitemapIndex = $sitemapDir . 'sitemap-index.xml';
+    if (file_exists($sitemapIndex)) {
+        $indexContent = file_get_contents($sitemapIndex);
+        preg_match_all('#<loc>(https://nrlc\.ai/sitemaps/[^<]+)</loc>#', $indexContent, $matches);
+        foreach ($matches[1] ?? [] as $sitemapUrl) {
+            $filename = basename(parse_url($sitemapUrl, PHP_URL_PATH));
+            $sitemapPath = $sitemapDir . $filename;
+            if (!file_exists($sitemapPath)) {
+                $sitemapPath = str_replace('.gz', '', $sitemapPath);
+            }
+            if (file_exists($sitemapPath)) {
+                $content = file_get_contents($sitemapPath);
+                if (substr($filename, -3) === '.gz') {
+                    $content = gzdecode($content);
+                }
+                preg_match_all('#<loc>(https://nrlc\.ai[^<]+)</loc>#', $content, $urlMatches);
+                foreach ($urlMatches[1] ?? [] as $url) {
+                    $sitemapUrls[] = $url;
+                }
+            }
+        }
+    } else {
+        // Fallback: load all XML files in sitemap directory
+        $xmlFiles = glob($sitemapDir . '*.xml');
+        foreach ($xmlFiles as $file) {
+            if (substr($file, -3) === '.gz') continue; // Skip gzipped, handle separately
+            $content = file_get_contents($file);
+            preg_match_all('#<loc>(https://nrlc\.ai[^<]+)</loc>#', $content, $matches);
+            foreach ($matches[1] ?? [] as $url) {
+                $sitemapUrls[] = $url;
+            }
+        }
+        // Also check gzipped files
+        $gzFiles = glob($sitemapDir . '*.xml.gz');
+        foreach ($gzFiles as $file) {
+            $content = gzdecode(file_get_contents($file));
+            if ($content) {
+                preg_match_all('#<loc>(https://nrlc\.ai[^<]+)</loc>#', $content, $matches);
+                foreach ($matches[1] ?? [] as $url) {
+                    $sitemapUrls[] = $url;
+                }
+            }
+        }
+    }
 }
-echo "Loaded " . count($sitemapUrls) . " URLs from sitemap\n\n";
+$sitemapUrls = array_unique($sitemapUrls); // Remove duplicates
+echo "Loaded " . count($sitemapUrls) . " URLs from all sitemaps\n\n";
+
+// Load city locale rules (authoritative source, same as sitemap generation)
+$cityLocaleRulesFile = __DIR__ . '/data/city_locale_rules.json';
+$cityLocaleRules = [];
+if (file_exists($cityLocaleRulesFile)) {
+    $cityLocaleRules = json_decode(file_get_contents($cityLocaleRulesFile), true) ?? [];
+}
+echo "Loaded " . count($cityLocaleRules) . " city locale rules\n\n";
 
 // Start local server if not running
 $serverRunning = @file_get_contents('http://localhost:8000/healthz') !== false;
@@ -142,9 +193,15 @@ foreach ($pages as $idx => $page) {
         continue;
     }
     
-    // Determine expected canonical
-    $isUK = is_uk_city($citySlug);
-    $expectedLocale = $isUK ? 'en-gb' : 'en-us';
+    // Determine expected canonical using city_locale_rules.json (same as sitemap generation)
+    $expectedLocale = 'en-us'; // Default
+    if (isset($cityLocaleRules[$citySlug])) {
+        $expectedLocale = $cityLocaleRules[$citySlug]['canonical_locale'] ?? 'en-us';
+    } else {
+        // Fallback to is_uk_city if rules not available
+        $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+        $expectedLocale = $isUK ? 'en-gb' : 'en-us';
+    }
     $canonicalUrl = "https://nrlc.ai/$expectedLocale/services/$serviceSlug/$citySlug/";
     
     // Test results
