@@ -163,7 +163,7 @@ function get_query_aligned_content(string $serviceSlug, string $citySlug = ''): 
 /**
  * Get related services for lateral linking (same locale)
  */
-function get_related_services_for_linking(string $serviceSlug, string $locale = ''): array {
+function get_related_services_for_linking(string $serviceSlug, string $locale = '', string $citySlug = ''): array {
   // Core services that should be linked
   $coreServices = [
     'crawl-clarity' => 'Crawl Clarity Engineering',
@@ -175,7 +175,32 @@ function get_related_services_for_linking(string $serviceSlug, string $locale = 
   // Remove current service
   unset($coreServices[$serviceSlug]);
   
-  // Return first 3
+  // If city is provided, determine canonical locale for city-specific links
+  $canonicalLocale = $locale;
+  if ($citySlug) {
+    require_once __DIR__.'/helpers.php';
+    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    $canonicalLocale = $isUK ? 'en-gb' : ($locale ?: 'en-us');
+    
+    // Add city-specific service links (same city, different services)
+    $cityServices = [
+      'site-audits' => 'Site Audits',
+      'technical-seo' => 'Technical SEO',
+      'link-building-ai' => 'Link Building',
+    ];
+    
+    foreach ($cityServices as $slug => $name) {
+      if ($slug !== $serviceSlug && !isset($coreServices[$slug])) {
+        $related[] = [
+          'slug' => $slug,
+          'name' => "$name in " . ucwords(str_replace(['-', '_'], ' ', $citySlug)),
+          'url' => "/$canonicalLocale/services/$slug/$citySlug/"
+        ];
+      }
+    }
+  }
+  
+  // Return first 3 core services
   $related = [];
   $count = 0;
   foreach ($coreServices as $slug => $name) {
@@ -183,7 +208,7 @@ function get_related_services_for_linking(string $serviceSlug, string $locale = 
     $related[] = [
       'slug' => $slug,
       'name' => $name,
-      'url' => ($locale ? "/$locale" : '') . "/services/$slug/"
+      'url' => ($canonicalLocale ? "/$canonicalLocale" : '') . "/services/$slug/" . ($citySlug ? "$citySlug/" : '')
     ];
     $count++;
   }

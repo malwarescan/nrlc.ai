@@ -10,6 +10,20 @@ if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
   $locale = $matches[1];
 }
 $localePrefix = $locale ? "/$locale" : '';
+
+// Add UK city links for en-GB locale (discovery path for canonical collapse fix)
+if ($locale === 'en-gb' || $locale === '') {
+  $featuredUKCities = ['norwich', 'london', 'manchester', 'birmingham', 'leeds', 'sheffield', 'southampton'];
+  $ukCityLinks = [];
+  foreach ($featuredUKCities as $city) {
+    if (function_exists('is_uk_city') && is_uk_city($city)) {
+      $ukCityLinks[] = [
+        'name' => ucwords(str_replace(['-', '_'], ' ', $city)),
+        'url' => '/en-gb/services/local-seo-ai/' . $city . '/'
+      ];
+    }
+  }
+}
 ?>
 
 <main role="main" class="container">
@@ -186,6 +200,23 @@ if (function_exists('render_internal_links_section')) {
   echo render_internal_links_section('services', '', [], 'Explore More');
 }
 ?>
+
+<?php if (!empty($ukCityLinks)): ?>
+<!-- UK City Services Section (Discovery Path for Canonical Collapse Fix) -->
+<div class="content-block module">
+  <div class="content-block__header">
+    <h2 class="content-block__title">Local SEO Services in UK Cities</h2>
+  </div>
+  <div class="content-block__body">
+    <p>Professional local SEO services for businesses in major UK cities. We help improve search rankings, AI citations, and local visibility.</p>
+    <ul>
+      <?php foreach ($ukCityLinks as $link): ?>
+      <li><a href="<?= htmlspecialchars($link['url']) ?>" title="Local SEO services in <?= htmlspecialchars($link['name']) ?>">Local SEO in <?= htmlspecialchars($link['name']) ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+</div>
+<?php endif; ?>
 
 <?php
 // JSON-LD Schema

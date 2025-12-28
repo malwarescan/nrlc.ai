@@ -216,8 +216,8 @@ $content = $intro . $local;
     }
     $localePrefix = $locale ? "/$locale" : '';
 
-    // Get related services for lateral linking
-    $relatedServices = get_related_services_for_linking($serviceSlug, $locale);
+    // Get related services for lateral linking (include city for city-specific links)
+    $relatedServices = get_related_services_for_linking($serviceSlug, $locale, $citySlug);
     ?>
 
     <!-- STEP 5: Related Services Footer Block -->
