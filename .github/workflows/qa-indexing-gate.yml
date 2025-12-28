@@ -1,0 +1,69 @@
+name: QA Indexing Gate
+
+on:
+  pull_request:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  qa-indexing-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install dependencies
+        run: |
+          composer install --no-interaction --no-progress || true
+
+      - name: Generate city locale rules
+        run: |
+          php scripts/generate_city_locale_rules.php
+
+      - name: Build site (generate sitemaps + canonical registry)
+        run: |
+          php scripts/build_sitemaps.php
+          php scripts/generate_canonical_registry.php
+
+      - name: Validate canonical registry
+        run: |
+          php scripts/validate_canonical_registry.php
+
+      - name: Start local server
+        run: |
+          php -S 127.0.0.1:8080 -t public > server.log 2>&1 &
+          sleep 3
+          curl -f http://127.0.0.1:8080/healthz || exit 1
+
+      - name: Run QA verification gate
+        env:
+          QA_BASE_URL: "http://127.0.0.1:8080"
+        run: |
+          php qa_verify_all_urls.php \
+            --mode=sitemap \
+            --sitemap-index=public/sitemaps/sitemap-index.xml \
+            --out=qa_url_verification_results.csv \
+            --summary=QA_COMPLETE_VERIFICATION.md
+
+      - name: Enforce zero critical failures
+        run: |
+          php scripts/qa_enforce_gate.php qa_url_verification_results.csv
+
+      - name: Upload QA artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qa-indexing-artifacts
+          path: |
+            qa_url_verification_results.csv
+            QA_COMPLETE_VERIFICATION.md
+            data/canonical_registry.json
+            data/city_locale_rules.json
+            server.log
+          retention-days: 30
+

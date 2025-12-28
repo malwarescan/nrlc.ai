@@ -1,0 +1,11 @@
+{
+  "_comment": "Override city locale rules. Only use if a city legitimately needs multiple locales.",
+  "_example": {
+    "_note": "Example structure (remove this key):",
+    "montreal": {
+      "canonical_locale": "en-ca",
+      "allowed_locales": ["en-ca", "fr-ca"]
+    }
+  }
+}
+

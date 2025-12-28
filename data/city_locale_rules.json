@@ -1,0 +1,2246 @@
+{
+    "new-york": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "los-angeles": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "chicago": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "houston": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "phoenix": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "philadelphia": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "san-antonio": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "san-diego": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "dallas": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "san-jose": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "austin": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "jacksonville": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "fort-worth": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "columbus": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "charlotte": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "san-francisco": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "indianapolis": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "seattle": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "denver": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "washington": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "boston": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "el-paso": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "nashville": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "detroit": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "oklahoma-city": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "portland": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "las-vegas": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "memphis": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "louisville": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "baltimore": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "milwaukee": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "albuquerque": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "tucson": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "fresno": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sacramento": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "mesa": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kansas-city": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "atlanta": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "long-beach": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "colorado-springs": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "raleigh": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "miami": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "virginia-beach": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "omaha": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "oakland": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "minneapolis": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "tulsa": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "arlington": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "tampa": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "new-orleans": {
+        "country": "US",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "london": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "birmingham": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "manchester": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "glasgow": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "liverpool": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "leeds": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sheffield": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "edinburgh": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "bristol": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "cardiff": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "belfast": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "newcastle": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "nottingham": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "southampton": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "plymouth": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "leicester": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "coventry": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "hull": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "stoke-on-trent": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "wolverhampton": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "derby": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "swansea": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "southend-on-sea": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "middlesbrough": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "peterborough": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "stockport": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "brighton": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "west-bromwich": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "blackpool": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "northampton": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "norwich": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "oldham": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "huddersfield": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "southport": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "burnley": {
+        "country": "GB",
+        "canonical_locale": "en-gb",
+        "forbidden_locales": [
+            "en-us",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "seoul": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "busan": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "incheon": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "daegu": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "daejeon": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "gwangju": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "ulsan": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sejong": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "suwon": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "yongin": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "changwon": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "goyang": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "seongnam": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "bucheon": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "ansan": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "anyang": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "namyangju": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "hwasong": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "cheongju": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "jeonju": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "cheonan": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "gimhae": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "jinju": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "jeju": {
+        "country": "KR",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "toronto": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "montreal": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "vancouver": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "calgary": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "ottawa": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "edmonton": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "winnipeg": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "quebec-city": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "hamilton": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kitchener": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "victoria": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "halifax": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "oshawa": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "windsor": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "saskatoon": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "regina": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sherbrooke": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "barrie": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kelowna": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "abbotsford": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sudbury": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kingston": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "saguenay": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "trois-rivieres": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "guelph": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "cambridge": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "whitehorse": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "yellowknife": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "iqaluit": {
+        "country": "CA",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "singapore": {
+        "country": "SG",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "tokyo": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "osaka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "nagoya": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sapporo": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "fukuoka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kobe": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kyoto": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "yokohama": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sendai": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "hiroshima": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kitakyushu": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kawasaki": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "saitama": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "niigata": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "hamamatsu": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "okayama": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kumamoto": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "shizuoka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sagamihara": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kagoshima": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "funabashi": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "nishinomiya": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "toyonaka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "ichikawa": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "asahikawa": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "takamatsu": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "matsuyama": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "nara": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kurashiki": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "otsu": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "akita": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "morioka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "yamagata": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "fukushima": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "mito": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "utsunomiya": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "maebashi": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kumagaya": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kawagoe": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "koshigaya": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "soka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kasukabe": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sayama": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kawaguchi": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "warabi": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "toda": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "iruma": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "asaka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "wako": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "niiza": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "okegawa": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kuki": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kitamoto": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "yashio": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "fujimi": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "miyashiro": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "hasuda": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "sakado": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "honjo": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kounosu": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "fukaya": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "ageo": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "souka": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "kazo": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    },
+    "higashimatsuyama": {
+        "country": "JP",
+        "canonical_locale": "en-us",
+        "forbidden_locales": [
+            "en-gb",
+            "fr-fr",
+            "es-es",
+            "de-de",
+            "ko-kr"
+        ]
+    }
+}

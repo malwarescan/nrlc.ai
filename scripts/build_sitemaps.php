@@ -52,7 +52,31 @@ $allServices = [
   'competitor-analysis-ai',
   'crawl-clarity',
   'json-ld-strategy',
-  'training'
+  'training',
+  // Additional services found in Pages.csv
+  'ranking-optimization-ai',
+  'trust-optimization-ai',
+  'structured-data-ai',
+  'relevance-optimization-ai',
+  'llm-content-strategy',
+  'explainability-optimization-ai',
+  'copilot-optimization',
+  'contextual-seo-ai',
+  'claude-optimization',
+  'ai-citation-optimization',
+  'transparency-optimization-ai',
+  'intent-optimization-ai',
+  'featured-snippets-ai',
+  'accuracy-optimization-ai',
+  'entity-recognition-ai',
+  'knowledge-graph-ai',
+  'knowledge-graph', // Alternative slug format
+  'retrieval-optimization-ai',
+  'schema-markup-ai',
+  'topic-modeling-ai',
+  'personalization-ai',
+  'recommendation-ai',
+  'authority-optimization-ai'
 ];
 
 // Get all cities
@@ -80,18 +104,27 @@ foreach ($allServices as $service) {
     $serviceEntries[] = sitemap_entry_simple($overviewCanonicalUrl, $today, 'weekly', '0.9');
   }
   
+  // Load city locale rules (authoritative source)
+  $cityLocaleRulesFile = __DIR__ . '/../data/city_locale_rules.json';
+  $cityLocaleRules = [];
+  if (file_exists($cityLocaleRulesFile)) {
+    $cityLocaleRules = json_decode(file_get_contents($cityLocaleRulesFile), true) ?? [];
+  }
+  
   // Add service+city combinations
   foreach ($allCities as $city) {
-    $path = "/services/{$service}/{$city}/";
-    $hreflangUrls = sitemap_generate_hreflang_urls($path);
-    
-    // SITEMAP CANONICAL ONLY: Use the canonical locale URL
-    // For UK cities, canonical is en-gb; for others, en-us
-    $canonicalUrl = $hreflangUrls['x-default'] ?? $hreflangUrls['en-us'] ?? $hreflangUrls['en-gb'] ?? '';
-    if ($canonicalUrl) {
-      // Only include canonical URL in sitemap (no deprecated locales)
-      $serviceEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '0.8');
+    // Determine canonical locale from city locale rules (authoritative)
+    $canonicalLocale = 'en-us'; // Default
+    if (isset($cityLocaleRules[$city])) {
+      $canonicalLocale = $cityLocaleRules[$city]['canonical_locale'] ?? 'en-us';
+    } else {
+      // Fallback to is_uk_city if rules not available
+      $isUK = function_exists('is_uk_city') ? is_uk_city($city) : false;
+      $canonicalLocale = $isUK ? 'en-gb' : 'en-us';
     }
+    
+    $canonicalUrl = "https://nrlc.ai/{$canonicalLocale}/services/{$service}/{$city}/";
+    $serviceEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'weekly', '0.8');
   }
 }
 
@@ -103,6 +136,20 @@ if ($serviceEntries) {
   sitemap_write_gzipped($gzFile, $content);
   $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
   echo "Built services sitemap: " . count($serviceEntries) . " URLs\n";
+  
+  // Extract canonical URLs from XML entries for registry generation
+  $canonicalUrlsFile = __DIR__ . '/../data/canonical_urls_from_sitemap.json';
+  $canonicalUrls = [];
+  foreach ($serviceEntries as $entry) {
+    // Extract URL from XML entry string
+    if (preg_match('#<loc>(https://nrlc\.ai[^<]+)</loc>#', $entry, $matches)) {
+      $canonicalUrls[] = $matches[1];
+    }
+  }
+  if (!is_dir(dirname($canonicalUrlsFile))) {
+    mkdir(dirname($canonicalUrlsFile), 0755, true);
+  }
+  file_put_contents($canonicalUrlsFile, json_encode($canonicalUrls, JSON_PRETTY_PRINT));
 }
 
 // 2. Careers sitemap
