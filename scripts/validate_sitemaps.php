@@ -69,12 +69,21 @@ foreach ($sitemapFiles as $sitemapFile) {
     }
     
     // Check for deprecated locale variants in sitemap
-    // UK cities should only be in en-gb, not en-us
-    if (preg_match('#/en-us/services/([^/]+)/([^/]+)/#', $path, $m)) {
-      $citySlug = $m[2];
-      require_once __DIR__.'/../lib/helpers.php';
-      if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
-        $nonCanonicalUrls[] = $url . " (UK city should be en-gb, not en-us)";
+    // Use city_locale_rules.json as authoritative source
+    if (preg_match('#/([a-z]{2}-[a-z]{2})/services/([^/]+)/([^/]+)/#', $path, $m)) {
+      $locale = $m[1];
+      $citySlug = $m[3];
+      
+      // Load city locale rules
+      $rulesFile = __DIR__.'/../data/city_locale_rules.json';
+      if (file_exists($rulesFile)) {
+        $rules = json_decode(file_get_contents($rulesFile), true);
+        if (isset($rules[$citySlug])) {
+          $canonicalLocale = $rules[$citySlug]['canonical_locale'] ?? 'en-us';
+          if ($locale !== $canonicalLocale) {
+            $nonCanonicalUrls[] = $url . " (city canonical locale is $canonicalLocale, not $locale)";
+          }
+        }
       }
     }
   }
