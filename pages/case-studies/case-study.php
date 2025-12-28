@@ -1,13 +1,20 @@
 <?php
 require_once __DIR__ . '/../../lib/helpers.php';
 require_once __DIR__ . '/../../lib/deterministic.php';
-
+require_once __DIR__ . '/../../lib/case_study_registry.php';
+require_once __DIR__ . '/../../lib/case_study_schema.php';
 
 // Metadata is now set in router via ctx-based system
 // Remove old placeholder metadata to prevent conflicts
 
 $caseNumber = $_GET['case'] ?? '1';
 $caseSlug = $_GET['slug'] ?? null;
+
+// Load case study data from registry if available
+$caseData = null;
+if ($caseSlug) {
+  $caseData = get_case_study_data($caseSlug);
+}
 
 // Map slug to industry for better content generation
 $slugToIndustry = [
@@ -98,6 +105,57 @@ $faqs = det_pick([
       </div>
     </div>
     
+    <?php if ($caseData): ?>
+    <!-- Situation -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Situation</h2>
+      </div>
+      <div class="content-block__body">
+        <p><?= htmlspecialchars($caseData['situation']) ?></p>
+      </div>
+    </div>
+    
+    <!-- AI Retrieval Failure -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">AI Retrieval Failure</h2>
+      </div>
+      <div class="content-block__body">
+        <p><?= htmlspecialchars($caseData['ai_failure']) ?></p>
+      </div>
+    </div>
+    
+    <!-- Technical Diagnosis -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Technical Diagnosis</h2>
+      </div>
+      <div class="content-block__body">
+        <p><?= htmlspecialchars($caseData['technical_diagnosis']) ?></p>
+      </div>
+    </div>
+    
+    <!-- Intervention -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Intervention</h2>
+      </div>
+      <div class="content-block__body">
+        <p><?= htmlspecialchars($caseData['intervention']) ?></p>
+      </div>
+    </div>
+    
+    <!-- Outcome -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Outcome</h2>
+      </div>
+      <div class="content-block__body">
+        <p><?= htmlspecialchars($caseData['outcome']) ?></p>
+      </div>
+    </div>
+    <?php else: ?>
     <!-- The Challenge -->
     <div class="content-block module">
       <div class="content-block__header">
@@ -127,6 +185,7 @@ $faqs = det_pick([
         <p><?= htmlspecialchars($results) ?></p>
       </div>
     </div>
+    <?php endif; ?>
     
     <!-- Key Takeaways -->
     <div class="content-block module">
@@ -235,7 +294,7 @@ $faqs = det_pick([
 </main>
 
 <?php
-// Generate comprehensive schema
+// Generate comprehensive schema using master template
 // Use slug-based canonical URL if available, otherwise fallback to numeric
 if ($caseSlug) {
     $canonicalPath = $GLOBALS['__page_meta']['canonicalPath'] ?? "/case-studies/{$caseSlug}/";
@@ -243,99 +302,107 @@ if ($caseSlug) {
 } else {
     $canonicalUrl = absolute_url("/case-studies/case-study-{$caseNumber}/");
 }
-$date = date('Y-m-d');
 
-$schemaGraph = [
-  // WebPage Schema
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'WebPage',
-    '@id' => $canonicalUrl . '#webpage',
-    'name' => 'Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company),
-    'url' => $canonicalUrl,
-    'description' => isset($GLOBALS['__page_meta']['description']) ? $GLOBALS['__page_meta']['description'] : ('How ' . htmlspecialchars($company) . ', a leading ' . htmlspecialchars($industry) . ' company, achieved significant improvements in AI engine visibility through strategic SEO optimization.'),
-    'isPartOf' => [
-      '@type' => 'WebSite',
-      '@id' => 'https://nrlc.ai/#website',
-      'name' => 'NRLC.ai',
-      'url' => 'https://nrlc.ai'
-    ],
-    'inLanguage' => 'en'
-  ],
+// Use case study data from registry if available, otherwise fallback to deterministic
+if ($caseData) {
+  // Use master schema template
+  $schemaData = [
+    'slug' => $caseData['slug'],
+    'title' => $caseData['title'],
+    'description' => $caseData['description'],
+    'prompt_cluster' => $caseData['prompt_cluster'],
+    'situation' => $caseData['situation'],
+    'ai_failure' => $caseData['ai_failure'],
+    'technical_diagnosis' => $caseData['technical_diagnosis'],
+    'intervention' => $caseData['intervention'],
+    'outcome' => $caseData['outcome'],
+    'citation_result' => $caseData['citation_result']
+  ];
   
-  // BreadcrumbList Schema
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'BreadcrumbList',
-    '@id' => $canonicalUrl . '#breadcrumb',
-    'itemListElement' => [
-      [
-        '@type' => 'ListItem',
-        'position' => 1,
-        'name' => 'Home',
-        'item' => 'https://nrlc.ai/'
+  $schemaGraph = generate_case_study_master_schema($schemaData);
+  
+  // Add FAQPage schema if FAQs exist
+  if (!empty($faqs)) {
+    $schemaGraph[] = [
+      '@context' => 'https://schema.org',
+      '@type' => 'FAQPage',
+      '@id' => $canonicalUrl . '#faq',
+      'mainEntity' => array_map(function($faq, $i) {
+        return [
+          '@type' => 'Question',
+          'name' => htmlspecialchars($faq[0]),
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => htmlspecialchars($faq[1])
+          ]
+        ];
+      }, $faqs, array_keys($faqs))
+    ];
+  }
+} else {
+  // Fallback to legacy schema for non-registry case studies
+  $date = date('Y-m-d');
+  $schemaGraph = [
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'WebPage',
+      '@id' => $canonicalUrl . '#webpage',
+      'name' => 'Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company),
+      'url' => $canonicalUrl,
+      'description' => isset($GLOBALS['__page_meta']['description']) ? $GLOBALS['__page_meta']['description'] : ('How ' . htmlspecialchars($company) . ', a leading ' . htmlspecialchars($industry) . ' company, achieved significant improvements in AI engine visibility through strategic SEO optimization.'),
+      'isPartOf' => [
+        '@type' => 'WebSite',
+        '@id' => 'https://nrlc.ai/#website',
+        'name' => 'NRLC.ai',
+        'url' => 'https://nrlc.ai'
       ],
-      [
-        '@type' => 'ListItem',
-        'position' => 2,
-        'name' => 'Case Studies',
-        'item' => 'https://nrlc.ai/case-studies/'
-      ],
-      [
-        '@type' => 'ListItem',
-        'position' => 3,
-        'name' => isset($GLOBALS['__page_meta']['title']) ? str_replace(' | NRLC.ai', '', $GLOBALS['__page_meta']['title']) : ('Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company)),
-        'item' => $canonicalUrl
+      'inLanguage' => 'en'
+    ],
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'BreadcrumbList',
+      '@id' => $canonicalUrl . '#breadcrumb',
+      'itemListElement' => [
+        [
+          '@type' => 'ListItem',
+          'position' => 1,
+          'name' => 'Home',
+          'item' => 'https://nrlc.ai/'
+        ],
+        [
+          '@type' => 'ListItem',
+          'position' => 2,
+          'name' => 'Case Studies',
+          'item' => 'https://nrlc.ai/case-studies/'
+        ],
+        [
+          '@type' => 'ListItem',
+          'position' => 3,
+          'name' => isset($GLOBALS['__page_meta']['title']) ? str_replace(' | NRLC.ai', '', $GLOBALS['__page_meta']['title']) : ('Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company)),
+          'item' => $canonicalUrl
+        ]
       ]
     ]
-  ],
+  ];
   
-  // Article Schema
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Article',
-    '@id' => $canonicalUrl . '#article',
-    'headline' => isset($GLOBALS['__page_meta']['title']) ? str_replace(' | NRLC.ai', '', $GLOBALS['__page_meta']['title']) : ('Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company) . ' AI SEO Success'),
-    'description' => 'Detailed case study showing how ' . htmlspecialchars($company) . ' achieved significant AI SEO improvements',
-    'author' => [
-      '@type' => 'Person',
-      'name' => 'Joel Maldonado'
-    ],
-    'publisher' => [
-      '@type' => 'Organization',
-      'name' => 'Neural Command',
-      'logo' => [
-        '@type' => 'ImageObject',
-        'url' => 'https://nrlc.ai/assets/images/nrlcai%20logo%200.png'
-      ]
-    ],
-    'datePublished' => $date,
-    'dateModified' => $date,
-    'mainEntityOfPage' => [
-      '@id' => $canonicalUrl . '#webpage'
-    ],
-    'articleSection' => 'Case Studies',
-    'keywords' => ['Case Study', 'AI SEO', htmlspecialchars($industry), 'Success Story'],
-    'inLanguage' => 'en'
-  ],
-  
-  // FAQPage Schema
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'FAQPage',
-    '@id' => $canonicalUrl . '#faq',
-    'mainEntity' => array_map(function($faq, $i) {
-      return [
-        '@type' => 'Question',
-        'name' => htmlspecialchars($faq[0]),
-        'acceptedAnswer' => [
-          '@type' => 'Answer',
-          'text' => htmlspecialchars($faq[1])
-        ]
-      ];
-    }, $faqs, array_keys($faqs))
-  ]
-];
+  if (!empty($faqs)) {
+    $schemaGraph[] = [
+      '@context' => 'https://schema.org',
+      '@type' => 'FAQPage',
+      '@id' => $canonicalUrl . '#faq',
+      'mainEntity' => array_map(function($faq, $i) {
+        return [
+          '@type' => 'Question',
+          'name' => htmlspecialchars($faq[0]),
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => htmlspecialchars($faq[1])
+          ]
+        ];
+      }, $faqs, array_keys($faqs))
+    ];
+  }
+}
 
 $GLOBALS['__jsonld'] = $schemaGraph;
 ?>

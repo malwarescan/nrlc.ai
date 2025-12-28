@@ -89,6 +89,21 @@ function route_request(): void {
     return;
   }
 
+  // Login page (public)
+  if ($path === '/login.php' || $path === '/login') {
+    if (file_exists(__DIR__.'/../login.php')) {
+      require_once __DIR__.'/../login.php';
+      return;
+    }
+  }
+
+  // Logout endpoint
+  if ($path === '/logout.php' || $path === '/logout') {
+    require_once __DIR__.'/../lib/auth.php';
+    logout();
+    return;
+  }
+
   if ($path === '/' || $path === '') {
     // HARD RENDER GUARD: Homepage MUST NEVER return 5xx
     // Catch all Throwables and fallback to safe static page
@@ -883,6 +898,19 @@ function route_request(): void {
   if ($path === '/case-studies/') {
     render_page('case-studies/index');
     return;
+  }
+
+  // AI Prompt-Cluster Landing Pages (routes to proof, not blog posts)
+  // These pages answer specific AI prompt patterns and reference case studies
+  if (preg_match('#^/ai/([^/]+)/$#', $path, $m)) {
+    $aiPageSlug = $m[1];
+    $aiPageFile = __DIR__.'/../pages/ai/'.$aiPageSlug.'.php';
+    
+    if (file_exists($aiPageFile)) {
+      // Metadata is set in the page file itself
+      render_page('ai/'.$aiPageSlug);
+      return;
+    }
   }
 
   // Blog routes

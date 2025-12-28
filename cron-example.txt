@@ -1,17 +1,17 @@
-# NRLC.ai Sitemap v2 Automation - Cron Jobs
-# Add these to your crontab for production deployment
+# NRLC AI Case Study System - Cron Examples
+# Add these to your crontab: crontab -e
 
-# Full sitemap rebuild every 6 hours
-0 */6 * * * cd /var/www/nrlc.ai && make sitemap-build
+# Daily AI verification (2 AM UTC)
+0 2 * * * cd /path/to/nrlc.ai && php scripts/ai_answer_crawler.php >> /path/to/nrlc.ai/logs/crawler.log 2>&1
 
-# News-only rebuild every 30 minutes (for fresh content)
-*/30 * * * * cd /var/www/nrlc.ai && make news
+# Daily case study updates (3 AM UTC, after crawler)
+0 3 * * * cd /path/to/nrlc.ai && php bin/generate-case-study-updates.php >> /path/to/nrlc.ai/logs/updates.log 2>&1
 
-# Ping search engines every 6 hours (5 minutes after build)
-5 */6 * * * cd /var/www/nrlc.ai && make sitemap-ping
+# Weekly validation check (Sunday 4 AM UTC)
+0 4 * * 0 cd /path/to/nrlc.ai && find data/case-studies -name "*.jsonld" -exec php bin/validate-case-study.php {} \; >> /path/to/nrlc.ai/logs/validation.log 2>&1
 
-# Daily validation check
-0 2 * * * cd /var/www/nrlc.ai && make sitemap-validate
-
-# Weekly full system check
-0 3 * * 0 cd /var/www/nrlc.ai && make sitemap-full
+# Notes:
+# - Replace /path/to/nrlc.ai with your actual path
+# - Ensure PHP CLI is in PATH or use full path: /usr/bin/php
+# - Ensure logs directory exists: mkdir -p logs
+# - Set environment variables in crontab or use .env file
