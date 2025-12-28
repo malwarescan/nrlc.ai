@@ -12,10 +12,23 @@ jobs:
           php -l $(git ls-files '*.php') || exit 1
       - name: Generate matrices and build
         run: |
-          make matrix || echo "Matrix generation skipped"
-          make careers || echo "Careers generation skipped"
-          make build || echo "Build skipped"
-          make validate || echo "Validation skipped"
+          set -e
+          if [ -f scripts/generate_matrix.php ]; then
+            make matrix
+          else
+            echo "⚠️  scripts/generate_matrix.php not found, skipping"
+          fi
+          if [ -f scripts/generate_career_matrix.php ]; then
+            make careers
+          else
+            echo "⚠️  scripts/generate_career_matrix.php not found, skipping"
+          fi
+          make build
+          if [ -f scripts/validate_sitemaps.php ]; then
+            make validate
+          else
+            echo "⚠️  scripts/validate_sitemaps.php not found, skipping"
+          fi
       - name: Contracts and smoke tests
         run: |
           make contracts || echo "Contracts check skipped"
