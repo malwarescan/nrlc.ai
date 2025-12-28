@@ -1095,7 +1095,14 @@ function route_request(): void {
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       $GLOBALS['__page_meta']['title'] = "AI Visibility for {$industry['name']} | NRLC.ai";
-      $GLOBALS['__page_meta']['description'] = "Engineering service that structures {$industry['term']} information so AI systems can retrieve, verify, and cite it accurately. Prechunking methodology for {$industry['name']}.";
+      
+      // Contractor-specific meta description (contractor-native language)
+      if ($industrySlug === 'contractor') {
+        $GLOBALS['__page_meta']['description'] = "When homeowners ask ChatGPT who the best contractor is near them, we help make sure your business shows up. Get more calls and more jobs from AI recommendations.";
+      } else {
+        $GLOBALS['__page_meta']['description'] = "Engineering service that structures {$industry['term']} information so AI systems can retrieve, verify, and cite it accurately. Prechunking methodology for {$industry['name']}.";
+      }
+      
       render_page("ai-visibility/$industrySlug");
       return;
     }

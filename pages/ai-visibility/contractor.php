@@ -18,8 +18,8 @@ $GLOBALS['__jsonld'] = [
     '@type' => 'WebPage',
     '@id' => $canonicalUrl . '#webpage',
     'url' => $canonicalUrl,
-    'name' => 'AI Visibility for High-End Contractors',
-    'description' => 'Technical service that engineers repairs and renovations information for AI retrieval, verification, and citation. Prechunking methodology for High-End Contractors.',
+    'name' => 'AI Visibility for Contractors',
+    'description' => 'When homeowners ask ChatGPT who the best contractor is near them, we help make sure your business shows up. Get more calls and more jobs from AI recommendations.',
     'isPartOf' => [
       '@type' => 'WebSite',
       '@id' => $domain . '#website',
@@ -40,9 +40,9 @@ $GLOBALS['__jsonld'] = [
     '@context' => 'https://schema.org',
     '@type' => 'Service',
     '@id' => $canonicalUrl . '#service',
-    'name' => 'AI Visibility for High-End Contractors',
+    'name' => 'AI Visibility for Contractors',
     'serviceType' => 'AI Search Optimization',
-    'description' => 'Engineering service that structures repairs and renovations information so AI systems can retrieve, verify, and cite it accurately. Prechunking methodology for High-End Contractors.',
+    'description' => 'Help contractors show up when people ask ChatGPT or Google AI who to hire. We structure your business information so AI systems trust and mention your company.',
     'provider' => ['@type' => 'Organization', '@id' => $domain . '#organization', 'name' => 'Neural Command LLC', 'url' => $domain],
     'url' => $canonicalUrl
   ]
@@ -56,27 +56,72 @@ $GLOBALS['__jsonld'] = [
     <!-- H1 and Lead Paragraph -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI Visibility for High-End Contractors</h1>
+        <h1 class="content-block__title">AI Visibility for Contractors</h1>
       </div>
       <div class="content-block__body">
-        <p>AI systems like Google AI Overviews and ChatGPT do not browse directories or rank repairs and renovations websites the way traditional search engines do. They answer questions by extracting, verifying, and citing structured repairs and renovations information. This page explains how NRLC.ai engineers that information so High-End Contractors can be referenced accurately and safely in AI-generated answers.</p>
+        <p class="lead">When homeowners ask ChatGPT or Google AI questions like "Who's the best contractor near me?" or "Who installs siding in my area?", AI tools pull from trusted sources to recommend businesses. Our job is to make sure your contracting business is one of the names those AI systems trust and mention.</p>
+        
+        <p>This doesn't replace SEO or Google Maps. It adds a new channel where contractors are already being recommended — AI answers. We help construction and home-service companies show up more often when people ask AI who to hire.</p>
+        
+        <p>We do this by structuring your online presence so AI systems understand:</p>
+        <ul>
+          <li>what services you offer</li>
+          <li>where you work</li>
+          <li>what you're trusted for</li>
+          <li>and why you're a legitimate contractor</li>
+        </ul>
+        <p>That's it. No tech yet.</p>
+      </div>
+    </div>
+
+    <!-- What This Means for Contractors -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">What This Means for Contractors</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Here's what this service does for your business:</p>
+        <ul>
+          <li>Your business is more likely to be mentioned when people ask ChatGPT for contractor recommendations</li>
+          <li>AI answers correctly understand your service areas (not just your company name)</li>
+          <li>Your services don't get confused with suppliers, DIY blogs, or directories</li>
+          <li>You're positioned as a real, established contractor — not just another website</li>
+        </ul>
+        <p>This directly maps to getting more calls and more jobs.</p>
+      </div>
+    </div>
+
+    <!-- Contractor-Specific Example -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">How This Works: A Real Example</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Example:</strong> A homeowner asks ChatGPT: "Who installs fiber cement siding in South Bend?"</p>
+        
+        <p>AI systems don't browse the web like people do. They pull from trusted structured sources. If your business data is unclear or incomplete, you're skipped — even if you rank on Google.</p>
+        
+        <p>Our work makes sure AI understands you as a legitimate siding contractor in that location. When someone asks that question, your business is one of the names AI considers and mentions.</p>
+        
+        <p>No numbers needed. Just clarity.</p>
       </div>
     </div>
 
     <!-- How AI Systems Answer Questions -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">How AI Systems Answer High-End Contractors Questions</h2>
+        <h2 class="content-block__title">How AI Systems Answer Contractor Questions</h2>
       </div>
       <div class="content-block__body">
-        <p>AI systems answer repairs and renovations questions by retrieving structured information that can be verified and cited safely.</p>
+        <p>When people ask AI tools about contractors, the AI looks for clear, trustworthy information it can cite safely.</p>
         
-        <p>Common questions AI systems process include:</p>
+        <p>Common questions homeowners ask AI include:</p>
         <ul>
           <li>"Is this repair necessary?"</li>
           <li>"How much should this cost?"</li>
           <li>"How do I find a trustworthy contractor?"</li>
           <li>"What questions should I ask a contractor?"</li>
+          <li>"Who does [specific service] in [my city]?"</li>
         </ul>
 
         <p>To answer these questions reliably, AI systems look for:</p>
@@ -88,117 +133,117 @@ $GLOBALS['__jsonld'] = [
           <li>Consistent terminology and process clarity</li>
         </ul>
 
-        <p>When repairs and renovations information is ambiguous, inconsistent, or unstructured, AI systems either skip it or fill gaps with less accurate sources. This is why information must be engineered for extraction and verification.</p>
+        <p>When contractor information is unclear, inconsistent, or hard to verify, AI systems either skip it or fill gaps with less accurate sources. This is why your business information needs to be structured clearly — so AI can find it, trust it, and mention it.</p>
       </div>
     </div>
 
-    <!-- Our Method: Prechunking Information -->
+    <!-- How We Structure Your Information -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Our Method: Prechunking High-End Contractors Information</h2>
+        <h2 class="content-block__title">How We Structure Your Business Information</h2>
       </div>
       <div class="content-block__body">
-        <p>We pre-chunk repairs and renovations information so it can be safely extracted, verified, and cited by AI systems.</p>
+        <p>We organize your contractor business information so AI systems can find it, understand it, and trust it enough to mention your company.</p>
 
-        <p>Prechunking means structuring content into atomic, factual units before AI systems extract it. Each unit:</p>
+        <p>This means structuring your information into clear, factual units that AI can extract and cite safely. Each piece of information:</p>
         <ul>
-          <li>Answers one question clearly</li>
-          <li>Can be retrieved without surrounding context</li>
-          <li>Remains accurate when separated from the rest of the page</li>
-          <li>Uses explicit entities and relationships</li>
-          <li>Avoids ambiguous or promotional language</li>
+          <li>Answers one question clearly (e.g., "What services do you offer?")</li>
+          <li>Can be understood without surrounding context</li>
+          <li>Remains accurate when AI extracts it</li>
+          <li>Uses clear, consistent language</li>
+          <li>Avoids vague or promotional claims</li>
         </ul>
 
-        <p>This methodology reduces AI risk and increases citation likelihood because:</p>
+        <p>This approach helps your business get mentioned more often because:</p>
         <ul>
-          <li>Facts are self-contained and verifiable</li>
-          <li>No context is implied or required</li>
-          <li>Information is structured for machine extraction, not human reading patterns</li>
-          <li>Each fact can be cited safely without additional caveats</li>
+          <li>Facts are clear and verifiable</li>
+          <li>No guessing required — AI knows exactly what you do</li>
+          <li>Information is structured for AI understanding, not just human reading</li>
+          <li>Each fact can be cited safely without confusion</li>
         </ul>
 
-        <p>Prechunking happens at the publishing stage, not during AI retrieval. We engineer repairs and renovations information so it survives extraction intact.</p>
+        <p>We do this work at the publishing stage, before AI systems ever see your information. This ensures your business data is clear, trustworthy, and ready to be mentioned when people ask AI who to hire.</p>
       </div>
     </div>
 
-    <!-- Seeding Retrievable Knowledge -->
+    <!-- Building Trustworthy Business Information -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Seeding Retrievable High-End Contractors Knowledge</h2>
+        <h2 class="content-block__title">Building Trustworthy Business Information</h2>
       </div>
       <div class="content-block__body">
-        <p>We publish authoritative informational resources that define repairs and renovations services, explain processes, clarify scope and limitations, and remove ambiguity.</p>
+        <p>We create clear, factual information about your contracting business that AI systems can trust and cite.</p>
 
-        <p>This is not prompt injection or output manipulation. It is publishing structured information that AI systems can trust.</p>
+        <p>This is not manipulation or trickery. It's publishing truthful information about your business in a way that AI systems can understand and trust.</p>
 
-        <p>AI systems reuse information they can trust. Trust comes from:</p>
+        <p>AI systems only mention businesses they trust. Trust comes from:</p>
         <ul>
-          <li>Consistency across appearances</li>
-          <li>Clarity in definitions and scope</li>
-          <li>Corroboration across multiple sources</li>
-          <li>Factual accuracy without promotional language</li>
+          <li>Consistency — your information appears the same way everywhere</li>
+          <li>Clarity — no confusion about what you do or where you work</li>
+          <li>Verification — your information matches what's found elsewhere</li>
+          <li>Accuracy — factual statements, not promotional claims</li>
         </ul>
 
-        <p>We engineer repairs and renovations-specific informational resources that:</p>
+        <p>We structure your contractor business information so it:</p>
         <ul>
-          <li>Define services with explicit scope and limitations</li>
-          <li>Explain processes with clear, factual language</li>
-          <li>Clarify options, timelines, and requirements</li>
-          <li>Remove ambiguity about what a business does and does not do</li>
-          <li>Use consistent terminology across the domain</li>
+          <li>Defines your services clearly with specific scope and limitations</li>
+          <li>Explains your processes in plain, factual language</li>
+          <li>Clarifies your service areas, timelines, and requirements</li>
+          <li>Removes confusion about what you do and don't do</li>
+          <li>Uses consistent terminology across all your online presence</li>
         </ul>
 
-        <p>This approach is ethical and defensible because it publishes truth clearly, not manipulation.</p>
+        <p>This approach works because it tells the truth clearly — no manipulation, just clarity.</p>
       </div>
     </div>
 
-    <!-- Reverse-Engineering Real Questions -->
+    <!-- Understanding What Homeowners Actually Ask -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Reverse-Engineering Real High-End Contractors Questions</h2>
+        <h2 class="content-block__title">Understanding What Homeowners Actually Ask</h2>
       </div>
       <div class="content-block__body">
-        <p>We model how questions are asked and what information AI systems require to answer them confidently.</p>
+        <p>We study what questions homeowners ask AI tools and make sure your business information answers those questions clearly.</p>
 
         <p>This process involves analyzing:</p>
         <ul>
-          <li>Real questions people ask about repairs and renovations</li>
-          <li>Common AI answer patterns and citation sources</li>
-          <li>Gaps in existing explanations that lead to generic or inaccurate answers</li>
-          <li>Trust-safety requirements that prevent AI systems from citing ambiguous sources</li>
+          <li>Real questions people ask about finding contractors</li>
+          <li>How AI tools answer those questions and which businesses they mention</li>
+          <li>What information is missing that causes AI to give generic or incomplete answers</li>
+          <li>What makes AI systems trust a business enough to mention it</li>
         </ul>
 
-        <p>We map question patterns to required information:</p>
+        <p>We identify the questions that matter:</p>
         <ul>
           <li>Primary questions (e.g., "Is this repair necessary?" or "How much should this cost?")</li>
           <li>Follow-up questions (e.g., "How do I find a trustworthy contractor?" or "What questions should I ask?")</li>
-          <li>Trust-safety questions (e.g., "How do I know this is legitimate?" or "What are the limitations?")</li>
+          <li>Trust questions (e.g., "How do I know this is legitimate?" or "What are the limitations?")</li>
         </ul>
 
-        <p>We ensure the required information exists before the question is asked. This means publishing structured, retrievable facts that answer not just the primary question, but likely follow-up questions as well.</p>
+        <p>We make sure your business information answers these questions before homeowners even ask. This means publishing clear, factual information that answers not just the main question, but also the follow-up questions homeowners actually ask.</p>
 
-        <p>This is question modeling, not prompt gaming. We identify what information is needed, then engineer it so it can be retrieved and cited accurately.</p>
+        <p>This isn't gaming the system. It's identifying what information homeowners need, then making sure your business provides it clearly so AI can find it and mention your company.</p>
       </div>
     </div>
 
     <!-- What This Looks Like in Practice -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">What This Looks Like in Practice (High-End Contractors-Specific)</h2>
+        <h2 class="content-block__title">What This Looks Like in Practice</h2>
       </div>
       <div class="content-block__body">
-        <p>Prechunking repairs and renovations information produces concrete, structured content that answers questions clearly and safely.</p>
+        <p>Structuring your contractor business information produces clear, factual content that answers homeowner questions accurately.</p>
 
-        <p>Examples of prechunked repairs and renovations content include:</p>
+        <p>Examples of how we structure your business information:</p>
         <ul>
-          <li><strong>Clear explanations of services:</strong> Each service is defined with explicit scope, typical costs, and limitations. No implied capabilities or vague descriptions.</li>
-          <li><strong>Explicit definitions of repair processes:</strong> Repair processes are explained with factual language, typical timelines, and scope boundaries. No guarantees or promotional claims.</li>
-          <li><strong>Clarified cost and credential transparency:</strong> Costs and credentials are defined clearly, with specific explanations and verification. No ambiguous pricing or licensing claims.</li>
-          <li><strong>Scope and timeline clarity:</strong> Service areas, availability, and project scope are stated explicitly. No implied coverage or ambiguous boundaries.</li>
-          <li><strong>Consistent terminology:</strong> Trade terms, service names, and process descriptions use consistent language across all content. No synonym confusion or ambiguous naming.</li>
+          <li><strong>Clear service definitions:</strong> Each service you offer is defined with specific scope, typical costs, and limitations. No vague descriptions or implied capabilities.</li>
+          <li><strong>Explicit process explanations:</strong> Your repair and installation processes are explained in plain language with realistic timelines and scope boundaries. No guarantees or promotional claims.</li>
+          <li><strong>Transparent costs and credentials:</strong> Your pricing and licensing information is stated clearly with specific explanations. No ambiguous claims or unclear verification.</li>
+          <li><strong>Clear service areas and availability:</strong> Your service areas, availability, and project scope are stated explicitly. No implied coverage or confusing boundaries.</li>
+          <li><strong>Consistent terminology:</strong> Trade terms, service names, and process descriptions use the same language everywhere. No confusion from different names for the same thing.</li>
         </ul>
 
-        <p>This structured approach ensures High-End Contractors are represented accurately and safely when AI systems retrieve and cite information.</p>
+        <p>This structured approach ensures your contracting business is represented accurately and safely when AI systems retrieve and cite information about your company.</p>
       </div>
     </div>
 
@@ -210,22 +255,22 @@ $GLOBALS['__jsonld'] = [
       <div class="content-block__body">
         <p><strong>This service does:</strong></p>
         <ul>
-          <li>Improve AI eligibility for citation by structuring information clearly</li>
-          <li>Reduce misinformation risk by ensuring facts are explicit and verifiable</li>
-          <li>Increase accurate references by removing ambiguity and inconsistency</li>
-          <li>Engineer information so it can be extracted, verified, and cited safely</li>
+          <li>Help your business show up more often when people ask AI who to hire</li>
+          <li>Reduce confusion by ensuring your business information is clear and verifiable</li>
+          <li>Increase accurate mentions by removing ambiguity about what you do</li>
+          <li>Structure your information so AI systems can find it, understand it, and mention it safely</li>
         </ul>
 
         <p><strong>This service does not:</strong></p>
         <ul>
-          <li>Guarantee mentions in AI-generated answers</li>
-          <li>Control AI outputs or force specific citations</li>
+          <li>Guarantee your business will be mentioned in every AI answer</li>
+          <li>Control what AI systems say or force specific recommendations</li>
           <li>Replace contractor licensing, professional judgment, or regulatory compliance</li>
           <li>Manipulate AI systems with hidden text or deceptive practices</li>
           <li>Promise specific rankings or traffic increases</li>
         </ul>
 
-        <p>This service engineers information for retrieval. It does not guarantee retrieval will occur, nor does it replace professional contractor standards or regulatory compliance.</p>
+        <p>This service structures your business information so AI can find and mention it. It does not guarantee AI will mention your business every time, nor does it replace professional contractor standards or regulatory compliance.</p>
       </div>
     </div>
 
