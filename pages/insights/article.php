@@ -38,6 +38,9 @@ $insight_articles = [
   'silent-hydration-seo' => 'silent-hydration-seo.php',
   'google-llms-txt-ai-seo' => 'google-llms-txt-ai-seo.php',
   'indexing-suppression-paid-search' => 'indexing-suppression-paid-search.php',
+  // Enterprise Schema cluster pages
+  'enterprise-schema-markup' => 'enterprise-schema-markup.php',
+  'schema-governance-and-validation' => 'schema-governance-and-validation.php',
   // LLM Strategist cluster pages
   'glossary/llm-strategist' => 'glossary-llm-strategist.php',
   'llm-strategist-vs-seo-strategist' => 'llm-strategist-vs-seo-strategist.php',
