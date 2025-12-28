@@ -369,10 +369,20 @@ if ($toolEntries) {
 }
 
 // 8. Case studies sitemap
+// CANONICAL: Use slug-based URLs (SEO-friendly, semantic, ontology-aligned)
+$caseStudySlugs = [
+  25 => 'b2b-saas',
+  26 => 'ecommerce',
+  27 => 'healthcare',
+  28 => 'fintech',
+  29 => 'education',
+  30 => 'real-estate'
+];
+
 $caseStudyEntries = [];
-for ($i = 1; $i <= 200; $i++) {
-  // SITEMAP CANONICAL ONLY
-  $canonicalUrl = "https://nrlc.ai/en-us/case-studies/case-study-{$i}/";
+foreach ($caseStudySlugs as $id => $slug) {
+  // SITEMAP CANONICAL ONLY - Use semantic slug-based URLs
+  $canonicalUrl = "https://nrlc.ai/en-us/case-studies/{$slug}/";
   $caseStudyEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.7');
 }
 

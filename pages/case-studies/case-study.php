@@ -7,6 +7,28 @@ require_once __DIR__ . '/../../lib/deterministic.php';
 // Remove old placeholder metadata to prevent conflicts
 
 $caseNumber = $_GET['case'] ?? '1';
+$caseSlug = $_GET['slug'] ?? null;
+
+// Map slug to industry for better content generation
+$slugToIndustry = [
+    'b2b-saas' => 'SaaS',
+    'ecommerce' => 'E-commerce',
+    'healthcare' => 'Healthcare',
+    'fintech' => 'Fintech',
+    'education' => 'Education',
+    'real-estate' => 'Real Estate'
+];
+
+// Use industry from slug if available, otherwise use deterministic
+if ($caseSlug && isset($slugToIndustry[$caseSlug])) {
+    $industry = $slugToIndustry[$caseSlug];
+} else {
+    // Generate deterministic content based on case number
+    det_seed("case|$caseNumber");
+    $industry = det_pick([
+        "SaaS", "E-commerce", "Healthcare", "Fintech", "Education", "Manufacturing"
+    ], 1)[0];
+}
 
 // Generate deterministic content based on case number
 det_seed("case|$caseNumber");
@@ -16,9 +38,7 @@ $company = det_pick([
   "Digital Dynamics", "SmartTech Enterprises", "NextGen Platforms", "InnovateLab Corp"
 ], 1)[0];
 
-$industry = det_pick([
-  "SaaS", "E-commerce", "Healthcare", "Fintech", "Education", "Manufacturing"
-], 1)[0];
+// Industry already set above from slug or deterministic
 
 $challenge = det_pick([
   "Low AI engine citation rates affecting content visibility and user engagement.",
@@ -52,10 +72,29 @@ $faqs = det_pick([
     <!-- Case Study Header -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">Case Study #<?= htmlspecialchars($caseNumber) ?>: <?= htmlspecialchars($company) ?></h1>
+        <h1 class="content-block__title"><?php
+          // Use semantic title from router metadata if available
+          if (isset($GLOBALS['__page_meta']['title'])) {
+              // Extract title without brand suffix
+              $title = $GLOBALS['__page_meta']['title'];
+              $title = str_replace(' | NRLC.ai', '', $title);
+              $title = str_replace('Case Study: ', '', $title);
+              echo htmlspecialchars($title);
+          } else {
+              // Fallback to old format
+              echo "Case Study #" . htmlspecialchars($caseNumber) . ": " . htmlspecialchars($company);
+          }
+        ?></h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">How <?= htmlspecialchars($company) ?>, a leading <?= htmlspecialchars($industry) ?> company, achieved significant improvements in AI engine visibility through strategic SEO optimization.</p>
+        <p class="lead"><?php
+          // Use description from router metadata if available
+          if (isset($GLOBALS['__page_meta']['description'])) {
+              echo htmlspecialchars($GLOBALS['__page_meta']['description']);
+          } else {
+              echo "How " . htmlspecialchars($company) . ", a leading " . htmlspecialchars($industry) . " company, achieved significant improvements in AI engine visibility through strategic SEO optimization.";
+          }
+        ?></p>
       </div>
     </div>
     
@@ -197,7 +236,13 @@ $faqs = det_pick([
 
 <?php
 // Generate comprehensive schema
-$canonicalUrl = 'https://nrlc.ai/case-studies/case-study-' . $caseNumber . '/';
+// Use slug-based canonical URL if available, otherwise fallback to numeric
+if ($caseSlug) {
+    $canonicalPath = $GLOBALS['__page_meta']['canonicalPath'] ?? "/case-studies/{$caseSlug}/";
+    $canonicalUrl = absolute_url($canonicalPath);
+} else {
+    $canonicalUrl = absolute_url("/case-studies/case-study-{$caseNumber}/");
+}
 $date = date('Y-m-d');
 
 $schemaGraph = [
@@ -208,7 +253,7 @@ $schemaGraph = [
     '@id' => $canonicalUrl . '#webpage',
     'name' => 'Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company),
     'url' => $canonicalUrl,
-    'description' => 'How ' . htmlspecialchars($company) . ', a leading ' . htmlspecialchars($industry) . ' company, achieved significant improvements in AI engine visibility through strategic SEO optimization.',
+    'description' => isset($GLOBALS['__page_meta']['description']) ? $GLOBALS['__page_meta']['description'] : ('How ' . htmlspecialchars($company) . ', a leading ' . htmlspecialchars($industry) . ' company, achieved significant improvements in AI engine visibility through strategic SEO optimization.'),
     'isPartOf' => [
       '@type' => 'WebSite',
       '@id' => 'https://nrlc.ai/#website',
@@ -239,7 +284,7 @@ $schemaGraph = [
       [
         '@type' => 'ListItem',
         'position' => 3,
-        'name' => 'Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company),
+        'name' => isset($GLOBALS['__page_meta']['title']) ? str_replace(' | NRLC.ai', '', $GLOBALS['__page_meta']['title']) : ('Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company)),
         'item' => $canonicalUrl
       ]
     ]
@@ -250,7 +295,7 @@ $schemaGraph = [
     '@context' => 'https://schema.org',
     '@type' => 'Article',
     '@id' => $canonicalUrl . '#article',
-    'headline' => 'Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company) . ' AI SEO Success',
+    'headline' => isset($GLOBALS['__page_meta']['title']) ? str_replace(' | NRLC.ai', '', $GLOBALS['__page_meta']['title']) : ('Case Study #' . htmlspecialchars($caseNumber) . ': ' . htmlspecialchars($company) . ' AI SEO Success'),
     'description' => 'Detailed case study showing how ' . htmlspecialchars($company) . ' achieved significant AI SEO improvements',
     'author' => [
       '@type' => 'Person',

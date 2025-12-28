@@ -761,26 +761,122 @@ function route_request(): void {
   }
 
   // Case studies routes
+  // CANONICAL: Slug-based URLs (SEO-friendly, semantic, ontology-aligned)
+  // Map slugs to case study IDs (for template rendering)
+  $caseStudySlugMap = [
+    'b2b-saas' => 25,
+    'ecommerce' => 26,
+    'healthcare' => 27,
+    'fintech' => 28,
+    'education' => 29,
+    'real-estate' => 30
+  ];
+  
+  // Reverse map: ID → slug (for redirects from old numeric URLs)
+  $caseStudyIdToSlug = [
+    25 => 'b2b-saas',
+    26 => 'ecommerce',
+    27 => 'healthcare',
+    28 => 'fintech',
+    29 => 'education',
+    30 => 'real-estate'
+  ];
+  
+  // Route: /case-studies/{id}/view-case-study (301 redirect to slug-based canonical)
+  if (preg_match('#^/case-studies/(\d+)/view-case-study/?$#', $path, $m)) {
+    $caseNumber = (int)$m[1];
+    
+    // Preserve locale from original request
+    $locale = current_locale();
+    $localePrefix = ($locale !== 'en-us') ? '/' . $locale : '';
+    
+    // Redirect to slug-based canonical if ID exists, otherwise 404
+    if (isset($caseStudyIdToSlug[$caseNumber])) {
+      $slug = $caseStudyIdToSlug[$caseNumber];
+      $canonical = $localePrefix . '/case-studies/' . $slug . '/';
+      header("Location: " . absolute_url($canonical), true, 301);
+      exit;
+    }
+    
+    // Unknown ID - 404
+    http_response_code(404);
+    echo "Case study not found";
+    return;
+  }
+  
+  // Route: /case-studies/case-study-{id}/ (301 redirect to slug-based canonical)
   if (preg_match('#^/case-studies/case-study-(\d+)/$#', $path, $m)) {
-    $_GET['case'] = $m[1];
-    $caseNumber = $m[1];
+    $caseNumber = (int)$m[1];
     
-    // Generate unique metadata using ctx-based system
-    require_once __DIR__.'/../lib/meta_directive.php';
-    $companies = ['TechCorp', 'DataFlow Inc', 'CloudSync', 'AI Ventures', 'SearchMax', 'SchemaPro', 'LLM Labs', 'SEO Dynamics'];
-    $company = $companies[($caseNumber - 1) % count($companies)];
-    $title = "$company AI SEO Case Study";
+    // Preserve locale from original request
+    $locale = current_locale();
+    $localePrefix = ($locale !== 'en-us') ? '/' . $locale : '';
     
-    $ctx = [
-      'type' => 'case_study',
-      'slug' => "case-studies/case-study-$caseNumber",
-      'title' => $title,
-      'excerpt' => "See how we helped $company achieve measurable results with AI SEO. Real-world implementation, data-driven outcomes, and actionable insights.",
-      'canonicalPath' => $path
-    ];
-    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    // Redirect to slug-based canonical if ID exists, otherwise 404
+    if (isset($caseStudyIdToSlug[$caseNumber])) {
+      $slug = $caseStudyIdToSlug[$caseNumber];
+      $canonical = $localePrefix . '/case-studies/' . $slug . '/';
+      header("Location: " . absolute_url($canonical), true, 301);
+      exit;
+    }
     
-    render_page('case-studies/case-study');
+    // Unknown ID - 404
+    http_response_code(404);
+    echo "Case study not found";
+    return;
+  }
+  
+  // Route: /case-studies/{slug}/ (CANONICAL - SEO-friendly, semantic URLs)
+  if (preg_match('#^/case-studies/([^/]+)/$#', $path, $m)) {
+    $slug = $m[1];
+    
+    // Check if it's a known case study slug
+    if (isset($caseStudySlugMap[$slug])) {
+      $caseNumber = $caseStudySlugMap[$slug];
+      $_GET['case'] = $caseNumber;
+      $_GET['slug'] = $slug; // Pass slug to template for semantic context
+      
+      // Generate unique metadata using ctx-based system
+      require_once __DIR__.'/../lib/meta_directive.php';
+      
+      // Use semantic titles based on slug
+      $caseStudyTitles = [
+        'b2b-saas' => 'B2B SaaS AI SEO Case Study',
+        'ecommerce' => 'E-commerce AI SEO Case Study',
+        'healthcare' => 'Healthcare AI SEO Case Study',
+        'fintech' => 'Fintech AI SEO Case Study',
+        'education' => 'Education AI SEO Case Study',
+        'real-estate' => 'Real Estate AI SEO Case Study'
+      ];
+      
+      $caseStudyDescriptions = [
+        'b2b-saas' => 'How a SaaS company increased AI citations by 340% through structured data optimization and entity mapping.',
+        'ecommerce' => 'E-commerce platform achieved 250% increase in AI visibility through product schema optimization.',
+        'healthcare' => 'Medical website improved AI citation rates by 180% with healthcare-specific entity optimization.',
+        'fintech' => 'Financial services company increased AI mentions by 290% through compliance-focused optimization.',
+        'education' => 'Educational platform achieved 220% increase in AI citations through academic content optimization.',
+        'real-estate' => 'Property platform improved AI visibility by 160% with location-based entity optimization.'
+      ];
+      
+      $title = $caseStudyTitles[$slug] ?? 'AI SEO Case Study';
+      $excerpt = $caseStudyDescriptions[$slug] ?? 'See how we achieved measurable results with AI SEO. Real-world implementation, data-driven outcomes, and actionable insights.';
+      
+      $ctx = [
+        'type' => 'case_study',
+        'slug' => "case-studies/$slug",
+        'title' => $title,
+        'excerpt' => $excerpt,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      render_page('case-studies/case-study');
+      return;
+    }
+    
+    // Unknown slug - 404
+    http_response_code(404);
+    echo "Case study not found";
     return;
   }
 
