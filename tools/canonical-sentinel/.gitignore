@@ -1,0 +1,7 @@
+# Scan results
+results/*.json
+results/.rate_limit_*.json
+
+# Output files (CLI)
+output/
+

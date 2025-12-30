@@ -347,6 +347,7 @@ if ($industryEntries) {
 // 7. Tools sitemap
 $toolEntries = [];
 $toolPages = [
+  'canonical-sentinel',  // Canonical Sentinel - Free SEO tool (high priority)
   'chatgpt', 'claude', 'perplexity', 'bard', 'copilot', 'google-ai-overviews',
   'schema-generator', 'json-ld-validator', 'structured-data-testing',
   'screaming-frog', 'sitebulb', 'ahrefs', 'semrush', 'moz', 'brightedge', 'seer-interactive'
@@ -354,8 +355,11 @@ $toolPages = [
 
 foreach ($toolPages as $tool) {
   // SITEMAP CANONICAL ONLY
+  // Canonical Sentinel gets higher priority (0.9) as it's a free tool we want to promote
+  $priority = ($tool === 'canonical-sentinel') ? '0.9' : '0.7';
+  $changefreq = ($tool === 'canonical-sentinel') ? 'weekly' : 'monthly';
   $canonicalUrl = "https://nrlc.ai/en-us/tools/{$tool}/";
-  $toolEntries[] = sitemap_entry_simple($canonicalUrl, $today, 'monthly', '0.7');
+  $toolEntries[] = sitemap_entry_simple($canonicalUrl, $today, $changefreq, $priority);
 }
 
 if ($toolEntries) {

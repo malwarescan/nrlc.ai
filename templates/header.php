@@ -91,6 +91,17 @@
         </ul>
       </li>
       <?php
+      $toolsAttrs = menu_item_seo_attrs('Tools');
+      $isTools = strpos($_SERVER['REQUEST_URI'] ?? '', '/tools/') === 0;
+      $canonicalSentinelAttrs = menu_item_seo_attrs('Canonical Sentinel');
+      ?>
+      <li class="nav-primary__item nav-primary__item--has-dropdown">
+        <a href="/tools/canonical-sentinel/" class="nav-primary__link" title="<?= $toolsAttrs['title'] ?>" aria-label="<?= $toolsAttrs['aria-label'] ?>"<?= $isTools ? ' aria-current="page"' : '' ?>>Tools</a>
+        <ul class="nav-primary__dropdown" aria-label="Tools submenu">
+          <li><a href="/tools/canonical-sentinel/" class="nav-primary__dropdown-link" title="<?= $canonicalSentinelAttrs['title'] ?>" aria-label="<?= $canonicalSentinelAttrs['aria-label'] ?>"<?= strpos($_SERVER['REQUEST_URI'] ?? '', '/tools/canonical-sentinel/') !== false ? ' aria-current="page"' : '' ?>>Canonical Sentinel</a></li>
+        </ul>
+      </li>
+      <?php
       $catalogAttrs = menu_item_seo_attrs('Catalog');
       $isCatalog = strpos($_SERVER['REQUEST_URI'] ?? '', '/catalog/') === 0;
       ?>

@@ -748,6 +748,38 @@ function route_request(): void {
     return;
   }
 
+  // Canonical Sentinel - Serve static assets first, then route to index
+  if (preg_match('#^/tools/canonical-sentinel/#', $path)) {
+    // Serve static assets (CSS, JS, images)
+    if (preg_match('#^/tools/canonical-sentinel/assets/(.+)$#', $path, $m)) {
+      $assetPath = __DIR__ . '/../tools/canonical-sentinel/assets/' . $m[1];
+      if (file_exists($assetPath) && is_file($assetPath)) {
+        // Set proper content type
+        $ext = strtolower(pathinfo($assetPath, PATHINFO_EXTENSION));
+        $contentTypes = [
+          'css' => 'text/css',
+          'js' => 'application/javascript',
+          'png' => 'image/png',
+          'jpg' => 'image/jpeg',
+          'jpeg' => 'image/jpeg',
+          'gif' => 'image/gif',
+          'svg' => 'image/svg+xml',
+        ];
+        $contentType = $contentTypes[$ext] ?? 'application/octet-stream';
+        header('Content-Type: ' . $contentType);
+        readfile($assetPath);
+        return;
+      }
+    }
+    
+    // Route to index.php
+    $sentinelPath = __DIR__ . '/../tools/canonical-sentinel/index.php';
+    if (file_exists($sentinelPath)) {
+      require $sentinelPath;
+      return;
+    }
+  }
+
   // Tools routes
   if (preg_match('#^/tools/([^/]+)/$#', $path, $m)) {
     $_GET['tool'] = $m[1];

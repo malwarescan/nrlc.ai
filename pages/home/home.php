@@ -64,6 +64,19 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
       </div>
     </div>
 
+    <!-- FREE TOOLS SECTION: CANONICAL SENTINEL -->
+    <div class="content-block module" style="background: #e8f5e9; border-left: 3px solid #4caf50; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
+      <div class="content-block__body">
+        <h3 style="margin-top: 0; color: #2e7d32;"><strong>Free SEO Tool: Canonical Sentinel</strong></h3>
+        <p style="color: #1b5e20;"><strong>Detect canonical tag errors that cause indexing loss, duplicate content, and AI citation failures.</strong></p>
+        <p style="color: #1b5e20;">Canonical tag mismatches silently degrade SEO performance and reduce AI visibility. Canonical Sentinel scans your website to identify self-canonical failures, redirect conflicts, sitemap contradictions, and other issues that waste crawl budget and hurt rankings.</p>
+        <p style="color: #1b5e20; margin-bottom: var(--spacing-md);"><strong>Free • No signup required • Instant results</strong></p>
+        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+          <a href="/tools/canonical-sentinel/" class="btn btn--primary" title="Scan your website for canonical tag errors">Scan Your Site</a>
+        </div>
+      </div>
+    </div>
+
     <!-- PRECHUNKING SEO COURSE CTA -->
     <div class="content-block module" style="background: #fff3cd; border-left: 3px solid #ffc107; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
       <div class="content-block__body">

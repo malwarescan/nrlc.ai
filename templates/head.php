@@ -55,6 +55,7 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
   $title = $meta['title'] ?? 'NRLC.ai';
   $desc = $meta['description'] ?? 'AI SEO services and solutions';
   $canonicalPath = $meta['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+  $customKeywords = $meta['keywords'] ?? null;
   
   // Check if noindex is explicitly set in metadata (e.g., for API endpoints)
   $noindexMeta = (!empty($meta['noindex'])) ? '<meta name="robots" content="noindex,nofollow">' . "\n" : '';
@@ -142,7 +143,7 @@ $baseSchemas = base_schemas();
 <meta name="googlebot" content="index, follow">
 <meta name="bingbot" content="index, follow">
 <meta name="author" content="NRLC.ai">
-<meta name="keywords" content="AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity, <?=htmlspecialchars(extract_keywords_from_title($title))?>">
+<meta name="keywords" content="<?= htmlspecialchars($customKeywords ?? 'AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity, ' . extract_keywords_from_title($title)) ?>">
 <!-- Schema.org Powered -->
 <meta name="generator" content="Schema.org Structured Data">
 <meta name="schema-org" content="https://schema.org">
@@ -170,6 +171,13 @@ foreach ($hreflangLinks as $alt) {
 }
 foreach ($baseSchemas as $s) {
   echo '<script type="application/ld+json">'.json_encode($s, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE).'</script>'."\n";
+}
+
+// Allow pages to inject custom CSS before </head>
+if (isset($GLOBALS['__custom_css']) && is_array($GLOBALS['__custom_css'])) {
+  foreach ($GLOBALS['__custom_css'] as $cssUrl) {
+    echo '<link rel="stylesheet" href="' . htmlspecialchars($cssUrl) . '">' . "\n";
+  }
 }
 ?>
 </head>
