@@ -587,6 +587,52 @@ function route_request(): void {
     return;
   }
 
+  // GEO Routes
+  if ($path === '/generative-engine-optimization/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'generative-engine-optimization/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Generative Engine Optimization: How AI Systems Retrieve and Cite Content | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Complete guide to GEO: how generative engines retrieve information, why traditional SEO fails, and how to structure content for AI retrieval and citation.';
+    render_page('generative-engine-optimization/index');
+    return;
+  }
+
+  if ($path === '/generative-engine-optimization/failure-modes/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'generative-engine-optimization/failure-modes/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'GEO Failure Modes: Why Content Disappears from AI Results | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Observable failure patterns that cause content to disappear from AI-generated answers. Each failure mode documents mechanics, triggers, and mitigation strategies.';
+    render_page('generative-engine-optimization/failure-modes/index');
+    return;
+  }
+
+  // GEO Failure Mode Pages
+  if (preg_match('#^/generative-engine-optimization/failure-modes/([^/]+)/$#', $path, $m)) {
+    $failureModeSlug = $m[1];
+    $failureModeFile = __DIR__.'/../pages/generative-engine-optimization/failure-modes/'.$failureModeSlug.'.php';
+    if (file_exists($failureModeFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'generative-engine-optimization/failure-modes/'.$failureModeSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('generative-engine-optimization/failure-modes/'.$failureModeSlug);
+      return;
+    }
+  }
+
   if ($path === '/insights/') {
     // Generate unique metadata using ctx-based system for insights hub
     require_once __DIR__.'/../lib/meta_directive.php';
