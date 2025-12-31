@@ -689,8 +689,9 @@ function get_geo_pages(): array {
     }
   }
   
-  // Glossary Sub-Pages (3)
+  // Glossary Sub-Pages (4)
   $glossaryPages = [
+    'decision-traces',
     'generative-search-terms',
     'retrieval-failure-patterns',
     'ai-search-definitions'
