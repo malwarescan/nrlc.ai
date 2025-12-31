@@ -102,7 +102,9 @@
 
 /* Submit button spacing */
 form .btn-primary,
-form .btn-secondary {
+form .btn-secondary,
+form .btn.btn--primary,
+form .btn.btn--secondary {
   margin-top: var(--spacing-md, 1rem); /* Add top margin to submit button */
   margin-bottom: 0;
 }
