@@ -475,6 +475,17 @@ function get_geo_pages(): array {
     ];
   }
   
+  // Decision Traces (1)
+  $decisionTracesFile = __DIR__ . '/../pages/generative-engine-optimization/decision-traces.php';
+  if (file_exists($decisionTracesFile)) {
+    $geoPages[] = [
+      'loc' => 'https://nrlc.ai/en-us/generative-engine-optimization/decision-traces/',
+      'lastmod' => date('Y-m-d', filemtime($decisionTracesFile)),
+      'changefreq' => 'weekly',
+      'priority' => '0.9'
+    ];
+  }
+
   // GEO Failure Modes (2)
   $geoPages[] = [
     'loc' => 'https://nrlc.ai/en-us/generative-engine-optimization/failure-modes/',
