@@ -149,6 +149,7 @@ $GLOBALS['__jsonld'] = [
             <li>Mitigation Strategy</li>
           </ol>
           <p>No opinions. No tips. Only mechanics.</p>
+          <p>Each failure pattern represents a negative decision trace, where confidence drops below retrieval thresholds. <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">Decision traces in generative search</a> explain how these patterns accumulate and influence future retrieval decisions.</p>
         </div>
       </div>
 

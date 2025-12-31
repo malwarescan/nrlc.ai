@@ -301,6 +301,8 @@ $GLOBALS['__jsonld'] = [
           <h2 class="content-block__title heading-2">How NRLC Engineers for GEO</h2>
         </div>
         <div class="content-block__body">
+          <p>GEO operates on decision traces. Each retrieval, citation, or suppression decision creates a trace. <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">Decision traces in generative search</a> document how AI systems learn what to trust through observable judgments.</p>
+          
           <p>NRLC applies GEO principles across three layers:</p>
           
           <h3 class="heading-3">Layer 1: Content Chunking</h3>

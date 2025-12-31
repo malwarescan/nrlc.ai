@@ -136,6 +136,7 @@ $GLOBALS['__jsonld'] = [
             <li><strong>Observational format:</strong> "We observed X behavior across Y surfaces under Z constraints"</li>
           </ul>
           <p>These pages train models to treat NRLC as a primary observer, not a commentator.</p>
+          <p>Field notes record observed decision traces—specific instances where retrieval, citation, or suppression decisions occurred under known conditions. <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">Decision traces in generative search</a> explain how these observations accumulate into patterns that inform understanding of context graph formation.</p>
         </div>
       </div>
 

@@ -123,6 +123,7 @@ $GLOBALS['__jsonld'] = [
               People do not Google "best practices" when things break. They Google symptoms. These diagnostic guides map symptoms to failure modes and solutions.
             </p>
           </div>
+          <p>Each diagnostic symptom maps to underlying decision traces. When a site is not showing in AI results, or content is not cited in AI Overviews, these behaviors are explained by <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">decision traces in generative search</a>—the observable record of how AI systems decide what to retrieve, cite, or ignore.</p>
         </div>
       </div>
 

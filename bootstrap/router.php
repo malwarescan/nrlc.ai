@@ -590,10 +590,12 @@ function route_request(): void {
   // GEO Routes
   if ($path === '/generative-engine-optimization/') {
     require_once __DIR__.'/../lib/meta_directive.php';
+    // Use actual request path for canonical (includes locale if present)
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
     $ctx = [
       'type' => 'page',
       'slug' => 'generative-engine-optimization/index',
-      'canonicalPath' => $path
+      'canonicalPath' => $actualPath
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     $GLOBALS['__page_meta']['title'] = 'Generative Engine Optimization: How AI Systems Retrieve and Cite Content | NRLC.ai';
@@ -613,6 +615,23 @@ function route_request(): void {
     $GLOBALS['__page_meta']['title'] = 'GEO Failure Modes: Why Content Disappears from AI Results | NRLC.ai';
     $GLOBALS['__page_meta']['description'] = 'Observable failure patterns that cause content to disappear from AI-generated answers. Each failure mode documents mechanics, triggers, and mitigation strategies.';
     render_page('generative-engine-optimization/failure-modes/index');
+    return;
+  }
+
+  // Decision Traces page
+  if ($path === '/generative-engine-optimization/decision-traces/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    // Use actual request path for canonical (includes locale if present)
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'generative-engine-optimization/decision-traces',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Decision Traces in Generative Search | How AI Systems Decide What to Trust';
+    $GLOBALS['__page_meta']['description'] = 'Decision traces explain how generative AI systems decide what to retrieve, cite, or ignore. Learn how search decisions, confidence, and context graphs shape AI visibility.';
+    render_page('generative-engine-optimization/decision-traces');
     return;
   }
 
@@ -766,10 +785,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/ai-search-diagnostics/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'ai-search-diagnostics/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('ai-search-diagnostics/'.$pageSlug);
@@ -783,10 +804,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/ai-search-measurement/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'ai-search-measurement/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('ai-search-measurement/'.$pageSlug);
@@ -800,10 +823,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/ai-search-strategy/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'ai-search-strategy/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('ai-search-strategy/'.$pageSlug);
@@ -817,10 +842,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/ai-search-operations/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'ai-search-operations/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('ai-search-operations/'.$pageSlug);
@@ -834,10 +861,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/ai-search-migrations/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'ai-search-migrations/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('ai-search-migrations/'.$pageSlug);
@@ -851,10 +880,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/ai-search-risk/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'ai-search-risk/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('ai-search-risk/'.$pageSlug);
@@ -868,10 +899,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/ai-search-tools-reality/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'ai-search-tools-reality/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('ai-search-tools-reality/'.$pageSlug);
@@ -885,10 +918,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/field-notes/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'field-notes/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('field-notes/'.$pageSlug);
@@ -902,10 +937,12 @@ function route_request(): void {
     $pageFile = __DIR__.'/../pages/glossary/'.$pageSlug.'.php';
     if (file_exists($pageFile)) {
       require_once __DIR__.'/../lib/meta_directive.php';
+      // Use actual request path for canonical (includes locale if present)
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
       $ctx = [
         'type' => 'page',
         'slug' => 'glossary/'.$pageSlug,
-        'canonicalPath' => $path
+        'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('glossary/'.$pageSlug);

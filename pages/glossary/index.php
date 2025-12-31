@@ -10,6 +10,11 @@ $canonicalUrl = absolute_url('/en-us/glossary/');
 
 $glossarySections = [
   [
+    'slug' => 'decision-traces',
+    'name' => 'Decision Traces',
+    'description' => 'The observable record of how generative AI systems decide what to retrieve, cite, or suppress.'
+  ],
+  [
     'slug' => 'generative-search-terms',
     'name' => 'Generative Search Terms',
     'description' => 'Core terminology for generative search and AI-mediated search environments.'
