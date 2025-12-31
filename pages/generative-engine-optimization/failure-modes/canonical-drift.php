@@ -212,6 +212,7 @@ $GLOBALS['__jsonld'] = [
           <h2 class="content-block__title heading-2">Mitigation Strategy</h2>
         </div>
         <div class="content-block__body">
+          <p>This failure pattern represents a negative decision trace, where confidence drops below retrieval thresholds. <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">Decision traces in generative search</a> explain how these patterns accumulate and influence future retrieval decisions.</p>
           <p>To mitigate canonical drift:</p>
           <ol>
             <li><strong>Establish single canonical URL:</strong> Choose one authoritative URL variant</li>

@@ -122,6 +122,7 @@ $GLOBALS['__jsonld'] = [
           <h2 class="content-block__title heading-2">Why the Symptom Appears</h2>
         </div>
         <div class="content-block__body">
+          <p>This behavior is explained by <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">decision traces in generative search</a>. When content cannot be cleanly segmented or lacks atomic, self-contained answers, generative engines create negative decision traces—records that the content failed confidence or relevance thresholds.</p>
           <p>Generative engines retrieve content at the segment level, not the page level. If your content cannot be cleanly segmented or lacks atomic, self-contained answers, it will not be retrieved even if the page ranks well.</p>
           <p>Common root causes:</p>
           <ul>
