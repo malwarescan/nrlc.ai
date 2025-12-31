@@ -68,6 +68,16 @@ For `pages/services/index.php`:
 4. **Authoritative**: SUDO authority ensures consistency
 5. **Content-Driven**: Uses actual page content (H1, lead) when available
 
+## Related Directives
+
+- **Content Chunking Directive**: `SUDO_META_DIRECTIVE_CONTENT_CHUNKING.md` - UX/readability content structure (chunking for humans)
+- **Prechunking Directive**: `SUDO_META_DIRECTIVE_PRECHUNKING.md` - AI retrieval and citation structure (prechunking for machines)
+- **Prechunking QA Enforcement**: `docs/sudo-meta-directive-prechunking-qa-enforcement.md` - QA validation rules
+
+**Important Distinction:**
+- **Content Chunking** = UX, readability, scannability (presentation)
+- **Prechunking** = Retrieval, citation, LLM isolation (extraction)
+
 ## Status
 
 ✅ **ACTIVE** - System is live and enforcing metadata alignment on all pages.

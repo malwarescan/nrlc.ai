@@ -431,7 +431,16 @@ function route_request(): void {
     $articleTitle = ucwords(str_replace(['-', '_'], ' ', $slug));
     
     // Special handling for specific articles
-    if ($slug === 'google-llms-txt-ai-seo') {
+    if ($slug === 'content-chunking-seo') {
+      $articleTitle = "Content Chunking for SEO: How to Structure Content for Readability and AI";
+      $excerpt = "Learn how to structure content into digestible, scannable chunks that improve readability, SEO, and AI parsing.";
+    } elseif ($slug === 'prechunking-content-ai-retrieval') {
+      $articleTitle = "Prechunking Content for AI Retrieval, AI Overviews, and LLM Citation";
+      $excerpt = "Learn how to structure content before writing so each section can be independently retrieved and cited by AI systems.";
+    } elseif ($slug === 'ai-retrieval-llm-citation') {
+      $articleTitle = "How LLMs Retrieve and Cite Web Content";
+      $excerpt = "Understand how AI systems extract, score, and surface content for answers and citations.";
+    } elseif ($slug === 'google-llms-txt-ai-seo') {
       $articleTitle = "Google LLMs.txt Documentation Analysis & SEO Strategy";
       $excerpt = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
     } elseif ($slug === 'semantic-queries') {
@@ -1028,6 +1037,51 @@ function route_request(): void {
   }
 
   // Prechunking SEO Documentation routes
+  // Content Chunking Guide
+  if ($path === '/docs/content-chunking/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/content-chunking/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Content Chunking Guide - SEO, UX, and AI Parsing | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Learn how to structure content into digestible, scannable chunks that improve readability, SEO, and AI parsing. Complete guide to content chunking principles and best practices.';
+    render_page('docs/content-chunking/index');
+    return;
+  }
+
+  // Prechunking Guide
+  if ($path === '/docs/prechunking/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/prechunking/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Prechunking Guide - AI Retrieval, AI Overviews, and LLM Citation | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Complete guide to prechunking content for AI retrieval, AI Overviews, and LLM citation. Learn how to structure content before writing so each section can be independently retrieved and cited.';
+    render_page('docs/prechunking/index');
+    return;
+  }
+
+  // AI Retrieval & LLM Citation Guide
+  if ($path === '/docs/ai-retrieval/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'docs/ai-retrieval/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'AI Retrieval & LLM Citation Guide | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Expert guide to how AI systems retrieve and cite content. Learn how search engines and LLMs extract segments, score them for answer quality, and surface them in AI Overviews and answers.';
+    render_page('docs/ai-retrieval/index');
+    return;
+  }
+
   if ($path === '/docs/prechunking-seo/') {
     require_once __DIR__.'/../lib/meta_directive.php';
     $ctx = [

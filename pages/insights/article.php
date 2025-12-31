@@ -49,6 +49,10 @@ $insight_articles = [
   'how-llm-strategists-influence-retrieval' => 'how-llm-strategists-influence-retrieval.php',
   'llm-strategist-faq' => 'llm-strategist-faq.php',
   'how-to-become-an-llm-strategist' => 'how-to-become-an-llm-strategist.php',
+  // Content chunking cluster pages
+  'content-chunking-seo' => 'content-chunking-seo.php',
+  'prechunking-content-ai-retrieval' => 'prechunking-content-ai-retrieval.php',
+  'ai-retrieval-llm-citation' => 'ai-retrieval-llm-citation.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
   'goldmine-seleccion-titulos-google' => 'goldmine-google-title-selection.php',
   'goldmine-selection-titres-google' => 'goldmine-google-title-selection.php',

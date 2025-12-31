@@ -38,6 +38,8 @@ A PHP 8+ programmatic SEO platform with multi-regional routing, hreflang impleme
 - **SearchAction** in WebSite schema
 - **Entity-weighted copy** with city/service disambiguation
 - **Deep OfferCatalog** structures (pain point solutions)
+- **Content chunking validation** for UX and scannability
+- **Prechunking validation** for AI retrieval and citation eligibility
 
 ## Quick Start
 
@@ -107,6 +109,8 @@ make careers_with_service     # Generate role × service × city matrix
 make news                     # Fast news-only rebuild
 make validate                 # Validate all sitemaps
 make ping                     # Notify Google & Bing
+php scripts/validate_content_chunking.php  # Validate content chunking (UX)
+php scripts/validate_prechunking.php  # Validate prechunking (retrieval)
 ```
 
 ## Project Structure
@@ -291,6 +295,10 @@ ini_set('display_errors', '1');
 - **[SCAFFOLD_COMPLETE.md](SCAFFOLD_COMPLETE.md)** - Initial platform scaffold guide
 - **[SITEMAP_V2_COMPLETE.md](SITEMAP_V2_COMPLETE.md)** - Sitemap v2 implementation details
 - **[SITEMAP_UTILITIES_COMPLETE.md](SITEMAP_UTILITIES_COMPLETE.md)** - Utilities & automation guide
+- **[SUDO_META_DIRECTIVE_CONTENT_CHUNKING.md](SUDO_META_DIRECTIVE_CONTENT_CHUNKING.md)** - Content chunking for UX/readability
+- **[SUDO_META_DIRECTIVE_PRECHUNKING.md](SUDO_META_DIRECTIVE_PRECHUNKING.md)** - Prechunking for AI retrieval/citation
+- **[docs/chunking-vs-prechunking.md](docs/chunking-vs-prechunking.md)** - Critical distinction between chunking and prechunking
+- **[docs/prechunking-validation-guide.md](docs/prechunking-validation-guide.md)** - Prechunking validation guide
 
 ## Tech Stack
 
