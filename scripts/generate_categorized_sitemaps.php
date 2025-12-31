@@ -442,6 +442,265 @@ function get_index_pages(): array {
 }
 
 /**
+ * Get all GEO (Generative Engine Optimization) pages
+ * Includes pillar pages, failure modes, content chunking cluster, and all sub-pages
+ */
+function get_geo_pages(): array {
+  $today = date('Y-m-d');
+  $geoPages = [];
+  
+  // Pillar Pages (10)
+  $pillars = [
+    'generative-engine-optimization',
+    'ai-search-diagnostics',
+    'ai-search-measurement',
+    'ai-search-strategy',
+    'ai-search-operations',
+    'ai-search-migrations',
+    'ai-search-risk',
+    'ai-search-tools-reality',
+    'field-notes',
+    'glossary'
+  ];
+  
+  foreach ($pillars as $pillar) {
+    $pageFile = __DIR__ . '/../pages/' . $pillar . '/index.php';
+    $lastmod = file_exists($pageFile) ? date('Y-m-d', filemtime($pageFile)) : $today;
+    
+    $geoPages[] = [
+      'loc' => "https://nrlc.ai/en-us/{$pillar}/",
+      'lastmod' => $lastmod,
+      'changefreq' => 'weekly',
+      'priority' => '0.9' // High priority for GEO content
+    ];
+  }
+  
+  // GEO Failure Modes (2)
+  $geoPages[] = [
+    'loc' => 'https://nrlc.ai/en-us/generative-engine-optimization/failure-modes/',
+    'lastmod' => file_exists(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/index.php') 
+      ? date('Y-m-d', filemtime(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/index.php'))
+      : $today,
+    'changefreq' => 'weekly',
+    'priority' => '0.9'
+  ];
+  
+  $geoPages[] = [
+    'loc' => 'https://nrlc.ai/en-us/generative-engine-optimization/failure-modes/canonical-drift/',
+    'lastmod' => file_exists(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/canonical-drift.php')
+      ? date('Y-m-d', filemtime(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/canonical-drift.php'))
+      : $today,
+    'changefreq' => 'monthly',
+    'priority' => '0.8'
+  ];
+  
+  // Content Chunking Cluster (3)
+  $chunkingPages = [
+    'content-chunking-seo',
+    'prechunking-content-ai-retrieval',
+    'ai-retrieval-llm-citation'
+  ];
+  
+  foreach ($chunkingPages as $page) {
+    $pageFile = __DIR__ . '/../pages/insights/' . $page . '.php';
+    $lastmod = file_exists($pageFile) ? date('Y-m-d', filemtime($pageFile)) : $today;
+    
+    $geoPages[] = [
+      'loc' => "https://nrlc.ai/en-us/insights/{$page}/",
+      'lastmod' => $lastmod,
+      'changefreq' => 'monthly',
+      'priority' => '0.8'
+    ];
+  }
+  
+  // AI Search Diagnostics Sub-Pages (5)
+  $diagnosticsPages = [
+    'site-not-showing-in-ai-results',
+    'traffic-down-rankings-stable',
+    'not-cited-in-ai-overviews',
+    'indexed-but-not-retrieved',
+    'schema-stopped-working'
+  ];
+  
+  foreach ($diagnosticsPages as $page) {
+    $pageFile = __DIR__ . '/../pages/ai-search-diagnostics/' . $page . '.php';
+    // Only include if file exists (to avoid 404s in sitemap)
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/ai-search-diagnostics/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // AI Search Measurement Sub-Pages (5)
+  $measurementPages = [
+    'measuring-ai-visibility',
+    'tracking-ai-citations',
+    'reporting-ai-search-performance',
+    'attribution-in-zero-click-search',
+    'what-can-and-cannot-be-measured'
+  ];
+  
+  foreach ($measurementPages as $page) {
+    $pageFile = __DIR__ . '/../pages/ai-search-measurement/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/ai-search-measurement/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // AI Search Strategy Sub-Pages (5)
+  $strategyPages = [
+    'is-seo-still-relevant',
+    'what-seo-still-controls',
+    'what-seo-lost-control-over',
+    'future-of-seo-teams',
+    'agency-models-in-ai-search'
+  ];
+  
+  foreach ($strategyPages as $page) {
+    $pageFile = __DIR__ . '/../pages/ai-search-strategy/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/ai-search-strategy/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // AI Search Operations Sub-Pages (4)
+  $operationsPages = [
+    'practices-with-diminishing-returns',
+    'signals-generative-engines-ignore',
+    'what-to-stop-doing-in-seo',
+    'what-still-matters-operationally'
+  ];
+  
+  foreach ($operationsPages as $page) {
+    $pageFile = __DIR__ . '/../pages/ai-search-operations/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/ai-search-operations/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // AI Search Migrations Sub-Pages (5)
+  $migrationsPages = [
+    'restructuring-content-for-ai',
+    'migrating-legacy-blogs',
+    'chunking-existing-content',
+    'retiring-low-confidence-pages',
+    'rebuilding-sites-for-retrieval'
+  ];
+  
+  foreach ($migrationsPages as $page) {
+    $pageFile = __DIR__ . '/../pages/ai-search-migrations/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/ai-search-migrations/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // AI Search Risk Sub-Pages (5)
+  $riskPages = [
+    'ai-citation-risk',
+    'hallucinated-brand-mentions',
+    'correcting-ai-misinformation',
+    'trust-and-authority-governance',
+    'ai-search-compliance'
+  ];
+  
+  foreach ($riskPages as $page) {
+    $pageFile = __DIR__ . '/../pages/ai-search-risk/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/ai-search-risk/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // AI Search Tools Reality Sub-Pages (4)
+  $toolsRealityPages = [
+    'what-seo-tools-can-and-cannot-see',
+    'limitations-of-ai-visibility-tools',
+    'why-ai-search-data-is-incomplete',
+    'tool-metrics-vs-reality'
+  ];
+  
+  foreach ($toolsRealityPages as $page) {
+    $pageFile = __DIR__ . '/../pages/ai-search-tools-reality/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/ai-search-tools-reality/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // Field Notes Sub-Pages (3)
+  $fieldNotesPages = [
+    'google-ai-overviews',
+    'chatgpt',
+    'perplexity'
+  ];
+  
+  foreach ($fieldNotesPages as $page) {
+    $pageFile = __DIR__ . '/../pages/field-notes/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/field-notes/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'weekly',
+        'priority' => '0.8'
+      ];
+    }
+  }
+  
+  // Glossary Sub-Pages (3)
+  $glossaryPages = [
+    'generative-search-terms',
+    'retrieval-failure-patterns',
+    'ai-search-definitions'
+  ];
+  
+  foreach ($glossaryPages as $page) {
+    $pageFile = __DIR__ . '/../pages/glossary/' . $page . '.php';
+    if (file_exists($pageFile)) {
+      $geoPages[] = [
+        'loc' => "https://nrlc.ai/en-us/glossary/{$page}/",
+        'lastmod' => date('Y-m-d', filemtime($pageFile)),
+        'changefreq' => 'monthly',
+        'priority' => '0.7'
+      ];
+    }
+  }
+  
+  return $geoPages;
+}
+
+/**
  * Generate sitemap index
  */
 function generate_sitemap_index(array $sitemapFiles, string $sitemapDir, string $baseUrl): void {
@@ -467,6 +726,7 @@ $allSitemapFiles = [];
 
 // Generate each category sitemap
 $categories = [
+  'geo' => get_geo_pages(), // GEO pages first (highest priority)
   'products' => get_products(),
   'services' => get_services(),
   'insights' => get_insights(),
