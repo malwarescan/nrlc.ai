@@ -153,10 +153,10 @@ $GLOBALS['__jsonld'] = [
       <div class="content-block module" style="margin-bottom: var(--spacing-md);">
         <div class="content-block__body">
           <p style="margin-bottom: var(--spacing-sm);">
-            <a href="/insights/content-chunking-seo/" class="btn btn--secondary">← Start with Content Chunking</a>
+            <a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>" class="btn btn--secondary">← Start with Content Chunking</a>
           </p>
           <p>
-            <a href="/insights/prechunking-content-ai-retrieval/" class="btn btn--secondary">← Learn Prechunking</a>
+            <a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>" class="btn btn--secondary">← Learn Prechunking</a>
           </p>
         </div>
       </div>
@@ -181,7 +181,6 @@ $GLOBALS['__jsonld'] = [
               LLMs do not browse web pages like users; they select, score, and assemble information from individual segments before producing an answer.
             </p>
           </div>
-          <p>Search engines and LLMs do not retrieve pages. They retrieve segments.</p>
           <p>The retrieval process operates in five steps:</p>
           <ol>
             <li><strong>Query interpretation:</strong> The system understands what the user is asking</li>
@@ -282,11 +281,11 @@ $GLOBALS['__jsonld'] = [
           
           <h3 class="heading-3">Layer 1: Content Chunking</h3>
           <p>Governs presentation and readability. Helps users and AI scan content. Applied during or after writing.</p>
-          <p><a href="/insights/content-chunking-seo/">Learn about content chunking →</a></p>
+          <p><a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>">Learn about content chunking →</a></p>
 
           <h3 class="heading-3">Layer 2: Prechunking</h3>
           <p>Governs extraction and retrieval. Helps systems extract and cite content. Applied before writing.</p>
-          <p><a href="/insights/prechunking-content-ai-retrieval/">Learn about prechunking →</a></p>
+          <p><a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>">Learn about prechunking →</a></p>
 
           <h3 class="heading-3">Layer 3: Retrieval & Citation</h3>
           <p>Governs visibility and citation. Determines what gets seen in AI Overviews and LLM answers.</p>
@@ -318,8 +317,8 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <p>To fully understand AI retrieval, you should first understand:</p>
           <ul>
-            <li><a href="/insights/content-chunking-seo/">Content Chunking</a> - How content is structured for presentation</li>
-            <li><a href="/insights/prechunking-content-ai-retrieval/">Prechunking</a> - How content is structured for extraction</li>
+            <li><a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>">Content Chunking</a> - How content is structured for presentation</li>
+            <li><a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>">Prechunking</a> - How content is structured for extraction</li>
           </ul>
           <p>These three guides form a complete system: chunking for presentation, prechunking for extraction, and retrieval for visibility.</p>
         </div>

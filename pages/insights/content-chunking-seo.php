@@ -162,7 +162,7 @@ $GLOBALS['__jsonld'] = [
           <p class="lead text-lg" style="font-size: 1.25rem; margin-bottom: var(--spacing-lg);">Learn how to structure content for readability, SEO, and AI parsing</p>
           <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
             <a href="#start" class="btn btn--primary">Start with Content Chunking</a>
-            <a href="/insights/prechunking-content-ai-retrieval/" class="btn btn--secondary">Ready for AI Retrieval?</a>
+            <a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>" class="btn btn--secondary">Ready for AI Retrieval?</a>
           </div>
         </div>
       </div>
@@ -179,7 +179,6 @@ $GLOBALS['__jsonld'] = [
               Content chunking is the practice of organizing written content into logically grouped sections so users and AI systems can scan, understand, and summarize information efficiently.
             </p>
           </div>
-          <p>Content chunking is the practice of structuring written content into digestible, logically grouped sections to improve human readability, scannability, on-page SEO, AI parsing, and featured snippet eligibility.</p>
           <p>Chunking is applied during or after writing, not strictly before. It optimizes presentation and comprehension, not retrieval mechanics.</p>
         </div>
       </div>
@@ -257,7 +256,7 @@ $GLOBALS['__jsonld'] = [
               <h3 class="content-block__title heading-3">Prechunking Content for AI Retrieval</h3>
               <p>Learn how content is structured before writing to enable AI extraction and citation. Understand the difference between presentation (chunking) and extraction (prechunking).</p>
               <div style="margin-top: var(--spacing-md);">
-                <a href="/insights/prechunking-content-ai-retrieval/" class="btn btn--primary">Learn Prechunking →</a>
+                <a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>" class="btn btn--primary">Learn Prechunking →</a>
               </div>
             </div>
 
@@ -265,7 +264,7 @@ $GLOBALS['__jsonld'] = [
               <h3 class="content-block__title heading-3">How LLMs Retrieve and Cite Content</h3>
               <p>Understand how AI systems extract, score, and surface web content. Learn about segment extraction, scoring algorithms, and citation logic in AI Overviews.</p>
               <div style="margin-top: var(--spacing-md);">
-                <a href="/insights/ai-retrieval-llm-citation/" class="btn btn--primary">Learn AI Retrieval →</a>
+                <a href="<?= absolute_url('/en-us/insights/ai-retrieval-llm-citation/') ?>" class="btn btn--primary">Learn AI Retrieval →</a>
               </div>
             </div>
 

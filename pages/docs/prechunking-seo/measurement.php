@@ -118,17 +118,10 @@ $canonicalUrl = absolute_url('/docs/prechunking-seo/measurement/');
 </main>
 
 <?php
-add_jsonld(webpage_schema([
-  '@id' => $canonicalUrl . '#webpage',
-  'url' => $canonicalUrl,
-  'name' => 'Measurement & KPIs',
-  'description' => 'Prechunking SEO measurement and KPIs. AI citation rates, answer inclusion, cross-engine consistency, and zero-click dominance.',
-  'isPartOf' => ['@id' => absolute_url('/docs/prechunking-seo/') . '#collection'],
-  'breadcrumb' => breadcrumb_schema([
-    ['name' => 'Home', 'url' => absolute_url('/')],
-    ['name' => 'Documentation', 'url' => absolute_url('/docs/prechunking-seo/')],
-    ['name' => 'Measurement', 'url' => $canonicalUrl]
-  ])
-]));
 ?>
 
+<?php
+// Note: JSON-LD schemas should be added to $GLOBALS['__jsonld'] array
+// Footer is already included by router.php render_page()
+// Do not duplicate it here to avoid double footers
+?>

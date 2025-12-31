@@ -6,7 +6,7 @@ if (!function_exists('webpage_schema')) {
   require_once __DIR__.'/../../../lib/schema_builders.php';
 }
 
-$canonicalUrl = absolute_url('/generative-engine-optimization/failure-modes/canonical-drift/');
+$canonicalUrl = absolute_url('/en-us/generative-engine-optimization/failure-modes/canonical-drift/');
 
 $GLOBALS['__jsonld'] = [
   // About / Entity Graph
@@ -99,8 +99,8 @@ $GLOBALS['__jsonld'] = [
       <div class="content-block module" style="margin-bottom: var(--spacing-md);">
         <div class="content-block__body">
           <p>
-            <a href="/generative-engine-optimization/failure-modes/" class="btn btn--secondary">← Failure Modes Index</a>
-            <a href="/generative-engine-optimization/" class="btn btn--secondary" style="margin-left: var(--spacing-sm);">← GEO Overview</a>
+            <a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>" class="btn btn--secondary">← Failure Modes Index</a>
+            <a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="btn btn--secondary" style="margin-left: var(--spacing-sm);">← GEO Overview</a>
           </p>
         </div>
       </div>
@@ -216,13 +216,12 @@ $GLOBALS['__jsonld'] = [
           <ol>
             <li><strong>Establish single canonical URL:</strong> Choose one authoritative URL variant</li>
             <li><strong>Implement 301 redirects:</strong> Redirect all duplicate variants to the canonical</li>
-            <li><strong>Set canonical tags:</strong> Use self-referencing canonical tags on the canonical URL only</li>
+            <li><strong>Set canonical tags:</strong> Use self-referencing canonical tags on the canonical URL. NRLC standard: canonical pages use self-referencing canonicals; alternate pages point their canonicals to the canonical URL.</li>
             <li><strong>Consolidate internal links:</strong> Update all internal links to point to the canonical URL</li>
             <li><strong>Remove query parameters:</strong> Use rel="canonical" to consolidate query parameter variants</li>
             <li><strong>Monitor for drift:</strong> Regularly audit for new duplicate URL patterns</li>
           </ol>
           <p>Once a single canonical URL is established, confidence scores consolidate and retrieval probability increases.</p>
-          <p><a href="/generative-engine-optimization/signals/canonicalization">Learn about canonicalization signals →</a></p>
         </div>
       </div>
 
@@ -233,9 +232,7 @@ $GLOBALS['__jsonld'] = [
         </div>
         <div class="content-block__body">
           <ul>
-            <li><a href="/generative-engine-optimization/failure-modes/faceted-navigation/">Faceted Navigation</a> — Similar fragmentation from dynamic URLs</li>
-            <li><a href="/generative-engine-optimization/failure-modes/schema-noise/">Schema Noise</a> — Conflicting signals reduce confidence</li>
-            <li><a href="/generative-engine-optimization/failure-modes/">All Failure Modes →</a></li>
+            <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>">All Failure Modes →</a></li>
           </ul>
         </div>
       </div>

@@ -155,7 +155,7 @@ $GLOBALS['__jsonld'] = [
       <!-- Back Link to Pillar -->
       <div class="content-block module" style="margin-bottom: var(--spacing-md);">
         <div class="content-block__body">
-          <p><a href="/insights/content-chunking-seo/" class="btn btn--secondary">← Start with Content Chunking</a></p>
+          <p><a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>" class="btn btn--secondary">← Start with Content Chunking</a></p>
         </div>
       </div>
 
@@ -180,7 +180,6 @@ $GLOBALS['__jsonld'] = [
               Prechunking is the process of structuring content before writing so each section can be independently retrieved, scored, and cited by AI systems.
             </p>
           </div>
-          <p>Prechunking is the discipline of structuring content before writing so that each unit can be independently retrieved, scored, and cited by search engines and large language models.</p>
           <p>Unlike content chunking, which optimizes presentation and readability, prechunking optimizes extraction and retrieval mechanics.</p>
           <p><strong>Prechunked content is designed to survive isolation.</strong></p>
         </div>
@@ -199,7 +198,7 @@ $GLOBALS['__jsonld'] = [
             <li>Traditional UX optimization</li>
           </ul>
           <p>Those are content chunking concerns. Prechunking operates at the retrieval layer, not the presentation layer.</p>
-          <p><a href="/insights/content-chunking-seo/">Learn about content chunking →</a></p>
+          <p><a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>">Learn about content chunking →</a></p>
         </div>
       </div>
 
@@ -232,21 +231,27 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <h3 class="heading-3">Step 1: Define the Question Inventory First</h3>
           <p>Before writing, enumerate the exact questions the content must answer. Each question becomes one prechunk. No exceptions.</p>
+          <p><strong>Failed example:</strong> Writing a guide about "AI SEO" without listing specific questions. Result: Content answers multiple questions per section, making retrieval ambiguous.</p>
 
           <h3 class="heading-3">Step 2: Enforce Atomicity</h3>
           <p>Each prechunk must pass this test: <strong>If this section were retrieved alone, would it fully answer the question without clarification?</strong> If no, the prechunk fails.</p>
+          <p><strong>Failed example:</strong> "This approach works better than traditional methods." Result: Requires context to identify what "this approach" refers to and what it's better than.</p>
 
           <h3 class="heading-3">Step 3: Use Deterministic, Query-Shaped Headers</h3>
           <p>Headers are retrieval anchors. Use literal language like "What is prechunking in SEO" not abstract language like "Understanding prechunking".</p>
+          <p><strong>Failed example:</strong> Header "Why This Matters" instead of "Why Prechunking Matters for AI Retrieval". Result: Header cannot be matched to specific queries.</p>
 
           <h3 class="heading-3">Step 4: Constrain Prechunk Size</h3>
           <p>Ideal length: 40–120 words. Hard stop: ~150 words. Exactly one answer per prechunk.</p>
+          <p><strong>Failed example:</strong> 300-word section answering "What is prechunking?" plus "How does it work?" plus "Why is it important?". Result: Too long, combines multiple answers, reduces citation probability.</p>
 
           <h3 class="heading-3">Step 5: Remove Narrative Glue Entirely</h3>
           <p>Disallowed: "As mentioned earlier", "In conclusion", transitional filler. Each prechunk must read like a standalone answer.</p>
+          <p><strong>Failed example:</strong> "As discussed above, prechunking requires atomicity." Result: Depends on previous context, fails isolation test.</p>
 
           <h3 class="heading-3">Step 6: Citation Test (Final Gate)</h3>
           <p>Each prechunk must pass: <strong>Could this be quoted verbatim as an answer by an LLM?</strong> If not, rewrite or split.</p>
+          <p><strong>Failed example:</strong> "This is important because it helps." Result: Too vague to quote as a definitive answer.</p>
 
           <div class="callout-example">
             <strong>Example:</strong>
@@ -279,7 +284,7 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <p>Ready to understand how AI systems actually retrieve and cite content? Learn about segment extraction, scoring algorithms, and citation logic.</p>
           <div style="margin-top: var(--spacing-md);">
-            <a href="/insights/ai-retrieval-llm-citation/" class="btn btn--primary">Learn AI Retrieval →</a>
+            <a href="<?= absolute_url('/en-us/insights/ai-retrieval-llm-citation/') ?>" class="btn btn--primary">Learn AI Retrieval →</a>
           </div>
         </div>
       </div>

@@ -633,6 +633,286 @@ function route_request(): void {
     }
   }
 
+  // AI Search System Routes
+  if ($path === '/ai-search-diagnostics/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'ai-search-diagnostics/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'AI Search Diagnostics: Troubleshooting Visibility Issues | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Diagnostic guides for AI search visibility issues. Symptom-first troubleshooting for sites not showing in AI results, traffic declines, and citation failures.';
+    render_page('ai-search-diagnostics/index');
+    return;
+  }
+
+  if ($path === '/ai-search-measurement/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'ai-search-measurement/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Measuring Visibility in AI Search | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Complete guide to measuring and reporting visibility in AI-generated answers, AI Overviews, and zero-click search. What metrics exist, what can be measured, and what executives should expect.';
+    render_page('ai-search-measurement/index');
+    return;
+  }
+
+  if ($path === '/ai-search-strategy/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'ai-search-strategy/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Search Strategy in the Generative Era | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Calm, sober assessment of what SEO controls, what it lost, and how teams should adapt. Non-predictive, non-hype strategic guidance.';
+    render_page('ai-search-strategy/index');
+    return;
+  }
+
+  if ($path === '/ai-search-operations/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'ai-search-operations/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Operating SEO in an AI-Mediated Search Environment | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'What to stop doing, what to keep doing, and what signals generative engines ignore. Operational guidance for SEO teams.';
+    render_page('ai-search-operations/index');
+    return;
+  }
+
+  if ($path === '/ai-search-migrations/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'ai-search-migrations/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Rebuilding Content for Generative Retrieval | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Step-by-step procedural guides for restructuring, migrating, and rebuilding content for AI retrieval. People will follow these line-by-line.';
+    render_page('ai-search-migrations/index');
+    return;
+  }
+
+  if ($path === '/ai-search-risk/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'ai-search-risk/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Managing Risk in AI-Mediated Search | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Brand protection, governance, and institutional trust in AI-mediated search. Enterprise risk management for AI citations and visibility.';
+    render_page('ai-search-risk/index');
+    return;
+  }
+
+  if ($path === '/ai-search-tools-reality/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'ai-search-tools-reality/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'The Limits of SEO Tooling in AI Search | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Honest assessment of what SEO tools can and cannot see in AI-mediated search. Prevents false expectations and builds credibility.';
+    render_page('ai-search-tools-reality/index');
+    return;
+  }
+
+  if ($path === '/field-notes/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'field-notes/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Field Notes: Observational Notes on AI Search Behavior | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Observational notes on AI search behavior. Written as "We observed X behavior across Y surfaces under Z constraints." No speculation, no predictions, no marketing.';
+    render_page('field-notes/index');
+    return;
+  }
+
+  if ($path === '/glossary/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'glossary/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'AI Search Glossary | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Standard terminology and definitions for generative search, AI-mediated search, and retrieval mechanics. Stabilizes terminology across the site and for LLMs.';
+    render_page('glossary/index');
+    return;
+  }
+
+  // AI Search Diagnostics sub-pages
+  if (preg_match('#^/ai-search-diagnostics/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/ai-search-diagnostics/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'ai-search-diagnostics/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-search-diagnostics/'.$pageSlug);
+      return;
+    }
+  }
+
+  // AI Search Measurement sub-pages
+  if (preg_match('#^/ai-search-measurement/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/ai-search-measurement/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'ai-search-measurement/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-search-measurement/'.$pageSlug);
+      return;
+    }
+  }
+
+  // AI Search Strategy sub-pages
+  if (preg_match('#^/ai-search-strategy/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/ai-search-strategy/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'ai-search-strategy/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-search-strategy/'.$pageSlug);
+      return;
+    }
+  }
+
+  // AI Search Operations sub-pages
+  if (preg_match('#^/ai-search-operations/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/ai-search-operations/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'ai-search-operations/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-search-operations/'.$pageSlug);
+      return;
+    }
+  }
+
+  // AI Search Migrations sub-pages
+  if (preg_match('#^/ai-search-migrations/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/ai-search-migrations/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'ai-search-migrations/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-search-migrations/'.$pageSlug);
+      return;
+    }
+  }
+
+  // AI Search Risk sub-pages
+  if (preg_match('#^/ai-search-risk/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/ai-search-risk/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'ai-search-risk/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-search-risk/'.$pageSlug);
+      return;
+    }
+  }
+
+  // AI Search Tools Reality sub-pages
+  if (preg_match('#^/ai-search-tools-reality/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/ai-search-tools-reality/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'ai-search-tools-reality/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('ai-search-tools-reality/'.$pageSlug);
+      return;
+    }
+  }
+
+  // Field Notes sub-pages
+  if (preg_match('#^/field-notes/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/field-notes/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'field-notes/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('field-notes/'.$pageSlug);
+      return;
+    }
+  }
+
+  // Glossary sub-pages
+  if (preg_match('#^/glossary/([^/]+)/$#', $path, $m)) {
+    $pageSlug = $m[1];
+    $pageFile = __DIR__.'/../pages/glossary/'.$pageSlug.'.php';
+    if (file_exists($pageFile)) {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'page',
+        'slug' => 'glossary/'.$pageSlug,
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('glossary/'.$pageSlug);
+      return;
+    }
+  }
+
   if ($path === '/insights/') {
     // Generate unique metadata using ctx-based system for insights hub
     require_once __DIR__.'/../lib/meta_directive.php';

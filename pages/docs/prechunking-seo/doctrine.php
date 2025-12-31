@@ -118,17 +118,10 @@ $canonicalUrl = absolute_url('/docs/prechunking-seo/doctrine/');
 </main>
 
 <?php
-add_jsonld(webpage_schema([
-  '@id' => $canonicalUrl . '#webpage',
-  'url' => $canonicalUrl,
-  'name' => 'NRLC Doctrine',
-  'description' => 'NRLC doctrine for prechunking SEO. Pages are containers, chunks are assets, retrieval precedes ranking, truth must survive isolation.',
-  'isPartOf' => ['@id' => absolute_url('/docs/prechunking-seo/') . '#collection'],
-  'breadcrumb' => breadcrumb_schema([
-    ['name' => 'Home', 'url' => absolute_url('/')],
-    ['name' => 'Documentation', 'url' => absolute_url('/docs/prechunking-seo/')],
-    ['name' => 'Doctrine', 'url' => $canonicalUrl]
-  ])
-]));
 ?>
 
+<?php
+// Note: JSON-LD schemas should be added to $GLOBALS['__jsonld'] array
+// Footer is already included by router.php render_page()
+// Do not duplicate it here to avoid double footers
+?>

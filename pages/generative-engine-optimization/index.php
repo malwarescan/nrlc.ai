@@ -6,7 +6,7 @@ if (!function_exists('webpage_schema')) {
   require_once __DIR__.'/../../lib/schema_builders.php';
 }
 
-$canonicalUrl = absolute_url('/generative-engine-optimization/');
+$canonicalUrl = absolute_url('/en-us/generative-engine-optimization/');
 
 // Build FAQPage schema
 $faqItems = [
@@ -182,15 +182,21 @@ $GLOBALS['__jsonld'] = [
             </p>
           </div>
           <p>When a user asks a question, generative engines:</p>
-          <ol>
-            <li><strong>Interpret the query:</strong> The system understands what the user is asking</li>
-            <li><strong>Select candidate documents:</strong> Pages are identified as potential sources</li>
-            <li><strong>Extract segments:</strong> Individual segments are pulled from candidate documents</li>
-            <li><strong>Score segments:</strong> Each segment is evaluated for answer quality and citation eligibility</li>
-            <li><strong>Surface or cite:</strong> One or more segments are shown to the user or cited in answers</li>
-          </ol>
-          <p>GEO directly affects steps 3 and 4. If content cannot be cleanly segmented, it will not be retrieved or cited.</p>
-          <p><a href="/generative-engine-optimization/fundamentals/how-generative-engines-retrieve">Learn more about retrieval mechanics →</a></p>
+          
+          <h3 class="heading-3">Query Interpretation</h3>
+          <p>The system understands what the user is asking and identifies the intent behind the query.</p>
+          
+          <h3 class="heading-3">Candidate Document Selection</h3>
+          <p>Pages are identified as potential sources based on relevance signals and topical alignment.</p>
+          
+          <h3 class="heading-3">Segment Extraction</h3>
+          <p>Individual segments are pulled from candidate documents. GEO directly affects this step. If content cannot be cleanly segmented, it will not be retrieved.</p>
+          
+          <h3 class="heading-3">Segment Scoring</h3>
+          <p>Each segment is evaluated for answer quality and citation eligibility. GEO directly affects this step. Segments that fail scoring criteria are discarded.</p>
+          
+          <h3 class="heading-3">Surface or Cite</h3>
+          <p>One or more segments are shown to the user or cited in answers. Only segments that pass extraction and scoring are surfaced.</p>
         </div>
       </div>
 
@@ -201,6 +207,8 @@ $GLOBALS['__jsonld'] = [
         </div>
         <div class="content-block__body">
           <p>Ranking determines page-level visibility in traditional search results. Retrieval determines segment-level visibility in AI-generated answers.</p>
+          
+          <h3 class="heading-3">Reasons a High-Ranking Page Is Ignored by Generative Engines</h3>
           <p>A high-ranking page may be ignored by generative engines if:</p>
           <ul>
             <li>Its content segments are ambiguous</li>
@@ -208,8 +216,9 @@ $GLOBALS['__jsonld'] = [
             <li>Multiple answers are combined in one segment</li>
             <li>Pronouns and references make segments unclear</li>
           </ul>
+          
+          <h3 class="heading-3">What Generative Engines Prioritize Instead</h3>
           <p>Generative engines prioritize clear, atomic segments that can be cited verbatim. Page-level ranking does not guarantee segment-level retrieval.</p>
-          <p><a href="/generative-engine-optimization/fundamentals/embeddings-vs-indexing">Learn about embeddings vs indexing →</a></p>
         </div>
       </div>
 
@@ -231,7 +240,7 @@ $GLOBALS['__jsonld'] = [
           </ul>
           
           <h3 class="heading-3">Compression</h3>
-          <p>Generative engines compress information to fit context windows. Segments that are too long or too short are penalized. Ideal segment length is typically 40-120 words.</p>
+          <p>Generative engines compress information to fit context windows. Segments that are too long or too short are penalized. NRLC targets segment lengths of 40-120 words for optimal retrieval probability.</p>
           
           <h3 class="heading-3">Citation Eligibility</h3>
           <p>A segment is citable if it:</p>
@@ -241,7 +250,6 @@ $GLOBALS['__jsonld'] = [
             <li>Uses explicit language, not pronouns</li>
             <li>Can be quoted verbatim without clarification</li>
           </ul>
-          <p><a href="/generative-engine-optimization/fundamentals/confidence-scoring-and-citation">Learn more about confidence scoring →</a></p>
         </div>
       </div>
 
@@ -261,10 +269,10 @@ $GLOBALS['__jsonld'] = [
             <li><strong>Keyword density:</strong> GEO requires semantic alignment, not keyword matching</li>
             <li><strong>Page-level optimization:</strong> GEO requires segment-level optimization</li>
             <li><strong>User experience signals:</strong> GEO requires citation-ready structure</li>
-            <li><strong>Backlink accumulation:</strong> GEO requires content clarity, not authority signals</li>
+            <li><strong>Authority without clarity:</strong> Authority signals are necessary but not sufficient. GEO requires content clarity and atomicity to determine segment eligibility. Backlink accumulation alone does not guarantee retrieval if segments are ambiguous.</li>
           </ul>
           <p>This does not mean traditional SEO is obsolete. It means GEO operates at a different layer with different constraints.</p>
-          <p><a href="/generative-engine-optimization/failure-modes/">See common failure patterns →</a></p>
+          <p><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>">See common failure patterns →</a></p>
         </div>
       </div>
 
@@ -283,7 +291,7 @@ $GLOBALS['__jsonld'] = [
             <li><strong>Conflicting entities:</strong> Multiple entity definitions for the same concept</li>
           </ul>
           <p>Each failure pattern has observable mechanics and mitigation strategies.</p>
-          <p><a href="/generative-engine-optimization/failure-modes/">Explore all failure modes →</a></p>
+          <p><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>">Explore all failure modes →</a></p>
         </div>
       </div>
 
@@ -297,15 +305,15 @@ $GLOBALS['__jsonld'] = [
           
           <h3 class="heading-3">Layer 1: Content Chunking</h3>
           <p>Structuring content for presentation and readability. Helps users and AI scan content.</p>
-          <p><a href="/insights/content-chunking-seo/">Learn about content chunking →</a></p>
+          <p><a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>">Learn about content chunking →</a></p>
           
           <h3 class="heading-3">Layer 2: Prechunking</h3>
           <p>Structuring content before writing for extraction and retrieval. Ensures segments are atomic and citable.</p>
-          <p><a href="/insights/prechunking-content-ai-retrieval/">Learn about prechunking →</a></p>
+          <p><a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>">Learn about prechunking →</a></p>
           
           <h3 class="heading-3">Layer 3: Retrieval Optimization</h3>
           <p>Optimizing segments for confidence scoring and citation eligibility. Determines what gets seen in AI Overviews.</p>
-          <p><a href="/insights/ai-retrieval-llm-citation/">Learn about retrieval →</a></p>
+          <p><a href="<?= absolute_url('/en-us/insights/ai-retrieval-llm-citation/') ?>">Learn about retrieval →</a></p>
           
           <p><strong>Summary:</strong> Chunking helps users and AI scan. Prechunking helps systems extract. Retrieval optimization determines visibility and citation.</p>
         </div>
@@ -319,38 +327,19 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md);">
             <div>
-              <h3 class="heading-3">Fundamentals</h3>
-              <ul>
-                <li><a href="/generative-engine-optimization/fundamentals/how-generative-engines-retrieve">How Generative Engines Retrieve</a></li>
-                <li><a href="/generative-engine-optimization/fundamentals/embeddings-vs-indexing">Embeddings vs Indexing</a></li>
-                <li><a href="/generative-engine-optimization/fundamentals/context-windows-and-compression">Context Windows and Compression</a></li>
-                <li><a href="/generative-engine-optimization/fundamentals/confidence-scoring-and-citation">Confidence Scoring and Citation</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="heading-3">Signals</h3>
-              <ul>
-                <li><a href="/generative-engine-optimization/signals/structured-data">Structured Data</a></li>
-                <li><a href="/generative-engine-optimization/signals/canonicalization">Canonicalization</a></li>
-                <li><a href="/generative-engine-optimization/signals/internal-linking">Internal Linking</a></li>
-                <li><a href="/generative-engine-optimization/signals/authority-signals">Authority Signals</a></li>
-              </ul>
-            </div>
-            <div>
               <h3 class="heading-3">Failure Modes</h3>
               <ul>
-                <li><a href="/generative-engine-optimization/failure-modes/">Failure Modes Index</a></li>
-                <li><a href="/generative-engine-optimization/failure-modes/canonical-drift">Canonical Drift</a></li>
-                <li><a href="/generative-engine-optimization/failure-modes/schema-noise">Schema Noise</a></li>
-                <li><a href="/generative-engine-optimization/failure-modes/ai-content-collapse">AI Content Collapse</a></li>
+                <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>">Failure Modes Index</a></li>
+                <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/canonical-drift/') ?>">Canonical Drift</a></li>
               </ul>
+              <p><small>Additional failure modes and fundamentals pages coming soon.</small></p>
             </div>
             <div>
-              <h3 class="heading-3">Field Notes</h3>
+              <h3 class="heading-3">Related Content</h3>
               <ul>
-                <li><a href="/generative-engine-optimization/field-notes/google-ai-overviews">Google AI Overviews</a></li>
-                <li><a href="/generative-engine-optimization/field-notes/chatgpt">ChatGPT</a></li>
-                <li><a href="/generative-engine-optimization/field-notes/perplexity">Perplexity</a></li>
+                <li><a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>">Content Chunking</a></li>
+                <li><a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>">Prechunking</a></li>
+                <li><a href="<?= absolute_url('/en-us/insights/ai-retrieval-llm-citation/') ?>">AI Retrieval & Citation</a></li>
               </ul>
             </div>
           </div>
