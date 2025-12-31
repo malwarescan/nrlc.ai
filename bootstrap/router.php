@@ -1203,8 +1203,8 @@ function route_request(): void {
     $_GET['industry'] = $m[1];
     $industrySlug = $m[1];
     require_once __DIR__.'/../lib/meta_directive.php';
-    require_once __DIR__.'/../lib/ai_visibility_industries.php';
-    $industryData = AI_VISIBILITY_INDUSTRIES[$industrySlug] ?? null;
+    $industries = require __DIR__.'/../lib/ai_visibility_industries.php';
+    $industryData = $industries[$industrySlug] ?? null;
 
     if ($industryData) {
       $title = "AI Visibility Audit Example: {$industryData['name']} | Neural Command";
