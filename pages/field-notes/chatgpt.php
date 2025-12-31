@@ -1,0 +1,54 @@
+<?php
+// Placeholder page - content coming soon
+// TODO: Add content for this page
+
+if (!function_exists('webpage_schema')) {
+  require_once __DIR__.'/../../lib/schema_builders.php';
+}
+
+$canonicalUrl = absolute_url('/en-us/field-notes/chatgpt/');
+
+$GLOBALS['__jsonld'] = [
+  [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+      [
+        '@type' => 'Organization',
+        '@id' => absolute_url('/') . '#organization',
+        'name' => 'Neural Command LLC',
+        'url' => absolute_url('/'),
+        'logo' => ['@type' => 'ImageObject', '@id' => absolute_url('/') . '#logo', 'url' => absolute_url('/logo.png')],
+        'sameAs' => ['https://www.linkedin.com/company/neural-command/']
+      ]
+    ]
+  ],
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    '@id' => $canonicalUrl . '#breadcrumb',
+    'itemListElement' => [
+      ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => absolute_url('/')],
+      ['@type' => 'ListItem', 'position' => 2, 'name' => 'Field Notes', 'item' => absolute_url('/en-us/field-notes/')],
+      ['@type' => 'ListItem', 'position' => 3, 'name' => 'Chatgpt', 'item' => $canonicalUrl]
+    ]
+  ]
+];
+?>
+
+<main role="main" class="container">
+  <section class="section">
+    <div class="section__content">
+      <div class="content-block module" style="margin-bottom: var(--spacing-md);">
+        <p><a href="<?= absolute_url('/en-us/field-notes/') ?>">← Back to Field Notes</a></p>
+      </div>
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h1 class="content-block__title heading-1">Chatgpt</h1>
+        </div>
+        <div class="content-block__body">
+          <p>Content coming soon. This page is under development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,54 @@
+<?php
+// Placeholder page - content coming soon
+// TODO: Add content for this page
+
+if (!function_exists('webpage_schema')) {
+  require_once __DIR__.'/../../lib/schema_builders.php';
+}
+
+$canonicalUrl = absolute_url('/en-us/ai-search-migrations/restructuring-content-for-ai/');
+
+$GLOBALS['__jsonld'] = [
+  [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+      [
+        '@type' => 'Organization',
+        '@id' => absolute_url('/') . '#organization',
+        'name' => 'Neural Command LLC',
+        'url' => absolute_url('/'),
+        'logo' => ['@type' => 'ImageObject', '@id' => absolute_url('/') . '#logo', 'url' => absolute_url('/logo.png')],
+        'sameAs' => ['https://www.linkedin.com/company/neural-command/']
+      ]
+    ]
+  ],
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    '@id' => $canonicalUrl . '#breadcrumb',
+    'itemListElement' => [
+      ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => absolute_url('/')],
+      ['@type' => 'ListItem', 'position' => 2, 'name' => 'Rebuilding Content for Generative Retrieval', 'item' => absolute_url('/en-us/ai-search-migrations/')],
+      ['@type' => 'ListItem', 'position' => 3, 'name' => 'Restructuring Content For Ai', 'item' => $canonicalUrl]
+    ]
+  ]
+];
+?>
+
+<main role="main" class="container">
+  <section class="section">
+    <div class="section__content">
+      <div class="content-block module" style="margin-bottom: var(--spacing-md);">
+        <p><a href="<?= absolute_url('/en-us/ai-search-migrations/') ?>">← Back to Rebuilding Content for Generative Retrieval</a></p>
+      </div>
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h1 class="content-block__title heading-1">Restructuring Content For Ai</h1>
+        </div>
+        <div class="content-block__body">
+          <p>Content coming soon. This page is under development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
