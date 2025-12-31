@@ -449,7 +449,7 @@ require_once __DIR__ . '/../../templates/header.php';
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn-primary">Run Canonical Scan</button>
+                    <button type="submit" class="btn btn--primary">Run Canonical Scan</button>
                 </form>
             </section>
 
@@ -539,8 +539,8 @@ require_once __DIR__ . '/../../templates/header.php';
                         <label>Min Score:</label>
                         <input type="number" name="score_min" min="0" max="100" value="<?= htmlspecialchars($_GET['score_min'] ?? '') ?>">
                     </div>
-                    <button type="submit" class="btn-secondary">Filter</button>
-                    <a href="?scan=<?= htmlspecialchars($scanId ?? '') ?>" class="btn-secondary">Clear</a>
+                    <button type="submit" class="btn btn--secondary">Filter</button>
+                    <a href="?scan=<?= htmlspecialchars($scanId ?? '') ?>" class="btn btn--secondary">Clear</a>
                 </form>
             </section>
 
@@ -654,7 +654,7 @@ require_once __DIR__ . '/../../templates/header.php';
             </section>
 
             <section class="actions">
-                <a href="/tools/canonical-sentinel/" class="btn-primary">Run New Scan</a>
+                <a href="/tools/canonical-sentinel/" class="btn btn--primary">Run New Scan</a>
             </section>
         <?php endif; ?>
 

@@ -136,9 +136,11 @@ form .btn-secondary {
   border-color: var(--color-brand, #12355e);
 }
 
-/* Buttons - EXACT match to site standard */
+/* Buttons - Support both .btn-primary/.btn-secondary and .btn.btn--primary/.btn.btn--secondary */
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn.btn--primary,
+.btn.btn--secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -157,41 +159,49 @@ form .btn-secondary {
   overflow-wrap: break-word;
 }
 
-.btn-primary {
+.btn-primary,
+.btn.btn--primary {
   background: var(--color-brand, #12355e);
   color: #ffffff;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn.btn--primary:hover {
   background: var(--color-brand-hover, #2a4a6e);
   border-color: var(--color-brand-hover, #2a4a6e);
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:active {
+.btn-primary:active,
+.btn.btn--primary:active {
   background: var(--color-brand-active, #000000);
   border-color: var(--color-brand-active, #000000);
 }
 
-.btn-secondary {
+.btn-secondary,
+.btn.btn--secondary {
   background: var(--color-bg-primary, #ffffff);
   color: var(--color-brand, #12355e);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn.btn--secondary:hover {
   background: var(--color-bg-secondary, #f5f5f5);
   border-color: var(--color-brand-hover, #2a4a6e);
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btn-secondary:active {
+.btn-secondary:active,
+.btn.btn--secondary:active {
   background: var(--color-bg-tertiary, #e8e8e8);
 }
 
 .btn-primary:focus-visible,
-.btn-secondary:focus-visible {
+.btn-secondary:focus-visible,
+.btn.btn--primary:focus-visible,
+.btn.btn--secondary:focus-visible {
   outline: var(--focus-outline, 3px solid #0066cc);
   outline-offset: var(--focus-outline-offset, 2px);
 }
