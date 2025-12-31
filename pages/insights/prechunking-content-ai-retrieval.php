@@ -8,23 +8,96 @@ if (!function_exists('webpage_schema')) {
 
 $canonicalUrl = absolute_url('/insights/prechunking-content-ai-retrieval/');
 
-// Build FAQPage schema
+// Build FAQPage schema (lift-optimized)
 $faqItems = [
   [
     'question' => 'What is prechunking?',
-    'answer' => 'Prechunking is the process of structuring content before writing so each section can be independently retrieved and cited by AI systems.'
+    'answer' => 'Prechunking is the process of structuring content before writing so each section can be independently retrieved, scored, and cited by AI systems.'
   ],
   [
     'question' => 'Why is prechunking important for AI Overviews?',
-    'answer' => 'AI Overviews surface individual content segments. Prechunking ensures those segments are self-contained and retrievable.'
+    'answer' => 'AI Overviews surface individual content segments rather than full pages. Prechunking ensures those segments are self-contained and retrievable.'
   ],
   [
-    'question' => 'Does prechunking affect rankings?',
-    'answer' => 'Prechunking does not directly affect rankings, but it strongly influences retrieval, citation, and visibility in AI-driven results.'
+    'question' => 'Does prechunking affect search rankings?',
+    'answer' => 'Prechunking does not directly affect rankings, but it strongly influences retrieval, citation, and visibility in AI-generated answers.'
   ]
 ];
 
 $GLOBALS['__jsonld'] = [
+  // About / Entity Graph (Site-wide)
+  [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+      [
+        '@type' => 'Organization',
+        '@id' => absolute_url('/') . '#organization',
+        'name' => 'Neural Command LLC',
+        'url' => absolute_url('/'),
+        'logo' => [
+          '@type' => 'ImageObject',
+          '@id' => absolute_url('/') . '#logo',
+          'url' => absolute_url('/logo.png')
+        ],
+        'sameAs' => [
+          'https://www.linkedin.com/company/neural-command/'
+        ]
+      ],
+      [
+        '@type' => 'WebSite',
+        '@id' => absolute_url('/') . '#website',
+        'url' => absolute_url('/'),
+        'name' => 'NRLC.ai',
+        'publisher' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'inLanguage' => 'en-US'
+      ],
+      [
+        '@type' => 'AboutPage',
+        '@id' => absolute_url('/en-us/about/') . '#aboutpage',
+        'url' => absolute_url('/en-us/about/'),
+        'name' => 'About Neural Command LLC',
+        'isPartOf' => [
+          '@id' => absolute_url('/') . '#website'
+        ],
+        'about' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'publisher' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'inLanguage' => 'en-US'
+      ]
+    ]
+  ],
+  // BreadcrumbList
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    '@id' => $canonicalUrl . '#breadcrumb',
+    'itemListElement' => [
+      [
+        '@type' => 'ListItem',
+        'position' => 1,
+        'name' => 'Home',
+        'item' => absolute_url('/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 2,
+        'name' => 'Insights',
+        'item' => absolute_url('/en-us/insights/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 3,
+        'name' => 'Prechunking Content for AI Retrieval',
+        'item' => $canonicalUrl
+      ]
+    ]
+  ],
+  // Article
   [
     '@context' => 'https://schema.org',
     '@type' => 'Article',
@@ -56,6 +129,7 @@ $GLOBALS['__jsonld'] = [
     'keywords' => 'prechunking, AI retrieval, LLM citation, AI Overviews, content structure',
     'inLanguage' => 'en-US'
   ],
+  // FAQPage
   [
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',
@@ -70,8 +144,7 @@ $GLOBALS['__jsonld'] = [
         ]
       ];
     }, $faqItems)
-  ],
-  ld_organization()
+  ]
 ];
 ?>
 
@@ -101,6 +174,12 @@ $GLOBALS['__jsonld'] = [
           <h2 class="content-block__title heading-2">What Is Prechunking?</h2>
         </div>
         <div class="content-block__body">
+          <div class="callout-definition">
+            <strong>Definition:</strong>
+            <p>
+              Prechunking is the process of structuring content before writing so each section can be independently retrieved, scored, and cited by AI systems.
+            </p>
+          </div>
           <p>Prechunking is the discipline of structuring content before writing so that each unit can be independently retrieved, scored, and cited by search engines and large language models.</p>
           <p>Unlike content chunking, which optimizes presentation and readability, prechunking optimizes extraction and retrieval mechanics.</p>
           <p><strong>Prechunked content is designed to survive isolation.</strong></p>
@@ -129,6 +208,11 @@ $GLOBALS['__jsonld'] = [
           <h2 class="content-block__title heading-2">Why Prechunking Exists</h2>
         </div>
         <div class="content-block__body">
+          <div class="callout-retrieval">
+            <p>
+              AI systems do not retrieve pages as a whole; they extract and score individual content segments before generating answers.
+            </p>
+          </div>
           <p>Search engines and LLMs do not retrieve pages. They retrieve segments.</p>
           <p>If a segment:</p>
           <ul>
@@ -163,6 +247,13 @@ $GLOBALS['__jsonld'] = [
 
           <h3 class="heading-3">Step 6: Citation Test (Final Gate)</h3>
           <p>Each prechunk must pass: <strong>Could this be quoted verbatim as an answer by an LLM?</strong> If not, rewrite or split.</p>
+
+          <div class="callout-example">
+            <strong>Example:</strong>
+            <p>
+              Instead of writing a long explanation about AI retrieval, a prechunked page would define one section that answers "What is AI retrieval?" and another that answers "How are content segments scored?", ensuring each section can stand alone if retrieved independently.
+            </p>
+          </div>
         </div>
       </div>
 

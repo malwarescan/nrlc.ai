@@ -8,10 +8,111 @@ if (!function_exists('webpage_schema')) {
 
 $canonicalUrl = absolute_url('/insights/ai-retrieval-llm-citation/');
 
+// Build FAQPage schema (lift-optimized)
+$faqItems = [
+  [
+    'question' => 'How do LLMs retrieve web content?',
+    'answer' => 'LLMs do not browse web pages like users. They select, score, and assemble information from individual content segments before producing an answer.'
+  ],
+  [
+    'question' => 'How does AI decide what content to cite?',
+    'answer' => 'Visibility in AI-generated answers depends more on segment clarity and relevance than on traditional page-level optimization.'
+  ]
+];
+
 $GLOBALS['__jsonld'] = [
+  // About / Entity Graph (Site-wide)
   [
     '@context' => 'https://schema.org',
-    '@type' => 'Article',
+    '@graph' => [
+      [
+        '@type' => 'Organization',
+        '@id' => absolute_url('/') . '#organization',
+        'name' => 'Neural Command LLC',
+        'url' => absolute_url('/'),
+        'logo' => [
+          '@type' => 'ImageObject',
+          '@id' => absolute_url('/') . '#logo',
+          'url' => absolute_url('/logo.png')
+        ],
+        'sameAs' => [
+          'https://www.linkedin.com/company/neural-command/'
+        ]
+      ],
+      [
+        '@type' => 'WebSite',
+        '@id' => absolute_url('/') . '#website',
+        'url' => absolute_url('/'),
+        'name' => 'NRLC.ai',
+        'publisher' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'inLanguage' => 'en-US'
+      ],
+      [
+        '@type' => 'AboutPage',
+        '@id' => absolute_url('/en-us/about/') . '#aboutpage',
+        'url' => absolute_url('/en-us/about/'),
+        'name' => 'About Neural Command LLC',
+        'isPartOf' => [
+          '@id' => absolute_url('/') . '#website'
+        ],
+        'about' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'publisher' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'inLanguage' => 'en-US'
+      ]
+    ]
+  ],
+  // BreadcrumbList
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    '@id' => $canonicalUrl . '#breadcrumb',
+    'itemListElement' => [
+      [
+        '@type' => 'ListItem',
+        'position' => 1,
+        'name' => 'Home',
+        'item' => absolute_url('/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 2,
+        'name' => 'Insights',
+        'item' => absolute_url('/en-us/insights/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 3,
+        'name' => 'AI Retrieval & LLM Citation',
+        'item' => $canonicalUrl
+      ]
+    ]
+  ],
+  // FAQPage
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    '@id' => $canonicalUrl . '#faq',
+    'mainEntity' => array_map(function($item) {
+      return [
+        '@type' => 'Question',
+        'name' => $item['question'],
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => $item['answer']
+        ]
+      ];
+    }, $faqItems)
+  ],
+  // TechArticle
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'TechArticle',
     '@id' => $canonicalUrl . '#article',
     'headline' => 'How LLMs Retrieve and Cite Web Content',
     'name' => 'How LLMs Retrieve and Cite Web Content',
@@ -38,9 +139,9 @@ $GLOBALS['__jsonld'] = [
       '@id' => $canonicalUrl
     ],
     'keywords' => 'AI retrieval, LLM citation, AI Overviews, content extraction, segment scoring',
-    'inLanguage' => 'en-US'
-  ],
-  ld_organization()
+    'inLanguage' => 'en-US',
+    'proficiencyLevel' => 'Expert'
+  ]
 ];
 ?>
 
@@ -72,9 +173,14 @@ $GLOBALS['__jsonld'] = [
 
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">How AI Retrieval Works</h2>
+          <h2 class="content-block__title heading-2">How LLM Retrieval Works</h2>
         </div>
         <div class="content-block__body">
+          <div class="callout-retrieval">
+            <p>
+              LLMs do not browse web pages like users; they select, score, and assemble information from individual segments before producing an answer.
+            </p>
+          </div>
           <p>Search engines and LLMs do not retrieve pages. They retrieve segments.</p>
           <p>The retrieval process operates in five steps:</p>
           <ol>
@@ -139,6 +245,36 @@ $GLOBALS['__jsonld'] = [
 
       <div class="content-block module">
         <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Common Misconceptions</h2>
+        </div>
+        <div class="content-block__body">
+          <div class="callout-system-truth">
+            <p>
+              Visibility in AI-generated answers depends more on segment clarity and relevance than on traditional page-level optimization.
+            </p>
+          </div>
+          <p>Many content creators assume that high page rankings or comprehensive content automatically translate to AI citations. However, AI systems evaluate and extract at the segment level, meaning that even well-ranking pages may be ignored if their individual segments are ambiguous or context-dependent.</p>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">How Retrieval and Citation Work</h2>
+        </div>
+        <div class="content-block__body">
+          <p>When AI systems need to answer a question, they don't read entire pages. Instead, they extract specific segments that directly address the query, score those segments for relevance and completeness, and then use the highest-scoring segments to generate their response.</p>
+          
+          <div class="callout-example">
+            <strong>Example:</strong>
+            <p>
+              When a user asks how AI summarizes web content, an LLM may retrieve only a single paragraph explaining section-level evaluation rather than the full article, and use that segment to generate its response.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
           <h2 class="content-block__title heading-2">The Three-Layer System</h2>
         </div>
         <div class="content-block__body">
@@ -157,6 +293,20 @@ $GLOBALS['__jsonld'] = [
           <p><em>This page covers Layer 3.</em></p>
 
           <p><strong>Summary:</strong> Chunking helps users and AI scan. Prechunking helps systems extract. Retrieval determines visibility and citation.</p>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Frequently Asked Questions</h2>
+        </div>
+        <div class="content-block__body">
+          <?php foreach ($faqItems as $faq): ?>
+            <div style="margin-bottom: var(--spacing-md);">
+              <h3 class="heading-3"><?= htmlspecialchars($faq['question']) ?></h3>
+              <p><?= htmlspecialchars($faq['answer']) ?></p>
+            </div>
+          <?php endforeach; ?>
         </div>
       </div>
 

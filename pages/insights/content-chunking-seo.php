@@ -9,23 +9,96 @@ if (!function_exists('webpage_schema')) {
 
 $canonicalUrl = absolute_url('/insights/content-chunking-seo/');
 
-// Build FAQPage schema
+// Build FAQPage schema (lift-optimized)
 $faqItems = [
   [
     'question' => 'What is content chunking in SEO?',
-    'answer' => 'Content chunking is the practice of structuring written content into clear, logically grouped sections to improve readability, scannability, on-page SEO, and AI summarization.'
+    'answer' => 'Content chunking is the practice of organizing written content into logically grouped sections so users and AI systems can scan, understand, and summarize information efficiently.'
   ],
   [
-    'question' => 'Does content chunking help AI?',
+    'question' => 'Does content chunking help AI understand content?',
     'answer' => 'Content chunking helps AI systems scan and summarize content, but it does not control how content is retrieved or cited.'
   ],
   [
     'question' => 'Is content chunking the same as prechunking?',
-    'answer' => 'No. Content chunking governs presentation and readability. Prechunking governs extraction and retrieval by AI systems.'
+    'answer' => 'No. Content chunking governs presentation and readability, while prechunking governs extraction and retrieval by AI systems.'
   ]
 ];
 
 $GLOBALS['__jsonld'] = [
+  // About / Entity Graph (Site-wide)
+  [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+      [
+        '@type' => 'Organization',
+        '@id' => absolute_url('/') . '#organization',
+        'name' => 'Neural Command LLC',
+        'url' => absolute_url('/'),
+        'logo' => [
+          '@type' => 'ImageObject',
+          '@id' => absolute_url('/') . '#logo',
+          'url' => absolute_url('/logo.png')
+        ],
+        'sameAs' => [
+          'https://www.linkedin.com/company/neural-command/'
+        ]
+      ],
+      [
+        '@type' => 'WebSite',
+        '@id' => absolute_url('/') . '#website',
+        'url' => absolute_url('/'),
+        'name' => 'NRLC.ai',
+        'publisher' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'inLanguage' => 'en-US'
+      ],
+      [
+        '@type' => 'AboutPage',
+        '@id' => absolute_url('/en-us/about/') . '#aboutpage',
+        'url' => absolute_url('/en-us/about/'),
+        'name' => 'About Neural Command LLC',
+        'isPartOf' => [
+          '@id' => absolute_url('/') . '#website'
+        ],
+        'about' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'publisher' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'inLanguage' => 'en-US'
+      ]
+    ]
+  ],
+  // BreadcrumbList
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    '@id' => $canonicalUrl . '#breadcrumb',
+    'itemListElement' => [
+      [
+        '@type' => 'ListItem',
+        'position' => 1,
+        'name' => 'Home',
+        'item' => absolute_url('/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 2,
+        'name' => 'Insights',
+        'item' => absolute_url('/en-us/insights/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 3,
+        'name' => 'Content Chunking for SEO',
+        'item' => $canonicalUrl
+      ]
+    ]
+  ],
+  // Article
   [
     '@context' => 'https://schema.org',
     '@type' => 'Article',
@@ -57,6 +130,7 @@ $GLOBALS['__jsonld'] = [
     'keywords' => 'content chunking, SEO content structure, readable content, scannable content',
     'inLanguage' => 'en-US'
   ],
+  // FAQPage
   [
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',
@@ -71,8 +145,7 @@ $GLOBALS['__jsonld'] = [
         ]
       ];
     }, $faqItems)
-  ],
-  ld_organization()
+  ]
 ];
 ?>
 
@@ -100,6 +173,12 @@ $GLOBALS['__jsonld'] = [
           <h2 class="content-block__title heading-2">What is Content Chunking?</h2>
         </div>
         <div class="content-block__body">
+          <div class="callout-definition">
+            <strong>Definition:</strong>
+            <p>
+              Content chunking is the practice of organizing written content into logically grouped sections so users and AI systems can scan, understand, and summarize information efficiently.
+            </p>
+          </div>
           <p>Content chunking is the practice of structuring written content into digestible, logically grouped sections to improve human readability, scannability, on-page SEO, AI parsing, and featured snippet eligibility.</p>
           <p>Chunking is applied during or after writing, not strictly before. It optimizes presentation and comprehension, not retrieval mechanics.</p>
         </div>
@@ -125,6 +204,20 @@ $GLOBALS['__jsonld'] = [
 
       <div class="content-block module">
         <div class="content-block__header">
+          <h2 class="content-block__title heading-2">How Google Uses Content Chunks</h2>
+        </div>
+        <div class="content-block__body">
+          <div class="callout-system-truth">
+            <p>
+              Google indexes full pages, but evaluates relevance and usefulness at the section level, using headers and structure to understand how information is grouped.
+            </p>
+          </div>
+          <p>This section-level evaluation means that well-chunked content helps search engines understand not just what a page is about, but how different parts of the page relate to specific user queries.</p>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
           <h2 class="content-block__title heading-2">Core Content Chunking Principles</h2>
         </div>
         <div class="content-block__body">
@@ -142,6 +235,13 @@ $GLOBALS['__jsonld'] = [
 
           <h3 class="heading-3">5. Logical Progression</h3>
           <p>Chunks should follow a logical narrative flow when applicable: definitions → explanations → examples → implications. Narrative continuity is allowed in chunking.</p>
+
+          <div class="callout-example">
+            <strong>Example:</strong>
+            <p>
+              A guide about email deliverability might use separate sections for authentication, inbox placement, and reputation management, each with its own header and short paragraphs. This allows readers and AI systems to quickly locate and summarize specific topics without reading the entire page.
+            </p>
+          </div>
         </div>
       </div>
 
