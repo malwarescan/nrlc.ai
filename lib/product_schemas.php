@@ -398,7 +398,8 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'applicationCategory' => $applicationCategory,
       'operatingSystem' => 'Web',
       'offers' => $offerSchema,
-      'aggregateRating' => $aggregateRating,
+      // Note: aggregateRating removed to avoid duplicate aggregateRating error
+      // The Product schema already includes aggregateRating
       'review' => $reviews, // Add reviews
       'featureList' => $features,
       'provider' => [
@@ -421,7 +422,8 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'applicationCategory' => $applicationCategory,
       'operatingSystem' => 'Any',
       'offers' => $offerSchema,
-      'aggregateRating' => $aggregateRating,
+      // Note: aggregateRating removed to avoid duplicate aggregateRating error
+      // The Product schema already includes aggregateRating
       'review' => $reviews // Add reviews
     ],
     
@@ -439,7 +441,8 @@ function product_platform_schemas(string $productSlug, string $productName, stri
       'areaServed' => 'Worldwide',
       'serviceType' => $productName,
       'offers' => $offerSchema,
-      'aggregateRating' => $aggregateRating,
+      // Note: aggregateRating removed to avoid duplicate aggregateRating error
+      // The Product schema already includes aggregateRating
       'review' => $reviews // Add reviews
     ],
     
@@ -1082,13 +1085,8 @@ function googlebot_renderer_schemas(): array {
       'description' => 'Learn how to diagnose and fix Googlebot rendering issues',
       'educationalLevel' => 'Advanced',
       'learningResourceType' => 'Tutorial',
-      'aggregateRating' => [
-        '@type' => 'AggregateRating',
-        'ratingValue' => '4.8',
-        'reviewCount' => '127',
-        'bestRating' => '5',
-        'worstRating' => '1'
-      ],
+      // Note: aggregateRating removed to avoid duplicate aggregateRating error
+      // The Product schema already includes aggregateRating
       'review' => [
         [
           '@type' => 'Review',
