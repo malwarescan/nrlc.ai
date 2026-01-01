@@ -477,12 +477,13 @@ hr {
 
 .nav-primary__dropdown-link {
   display: block;
-  padding: var(--spacing-8) var(--spacing-12);
+  padding: var(--spacing-12) var(--spacing-16);
   color: var(--color-text-primary);
   text-decoration: none;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
   transition: background-color var(--duration-fast) var(--ease-functional);
+  white-space: nowrap;
 }
 
 .nav-primary__dropdown-link:hover {
