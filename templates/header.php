@@ -31,93 +31,45 @@
       </li>
       
       <?php
-      // 1. Generative Engine Optimization
+      // Knowledge Base Dropdown - Contains all 10 pillars
+      $kbAttrs = menu_item_seo_attrs('Knowledge Base');
+      $isKnowledgeBase = strpos($_SERVER['REQUEST_URI'] ?? '', '/generative-engine-optimization/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-diagnostics/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-measurement/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-strategy/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-operations/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-migrations/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-risk/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-tools-reality/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/field-notes/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/glossary/') !== false;
+      
+      // Individual pillar checks for active state
       $geoAttrs = menu_item_seo_attrs('Generative Engine Optimization');
-      $isGeo = strpos($_SERVER['REQUEST_URI'] ?? '', '/generative-engine-optimization/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="nav-primary__link" title="<?= $geoAttrs['title'] ?>" aria-label="<?= $geoAttrs['aria-label'] ?>"<?= $isGeo ? ' aria-current="page"' : '' ?>>GEO</a>
-      </li>
-      
-      <?php
-      // 2. Diagnostics
       $diagnosticsAttrs = menu_item_seo_attrs('AI Search Diagnostics');
-      $isDiagnostics = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-diagnostics/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>" class="nav-primary__link" title="<?= $diagnosticsAttrs['title'] ?>" aria-label="<?= $diagnosticsAttrs['aria-label'] ?>"<?= $isDiagnostics ? ' aria-current="page"' : '' ?>>Diagnostics</a>
-      </li>
-      
-      <?php
-      // 3. Measurement
       $measurementAttrs = menu_item_seo_attrs('AI Search Measurement');
-      $isMeasurement = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-measurement/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/ai-search-measurement/') ?>" class="nav-primary__link" title="<?= $measurementAttrs['title'] ?>" aria-label="<?= $measurementAttrs['aria-label'] ?>"<?= $isMeasurement ? ' aria-current="page"' : '' ?>>Measurement</a>
-      </li>
-      
-      <?php
-      // 4. Strategy
       $strategyAttrs = menu_item_seo_attrs('AI Search Strategy');
-      $isStrategy = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-strategy/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/ai-search-strategy/') ?>" class="nav-primary__link" title="<?= $strategyAttrs['title'] ?>" aria-label="<?= $strategyAttrs['aria-label'] ?>"<?= $isStrategy ? ' aria-current="page"' : '' ?>>Strategy</a>
-      </li>
-      
-      <?php
-      // 5. Operations
       $operationsAttrs = menu_item_seo_attrs('AI Search Operations');
-      $isOperations = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-operations/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/ai-search-operations/') ?>" class="nav-primary__link" title="<?= $operationsAttrs['title'] ?>" aria-label="<?= $operationsAttrs['aria-label'] ?>"<?= $isOperations ? ' aria-current="page"' : '' ?>>Operations</a>
-      </li>
-      
-      <?php
-      // 6. Migrations
       $migrationsAttrs = menu_item_seo_attrs('AI Search Migrations');
-      $isMigrations = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-migrations/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/ai-search-migrations/') ?>" class="nav-primary__link" title="<?= $migrationsAttrs['title'] ?>" aria-label="<?= $migrationsAttrs['aria-label'] ?>"<?= $isMigrations ? ' aria-current="page"' : '' ?>>Migrations</a>
-      </li>
-      
-      <?php
-      // 7. Risk
       $riskAttrs = menu_item_seo_attrs('AI Search Risk');
-      $isRisk = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-risk/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/ai-search-risk/') ?>" class="nav-primary__link" title="<?= $riskAttrs['title'] ?>" aria-label="<?= $riskAttrs['aria-label'] ?>"<?= $isRisk ? ' aria-current="page"' : '' ?>>Risk</a>
-      </li>
-      
-      <?php
-      // 8. Tools Reality
       $toolsRealityAttrs = menu_item_seo_attrs('AI Search Tools Reality');
-      $isToolsReality = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-tools-reality/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/ai-search-tools-reality/') ?>" class="nav-primary__link" title="<?= $toolsRealityAttrs['title'] ?>" aria-label="<?= $toolsRealityAttrs['aria-label'] ?>"<?= $isToolsReality ? ' aria-current="page"' : '' ?>>Tools Reality</a>
-      </li>
-      
-      <?php
-      // 9. Field Notes
       $fieldNotesAttrs = menu_item_seo_attrs('Field Notes');
-      $isFieldNotes = strpos($_SERVER['REQUEST_URI'] ?? '', '/field-notes/') !== false;
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/field-notes/') ?>" class="nav-primary__link" title="<?= $fieldNotesAttrs['title'] ?>" aria-label="<?= $fieldNotesAttrs['aria-label'] ?>"<?= $isFieldNotes ? ' aria-current="page"' : '' ?>>Field Notes</a>
-      </li>
-      
-      <?php
-      // 10. Glossary
       $glossaryAttrs = menu_item_seo_attrs('Glossary');
-      $isGlossary = strpos($_SERVER['REQUEST_URI'] ?? '', '/glossary/') !== false;
       ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/en-us/glossary/') ?>" class="nav-primary__link" title="<?= $glossaryAttrs['title'] ?>" aria-label="<?= $glossaryAttrs['aria-label'] ?>"<?= $isGlossary ? ' aria-current="page"' : '' ?>>Glossary</a>
+      <li class="nav-primary__item nav-primary__item--has-dropdown">
+        <a href="<?= absolute_url('/') ?>#knowledge-base" class="nav-primary__link" title="<?= $kbAttrs['title'] ?>" aria-label="<?= $kbAttrs['aria-label'] ?>"<?= $isKnowledgeBase ? ' aria-current="page"' : '' ?>>Knowledge Base</a>
+        <ul class="nav-primary__dropdown" aria-label="Knowledge Base sections">
+          <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="nav-primary__dropdown-link" title="<?= $geoAttrs['title'] ?>" aria-label="<?= $geoAttrs['aria-label'] ?>">GEO</a></li>
+          <li><a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>" class="nav-primary__dropdown-link" title="<?= $diagnosticsAttrs['title'] ?>" aria-label="<?= $diagnosticsAttrs['aria-label'] ?>">Diagnostics</a></li>
+          <li><a href="<?= absolute_url('/en-us/ai-search-measurement/') ?>" class="nav-primary__dropdown-link" title="<?= $measurementAttrs['title'] ?>" aria-label="<?= $measurementAttrs['aria-label'] ?>">Measurement</a></li>
+          <li><a href="<?= absolute_url('/en-us/ai-search-strategy/') ?>" class="nav-primary__dropdown-link" title="<?= $strategyAttrs['title'] ?>" aria-label="<?= $strategyAttrs['aria-label'] ?>">Strategy</a></li>
+          <li><a href="<?= absolute_url('/en-us/ai-search-operations/') ?>" class="nav-primary__dropdown-link" title="<?= $operationsAttrs['title'] ?>" aria-label="<?= $operationsAttrs['aria-label'] ?>">Operations</a></li>
+          <li><a href="<?= absolute_url('/en-us/ai-search-migrations/') ?>" class="nav-primary__dropdown-link" title="<?= $migrationsAttrs['title'] ?>" aria-label="<?= $migrationsAttrs['aria-label'] ?>">Migrations</a></li>
+          <li><a href="<?= absolute_url('/en-us/ai-search-risk/') ?>" class="nav-primary__dropdown-link" title="<?= $riskAttrs['title'] ?>" aria-label="<?= $riskAttrs['aria-label'] ?>">Risk</a></li>
+          <li><a href="<?= absolute_url('/en-us/ai-search-tools-reality/') ?>" class="nav-primary__dropdown-link" title="<?= $toolsRealityAttrs['title'] ?>" aria-label="<?= $toolsRealityAttrs['aria-label'] ?>">Tools Reality</a></li>
+          <li><a href="<?= absolute_url('/en-us/field-notes/') ?>" class="nav-primary__dropdown-link" title="<?= $fieldNotesAttrs['title'] ?>" aria-label="<?= $fieldNotesAttrs['aria-label'] ?>">Field Notes</a></li>
+          <li><a href="<?= absolute_url('/en-us/glossary/') ?>" class="nav-primary__dropdown-link" title="<?= $glossaryAttrs['title'] ?>" aria-label="<?= $glossaryAttrs['aria-label'] ?>">Glossary</a></li>
+        </ul>
       </li>
     </ul>
   </nav>
