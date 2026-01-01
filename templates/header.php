@@ -71,7 +71,10 @@
           <li><a href="<?= absolute_url('/en-us/glossary/') ?>" class="nav-primary__dropdown-link" title="<?= $glossaryAttrs['title'] ?>" aria-label="<?= $glossaryAttrs['aria-label'] ?>">Glossary</a></li>
         </ul>
       </li>
-      
+    </ul>
+    
+    <!-- Secondary Navigation Items (Right Side) -->
+    <ul class="nav-primary__menu nav-primary__menu--secondary">
       <?php
       // Secondary navigation items (right side, less visual weight)
       // Contact, Implementation Support / Services, Careers
@@ -82,13 +85,13 @@
       $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers/') === 0;
       ?>
       
-      <li class="nav-primary__item nav-primary__item--secondary">
-        <button class="nav-primary__link nav-primary__link--button" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
+      <li class="nav-primary__item">
+        <button class="nav-primary__link nav-primary__link--button nav-primary__link--secondary" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
       </li>
-      <li class="nav-primary__item nav-primary__item--secondary">
+      <li class="nav-primary__item">
         <a href="<?= absolute_url('/implementation/') ?>" class="nav-primary__link nav-primary__link--secondary" title="<?= $implementationAttrs['title'] ?>" aria-label="<?= $implementationAttrs['aria-label'] ?>"<?= $isImplementation ? ' aria-current="page"' : '' ?>>Implementation</a>
       </li>
-      <li class="nav-primary__item nav-primary__item--secondary">
+      <li class="nav-primary__item">
         <a href="<?= absolute_url('/careers/') ?>" class="nav-primary__link nav-primary__link--secondary" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
       </li>
     </ul>

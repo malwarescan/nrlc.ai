@@ -533,14 +533,6 @@ hr {
   color: var(--color-text-primary);
 }
 
-.nav-primary__item--secondary {
-  margin-left: auto;
-}
-
-.nav-primary__menu > .nav-primary__item--secondary:first-of-type {
-  margin-left: auto;
-}
-
 .nav-primary__link--secondary {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
@@ -555,6 +547,25 @@ hr {
 .nav-primary__link--secondary[aria-current="page"] {
   color: var(--color-brand);
   font-weight: var(--font-weight-medium);
+}
+
+.nav-primary__link--button.nav-primary__link--secondary {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-functional),
+              color var(--duration-fast) var(--ease-functional);
+}
+
+.nav-primary__link--button.nav-primary__link--secondary:hover {
+  color: var(--color-brand);
+  border-bottom-color: var(--color-brand);
 }
 
 /* Secondary Navigation — Deep Hierarchy */
