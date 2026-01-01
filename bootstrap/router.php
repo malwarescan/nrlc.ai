@@ -598,7 +598,7 @@ function route_request(): void {
       'canonicalPath' => $actualPath
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'Generative Engine Optimization: How AI Systems Retrieve and Cite Content | NRLC.ai';
+    $GLOBALS['__page_meta']['title'] = 'Generative Engine Optimization Guide | NRLC.ai';
     $GLOBALS['__page_meta']['description'] = 'Complete guide to GEO: how generative engines retrieve information, why traditional SEO fails, and how to structure content for AI retrieval and citation.';
     render_page('generative-engine-optimization/index');
     return;
@@ -612,8 +612,8 @@ function route_request(): void {
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'GEO Failure Modes: Why Content Disappears from AI Results | NRLC.ai';
-    $GLOBALS['__page_meta']['description'] = 'Observable failure patterns that cause content to disappear from AI-generated answers. Each failure mode documents mechanics, triggers, and mitigation strategies.';
+    $GLOBALS['__page_meta']['title'] = 'GEO Failure Modes: Why Content Disappears | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Observable failure patterns that cause content to disappear from AI-generated answers. Each failure mode documents mechanics, triggers, and mitigation.';
     render_page('generative-engine-optimization/failure-modes/index');
     return;
   }
@@ -629,8 +629,8 @@ function route_request(): void {
       'canonicalPath' => $actualPath
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'Decision Traces in Generative Search | How AI Systems Decide What to Trust';
-    $GLOBALS['__page_meta']['description'] = 'Decision traces explain how generative AI systems decide what to retrieve, cite, or ignore. Learn how search decisions, confidence, and context graphs shape AI visibility.';
+    $GLOBALS['__page_meta']['title'] = 'Decision Traces: How AI Systems Decide | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Decision traces explain how generative AI systems decide what to retrieve, cite, or ignore. Learn how search decisions and confidence shape AI visibility.';
     render_page('generative-engine-optimization/decision-traces');
     return;
   }
@@ -647,6 +647,18 @@ function route_request(): void {
         'canonicalPath' => $path
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      // Generate SEO-optimized title from slug (30-60 chars)
+      $failureModeName = ucwords(str_replace(['-', '_'], ' ', $failureModeSlug));
+      $title = "$failureModeName: GEO Failure Mode | NRLC.ai";
+      if (strlen($title) > 60) {
+        $title = "$failureModeName Failure Mode | NRLC.ai";
+      }
+      if (strlen($title) < 30) {
+        $title = "$failureModeName: Failure Mode Guide | NRLC.ai";
+      }
+      $GLOBALS['__page_meta']['title'] = $title;
+      
       render_page('generative-engine-optimization/failure-modes/'.$failureModeSlug);
       return;
     }
@@ -661,7 +673,7 @@ function route_request(): void {
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'AI Search Diagnostics: Troubleshooting Visibility Issues | NRLC.ai';
+    $GLOBALS['__page_meta']['title'] = 'AI Search Diagnostics & Troubleshooting | NRLC.ai';
     $GLOBALS['__page_meta']['description'] = 'Diagnostic guides for AI search visibility issues. Symptom-first troubleshooting for sites not showing in AI results, traffic declines, and citation failures.';
     render_page('ai-search-diagnostics/index');
     return;
@@ -759,8 +771,8 @@ function route_request(): void {
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'Field Notes: Observational Notes on AI Search Behavior | NRLC.ai';
-    $GLOBALS['__page_meta']['description'] = 'Observational notes on AI search behavior. Written as "We observed X behavior across Y surfaces under Z constraints." No speculation, no predictions, no marketing.';
+    $GLOBALS['__page_meta']['title'] = 'Field Notes: AI Search Behavior Observations | NRLC.ai';
+    $GLOBALS['__page_meta']['description'] = 'Observational notes on AI search behavior. Written as "We observed X behavior across Y surfaces under Z constraints." No speculation or predictions.';
     render_page('field-notes/index');
     return;
   }
@@ -773,7 +785,7 @@ function route_request(): void {
       'canonicalPath' => $path
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'AI Search Glossary | NRLC.ai';
+    $GLOBALS['__page_meta']['title'] = 'AI Search Glossary: Terms & Definitions | NRLC.ai';
     $GLOBALS['__page_meta']['description'] = 'Standard terminology and definitions for generative search, AI-mediated search, and retrieval mechanics. Stabilizes terminology across the site and for LLMs.';
     render_page('glossary/index');
     return;
@@ -793,6 +805,23 @@ function route_request(): void {
         'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      // Generate SEO-optimized title from slug (30-60 chars)
+      $pageName = ucwords(str_replace(['-', '_'], ' ', $pageSlug));
+      $title = "$pageName: Diagnostic Guide | NRLC.ai";
+      if (strlen($title) > 60) {
+        $title = "$pageName Diagnostic | NRLC.ai";
+      }
+      if (strlen($title) < 30) {
+        $title = "$pageName: Complete Diagnostic Guide | NRLC.ai";
+      }
+      $GLOBALS['__page_meta']['title'] = $title;
+      
+      // Ensure description is within 120-160 chars
+      if (isset($GLOBALS['__page_meta']['description']) && strlen($GLOBALS['__page_meta']['description']) > 160) {
+        $GLOBALS['__page_meta']['description'] = substr($GLOBALS['__page_meta']['description'], 0, 157) . '...';
+      }
+      
       render_page('ai-search-diagnostics/'.$pageSlug);
       return;
     }
