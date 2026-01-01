@@ -17,108 +17,142 @@
     </button>
     <ul class="nav-primary__menu" id="nav-primary-menu" aria-hidden="true">
       <?php
+      // Guard absolute_url function
+      if (!function_exists('absolute_url')) {
+        require_once __DIR__ . '/../lib/helpers.php';
+      }
+      
+      // Home
       $homeAttrs = menu_item_seo_attrs('Home');
       $isHome = ($_SERVER['REQUEST_URI'] ?? '/') === '/' || ($_SERVER['REQUEST_URI'] ?? '/') === '/en-us/';
       ?>
       <li class="nav-primary__item">
-        <a href="/" class="nav-primary__link" title="<?= $homeAttrs['title'] ?>" aria-label="<?= $homeAttrs['aria-label'] ?>"<?= $isHome ? ' aria-current="page"' : '' ?>>Home</a>
+        <a href="<?= absolute_url('/') ?>" class="nav-primary__link" title="<?= $homeAttrs['title'] ?>" aria-label="<?= $homeAttrs['aria-label'] ?>"<?= $isHome ? ' aria-current="page"' : '' ?>>Home</a>
       </li>
+      
       <?php
-      $servicesAttrs = menu_item_seo_attrs('Services');
-      $isServices = strpos($_SERVER['REQUEST_URI'] ?? '', '/services/') === 0;
+      // 1. Generative Engine Optimization
+      $geoAttrs = menu_item_seo_attrs('Generative Engine Optimization');
+      $isGeo = strpos($_SERVER['REQUEST_URI'] ?? '', '/generative-engine-optimization/') !== false;
       ?>
       <li class="nav-primary__item">
-        <a href="/services/" class="nav-primary__link" title="<?= $servicesAttrs['title'] ?>" aria-label="<?= $servicesAttrs['aria-label'] ?>"<?= $isServices ? ' aria-current="page"' : '' ?>>Services</a>
+        <a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="nav-primary__link" title="<?= $geoAttrs['title'] ?>" aria-label="<?= $geoAttrs['aria-label'] ?>"<?= $isGeo ? ' aria-current="page"' : '' ?>>GEO</a>
       </li>
+      
       <?php
-      // AI Visibility Industries Dropdown
-      $aiVisibilityAttrs = menu_item_seo_attrs('AI Visibility');
-      $isAiVisibility = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-visibility/') === 0;
-      $industries = [];
-      if (file_exists(__DIR__ . '/../lib/ai_visibility_industries.php')) {
-        $industries = require __DIR__ . '/../lib/ai_visibility_industries.php';
-      }
-      ?>
-      <li class="nav-primary__item nav-primary__item--has-dropdown">
-        <a href="/ai-visibility/" class="nav-primary__link" title="<?= $aiVisibilityAttrs['title'] ?>" aria-label="<?= $aiVisibilityAttrs['aria-label'] ?>"<?= $isAiVisibility ? ' aria-current="page"' : '' ?>>AI Visibility</a>
-        <ul class="nav-primary__dropdown" aria-label="AI Visibility Industries submenu">
-          <?php foreach ($industries as $slug => $industry): ?>
-            <?php
-            $industryAttrs = menu_item_seo_attrs($industry['name']);
-            $isCurrentIndustry = strpos($_SERVER['REQUEST_URI'] ?? '', "/ai-visibility/{$slug}/") !== false;
-            ?>
-            <li><a href="/ai-visibility/<?= htmlspecialchars($slug) ?>/" class="nav-primary__dropdown-link" title="<?= $industryAttrs['title'] ?>" aria-label="<?= $industryAttrs['aria-label'] ?>"<?= $isCurrentIndustry ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($industry['name']) ?></a></li>
-          <?php endforeach; ?>
-        </ul>
-      </li>
-      <?php
-      $insightsAttrs = menu_item_seo_attrs('Insights');
-      $isInsights = strpos($_SERVER['REQUEST_URI'] ?? '', '/insights/') === 0;
+      // 2. Diagnostics
+      $diagnosticsAttrs = menu_item_seo_attrs('AI Search Diagnostics');
+      $isDiagnostics = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-diagnostics/') !== false;
       ?>
       <li class="nav-primary__item">
-        <a href="/insights/" class="nav-primary__link" title="<?= $insightsAttrs['title'] ?>" aria-label="<?= $insightsAttrs['aria-label'] ?>"<?= $isInsights ? ' aria-current="page"' : '' ?>>Insights</a>
+        <a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>" class="nav-primary__link" title="<?= $diagnosticsAttrs['title'] ?>" aria-label="<?= $diagnosticsAttrs['aria-label'] ?>"<?= $isDiagnostics ? ' aria-current="page"' : '' ?>>Diagnostics</a>
       </li>
+      
       <?php
-      $careersAttrs = menu_item_seo_attrs('Careers');
-      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers/') === 0;
+      // 3. Measurement
+      $measurementAttrs = menu_item_seo_attrs('AI Search Measurement');
+      $isMeasurement = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-measurement/') !== false;
       ?>
       <li class="nav-primary__item">
-        <a href="/careers/" class="nav-primary__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
+        <a href="<?= absolute_url('/en-us/ai-search-measurement/') ?>" class="nav-primary__link" title="<?= $measurementAttrs['title'] ?>" aria-label="<?= $measurementAttrs['aria-label'] ?>"<?= $isMeasurement ? ' aria-current="page"' : '' ?>>Measurement</a>
       </li>
+      
       <?php
-      $productsAttrs = menu_item_seo_attrs('Products');
-      $isProducts = strpos($_SERVER['REQUEST_URI'] ?? '', '/products/') === 0;
-      $dataButStructuredAttrs = menu_item_seo_attrs('Data, But Structured');
-      $applicantsIoAttrs = menu_item_seo_attrs('Applicants.io');
-      $ourcasaAiAttrs = menu_item_seo_attrs('OurCasa.ai');
-      $croutonsAiAttrs = menu_item_seo_attrs('Croutons.ai');
-      $precogsAttrs = menu_item_seo_attrs('Precogs');
-      $googlebotRendererLabAttrs = menu_item_seo_attrs('Googlebot Renderer Lab');
-      $newfaqAttrs = menu_item_seo_attrs('NEWFAQ');
-      $neuralCommandOsAttrs = menu_item_seo_attrs('Neural Command OS');
-      ?>
-      <li class="nav-primary__item nav-primary__item--has-dropdown">
-        <a href="/en-us/products/" class="nav-primary__link" title="<?= $productsAttrs['title'] ?>" aria-label="<?= $productsAttrs['aria-label'] ?>"<?= $isProducts ? ' aria-current="page"' : '' ?>>Products</a>
-        <ul class="nav-primary__dropdown" aria-label="Products submenu">
-          <li><a href="/products/data-but-structured/" class="nav-primary__dropdown-link" title="<?= $dataButStructuredAttrs['title'] ?>" aria-label="<?= $dataButStructuredAttrs['aria-label'] ?>">Data, But Structured</a></li>
-          <li><a href="/products/applicants-io/" class="nav-primary__dropdown-link" title="<?= $applicantsIoAttrs['title'] ?>" aria-label="<?= $applicantsIoAttrs['aria-label'] ?>">Applicants.io</a></li>
-          <li><a href="/products/ourcasa-ai/" class="nav-primary__dropdown-link" title="<?= $ourcasaAiAttrs['title'] ?>" aria-label="<?= $ourcasaAiAttrs['aria-label'] ?>">OurCasa.ai</a></li>
-          <li><a href="/products/croutons-ai/" class="nav-primary__dropdown-link" title="<?= $croutonsAiAttrs['title'] ?>" aria-label="<?= $croutonsAiAttrs['aria-label'] ?>">Croutons.ai</a></li>
-          <li><a href="/products/precogs/" class="nav-primary__dropdown-link" title="<?= $precogsAttrs['title'] ?>" aria-label="<?= $precogsAttrs['aria-label'] ?>">Precogs</a></li>
-          <li><a href="/products/googlebot-renderer-lab/" class="nav-primary__dropdown-link" title="<?= $googlebotRendererLabAttrs['title'] ?>" aria-label="<?= $googlebotRendererLabAttrs['aria-label'] ?>">Googlebot Renderer Lab</a></li>
-          <li><a href="/products/newfaq/" class="nav-primary__dropdown-link" title="<?= $newfaqAttrs['title'] ?>" aria-label="<?= $newfaqAttrs['aria-label'] ?>">NEWFAQ</a></li>
-          <li><a href="/products/neural-command-os/" class="nav-primary__dropdown-link" title="<?= $neuralCommandOsAttrs['title'] ?>" aria-label="<?= $neuralCommandOsAttrs['aria-label'] ?>">Neural Command OS</a></li>
-        </ul>
-      </li>
-      <?php
-      $toolsAttrs = menu_item_seo_attrs('Tools');
-      $isTools = strpos($_SERVER['REQUEST_URI'] ?? '', '/tools/') === 0;
-      $canonicalSentinelAttrs = menu_item_seo_attrs('Canonical Sentinel');
-      ?>
-      <li class="nav-primary__item nav-primary__item--has-dropdown">
-        <a href="/tools/canonical-sentinel/" class="nav-primary__link" title="<?= $toolsAttrs['title'] ?>" aria-label="<?= $toolsAttrs['aria-label'] ?>"<?= $isTools ? ' aria-current="page"' : '' ?>>Tools</a>
-        <ul class="nav-primary__dropdown" aria-label="Tools submenu">
-          <li><a href="/tools/canonical-sentinel/" class="nav-primary__dropdown-link" title="<?= $canonicalSentinelAttrs['title'] ?>" aria-label="<?= $canonicalSentinelAttrs['aria-label'] ?>"<?= strpos($_SERVER['REQUEST_URI'] ?? '', '/tools/canonical-sentinel/') !== false ? ' aria-current="page"' : '' ?>>Canonical Sentinel</a></li>
-        </ul>
-      </li>
-      <?php
-      $catalogAttrs = menu_item_seo_attrs('Catalog');
-      $isCatalog = strpos($_SERVER['REQUEST_URI'] ?? '', '/catalog/') === 0;
+      // 4. Strategy
+      $strategyAttrs = menu_item_seo_attrs('AI Search Strategy');
+      $isStrategy = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-strategy/') !== false;
       ?>
       <li class="nav-primary__item">
-        <a href="/catalog/" class="nav-primary__link" title="<?= $catalogAttrs['title'] ?>" aria-label="<?= $catalogAttrs['aria-label'] ?>"<?= $isCatalog ? ' aria-current="page"' : '' ?>>Catalog</a>
+        <a href="<?= absolute_url('/en-us/ai-search-strategy/') ?>" class="nav-primary__link" title="<?= $strategyAttrs['title'] ?>" aria-label="<?= $strategyAttrs['aria-label'] ?>"<?= $isStrategy ? ' aria-current="page"' : '' ?>>Strategy</a>
       </li>
+      
       <?php
-      $contactAttrs = menu_item_seo_attrs('Contact');
+      // 5. Operations
+      $operationsAttrs = menu_item_seo_attrs('AI Search Operations');
+      $isOperations = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-operations/') !== false;
       ?>
       <li class="nav-primary__item">
-        <button class="nav-primary__link nav-primary__link--button" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
+        <a href="<?= absolute_url('/en-us/ai-search-operations/') ?>" class="nav-primary__link" title="<?= $operationsAttrs['title'] ?>" aria-label="<?= $operationsAttrs['aria-label'] ?>"<?= $isOperations ? ' aria-current="page"' : '' ?>>Operations</a>
+      </li>
+      
+      <?php
+      // 6. Migrations
+      $migrationsAttrs = menu_item_seo_attrs('AI Search Migrations');
+      $isMigrations = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-migrations/') !== false;
+      ?>
+      <li class="nav-primary__item">
+        <a href="<?= absolute_url('/en-us/ai-search-migrations/') ?>" class="nav-primary__link" title="<?= $migrationsAttrs['title'] ?>" aria-label="<?= $migrationsAttrs['aria-label'] ?>"<?= $isMigrations ? ' aria-current="page"' : '' ?>>Migrations</a>
+      </li>
+      
+      <?php
+      // 7. Risk
+      $riskAttrs = menu_item_seo_attrs('AI Search Risk');
+      $isRisk = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-risk/') !== false;
+      ?>
+      <li class="nav-primary__item">
+        <a href="<?= absolute_url('/en-us/ai-search-risk/') ?>" class="nav-primary__link" title="<?= $riskAttrs['title'] ?>" aria-label="<?= $riskAttrs['aria-label'] ?>"<?= $isRisk ? ' aria-current="page"' : '' ?>>Risk</a>
+      </li>
+      
+      <?php
+      // 8. Tools Reality
+      $toolsRealityAttrs = menu_item_seo_attrs('AI Search Tools Reality');
+      $isToolsReality = strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-tools-reality/') !== false;
+      ?>
+      <li class="nav-primary__item">
+        <a href="<?= absolute_url('/en-us/ai-search-tools-reality/') ?>" class="nav-primary__link" title="<?= $toolsRealityAttrs['title'] ?>" aria-label="<?= $toolsRealityAttrs['aria-label'] ?>"<?= $isToolsReality ? ' aria-current="page"' : '' ?>>Tools Reality</a>
+      </li>
+      
+      <?php
+      // 9. Field Notes
+      $fieldNotesAttrs = menu_item_seo_attrs('Field Notes');
+      $isFieldNotes = strpos($_SERVER['REQUEST_URI'] ?? '', '/field-notes/') !== false;
+      ?>
+      <li class="nav-primary__item">
+        <a href="<?= absolute_url('/en-us/field-notes/') ?>" class="nav-primary__link" title="<?= $fieldNotesAttrs['title'] ?>" aria-label="<?= $fieldNotesAttrs['aria-label'] ?>"<?= $isFieldNotes ? ' aria-current="page"' : '' ?>>Field Notes</a>
+      </li>
+      
+      <?php
+      // 10. Glossary
+      $glossaryAttrs = menu_item_seo_attrs('Glossary');
+      $isGlossary = strpos($_SERVER['REQUEST_URI'] ?? '', '/glossary/') !== false;
+      ?>
+      <li class="nav-primary__item">
+        <a href="<?= absolute_url('/en-us/glossary/') ?>" class="nav-primary__link" title="<?= $glossaryAttrs['title'] ?>" aria-label="<?= $glossaryAttrs['aria-label'] ?>"<?= $isGlossary ? ' aria-current="page"' : '' ?>>Glossary</a>
       </li>
     </ul>
   </nav>
   
   <?php
-  // Secondary navigation for Services section
+  // Secondary navigation (right side, less visual weight)
+  // Contact, Implementation Support / Services, Careers
+  ?>
+  <nav class="nav-secondary" aria-label="Secondary Navigation">
+    <ul class="nav-secondary__menu">
+      <?php
+      $contactAttrs = menu_item_seo_attrs('Contact');
+      ?>
+      <li class="nav-secondary__item">
+        <button class="nav-secondary__link nav-secondary__link--button" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
+      </li>
+      <?php
+      $servicesAttrs = menu_item_seo_attrs('Implementation Support');
+      $isServices = strpos($_SERVER['REQUEST_URI'] ?? '', '/services/') === 0;
+      ?>
+      <li class="nav-secondary__item">
+        <a href="<?= absolute_url('/services/') ?>" class="nav-secondary__link" title="<?= $servicesAttrs['title'] ?>" aria-label="<?= $servicesAttrs['aria-label'] ?>"<?= $isServices ? ' aria-current="page"' : '' ?>>Implementation</a>
+      </li>
+      <?php
+      $careersAttrs = menu_item_seo_attrs('Careers');
+      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers/') === 0;
+      ?>
+      <li class="nav-secondary__item">
+        <a href="<?= absolute_url('/careers/') ?>" class="nav-secondary__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <?php
+  // Secondary navigation for Services section (when on services pages)
   if (strpos($_SERVER['REQUEST_URI'] ?? '', '/services/') === 0): 
     $allServicesAttrs = menu_item_seo_attrs('All Services');
     $crawlClarityAttrs = menu_item_seo_attrs('Crawl Clarity');
@@ -136,29 +170,29 @@
   <nav class="nav-secondary" aria-label="Services Navigation">
     <ul class="nav-secondary__menu">
       <li class="nav-secondary__item">
-        <a href="/services/" class="nav-secondary__link" title="<?= $allServicesAttrs['title'] ?>" aria-label="<?= $allServicesAttrs['aria-label'] ?>"<?= $isAllServices ? ' aria-current="page"' : '' ?>>All Services</a>
+        <a href="<?= absolute_url('/services/') ?>" class="nav-secondary__link" title="<?= $allServicesAttrs['title'] ?>" aria-label="<?= $allServicesAttrs['aria-label'] ?>"<?= $isAllServices ? ' aria-current="page"' : '' ?>>All Services</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/services/crawl-clarity/" class="nav-secondary__link" title="<?= $crawlClarityAttrs['title'] ?>" aria-label="<?= $crawlClarityAttrs['aria-label'] ?>"<?= $isCrawlClarity ? ' aria-current="page"' : '' ?>>Crawl Clarity</a>
+        <a href="<?= absolute_url('/services/crawl-clarity/') ?>" class="nav-secondary__link" title="<?= $crawlClarityAttrs['title'] ?>" aria-label="<?= $crawlClarityAttrs['aria-label'] ?>"<?= $isCrawlClarity ? ' aria-current="page"' : '' ?>>Crawl Clarity</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/services/json-ld-strategy/" class="nav-secondary__link" title="<?= $jsonLdStrategyAttrs['title'] ?>" aria-label="<?= $jsonLdStrategyAttrs['aria-label'] ?>"<?= $isJsonLdStrategy ? ' aria-current="page"' : '' ?>>JSON-LD Strategy</a>
+        <a href="<?= absolute_url('/services/json-ld-strategy/') ?>" class="nav-secondary__link" title="<?= $jsonLdStrategyAttrs['title'] ?>" aria-label="<?= $jsonLdStrategyAttrs['aria-label'] ?>"<?= $isJsonLdStrategy ? ' aria-current="page"' : '' ?>>JSON-LD Strategy</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/services/llm-seeding/" class="nav-secondary__link" title="<?= $llmSeedingAttrs['title'] ?>" aria-label="<?= $llmSeedingAttrs['aria-label'] ?>"<?= $isLlmSeeding ? ' aria-current="page"' : '' ?>>LLM Seeding</a>
+        <a href="<?= absolute_url('/services/llm-seeding/') ?>" class="nav-secondary__link" title="<?= $llmSeedingAttrs['title'] ?>" aria-label="<?= $llmSeedingAttrs['aria-label'] ?>"<?= $isLlmSeeding ? ' aria-current="page"' : '' ?>>LLM Seeding</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/services/technical-seo/" class="nav-secondary__link" title="<?= $technicalSeoAttrs['title'] ?>" aria-label="<?= $technicalSeoAttrs['aria-label'] ?>"<?= $isTechnicalSeo ? ' aria-current="page"' : '' ?>>Technical SEO</a>
+        <a href="<?= absolute_url('/services/technical-seo/') ?>" class="nav-secondary__link" title="<?= $technicalSeoAttrs['title'] ?>" aria-label="<?= $technicalSeoAttrs['aria-label'] ?>"<?= $isTechnicalSeo ? ' aria-current="page"' : '' ?>>Technical SEO</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/services/site-audits/" class="nav-secondary__link" title="<?= $siteAuditsAttrs['title'] ?>" aria-label="<?= $siteAuditsAttrs['aria-label'] ?>"<?= $isSiteAudits ? ' aria-current="page"' : '' ?>>Site Audits</a>
+        <a href="<?= absolute_url('/services/site-audits/') ?>" class="nav-secondary__link" title="<?= $siteAuditsAttrs['title'] ?>" aria-label="<?= $siteAuditsAttrs['aria-label'] ?>"<?= $isSiteAudits ? ' aria-current="page"' : '' ?>>Site Audits</a>
       </li>
     </ul>
   </nav>
   <?php endif; ?>
   
   <?php
-  // Secondary navigation for Insights section
+  // Secondary navigation for Insights section (when on insights pages)
   if (strpos($_SERVER['REQUEST_URI'] ?? '', '/insights/') === 0): 
     $allInsightsAttrs = menu_item_seo_attrs('All Insights');
     $semanticModelingAttrs = menu_item_seo_attrs('Semantic Modeling');
@@ -170,22 +204,21 @@
   <nav class="nav-secondary" aria-label="Insights Navigation">
     <ul class="nav-secondary__menu">
       <li class="nav-secondary__item">
-        <a href="/insights/" class="nav-secondary__link" title="<?= $allInsightsAttrs['title'] ?>" aria-label="<?= $allInsightsAttrs['aria-label'] ?>"<?= $isAllInsights ? ' aria-current="page"' : '' ?>>All Insights</a>
+        <a href="<?= absolute_url('/insights/') ?>" class="nav-secondary__link" title="<?= $allInsightsAttrs['title'] ?>" aria-label="<?= $allInsightsAttrs['aria-label'] ?>"<?= $isAllInsights ? ' aria-current="page"' : '' ?>>All Insights</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/insights/semantic-modeling/" class="nav-secondary__link" title="<?= $semanticModelingAttrs['title'] ?>" aria-label="<?= $semanticModelingAttrs['aria-label'] ?>">Semantic Modeling</a>
+        <a href="<?= absolute_url('/insights/semantic-modeling/') ?>" class="nav-secondary__link" title="<?= $semanticModelingAttrs['title'] ?>" aria-label="<?= $semanticModelingAttrs['aria-label'] ?>">Semantic Modeling</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/insights/data-virtualization/" class="nav-secondary__link" title="<?= $dataVirtualizationAttrs['title'] ?>" aria-label="<?= $dataVirtualizationAttrs['aria-label'] ?>">Data Virtualization</a>
+        <a href="<?= absolute_url('/insights/data-virtualization/') ?>" class="nav-secondary__link" title="<?= $dataVirtualizationAttrs['title'] ?>" aria-label="<?= $dataVirtualizationAttrs['aria-label'] ?>">Data Virtualization</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/insights/enterprise-llm/" class="nav-secondary__link" title="<?= $enterpriseLlmAttrs['title'] ?>" aria-label="<?= $enterpriseLlmAttrs['aria-label'] ?>">Enterprise LLM</a>
+        <a href="<?= absolute_url('/insights/enterprise-llm/') ?>" class="nav-secondary__link" title="<?= $enterpriseLlmAttrs['title'] ?>" aria-label="<?= $enterpriseLlmAttrs['aria-label'] ?>">Enterprise LLM</a>
       </li>
       <li class="nav-secondary__item">
-        <a href="/insights/performance-caching/" class="nav-secondary__link" title="<?= $performanceCachingAttrs['title'] ?>" aria-label="<?= $performanceCachingAttrs['aria-label'] ?>">Performance & Caching</a>
+        <a href="<?= absolute_url('/insights/performance-caching/') ?>" class="nav-secondary__link" title="<?= $performanceCachingAttrs['title'] ?>" aria-label="<?= $performanceCachingAttrs['aria-label'] ?>">Performance & Caching</a>
       </li>
     </ul>
   </nav>
   <?php endif; ?>
 </header>
-
