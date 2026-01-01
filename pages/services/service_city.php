@@ -10,6 +10,7 @@ require_once __DIR__.'/../../lib/deterministic.php';
 require_once __DIR__.'/../../lib/csv.php';
 require_once __DIR__.'/../../lib/service_enhancements.php';
 require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
+require_once __DIR__.'/../../lib/gbp_config.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'crawl-clarity';
@@ -78,12 +79,17 @@ $content = $intro . $local;
 <section class="section">
   <div class="section__content">
         
-        <!-- Hero Content Block -->
+        <!-- Hero Content Block (GBP-ALIGNED: Above-the-fold classifier) -->
         <div class="content-block module">
           <div class="content-block__header">
             <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
           </div>
           <div class="content-block__body">
+            <?php
+            // GBP-ALIGNED: First sentence must clearly state business provides service
+            $gbpName = gbp_business_name();
+            echo '<p class="lead">' . htmlspecialchars($gbpName . ' provides ' . $serviceTitle . ' for businesses.') . '</p>';
+            ?>
             <p class="lead"><?= htmlspecialchars($subhead) ?></p>
             <?php
             // Add local proof line for UK cities
@@ -268,6 +274,10 @@ require_once __DIR__.'/../../lib/service_enhancements.php';
 $serviceName = get_service_name_from_slug($serviceSlug);
 $serviceType = get_service_type_from_slug($serviceSlug);
 
+// GBP-ALIGNED: Service schema references single canonical Organization @id
+require_once __DIR__.'/../../lib/SchemaFixes.php';
+use NRLC\Schema\SchemaFixes;
+$orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization'; // Stable @id reused everywhere
 $serviceLd = [
   "@context" => "https://schema.org",
   "@type" => "Service",
@@ -275,8 +285,7 @@ $serviceLd = [
   "serviceType" => $serviceType,
   "provider" => [
     "@type" => "Organization",
-    "name" => "Neural Command LLC",
-    "url" => "https://nrlc.ai"
+    "@id" => $orgId // Reference to single canonical Organization entity
   ],
   "areaServed" => "Global",
   "url" => $canonical_url
@@ -338,34 +347,9 @@ $jsonldSchemas[] = [
 // Add Service schema
 $jsonldSchemas[] = $serviceLd;
 
-// Add LocalBusiness schema
-$localBusinessLd = [
-  '@context' => 'https://schema.org',
-  '@type' => 'LocalBusiness',
-  'name' => 'NRLC.ai',
-  'url' => absolute_url('/'),
-  'description' => "AI-first SEO services specializing in $serviceTitle for businesses in $cityTitle.",
-  'telephone' => '+1-844-568-4624',
-  'email' => 'hirejoelm@gmail.com',
-  'address' => [
-    '@type' => 'PostalAddress',
-    'addressLocality' => $cityTitle,
-    'addressCountry' => $cityRow['country'] ?? 'US'
-  ],
-  'areaServed' => [
-    '@type' => 'City',
-    'name' => $cityTitle,
-    'containedInPlace' => [
-      '@type' => 'Country',
-      'name' => $cityRow['country'] ?? 'US'
-    ]
-  ],
-  'priceRange' => '$$',
-  'currenciesAccepted' => 'USD',
-  'paymentAccepted' => 'Credit Card, Bank Transfer',
-  'openingHours' => 'Mo-Fr 09:00-17:00'
-];
-$jsonldSchemas[] = $localBusinessLd;
+// GBP-ALIGNED: LocalBusiness schema removed per directive
+// Service pages use Organization schema only (via base_schemas() or explicit Organization schema)
+// LocalBusiness should only be used if GBP category explicitly implies a storefront model
 
 // Add FAQPage schema ONLY ONCE if FAQs exist
 // Check if FAQPage already exists in schemas to avoid duplicates

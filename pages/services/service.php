@@ -6,6 +6,7 @@ require_once __DIR__.'/../../lib/schema_builders.php';
 require_once __DIR__.'/../../lib/service_enhancements.php';
 require_once __DIR__.'/../../lib/nrlc_linking_kernel.php';
 require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
+require_once __DIR__.'/../../lib/gbp_config.php';
 
 $service = $_GET['service'] ?? '';
 $GLOBALS['__page_slug'] = 'services/service';
@@ -743,12 +744,17 @@ $GLOBALS['__jsonld'] = [
 <main role="main">
 <section class="container section">
     
-    <!-- Hero Content Block -->
+    <!-- Hero Content Block (GBP-ALIGNED: Above-the-fold classifier) -->
     <div class="content-block module">
       <div class="content-block__header">
         <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
       </div>
       <div class="content-block__body">
+        <?php
+        // GBP-ALIGNED: First sentence must clearly state business provides service
+        $gbpName = gbp_business_name();
+        echo '<p class="lead">' . htmlspecialchars($gbpName . ' provides ' . $serviceName . ' for businesses.') . '</p>';
+        ?>
         <p class="lead"><?= htmlspecialchars($subhead) ?></p>
         <!-- INTENT TAXONOMY CTA: Must name the service explicitly -->
         <div class="btn-group text-center" style="margin: 1.5rem 0;">

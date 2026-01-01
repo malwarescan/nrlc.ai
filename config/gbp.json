@@ -1,0 +1,23 @@
+{
+  "businessName": "Neural Command LLC",
+  "legalName": "Neural Command LLC",
+  "phone": "+1-844-568-4624",
+  "email": "contact@neuralcommandllc.com",
+  "website": "https://nrlc.ai",
+  "address": {
+    "streetAddress": "PLEASE_FILL_IN_FROM_GBP",
+    "addressLocality": "PLEASE_FILL_IN_FROM_GBP",
+    "addressRegion": "PLEASE_FILL_IN_FROM_GBP",
+    "postalCode": "PLEASE_FILL_IN_FROM_GBP",
+    "addressCountry": "US"
+  },
+  "businessCategory": "PLEASE_FILL_IN_FROM_GBP",
+  "serviceArea": [],
+  "googleBusinessProfileUrl": "https://g.co/kgs/EP6p5de",
+  "sameAs": [
+    "https://www.linkedin.com/company/neural-command/",
+    "https://g.co/kgs/EP6p5de"
+  ],
+  "notes": "THIS FILE IS THE SINGLE SOURCE OF TRUTH FOR BUSINESS IDENTITY. All values must match Google Business Profile exactly (character-for-character). Update this file with actual GBP data before deployment."
+}
+

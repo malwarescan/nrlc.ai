@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__.'/../lib/gbp_config.php';
 $blocks = $GLOBALS['__jsonld'] ?? [];
 foreach ($blocks as $b) {
   echo '<script type="application/ld+json">'.json_encode($b, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE).'</script>'."\n";
@@ -8,12 +9,20 @@ foreach ($blocks as $b) {
 <script src="<?= asset_url('/assets/js/hero-animation.js') ?>" defer></script>
 <footer class="site-footer">
   <div class="site-footer__content">
-    <p><small>© <?= date('Y') ?> NRLC.ai — The Semantic Infrastructure for the AI Internet</small></p>
+    <!-- GBP-ALIGNED: Footer identity block (identical across all pages/locales) -->
+    <div class="site-footer__identity" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <p style="font-weight: 600; margin-bottom: 0.5rem;"><?= htmlspecialchars(gbp_business_name()) ?></p>
+      <p style="margin: 0.25rem 0; font-size: 0.9rem;"><?= htmlspecialchars(gbp_address_display()) ?></p>
+      <p style="margin: 0.25rem 0; font-size: 0.9rem;"><a href="tel:<?= htmlspecialchars(str_replace([' ', '-', '(', ')'], '', gbp_phone())) ?>" style="color: inherit; text-decoration: none;"><?= htmlspecialchars(gbp_phone()) ?></a></p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="/contact/" style="color: inherit; text-decoration: underline;">Contact Us</a> | <a href="/booking/" style="color: inherit; text-decoration: underline;">Book Consultation</a></p>
+    </div>
+    
+    <p><small>© <?= date('Y') ?> <?= htmlspecialchars(gbp_business_name()) ?> — The Semantic Infrastructure for the AI Internet</small></p>
     <ul class="site-footer__links">
       <li><a href="https://nrlcmd.com" target="_blank" rel="noopener" class="site-footer__link">NRL CMD</a></li>
       <li><a href="https://neuralcommandllc.com" target="_blank" rel="noopener" class="site-footer__link">Neural Command LLC</a></li>
       <li><a href="https://www.crunchbase.com/organization/neural-command" target="_blank" rel="noopener" class="site-footer__link">Crunchbase</a></li>
-      <li><a href="https://share.google/vAJ5zksUOr1wELBXp" target="_blank" rel="noopener" class="site-footer__link">Google Business</a></li>
+      <li><a href="<?= htmlspecialchars(gbp_url()) ?>" target="_blank" rel="noopener" class="site-footer__link">Google Business</a></li>
       <li><a href="https://www.linkedin.com/company/neural-command/" target="_blank" rel="noopener" class="site-footer__link">LinkedIn</a></li>
     </ul>
   </div>

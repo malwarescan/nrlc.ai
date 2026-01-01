@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/helpers.php';
 require_once __DIR__.'/SchemaFixes.php';
+require_once __DIR__.'/gbp_config.php';
 
 use NRLC\Schema\SchemaFixes;
 
@@ -13,27 +14,31 @@ function base_schemas(): array {
 }
 
 function ld_organization(): array {
-  // Google Search Gallery compliant Organization schema for homepage
-  // @id required for entity resolution
+  // Google Search Gallery compliant Organization schema
+  // GBP-ALIGNED: All fields must match Google Business Profile exactly
+  // @id is stable and reused everywhere - single canonical Organization entity sitewide
   // logo must be ImageObject for rich results eligibility
+  
+  // Use stable @id based on website URL (not locale-specific)
+  $orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization';
   $homeUrl = SchemaFixes::ensureHttps(absolute_url('/en-us/'));
+  
   $org = [
     '@context'=>'https://schema.org',
     '@type'=>'Organization',
-    '@id'=>$homeUrl.'#organization',
-    'name'=>'Neural Command LLC',
-    'legalName'=>'Neural Command LLC',
-    'url'=>$homeUrl,
+    '@id'=>$orgId,
+    'name'=>gbp_business_name(), // Must match GBP exactly
+    'legalName'=>gbp_legal_name(), // Must match GBP exactly
+    'url'=>SchemaFixes::ensureHttps(gbp_website()), // Must match GBP website URL exactly
+    'telephone'=>gbp_phone(), // Must match GBP primary phone exactly
+    'address'=>gbp_address(), // Full PostalAddress matching GBP exactly
     'logo'=>[
       '@type'=>'ImageObject',
       'url'=>SchemaFixes::ensureHttps(absolute_url('/assets/images/nrlc-logo.png')),
       'width'=>43,
       'height'=>43
     ],
-    'sameAs'=>[
-      'https://www.linkedin.com/company/neural-command/',
-      'https://g.co/kgs/EP6p5de'
-    ]
+    'sameAs'=>gbp_same_as() // Includes GBP URL and other profiles
   ];
   
   // Add founder relationship if set on homepage
@@ -143,6 +148,7 @@ function ld_local_business(?array $cityCtx): array {
 
 /**
  * Service JSON-LD with nested OfferCatalog of pain-point solutions.
+ * GBP-ALIGNED: provider references the single canonical Organization @id
  * $desc should be the deterministic, city-aware description text.
  */
 function ld_service(array $service, ?array $cityCtx, array $painPoints, string $desc): array {
@@ -157,18 +163,19 @@ function ld_service(array $service, ?array $cityCtx, array $painPoints, string $
     ];
   }, $painPoints);
 
-  return [
+  // Reference the single canonical Organization @id (stable, reused everywhere)
+  $orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization';
+
+  $serviceSchema = [
     '@context'=>'https://schema.org',
     '@type'=>'Service',
     'serviceType'=>$service['name'],
     'name'=>$service['name'] . ($cityCtx ? " in ".$cityCtx['city_name'] : ''),
     'description'=>$desc,
-    'provider'=>['@type'=>'Organization','name'=>'NRLC.ai','url'=>SchemaFixes::ensureHttps(absolute_url('/'))],
-    'areaServed'=>$cityCtx ? [
-      '@type'=>'City',
-      'name'=>$cityCtx['city_name'],
-      'containedInPlace'=>['@type'=>'Country','name'=>$cityCtx['country']]
-    ] : null,
+    'provider'=>[
+      '@type'=>'Organization',
+      '@id'=>$orgId // Reference to single canonical Organization entity
+    ],
     'hasOfferCatalog'=>[
       '@type'=>'OfferCatalog',
       'name'=>'Pain Point Solutions',
@@ -176,6 +183,37 @@ function ld_service(array $service, ?array $cityCtx, array $painPoints, string $
     ],
     'additionalType'=>'https://schema.org/ProfessionalService'
   ];
+
+  // Add areaServed only if cityCtx is provided and doesn't contradict GBP service area
+  if ($cityCtx) {
+    $serviceArea = gbp_service_area();
+    // Only add areaServed if it doesn't contradict GBP service area (if specified)
+    if (empty($serviceArea) || _area_matches_gbp($cityCtx, $serviceArea)) {
+      $serviceSchema['areaServed'] = [
+        '@type'=>'City',
+        'name'=>$cityCtx['city_name'],
+        'containedInPlace'=>['@type'=>'Country','name'=>$cityCtx['country']]
+      ];
+    }
+  }
+
+  return $serviceSchema;
+}
+
+/**
+ * Helper to check if area matches GBP service area
+ * (Private helper - used internally by ld_service)
+ */
+function _area_matches_gbp(array $cityCtx, array $gbpServiceArea): bool {
+  if (empty($gbpServiceArea)) return true; // No GBP restriction means all areas allowed
+  
+  // Check if city/region matches any GBP service area
+  foreach ($gbpServiceArea as $area) {
+    if (isset($area['city']) && $area['city'] === $cityCtx['city_name']) return true;
+    if (isset($area['region']) && $area['region'] === $cityCtx['subdivision']) return true;
+    if (isset($area['country']) && $area['country'] === $cityCtx['country']) return true;
+  }
+  return false;
 }
 
 function ld_jobposting(array $job, array $cityCtx): array {

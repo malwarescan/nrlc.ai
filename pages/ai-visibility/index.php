@@ -3,6 +3,7 @@
 // Metadata is handled by router via $GLOBALS['__page_meta']
 require_once __DIR__ . '/../../lib/schema_builders.php';
 require_once __DIR__ . '/../../lib/helpers.php';
+require_once __DIR__ . '/../../lib/gbp_config.php';
 
 $industries = require __DIR__ . '/../../lib/ai_visibility_industries.php';
 $canonicalUrl = absolute_url('/ai-visibility/');
@@ -17,27 +18,16 @@ if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
 $localePrefix = $locale ? "/$locale" : '';
 
 // Build JSON-LD Schema (STRICT COMPLIANCE: JSON-LD ONLY, NO MICRODATA/RDFa)
+// GBP-ALIGNED: Organization schema uses ld_organization() for GBP consistency
 // ENFORCEMENT: All schema MUST be JSON-LD, injected into <head>, NO microdata/RDFa, NO duplication
 
+require_once __DIR__ . '/../../lib/SchemaFixes.php';
+use NRLC\Schema\SchemaFixes;
+$orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization';
+
 $GLOBALS['__jsonld'] = [
-  // 1. Organization (MANDATORY, SINGLE SOURCE OF TRUTH)
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Organization',
-    '@id' => $domain . '#organization',
-    'name' => 'NRLC.ai',
-    'url' => $domain,
-    'logo' => [
-      '@type' => 'ImageObject',
-      'url' => absolute_url('/assets/images/nrlc-logo.png'),
-      'width' => 43,
-      'height' => 43
-    ],
-    'sameAs' => [
-      'https://www.linkedin.com/company/neural-command/',
-      'https://g.co/kgs/EP6p5de'
-    ]
-  ],
+  // 1. Organization (GBP-ALIGNED: Uses ld_organization() for single canonical entity)
+  ld_organization(),
   
   // 2. Service (REQUIRED - PRIMARY SCHEMA)
   [
@@ -48,7 +38,8 @@ $GLOBALS['__jsonld'] = [
     'serviceType' => 'AI Visibility Optimization',
     'description' => 'Professional AI visibility service that improves brand presence in AI-generated answers across ChatGPT, Google AI Overviews, Perplexity, and Claude. Improves AI citations, brand mentions, and generative search visibility.',
     'provider' => [
-      '@id' => $domain . '#organization'
+      '@type' => 'Organization',
+      '@id' => $orgId // Reference to single canonical Organization entity
     ],
     'url' => $canonicalUrl
   ],
