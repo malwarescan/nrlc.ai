@@ -974,6 +974,18 @@ function route_request(): void {
         'canonicalPath' => $actualPath
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      // Generate SEO-optimized title from slug (30-60 chars)
+      $termName = ucwords(str_replace(['-', '_'], ' ', $pageSlug));
+      $title = "$termName: Definition & Guide | NRLC.ai";
+      if (strlen($title) > 60) {
+        $title = "$termName Definition | NRLC.ai";
+      }
+      if (strlen($title) < 30) {
+        $title = "$termName: Complete Definition Guide | NRLC.ai";
+      }
+      $GLOBALS['__page_meta']['title'] = $title;
+      
       render_page('glossary/'.$pageSlug);
       return;
     }
