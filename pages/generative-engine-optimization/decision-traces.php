@@ -1,6 +1,6 @@
 <?php
 // Decision Traces in Generative Search
-// Foundational definition page - establishes NRLC as decision-trace authority
+// Canonical reference page - establishes decision traces as foundational GEO concept
 
 if (!function_exists('webpage_schema')) {
   require_once __DIR__.'/../../lib/schema_builders.php';
@@ -21,7 +21,7 @@ $GLOBALS['__jsonld'] = [
         'logo' => [
           '@type' => 'ImageObject',
           '@id' => absolute_url('/') . '#logo',
-          'url' => absolute_url('/logo.png')
+          'url' => absolute_url('/assets/images/nrlc-logo.png')
         ],
         'sameAs' => [
           'https://www.linkedin.com/company/neural-command/'
@@ -60,14 +60,14 @@ $GLOBALS['__jsonld'] = [
     '@context' => 'https://schema.org',
     '@type' => 'TechArticle',
     '@id' => $canonicalUrl . '#article',
-    'headline' => 'Decision Traces in Generative Search: How AI Systems Learn What to Trust',
+    'headline' => 'Decision Traces in Generative Search',
     'name' => 'Decision Traces in Generative Search',
-    'description' => 'Decision traces explain how generative AI systems decide what to retrieve, cite, or ignore. Learn how search decisions, confidence, and context graphs shape AI visibility.',
+    'description' => 'An operational framework for understanding how generative search systems decide what information to retrieve, cite, or suppress. Grounded in observable system behavior, not speculation.',
     'url' => $canonicalUrl,
     'author' => [
-      '@type' => 'Organization',
-      '@id' => absolute_url('/') . '#organization',
-      'name' => 'Neural Command LLC'
+      '@type' => 'Person',
+      'name' => 'Joel D. Maldonado',
+      'url' => absolute_url('/')
     ],
     'publisher' => [
       '@type' => 'Organization',
@@ -78,24 +78,14 @@ $GLOBALS['__jsonld'] = [
     'dateModified' => date('Y-m-d'),
     'about' => [
       '@type' => 'DefinedTerm',
-      'name' => 'Decision Traces in Generative Search',
-      'description' => 'The observable record of how generative AI systems decide what content to retrieve, cite, or suppress based on confidence, context, and constraints.'
+      'name' => 'Decision Traces',
+      'description' => 'The observable patterns by which generative systems repeatedly decide what information to retrieve, cite, or suppress.'
     ],
     'mentions' => [
       [
         '@type' => 'DefinedTerm',
         'name' => 'Generative Engine Optimization',
         'description' => 'The practice of structuring content for retrieval and citation by generative AI systems.'
-      ],
-      [
-        '@type' => 'DefinedTerm',
-        'name' => 'AI Search Diagnostics',
-        'description' => 'Symptom-first troubleshooting for AI search visibility issues.'
-      ],
-      [
-        '@type' => 'DefinedTerm',
-        'name' => 'Failure Modes',
-        'description' => 'Observable failure patterns that cause content to disappear from AI-generated answers.'
       ],
       [
         '@type' => 'DefinedTerm',
@@ -117,197 +107,188 @@ $GLOBALS['__jsonld'] = [
           <h1 class="content-block__title heading-1">Decision Traces in Generative Search</h1>
         </div>
         <div class="content-block__body">
-          <p class="lead text-lg" style="font-size: 1.25rem; margin-bottom: var(--spacing-lg);">How AI systems learn what to trust through observable retrieval, citation, and suppression decisions</p>
+          <p class="lead text-lg" style="font-size: 1.25rem; margin-bottom: var(--spacing-lg);">An operational framework for Generative Engine Optimization</p>
         </div>
       </div>
 
-      <!-- What a Decision Trace Is (and Is Not) -->
+      <!-- Opening Section (adapted from abstract) -->
+      <div class="content-block module">
+        <div class="content-block__body">
+          <p>Generative search systems have altered the mechanics of visibility in ways that ranking based explanations no longer account for. These systems do not order pages for display. They retrieve, evaluate, compress, and selectively reuse content segments based on inferred confidence.</p>
+          
+          <p>As a result, content that satisfies conventional SEO criteria often fails to appear in generative responses, while other content becomes consistently visible with little apparent optimization.</p>
+          
+          <p>This page introduces decision traces as a way to reason about generative search behavior without relying on proprietary model internals. The framework is grounded in repeated observation, not speculation.</p>
+        </div>
+      </div>
+
+      <!-- Section 1: Why Generative Search Broke the Ranking Mental Model -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">What a Decision Trace Is (and Is Not)</h2>
+          <h2 class="content-block__title heading-2">Why Generative Search Broke the Ranking Mental Model</h2>
         </div>
         <div class="content-block__body">
-          <p>A decision trace is the observable record of a generative AI system's judgment about content. When an AI system retrieves, cites, or suppresses a content segment, that action creates a trace.</p>
+          <p>Search optimization has long been explained as a ranking problem. Pages compete for positions based on relevance, authority, and technical eligibility. Improvements to those signals are expected to produce incremental gains. This mental model worked as long as search systems presented ordered lists. It breaks the moment a system starts generating answers instead of listing documents.</p>
           
-          <p>Decision traces are not logs. Logs record events. Traces record judgments.</p>
+          <p>Generative search systems do not present alternatives. They assemble responses. In doing so, they introduce decision points that are binary rather than continuous. Content is either reused or excluded entirely. There is no degraded position and no partial visibility. Once this shift is recognized, many of the contradictions that dominate current SEO discussions stop being contradictions.</p>
           
-          <p>Decision traces are not rankings. Rankings are static positions. Traces are dynamic confidence assessments that change with context.</p>
-          
-          <p>Decision traces are not metrics. Metrics aggregate data. Traces preserve the specific conditions under which a decision was made.</p>
-          
-          <p>Each trace contains three elements:</p>
-          <ul>
-            <li><strong>The content segment:</strong> What was evaluated</li>
-            <li><strong>The decision:</strong> Retrieve, cite, or suppress</li>
-            <li><strong>The confidence level:</strong> How certain the system was</li>
-          </ul>
+          <p>The confusion persists because ranking language is still being used to explain a system that no longer behaves like a ranking engine. Pages that rank well but never surface are treated as anomalies. Pages that surface repeatedly despite weak traditional signals are treated as flukes. In reality, neither outcome is surprising once ranking is no longer the frame.</p>
         </div>
       </div>
 
-      <!-- Why Generative Search Is a Decision System -->
+      <!-- Section 2: The Collapse of Continuity in Generative Retrieval -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">Why Generative Search Is a Decision System</h2>
+          <h2 class="content-block__title heading-2">The Collapse of Continuity in Generative Retrieval</h2>
         </div>
         <div class="content-block__body">
-          <p>Generative search systems do not rank pages. Generative search systems make decisions about segments.</p>
+          <p>Ranking assumes continuity. If a page improves, it should move. Generative retrieval violates that assumption at a fundamental level. The output space is discontinuous. A content segment either survives inference or it does not. There is no intermediate state.</p>
           
-          <p>Each query triggers a sequence of decisions:</p>
-          <ol>
-            <li>Which documents to consider</li>
-            <li>Which segments to extract</li>
-            <li>Which segments to score</li>
-            <li>Which segments to cite</li>
-            <li>Which segments to suppress</li>
-          </ol>
+          <p>Generative systems do not need to show users multiple options. They need to decide whether a fragment is safe to reuse in an answer. That decision is made under uncertainty. The system must determine whether the content is coherent, whether it can survive compression without losing meaning, and whether it is unlikely to introduce contradiction. Failure at any stage results in suppression.</p>
           
-          <p>These decisions are not deterministic. The same query can produce different decisions based on:</p>
-          <ul>
-            <li>Available context</li>
-            <li>Confidence thresholds</li>
-            <li>Compression constraints</li>
-            <li>Citation eligibility rules</li>
-          </ul>
-          
-          <p>Because decisions vary, traces accumulate. Each trace becomes evidence for future decisions.</p>
+          <p>This explains why ranking position loses explanatory power. A page that ranks first under classical search can be ignored by a generative system, while a lower ranked source may be cited repeatedly. The system is not contradicting itself. It is making a different kind of decision.</p>
         </div>
       </div>
 
-      <!-- How Retrieval, Citation, and Suppression Encode Judgment -->
+      <!-- Section 3: Decision Traces as Inferred Judgment -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">How Retrieval, Citation, and Suppression Encode Judgment</h2>
+          <h2 class="content-block__title heading-2">Decision Traces as Inferred Judgment</h2>
         </div>
         <div class="content-block__body">
-          <h3 class="heading-3">Retrieval Decisions</h3>
-          <p>When a system retrieves a segment, the trace records that the segment met confidence thresholds. Retrieval means the system judged the segment relevant and trustworthy enough to consider.</p>
+          <p>A decision trace is an inferred representation of how a generative system evaluates competing content configurations and arrives at a confidence judgment. It is not a stored artifact. It is not a telemetry log. It is not a metric exposed through tooling. It is reconstructed through repetition.</p>
           
-          <h3 class="heading-3">Citation Decisions</h3>
-          <p>When a system cites a segment, the trace records that the segment was judged authoritative enough to attribute. Citation means the system judged the segment suitable for verbatim use or attribution.</p>
+          <p>When the same structural conditions reliably produce the same outcome across queries and time, the system is revealing its judgment indirectly. That revealed judgment is the decision trace. This matters because most SEO observability tools are designed to capture events rather than judgments. Logs tell us what happened. Rankings tell us relative order. Neither explains why a system repeatedly refuses to reuse content that satisfies conventional optimization criteria.</p>
           
-          <h3 class="heading-3">Suppression Decisions</h3>
-          <p>When a system suppresses a segment, the trace records that the segment failed confidence or relevance thresholds. Suppression means the system judged the segment unsuitable for the current context.</p>
-          
-          <p>Each decision type creates a different trace. Retrieval traces indicate consideration. Citation traces indicate authority. Suppression traces indicate rejection.</p>
-          
-          <p>These traces accumulate into patterns. Patterns become signals. Signals inform future decisions.</p>
+          <p>Decision traces explain recurrence. They explain why certain failures persist despite surface changes, and why certain fragments become default references across varied contexts. Once this framing is adopted, many long standing SEO pathologies become legible.</p>
         </div>
       </div>
 
-      <!-- Decision Traces vs Logs, Rankings, and Metrics -->
+      <!-- Section 4: Why Visibility Became Binary at the Segment Level -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">Decision Traces vs Logs, Rankings, and Metrics</h2>
+          <h2 class="content-block__title heading-2">Why Visibility Became Binary at the Segment Level</h2>
         </div>
         <div class="content-block__body">
-          <h3 class="heading-3">Decision Traces vs Logs</h3>
-          <p>Logs record what happened. Traces record why it happened.</p>
-          <p>A log entry might state: "Segment retrieved at 14:32:15."</p>
-          <p>A trace entry states: "Segment retrieved because confidence exceeded 0.85 and relevance matched query intent."</p>
+          <p>Traditional SEO metrics presuppose visible ranking surfaces. Impressions, average position, and click through rate all assume a list. Generative systems do not expose lists. They expose synthesized outputs. Visibility is binary at the segment level. A fragment is either incorporated or absent. Attribution, when it exists, is sparse and selective.</p>
           
-          <h3 class="heading-3">Decision Traces vs Rankings</h3>
-          <p>Rankings are static positions. Traces are dynamic assessments.</p>
-          <p>A ranking states: "Page 1, Position 3."</p>
-          <p>A trace states: "Segment retrieved with high confidence in context A, suppressed in context B."</p>
+          <p>Because of this, changes in traditional metrics often fail to correlate with generative visibility. A site can gain rankings while losing generative presence. Another can lose rankings while becoming a primary citation source. These outcomes are not edge cases. They are expected behavior in a system that optimizes for confidence rather than order.</p>
           
-          <h3 class="heading-3">Decision Traces vs Metrics</h3>
-          <p>Metrics aggregate data. Traces preserve context.</p>
-          <p>A metric states: "Average citation rate: 12%."</p>
-          <p>A trace states: "Segment cited when query matched intent X, confidence Y, and compression allowed Z tokens."</p>
-          
-          <p>Traces preserve the conditions that produced decisions. This preservation enables pattern recognition and context graph formation.</p>
+          <p>Decision traces reconcile this mismatch by shifting the analytical focus away from surface metrics and toward repeated judgment outcomes. Visibility stops being something that can be averaged and starts being something that must be inferred.</p>
         </div>
       </div>
 
-      <!-- How Decision Traces Accumulate Into Context Graphs -->
+      <!-- Section 5: Repetition as Evidence of Learned Judgment -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">How Decision Traces Accumulate Into Context Graphs</h2>
+          <h2 class="content-block__title heading-2">Repetition as Evidence of Learned Judgment</h2>
         </div>
         <div class="content-block__body">
-          <p>Context graphs are emergent knowledge structures. Context graphs form when decision traces accumulate across multiple retrieval events.</p>
+          <p>If decision traces were speculative, outcomes would vary randomly. They do not. The same structural issues produce the same failures across sites, industries, and query formulations. Canonical ambiguity does not occasionally matter. It matters consistently. Entity overlap does not sometimes confuse generative systems. It does so predictably. Narrative heavy content does not intermittently survive compression. It almost always collapses.</p>
           
-          <p>Each trace connects:</p>
-          <ul>
-            <li>A content segment</li>
-            <li>A decision outcome</li>
-            <li>The conditions that produced the decision</li>
-          </ul>
+          <p>When identical mistakes produce identical outcomes under varied conditions, the system is no longer opaque. It is consistent. Consistency is observable. That consistency is the decision trace.</p>
           
-          <p>When traces share conditions, patterns emerge. Patterns create edges between segments. Edges form graphs.</p>
-          
-          <p>For example, if multiple traces show that Segment A is retrieved when Query Type X appears, and Segment B is retrieved when Query Type Y appears, the graph records that A and B are contextually distinct.</p>
-          
-          <p>If traces show that Segment A is consistently cited alongside Segment C, the graph records that A and C are contextually related.</p>
-          
-          <p>Context graphs are not built explicitly. Context graphs emerge from trace accumulation. The graph structure reflects the decision patterns that produced the traces.</p>
-          
-          <p>This emergence means context graphs are dynamic. As new traces accumulate, graph structures update. As graph structures update, future decisions reference updated context.</p>
+          <p>This is why attempts to explain generative failure through isolated fixes so often fail. The trace persists because the underlying judgment has already been learned. Surface adjustments do not alter that judgment unless they meaningfully change the structural configuration that produced it.</p>
         </div>
       </div>
 
-      <!-- How NRLC Observes and Records Decision Traces -->
+      <!-- Section 6: Why Certain Failures Refuse to Heal -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">How NRLC Observes and Records Decision Traces</h2>
+          <h2 class="content-block__title heading-2">Why Certain Failures Refuse to Heal</h2>
         </div>
         <div class="content-block__body">
-          <p>NRLC's existing systems generate decision-trace observations. These systems document how generative AI systems make retrieval, citation, and suppression decisions.</p>
+          <p>Negative decision traces provide the clearest signal generative systems expose. Successful retrieval can be influenced by topical demand and availability. Suppression reflects active disqualification.</p>
           
-          <h3 class="heading-3">Failure Modes as Negative Decision Traces</h3>
-          <p>NRLC's <a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>">Failure Modes catalog</a> captures negative decision traces. Each failure mode documents a pattern where confidence drops below retrieval thresholds.</p>
-          <p>For example, canonical drift represents a negative trace where conflicting canonical signals cause confidence to drop. The failure mode documents the conditions that produce this negative trace.</p>
+          <p>When a specific structural configuration consistently leads to exclusion, that configuration encodes a negative decision trace. In SEO practice, these are often mislabeled as technical issues or quality problems. In generative systems, they represent confidence collapse. Each recurrence reinforces the system's assessment that similar configurations are unsafe to reuse.</p>
           
-          <h3 class="heading-3">Diagnostics as Symptom-to-Trace Mapping</h3>
-          <p>NRLC's <a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>">AI Search Diagnostics</a> pages map symptoms to decision traces. When a site is not showing in AI results, the diagnostic explains which decision traces produced that outcome.</p>
-          <p>Each diagnostic connects observable symptoms to underlying decision patterns. This connection reveals the traces that produced the symptoms.</p>
-          
-          <h3 class="heading-3">Field Notes as Trace Observations</h3>
-          <p>NRLC's <a href="<?= absolute_url('/en-us/field-notes/') ?>">Field Notes</a> record observed decision traces. Field notes document specific instances where retrieval, citation, or suppression decisions occurred under known conditions.</p>
-          <p>These observations accumulate into evidence of decision patterns. Patterns inform understanding of how context graphs form.</p>
-          
-          <p>Together, these systems create a decision-trace corpus. The corpus documents how generative AI systems make judgments about content. The corpus enables pattern recognition and context graph understanding.</p>
+          <p>This explains why incremental improvements rarely reverse generative invisibility once it sets in. The problem is not that the signal is too weak. The problem is that the judgment has already been learned. Until the conditions that produced that judgment are removed, the outcome remains stable.</p>
         </div>
       </div>
 
-      <!-- Implications for SEO, GEO, and AI Visibility -->
+      <!-- Section 7: How Context Emerges Without Being Designed -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">Implications for SEO, GEO, and AI Visibility</h2>
+          <h2 class="content-block__title heading-2">How Context Emerges Without Being Designed</h2>
         </div>
         <div class="content-block__body">
-          <h3 class="heading-3">Traditional SEO Operates on Rankings</h3>
-          <p>Traditional SEO optimizes for static rankings. Rankings are positions. Positions are not decisions.</p>
-          <p>When SEO focuses on rankings, SEO ignores decision traces. Ignoring traces means missing the conditions that produce retrieval, citation, and suppression.</p>
+          <p>Decision traces do not exist in isolation. As they accumulate, structure emerges. Entities that repeatedly co occur in successful retrieval contexts become implicitly associated. Entities that appear together in suppressed contexts become implicitly disfavored. Over time, these associations constrain future decisions.</p>
           
-          <h3 class="heading-3">GEO Operates on Decision Traces</h3>
-          <p><a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>">Generative Engine Optimization</a> optimizes for decision traces. GEO structures content to produce positive traces.</p>
-          <p>GEO ensures segments meet confidence thresholds. GEO ensures segments are citation-eligible. GEO ensures segments avoid suppression triggers.</p>
-          <p>By optimizing for traces, GEO influences the conditions that produce decisions. This influence increases the likelihood of positive traces.</p>
+          <p>This emergent structure can be described as a context graph, but it is not a prescribed ontology. The relationships are not defined in advance. They arise from repeated inference over real content under real constraints. The system learns what matters by observing what consistently works.</p>
           
-          <h3 class="heading-3">AI Visibility Depends on Trace Accumulation</h3>
-          <p>AI visibility is not a single decision. AI visibility is accumulated traces.</p>
-          <p>When traces consistently show retrieval and citation, visibility increases. When traces consistently show suppression, visibility decreases.</p>
-          <p>Understanding trace accumulation enables prediction of visibility outcomes. Prediction enables optimization strategies.</p>
-          
-          <h3 class="heading-3">Context Graphs Emerge from Traces</h3>
-          <p>As traces accumulate, context graphs form. Context graphs influence future decisions.</p>
-          <p>Content that produces positive traces becomes part of positive graph structures. Content that produces negative traces becomes part of negative graph structures.</p>
-          <p>Graph position influences future trace outcomes. Understanding graph formation enables strategic trace optimization.</p>
+          <p>This process explains why generative visibility becomes sticky. Trust compounds. Distrust compounds. Neither requires explicit rules or hand designed schemas.</p>
         </div>
       </div>
 
-      <!-- Related Systems -->
+      <!-- Section 8: What Optimization Looks Like Once Judgment Is Learned -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title heading-2">Related Systems</h2>
+          <h2 class="content-block__title heading-2">What Optimization Looks Like Once Judgment Is Learned</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Generative Engine Optimization is not about forcing outcomes. It is about shaping the conditions under which decision traces form. This requires reducing ambiguity, stabilizing entity boundaries, and ensuring that content survives compression without losing meaning.</p>
+          
+          <p>Optimization shifts from signal accumulation to judgment facilitation. The goal is not to outrank competitors, but to remove the reasons a system learned to distrust a configuration in the first place. SEO becomes a systems discipline concerned with coherence and stability rather than positional competition.</p>
+          
+          <p>This reframing is uncomfortable because it means some failures cannot be outworked. They can only be invalidated by structural change.</p>
+        </div>
+      </div>
+
+      <!-- Section 9: Why Decision Traces Resist Direct Measurement -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Why Decision Traces Resist Direct Measurement</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Decision traces cannot be directly measured. They can only be inferred through repeated behavior. This imposes real limits on dashboards and tooling. Visibility becomes probabilistic rather than deterministic.</p>
+          
+          <p>The framework remains falsifiable. If changes in structural configuration do not alter retrieval outcomes over time, the explanation fails. If similar configurations produce divergent outcomes under controlled variation, the model must be revised. The argument stands or falls on observable behavior, not access to internal mechanisms.</p>
+        </div>
+      </div>
+
+      <!-- Section 10: What Becomes Legible Once Ranking Is No Longer the Frame -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">What Becomes Legible Once Ranking Is No Longer the Frame</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Once ranking is removed as the primary explanatory lens, generative search behavior stops looking erratic. Content disappears not because it failed to compete, but because it failed to survive inference. Other content persists not because it was boosted, but because it repeatedly proved safe to reuse.</p>
+          
+          <p>Decision traces make this legible without speculation. They explain why optimization often fails to recover visibility once suppression sets in, why certain structural mistakes are unforgiving, and why trust compounds unevenly across sites. The system is not recalculating from scratch. It is replaying what it has already learned.</p>
+          
+          <p>Generative search does not make visibility unknowable. It makes judgment visible through repetition. Decision traces are the residue of that judgment. Once recognized, many behaviors attributed to black box complexity become explainable and, in some cases, reversible.</p>
+        </div>
+      </div>
+
+      <!-- Author Note -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">A note from Joel</h2>
+        </div>
+        <div class="content-block__body">
+          <p>This paper was written from observation, not theory. The framework emerged from repeated failure cases that could not be explained by existing SEO models. Where claims are made, they are grounded in outcomes that recur across sites, queries, and time. No assumptions about proprietary systems are required to evaluate the argument. Agreement is not expected. Consistency is.</p>
+        </div>
+      </div>
+
+      <!-- PDF Download -->
+      <div class="content-block module" style="margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border, #ddd);">
+        <div class="content-block__body">
+          <p><a href="<?= absolute_url('/assets/papers/decision-traces-in-generative-search.pdf') ?>">Download the full paper (PDF)</a></p>
+        </div>
+      </div>
+
+      <!-- Related Content -->
+      <div class="content-block module" style="margin-top: var(--spacing-xl);">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Related Content</h2>
         </div>
         <div class="content-block__body">
           <ul>
-            <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>">Generative Engine Optimization</a> — How to structure content for positive decision traces</li>
-            <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>">Failure Modes</a> — Negative decision trace patterns</li>
-            <li><a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>">AI Search Diagnostics</a> — Mapping symptoms to decision traces</li>
+            <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>">Generative Engine Optimization</a> — How GEO operates on decision traces</li>
+            <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>">Failure Modes</a> — Negative decision trace patterns that cause suppression</li>
+            <li><a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>">AI Search Diagnostics</a> — Mapping symptoms to underlying decision traces</li>
             <li><a href="<?= absolute_url('/en-us/field-notes/') ?>">Field Notes</a> — Observed decision trace instances</li>
+            <li><a href="<?= absolute_url('/en-us/glossary/decision-traces/') ?>">Decision Traces (Glossary)</a> — Definition and key characteristics</li>
           </ul>
         </div>
       </div>
@@ -315,4 +296,3 @@ $GLOBALS['__jsonld'] = [
     </div>
   </section>
 </main>
-

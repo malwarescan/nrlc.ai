@@ -629,8 +629,8 @@ function route_request(): void {
       'canonicalPath' => $actualPath
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'Decision Traces: How AI Systems Decide | NRLC.ai';
-    $GLOBALS['__page_meta']['description'] = 'Decision traces explain how generative AI systems decide what to retrieve, cite, or ignore. Learn how search decisions and confidence shape AI visibility.';
+    $GLOBALS['__page_meta']['title'] = 'Decision Traces in Generative Search';
+    $GLOBALS['__page_meta']['description'] = 'An operational framework for understanding how generative search systems decide what information to retrieve, cite, or suppress. Grounded in observable system behavior, not speculation.';
     render_page('generative-engine-optimization/decision-traces');
     return;
   }
