@@ -135,11 +135,11 @@
         <button class="nav-secondary__link nav-secondary__link--button" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
       </li>
       <?php
-      $servicesAttrs = menu_item_seo_attrs('Implementation Support');
-      $isServices = strpos($_SERVER['REQUEST_URI'] ?? '', '/services/') === 0;
+      $implementationAttrs = menu_item_seo_attrs('Implementation Support');
+      $isImplementation = strpos($_SERVER['REQUEST_URI'] ?? '', '/implementation/') !== false;
       ?>
       <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/services/') ?>" class="nav-secondary__link" title="<?= $servicesAttrs['title'] ?>" aria-label="<?= $servicesAttrs['aria-label'] ?>"<?= $isServices ? ' aria-current="page"' : '' ?>>Implementation</a>
+        <a href="<?= absolute_url('/implementation/') ?>" class="nav-secondary__link" title="<?= $implementationAttrs['title'] ?>" aria-label="<?= $implementationAttrs['aria-label'] ?>"<?= $isImplementation ? ' aria-current="page"' : '' ?>>Implementation</a>
       </li>
       <?php
       $careersAttrs = menu_item_seo_attrs('Careers');
