@@ -71,37 +71,33 @@
           <li><a href="<?= absolute_url('/en-us/glossary/') ?>" class="nav-primary__dropdown-link" title="<?= $glossaryAttrs['title'] ?>" aria-label="<?= $glossaryAttrs['aria-label'] ?>">Glossary</a></li>
         </ul>
       </li>
+      
+      <?php
+      // Secondary navigation items (right side, less visual weight)
+      // Contact, Implementation Support / Services, Careers
+      $contactAttrs = menu_item_seo_attrs('Contact');
+      $implementationAttrs = menu_item_seo_attrs('Implementation Support');
+      $isImplementation = strpos($_SERVER['REQUEST_URI'] ?? '', '/implementation/') !== false;
+      $careersAttrs = menu_item_seo_attrs('Careers');
+      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers/') === 0;
+      ?>
+      
+      <li class="nav-primary__item nav-primary__item--secondary">
+        <button class="nav-primary__link nav-primary__link--button" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
+      </li>
+      <li class="nav-primary__item nav-primary__item--secondary">
+        <a href="<?= absolute_url('/implementation/') ?>" class="nav-primary__link nav-primary__link--secondary" title="<?= $implementationAttrs['title'] ?>" aria-label="<?= $implementationAttrs['aria-label'] ?>"<?= $isImplementation ? ' aria-current="page"' : '' ?>>Implementation</a>
+      </li>
+      <li class="nav-primary__item nav-primary__item--secondary">
+        <a href="<?= absolute_url('/careers/') ?>" class="nav-primary__link nav-primary__link--secondary" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
+      </li>
     </ul>
   </nav>
   
   <?php
-  // Secondary navigation (right side, less visual weight)
-  // Contact, Implementation Support / Services, Careers
+  // Secondary navigation bar (for section-specific navigation)
+  // Only shown on services/insights pages
   ?>
-  <nav class="nav-secondary" aria-label="Secondary Navigation">
-    <ul class="nav-secondary__menu">
-      <?php
-      $contactAttrs = menu_item_seo_attrs('Contact');
-      ?>
-      <li class="nav-secondary__item">
-        <button class="nav-secondary__link nav-secondary__link--button" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
-      </li>
-      <?php
-      $implementationAttrs = menu_item_seo_attrs('Implementation Support');
-      $isImplementation = strpos($_SERVER['REQUEST_URI'] ?? '', '/implementation/') !== false;
-      ?>
-      <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/implementation/') ?>" class="nav-secondary__link" title="<?= $implementationAttrs['title'] ?>" aria-label="<?= $implementationAttrs['aria-label'] ?>"<?= $isImplementation ? ' aria-current="page"' : '' ?>>Implementation</a>
-      </li>
-      <?php
-      $careersAttrs = menu_item_seo_attrs('Careers');
-      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers/') === 0;
-      ?>
-      <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/careers/') ?>" class="nav-secondary__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
-      </li>
-    </ul>
-  </nav>
   
   <?php
   // Secondary navigation for Services section (when on services pages)

@@ -531,6 +531,26 @@ hr {
   color: var(--color-text-primary);
 }
 
+.nav-primary__item--secondary {
+  margin-left: auto;
+}
+
+.nav-primary__link--secondary {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+}
+
+.nav-primary__link--secondary:hover {
+  color: var(--color-brand);
+  border-bottom-color: var(--color-brand);
+}
+
+.nav-primary__link--secondary[aria-current="page"] {
+  color: var(--color-brand);
+  font-weight: var(--font-weight-medium);
+}
+
 /* Secondary Navigation — Deep Hierarchy */
 .nav-secondary {
   background-color: var(--color-bg-secondary);
@@ -542,13 +562,13 @@ hr {
 
 @media (min-width: 640px) {
   .nav-secondary {
-    padding: var(--spacing-sm) var(--container-padding-sm);
+    padding: var(--spacing-8) var(--container-padding-sm);
   }
 }
 
 @media (min-width: 1024px) {
   .nav-secondary {
-    padding: var(--spacing-sm) var(--container-padding-lg);
+    padding: var(--spacing-8) var(--container-padding-lg);
   }
 }
 
@@ -585,6 +605,31 @@ hr {
 .nav-secondary__link[aria-current="page"] {
   color: var(--color-brand);
   font-weight: var(--font-weight-medium);
+}
+
+.nav-secondary__link--button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  display: block;
+  padding: var(--spacing-8) var(--spacing-12);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  transition: color var(--duration-fast) var(--ease-functional),
+              background-color var(--duration-fast) var(--ease-functional);
+  border-radius: 3px;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-secondary__link--button:hover {
+  color: var(--color-brand);
+  background-color: rgba(18, 53, 94, 0.05);
 }
 
 /* Tertiary Navigation — Deepest Level */
