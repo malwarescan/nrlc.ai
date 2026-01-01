@@ -21,7 +21,7 @@ $GLOBALS['__jsonld'] = [
         'logo' => [
           '@type' => 'ImageObject',
           '@id' => absolute_url('/') . '#logo',
-          'url' => absolute_url('/logo.png')
+          'url' => absolute_url('/assets/images/nrlc-logo.png')
         ],
         'sameAs' => [
           'https://www.linkedin.com/company/neural-command/'
