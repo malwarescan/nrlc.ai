@@ -309,7 +309,7 @@ hr {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: var(--spacing-lg);
   padding: var(--spacing-md) var(--container-padding);
   background-color: var(--color-bg-primary);
@@ -416,6 +416,7 @@ hr {
 .nav-primary__menu {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--spacing-md);
   list-style: none;
   margin: 0;
@@ -457,7 +458,7 @@ hr {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 200px;
+  min-width: 220px;
   background-color: var(--color-bg-primary);
   border: var(--border-width-strong) solid var(--color-border-strong);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
