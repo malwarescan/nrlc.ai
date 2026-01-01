@@ -174,6 +174,18 @@ $GLOBALS['__jsonld'] = [
         </div>
       </div>
 
+      <!-- Implementation Support (Contextual) -->
+      <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-8);">
+        <div class="content-block__body">
+          <p style="font-size: 0.95rem; color: #666; margin: 0;">
+            Operational changes only hold when they are applied consistently across systems. Some teams use these frameworks as internal guidance. Others ask for help implementing them across distributed environments.
+          </p>
+          <p style="margin-top: var(--spacing-sm); margin-bottom: 0;">
+            <a href="<?= absolute_url('/implementation/') ?>" style="font-size: 0.95rem;">Implementation Support</a>
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>

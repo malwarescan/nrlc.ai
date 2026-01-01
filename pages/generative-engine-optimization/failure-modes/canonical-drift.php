@@ -238,6 +238,18 @@ $GLOBALS['__jsonld'] = [
         </div>
       </div>
 
+      <!-- Implementation Support (Contextual) -->
+      <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-8);">
+        <div class="content-block__body">
+          <p style="font-size: 0.95rem; color: #666; margin: 0;">
+            When a failure mode repeats under different fixes, recovery usually requires coordinated changes rather than isolated adjustments. On complex sites, that coordination is often the limiting factor.
+          </p>
+          <p style="margin-top: var(--spacing-sm); margin-bottom: 0;">
+            <a href="<?= absolute_url('/implementation/') ?>" style="font-size: 0.95rem;">Implementation Support</a>
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>

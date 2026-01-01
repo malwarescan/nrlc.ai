@@ -1004,6 +1004,21 @@ function route_request(): void {
     return;
   }
 
+  // Implementation / Support page
+  if ($path === '/implementation/' || $path === '/implementation') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'implementation/index',
+      'title' => 'Implementation | Search Infrastructure Support',
+      'excerpt' => 'Implementation support for applying generative search frameworks to large, fragile, or high-risk properties.',
+      'canonicalPath' => '/implementation/'
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    render_page('implementation/index');
+    return;
+  }
+
   if ($path === '/services/') {
     // Generate unique metadata using ctx-based system
     require_once __DIR__.'/../lib/meta_directive.php';

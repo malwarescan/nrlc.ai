@@ -175,6 +175,21 @@ $GLOBALS['__jsonld'] = [
         </div>
       </div>
 
+      <!-- Implementation Support (Contextual) -->
+      <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-8);">
+        <div class="content-block__body">
+          <p style="font-size: 0.95rem; color: #666; margin: 0;">
+            Migrations of this type affect content, structure, and inference behavior simultaneously. On large properties, this work often spans multiple teams and deployment cycles.
+          </p>
+          <p style="font-size: 0.95rem; color: #666; margin-top: var(--spacing-sm); margin-bottom: 0;">
+            We assist organizations when internal capacity or risk tolerance makes this difficult to execute alone.
+          </p>
+          <p style="margin-top: var(--spacing-sm); margin-bottom: 0;">
+            <a href="<?= absolute_url('/implementation/') ?>" style="font-size: 0.95rem;">Implementation Support</a>
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>

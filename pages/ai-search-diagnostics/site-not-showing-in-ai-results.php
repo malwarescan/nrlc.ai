@@ -184,6 +184,18 @@ $GLOBALS['__jsonld'] = [
         </div>
       </div>
 
+      <!-- Implementation Support (Contextual) -->
+      <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-top: var(--spacing-8);">
+        <div class="content-block__body">
+          <p style="font-size: 0.95rem; color: #666; margin: 0;">
+            If these conditions describe your system, the issue is structural rather than tactical. Some teams address this internally. Others ask for help implementing the changes described above across large or high risk sites.
+          </p>
+          <p style="margin-top: var(--spacing-sm); margin-bottom: 0;">
+            <a href="<?= absolute_url('/implementation/') ?>" style="font-size: 0.95rem;">Implementation Support</a>
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
