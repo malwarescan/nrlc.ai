@@ -28,144 +28,240 @@ $GLOBALS['__page_meta'] = [
 $GLOBALS['pageTitle'] = $title;
 $GLOBALS['pageDesc'] = $desc;
 
-// Note: head.php and header.php are already included by render_page() in router.php
-// Only include the shared style
-include __DIR__.'/../_shared_style.php';
+// JSON-LD Schema
+$canonicalUrl = absolute_url('/promptware/llm-data-to-citation/');
+
+$GLOBALS['__jsonld'] = [
+  // About / Entity Graph (Site-wide)
+  [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+      [
+        '@type' => 'Organization',
+        '@id' => absolute_url('/') . '#organization',
+        'name' => 'Neural Command LLC',
+        'url' => absolute_url('/'),
+        'logo' => [
+          '@type' => 'ImageObject',
+          '@id' => absolute_url('/') . '#logo',
+          'url' => absolute_url('/assets/images/nrlc-logo.png')
+        ],
+        'sameAs' => [
+          'https://www.linkedin.com/company/neural-command/'
+        ]
+      ],
+      [
+        '@type' => 'WebSite',
+        '@id' => absolute_url('/') . '#website',
+        'url' => absolute_url('/'),
+        'name' => 'NRLC.ai',
+        'publisher' => [
+          '@id' => absolute_url('/') . '#organization'
+        ],
+        'inLanguage' => 'en-US'
+      ]
+    ]
+  ],
+  // BreadcrumbList
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    '@id' => $canonicalUrl . '#breadcrumb',
+    'itemListElement' => [
+      [
+        '@type' => 'ListItem',
+        'position' => 1,
+        'name' => 'Home',
+        'item' => absolute_url('/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 2,
+        'name' => 'Promptware',
+        'item' => absolute_url('/promptware/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 3,
+        'name' => 'LLM Data-to-Citation Guide',
+        'item' => $canonicalUrl
+      ]
+    ]
+  ],
+  // TechArticle
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'TechArticle',
+    '@id' => $canonicalUrl . '#article',
+    'headline' => $title,
+    'name' => 'LLM Data-to-Citation Guide',
+    'description' => $desc,
+    'url' => $canonicalUrl,
+    'author' => [
+      '@type' => 'Organization',
+      '@id' => absolute_url('/') . '#organization',
+      'name' => 'Neural Command LLC'
+    ],
+    'publisher' => [
+      '@type' => 'Organization',
+      '@id' => absolute_url('/') . '#organization',
+      'name' => 'Neural Command LLC',
+      'logo' => [
+        '@type' => 'ImageObject',
+        '@id' => absolute_url('/') . '#logo',
+        'url' => absolute_url('/assets/images/nrlc-logo.png')
+      ]
+    ],
+    'datePublished' => '2025-01-01',
+    'dateModified' => date('Y-m-d'),
+    'mainEntityOfPage' => [
+      '@id' => $canonicalUrl . '#webpage'
+    ],
+    'about' => ['NDJSON', 'schema', 'RAG', 'citations'],
+    'keywords' => ['NDJSON', 'schema', 'RAG', 'citations', 'LLM', 'AI Overviews']
+  ],
+  // FAQPage
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    '@id' => $canonicalUrl . '#faq',
+    'mainEntity' => [
+      [
+        '@type' => 'Question',
+        'name' => 'Does Google still render HowTo/FAQ rich results?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'Eligibility is limited, but the markup still improves machine understanding and RAG mapping. Keep it.'
+        ]
+      ],
+      [
+        '@type' => 'Question',
+        'name' => 'Where do I declare the AI manifest?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'Add an AI-Manifest line in /public/robots.txt pointing to /sitemaps/sitemap-ai.ndjson.'
+        ]
+      ]
+    ]
+  ],
+  // WebPage
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'WebPage',
+    '@id' => $canonicalUrl . '#webpage',
+    'url' => $canonicalUrl,
+    'name' => $title,
+    'description' => $desc,
+    'inLanguage' => 'en-US',
+    'isPartOf' => [
+      '@id' => absolute_url('/') . '#website'
+    ],
+    'breadcrumb' => [
+      '@id' => $canonicalUrl . '#breadcrumb'
+    ]
+  ]
+];
 ?>
 
-<main class="container">
-  <header>
-    <nav aria-label="breadcrumb">
-      <a href="/">Home</a> › <a href="/promptware/">Promptware</a> › LLM Data-to-Citation Guide
-    </nav>
-    <h1>LLM Data-to-Citation Guide</h1>
-    <p>How to turn <strong>schema</strong> and <strong>NDJSON</strong> into <strong>citations</strong> in LLM answers and AI Overviews.</p>
-  </header>
+<main role="main" class="container">
+  <section class="section">
+    <div class="section__content">
+      
+      <!-- Back Link -->
+      <div class="content-block module" style="margin-bottom: var(--spacing-md);">
+        <div class="content-block__body">
+          <p><a href="<?= absolute_url('/promptware/') ?>">← Back to Promptware</a></p>
+        </div>
+      </div>
 
-  <section id="why" aria-labelledby="why-h">
-    <h2 id="why-h">Why citations happen</h2>
-    <p>LLMs cite when a retrieval step fetches a verifiable passage tied to a stable URL. JSON-LD on page and an AI manifest (<code>/sitemaps/sitemap-ai.ndjson</code>) make that mapping explicit and cheap.</p>
-  </section>
+      <!-- Hero Block -->
+      <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+        <div class="content-block__header">
+          <h1 class="content-block__title heading-1">LLM Data-to-Citation Guide</h1>
+        </div>
+        <div class="content-block__body">
+          <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-md);">
+            How to turn <strong>schema</strong> and <strong>NDJSON</strong> into <strong>citations</strong> in LLM answers and AI Overviews.
+          </p>
+        </div>
+      </div>
 
-  <section id="ndjson" aria-labelledby="ndjson-h">
-    <h2 id="ndjson-h">Publish token-lean facts via NDJSON</h2>
-    <p>Expose compact JSON-LD objects (one per line) summarizing key pages/entities. Link it from <code>robots.txt</code> with an <strong>AI-Manifest</strong> line.</p>
-    <pre><code>{"@context":"https://schema.org","@type":"WebPage","url":"<?= htmlspecialchars($domain) ?>/","name":"NRLC.ai — Home","inLanguage":"en","dateModified":"<?= date('Y-m-d') ?>"}
+      <!-- Why Citations Happen -->
+      <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+        <div class="content-block__header">
+          <h2 class="heading-2">Why citations happen</h2>
+        </div>
+        <div class="content-block__body">
+          <p>LLMs cite when a retrieval step fetches a verifiable passage tied to a stable URL. JSON-LD on page and an AI manifest (<code>/sitemaps/sitemap-ai.ndjson</code>) make that mapping explicit and cheap.</p>
+        </div>
+      </div>
+
+      <!-- Publish token-lean facts via NDJSON -->
+      <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+        <div class="content-block__header">
+          <h2 class="heading-2">Publish token-lean facts via NDJSON</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Expose compact JSON-LD objects (one per line) summarizing key pages/entities. Link it from <code>robots.txt</code> with an <strong>AI-Manifest</strong> line.</p>
+          <pre style="background: #f5f5f5; padding: var(--spacing-md); border: 1px solid #ddd; overflow-x: auto; margin-top: var(--spacing-md);"><code>{"@context":"https://schema.org","@type":"WebPage","url":"<?= htmlspecialchars($domain) ?>/","name":"NRLC.ai — Home","inLanguage":"en","dateModified":"<?= date('Y-m-d') ?>"}
 {"@context":"https://schema.org","@type":"TechArticle","url":"<?= htmlspecialchars($url) ?>","name":"LLM Data-to-Citation Guide","inLanguage":"en","dateModified":"<?= date('Y-m-d') ?>","keywords":["NDJSON","schema","RAG","citations"]}</code></pre>
-    <p>Stream test:</p>
-    <pre><code>curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | jq .</code></pre>
-  </section>
+          <p style="margin-top: var(--spacing-md);">Stream test:</p>
+          <pre style="background: #f5f5f5; padding: var(--spacing-md); border: 1px solid #ddd; overflow-x: auto;"><code>curl -s <?= htmlspecialchars($domain) ?>/api/stream?limit=3 | jq .</code></pre>
+        </div>
+      </div>
 
-  <section id="schema" aria-labelledby="schema-h">
-    <h2 id="schema-h">Minimum viable schema for citations</h2>
-    <ul>
-      <li><code>@type</code> (e.g., <code>TechArticle</code>), <code>name</code>, <code>url</code>, <code>dateModified</code></li>
-      <li><code>@id</code> (use your canonical URL with a fragment if needed)</li>
-      <li><code>isPartOf</code> and <code>BreadcrumbList</code> for site context</li>
-      <li>Optional <code>Dataset</code> node if you publish <code>sitemap-ai.ndjson</code> as a downloadable asset</li>
-    </ul>
-  </section>
+      <!-- Minimum viable schema for citations -->
+      <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+        <div class="content-block__header">
+          <h2 class="heading-2">Minimum viable schema for citations</h2>
+        </div>
+        <div class="content-block__body">
+          <ul>
+            <li><code>@type</code> (e.g., <code>TechArticle</code>), <code>name</code>, <code>url</code>, <code>dateModified</code></li>
+            <li><code>@id</code> (use your canonical URL with a fragment if needed)</li>
+            <li><code>isPartOf</code> and <code>BreadcrumbList</code> for site context</li>
+            <li>Optional <code>Dataset</code> node if you publish <code>sitemap-ai.ndjson</code> as a downloadable asset</li>
+          </ul>
+        </div>
+      </div>
 
-  <section id="rag" aria-labelledby="rag-h">
-    <h2 id="rag-h">RAG preferences you can influence</h2>
-    <ol>
-      <li>Serve fast NDJSON with <code>Content-Type: application/x-ndjson</code> and long-lived cache for static files.</li>
-      <li>Keep page prose concise; move machine details to JSON-LD to reduce tokens.</li>
-      <li>Link your canonical "reference pages" from relevant sections to increase retrieval odds.</li>
-    </ol>
-    <p>See also: <a href="/promptware/json-stream-seo-ai/">JSON Stream + SEO AI</a></p>
-  </section>
+      <!-- RAG preferences you can influence -->
+      <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+        <div class="content-block__header">
+          <h2 class="heading-2">RAG preferences you can influence</h2>
+        </div>
+        <div class="content-block__body">
+          <ol>
+            <li>Serve fast NDJSON with <code>Content-Type: application/x-ndjson</code> and long-lived cache for static files.</li>
+            <li>Keep page prose concise; move machine details to JSON-LD to reduce tokens.</li>
+            <li>Link your canonical "reference pages" from relevant sections to increase retrieval odds.</li>
+          </ol>
+          <p style="margin-top: var(--spacing-md);">See also: <a href="<?= absolute_url('/promptware/json-stream-seo-ai/') ?>">JSON Stream + SEO AI</a></p>
+        </div>
+      </div>
 
-  <section id="faq" aria-labelledby="faq-h">
-    <h2 id="faq-h">FAQ</h2>
-    <details>
-      <summary>Does Google still render HowTo/FAQ rich results?</summary>
-      <p>Eligibility is limited, but the markup still improves machine understanding and RAG mapping. Keep it.</p>
-    </details>
-    <details>
-      <summary>Where do I declare the AI manifest?</summary>
-      <p>Add an <code>AI-Manifest:</code> line in <code>/public/robots.txt</code> pointing to <code>/sitemaps/sitemap-ai.ndjson</code>.</p>
-    </details>
-  </section>
+      <!-- FAQ -->
+      <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+        <div class="content-block__header">
+          <h2 class="heading-2">FAQ</h2>
+        </div>
+        <div class="content-block__body">
+          <details style="margin-bottom: var(--spacing-md); padding: var(--spacing-md); border: 1px solid #ddd;">
+            <summary style="font-weight: var(--font-weight-semibold); cursor: pointer;">Does Google still render HowTo/FAQ rich results?</summary>
+            <p style="margin-top: var(--spacing-md);">Eligibility is limited, but the markup still improves machine understanding and RAG mapping. Keep it.</p>
+          </details>
+          <details style="padding: var(--spacing-md); border: 1px solid #ddd;">
+            <summary style="font-weight: var(--font-weight-semibold); cursor: pointer;">Where do I declare the AI manifest?</summary>
+            <p style="margin-top: var(--spacing-md);">Add an <code>AI-Manifest:</code> line in <code>/public/robots.txt</code> pointing to <code>/sitemaps/sitemap-ai.ndjson</code>.</p>
+          </details>
+        </div>
+      </div>
 
-  <footer>
-    <p>© <span id="y"></span> <?= htmlspecialchars($brand) ?> • Contact: <?= htmlspecialchars($contact) ?></p>
-  </footer>
+    </div>
+  </section>
 </main>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
-
-<!-- Combined JSON-LD graph (rich results + LLM comprehension) -->
-<script type="application/ld+json">{
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"WebPage",
-      "@id":"<?= htmlspecialchars($url) ?>#webpage",
-      "url":"<?= htmlspecialchars($url) ?>",
-      "name":"<?= htmlspecialchars($title) ?>",
-      "description":"<?= htmlspecialchars($desc) ?>",
-      "inLanguage":"en",
-      "isPartOf":{"@id":"<?= htmlspecialchars($domain) ?>/#website"},
-      "breadcrumb":{"@id":"<?= htmlspecialchars($url) ?>#breadcrumb"}
-    },
-    {
-      "@type":"TechArticle",
-      "@id":"<?= htmlspecialchars($url) ?>#article",
-      "headline":"<?= htmlspecialchars($title) ?>",
-      "about":["NDJSON","schema","RAG","citations"],
-      "author":{"@type":"Organization","name":"<?= htmlspecialchars($brand) ?>"},
-      "publisher":{"@type":"Organization","name":"<?= htmlspecialchars($brand) ?>"},
-      "datePublished":"<?= date('Y-m-d') ?>",
-      "dateModified":"<?= date('Y-m-d') ?>",
-      "mainEntityOfPage":{"@id":"<?= htmlspecialchars($url) ?>#webpage"}
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"<?= htmlspecialchars($url) ?>#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"<?= htmlspecialchars($domain) ?>/"},
-        {"@type":"ListItem","position":2,"name":"Promptware","item":"<?= htmlspecialchars($domain) ?>/promptware/"},
-        {"@type":"ListItem","position":3,"name":"LLM Data-to-Citation Guide","item":"<?= htmlspecialchars($url) ?>"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "@id":"<?= htmlspecialchars($url) ?>#faq",
-      "mainEntity":[
-        {"@type":"Question","name":"Does Google still render HowTo/FAQ rich results?","acceptedAnswer":{"@type":"Answer","text":"Eligibility is limited, but the markup still improves machine understanding and RAG mapping."}},
-        {"@type":"Question","name":"Where do I declare the AI manifest?","acceptedAnswer":{"@type":"Answer","text":"Add an AI-Manifest line in robots.txt pointing to /sitemaps/sitemap-ai.ndjson."}}
-      ]
-    },
-    {
-      "@type":"SoftwareSourceCode",
-      "@id":"<?= htmlspecialchars($url) ?>#code",
-      "name":"NRLC.ai Promptware — JSON Stream + SEO AI",
-      "codeRepository":"<?= htmlspecialchars($domain) ?>/promptware/json-stream-seo-ai/",
-      "programmingLanguage":"PHP",
-      "runtimePlatform":"PHP 8+",
-      "license":"https://opensource.org/licenses/MIT"
-    },
-    {
-      "@type":"Dataset",
-      "@id":"<?= htmlspecialchars($domain) ?>/sitemaps/sitemap-ai.ndjson#dataset",
-      "name":"NRLC.ai AI Manifest (NDJSON)",
-      "description":"Compact JSON-LD rows for site pages, services, and insights optimized for LLM/RAG ingestion and AI engine citation mapping. Each NDJSON line contains structured metadata (name, URL, dateModified, keywords) to enable fast retrieval and accurate citations in AI Overviews and LLM responses.",
-      "creator":{"@type":"Organization","name":"<?= htmlspecialchars($brand) ?>"},
-      "distribution":[{"@type":"DataDownload","encodingFormat":"application/x-ndjson","contentUrl":"<?= htmlspecialchars($domain) ?>/sitemaps/sitemap-ai.ndjson"}],
-      "license":"https://opensource.org/licenses/MIT"
-    },
-    {
-      "@type":"WebSite",
-      "@id":"<?= htmlspecialchars($domain) ?>/#website",
-      "url":"<?= htmlspecialchars($domain) ?>/",
-      "name":"<?= htmlspecialchars($brand) ?>",
-      "potentialAction":{"@type":"SearchAction","target":"<?= htmlspecialchars($domain) ?>/search?q={query}","query-input":"required name=query"}
-    }
-  ]
-}</script>
 
 <?php
 // Note: footer.php is already included by router.php render_page()
 // Do not duplicate it here to avoid double footers
 ?>
-
