@@ -37,18 +37,11 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
         <h1 class="content-block__title">NRLC.ai: Search Infrastructure Knowledge Base</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-md);">
+        <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">
           A reference corpus for generative and AI search behavior. This site explains why generative search systems behave the way they do when traditional SEO explanations stop working.
         </p>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: var(--spacing-sm);">
-          Led by Joel Maldonado - 20+ years in search, structured data, and algorithmic visibility.
-        </p>
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: var(--spacing-lg);">
-          Serving companies across the United States and United Kingdom, with proven results in competitive local and international markets.
-        </p>
-        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
+        <div style="margin-top: var(--spacing-lg);">
           <a href="#knowledge-base" class="btn btn--secondary" title="Enter the knowledge base">Enter Knowledge Base</a>
-          <button type="button" class="btn" onclick="openContactSheet('Free AI Visibility Audit')" style="opacity: 0.8;">Free AI Visibility Audit</button>
         </div>
       </div>
     </div>
@@ -164,7 +157,7 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
         <p>AI systems do not rank pages the way search engines do. They extract entities, relationships, and evidence. When an AI system needs to answer a question, it evaluates which sources provide clear, structured, and trustworthy information that can be safely summarized and cited.</p>
         <p>Traditional SEO optimizes for crawling and ranking. It measures success by position in search results and traffic volume. This approach assumes that appearing in search results is sufficient for visibility. It is not.</p>
         <p>Pages without structured authority signals are invisible to AI answers. When AI systems cannot confidently extract what your business does, how it operates, or why it should be trusted, they default to sources that provide these signals clearly.</p>
-        <p>NRLC.ai engineers content specifically for AI extraction, trust, and reuse. We structure pages so AI systems can confidently understand your business, map your expertise, and cite you when answering relevant questions.</p>
+        <p>This knowledge base documents how generative search systems work, why traditional SEO explanations fail, and what actually determines AI visibility. <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">Decision traces in generative search</a> explain how AI systems learn what to trust through observable retrieval, citation, and suppression judgments.</p>
         <p><strong>This is the gap between ranking and being referenced.</strong></p>
       </div>
     </div>
@@ -205,7 +198,7 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
       </div>
     </div>
 
-    <!-- AUTHORITATIVE VOICE INSERT (JOEL MALDONADO) -->
+    <!-- AUTHORITATIVE VOICE INSERT -->
     <div class="content-block module" style="margin-bottom: var(--spacing-8); border-left: 3px solid #4a90e2; padding-left: var(--spacing-md);">
       <div class="content-block__header">
         <h2 class="content-block__title">Why This Knowledge Base Exists</h2>
@@ -214,71 +207,6 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
         <p>Modern visibility failures aren't due to "bad SEO." They happen because the web is now read by machines that require structure, evidence, and consistency - and most sites were never built for that.</p>
         <p>When Google AI Overviews or ChatGPT needs to answer a question, it doesn't rank pages. It evaluates which sources provide information that can be extracted, verified, and cited safely. If your site doesn't provide these signals clearly, AI systems won't reference you, regardless of your search rankings.</p>
         <p>This knowledge base exists to bridge that gap. It documents how generative search systems work, why traditional SEO explanations fail, and what actually determines AI visibility.</p>
-        <p style="margin-top: var(--spacing-lg); font-style: italic;">
-          - Joel Maldonado<br>
-          <span style="font-size: 0.9rem; color: #666;">Founder, Neural Command LLC</span>
-        </p>
-      </div>
-    </div>
-
-    <!-- SERVICE CONTENT: REPOSITIONED AS IMPLEMENTATION SUPPORT -->
-    <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
-      <div class="content-block__body">
-        <h2 class="heading-2" style="margin-top: 0;">Implementation Support</h2>
-        <p>For teams who need assistance applying the material above, Neural Command provides implementation support.</p>
-        
-        <h3 class="heading-3">Training for Marketing and SEO Teams</h3>
-        <p>Traditional SEO training focuses on rankings, keywords, and crawl behavior. Modern AI search systems work differently. Large language models evaluate whether information can be extracted, embedded, verified, and cited safely rather than whether a page simply ranks.</p>
-        <p>Neural Command provides technical training for marketing and SEO teams on how LLMs ingest web content, how vector representations are formed, and how prechunked, structured information affects retrieval and citation in systems such as Google AI Overviews and ChatGPT.</p>
-        <p>This training is designed for agencies and in-house teams responsible for search strategy, content architecture, and information systems. It is not intended for beginners or general marketing education.</p>
-        <p><a href="/training/ai-search-systems/" title="View training program for marketing and SEO agencies">View training program for agencies</a></p>
-      </div>
-    </div>
-
-    <!-- FREE TOOLS SECTION: CANONICAL SENTINEL -->
-    <div class="content-block module" style="background: #e8f5e9; border-left: 3px solid #4caf50; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
-      <div class="content-block__body">
-        <h3 style="margin-top: 0; color: #2e7d32;"><strong>Free SEO Tool: Canonical Sentinel</strong></h3>
-        <p style="color: #1b5e20;"><strong>Detect canonical tag errors that cause indexing loss, duplicate content, and AI citation failures.</strong></p>
-        <p style="color: #1b5e20;">Canonical tag mismatches silently degrade SEO performance and reduce AI visibility. Canonical Sentinel scans your website to identify self-canonical failures, redirect conflicts, sitemap contradictions, and other issues that waste crawl budget and hurt rankings.</p>
-        <p style="color: #1b5e20; margin-bottom: var(--spacing-md);"><strong>Free • No signup required • Instant results</strong></p>
-        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
-          <a href="/tools/canonical-sentinel/" class="btn btn--primary" title="Scan your website for canonical tag errors">Scan Your Site</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- PRECHUNKING SEO COURSE CTA -->
-    <div class="content-block module" style="background: #fff3cd; border-left: 3px solid #ffc107; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
-      <div class="content-block__body">
-        <h3 style="margin-top: 0; color: #856404;">Prechunking SEO Operator Training</h3>
-        <p style="color: #856404;"><strong>A hands-on, skills-based course for controlling AI retrieval and citation.</strong></p>
-        <p style="color: #856404;">Learn how to structure content so facts survive AI extraction. This is not a reading course—it's an operator course. You'll complete structured modules, produce artifacts, and validate your work against strict criteria.</p>
-        <p style="color: #856404; margin-bottom: var(--spacing-md);"><strong>6 modules | 6+ hours | 100% hands-on</strong></p>
-        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
-          <a href="/docs/prechunking-seo/course/" class="btn btn--primary" title="Start Prechunking SEO Operator Training course">Start Course</a>
-          <a href="/docs/prechunking-seo/" class="btn btn--secondary" title="Read Prechunking SEO documentation">View Documentation</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- SERVICE POSITIONING BLOCK -->
-    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Implementation Services</h2>
-      </div>
-      <div class="content-block__body">
-        <p>For organizations that need help applying the knowledge base material, Neural Command provides implementation services:</p>
-        <ul>
-          <li>Audit how AI systems currently interpret your brand</li>
-          <li>Identify missing or broken authority signals</li>
-          <li>Rebuild pages for AI extraction, not just rankings</li>
-          <li>Monitor AI visibility across answer engines</li>
-          <li>Continuously adapt as models and policies change</li>
-        </ul>
-        <p style="margin-top: var(--spacing-md); padding: var(--spacing-md); background: #f9f9f9; border-left: 3px solid #4a90e2;">
-          <strong>This is not a tool. It's an engineered service.</strong>
-        </p>
       </div>
     </div>
 
@@ -289,31 +217,30 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
       </div>
       <div class="content-block__body">
         <dl>
-          <dt><strong>How do I get my business mentioned by ChatGPT or AI search tools?</strong></dt>
-          <dd>AI systems like ChatGPT do not browse the web or list businesses in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Businesses are more likely to be mentioned when their identity and services are clearly defined in machine readable formats across the web.</dd>
+          <dt><strong>Why doesn't AI search cite my content?</strong></dt>
+          <dd>AI systems like ChatGPT and Google AI Overviews do not browse the web or list pages in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Content is more likely to be cited when it is clearly defined in machine-readable formats, uses atomic segments that survive compression, and provides unambiguous entity definitions. <a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>">AI Search Diagnostics</a> explains specific failure patterns that cause citation suppression.</dd>
+          
+          <dt><strong>Why is my site indexed but not showing in AI results?</strong></dt>
+          <dd>Indexing and retrieval are different processes. A page can be indexed by search engines but ignored by generative AI systems if its content segments fail confidence thresholds, lack atomic structure, or contain ambiguity that prevents safe citation. <a href="<?= absolute_url('/en-us/ai-search-diagnostics/indexed-but-not-retrieved/') ?>">Indexed but not retrieved</a> documents the specific conditions that cause this disconnect.</dd>
           
           <dt><strong>How does ChatGPT decide which brands to mention?</strong></dt>
-          <dd>ChatGPT and similar systems evaluate whether information about a brand can be confidently extracted and verified across multiple sources. Brands are more likely to be mentioned when their content clearly defines who they are, what they do, and how they relate to a topic, using consistent language and structure across the web.</dd>
-          
-          <dt><strong>Can businesses influence how they appear in AI-generated answers?</strong></dt>
-          <dd>Businesses can't control AI outputs directly, but they can influence eligibility. This is done by structuring content for machine comprehension, aligning on entity definitions, and reducing ambiguity so AI systems can reference the brand without risk of misinformation.</dd>
+          <dd>ChatGPT and similar systems evaluate whether information about a brand can be confidently extracted and verified across multiple sources. Brands are more likely to be mentioned when their content clearly defines who they are, what they do, and how they relate to a topic, using consistent language and structure across the web. <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">Decision traces in generative search</a> explain how these judgments accumulate into patterns that influence future retrieval decisions.</dd>
           
           <dt><strong>Is ranking on Google enough to be featured in AI Overviews or ChatGPT?</strong></dt>
-          <dd>No. Traditional rankings measure page relevance, while AI systems prioritize extractability and trust. A page can rank well and still be ignored by AI if its information isn't structured, explicit, and verifiable enough to be cited safely.</dd>
+          <dd>No. Traditional rankings measure page relevance, while AI systems prioritize extractability and trust. A page can rank well and still be ignored by AI if its information isn't structured, explicit, and verifiable enough to be cited safely. <a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>">Generative Engine Optimization</a> explains the mechanics of segment-level retrieval versus page-level ranking.</dd>
+          
+          <dt><strong>Why did my traffic drop even though rankings stayed the same?</strong></dt>
+          <dd>When generative AI systems answer queries directly, they reduce the need for users to click through to source pages. This creates a disconnect between traditional ranking metrics and actual traffic. Rankings may remain stable while traffic declines because AI systems are providing answers without requiring page visits. <a href="<?= absolute_url('/en-us/ai-search-measurement/') ?>">AI Search Measurement</a> explains what can and cannot be measured in AI-mediated search.</dd>
         </dl>
       </div>
     </div>
 
-    <!-- FINAL CTA: REPOSITIONED AS OPTIONAL -->
-    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+    <!-- IMPLEMENTATION SUPPORT: MOVED TO BOTTOM, VISUALLY SECONDARY -->
+    <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-bottom: var(--spacing-8); margin-top: var(--spacing-xl);">
       <div class="content-block__body">
-        <p class="lead" style="margin-bottom: var(--spacing-md);">
-          For organizations needing implementation support, see how AI systems currently interpret your brand and what needs to change.
-        </p>
-        <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
-          <button type="button" class="btn" onclick="openContactSheet('AI Visibility Analysis')">See How AI Sees Your Brand</button>
-          <a href="/services/" class="btn btn--secondary" title="View all AI SEO services offered by NRLC.ai">View Services</a>
-        </div>
+        <h2 class="heading-2" style="margin-top: 0;">Implementation Support</h2>
+        <p>For teams who need assistance applying the material above, Neural Command provides implementation support.</p>
+        <p><a href="<?= absolute_url('/en-us/implementation/') ?>">Learn about implementation support →</a></p>
       </div>
     </div>
 
@@ -429,7 +356,7 @@ try {
   // Silent fail
 }
 
-// FAQ SCHEMA: AI Visibility Questions (matches visible FAQ content exactly) - GUARDED
+// FAQ SCHEMA: AI Visibility Questions (optimized for search intent) - GUARDED
 try {
   $GLOBALS['__jsonld'][] = [
     '@context' => 'https://schema.org',
@@ -437,10 +364,18 @@ try {
     'mainEntity' => [
     [
       '@type' => 'Question',
-      'name' => 'How do I get my business mentioned by ChatGPT or AI search tools?',
+      'name' => 'Why doesn\'t AI search cite my content?',
       'acceptedAnswer' => [
         '@type' => 'Answer',
-        'text' => 'AI systems like ChatGPT do not browse the web or list businesses in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Businesses are more likely to be mentioned when their identity and services are clearly defined in machine readable formats across the web.'
+        'text' => 'AI systems like ChatGPT and Google AI Overviews do not browse the web or list pages in directories. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. Content is more likely to be cited when it is clearly defined in machine-readable formats, uses atomic segments that survive compression, and provides unambiguous entity definitions.'
+      ]
+    ],
+    [
+      '@type' => 'Question',
+      'name' => 'Why is my site indexed but not showing in AI results?',
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => 'Indexing and retrieval are different processes. A page can be indexed by search engines but ignored by generative AI systems if its content segments fail confidence thresholds, lack atomic structure, or contain ambiguity that prevents safe citation.'
       ]
     ],
     [
@@ -448,15 +383,7 @@ try {
       'name' => 'How does ChatGPT decide which brands to mention?',
       'acceptedAnswer' => [
         '@type' => 'Answer',
-        'text' => 'ChatGPT evaluates whether information about a brand can be confidently extracted and verified across multiple sources. Brands with clear entity definitions, consistent language, and corroborating references are more likely to be included in AI-generated answers.'
-      ]
-    ],
-    [
-      '@type' => 'Question',
-      'name' => 'Can businesses influence how they appear in AI-generated answers?',
-      'acceptedAnswer' => [
-        '@type' => 'Answer',
-        'text' => 'Businesses cannot directly control AI outputs, but they can influence eligibility. This involves structuring content for machine comprehension, aligning on consistent entity signals, and reducing ambiguity so AI systems can reference the brand without risk.'
+        'text' => 'ChatGPT and similar systems evaluate whether information about a brand can be confidently extracted and verified across multiple sources. Brands are more likely to be mentioned when their content clearly defines who they are, what they do, and how they relate to a topic, using consistent language and structure across the web.'
       ]
     ],
     [
@@ -464,7 +391,15 @@ try {
       'name' => 'Is ranking on Google enough to be featured in AI Overviews or ChatGPT?',
       'acceptedAnswer' => [
         '@type' => 'Answer',
-        'text' => 'Traditional rankings measure relevance, but AI systems prioritize extractability and trust. A page may rank well and still be excluded from AI-generated answers if its information is not structured, explicit, and verifiable enough to be safely cited.'
+        'text' => 'No. Traditional rankings measure page relevance, while AI systems prioritize extractability and trust. A page can rank well and still be ignored by AI if its information isn\'t structured, explicit, and verifiable enough to be cited safely.'
+      ]
+    ],
+    [
+      '@type' => 'Question',
+      'name' => 'Why did my traffic drop even though rankings stayed the same?',
+      'acceptedAnswer' => [
+        '@type' => 'Answer',
+        'text' => 'When generative AI systems answer queries directly, they reduce the need for users to click through to source pages. This creates a disconnect between traditional ranking metrics and actual traffic. Rankings may remain stable while traffic declines because AI systems are providing answers without requiring page visits.'
       ]
     ]
     ]
