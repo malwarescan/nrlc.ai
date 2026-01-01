@@ -309,7 +309,7 @@ hr {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: var(--spacing-lg);
   padding: var(--spacing-md) var(--container-padding);
   background-color: var(--color-bg-primary);
@@ -417,7 +417,7 @@ hr {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -458,16 +458,18 @@ hr {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 220px;
+  min-width: 200px;
+  max-width: 280px;
   background-color: var(--color-bg-primary);
   border: var(--border-width-strong) solid var(--color-border-strong);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   list-style: none;
   margin: 0;
-  padding: var(--spacing-8);
+  padding: var(--spacing-8) 0;
   display: none;
   z-index: 1000;
   margin-top: var(--spacing-4);
+  border-radius: 4px;
 }
 
 .nav-primary__item--has-dropdown:hover .nav-primary__dropdown,
@@ -484,6 +486,11 @@ hr {
   font-weight: var(--font-weight-normal);
   transition: background-color var(--duration-fast) var(--ease-functional);
   white-space: nowrap;
+  border-left: 3px solid transparent;
+}
+
+.nav-primary__dropdown-link:hover {
+  border-left-color: var(--color-brand);
 }
 
 .nav-primary__dropdown-link:hover {
