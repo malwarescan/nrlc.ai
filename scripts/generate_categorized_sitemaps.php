@@ -486,7 +486,7 @@ function get_geo_pages(): array {
     ];
   }
 
-  // GEO Failure Modes (2)
+  // GEO Failure Modes (index + all failure mode pages)
   $geoPages[] = [
     'loc' => 'https://nrlc.ai/en-us/generative-engine-optimization/failure-modes/',
     'lastmod' => file_exists(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/index.php') 
@@ -496,14 +496,20 @@ function get_geo_pages(): array {
     'priority' => '0.9'
   ];
   
-  $geoPages[] = [
-    'loc' => 'https://nrlc.ai/en-us/generative-engine-optimization/failure-modes/canonical-drift/',
-    'lastmod' => file_exists(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/canonical-drift.php')
-      ? date('Y-m-d', filemtime(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/canonical-drift.php'))
-      : $today,
-    'changefreq' => 'monthly',
-    'priority' => '0.8'
-  ];
+  // Get all failure mode pages dynamically
+  $failureModeFiles = glob(__DIR__ . '/../pages/generative-engine-optimization/failure-modes/*.php');
+  foreach ($failureModeFiles as $file) {
+    $filename = basename($file);
+    if ($filename === 'index.php') continue; // Skip index, already added above
+    
+    $slug = basename($file, '.php');
+    $geoPages[] = [
+      'loc' => "https://nrlc.ai/en-us/generative-engine-optimization/failure-modes/{$slug}/",
+      'lastmod' => date('Y-m-d', filemtime($file)),
+      'changefreq' => 'monthly',
+      'priority' => '0.8'
+    ];
+  }
   
   // Content Chunking Cluster (3)
   $chunkingPages = [
