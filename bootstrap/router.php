@@ -635,6 +635,74 @@ function route_request(): void {
     return;
   }
 
+  // Extractability page
+  if ($path === '/generative-engine-optimization/extractability/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    // Use actual request path for canonical (includes locale if present)
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'generative-engine-optimization/extractability',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Extractability in Generative Search';
+    $GLOBALS['__page_meta']['description'] = 'Extractability is the degree to which content can be isolated, compressed, and reused by generative systems without semantic loss, enabling retrieval and citation in AI search.';
+    render_page('generative-engine-optimization/extractability');
+    return;
+  }
+
+  // Inference Context Stability page
+  if ($path === '/generative-engine-optimization/inference-context-stability/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    // Use actual request path for canonical (includes locale if present)
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'generative-engine-optimization/inference-context-stability',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Inference Context Stability in Generative Search';
+    $GLOBALS['__page_meta']['description'] = 'Inference context stability describes whether a generative system infers the same meaning from content segments across different prompts, queries, and retrieval contexts, enabling reliable reuse and citation.';
+    render_page('generative-engine-optimization/inference-context-stability');
+    return;
+  }
+
+  // Confidence Band Filtering page
+  if ($path === '/generative-engine-optimization/confidence-band-filtering/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    // Use actual request path for canonical (includes locale if present)
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'generative-engine-optimization/confidence-band-filtering',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Confidence Band Filtering in Generative Search';
+    $GLOBALS['__page_meta']['description'] = 'Confidence band filtering describes how generative systems exclude content that falls below an internal confidence threshold for reuse, creating a gate between retrieval and citation.';
+    render_page('generative-engine-optimization/confidence-band-filtering');
+    return;
+  }
+
+  // Compression Integrity page
+  if ($path === '/generative-engine-optimization/compression-integrity/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    // Use actual request path for canonical (includes locale if present)
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'generative-engine-optimization/compression-integrity',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    $GLOBALS['__page_meta']['title'] = 'Compression Integrity in Generative Search';
+    $GLOBALS['__page_meta']['description'] = 'Compression integrity describes whether content segments preserve their meaning when generative systems compress them for inference and reuse, determining semantic survivability under abstraction.';
+    render_page('generative-engine-optimization/compression-integrity');
+    return;
+  }
+
   // GEO Failure Mode Pages
   if (preg_match('#^/generative-engine-optimization/failure-modes/([^/]+)/$#', $path, $m)) {
     $failureModeSlug = $m[1];

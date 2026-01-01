@@ -144,7 +144,7 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <p>Ranking assumes continuity. If a page improves, it should move. Generative retrieval violates that assumption at a fundamental level. The output space is discontinuous. A content segment either survives inference or it does not. There is no intermediate state.</p>
           
-          <p>Generative systems do not need to show users multiple options. They need to decide whether a fragment is safe to reuse in an answer. That decision is made under uncertainty. The system must determine whether the content is coherent, whether it can survive compression without losing meaning, and whether it is unlikely to introduce contradiction. Failure at any stage results in suppression.</p>
+          <p>Generative systems do not need to show users multiple options. They need to decide whether a fragment is safe to reuse in an answer. That decision is made under uncertainty. The system must determine whether the content is coherent, whether it can survive compression without losing meaning, and whether it is unlikely to introduce contradiction. Failure at any stage results in suppression. Content must first be <a href="<?= absolute_url('/en-us/generative-engine-optimization/extractability/') ?>">extractable</a> before it can enter the decision process.</p>
           
           <p>This explains why ranking position loses explanatory power. A page that ranks first under classical search can be ignored by a generative system, while a lower ranked source may be cited repeatedly. The system is not contradicting itself. It is making a different kind of decision.</p>
         </div>
@@ -200,9 +200,9 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <p>Negative decision traces provide the clearest signal generative systems expose. Successful retrieval can be influenced by topical demand and availability. Suppression reflects active disqualification.</p>
           
-          <p>When a specific structural configuration consistently leads to exclusion, that configuration encodes a negative decision trace. In SEO practice, these are often mislabeled as technical issues or quality problems. In generative systems, they represent confidence collapse. Each recurrence reinforces the system's assessment that similar configurations are unsafe to reuse.</p>
+          <p>When a specific structural configuration consistently leads to exclusion, that configuration encodes a negative decision trace. In SEO practice, these are often mislabeled as technical issues or quality problems. In generative systems, they represent confidence collapse. Each recurrence reinforces the system's assessment that similar configurations are unsafe to reuse. When content produces <a href="<?= absolute_url('/en-us/generative-engine-optimization/inference-context-stability/') ?>">unstable inference</a> across different contexts, it generates inconsistent outcomes that accelerate negative decision traces. Repeated exclusion below the <a href="<?= absolute_url('/en-us/generative-engine-optimization/confidence-band-filtering/') ?>">confidence band</a> creates persistent suppression patterns.</p>
           
-          <p>This explains why incremental improvements rarely reverse generative invisibility once it sets in. The problem is not that the signal is too weak. The problem is that the judgment has already been learned. Until the conditions that produced that judgment are removed, the outcome remains stable.</p>
+          <p>This explains why incremental improvements rarely reverse generative invisibility once it sets in. The problem is not that the signal is too weak. The problem is that the judgment has already been learned. Until the conditions that produced that judgment are removed, the outcome remains stable. Content that is correct but repeatedly unused often fails due to <a href="<?= absolute_url('/en-us/generative-engine-optimization/compression-integrity/') ?>">compression failure</a>.</p>
         </div>
       </div>
 

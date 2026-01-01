@@ -303,6 +303,14 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <p>GEO operates on decision traces. Each retrieval, citation, or suppression decision creates a trace. <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">Decision traces in generative search</a> document how AI systems learn what to trust through observable judgments.</p>
           
+          <p><a href="<?= absolute_url('/en-us/generative-engine-optimization/extractability/') ?>">Extractability</a> explains whether a system can reliably isolate and reuse a segment during inference.</p>
+          
+          <p><a href="<?= absolute_url('/en-us/generative-engine-optimization/inference-context-stability/') ?>">Inference Context Stability</a> explains whether a system infers the same meaning from a segment across different contexts.</p>
+          
+          <p><a href="<?= absolute_url('/en-us/generative-engine-optimization/confidence-band-filtering/') ?>">Confidence Band Filtering</a> explains whether a segment clears the confidence threshold required for reuse.</p>
+          
+          <p><a href="<?= absolute_url('/en-us/generative-engine-optimization/compression-integrity/') ?>">Compression Integrity</a> explains whether meaning survives when the system compresses content for reuse.</p>
+          
           <p>NRLC applies GEO principles across three layers:</p>
           
           <h3 class="heading-3">Layer 1: Content Chunking</h3>

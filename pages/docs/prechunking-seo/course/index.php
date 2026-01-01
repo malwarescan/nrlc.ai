@@ -98,6 +98,7 @@ $modules = [
         <p>The goal is to teach how to design content that:</p>
         <ul>
           <li>chunks deterministically</li>
+          <li>is extractable and reusable by generative systems</li>
           <li>vectorizes cleanly</li>
           <li>minimizes cross-chunk inference cost</li>
           <li>survives retrieval without hallucination</li>
@@ -139,7 +140,7 @@ $modules = [
           <li>Context window = memory budget</li>
           <li>Citation = confidence threshold crossing</li>
         </ul>
-        <p><strong>Prechunking is schema design for untrusted data sources.</strong></p>
+        <p><strong>Prechunking is schema design for untrusted data sources.</strong> Chunking is the method. <a href="<?= absolute_url('/en-us/generative-engine-optimization/extractability/') ?>">Extractability</a> is the outcome.</p>
       </div>
     </div>
 

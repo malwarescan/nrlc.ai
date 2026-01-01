@@ -124,6 +124,10 @@ $GLOBALS['__jsonld'] = [
             </p>
           </div>
           <p>Each diagnostic symptom maps to underlying decision traces. When a site is not showing in AI results, or content is not cited in AI Overviews, these behaviors are explained by <a href="<?= absolute_url('/en-us/generative-engine-optimization/decision-traces/') ?>">decision traces in generative search</a>—the observable record of how AI systems decide what to retrieve, cite, or ignore.</p>
+          <p>Many persistent visibility failures are not indexing problems. They are <a href="<?= absolute_url('/en-us/generative-engine-optimization/extractability/') ?>">extractability</a> problems.</p>
+          <p>Many intermittent AI visibility failures are caused by <a href="<?= absolute_url('/en-us/generative-engine-optimization/inference-context-stability/') ?>">inference context instability</a> rather than indexing or authority issues.</p>
+          <p>Some systems retrieve your content but still refuse to reuse it because it does not clear a <a href="<?= absolute_url('/en-us/generative-engine-optimization/confidence-band-filtering/') ?>">confidence band</a>.</p>
+          <p>Some segments fail not because they are wrong, but because their meaning does not survive <a href="<?= absolute_url('/en-us/generative-engine-optimization/compression-integrity/') ?>">compression</a>.</p>
         </div>
       </div>
 

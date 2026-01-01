@@ -15,6 +15,26 @@ $glossarySections = [
     'description' => 'The observable record of how generative AI systems decide what to retrieve, cite, or suppress.'
   ],
   [
+    'slug' => 'extractability',
+    'name' => 'Extractability',
+    'description' => 'The degree to which content can be isolated and reused by generative systems without semantic loss or ambiguity.'
+  ],
+  [
+    'slug' => 'inference-context-stability',
+    'name' => 'Inference Context Stability',
+    'description' => 'Whether a generative system infers the same meaning from content segments across different prompts, queries, and retrieval contexts.'
+  ],
+  [
+    'slug' => 'confidence-band-filtering',
+    'name' => 'Confidence Band Filtering',
+    'description' => 'How generative systems exclude content that falls below an internal confidence threshold for reuse.'
+  ],
+  [
+    'slug' => 'compression-integrity',
+    'name' => 'Compression Integrity',
+    'description' => 'Whether content segments preserve their meaning when generative systems compress them for inference and reuse.'
+  ],
+  [
     'slug' => 'generative-search-terms',
     'name' => 'Generative Search Terms',
     'description' => 'Core terminology for generative search and AI-mediated search environments.'
