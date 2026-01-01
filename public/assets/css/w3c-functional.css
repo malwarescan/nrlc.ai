@@ -328,6 +328,11 @@ hr {
   flex: 1;
 }
 
+.nav-primary__menu--secondary {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
 @media (min-width: 640px) {
   .nav-primary {
     padding: var(--spacing-md) var(--container-padding-sm);
