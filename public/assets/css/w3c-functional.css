@@ -309,7 +309,7 @@ hr {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: var(--spacing-lg);
   padding: var(--spacing-md) var(--container-padding);
   background-color: var(--color-bg-primary);
@@ -490,12 +490,9 @@ hr {
 }
 
 .nav-primary__dropdown-link:hover {
-  border-left-color: var(--color-brand);
-}
-
-.nav-primary__dropdown-link:hover {
   background-color: var(--color-bg-secondary);
   color: var(--color-text-primary);
+  border-left-color: var(--color-brand);
 }
 
 @media (max-width: 768px) {
