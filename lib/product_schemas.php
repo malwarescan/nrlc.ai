@@ -1133,49 +1133,10 @@ function googlebot_renderer_schemas(): array {
             'worstRating' => '1'
           ]
         ]
-      ],
-      'offers' => [
-        '@type' => 'Offer',
-        'availability' => 'https://schema.org/InStock',
-        'priceCurrency' => 'USD',
-        'price' => '0',
-        'url' => $productUrl,
-        'priceValidUntil' => date('Y-m-d', strtotime('+1 year')),
-        'shippingDetails' => [
-          '@type' => 'OfferShippingDetails',
-          'shippingRate' => [
-            '@type' => 'MonetaryAmount',
-            'value' => '0',
-            'currency' => 'USD'
-          ],
-          'deliveryTime' => [
-            '@type' => 'ShippingDeliveryTime',
-            'handlingTime' => [
-              '@type' => 'QuantitativeValue',
-              'minValue' => 0,
-              'maxValue' => 0,
-              'unitCode' => 'DAY'
-            ],
-            'transitTime' => [
-              '@type' => 'QuantitativeValue',
-              'minValue' => 0,
-              'maxValue' => 0,
-              'unitCode' => 'DAY'
-            ]
-          ],
-          'shippingDestination' => [
-            '@type' => 'DefinedRegion',
-            'addressCountry' => 'US'
-          ]
-        ],
-        'hasMerchantReturnPolicy' => [
-          '@id' => $returnPolicyId
-        ],
-        'seller' => [
-          '@type' => 'Organization',
-          'name' => 'Neural Command'
-        ]
       ]
+      // Note: offers field removed from LearningResource
+      // LearningResource is an educational resource, not a purchasable product
+      // Shipping details and merchant return policies are not valid for LearningResource
     ],
     
     // MerchantReturnPolicy
