@@ -177,24 +177,6 @@ $modules = [
       </div>
     </div>
 
-    <!-- Why Multi-Page -->
-    <div class="content-block module" style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px;">
-      <div class="content-block__header">
-        <h2 class="content-block__title">Why This Cannot Be One Page</h2>
-      </div>
-      <div class="content-block__body">
-        <p><strong>From an LLM ingestion and retrieval perspective:</strong></p>
-        <ul>
-          <li>One page = mixed schema</li>
-          <li>Mixed schema = higher inference cost</li>
-          <li>Higher inference cost = lower retrieval probability</li>
-          <li>Lower retrieval probability = zero citation</li>
-        </ul>
-        <p style="margin-top: 1rem;"><strong>Your own doctrine proves this must be multi-page.</strong></p>
-        <p>Each module is a well-bounded, task-aligned unit with predictable structure and low inference cost.</p>
-      </div>
-    </div>
-
     <!-- Related Documentation -->
     <div class="content-block module">
       <div class="content-block__header">
