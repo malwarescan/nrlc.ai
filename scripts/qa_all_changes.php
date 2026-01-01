@@ -4,7 +4,7 @@
  * Checks HTTP status, canonical tags, schema, content, and links
  */
 
-$baseUrl = 'http://localhost:8000';
+$baseUrl = 'https://nrlc.ai';
 
 // URLs to test
 $urlsToTest = [
