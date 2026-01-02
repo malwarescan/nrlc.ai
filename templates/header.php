@@ -71,6 +71,15 @@
           <li><a href="<?= absolute_url('/en-us/glossary/') ?>" class="nav-primary__dropdown-link" title="<?= $glossaryAttrs['title'] ?>" aria-label="<?= $glossaryAttrs['aria-label'] ?>">Glossary</a></li>
         </ul>
       </li>
+      
+      <?php
+      // Training (Top-level navigation - parallel to Knowledge Base)
+      $trainingAttrs = menu_item_seo_attrs('Training');
+      $isTraining = strpos($_SERVER['REQUEST_URI'] ?? '', '/training') !== false;
+      ?>
+      <li class="nav-primary__item">
+        <a href="<?= absolute_url('/training/') ?>" class="nav-primary__link" title="<?= $trainingAttrs['title'] ?>" aria-label="<?= $trainingAttrs['aria-label'] ?>"<?= $isTraining ? ' aria-current="page"' : '' ?>>Training</a>
+      </li>
     </ul>
     
     <!-- Secondary Navigation Items (Right Side) -->

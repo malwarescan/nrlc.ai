@@ -172,7 +172,22 @@ function route_request(): void {
     }
   }
 
-  // Training page route
+  // Training routes (META DIRECTIVE: Training & Classes Offering)
+  // Training is education, not services. Uses Course/EducationalOccupationalProgram schema, NOT Service.
+  
+  // /training/ - Training hub
+  if ($path === '/training/' || $path === '/training') {
+    render_page('training/index');
+    return;
+  }
+  
+  // /training/one-on-one/ - One-on-one training
+  if ($path === '/training/one-on-one/' || $path === '/training/one-on-one') {
+    render_page('training/one-on-one');
+    return;
+  }
+  
+  // Existing training page (legacy)
   if ($path === '/training/ai-search-systems/') {
     require_once __DIR__.'/../lib/meta_directive.php';
     $ctx = [

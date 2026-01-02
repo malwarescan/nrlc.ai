@@ -246,6 +246,26 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
 
+    <!-- INDUSTRY-SPECIFIC PAGES -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">AI Visibility by Industry</h2>
+      </div>
+      <div class="content-block__body">
+        <p>We provide specialized AI visibility services for high-trust industries where AI recommendations matter most:</p>
+        <ul style="columns: 2; column-gap: 2rem; list-style: none; padding: 0;">
+          <?php foreach ($industries as $slug => $industry): ?>
+          <li style="margin-bottom: 0.5rem;">
+            <a href="<?= htmlspecialchars($localePrefix . '/ai-visibility/' . $slug . '/') ?>" title="AI Visibility for <?= htmlspecialchars($industry['name']) ?>">
+              <?= htmlspecialchars($industry['name']) ?>
+            </a>
+          </li>
+          <?php endforeach; ?>
+        </ul>
+        <p style="margin-top: 1rem;">Each industry page includes industry-specific AI prompts, trust signals, and optimization strategies tailored to how customers in that industry research and make decisions.</p>
+      </div>
+    </div>
+
     <!-- RELATED SERVICES -->
     <div class="content-block module">
       <div class="content-block__header">
