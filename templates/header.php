@@ -82,7 +82,7 @@
       $implementationAttrs = menu_item_seo_attrs('Implementation Support');
       $isImplementation = strpos($_SERVER['REQUEST_URI'] ?? '', '/implementation/') !== false;
       $careersAttrs = menu_item_seo_attrs('Careers');
-      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers/') === 0;
+      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers') !== false;
       ?>
       
       <li class="nav-primary__item">
