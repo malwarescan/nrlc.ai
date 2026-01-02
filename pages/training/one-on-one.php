@@ -93,84 +93,130 @@ $GLOBALS['__jsonld'] = [
   <section class="section">
     <div class="section__content">
       
-      <!-- ABOVE THE FOLD: Clear Classification -->
+      <!-- Section 1: Classifier (Above the Fold) -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h1 class="content-block__title">One-on-One Training: Modern Search for Operators</h1>
+          <h1 class="content-block__title">One-on-One AI Search Training</h1>
         </div>
         <div class="content-block__body">
-          <p class="lead">Hands-on, operator-level one-on-one training focused on SEO, AEO, and GEO.</p>
-          <p>This is skill transfer, not delivery. You learn execution frameworks, decision-making processes, and instrumentation techniques for modern search optimization.</p>
+          <p class="lead">This is private, one-on-one training for operators who need a deep, practical understanding of modern search systems.</p>
+          <p>Sessions are focused on reasoning, evaluation, and execution frameworks — not outsourced work or implementation.</p>
         </div>
       </div>
       
-      <!-- What You Learn -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h2 class="content-block__title">What You Learn</h2>
-        </div>
-        <div class="content-block__body">
-          <p>One-on-one training covers:</p>
-          <ul>
-            <li><strong>Execution Frameworks</strong> - How to implement SEO, AEO, and GEO strategies at an operator level</li>
-            <li><strong>Decision Frameworks</strong> - How to make optimization decisions based on data and system understanding</li>
-            <li><strong>Instrumentation</strong> - How to measure and track modern search performance</li>
-            <li><strong>Hands-On Techniques</strong> - Practical implementation methods you can use immediately</li>
-            <li><strong>System Understanding</strong> - How modern search systems (traditional SEO, AI engines, generative search) actually work</li>
-          </ul>
-          <p>All training is execution-aware and operator-level. You learn how to do the work yourself.</p>
-        </div>
-      </div>
-      
-      <!-- Training Format -->
+      <!-- Section 2: Format -->
       <div class="content-block module">
         <div class="content-block__header">
           <h2 class="content-block__title">Training Format</h2>
         </div>
         <div class="content-block__body">
-          <p>One-on-one training sessions are:</p>
           <ul>
-            <li><strong>Individual</strong> - Focused on your specific needs and questions</li>
-            <li><strong>Hands-On</strong> - Practical exercises and real-world scenarios</li>
-            <li><strong>Operator-Level</strong> - Execution-focused, not just concepts</li>
-            <li><strong>Flexible</strong> - Tailored to your current skill level and goals</li>
+            <li>1:1 live sessions</li>
+            <li>Operator-level depth</li>
+            <li>Real examples, no canned curriculum</li>
+            <li>Questions driven by your environment</li>
           </ul>
-          <p>Sessions can cover specific topics (SEO, AEO, or GEO) or provide comprehensive training across all three areas.</p>
         </div>
       </div>
       
-      <!-- Who This Is For -->
+      <!-- Section 3: What Happens in Sessions -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title">Who This Training Is For</h2>
+          <h2 class="content-block__title">What Happens in Sessions</h2>
         </div>
         <div class="content-block__body">
-          <p>One-on-one training is designed for:</p>
+          <p>Sessions typically involve:</p>
           <ul>
-            <li>Marketing operators who execute search optimization strategies</li>
-            <li>Team members building internal SEO and AI visibility capabilities</li>
-            <li>Professionals who want hands-on, operator-level understanding</li>
-            <li>Individuals who prefer personalized, focused learning</li>
+            <li>Breaking down how AI search systems make decisions</li>
+            <li>Auditing visibility through eligibility and fulfillment lenses</li>
+            <li>Reviewing prompts, surfaces, and outcomes conceptually</li>
+            <li>Teaching how to reason about changes before making them</li>
           </ul>
-          <p>If you need someone to execute strategies for you, that's a service engagement. If you want to learn how to execute them yourself, this is training.</p>
+          <p><strong>Important:</strong> Sessions focus on reviewing and reasoning, not fixing or implementing.</p>
         </div>
       </div>
       
-      <!-- Training vs Services -->
-      <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md);">
+      <!-- Section 4: What This Is NOT (Critical - Mandatory for Intent Safety) -->
+      <div class="content-block module" style="background: #fff3cd; border-left: 3px solid #ffc107; padding: var(--spacing-md);">
+        <div class="content-block__header">
+          <h2 class="content-block__title">What This Is NOT (Critical)</h2>
+        </div>
         <div class="content-block__body">
-          <h3 style="margin-top: 0;">Training vs Services</h3>
-          <p><strong>Training:</strong> We teach you how to execute modern search optimization. You learn operator-level skills, decision frameworks, and instrumentation. You implement strategies yourself.</p>
-          <p><strong>Services:</strong> We execute optimization strategies for you. You get results without needing to understand implementation details.</p>
-          <p>Both are available. Training is skill transfer. Services are execution. They work together without competing.</p>
+          <p>This training does not include:</p>
+          <ul>
+            <li>Hands-on execution</li>
+            <li>Code changes</li>
+            <li>Content production</li>
+            <li>Managed optimization</li>
+            <li>Ongoing retainers</li>
+          </ul>
+          <p><strong>This section is mandatory for intent safety.</strong></p>
         </div>
       </div>
       
-      <!-- CTA -->
+      <!-- Section 5: Outcomes (Educational, Not Performance) -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">Outcomes (Educational, Not Performance)</h2>
+        </div>
+        <div class="content-block__body">
+          <p>After training, participants should be able to:</p>
+          <ul>
+            <li>Diagnose AI visibility issues independently</li>
+            <li>Evaluate risk before deploying changes</li>
+            <li>Communicate search tradeoffs internally</li>
+            <li>Decide when execution help is actually needed</li>
+          </ul>
+          <p><strong>No traffic promises. No rankings.</strong></p>
+        </div>
+      </div>
+      
+      <!-- Section 6: Eligibility (Soft Gate) -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">Eligibility (Soft Gate)</h2>
+        </div>
+        <div class="content-block__body">
+          <p>This training is best suited for:</p>
+          <ul>
+            <li>Teams already responsible for search decisions</li>
+            <li>Operators with baseline SEO knowledge</li>
+            <li>Organizations seeking understanding, not shortcuts</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Pricing & Eligibility Language (Intent-Safe) -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">Pricing & Eligibility</h2>
+        </div>
+        <div class="content-block__body">
+          <p><strong>Pricing:</strong> Training is priced per session or per engagement, depending on scope.</p>
+          <p>Pricing reflects time, preparation, and instructional depth — not execution or deliverables.</p>
+          <p>Team sessions and extended engagements are available by request.</p>
+          
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd;">
+            <p><strong>Eligibility:</strong> Training is not appropriate if you are looking for:</p>
+            <ul>
+              <li>Someone to "fix" search performance</li>
+              <li>Done-for-you optimization</li>
+              <li>Guaranteed outcomes</li>
+            </ul>
+            <p><strong>If execution is required, that is a separate conversation.</strong></p>
+          </div>
+          
+          <div style="margin-top: 1.5rem; padding: 1rem; background: #f8f9fa; border-left: 3px solid #6c757d;">
+            <p><strong>Separation Clause:</strong> Training and execution are intentionally separate to preserve clarity and accountability.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 7: Action -->
       <div class="content-block module">
         <div class="content-block__body">
-          <p><button type="button" class="btn btn--primary" onclick="openContactSheet('One-on-One Training Inquiry')">Inquire About One-on-One Training</button></p>
-          <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Learn operator-level skills for modern search optimization</p>
+          <p><button type="button" class="btn btn--primary" onclick="openContactSheet('One-on-One Training Availability Request')">Request Availability for One-on-One Training</button></p>
+          <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Language matters. This is training, not execution.</p>
         </div>
       </div>
       

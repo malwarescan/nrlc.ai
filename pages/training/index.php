@@ -93,78 +93,70 @@ $GLOBALS['__jsonld'] = [
       <!-- ABOVE THE FOLD: Clear Classification -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h1 class="content-block__title">Training: Modern Search for Marketing Teams and Operators</h1>
+          <h1 class="content-block__title">AI Search Training for Marketing Teams</h1>
         </div>
         <div class="content-block__body">
-          <p class="lead">This is training focused on modern search: SEO, AEO (AI Engine Optimization), and GEO (Generative Engine Optimization).</p>
-          <p>Training is for marketing teams and operators who need to understand how modern search systems work and how to execute optimization strategies at an operator level.</p>
-          <p>This is skill transfer, not delivery. You learn how to do it yourself.</p>
-        </div>
-      </div>
-      
-      <!-- What Training Covers -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h2 class="content-block__title">What This Training Covers</h2>
-        </div>
-        <div class="content-block__body">
-          <p>Training focuses on three core areas of modern search:</p>
-          <ul>
-            <li><strong>SEO (Search Engine Optimization)</strong> - Traditional search ranking and visibility</li>
-            <li><strong>AEO (AI Engine Optimization)</strong> - How AI systems retrieve and cite content</li>
-            <li><strong>GEO (Generative Engine Optimization)</strong> - How generative search systems work and how to optimize for them</li>
-          </ul>
-          <p>All training is hands-on, operator-level, and execution-aware. You learn decision frameworks, instrumentation, and how to implement strategies yourself.</p>
-        </div>
-      </div>
-      
-      <!-- Training Formats -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h2 class="content-block__title">Training Formats</h2>
-        </div>
-        <div class="content-block__body">
-          <ul>
-            <li><a href="<?= absolute_url('/training/one-on-one/') ?>">One-on-One Training</a> - Individual skill transfer sessions</li>
-            <li>Team Training - Group sessions for marketing teams (coming soon)</li>
-            <li>Specialized Tracks - SEO, AEO, and GEO focused training (coming soon)</li>
-          </ul>
+          <p class="lead">NRLC provides hands-on training for marketing teams and operators who need to understand how modern search systems work — including SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO).</p>
+          <p>This training focuses on decision frameworks, execution mechanics, and evaluation models used by AI-driven search systems. It is designed to transfer capability, not replace internal teams.</p>
         </div>
       </div>
       
       <!-- Who This Is For -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title">Who This Training Is For</h2>
+          <h2 class="content-block__title">Who This Is For</h2>
         </div>
         <div class="content-block__body">
-          <p>This training is designed for:</p>
+          <p>This training is for:</p>
           <ul>
-            <li>Marketing teams who need to understand modern search systems</li>
-            <li>Operators who execute SEO and AI visibility strategies</li>
-            <li>Teams building internal search optimization capabilities</li>
-            <li>Professionals who want operator-level understanding, not just concepts</li>
+            <li>In-house marketing teams</li>
+            <li>Technical SEO leads</li>
+            <li>Product and growth operators</li>
+            <li>Agencies training internal staff</li>
           </ul>
-          <p>If you need someone to do the work for you, that's a service engagement. If you want to learn how to do it yourself, this is training.</p>
         </div>
       </div>
       
-      <!-- Training vs Services -->
-      <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; padding: var(--spacing-md);">
-        <div class="content-block__body">
-          <h3 style="margin-top: 0;">Training vs Services</h3>
-          <p><strong>Training:</strong> We teach you how modern search works. You learn operator-level skills and decision frameworks. You implement strategies yourself.</p>
-          <p><strong>Services:</strong> We execute optimization strategies for you. You get results without needing to understand the implementation details.</p>
-          <p>Both offerings are available. Training is skill transfer. Services are execution. They reinforce each other without competing.</p>
-        </div>
-      </div>
-      
-      <!-- CTA -->
+      <!-- What This Is (Explicit) -->
       <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">What This Is (Explicit)</h2>
+        </div>
         <div class="content-block__body">
-          <p><a href="<?= absolute_url('/training/one-on-one/') ?>" class="btn btn--primary">Learn More About One-on-One Training</a></p>
+          <p><strong>This is education and skill transfer.</strong></p>
+          <p>We do not execute changes, manage sites, or act as an agency during training.</p>
         </div>
       </div>
+      
+      <!-- What This Covers -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">What This Covers (High Level, Non-Exhaustive)</h2>
+        </div>
+        <div class="content-block__body">
+          <ul>
+            <li>How AI search systems classify and retrieve information</li>
+            <li>Why traditional SEO signals break down in AI Overviews</li>
+            <li>How AEO and GEO differ from keyword SEO</li>
+            <li>How to evaluate visibility without third-party tooling</li>
+            <li>How to reason about fulfillment, eligibility, and risk</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Navigation Handoff -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">Training Formats</h2>
+        </div>
+        <div class="content-block__body">
+          <ul>
+            <li><a href="<?= absolute_url('/training/one-on-one/') ?>">One-on-One Operator Training</a></li>
+            <li>Team & Group Sessions (coming soon)</li>
+          </ul>
+        </div>
+      </div>
+      
       
     </div>
   </section>
