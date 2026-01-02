@@ -12,7 +12,12 @@ foreach ($blocks as $b) {
     <!-- GBP-ALIGNED: Footer identity block (identical across all pages/locales) -->
     <div class="site-footer__identity" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
       <p style="font-weight: 600; margin-bottom: 0.5rem;"><?= htmlspecialchars(gbp_business_name()) ?></p>
-      <p style="margin: 0.25rem 0; font-size: 0.9rem;"><?= htmlspecialchars(gbp_address_display()) ?></p>
+      <?php
+      $addressDisplay = gbp_address_display();
+      if (!empty($addressDisplay)):
+      ?>
+      <p style="margin: 0.25rem 0; font-size: 0.9rem;"><?= htmlspecialchars($addressDisplay) ?></p>
+      <?php endif; ?>
       <p style="margin: 0.25rem 0; font-size: 0.9rem;"><a href="tel:<?= htmlspecialchars(str_replace([' ', '-', '(', ')'], '', gbp_phone())) ?>" style="color: inherit; text-decoration: none;"><?= htmlspecialchars(gbp_phone()) ?></a></p>
       <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="/contact/" style="color: inherit; text-decoration: underline;">Contact Us</a> | <a href="/booking/" style="color: inherit; text-decoration: underline;">Book Consultation</a></p>
     </div>

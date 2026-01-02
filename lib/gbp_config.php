@@ -126,17 +126,29 @@ function gbp_address(): array {
 
 /**
  * Get formatted address string for display (e.g., in footer)
+ * Filters out placeholders and returns empty string if all fields are placeholders
  * 
- * @return string Human-readable address
+ * @return string Human-readable address, or empty string if placeholders only
  */
 function gbp_address_display(): string {
   $addr = gbp_config()['address'];
+  
+  // Filter out placeholders and empty values
   $parts = array_filter([
     $addr['streetAddress'],
     $addr['addressLocality'],
     $addr['addressRegion'],
     $addr['postalCode']
-  ]);
+  ], function($value) {
+    // Remove placeholders and empty strings
+    return !empty($value) && strpos($value, 'PLEASE_FILL_IN') === false;
+  });
+  
+  // Return empty string if all fields are placeholders
+  if (empty($parts)) {
+    return '';
+  }
+  
   return implode(', ', $parts);
 }
 
