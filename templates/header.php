@@ -73,35 +73,33 @@
       </li>
       
       <?php
-      // Training (Top-level navigation - parallel to Knowledge Base)
+      // Training (Tier 0 - Authority Core)
       $trainingAttrs = menu_item_seo_attrs('Training');
       $isTraining = strpos($_SERVER['REQUEST_URI'] ?? '', '/training') !== false;
       ?>
       <li class="nav-primary__item">
         <a href="<?= absolute_url('/training/') ?>" class="nav-primary__link" title="<?= $trainingAttrs['title'] ?>" aria-label="<?= $trainingAttrs['aria-label'] ?>"<?= $isTraining ? ' aria-current="page"' : '' ?>>Training</a>
       </li>
+      
+      <?php
+      // Insights (Tier 0 - Authority Core)
+      $insightsAttrs = menu_item_seo_attrs('Insights');
+      $isInsights = strpos($_SERVER['REQUEST_URI'] ?? '', '/insights/') === 0;
+      ?>
+      <li class="nav-primary__item">
+        <a href="<?= absolute_url('/insights/') ?>" class="nav-primary__link" title="<?= $insightsAttrs['title'] ?>" aria-label="<?= $insightsAttrs['aria-label'] ?>"<?= $isInsights ? ' aria-current="page"' : '' ?>>Insights</a>
+      </li>
     </ul>
     
-    <!-- Secondary Navigation Items (Right Side) -->
+    <!-- Tier 1 Navigation (Right Side - Utility Only, Visually Demoted) -->
     <ul class="nav-primary__menu nav-primary__menu--secondary">
       <?php
-      // Secondary navigation items (right side, less visual weight)
-      // Contact, Implementation Support / Services, Careers
+      // Tier 1: Utility items only (right-aligned, visually demoted)
+      // Contact is the only Tier 1 item allowed in global nav
       $contactAttrs = menu_item_seo_attrs('Contact');
-      $implementationAttrs = menu_item_seo_attrs('Implementation Support');
-      $isImplementation = strpos($_SERVER['REQUEST_URI'] ?? '', '/implementation/') !== false;
-      $careersAttrs = menu_item_seo_attrs('Careers');
-      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers') !== false;
       ?>
-      
       <li class="nav-primary__item">
-        <button class="nav-primary__link nav-primary__link--button nav-primary__link--secondary" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
-      </li>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/implementation/') ?>" class="nav-primary__link nav-primary__link--secondary" title="<?= $implementationAttrs['title'] ?>" aria-label="<?= $implementationAttrs['aria-label'] ?>"<?= $isImplementation ? ' aria-current="page"' : '' ?>>Implementation</a>
-      </li>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/careers/') ?>" class="nav-primary__link nav-primary__link--secondary" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
+        <button class="nav-primary__link nav-primary__link--secondary" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
       </li>
     </ul>
   </nav>

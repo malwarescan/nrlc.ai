@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__.'/../lib/gbp_config.php';
+// Guard absolute_url function for footer links
+if (!function_exists('absolute_url')) {
+  require_once __DIR__ . '/../lib/helpers.php';
+}
 $blocks = $GLOBALS['__jsonld'] ?? [];
 foreach ($blocks as $b) {
   echo '<script type="application/ld+json">'.json_encode($b, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE).'</script>'."\n";
@@ -29,6 +33,16 @@ foreach ($blocks as $b) {
       <li><a href="https://www.crunchbase.com/organization/neural-command" target="_blank" rel="noopener" class="site-footer__link">Crunchbase</a></li>
       <li><a href="<?= htmlspecialchars(gbp_url()) ?>" target="_blank" rel="noopener" class="site-footer__link">Google Business</a></li>
       <li><a href="https://www.linkedin.com/company/neural-command/" target="_blank" rel="noopener" class="site-footer__link">LinkedIn</a></li>
+    </ul>
+    
+    <!-- Tier 3: Corporate / Administrative (Footer Only) -->
+    <ul class="site-footer__links site-footer__links--corporate">
+      <?php
+      // Careers (Tier 3 - Footer only, no nav prominence)
+      $careersAttrs = menu_item_seo_attrs('Careers');
+      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers') !== false;
+      ?>
+      <li><a href="<?= absolute_url('/careers/') ?>" class="site-footer__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a></li>
     </ul>
   </div>
 </footer>

@@ -26,11 +26,11 @@ require_once __DIR__.'/../../lib/gbp_config.php';
 $canonicalUrl = absolute_url('/training/one-on-one/');
 $domain = absolute_url('/');
 
-// Set page metadata
+// Set page metadata (META DIRECTIVE KERNEL - Required format)
 $GLOBALS['__page_slug'] = 'training/one-on-one';
 $GLOBALS['__page_meta'] = [
-  'title' => 'One-on-One SEO, AEO & GEO Training | Operator-Level Skill Transfer',
-  'description' => 'Hands-on, operator-level one-on-one training for modern search optimization. Learn SEO, AEO, and GEO execution frameworks and decision-making processes.',
+  'title' => 'One-on-One AI Search Training for Operators | NRLC',
+  'description' => 'Private one-on-one AI search training focused on reasoning, evaluation, and decision-making. Educational only. No execution, no optimization, no guarantees.',
   'canonicalPath' => '/training/one-on-one/'
 ];
 
@@ -51,9 +51,9 @@ $GLOBALS['__jsonld'] = [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     '@id' => $canonicalUrl . '#webpage',
-    'name' => 'One-on-One SEO, AEO & GEO Training',
+    'name' => 'One-on-One AI Search Training',
     'url' => $canonicalUrl,
-    'description' => 'Hands-on, operator-level one-on-one training for modern search optimization.',
+    'description' => 'Private one-on-one AI search training focused on reasoning, evaluation, and decision-making. Educational only. No execution, no optimization, no guarantees.',
     'isPartOf' => [
       '@type' => 'WebSite',
       '@id' => $domain . '/#website',
@@ -62,13 +62,13 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // Course schema (NOT Service)
+  // Course schema (NOT Service) - Schema description must mirror page disclaimers
   [
     '@context' => 'https://schema.org',
     '@type' => 'Course',
     '@id' => $canonicalUrl . '#course',
-    'name' => 'One-on-One Modern Search Optimization Training',
-    'description' => 'Hands-on, operator-level one-on-one training sessions focused on SEO, AEO (AI Engine Optimization), and GEO (Generative Engine Optimization). Skill transfer for marketing teams and operators.',
+    'name' => 'One-on-One AI Search Training',
+    'description' => 'Private one-on-one AI search training focused on reasoning, evaluation, and decision-making. Educational only. No execution, no optimization, no guarantees. Teaches how to evaluate AI search systems, review decision frameworks, and reason about visibility without performing implementation.',
     'provider' => [
       '@type' => 'Organization',
       '@id' => $orgId
@@ -76,12 +76,12 @@ $GLOBALS['__jsonld'] = [
     'educationalLevel' => 'Professional',
     'courseMode' => 'One-on-One',
     'teaches' => [
-      'SEO execution frameworks',
-      'AEO (AI Engine Optimization) strategies',
-      'GEO (Generative Engine Optimization) implementation',
-      'Operator-level decision frameworks',
-      'Modern search system instrumentation',
-      'Hands-on execution techniques'
+      'How to evaluate AI search system behavior',
+      'How to reason about visibility through eligibility and fulfillment lenses',
+      'How to review decision frameworks conceptually',
+      'How to reason about changes before making them',
+      'How to diagnose AI visibility issues independently',
+      'How to evaluate risk before deploying changes'
     ],
     'inLanguage' => 'en',
     'url' => $canonicalUrl
@@ -93,53 +93,72 @@ $GLOBALS['__jsonld'] = [
   <section class="section">
     <div class="section__content">
       
-      <!-- Section 1: Classifier (Above the Fold) -->
+      <!-- H1: One-on-One AI Search Training -->
       <div class="content-block module">
         <div class="content-block__header">
           <h1 class="content-block__title">One-on-One AI Search Training</h1>
         </div>
         <div class="content-block__body">
           <p class="lead">This is private, one-on-one training for operators who need a deep, practical understanding of modern search systems.</p>
-          <p>Sessions are focused on reasoning, evaluation, and execution frameworks — not outsourced work or implementation.</p>
+          <p>Sessions are focused on reasoning, evaluation, and decision frameworks — not outsourced work or implementation.</p>
         </div>
       </div>
       
-      <!-- Section 2: Format -->
+      <!-- H2 1: Training Scope -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title">Training Format</h2>
+          <h2 class="content-block__title">Training Scope</h2>
         </div>
         <div class="content-block__body">
+          <p>This training teaches how to evaluate AI search systems, review decision frameworks, and reason about visibility. It is education focused on understanding how systems behave, not on performing changes.</p>
+          <p>Training covers:</p>
+          <ul>
+            <li>How AI search systems classify and retrieve information</li>
+            <li>How to evaluate visibility through eligibility and fulfillment lenses</li>
+            <li>How to reason about decision frameworks conceptually</li>
+            <li>How to review prompts, surfaces, and outcomes without implementing fixes</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- H2 2: How Sessions Work -->
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">How Sessions Work</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Sessions are structured as educational instruction:</p>
           <ul>
             <li>1:1 live sessions</li>
             <li>Operator-level depth</li>
             <li>Real examples, no canned curriculum</li>
             <li>Questions driven by your environment</li>
           </ul>
+          <p>Sessions walk through reasoning processes and explain how systems behave. They do not involve hands-on execution, code changes, or implementation work.</p>
         </div>
       </div>
       
-      <!-- Section 3: What Happens in Sessions -->
+      <!-- H2 3: What Is Reviewed -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title">What Happens in Sessions</h2>
+          <h2 class="content-block__title">What Is Reviewed</h2>
         </div>
         <div class="content-block__body">
-          <p>Sessions typically involve:</p>
+          <p>Sessions typically involve reviewing and reasoning about:</p>
           <ul>
-            <li>Breaking down how AI search systems make decisions</li>
-            <li>Auditing visibility through eligibility and fulfillment lenses</li>
-            <li>Reviewing prompts, surfaces, and outcomes conceptually</li>
-            <li>Teaching how to reason about changes before making them</li>
+            <li>How AI search systems make decisions</li>
+            <li>Visibility through eligibility and fulfillment lenses</li>
+            <li>Prompts, surfaces, and outcomes conceptually</li>
+            <li>How to reason about changes before making them</li>
           </ul>
-          <p><strong>Important:</strong> Sessions focus on reviewing and reasoning, not fixing or implementing.</p>
+          <p><strong>Important:</strong> Sessions focus on reviewing and reasoning, not fixing or implementing. This training teaches how to evaluate, not how to execute.</p>
         </div>
       </div>
       
-      <!-- Section 4: What This Is NOT (Critical - Mandatory for Intent Safety) -->
+      <!-- H2 4: What This Training Is Not -->
       <div class="content-block module" style="background: #fff3cd; border-left: 3px solid #ffc107; padding: var(--spacing-md);">
         <div class="content-block__header">
-          <h2 class="content-block__title">What This Is NOT (Critical)</h2>
+          <h2 class="content-block__title">What This Training Is Not</h2>
         </div>
         <div class="content-block__body">
           <p>This training does not include:</p>
@@ -149,15 +168,18 @@ $GLOBALS['__jsonld'] = [
             <li>Content production</li>
             <li>Managed optimization</li>
             <li>Ongoing retainers</li>
+            <li>Audits performed on behalf of the user</li>
+            <li>Performance improvements</li>
+            <li>Deliverables</li>
           </ul>
-          <p><strong>This section is mandatory for intent safety.</strong></p>
+          <p><strong>This section is mandatory for intent safety.</strong> This training teaches how to reason, not how to execute.</p>
         </div>
       </div>
       
-      <!-- Section 5: Outcomes (Educational, Not Performance) -->
+      <!-- H2 5: Educational Outcomes -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title">Outcomes (Educational, Not Performance)</h2>
+          <h2 class="content-block__title">Educational Outcomes</h2>
         </div>
         <div class="content-block__body">
           <p>After training, participants should be able to:</p>
@@ -167,14 +189,14 @@ $GLOBALS['__jsonld'] = [
             <li>Communicate search tradeoffs internally</li>
             <li>Decide when execution help is actually needed</li>
           </ul>
-          <p><strong>No traffic promises. No rankings.</strong></p>
+          <p><strong>No rankings. No traffic. No performance guarantees.</strong></p>
         </div>
       </div>
       
-      <!-- Section 6: Eligibility (Soft Gate) -->
+      <!-- H2 6: Eligibility -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title">Eligibility (Soft Gate)</h2>
+          <h2 class="content-block__title">Eligibility</h2>
         </div>
         <div class="content-block__body">
           <p>This training is best suited for:</p>
@@ -183,40 +205,46 @@ $GLOBALS['__jsonld'] = [
             <li>Operators with baseline SEO knowledge</li>
             <li>Organizations seeking understanding, not shortcuts</li>
           </ul>
+          <p>Training is not appropriate if you are looking for:</p>
+          <ul>
+            <li>Someone to "fix" search performance</li>
+            <li>Done-for-you optimization</li>
+            <li>Guaranteed outcomes</li>
+          </ul>
+          <p><strong>If execution is required, that is a separate conversation.</strong></p>
         </div>
       </div>
       
-      <!-- Pricing & Eligibility Language (Intent-Safe) -->
+      <!-- H2 7: Pricing Context -->
       <div class="content-block module">
         <div class="content-block__header">
-          <h2 class="content-block__title">Pricing & Eligibility</h2>
+          <h2 class="content-block__title">Pricing Context</h2>
         </div>
         <div class="content-block__body">
-          <p><strong>Pricing:</strong> Training is priced per session or per engagement, depending on scope.</p>
-          <p>Pricing reflects time, preparation, and instructional depth — not execution or deliverables.</p>
+          <p>Training is priced per session or per engagement, depending on scope.</p>
+          <p><strong>Pricing reflects instructional time and preparation, not execution or implementation.</strong></p>
           <p>Team sessions and extended engagements are available by request.</p>
-          
-          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ddd;">
-            <p><strong>Eligibility:</strong> Training is not appropriate if you are looking for:</p>
-            <ul>
-              <li>Someone to "fix" search performance</li>
-              <li>Done-for-you optimization</li>
-              <li>Guaranteed outcomes</li>
-            </ul>
-            <p><strong>If execution is required, that is a separate conversation.</strong></p>
-          </div>
-          
           <div style="margin-top: 1.5rem; padding: 1rem; background: #f8f9fa; border-left: 3px solid #6c757d;">
             <p><strong>Separation Clause:</strong> Training and execution are intentionally separate to preserve clarity and accountability.</p>
           </div>
         </div>
       </div>
       
-      <!-- Section 7: Action -->
+      <!-- H2 8: Request Availability -->
       <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title">Request Availability</h2>
+        </div>
         <div class="content-block__body">
           <p><button type="button" class="btn btn--primary" onclick="openContactSheet('One-on-One Training Availability Request')">Request Availability for One-on-One Training</button></p>
-          <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Language matters. This is training, not execution.</p>
+          <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">This is training, not execution. Language matters.</p>
+        </div>
+      </div>
+      
+      <!-- Final Enforcement Statement (META DIRECTIVE KERNEL - Required) -->
+      <div class="content-block module" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #ddd;">
+        <div class="content-block__body">
+          <p style="font-size: 0.95rem; color: #666; font-style: italic;"><strong>Language matters. This page describes training, not execution.</strong></p>
         </div>
       </div>
       
