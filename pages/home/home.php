@@ -206,7 +206,7 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
       <div class="content-block__body">
         <p>Modern visibility failures aren't due to "bad SEO." They happen because the web is now read by machines that require structure, evidence, and consistency - and most sites were never built for that.</p>
         <p>When Google AI Overviews or ChatGPT needs to answer a question, it doesn't rank pages. It evaluates which sources provide information that can be extracted, verified, and cited safely. If your site doesn't provide these signals clearly, AI systems won't reference you, regardless of your search rankings.</p>
-        <p>This knowledge base exists to bridge that gap. It documents how generative search systems work, why traditional SEO explanations fail, and what actually determines AI visibility.</p>
+        <p>This knowledge base exists to bridge that gap. It documents how generative search systems work, why traditional SEO explanations fail, and what actually determines AI visibility. For businesses that need help implementing these principles, we provide <a href="<?= absolute_url('/en-us/ai-visibility/') ?>">AI visibility optimization services</a> that improve how AI systems cite and recommend your business.</p>
       </div>
     </div>
 

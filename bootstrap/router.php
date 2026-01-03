@@ -455,6 +455,9 @@ function route_request(): void {
     } elseif ($slug === 'ai-retrieval-llm-citation') {
       $articleTitle = "How LLMs Retrieve and Cite Web Content";
       $excerpt = "Understand how AI systems extract, score, and surface content for answers and citations.";
+    } elseif ($slug === 'how-to-get-your-business-mentioned-in-chatgpt') {
+      $articleTitle = "How to Get Your Business Mentioned in ChatGPT (No Submission Required)";
+      $excerpt = "Most people assume you can \"add\" your business to ChatGPT the same way you add it to Google or Yelp. You can't. This guide explains what signals actually work and why most businesses are invisible to AI answers.";
     } elseif ($slug === 'google-llms-txt-ai-seo') {
       $articleTitle = "Google LLMs.txt Documentation Analysis & SEO Strategy";
       $excerpt = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
@@ -1781,11 +1784,11 @@ function route_request(): void {
   // AI Visibility Landing Pages
   if ($path === '/ai-visibility/') {
     // Set metadata directly for AI Visibility service page
-    // ENFORCEMENT: Meta title must include "AI Visibility Services"
-    // Meta description must explain this is a hireable service
+    // ENFORCEMENT: Meta title must explicitly promise AI recommendations
+    // Meta description must answer "Why would AI systems trust you?"
     $GLOBALS['__page_meta'] = [
-      'title' => 'AI Visibility Services – Brand Presence in AI | NRLC.ai',
-      'description' => 'Professional AI visibility service that improves brand presence in AI-generated answers across ChatGPT, Google AI Overviews, Perplexity, and Claude.',
+      'title' => 'AI Visibility Optimization: Get Your Business Recommended by ChatGPT & AI Search | NRLC.ai',
+      'description' => 'AI visibility optimization helps your business get cited, mentioned, and recommended by ChatGPT, Google AI Overviews, and answer engines. We engineer entity signals, structured data, and citable sources AI systems actually use.',
       'canonicalPath' => $path
     ];
     render_page('ai-visibility/index');

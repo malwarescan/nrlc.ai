@@ -13,37 +13,42 @@ foreach ($blocks as $b) {
 <script src="<?= asset_url('/assets/js/hero-animation.js') ?>" defer></script>
 <footer class="site-footer">
   <div class="site-footer__content">
-    <!-- GBP-ALIGNED: Footer identity block (identical across all pages/locales) -->
-    <div class="site-footer__identity" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
-      <p style="font-weight: 600; margin-bottom: 0.5rem;"><?= htmlspecialchars(gbp_business_name()) ?></p>
-      <?php
-      $addressDisplay = gbp_address_display();
-      if (!empty($addressDisplay)):
-      ?>
-      <p style="margin: 0.25rem 0; font-size: 0.9rem;"><?= htmlspecialchars($addressDisplay) ?></p>
-      <?php endif; ?>
-      <p style="margin: 0.25rem 0; font-size: 0.9rem;"><a href="tel:<?= htmlspecialchars(str_replace([' ', '-', '(', ')'], '', gbp_phone())) ?>" style="color: inherit; text-decoration: none;"><?= htmlspecialchars(gbp_phone()) ?></a></p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="/contact/" style="color: inherit; text-decoration: underline;">Contact Us</a> | <a href="/booking/" style="color: inherit; text-decoration: underline;">Book Consultation</a></p>
+    <div class="site-footer__grid">
+      <!-- GBP-ALIGNED: Footer identity block (identical across all pages/locales) -->
+      <div class="site-footer__identity">
+        <p style="font-weight: 600; margin-bottom: 0.5rem;"><?= htmlspecialchars(gbp_business_name()) ?></p>
+        <?php
+        $addressDisplay = gbp_address_display();
+        if (!empty($addressDisplay)):
+        ?>
+        <p style="margin: 0.25rem 0; font-size: 0.9rem;"><?= htmlspecialchars($addressDisplay) ?></p>
+        <?php endif; ?>
+        <p style="margin: 0.25rem 0; font-size: 0.9rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <a href="tel:<?= htmlspecialchars(str_replace([' ', '-', '(', ')'], '', gbp_phone())) ?>" style="color: inherit; text-decoration: none;"><?= htmlspecialchars(gbp_phone()) ?></a>
+          <span style="display: inline-flex; gap: 0.5rem; align-items: center;">
+            <button type="button" onclick="openContactSheet('')" style="background: none; border: none; color: inherit; text-decoration: underline; cursor: pointer; font-size: inherit; font-family: inherit; padding: 0;">Contact Us</button>
+            <span>|</span>
+            <a href="/booking/" style="color: inherit; text-decoration: underline;">Book Consultation</a>
+          </span>
+        </p>
+      </div>
+      
+      <div class="site-footer__links-section">
+        <div class="site-footer__links-wrapper">
+          <a href="https://nrlcmd.com" target="_blank" rel="noopener" class="site-footer__link">NRL CMD</a>
+          <a href="https://www.crunchbase.com/organization/neural-command" target="_blank" rel="noopener" class="site-footer__link">Crunchbase</a>
+          <a href="<?= htmlspecialchars(gbp_url()) ?>" target="_blank" rel="noopener" class="site-footer__link">Google Business</a>
+          <a href="https://www.linkedin.com/company/neural-command/" target="_blank" rel="noopener" class="site-footer__link">LinkedIn</a>
+          <?php
+          // Careers (Tier 3 - Footer only, no nav prominence)
+          $careersAttrs = menu_item_seo_attrs('Careers');
+          $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers') !== false;
+          ?>
+          <a href="<?= absolute_url('/careers/') ?>" class="site-footer__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
+        </div>
+        <p style="margin-top: var(--spacing-md); text-align: right;"><small>© <?= date('Y') ?> <?= htmlspecialchars(gbp_business_name()) ?> — The Semantic Infrastructure for the AI Internet</small></p>
+      </div>
     </div>
-    
-    <p><small>© <?= date('Y') ?> <?= htmlspecialchars(gbp_business_name()) ?> — The Semantic Infrastructure for the AI Internet</small></p>
-    <ul class="site-footer__links">
-      <li><a href="https://nrlcmd.com" target="_blank" rel="noopener" class="site-footer__link">NRL CMD</a></li>
-      <li><a href="https://neuralcommandllc.com" target="_blank" rel="noopener" class="site-footer__link">Neural Command LLC</a></li>
-      <li><a href="https://www.crunchbase.com/organization/neural-command" target="_blank" rel="noopener" class="site-footer__link">Crunchbase</a></li>
-      <li><a href="<?= htmlspecialchars(gbp_url()) ?>" target="_blank" rel="noopener" class="site-footer__link">Google Business</a></li>
-      <li><a href="https://www.linkedin.com/company/neural-command/" target="_blank" rel="noopener" class="site-footer__link">LinkedIn</a></li>
-    </ul>
-    
-    <!-- Tier 3: Corporate / Administrative (Footer Only) -->
-    <ul class="site-footer__links site-footer__links--corporate">
-      <?php
-      // Careers (Tier 3 - Footer only, no nav prominence)
-      $careersAttrs = menu_item_seo_attrs('Careers');
-      $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers') !== false;
-      ?>
-      <li><a href="<?= absolute_url('/careers/') ?>" class="site-footer__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a></li>
-    </ul>
   </div>
 </footer>
 <!-- Contact Bottom Sheet -->

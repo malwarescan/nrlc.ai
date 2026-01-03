@@ -6,6 +6,14 @@
 
 $slug = $_GET['slug'] ?? '';
 
+// Debug: If slug is empty, try to extract from REQUEST_URI as fallback
+if (empty($slug) && isset($_SERVER['REQUEST_URI'])) {
+  $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+  if (preg_match('#/insights/([^/]+)/?$#', $uri, $matches)) {
+    $slug = $matches[1];
+  }
+}
+
 // Handle GEO-16 articles
 $geo16_articles = [
   'geo16-introduction' => 'geo16-introduction.php',
@@ -53,6 +61,8 @@ $insight_articles = [
   'content-chunking-seo' => 'content-chunking-seo.php',
   'prechunking-content-ai-retrieval' => 'prechunking-content-ai-retrieval.php',
   'ai-retrieval-llm-citation' => 'ai-retrieval-llm-citation.php',
+  // ChatGPT business mentions
+  'how-to-get-your-business-mentioned-in-chatgpt' => 'how-to-get-your-business-mentioned-in-chatgpt.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
   'goldmine-seleccion-titulos-google' => 'goldmine-google-title-selection.php',
   'goldmine-selection-titres-google' => 'goldmine-google-title-selection.php',

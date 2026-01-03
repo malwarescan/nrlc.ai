@@ -92,42 +92,26 @@ $GLOBALS['__jsonld'] = [
     'mainEntity' => [
       [
         '@type' => 'Question',
-        'name' => 'Can you control what ChatGPT says about my business?',
+        'name' => 'How do I get my business mentioned in ChatGPT?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'We can\'t force AI to say anything, but we can control the signals it learns from.'
+          'text' => 'AI systems like ChatGPT don\'t browse the web or "list" businesses the way directories do. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. To be mentioned, a business needs clear entity signals, machine-readable content, and external references that AI systems can safely cite. We optimize these signals so AI systems can confidently reference your business when answering relevant questions.'
         ]
       ],
       [
         '@type' => 'Question',
-        'name' => 'Is this different from SEO?',
+        'name' => 'Can I advertise on ChatGPT?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'Yes. SEO targets rankings. This targets AI understanding and trust.'
+          'text' => 'No, ChatGPT does not offer advertising placements. However, businesses can optimize their online presence so ChatGPT naturally references them when answering relevant questions. This requires structuring content, entity signals, and citation sources that AI systems trust. Unlike paid advertising, this approach builds organic visibility in AI-generated answers.'
         ]
       ],
       [
         '@type' => 'Question',
-        'name' => 'Will this replace Google rankings?',
+        'name' => 'How does ChatGPT decide which businesses to recommend?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'No. It complements SEO and protects you as AI replaces clicks.'
-        ]
-      ],
-      [
-        '@type' => 'Question',
-        'name' => 'Is this safe and compliant?',
-        'acceptedAnswer' => [
-          '@type' => 'Answer',
-          'text' => 'Yes. We use transparent, compliance-safe methods.'
-        ]
-      ],
-      [
-        '@type' => 'Question',
-        'name' => 'How long does it take to see changes?',
-        'acceptedAnswer' => [
-          '@type' => 'Answer',
-          'text' => 'AI visibility changes as signals propagate. Early improvements often appear within weeks.'
+          'text' => 'ChatGPT and similar systems evaluate whether information about a brand can be confidently extracted and verified across multiple sources. Brands are more likely to be mentioned when their content clearly defines who they are, what they do, and how they relate to a topic, using consistent language and structure across the web. We optimize these signals to increase the likelihood of AI recommendations.'
         ]
       ]
     ]
@@ -141,10 +125,10 @@ $GLOBALS['__jsonld'] = [
     <!-- HERO (ABOVE THE FOLD: SERVICE CLASSIFICATION) -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI Visibility Services</h1>
+        <h1 class="content-block__title">Get Your Business Recommended by AI</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Professional AI visibility service that improves brand presence in AI-generated answers across ChatGPT, Google AI Overviews, Perplexity, and Claude.</p>
+        <p class="lead">We optimize entity signals, structured data, and citation sources so ChatGPT, Google AI Overviews, and answer engines can confidently reference your business.</p>
         <p>This is a hireable service that analyzes how AI systems describe your business and optimizes content structure, entity signals, and citation readiness to increase AI visibility, brand mentions, and recommendations in generative search engines.</p>
         <p>We provide service engagements that improve AI citations, generative search visibility, and brand inclusion in AI-generated summaries. This service focuses on how AI systems understand, describe, and trust your business.</p>
         <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; margin-top: var(--spacing-lg);">
@@ -252,7 +236,8 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">AI Visibility by Industry</h2>
       </div>
       <div class="content-block__body">
-        <p>We provide specialized AI visibility services for high-trust industries where AI recommendations matter most:</p>
+        <p>We provide specialized AI visibility services for high-trust industries where AI recommendations matter most. See how we optimize AI visibility for specific industries:</p>
+        <p><a href="<?= htmlspecialchars($localePrefix . '/ai-visibility/auto-repair/') ?>" title="AI visibility optimization for auto repair businesses">AI visibility optimization for auto repair businesses</a></p>
         <ul style="columns: 2; column-gap: 2rem; list-style: none; padding: 0;">
           <?php foreach ($industries as $slug => $industry): ?>
           <li style="margin-bottom: 0.5rem;">
@@ -289,20 +274,14 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <dl>
-          <dt><strong>Can you control what ChatGPT says about my business?</strong></dt>
-          <dd>We can't force AI to say anything, but we can control the signals it learns from.</dd>
+          <dt><strong>How do I get my business mentioned in ChatGPT?</strong></dt>
+          <dd>AI systems like ChatGPT don't browse the web or "list" businesses the way directories do. They generate answers by extracting information from sources that are structured, consistent, and widely corroborated. To be mentioned, a business needs clear entity signals, machine-readable content, and external references that AI systems can safely cite. We optimize these signals so AI systems can confidently reference your business when answering relevant questions.</dd>
           
-          <dt><strong>Is this different from SEO?</strong></dt>
-          <dd>Yes. SEO targets rankings. This targets AI understanding and trust.</dd>
+          <dt><strong>Can I advertise on ChatGPT?</strong></dt>
+          <dd>No, ChatGPT does not offer advertising placements. However, businesses can optimize their online presence so ChatGPT naturally references them when answering relevant questions. This requires structuring content, entity signals, and citation sources that AI systems trust. Unlike paid advertising, this approach builds organic visibility in AI-generated answers.</dd>
           
-          <dt><strong>Will this replace Google rankings?</strong></dt>
-          <dd>No. It complements SEO and protects you as AI replaces clicks.</dd>
-          
-          <dt><strong>Is this safe and compliant?</strong></dt>
-          <dd>Yes. We use transparent, compliance-safe methods.</dd>
-          
-          <dt><strong>How long does it take to see changes?</strong></dt>
-          <dd>AI visibility changes as signals propagate. Early improvements often appear within weeks.</dd>
+          <dt><strong>How does ChatGPT decide which businesses to recommend?</strong></dt>
+          <dd>ChatGPT and similar systems evaluate whether information about a brand can be confidently extracted and verified across multiple sources. Brands are more likely to be mentioned when their content clearly defines who they are, what they do, and how they relate to a topic, using consistent language and structure across the web. We optimize these signals to increase the likelihood of AI recommendations.</dd>
         </dl>
       </div>
     </div>
