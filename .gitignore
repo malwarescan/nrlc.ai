@@ -1,38 +1,22 @@
-# Sitemaps (generated)
-/public/sitemaps/*.xml
-/public/sitemaps/*.xml.gz
-/public/robots.txt
+# Crawler output
+crawl-out/
 
-# Logs
-*.log
-/logs/
+# Node modules
+node_modules/
 
-# Mac
+# Playwright
+.playwright/
+
+# OS files
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# IDE
-.idea/
-.vscode/
 *.swp
 *.swo
 *~
 
-# Temp files
-tmp/
-temp/
-cache/
+# IDE
+.idea/
+.vscode/
 
-# Environment
-.env
-.env.local
-
-# Composer (if added later)
-/vendor/
-
-# Node modules (if added later)
-node_modules/
-
-gsc_data/
-website/
+# Logs
+*.log
+npm-debug.log*
