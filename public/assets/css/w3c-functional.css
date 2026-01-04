@@ -548,21 +548,22 @@ button.nav-primary__link {
 }
 
 .nav-primary__link--secondary {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
   font-weight: var(--font-weight-normal);
-  border-bottom: 2px solid transparent;
-  transition: border-color var(--duration-fast) var(--ease-functional),
+  opacity: 0.7;
+  transition: opacity var(--duration-fast) var(--ease-functional),
               color var(--duration-fast) var(--ease-functional);
 }
 
 .nav-primary__link--secondary:hover {
-  color: var(--color-brand);
-  border-bottom-color: var(--color-brand);
+  color: var(--color-text-primary);
+  opacity: 1;
 }
 
 .nav-primary__link--secondary[aria-current="page"] {
   color: var(--color-brand);
+  opacity: 1;
   font-weight: var(--font-weight-medium);
 }
 
@@ -570,21 +571,22 @@ button.nav-primary__link {
 button.nav-primary__link.nav-primary__link--secondary {
   background: transparent;
   border: none;
-  border-bottom: 2px solid transparent !important;
   cursor: pointer;
   font-family: inherit;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   text-decoration: none;
-  transition: border-color var(--duration-fast) var(--ease-functional),
+  opacity: 0.7;
+  padding: var(--spacing-12) var(--spacing-md);
+  transition: opacity var(--duration-fast) var(--ease-functional),
               color var(--duration-fast) var(--ease-functional);
 }
 
 .nav-primary__link--button.nav-primary__link--secondary:hover,
 button.nav-primary__link.nav-primary__link--secondary:hover {
-  color: var(--color-brand);
-  border-bottom-color: var(--color-brand) !important;
+  color: var(--color-text-primary);
+  opacity: 1;
 }
 
 /* Secondary Navigation — Deep Hierarchy */
