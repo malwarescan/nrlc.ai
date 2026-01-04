@@ -31,7 +31,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Metadata Completeness</h3>
+        <h3 class="content-block__title">Metadata Completeness</h3>
       </div>
       <div class="content-block__body">
         <p>Comprehensive metadata enables AI engines to understand and categorize content effectively. Organizations must ensure that title tags, meta descriptions, and structured data provide clear, accurate information about content scope and value.</p>
@@ -39,7 +39,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Content Freshness</h3>
+        <h3 class="content-block__title">Content Freshness</h3>
       </div>
       <div class="content-block__body">
         <p>Recent publication dates and regular updates signal relevance and accuracy to AI engines. Content teams should implement clear publication date visibility and maintain regular update schedules to demonstrate ongoing relevance.</p>
@@ -47,7 +47,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Semantic Structure</h3>
+        <h3 class="content-block__title">Semantic Structure</h3>
       </div>
       <div class="content-block__body">
         <p>Clear heading hierarchy, logical organization, and proper HTML structure help AI engines parse and understand content. Technical implementation of semantic HTML elements is essential for optimal AI engine performance.</p>
@@ -55,7 +55,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Entity Clarity</h3>
+        <h3 class="content-block__title">Entity Clarity</h3>
       </div>
       <div class="content-block__body">
         <p>Explicit identification of key entities and their relationships provides essential context for AI engines. Content should clearly identify people, places, and concepts while explaining their relationships and significance.</p>
@@ -63,7 +63,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Verification Signals</h3>
+        <h3 class="content-block__title">Verification Signals</h3>
       </div>
       <div class="content-block__body">
         <p>Author credentials, source attribution, and fact-checking indicators demonstrate content reliability and authority. AI engines prioritize content that shows evidence of verification and accuracy.</p>
@@ -71,7 +71,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Technical Quality</h3>
+        <h3 class="content-block__title">Technical Quality</h3>
       </div>
       <div class="content-block__body">
         <p>Fast loading times, mobile responsiveness, and accessibility compliance ensure that content is accessible and usable by AI engines. Technical performance directly impacts citation success.</p>
@@ -102,7 +102,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Academic and Research Institutions</h3>
+        <h3 class="content-block__title">Academic and Research Institutions</h3>
       </div>
       <div class="content-block__body">
         <p>Academic institutions naturally excel at GEO-16 optimization due to their focus on author credentials, comprehensive citations, and clear structure. These organizations should leverage their existing strengths while improving technical implementation.</p>
@@ -110,7 +110,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">B2B SaaS Companies</h3>
+        <h3 class="content-block__title">B2B SaaS Companies</h3>
       </div>
       <div class="content-block__body">
         <p>SaaS companies must focus on technical documentation optimization, API schema implementation, and clear product information. The framework provides specific guidance for optimizing software documentation and support content.</p>
@@ -118,7 +118,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">E-commerce and Retail</h3>
+        <h3 class="content-block__title">E-commerce and Retail</h3>
       </div>
       <div class="content-block__body">
         <p>Retail companies should emphasize product information completeness, customer support content, and structured data implementation. The framework helps optimize product pages and support documentation for AI citation success.</p>
@@ -126,7 +126,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Healthcare and Medical</h3>
+        <h3 class="content-block__title">Healthcare and Medical</h3>
       </div>
       <div class="content-block__body">
         <p>Healthcare organizations must prioritize accuracy, credibility, and regulatory compliance. The framework provides guidance for implementing medical content schema and ensuring proper disclaimers and source attribution.</p>
@@ -142,7 +142,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Algorithm Evolution</h3>
+        <h3 class="content-block__title">Algorithm Evolution</h3>
       </div>
       <div class="content-block__body">
         <p>AI engine algorithms continue to evolve rapidly, potentially affecting citation patterns and optimization requirements. Ongoing research is needed to track these changes and adjust the framework accordingly.</p>
@@ -150,7 +150,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Geographic and Language Expansion</h3>
+        <h3 class="content-block__title">Geographic and Language Expansion</h3>
       </div>
       <div class="content-block__body">
         <p>Current research focuses primarily on English-language content and Western markets. Future studies should investigate citation patterns in other languages and geographic regions to ensure global applicability.</p>
@@ -158,7 +158,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Content Type Diversification</h3>
+        <h3 class="content-block__title">Content Type Diversification</h3>
       </div>
       <div class="content-block__body">
         <p>Additional content types, including multimedia content, interactive applications, and emerging formats, require investigation to ensure comprehensive framework coverage.</p>
@@ -166,7 +166,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Longitudinal Analysis</h3>
+        <h3 class="content-block__title">Longitudinal Analysis</h3>
       </div>
       <div class="content-block__body">
         <p>Long-term studies are needed to understand how citation patterns evolve over time and how optimization strategies should adapt to changing AI engine behavior.</p>
@@ -182,7 +182,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Start with Assessment</h3>
+        <h3 class="content-block__title">Start with Assessment</h3>
       </div>
       <div class="content-block__body">
         <p>Begin with a comprehensive audit of current content using the GEO-16 framework. Identify high-priority pages and establish baseline performance metrics for comparison.</p>
@@ -190,7 +190,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Prioritize High-Impact Improvements</h3>
+        <h3 class="content-block__title">Prioritize High-Impact Improvements</h3>
       </div>
       <div class="content-block__body">
         <p>Focus on the highest-impact pillars first, including structured data implementation, heading hierarchy optimization, and author credential enhancement. These improvements provide the greatest return on investment.</p>
@@ -198,7 +198,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Implement Systematic Optimization</h3>
+        <h3 class="content-block__title">Implement Systematic Optimization</h3>
       </div>
       <div class="content-block__body">
         <p>Develop systematic processes for content optimization, including editorial guidelines, technical standards, and quality assurance procedures. Ensure that optimization becomes part of standard content workflows.</p>
@@ -206,7 +206,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Monitor and Adjust</h3>
+        <h3 class="content-block__title">Monitor and Adjust</h3>
       </div>
       <div class="content-block__body">
         <p>Implement continuous monitoring of citation performance and GEO scores. Adjust optimization strategies based on performance data and changes in AI engine algorithms.</p>

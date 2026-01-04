@@ -127,7 +127,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Highest Impact Pillars</h3>
+        <h3 class="content-block__title">Highest Impact Pillars</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -140,7 +140,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Moderate Impact Pillars</h3>
+        <h3 class="content-block__title">Moderate Impact Pillars</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -153,7 +153,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Lower Impact Pillars</h3>
+        <h3 class="content-block__title">Lower Impact Pillars</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -262,7 +262,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Priority Optimization Areas</h3>
+        <h3 class="content-block__title">Priority Optimization Areas</h3>
       </div>
       <div class="content-block__body">
         <p>Organizations should focus on the highest-impact pillars first:</p>
@@ -276,7 +276,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Content Type Strategies</h3>
+        <h3 class="content-block__title">Content Type Strategies</h3>
       </div>
       <div class="content-block__body">
         <p>Different content types require different optimization approaches:</p>

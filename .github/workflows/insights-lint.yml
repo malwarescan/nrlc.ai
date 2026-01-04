@@ -1,0 +1,22 @@
+name: Insights Lint
+
+on:
+  pull_request:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  insights-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Insights Lint
+        run: |
+          node scripts/insights_lint_and_fix.js --root ./pages/insights --check
+

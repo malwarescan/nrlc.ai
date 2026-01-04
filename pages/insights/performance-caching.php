@@ -1,145 +1,91 @@
 <?php
 /**
- * Performance & Caching Insights
- * 
- * Intelligent pushdown optimization, query performance tuning, and powerful caching engines
- * that reduce compute spend while maintaining query speed and accuracy.
+ * Performance Caching for Semantic and AI-Driven Systems
+ * AI-mention optimized: machine-extractable, AI-citation-ready
  */
 
 $GLOBALS['__page_slug'] = 'insights/article';
 $GLOBALS['__insights_nav_added'] = true;
 
-// Note: Metadata is set by router via sudo_meta_directive_ctx()
-// See bootstrap/router.php for insights article metadata configuration
-// Note: head.php and header.php are already included by router.php render_page()
-
 $articleSlug = 'performance-caching';
 $canonical_url = absolute_url("/insights/$articleSlug/");
 $domain = 'https://nrlc.ai';
-?>
 
-<main role="main" class="container">
-<section class="section">
-  <div class="section__content">
-    
-    <!-- Article Header -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h1 class="content-block__title">Performance & Caching Insights</h1>
-      </div>
-      <div class="content-block__body">
-        <p class="lead">Intelligent pushdown optimization, query performance tuning, and powerful caching engines that reduce compute spend while maintaining query speed and accuracy.</p>
-      </div>
-    </div>
-
-    <!-- Article Content -->
-    <div class="content-block module">
-      <div class="content-block__body">
-        <h2>Understanding Query Performance Optimization</h2>
-        <p>Performance optimization in semantic and graph-based systems requires a different approach than traditional relational databases. Instead of focusing solely on index optimization, semantic systems benefit from intelligent pushdown optimization, relationship-aware caching, and query pattern analysis.</p>
-        
-        <h2>Pushdown Optimization Strategies</h2>
-        <p>Pushdown optimization moves computation closer to the data source, reducing network overhead and improving query speed. Key strategies include:</p>
-        <ul>
-          <li><strong>Filter Pushdown:</strong> Apply filters at the data source before transferring data</li>
-          <li><strong>Projection Pushdown:</strong> Select only required fields early in the query pipeline</li>
-          <li><strong>Aggregation Pushdown:</strong> Perform aggregations at the source when possible</li>
-          <li><strong>Join Pushdown:</strong> Execute joins at the data source to reduce data transfer</li>
-        </ul>
-        
-        <h2>Caching Strategies for Semantic Systems</h2>
-        <p>Effective caching in semantic systems requires understanding relationship patterns and query frequencies:</p>
-        <ul>
-          <li><strong>Relationship Caching:</strong> Cache frequently traversed relationship paths</li>
-          <li><strong>Query Result Caching:</strong> Cache complete query results for repeated queries</li>
-          <li><strong>Entity Caching:</strong> Cache entity data and metadata for fast access</li>
-          <li><strong>Pattern-Based Caching:</strong> Cache based on query patterns rather than exact matches</li>
-        </ul>
-        
-        <h2>Performance Tuning Techniques</h2>
-        <p>To optimize performance in semantic systems:</p>
-        <ol>
-          <li><strong>Analyze Query Patterns:</strong> Identify common query patterns and optimize for them</li>
-          <li><strong>Optimize Traversal Paths:</strong> Structure data to minimize traversal depth</li>
-          <li><strong>Implement Smart Caching:</strong> Use relationship-aware caching strategies</li>
-          <li><strong>Monitor Performance Metrics:</strong> Track query times, cache hit rates, and resource usage</li>
-          <li><strong>Iterate and Optimize:</strong> Continuously refine based on performance data</li>
-        </ol>
-        
-        <h2>Reducing Compute Spend</h2>
-        <p>Intelligent caching and optimization can significantly reduce compute costs:</p>
-        <ul>
-          <li><strong>Cache Hit Rate Optimization:</strong> Aim for 80%+ cache hit rates on frequently accessed data</li>
-          <li><strong>Query Optimization:</strong> Reduce query complexity through better data modeling</li>
-          <li><strong>Resource Right-Sizing:</strong> Match compute resources to actual workload patterns</li>
-          <li><strong>Cost-Aware Caching:</strong> Prioritize caching for expensive operations</li>
-        </ul>
-        
-        <h2>Real-World Performance Patterns</h2>
-        <p>Common performance patterns in production semantic systems:</p>
-        <ul>
-          <li><strong>Hot Path Optimization:</strong> Identify and optimize the most frequently accessed relationship paths</li>
-          <li><strong>Cold Data Management:</strong> Implement tiered storage for rarely accessed data</li>
-          <li><strong>Query Batching:</strong> Batch multiple queries to reduce round-trip overhead</li>
-          <li><strong>Parallel Execution:</strong> Execute independent query branches in parallel</li>
-        </ul>
-        
-        <h2>Monitoring and Measurement</h2>
-        <p>Effective performance optimization requires comprehensive monitoring:</p>
-        <ul>
-          <li><strong>Query Latency Tracking:</strong> Monitor p50, p95, and p99 query latencies</li>
-          <li><strong>Cache Performance Metrics:</strong> Track hit rates, eviction rates, and cache size</li>
-          <li><strong>Resource Utilization:</strong> Monitor CPU, memory, and network usage</li>
-          <li><strong>Cost Tracking:</strong> Measure compute spend per query or operation</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Navigation Back to Insights -->
-    <div class="content-block module">
-      <div class="content-block__body">
-        <p><a href="/insights/" class="btn">← View All Research & Insights</a></p>
-      </div>
-    </div>
-
-  </div>
-</section>
-</main>
-
-<?php
-// JSON-LD Schema for Article
-$jsonld = [
+// JSON-LD Schema
+$GLOBALS['__jsonld'] = [
   [
     "@context" => "https://schema.org",
-    "@type" => "Article",
-    "@id" => $canonical_url . '#article',
-    "headline" => "Performance & Caching Insights",
-    "description" => "Intelligent pushdown optimization, query performance tuning, and powerful caching engines that reduce compute spend while maintaining query speed and accuracy.",
-    "url" => $canonical_url,
-    "datePublished" => date('c', strtotime('2024-01-20')),
-    "dateModified" => date('c'),
-    "author" => [
-      "@type" => "Organization",
-      "name" => "NRLC.ai",
-      "url" => $domain
-    ],
-    "publisher" => [
-      "@type" => "Organization",
-      "name" => "NRLC.ai",
-      "url" => $domain,
-      "logo" => [
-        "@type" => "ImageObject",
-        "url" => $domain . "/assets/images/nrlc-logo.png",
-        "width" => 43,
-        "height" => 43
+    "@graph" => [
+      [
+        "@type" => "Article",
+        "headline" => "Performance Caching for Semantic and AI-Driven Systems",
+        "description" => "A technical explanation of performance caching layers, thresholds, and failure modes in semantic and AI-driven architectures.",
+        "author" => [
+          "@type" => "Organization",
+          "name" => "Neural Command, LLC"
+        ],
+        "publisher" => [
+          "@type" => "Organization",
+          "name" => "Neural Command, LLC"
+        ],
+        "mainEntityOfPage" => [
+          "@type" => "WebPage",
+          "@id" => $canonical_url
+        ],
+        "datePublished" => "2024-01-15",
+        "dateModified" => date('Y-m-d'),
+        "inLanguage" => "en-US"
+      ],
+      [
+        "@type" => "FAQPage",
+        "mainEntity" => [
+          [
+            "@type" => "Question",
+            "name" => "Is caching still needed if I use fast vector search",
+            "acceptedAnswer" => [
+              "@type" => "Answer",
+              "text" => "Yes. Vector search reduces retrieval cost but does not eliminate entity resolution, filtering, or ranking costs."
+            ]
+          ],
+          [
+            "@type" => "Question",
+            "name" => "Should AI model outputs be cached",
+            "acceptedAnswer" => [
+              "@type" => "Answer",
+              "text" => "Only when outputs are deterministic and repeatable. Cache primitives and intermediate steps first."
+            ]
+          ],
+          [
+            "@type" => "Question",
+            "name" => "How do I avoid stale AI answers",
+            "acceptedAnswer" => [
+              "@type" => "Answer",
+              "text" => "Use layered TTLs and invalidate caches when source data or schemas change."
+            ]
+          ]
+        ]
+      ],
+      [
+        "@type" => "DefinedTerm",
+        "name" => "Performance Caching",
+        "description" => "The architectural practice of storing precomputed entities, relationships, or results to control latency and cost in semantic and AI systems."
+      ],
+      [
+        "@type" => "DefinedTerm",
+        "name" => "Pushdown Optimization",
+        "description" => "A caching strategy that pushes computation down to the data layer, reducing network overhead and improving query performance."
+      ],
+      [
+        "@type" => "DefinedTerm",
+        "name" => "Cache Hit Rate",
+        "description" => "The percentage of queries that are served from cache rather than requiring computation. Target rates vary by cache layer."
+      ],
+      [
+        "@type" => "Organization",
+        "name" => "Neural Command, LLC",
+        "url" => "https://nrlc.ai"
       ]
-    ],
-    "mainEntityOfPage" => [
-      "@type" => "WebPage",
-      "@id" => $canonical_url
-    ],
-    "articleSection" => "Technical SEO",
-    "keywords" => "performance optimization, caching strategies, query optimization, pushdown optimization, compute cost reduction"
+    ]
   ],
   [
     "@context" => "https://schema.org",
@@ -161,13 +107,221 @@ $jsonld = [
       [
         "@type" => "ListItem",
         "position" => 3,
-        "name" => "Performance & Caching Insights",
+        "name" => "Performance Caching for Semantic and AI-Driven Systems",
         "item" => $canonical_url
       ]
     ]
   ]
 ];
-
-$GLOBALS['__jsonld'] = $jsonld;
 ?>
 
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
+    
+    <!-- H1 -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">Performance Caching for Semantic and AI-Driven Systems</h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead">Performance caching is the practice of storing precomputed results, relationships, or execution paths so semantic queries and AI systems can respond within acceptable latency without recomputing every dependency. In AI-driven systems, caching is not optional. It is required to keep inference, traversal, and retrieval costs stable as query complexity increases.</p>
+        <p>Caching shifts work from request time to preparation time.</p>
+      </div>
+    </div>
+
+    <!-- Definition: What Performance Caching Means -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Definition: What Performance Caching Means in AI and Semantic Systems</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Performance caching is the practice of storing precomputed results, relationships, or execution paths so semantic queries and AI systems can respond within acceptable latency without recomputing every dependency. In AI-driven systems, caching is not optional. It is required to keep inference, traversal, and retrieval costs stable as query complexity increases.</p>
+        <p>Caching shifts work from request time to preparation time.</p>
+      </div>
+    </div>
+
+    <!-- Mechanism: How Performance Caching Actually Works -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Mechanism: How Performance Caching Actually Works</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Semantic and AI systems execute multi-hop operations. Each request may involve entity resolution, relationship traversal, filtering, and ranking. Without caching, these steps compound latency and cost.</p>
+        <p>Performance caching works by intercepting repeatable work and storing it at defined layers. When a similar request occurs, the system reuses prior results instead of recomputing them.</p>
+        <p>Effective caching requires understanding which parts of a query are stable and which are dynamic.</p>
+      </div>
+    </div>
+
+    <!-- Caching Layers Used in Semantic and AI Architectures -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Caching Layers Used in Semantic and AI Architectures</h2>
+      </div>
+      <div class="content-block__body">
+        <h3>1. Entity Cache</h3>
+        <p>Stores resolved entities and normalized identifiers.</p>
+        <p><strong>Use when:</strong></p>
+        <ul>
+          <li>Entity names repeat across queries</li>
+          <li>Resolution logic is expensive</li>
+          <li>Entities change infrequently</li>
+        </ul>
+        <p><strong>Failure mode:</strong></p>
+        <ul>
+          <li>Stale entity definitions if invalidation is missing</li>
+        </ul>
+
+        <h3>2. Relationship or Path Cache</h3>
+        <p>Stores precomputed traversal paths between entities.</p>
+        <p><strong>Use when:</strong></p>
+        <ul>
+          <li>Graph depth is greater than one hop</li>
+          <li>Relationship topology is mostly stable</li>
+          <li>Queries repeat common paths</li>
+        </ul>
+        <p><strong>Failure mode:</strong></p>
+        <ul>
+          <li>Incorrect results if relationship updates are not propagated</li>
+        </ul>
+
+        <h3>3. Result Cache</h3>
+        <p>Stores final query outputs or ranked lists.</p>
+        <p><strong>Use when:</strong></p>
+        <ul>
+          <li>Queries repeat frequently</li>
+          <li>Results are expensive to compute</li>
+          <li>Slight staleness is acceptable</li>
+        </ul>
+        <p><strong>Failure mode:</strong></p>
+        <ul>
+          <li>Serving outdated answers if TTLs are too long</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Operational Implications -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Operational Implications of Performance Caching</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Caching changes system design decisions.</p>
+        <p><strong>With caching:</strong></p>
+        <ul>
+          <li>Latency becomes predictable</li>
+          <li>Compute cost becomes bounded</li>
+          <li>AI responses become consistent</li>
+        </ul>
+        <p><strong>Without caching:</strong></p>
+        <ul>
+          <li>p95 and p99 latency grow non-linearly</li>
+          <li>Costs scale with query complexity</li>
+          <li>Systems fail under concurrency</li>
+        </ul>
+        <p>Caching is not an optimization. It is an architectural requirement.</p>
+      </div>
+    </div>
+
+    <!-- Performance Targets and Thresholds -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Performance Targets and Thresholds</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Recommended baseline targets for AI and semantic systems:</p>
+        <ul>
+          <li>p50 latency: under 200 ms</li>
+          <li>p95 latency: under 800 ms</li>
+          <li>p99 latency: under 1500 ms</li>
+          <li>Cache hit rate: above 70 percent for entity and path caches</li>
+          <li>Cold query ratio: below 30 percent</li>
+        </ul>
+        <p>If these targets are not met, caching strategy is insufficient.</p>
+      </div>
+    </div>
+
+    <!-- Checklist: How to Implement Performance Caching Correctly -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Checklist: How to Implement Performance Caching Correctly</h2>
+      </div>
+      <div class="content-block__body">
+        <ol>
+          <li>Identify which query steps are deterministic</li>
+          <li>Separate entity resolution from traversal logic</li>
+          <li>Cache entities before caching results</li>
+          <li>Cache paths before caching full answers</li>
+          <li>Define explicit TTLs per cache layer</li>
+          <li>Instrument cache hits and misses</li>
+          <li>Invalidate caches on schema or data changes</li>
+        </ol>
+        <p>Skipping steps leads to fragile systems.</p>
+      </div>
+    </div>
+
+    <!-- Failure Modes and Common Mistakes -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Failure Modes and Common Mistakes</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Common reasons caching fails:</p>
+        <ul>
+          <li>Caching final results before caching primitives</li>
+          <li>Using a single cache layer for all workloads</li>
+          <li>Not tracking cache hit rates</li>
+          <li>Ignoring invalidation rules</li>
+          <li>Treating caching as an afterthought</li>
+        </ul>
+        <p>Most performance issues traced to AI systems are cache design failures, not model failures.</p>
+      </div>
+    </div>
+
+    <!-- Related -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+          <li><a href="<?= absolute_url('/insights/semantic-queries/') ?>">Semantic Queries and Path Traversal</a> - How relationship traversal works in semantic systems</li>
+          <li><a href="<?= absolute_url('/insights/data-virtualization/') ?>">Data Virtualization for AI Systems</a> - Virtualized data access patterns for AI workloads</li>
+          <li><a href="<?= absolute_url('/insights/knowledge-graph/') ?>">Knowledge Graph Architecture</a> - Graph primitives and traversal patterns</li>
+          <li><a href="<?= absolute_url('/insights/enterprise-llm/') ?>">Enterprise LLM Foundations</a> - Building reliable AI workflows with semantic context</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">FAQ</h2>
+      </div>
+      <div class="content-block__body">
+        <dl>
+          <dt><strong>Is caching still needed if I use fast vector search</strong></dt>
+          <dd>Yes. Vector search reduces retrieval cost but does not eliminate entity resolution, filtering, or ranking costs.</dd>
+          
+          <dt><strong>Should I cache AI model outputs</strong></dt>
+          <dd>Only when outputs are deterministic and repeatable. Cache inputs and intermediate steps first.</dd>
+          
+          <dt><strong>How do I avoid stale answers</strong></dt>
+          <dd>Use layered TTLs and invalidate caches when source data or schemas change.</dd>
+          
+          <dt><strong>Does caching affect answer quality</strong></dt>
+          <dd>No, if implemented correctly. Poor cache design affects freshness, not correctness.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Navigation Back to Insights -->
+    <div class="content-block module">
+      <div class="content-block__body">
+        <p><a href="<?= absolute_url('/insights/') ?>" class="btn">← View All Research & Insights</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>

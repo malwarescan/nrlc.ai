@@ -56,7 +56,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Threshold Determination</h3>
+        <h3 class="content-block__title">Threshold Determination</h3>
       </div>
       <div class="content-block__body">
         <p>Statistical analysis revealed that pages scoring above 0.70 on the GEO metric with at least 12 pillar hits demonstrate significantly higher citation rates. This threshold was determined through regression analysis of citation frequency against GEO scores, ensuring optimal predictive power.</p>
@@ -73,7 +73,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Cross-Validation Testing</h3>
+        <h3 class="content-block__title">Cross-Validation Testing</h3>
       </div>
       <div class="content-block__body">
         <p>We tested the framework's predictive power using holdout data not included in the initial analysis. Pages with high GEO scores consistently demonstrated better citation performance, confirming the framework's reliability and generalizability.</p>
@@ -81,7 +81,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Longitudinal Analysis</h3>
+        <h3 class="content-block__title">Longitudinal Analysis</h3>
       </div>
       <div class="content-block__body">
         <p>Follow-up analysis six months after initial data collection showed consistent correlation between GEO scores and citation performance, indicating that the framework captures stable, long-term signals rather than temporary trends.</p>
@@ -89,7 +89,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Engine-Specific Validation</h3>
+        <h3 class="content-block__title">Engine-Specific Validation</h3>
       </div>
       <div class="content-block__body">
         <p>Validation across different AI engines confirmed that the framework's predictive power holds across different algorithms and citation approaches. This consistency suggests that the identified signals represent fundamental requirements for AI citation rather than engine-specific preferences.</p>
@@ -129,7 +129,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Assessment Frequency</h3>
+        <h3 class="content-block__title">Assessment Frequency</h3>
       </div>
       <div class="content-block__body">
         <p>Regular assessment is crucial for maintaining optimal performance. We recommend monthly audits for high-priority content and quarterly reviews for supporting pages. This frequency ensures that changes in AI engine algorithms are quickly identified and addressed.</p>
@@ -137,7 +137,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Priority Setting</h3>
+        <h3 class="content-block__title">Priority Setting</h3>
       </div>
       <div class="content-block__body">
         <p>Focus optimization efforts on pages with the highest potential impact. Pages scoring below 0.50 require immediate attention, while pages above 0.70 may need only minor improvements. The 0.50-0.70 range represents the highest potential for improvement.</p>
@@ -145,7 +145,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Monitoring and Adjustment</h3>
+        <h3 class="content-block__title">Monitoring and Adjustment</h3>
       </div>
       <div class="content-block__body">
         <p>Continuous monitoring of citation performance helps identify trends and adjust optimization strategies. Track both GEO scores and actual citation performance to ensure that improvements translate into real-world results.</p>

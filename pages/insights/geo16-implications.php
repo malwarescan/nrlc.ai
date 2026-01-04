@@ -31,7 +31,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Phase 1: Foundation Assessment</h3>
+        <h3 class="content-block__title">Phase 1: Foundation Assessment</h3>
       </div>
       <div class="content-block__body">
         <p>Begin with a comprehensive audit of your current content using the GEO-16 framework:</p>
@@ -45,7 +45,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Phase 2: Technical Implementation</h3>
+        <h3 class="content-block__title">Phase 2: Technical Implementation</h3>
       </div>
       <div class="content-block__body">
         <p>Implement the highest-impact technical improvements:</p>
@@ -74,7 +74,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Phase 3: Content Quality Enhancement</h3>
+        <h3 class="content-block__title">Phase 3: Content Quality Enhancement</h3>
       </div>
       <div class="content-block__body">
         <p>Improve content quality to meet AI citation standards:</p>
@@ -96,7 +96,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Phase 4: Performance Optimization</h3>
+        <h3 class="content-block__title">Phase 4: Performance Optimization</h3>
       </div>
       <div class="content-block__body">
         <p>Ensure technical performance meets AI engine requirements:</p>
@@ -118,7 +118,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">B2B SaaS Companies</h3>
+        <h3 class="content-block__title">B2B SaaS Companies</h3>
       </div>
       <div class="content-block__body">
         <p>SaaS companies should focus on technical documentation and product information:</p>
@@ -132,7 +132,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">E-commerce and Retail</h3>
+        <h3 class="content-block__title">E-commerce and Retail</h3>
       </div>
       <div class="content-block__body">
         <p>Retail companies should emphasize product information and customer support:</p>
@@ -146,7 +146,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Healthcare and Medical</h3>
+        <h3 class="content-block__title">Healthcare and Medical</h3>
       </div>
       <div class="content-block__body">
         <p>Healthcare organizations must prioritize accuracy and credibility:</p>
@@ -160,7 +160,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Financial Services</h3>
+        <h3 class="content-block__title">Financial Services</h3>
       </div>
       <div class="content-block__body">
         <p>Financial companies should focus on compliance and accuracy:</p>
@@ -182,7 +182,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Editorial Guidelines</h3>
+        <h3 class="content-block__title">Editorial Guidelines</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -195,7 +195,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Technical Integration</h3>
+        <h3 class="content-block__title">Technical Integration</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -216,7 +216,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Key Performance Indicators</h3>
+        <h3 class="content-block__title">Key Performance Indicators</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -229,7 +229,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Optimization Cycles</h3>
+        <h3 class="content-block__title">Optimization Cycles</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -250,7 +250,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Market Positioning</h3>
+        <h3 class="content-block__title">Market Positioning</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -263,7 +263,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Business Impact</h3>
+        <h3 class="content-block__title">Business Impact</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -284,7 +284,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Algorithm Adaptation</h3>
+        <h3 class="content-block__title">Algorithm Adaptation</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -297,7 +297,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Technology Integration</h3>
+        <h3 class="content-block__title">Technology Integration</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -318,7 +318,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Month 1-2: Foundation</h3>
+        <h3 class="content-block__title">Month 1-2: Foundation</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -331,7 +331,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Month 3-4: Enhancement</h3>
+        <h3 class="content-block__title">Month 3-4: Enhancement</h3>
       </div>
       <div class="content-block__body">
         <ul>
@@ -344,7 +344,7 @@
     </div>
     <div class="content-block module">
       <div class="content-block__header">
-        <h3 class="content-block__title">style="margin-top: 0; color: #000080;">Month 5-6: Optimization</h3>
+        <h3 class="content-block__title">Month 5-6: Optimization</h3>
       </div>
       <div class="content-block__body">
         <ul>
