@@ -19,7 +19,7 @@ $GLOBALS['__jsonld'] = [
       [
         "@type" => "Article",
         "headline" => "Performance Caching for Semantic and AI-Driven Systems",
-        "description" => "A technical explanation of performance caching layers, thresholds, and failure modes in semantic and AI-driven architectures.",
+        "description" => "A technical guide to performance caching in AI and semantic systems, including latency targets, caching layers, checklists, and failure modes for scalable retrieval.",
         "author" => [
           "@type" => "Organization",
           "name" => "Neural Command, LLC"
@@ -125,8 +125,7 @@ $GLOBALS['__jsonld'] = [
         <h1 class="content-block__title">Performance Caching for Semantic and AI-Driven Systems</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Performance caching is the practice of storing precomputed results, relationships, or execution paths so semantic queries and AI systems can respond within acceptable latency without recomputing every dependency. In AI-driven systems, caching is not optional. It is required to keep inference, traversal, and retrieval costs stable as query complexity increases.</p>
-        <p>Caching shifts work from request time to preparation time.</p>
+        <p class="lead">Performance caching is the practice of storing precomputed results, relationships, or execution paths so semantic queries and AI systems can respond within acceptable latency without recomputing every dependency. In AI-driven systems, caching is not optional. It is required to keep inference, traversal, and retrieval costs stable as query complexity increases. Caching shifts work from request time to preparation time.</p>
       </div>
     </div>
 
@@ -136,8 +135,8 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">Definition: What Performance Caching Means in AI and Semantic Systems</h2>
       </div>
       <div class="content-block__body">
-        <p>Performance caching is the practice of storing precomputed results, relationships, or execution paths so semantic queries and AI systems can respond within acceptable latency without recomputing every dependency. In AI-driven systems, caching is not optional. It is required to keep inference, traversal, and retrieval costs stable as query complexity increases.</p>
-        <p>Caching shifts work from request time to preparation time.</p>
+        <p>Performance caching is the architectural practice of storing precomputed entities, relationships, or results to control latency and cost in semantic and AI systems. Unlike traditional caching that optimizes for speed, performance caching in AI contexts must balance freshness, accuracy, and computational efficiency across multiple layers.</p>
+        <p>Effective caching requires understanding which parts of a query are stable and which are dynamic, then storing stable components at appropriate layers to avoid recomputation.</p>
       </div>
     </div>
 
@@ -197,6 +196,35 @@ $GLOBALS['__jsonld'] = [
         <ul>
           <li>Serving outdated answers if TTLs are too long</li>
         </ul>
+
+        <h3>When to Use Which Cache Layer</h3>
+        <p>Use this decision logic to choose the right cache layer:</p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Cache Layer</th>
+              <th>Best Use Case</th>
+              <th>When it Fails</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Entity Cache</td>
+              <td>Repeated entity lookups across queries</td>
+              <td>Stale if not invalidated when entities change</td>
+            </tr>
+            <tr>
+              <td>Path Cache</td>
+              <td>Complex relationship paths that repeat</td>
+              <td>Changes break paths if updates not propagated</td>
+            </tr>
+            <tr>
+              <td>Result Cache</td>
+              <td>Repeated full queries with acceptable staleness</td>
+              <td>Stale outputs if TTLs too long or invalidation missing</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -230,13 +258,42 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <p>Recommended baseline targets for AI and semantic systems:</p>
-        <ul>
-          <li>p50 latency: under 200 ms</li>
-          <li>p95 latency: under 800 ms</li>
-          <li>p99 latency: under 1500 ms</li>
-          <li>Cache hit rate: above 70 percent for entity and path caches</li>
-          <li>Cold query ratio: below 30 percent</li>
-        </ul>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Target</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>p50 latency</td>
+              <td>&lt; 200 ms</td>
+              <td>Fast common query responses</td>
+            </tr>
+            <tr>
+              <td>p95 latency</td>
+              <td>&lt; 800 ms</td>
+              <td>Handles variability under load</td>
+            </tr>
+            <tr>
+              <td>p99 latency</td>
+              <td>&lt; 1500 ms</td>
+              <td>High-load stability</td>
+            </tr>
+            <tr>
+              <td>Cache hit rate</td>
+              <td>&gt; 70%</td>
+              <td>Reuse work instead of recompute</td>
+            </tr>
+            <tr>
+              <td>Cold query ratio</td>
+              <td>&lt; 30%</td>
+              <td>Ensures caching effectiveness</td>
+            </tr>
+          </tbody>
+        </table>
         <p>If these targets are not met, caching strategy is insufficient.</p>
       </div>
     </div>
@@ -285,7 +342,7 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <ul>
-          <li><a href="<?= absolute_url('/insights/semantic-queries/') ?>">Semantic Queries and Path Traversal</a> - How relationship traversal works in semantic systems</li>
+          <li><a href="<?= absolute_url('/insights/semantic-queries/') ?>">How semantic path traversal accelerates AI query performance</a> - Relationship traversal patterns for semantic systems</li>
           <li><a href="<?= absolute_url('/insights/data-virtualization/') ?>">Data Virtualization for AI Systems</a> - Virtualized data access patterns for AI workloads</li>
           <li><a href="<?= absolute_url('/insights/knowledge-graph/') ?>">Knowledge Graph Architecture</a> - Graph primitives and traversal patterns</li>
           <li><a href="<?= absolute_url('/insights/enterprise-llm/') ?>">Enterprise LLM Foundations</a> - Building reliable AI workflows with semantic context</li>

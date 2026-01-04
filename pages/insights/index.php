@@ -96,22 +96,22 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">Semantic Layer Architecture</h4>
+            <h4 >Semantic Layer Architecture</h4>
             <p>SQL-native ontologies, reusable logic, metrics, hierarchies, and automated reasoning across knowledge graphs.</p>
           </div>
           
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">Data Virtualization</h4>
+            <h4 >Data Virtualization</h4>
             <p>Federated queries, intelligent pushdown, caching strategies, and unified graph views across all data sources.</p>
           </div>
           
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">AI Workflow Optimization</h4>
+            <h4 >AI Workflow Optimization</h4>
             <p>Building reliable LLM workflows, GraphRAG implementation, NL2SQL generation, and structured semantic context for AI.</p>
           </div>
           
           <div style="padding: 1rem; background: #f8f8f8;">
-            <h4 style="margin-top: 0; color: #000080;">Query Performance</h4>
+            <h4 >Query Performance</h4>
             <p>Semantic query optimization, relationship-aware logic, query complexity reduction, and performance tuning strategies.</p>
           </div>
         </div>
@@ -128,7 +128,7 @@ $featured_insights = array_slice($insights, -6); // Get last 6 insights
         <ul style="list-style: none; padding: 0;">
           <?php foreach (array_reverse($featured_insights) as $insight): ?>
             <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
-              <h3 class="content-block__title" style="margin: 0 0 0.5rem 0; font-size: 1.125rem;">
+              <h3 class="content-block__title" >
                 <a href="/en-us/insights/<?= htmlspecialchars($insight['slug']) ?>/" style="text-decoration: none; color: inherit;">
                   <?= htmlspecialchars($insight['title']) ?>
                 </a>

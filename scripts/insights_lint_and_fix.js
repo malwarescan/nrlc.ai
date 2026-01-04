@@ -29,11 +29,21 @@ const REQUIRED_H2 = [
 
 const TARGET_EXT = new Set([".php", ".html", ".htm"]);
 
+// Files to exclude from linting (template/router/index pages)
+const EXCLUDED_FILES = new Set([
+  "article.php",
+  "index.php"
+]);
+
 let violations = [];
 
 walk(ROOT).forEach((file) => {
   const ext = path.extname(file).toLowerCase();
   if (!TARGET_EXT.has(ext)) return;
+  
+  // Skip excluded files
+  const basename = path.basename(file);
+  if (EXCLUDED_FILES.has(basename)) return;
 
   let src = fs.readFileSync(file, "utf8");
   const original = src;

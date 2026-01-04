@@ -1,0 +1,128 @@
+{
+    "pain_points": [
+        {
+            "service": "llm-seeding",
+            "headline": "Ambiguous entities",
+            "issue": "Missing SEO keywords in problem\/solution"
+        },
+        {
+            "service": "llm-optimization",
+            "headline": "Boilerplate FAQs",
+            "issue": "Missing SEO keywords in problem\/solution"
+        },
+        {
+            "service": "international-seo",
+            "headline": "Hreflang gaps",
+            "issue": "Missing SEO keywords in problem\/solution"
+        },
+        {
+            "service": "international-seo",
+            "headline": "Region-blind content",
+            "issue": "Missing SEO keywords in problem\/solution"
+        },
+        {
+            "service": "technical-seo",
+            "headline": "Oversized sitemaps",
+            "issue": "Missing SEO keywords in problem\/solution"
+        },
+        {
+            "service": "technical-seo",
+            "headline": "Slow static assets",
+            "issue": "Missing SEO keywords in problem\/solution"
+        }
+    ],
+    "solutions": [],
+    "faq_issues": [
+        {
+            "file": "index.php",
+            "issue": "Has FAQ content but missing FAQPage schema",
+            "type": "missing_schema"
+        },
+        {
+            "file": "career_city.php",
+            "issue": "Has FAQ content but missing FAQPage schema",
+            "type": "missing_schema"
+        },
+        {
+            "file": "home.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "geo16-conclusion.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "geo16-introduction.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "geo16-methodology.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "geo16-results.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "llm-ontology-generation.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "ocrplus-data-ingestion.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "ontology-based-search.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "semantic-drift-tracking.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "semantic-seo-in-news.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "seo-landscape-analysis.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "yago-entity-mapping.php",
+            "issue": "Has FAQPage schema but missing FAQ content",
+            "type": "missing_content"
+        },
+        {
+            "file": "index.php",
+            "issue": "Has FAQ content but missing FAQPage schema",
+            "type": "missing_schema"
+        },
+        {
+            "file": "neural-command-os.php",
+            "issue": "Has FAQ content but missing FAQPage schema",
+            "type": "missing_schema"
+        },
+        {
+            "file": "newfaq.php",
+            "issue": "Has FAQ content but missing FAQPage schema",
+            "type": "missing_schema"
+        },
+        {
+            "file": "service_city.php",
+            "issue": "Has FAQ content but missing FAQPage schema",
+            "type": "missing_schema"
+        }
+    ],
+    "fixes_needed": []
+}

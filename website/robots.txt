@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: nrlc.ai
+Sitemap: https://nrlc.ai/sitemap.xml

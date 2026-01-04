@@ -1,0 +1,49 @@
+{
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://nrlc.ai/#organization",
+      "name": "Your Site",
+      "url": "https://nrlc.ai",
+      "logo": "https://nrlc.ai/logo.png",
+      "sameAs": []
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://nrlc.ai/#website",
+      "url": "https://nrlc.ai",
+      "name": "Your Site",
+      "publisher": {
+        "@id": "https://nrlc.ai/#organization"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://nrlc.ai/#webpage",
+      "url": "https://nrlc.ai",
+      "name": "Home",
+      "isPartOf": {
+        "@id": "https://nrlc.ai/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://nrlc.ai/#breadcrumb"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "@id": "https://nrlc.ai/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://nrlc.ai"
+        }
+      ]
+    }
+  ]
+}

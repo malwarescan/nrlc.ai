@@ -1,0 +1,9 @@
+{
+  "generated_at": "2025-10-15T16:36:12.496246Z",
+  "pages_with_briefs": 70,
+  "notes": [
+    "Briefs prioritize striking-distance pages and queries with impressions >=2, position 5\u201320.",
+    "Titles under 60 chars, meta ~155 chars, H1 aligned to primary keyword.",
+    "Includes HTTPS checks, internal links, and FAQPage JSON-LD."
+  ]
+}

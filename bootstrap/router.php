@@ -456,14 +456,14 @@ function route_request(): void {
       $articleTitle = "How LLMs Retrieve and Cite Web Content";
       $excerpt = "Understand how AI systems extract, score, and surface content for answers and citations.";
     } elseif ($slug === 'how-to-get-your-business-mentioned-in-chatgpt') {
-      $articleTitle = "How to Get Your Business Mentioned in ChatGPT (No Submission Required)";
-      $excerpt = "Most people assume you can \"add\" your business to ChatGPT the same way you add it to Google or Yelp. You can't. This guide explains what signals actually work and why most businesses are invisible to AI answers.";
+      $articleTitle = "How to Get Your Business Mentioned in ChatGPT | AI Citation Guide";
+      $excerpt = "Learn what signals matter for your business to be mentioned in ChatGPT, including entity consistency, structured data, and citation readiness.";
     } elseif ($slug === 'google-llms-txt-ai-seo') {
       $articleTitle = "Google LLMs.txt Documentation Analysis & SEO Strategy";
       $excerpt = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
     } elseif ($slug === 'semantic-queries') {
-      $articleTitle = "Semantic Queries & Query Optimization";
-      $excerpt = "How semantic relationships collapse query complexity and reduce time to value. Learn how traditional SQL queries with dozens of JOINs become concise, relationship-aware logic.";
+      $articleTitle = "Semantic Query Optimization for AI Systems";
+      $excerpt = "Learn how semantic queries improve retrieval performance with relationship traversal, compare SQL joins vs graph traversal, and view failure modes and performance metrics.";
     } elseif ($slug === 'semantic-modeling') {
       $articleTitle = "Why Teams Adopt Semantic Modeling";
       $excerpt = "Understanding the business value of semantic infrastructure. How organizations achieve 90% reduction in time-to-consumption and enable reliable AI workflows.";
@@ -471,11 +471,11 @@ function route_request(): void {
       $articleTitle = "Data Virtualization";
       $excerpt = "How data virtualization enables unified access to distributed data sources without physical data movement, reducing complexity and improving agility.";
     } elseif ($slug === 'performance-caching') {
-      $articleTitle = "Performance & Caching Insights";
-      $excerpt = "Intelligent pushdown optimization, query performance tuning, and powerful caching engines that reduce compute spend while maintaining query speed and accuracy.";
+      $articleTitle = "Performance Caching for AI & Semantic Systems";
+      $excerpt = "A technical guide to performance caching in AI and semantic systems, including latency targets, caching layers, checklists, and failure modes for scalable retrieval.";
     } elseif ($slug === 'enterprise-llm') {
-      $articleTitle = "Enterprise LLM Foundation";
-      $excerpt = "Building reliable AI workflows on structured understanding. How structured semantic context, verified relationships, and virtualized access enable trustworthy LLM operations.";
+      $articleTitle = "Enterprise LLM Architecture & Governance";
+      $excerpt = "Detailed guide to enterprise LLM architecture, governance, provenance tracking, and performance thresholds for reliable AI systems.";
     } elseif ($slug === 'knowledge-graph') {
       $articleTitle = "Knowledge Graph Exploration";
       $excerpt = "Interactive knowledge graph techniques for traversing relationships, surfacing insights, and generating SQL or natural-language queries automatically.";

@@ -18,8 +18,8 @@ $GLOBALS['__jsonld'] = [
     "@graph" => [
       [
     "@type" => "Article",
-    "headline" => "Semantic Queries & Query Optimization",
-        "description" => "How semantic relationships collapse query complexity through relationship traversal instead of SQL JOINs. Technical guide to knowledge graph query patterns, performance optimization, and implementation architecture.",
+    "headline" => "Semantic Query Optimization for AI Systems",
+        "description" => "Learn how semantic queries improve retrieval performance with relationship traversal, compare SQL joins vs graph traversal, and view failure modes and performance metrics.",
     "author" => [
       "@type" => "Organization",
           "name" => "Neural Command, LLC"
@@ -205,17 +205,54 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
 
-    <!-- Implementation: Minimum Architecture -->
+    <!-- Decision Rules: When to Use Semantic Queries -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Implementation: Minimum Architecture</h2>
+        <h2 class="content-block__title">Decision Rules: When to Use Semantic Queries</h2>
       </div>
       <div class="content-block__body">
-        <p>To implement semantic query optimization, you need three components:</p>
+        <p>Use semantic queries when:</p>
+        <ul>
+          <li><strong>If your query involves more than three JOINs</strong> → use semantic relationship traversal instead of SQL JOINs</li>
+          <li><strong>If your data model uses explicit relationships</strong> → prefer semantic queries over relational queries</li>
+          <li><strong>If your graph depth exceeds 5 hops</strong> → optimize with caching and graph indexes to maintain performance</li>
+          <li><strong>If queries repeat common paths</strong> → implement path-level caching for semantic queries</li>
+          <li><strong>If you need flexible relationship modeling</strong> → semantic queries allow adding edges without restructuring</li>
+        </ul>
+        <p>Semantic queries are ideal when relationship patterns are stable and queries benefit from path traversal optimization.</p>
+      </div>
+    </div>
+
+    <!-- Operational Implications -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Operational Implications</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Semantic query optimization changes how you design data models, write queries, and manage performance.</p>
+        <p><strong>Data Model Changes:</strong> Relationships become first-class citizens. You model connections explicitly rather than inferring them through foreign keys. This requires upfront graph design and ontology definition.</p>
+        <p><strong>Query Pattern Changes:</strong> Developers write path traversals instead of SQL JOINs. Query complexity shifts from table joins to path depth. This requires training and new query languages (Cypher, SPARQL, Gremlin).</p>
+        <p><strong>Performance Management:</strong> Caching becomes relationship-aware. You cache at entity level, path level, and result level. Cache invalidation must track relationship changes, not just data updates.</p>
+        <p><strong>Infrastructure Changes:</strong> You may need graph databases (Neo4j, Amazon Neptune) or graph layers over relational data. Data virtualization can expose relational data as graphs without migration.</p>
+      </div>
+    </div>
+
+    <!-- Checklist: How to Implement Semantic Query Optimization -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Checklist: How to Implement Semantic Query Optimization</h2>
+      </div>
+      <div class="content-block__body">
         <ol>
-          <li><strong>Graph Model:</strong> Entities as nodes, relationships as edges. Use property graphs (Neo4j), RDF graphs (SPARQL), or virtualized graphs over relational data.</li>
-          <li><strong>Ontology:</strong> Explicit definitions of entity types and relationship types. This enables consistent query patterns and validation.</li>
-          <li><strong>Caching:</strong> Relationship-aware caching that stores traversal results. Cache at entity level, path level, and result level to reduce query latency.</li>
+          <li><strong>Define your graph model:</strong> Identify entities (nodes) and relationships (edges). Map your current data model to graph primitives.</li>
+          <li><strong>Create an ontology:</strong> Define entity types and relationship types explicitly. This enables consistent query patterns and validation.</li>
+          <li><strong>Choose your graph infrastructure:</strong> Use a dedicated graph database (Neo4j, Amazon Neptune) or a virtualization layer over relational data.</li>
+          <li><strong>Implement relationship-aware caching:</strong> Cache at entity level, path level, and result level. Design cache invalidation that tracks relationship changes.</li>
+          <li><strong>Set traversal depth limits:</strong> Define maximum path depth (typically 5-7 hops) to prevent unbounded queries.</li>
+          <li><strong>Index edges for traversal:</strong> Index both incoming and outgoing edges for fast bidirectional traversal.</li>
+          <li><strong>Implement cycle detection:</strong> Prevent infinite loops in cyclic graphs with path uniqueness constraints.</li>
+          <li><strong>Monitor query performance:</strong> Track latency (p50, p95, p99), traversal depth, and cache hit rates.</li>
+          <li><strong>Validate query correctness:</strong> Compare results against ground truth, audit traversal paths, and verify relationship integrity.</li>
         </ol>
         <p>If your data is relational, use a data virtualization layer to expose it as a graph without physical migration.</p>
       </div>
@@ -244,13 +281,58 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">Metrics: Latency, Depth, Cache Hit Rate</h2>
       </div>
       <div class="content-block__body">
-        <p>Measure semantic query performance using:</p>
-        <ul>
-          <li><strong>Query Latency:</strong> P50 under 50ms, P95 under 200ms, P99 under 500ms for common traversal patterns.</li>
-          <li><strong>Traversal Depth:</strong> Average path length. Most queries should complete in 3-5 hops. Paths over 7 hops indicate graph design issues.</li>
-          <li><strong>Cache Hit Rate:</strong> Target 70%+ for entity-level cache, 50%+ for path-level cache. Low hit rates indicate cache invalidation problems.</li>
-          <li><strong>Query Complexity:</strong> Number of edges traversed per query. Monitor for queries exceeding 100 edge traversals.</li>
-        </ul>
+        <p>Measure semantic query performance using these targets:</p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Target</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Query Latency (p50)</td>
+              <td>&lt; 50 ms</td>
+              <td>Common queries must be fast</td>
+            </tr>
+            <tr>
+              <td>Query Latency (p95)</td>
+              <td>&lt; 200 ms</td>
+              <td>Handles variability under load</td>
+            </tr>
+            <tr>
+              <td>Query Latency (p99)</td>
+              <td>&lt; 500 ms</td>
+              <td>High-load stability</td>
+            </tr>
+            <tr>
+              <td>Traversal Depth</td>
+              <td>3-5 hops ideal</td>
+              <td>Most queries should complete efficiently</td>
+            </tr>
+            <tr>
+              <td>Maximum Traversal Depth</td>
+              <td>&lt; 7 hops</td>
+              <td>Paths over 7 hops indicate graph design issues</td>
+            </tr>
+            <tr>
+              <td>Cache Hit Rate (entity-level)</td>
+              <td>&gt; 70%</td>
+              <td>Entity cache effectiveness</td>
+            </tr>
+            <tr>
+              <td>Cache Hit Rate (path-level)</td>
+              <td>&gt; 50%</td>
+              <td>Path cache effectiveness</td>
+            </tr>
+            <tr>
+              <td>Edge Traversals per Query</td>
+              <td>&lt; 100</td>
+              <td>Monitor for queries exceeding complexity limits</td>
+            </tr>
+          </tbody>
+        </table>
         <p>If latency exceeds thresholds, optimize graph indexes, increase cache hit rates, or redesign deep traversal paths.</p>
       </div>
     </div>

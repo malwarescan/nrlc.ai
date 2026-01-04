@@ -1,0 +1,452 @@
+[
+    {
+        "url": "\/services\/service\/",
+        "file": "pages\/services\/service.php",
+        "priority_score": 417,
+        "violation_count": 22,
+        "seo_score": 33,
+        "content_type": "service",
+        "cluster": "services"
+    },
+    {
+        "url": "\/insights\/article\/",
+        "file": "pages\/insights\/article.php",
+        "priority_score": 394,
+        "violation_count": 24,
+        "seo_score": 26,
+        "content_type": "insight",
+        "cluster": "insights"
+    },
+    {
+        "url": "\/insights\/geo16-results\/",
+        "file": "pages\/insights\/geo16-results.php",
+        "priority_score": 369,
+        "violation_count": 20,
+        "seo_score": 41,
+        "content_type": "insight",
+        "cluster": "ai-overview"
+    },
+    {
+        "url": "\/services\/service_city\/",
+        "file": "pages\/services\/service_city.php",
+        "priority_score": 362,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "service",
+        "cluster": "services"
+    },
+    {
+        "url": "\/products\/ourcasa-ai\/",
+        "file": "pages\/products\/ourcasa-ai.php",
+        "priority_score": 359,
+        "violation_count": 18,
+        "seo_score": 41,
+        "content_type": "product",
+        "cluster": "ourcasa"
+    },
+    {
+        "url": "\/products\/",
+        "file": "pages\/products\/index.php",
+        "priority_score": 346,
+        "violation_count": 17,
+        "seo_score": 44,
+        "content_type": "product",
+        "cluster": "general"
+    },
+    {
+        "url": "\/products\/applicants-io\/",
+        "file": "pages\/products\/applicants-io.php",
+        "priority_score": 346,
+        "violation_count": 17,
+        "seo_score": 44,
+        "content_type": "product",
+        "cluster": "general"
+    },
+    {
+        "url": "\/products\/precogs\/",
+        "file": "pages\/products\/precogs.php",
+        "priority_score": 346,
+        "violation_count": 17,
+        "seo_score": 44,
+        "content_type": "product",
+        "cluster": "croutons"
+    },
+    {
+        "url": "\/products\/data-but-structured\/",
+        "file": "pages\/products\/data-but-structured.php",
+        "priority_score": 332,
+        "violation_count": 16,
+        "seo_score": 48,
+        "content_type": "product",
+        "cluster": "general"
+    },
+    {
+        "url": "\/insights\/geo16-methodology\/",
+        "file": "pages\/insights\/geo16-methodology.php",
+        "priority_score": 328,
+        "violation_count": 17,
+        "seo_score": 52,
+        "content_type": "insight",
+        "cluster": "ai-overview"
+    },
+    {
+        "url": "\/services\/",
+        "file": "pages\/services\/index.php",
+        "priority_score": 319,
+        "violation_count": 15,
+        "seo_score": 56,
+        "content_type": "service",
+        "cluster": "services"
+    },
+    {
+        "url": "\/products\/croutons-ai\/",
+        "file": "pages\/products\/croutons-ai.php",
+        "priority_score": 318,
+        "violation_count": 15,
+        "seo_score": 52,
+        "content_type": "product",
+        "cluster": "croutons"
+    },
+    {
+        "url": "\/products\/newfaq\/",
+        "file": "pages\/products\/newfaq.php",
+        "priority_score": 318,
+        "violation_count": 15,
+        "seo_score": 52,
+        "content_type": "product",
+        "cluster": "general"
+    },
+    {
+        "url": "\/products\/neural-command-os\/",
+        "file": "pages\/products\/neural-command-os.php",
+        "priority_score": 318,
+        "violation_count": 15,
+        "seo_score": 52,
+        "content_type": "product",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-9\/",
+        "file": "pages\/blog\/blog-post-9.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-262\/",
+        "file": "pages\/blog\/blog-post-262.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-276\/",
+        "file": "pages\/blog\/blog-post-276.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-289\/",
+        "file": "pages\/blog\/blog-post-289.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-458\/",
+        "file": "pages\/blog\/blog-post-458.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-316\/",
+        "file": "pages\/blog\/blog-post-316.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-470\/",
+        "file": "pages\/blog\/blog-post-470.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-464\/",
+        "file": "pages\/blog\/blog-post-464.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-302\/",
+        "file": "pages\/blog\/blog-post-302.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-54\/",
+        "file": "pages\/blog\/blog-post-54.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-128\/",
+        "file": "pages\/blog\/blog-post-128.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-40\/",
+        "file": "pages\/blog\/blog-post-40.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-68\/",
+        "file": "pages\/blog\/blog-post-68.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-114\/",
+        "file": "pages\/blog\/blog-post-114.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-100\/",
+        "file": "pages\/blog\/blog-post-100.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-97\/",
+        "file": "pages\/blog\/blog-post-97.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-83\/",
+        "file": "pages\/blog\/blog-post-83.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-82\/",
+        "file": "pages\/blog\/blog-post-82.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-96\/",
+        "file": "pages\/blog\/blog-post-96.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-101\/",
+        "file": "pages\/blog\/blog-post-101.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-69\/",
+        "file": "pages\/blog\/blog-post-69.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-115\/",
+        "file": "pages\/blog\/blog-post-115.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-41\/",
+        "file": "pages\/blog\/blog-post-41.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-55\/",
+        "file": "pages\/blog\/blog-post-55.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-129\/",
+        "file": "pages\/blog\/blog-post-129.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-465\/",
+        "file": "pages\/blog\/blog-post-465.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-303\/",
+        "file": "pages\/blog\/blog-post-303.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-317\/",
+        "file": "pages\/blog\/blog-post-317.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-471\/",
+        "file": "pages\/blog\/blog-post-471.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-459\/",
+        "file": "pages\/blog\/blog-post-459.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-288\/",
+        "file": "pages\/blog\/blog-post-288.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-277\/",
+        "file": "pages\/blog\/blog-post-277.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-263\/",
+        "file": "pages\/blog\/blog-post-263.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-8\/",
+        "file": "pages\/blog\/blog-post-8.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-249\/",
+        "file": "pages\/blog\/blog-post-249.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    },
+    {
+        "url": "\/blog\/blog-post-275\/",
+        "file": "pages\/blog\/blog-post-275.php",
+        "priority_score": 312,
+        "violation_count": 18,
+        "seo_score": 48,
+        "content_type": "blog",
+        "cluster": "general"
+    }
+]

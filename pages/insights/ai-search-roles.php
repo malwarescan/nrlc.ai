@@ -8,7 +8,7 @@
 $hubLink = '<p>The <a href="/en-gb/careers/norwich/llm-strategist/">LLM Strategist</a> is a key role in the AI search ecosystem. Learn more about the <a href="/en-gb/careers/norwich/llm-strategist/">LLM Strategist</a> role.</p>';
 
 $llmStrategistCard = '<div class="card" style="padding:1.5rem; margin:1rem 0; border:2px solid #0066cc;">
-  <h2 style="margin-top:0;">LLM Strategist</h2>
+  <h2 >LLM Strategist</h2>
   <p><strong>Primary Focus:</strong> Designs and runs systems that influence how large language models retrieve, cite, and summarize information about brands, products, or topics across AI answer engines.</p>
   <p><strong>Key Responsibilities:</strong></p>
   <ul>

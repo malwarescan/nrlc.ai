@@ -19,7 +19,7 @@ $GLOBALS['__jsonld'] = [
       [
     "@type" => "Article",
     "headline" => "Enterprise LLM Foundation",
-        "description" => "A technical explanation of enterprise LLM architecture, including governance, provenance, failure modes, and decision frameworks for RAG, GraphRAG, fine-tuning, and tool-use patterns.",
+        "description" => "Detailed guide to enterprise LLM architecture, governance, provenance tracking, and performance thresholds for reliable AI systems.",
     "author" => [
       "@type" => "Organization",
           "name" => "Neural Command, LLC"
@@ -133,8 +133,7 @@ $GLOBALS['__jsonld'] = [
         <h1 class="content-block__title">Enterprise LLM Foundation</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Enterprise LLM foundation is the architectural pattern for deploying large language models in production with governance, provenance tracking, and structured semantic context. It moves beyond "just add RAG" to systems that can trace answers, enforce access controls, and maintain consistency at scale.</p>
-        <p>Enterprise LLM systems must answer three questions for every response: where did this come from, who can access it, and how fresh is it.</p>
+        <p class="lead">Enterprise LLM foundation is the architectural pattern for deploying large language models in production with governance, provenance tracking, and structured semantic context. It moves beyond "just add RAG" to systems that can trace answers, enforce access controls, and maintain consistency at scale. Enterprise LLM systems must answer three questions for every response: where did this come from, who can access it, and how fresh is it.</p>
       </div>
     </div>
 
@@ -144,8 +143,7 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">Definition: Enterprise LLM Foundation</h2>
       </div>
       <div class="content-block__body">
-        <p>Enterprise LLM foundation is the architectural pattern for deploying large language models in production with governance, provenance tracking, and structured semantic context. It moves beyond "just add RAG" to systems that can trace answers, enforce access controls, and maintain consistency at scale.</p>
-        <p>Enterprise LLM systems must answer three questions for every response: where did this come from, who can access it, and how fresh is it.</p>
+        <p>Enterprise LLM foundation is the architectural pattern for deploying large language models in production with governance, provenance tracking, and structured semantic context. Unlike consumer LLM applications, enterprise systems must enforce access controls, track data sources, and maintain consistency across queries.</p>
         <p>This foundation requires semantic layers, knowledge graphs, data virtualization, and performance caching as prerequisites. Without these, LLM systems become black boxes that cannot be trusted in enterprise contexts.</p>
       </div>
     </div>
@@ -261,24 +259,57 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <p>Enterprise LLM systems must meet numeric targets for latency, accuracy, and provenance coverage.</p>
-        <p><strong>Response latency targets:</strong></p>
-        <ul>
-          <li>p50 latency: under 800 ms</li>
-          <li>p95 latency: under 2 seconds</li>
-          <li>p99 latency: under 4 seconds</li>
-        </ul>
-        <p><strong>Accuracy and verification targets:</strong></p>
-        <ul>
-          <li>Unverifiable claim rate: under 5 percent (claims that cannot be traced to a source)</li>
-          <li>Hallucination rate: under 2 percent (factually incorrect claims)</li>
-          <li>Provenance coverage: above 80 percent of answers must cite at least one source</li>
-        </ul>
-        <p><strong>Source freshness thresholds:</strong></p>
-        <ul>
-          <li>Operational data: maximum 24 hours old</li>
-          <li>Reference data: maximum 7 days old</li>
-          <li>Historical data: no freshness requirement, but must be clearly labeled</li>
-        </ul>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Target</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>p50 latency</td>
+              <td>&lt; 800 ms</td>
+              <td>Common queries must be fast</td>
+            </tr>
+            <tr>
+              <td>p95 latency</td>
+              <td>&lt; 2 seconds</td>
+              <td>Enterprise acceptable threshold</td>
+            </tr>
+            <tr>
+              <td>p99 latency</td>
+              <td>&lt; 4 seconds</td>
+              <td>High-load stability</td>
+            </tr>
+            <tr>
+              <td>Unverifiable claim rate</td>
+              <td>&lt; 5%</td>
+              <td>Claims without source trace</td>
+            </tr>
+            <tr>
+              <td>Hallucination rate</td>
+              <td>&lt; 2%</td>
+              <td>Factually incorrect claims</td>
+            </tr>
+            <tr>
+              <td>Provenance coverage</td>
+              <td>&gt; 80%</td>
+              <td>Answers must cite sources</td>
+            </tr>
+            <tr>
+              <td>Operational data freshness</td>
+              <td>&lt; 24 hours</td>
+              <td>Real-time accuracy required</td>
+            </tr>
+            <tr>
+              <td>Reference data freshness</td>
+              <td>&lt; 7 days</td>
+              <td>Acceptable staleness threshold</td>
+            </tr>
+          </tbody>
+        </table>
         <p>If these targets are not met, the system must refuse to answer, request clarification, or degrade gracefully with explicit warnings about data quality.</p>
       </div>
     </div>

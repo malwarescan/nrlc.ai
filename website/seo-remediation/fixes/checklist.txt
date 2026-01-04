@@ -1,0 +1,112 @@
+
+╔═══════════════════════════════════════════════════════════════╗
+║          FIX-NOW CHECKLIST (Google Best Practices)            ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Generated: 2025-10-15 17:46:14 UTC
+Source: site-discovery audit report (300 pages analyzed)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🔴 CRITICAL (Fix First)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] Fix 0 empty title tags
+    → Without titles, pages won't rank in Google
+    → Action: See individual briefs in website/seo-briefs/
+    → Validation: View source, check <title> tag is present
+
+[ ] Fix 0 empty meta descriptions
+    → Google will auto-generate (usually poor quality)
+    → Action: Write unique 150-160 char descriptions
+    → Validation: Search Console → Enhancements → Meta tags
+
+[ ] Fix 300 http:// canonical tags
+    → Forces HTTPS normalization issues
+    → Action: Change all http:// to https:// in canonicals
+    → Validation: grep -r 'rel="canonical" href="http://' pages/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🟡 HIGH PRIORITY (Do This Week)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] Differentiate 0 duplicate titles
+    → Google penalizes identical titles across pages
+    → Action: Make each title unique (add location, year, differentiator)
+    → Validation: site-discovery or Screaming Frog
+
+[ ] Differentiate 0 duplicate descriptions
+    → Reduces CTR and click-through rate
+    → Action: Write page-specific descriptions
+    → Validation: Search Console → Coverage → Duplicates
+
+[ ] Fix 0 missing canonical tags
+    → Without canonicals, Google may index duplicate pages
+    → Action: Add <link rel="canonical" href="https://..." />
+    → Validation: curl -s https://nrlc.ai/page/ | grep canonical
+
+[ ] Fix 0 duplicate FAQPage schema
+    → Causes GSC "Duplicate field" error
+    → Action: Use SchemaFixes::jsonLdOnce() in lib/schema_builders.php
+    → Validation: Google Rich Results Test
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 🟢 MEDIUM PRIORITY (This Month)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] Add FAQ sections with JSON-LD to top 50 pages
+    → Increases SERP real estate (rich results)
+    → Action: Use templates from website/seo-briefs/
+    → Validation: https://search.google.com/test/rich-results
+
+[ ] Expand intro paragraphs with E-E-A-T signals
+    → Proof points: years in business, certifications, results
+    → Action: See "Intro Paragraph" section in briefs
+    → Validation: Manual review
+
+[ ] Add 2-3 internal links per page
+    → Improves crawlability and PageRank distribution
+    → Action: Link to related Services, Insights, Case Studies
+    → Validation: Check internal link count in audit_report.csv
+
+[ ] Optimize title lengths (check manually)
+    → Google truncates at ~60 chars
+    → Action: Cap at 60, move secondary keywords to description
+    → Validation: SERP preview tool
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📋 VALIDATION STEPS (After Deployment)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. [ ] Re-run site-discovery crawler
+   → php site-discovery/scripts/discover.php --base=https://nrlc.ai --max=500
+   → Confirm issues are resolved in new audit_report.csv
+
+2. [ ] Test schema in Google Rich Results Test
+   → https://search.google.com/test/rich-results
+   → Test 5-10 pages with FAQ/schema changes
+
+3. [ ] Validate canonicals
+   → curl -s https://nrlc.ai | grep -i canonical
+   → Confirm all use https://
+
+4. [ ] Request re-indexing in Search Console
+   → URL Inspection → Request Indexing (for critical pages)
+   → Or submit updated sitemap
+
+5. [ ] Monitor GSC Enhancements
+   → Check "Enhancements" section after 1-2 weeks
+   → Confirm "Duplicate field" errors are gone
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 📚 RESOURCES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Google Search Essentials: https://developers.google.com/search/docs/essentials
+- Schema.org Validator: https://validator.schema.org/
+- Rich Results Test: https://search.google.com/test/rich-results
+- Page Speed Insights: https://pagespeed.web.dev/
+- GSC URL Inspection: https://search.google.com/search-console
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Next: Open website/seo-briefs/ and start with 🔴 CRITICAL pages

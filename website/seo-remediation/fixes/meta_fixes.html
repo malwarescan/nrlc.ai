@@ -1,0 +1,57 @@
+<!-- GSC Remediation: Optimal <head> Template -->
+<!DOCTYPE html>
+<html lang="<?= $locale ?? 'en' ?>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PRIMARY META TAGS -->
+    <title><?= htmlspecialchars($page_title) ?></title>
+    <meta name="description" content="<?= htmlspecialchars($page_description) ?>">
+    
+    <!-- CANONICAL (HTTPS ONLY) -->
+    <link rel="canonical" href="<?= SchemaFixes::ensureHttps($canonical_url) ?>">
+    
+    <!-- OPEN GRAPH / FACEBOOK -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= SchemaFixes::ensureHttps($canonical_url) ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($page_title) ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($page_description) ?>">
+    <meta property="og:image" content="<?= SchemaFixes::ensureHttps($og_image) ?>">
+    <meta property="og:site_name" content="NRLC.ai">
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?= SchemaFixes::ensureHttps($canonical_url) ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($page_title) ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($page_description) ?>">
+    <meta name="twitter:image" content="<?= SchemaFixes::ensureHttps($og_image) ?>">
+    
+    <!-- HREFLANG (if multilingual) -->
+    <?php foreach ($hreflang_alternates as $locale => $url): ?>
+    <link rel="alternate" hreflang="<?= $locale ?>" href="<?= SchemaFixes::ensureHttps($url) ?>">
+    <?php endforeach; ?>
+    <link rel="alternate" hreflang="x-default" href="<?= SchemaFixes::ensureHttps($default_locale_url) ?>">
+    
+    <!-- ROBOTS -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="<?= $author ?? 'NRLC.ai' ?>">
+    <?php if (!empty($published_date)): ?>
+    <meta property="article:published_time" content="<?= $published_date ?>">
+    <?php endif; ?>
+    <?php if (!empty($modified_date)): ?>
+    <meta property="article:modified_time" content="<?= $modified_date ?>">
+    <?php endif; ?>
+</head>
+
+<!--
+CHECKLIST FOR THIS PAGE:
+[ ] Title ≤60 chars (currently: <?= mb_strlen($page_title) ?>)
+[ ] Description 150-160 chars (currently: <?= mb_strlen($page_description) ?>)
+[ ] Canonical uses HTTPS
+[ ] All social meta present
+[ ] Hreflang if multilingual
+[ ] Author attribution present
+-->

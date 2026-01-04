@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>/services/crawl-clarity/new-york/</loc>
+    <image:image>
+      <image:loc>https://nrlc.ai/assets/cc-nyc-hero.jpg</image:loc>
+      <image:title>Crawl clarity in New York</image:title>
+      <image:caption>URL lattice and canonical guard for NYC sites</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>/services/json-ld-strategy/london/</loc>
+    <image:image>
+      <image:loc>https://nrlc.ai/assets/jsonld-lon-hero.jpg</image:loc>
+      <image:title>JSON-LD in London</image:title>
+      <image:caption>Structured data strategy for London enterprises</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>/services/llm-seeding/seoul/</loc>
+    <image:image>
+      <image:loc>https://nrlc.ai/assets/llms-seoul-hero.jpg</image:loc>
+      <image:title>LLM seeding in Seoul</image:title>
+      <image:caption>Entity clarity and SearchAction for Korean locales</image:caption>
+    </image:image>
+  </url>
+</urlset>

@@ -38,7 +38,7 @@ $domain = 'https://nrlc.ai';
 
         <!-- Abstract -->
         <div style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #4a90e2; margin: 1.5rem 0;">
-          <h2 style="margin-top: 0; font-size: 1.25rem;">Abstract</h2>
+          <h2 >Abstract</h2>
           <p>This paper examines whether page indexing behavior observed in Google Search Console influences perceived page quality and whether such signals can indirectly affect keyword costs within Google Ads auctions. Through observational analysis of indexing patterns, Quality Score components, and cost-per-click data across multiple client engagements, we demonstrate that structural signals leading to indexing suppression overlap substantially with those used to evaluate landing page experience and overall trust. While indexing status itself is not a direct input into paid auction pricing mechanisms, the shared causal foundation affects both organic indexing outcomes and paid search efficiency, often manifesting as higher cost per click through reduced Quality Scores. Our findings suggest that addressing structural quality deficiencies simultaneously improves indexing reliability, landing page experience, and paid media efficiency, rather than treating organic and paid performance as separate optimization domains.</p>
         </div>
 
@@ -204,7 +204,7 @@ $domain = 'https://nrlc.ai';
     <!-- CTA Section -->
     <div class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; margin: 2rem 0;">
       <div class="content-block__body">
-        <h3 style="margin-top: 0;">Need Help Improving Your Paid Search Efficiency?</h3>
+        <h3 >Need Help Improving Your Paid Search Efficiency?</h3>
         <p>If your site experiences indexing suppression and elevated paid search costs, we can help identify and fix the shared structural issues affecting both organic and paid performance.</p>
         <div class="btn-group" style="margin-top: 1.5rem;">
           <button type="button" class="btn btn--primary" onclick="openContactSheet('Paid Media Consultation')">Request a Paid Media Audit</button>
