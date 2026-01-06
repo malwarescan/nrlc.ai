@@ -719,6 +719,39 @@ function get_geo_pages(): array {
 }
 
 /**
+ * Generate AI-native NDJSON manifest for LLMs/RAG
+ */
+function generate_ai_ndjson(array $categories, string $sitemapDir): void {
+  $ndjsonFile = $sitemapDir . 'sitemap-ai.ndjson';
+  $fp = fopen($ndjsonFile, 'w');
+  
+  foreach ($categories as $category => $urls) {
+    foreach ($urls as $urlData) {
+      $obj = [
+        "@context" => "https://schema.org",
+        "@type" => "WebPage",
+        "url" => $urlData['loc'],
+        "inLanguage" => "en",
+        "dateModified" => $urlData['lastmod'] ?? date('Y-m-d')
+      ];
+      
+      // If it's a service, use Service type
+      if ($category === 'services') {
+        $obj['@type'] = 'Service';
+      } elseif ($category === 'insights' || $category === 'blog') {
+        $obj['@type'] = 'Article';
+      } elseif ($category === 'products') {
+        $obj['@type'] = 'SoftwareApplication';
+      }
+      
+      fwrite($fp, json_encode($obj, JSON_UNESCAPED_SLASHES) . "\n");
+    }
+  }
+  
+  fclose($fp);
+}
+
+/**
  * Generate sitemap index
  */
 function generate_sitemap_index(array $sitemapFiles, string $sitemapDir, string $baseUrl): void {
@@ -764,11 +797,16 @@ foreach ($categories as $category => $urls) {
   $allSitemapFiles = array_merge($allSitemapFiles, $sitemapFiles);
 }
 
+// Generate AI NDJSON
+echo "🤖 Generating AI-native NDJSON manifest...\n";
+generate_ai_ndjson($categories, $sitemapDir);
+
 // Generate sitemap index
 echo "\n📑 Generating sitemap index...\n";
 generate_sitemap_index($allSitemapFiles, $sitemapDir, $baseUrl);
 
 echo "\n✅ Sitemap generation complete!\n";
 echo "   Total sitemap files: " . count($allSitemapFiles) . "\n";
-echo "   Sitemap index: {$baseUrl}/sitemaps/sitemap-index.xml\n\n";
+echo "   Sitemap index: {$baseUrl}/sitemaps/sitemap-index.xml\n";
+echo "   AI Manifest: {$baseUrl}/sitemaps/sitemap-ai.ndjson\n\n";
 

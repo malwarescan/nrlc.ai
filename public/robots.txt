@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://nrlc.ai/sitemaps/sitemap-index.xml.gz
+Sitemap: https://nrlc.ai/sitemaps/sitemap-ai.ndjson
