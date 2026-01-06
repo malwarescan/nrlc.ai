@@ -61,6 +61,7 @@ $insight_articles = [
   'content-chunking-seo' => 'content-chunking-seo.php',
   'prechunking-content-ai-retrieval' => 'prechunking-content-ai-retrieval.php',
   'ai-retrieval-llm-citation' => 'ai-retrieval-llm-citation.php',
+  'grounding-budgets-prechunking' => 'grounding-budgets-prechunking.php',
   // ChatGPT business mentions
   'how-to-get-your-business-mentioned-in-chatgpt' => 'how-to-get-your-business-mentioned-in-chatgpt.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
