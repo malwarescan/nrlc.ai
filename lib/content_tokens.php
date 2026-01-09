@@ -158,9 +158,9 @@ function approach_section(string $service, string $city = ''): string {
   $out=[];
   foreach ($pick as $b) {
     $body = htmlspecialchars($b['body']);
-    // Inject city context if available
+    // Inject city context if available (only replace first occurrence)
     if ($city && stripos($body, $c) === false) {
-      $body = str_replace('. ', " in {$c}. ", $body, 1);
+      $body = preg_replace('/\. /', " in {$c}. ", $body, 1);
     }
     $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">".htmlspecialchars($b['block_title'])."</h3><p>{$body}</p></div>";
   }
@@ -455,8 +455,8 @@ function city_specific_faq_block(string $service, string $city, int $count = 6):
     // Make answer relevant to this specific city
     $aEnhanced = $a;
     if (stripos($a, 'in') === false || stripos($a, $c) === false) {
-      // Add city context if not already present
-      $aEnhanced = str_replace('. ', " in {$c}. ", $aEnhanced, 1);
+      // Add city context if not already present (only replace first occurrence)
+      $aEnhanced = preg_replace('/\. /', " in {$c}. ", $aEnhanced, 1);
     }
     
     // Ensure answer addresses local scenarios
