@@ -164,6 +164,15 @@ $baseSchemas = base_schemas();
 ?><!doctype html>
 <html lang="<?=htmlspecialchars(substr(current_locale(),0,2))?>">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YFZEXHKXS3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YFZEXHKXS3');
+</script>
 <?php if (isset($noindexMeta)) echo $noindexMeta; ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
