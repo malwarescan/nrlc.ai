@@ -205,11 +205,36 @@ function is_uk_city(string $citySlug): bool {
   ];
   
   $cityLower = strtolower($citySlug);
+  
+  // CRITICAL: Check exact match first to avoid false positives
+  // Example: 'york' (UK) should match, but 'new-york' (US) should NOT
+  if (in_array($cityLower, $ukCities)) {
+    return true;
+  }
+  
+  // Check if city slug contains a UK city name as a whole word
+  // This handles variations like 'stoke-on-trent' vs 'stokeontrent'
   foreach ($ukCities as $ukCity) {
-    if ($cityLower === $ukCity || strpos($cityLower, str_replace('-', '', $ukCity)) !== false) {
+    $ukCityNoHyphen = str_replace('-', '', $ukCity);
+    $cityLowerNoHyphen = str_replace('-', '', $cityLower);
+    
+    // Only match if UK city name appears as a whole word (not substring)
+    // Use word boundaries to prevent 'york' matching in 'new-york'
+    if ($cityLowerNoHyphen === $ukCityNoHyphen) {
       return true;
     }
+    
+    // Check if UK city name appears as a prefix (e.g., 'london' in 'london-something')
+    // but NOT as a suffix (e.g., 'york' should NOT match 'new-york')
+    if (strpos($cityLowerNoHyphen, $ukCityNoHyphen) === 0 && strlen($cityLowerNoHyphen) > strlen($ukCityNoHyphen)) {
+      // Check that it's followed by a non-letter character or end of string
+      $nextChar = $cityLowerNoHyphen[strlen($ukCityNoHyphen)] ?? '';
+      if (!ctype_alpha($nextChar)) {
+        return true;
+      }
+    }
   }
+  
   return false;
 }
 
