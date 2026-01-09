@@ -49,80 +49,13 @@ $success90Days = [
 ];
 
 // H2 Sections
-$whatIsSection = "<h2>What is an LLM Strategist?</h2>
-<p>An LLM Strategist is a technical role that bridges traditional SEO and AI system optimization. Unlike SEO Strategists who focus on search engine rankings, LLM Strategists focus on how large language models retrieve, process, and cite information.</p>
-<p>The role emerged as AI answer engines became primary discovery channels. When users ask ChatGPT \"What is [your product]?\" or when Google AI Overviews surface your brand, the LLM Strategist ensures accurate retrieval, proper citation, and correct entity alignment.</p>
-<p>LLM Strategists work with structured data (JSON-LD, schema.org), entity recognition systems, canonical control mechanisms, and citation seeding strategies to influence how AI systems understand and reference brands.</p>";
+// Content sections are now rendered inline in the template below
 
-$dayToDaySection = "<h2>What does an LLM Strategist do day to day?</h2>
-<p>Daily work includes:</p>
-<ul>
-  <li><strong>Structured data architecture:</strong> Designing and implementing JSON-LD schemas that enable accurate entity recognition</li>
-  <li><strong>Retrieval optimization:</strong> Analyzing how AI systems retrieve information and optimizing content structure for better discoverability</li>
-  <li><strong>Citation tracking:</strong> Monitoring when and how AI systems cite your brand, identifying gaps and opportunities</li>
-  <li><strong>Entity alignment:</strong> Ensuring AI systems correctly associate your brand with intended topics, services, and attributes</li>
-  <li><strong>Canonical control:</strong> Managing which URLs AI systems treat as authoritative sources</li>
-  <li><strong>Testing and validation:</strong> Running queries in ChatGPT, Claude, Perplexity to verify retrieval and citation accuracy</li>
-</ul>";
+// Comparison section will be built dynamically with locale-aware links
 
-$skillsSection = "<h2>Skills an LLM Strategist must have</h2>
-<ul>
-  <li><strong>Technical SEO foundation:</strong> Understanding of structured data, schema.org, canonical tags, hreflang</li>
-  <li><strong>Entity recognition systems:</strong> Knowledge of how AI systems identify and classify entities</li>
-  <li><strong>Data modeling:</strong> Ability to structure information in ways AI systems can accurately retrieve</li>
-  <li><strong>Retrieval optimization:</strong> Understanding of how LLMs search and retrieve information from web sources</li>
-  <li><strong>Citation mechanics:</strong> Knowledge of how AI systems attribute sources and generate citations</li>
-  <li><strong>Analytics and measurement:</strong> Ability to track citation rates, retrieval surface area, entity alignment metrics</li>
-  <li><strong>Technical implementation:</strong> Experience with JSON-LD, schema markup, API integrations</li>
-</ul>";
+// Influence section will be built dynamically with locale-aware links
 
-$comparisonSection = "<h2>LLM Strategist vs SEO Strategist</h2>
-<p>While both roles optimize for visibility, they target different systems:</p>
-<table class=\"table\" style=\"width:100%; border-collapse:collapse; margin:1rem 0;\">
-  <thead>
-    <tr style=\"background:#f5f5f5;\">
-      <th style=\"padding:0.5rem; border:1px solid #ddd;\">Aspect</th>
-      <th style=\"padding:0.5rem; border:1px solid #ddd;\">SEO Strategist</th>
-      <th style=\"padding:0.5rem; border:1px solid #ddd;\">LLM Strategist</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\"><strong>Primary Goal</strong></td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">Rank #1 in search results</td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">Accurate retrieval and citation in AI systems</td>
-    </tr>
-    <tr>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\"><strong>Key Metrics</strong></td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">Organic rankings, click-through rate, traffic</td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">Citation rate, retrieval surface area, entity alignment</td>
-    </tr>
-    <tr>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\"><strong>Primary Tools</strong></td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">Search Console, keyword tools, backlink analyzers</td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">Structured data validators, entity recognition systems, AI answer engines</td>
-    </tr>
-    <tr>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\"><strong>Time Horizon</strong></td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">3-6 months for ranking improvements</td>
-      <td style=\"padding:0.5rem; border:1px solid #ddd;\">30-90 days for citation and retrieval improvements</td>
-    </tr>
-  </tbody>
-</table>
-<p>For more detailed comparison, see <a href=\"/en-gb/insights/llm-strategist-vs-seo-strategist/\">LLM Strategist vs SEO Strategist</a>.</p>";
-
-$influenceSection = "<h2>How LLM Strategists influence retrieval and citations</h2>
-<p>LLM Strategists influence AI systems through four primary mechanisms:</p>
-<ol>
-  <li><strong>Entity grounding:</strong> Ensuring AI systems correctly identify and classify brand entities using structured data</li>
-  <li><strong>Structured data execution:</strong> Implementing JSON-LD schemas that provide clear, machine-readable information about products, services, and organizations</li>
-  <li><strong>Canonical control:</strong> Managing which URLs AI systems treat as authoritative sources through proper canonical tags and internal linking</li>
-  <li><strong>Citation seeding:</strong> Creating content structures that make it easy for AI systems to extract and cite accurate information</li>
-</ol>
-<p>For detailed examples, see <a href=\"/en-gb/insights/how-llm-strategists-influence-retrieval/\">How LLM Strategists Influence Retrieval and Citations</a>.</p>";
-
-$successSection = "<h2>What success looks like in 30/60/90 days</h2>
-<h3>30 Days</h3>
+$successSection = "<h3>30 Days</h3>
 <ul>
   <li>Structured data architecture implemented across key brand pages</li>
   <li>Initial citation tracking baseline established</li>
@@ -141,8 +74,7 @@ $successSection = "<h2>What success looks like in 30/60/90 days</h2>
   <li>Entity alignment improves: AI systems correctly associate brand with intended topics and services</li>
 </ul>";
 
-$toolsSection = "<h2>Tools and systems used</h2>
-<ul>
+$toolsSection = "<ul>
   <li><strong>Structured data validators:</strong> Google Rich Results Test, Schema.org validator</li>
   <li><strong>Entity recognition systems:</strong> Knowledge Graph APIs, entity extraction tools</li>
   <li><strong>AI answer engines:</strong> ChatGPT, Claude, Perplexity, Google AI Overviews (for testing)</li>
@@ -168,19 +100,9 @@ foreach ($faqs as $faq) {
 }
 $faqHtml .= "</div>";
 
-$furtherReading = "<h2>Further Reading</h2>
-<ul>
-  <li><a href=\"/en-gb/insights/glossary/llm-strategist/\">What is an LLM Strategist? (Glossary)</a></li>
-  <li><a href=\"/en-gb/insights/llm-strategist-vs-seo-strategist/\">LLM Strategist vs SEO Strategist</a></li>
-  <li><a href=\"/en-gb/insights/ai-search-roles/\">AI Search Roles</a></li>
-  <li><a href=\"/en-gb/insights/llm-search-strategy-framework/\">LLM Search Strategy Framework</a></li>
-  <li><a href=\"/en-gb/insights/how-llm-strategists-influence-retrieval/\">How LLM Strategists Influence Retrieval and Citations</a></li>
-  <li><a href=\"/en-gb/insights/llm-strategist-faq/\">LLM Strategist FAQ</a></li>
-  <li><a href=\"/en-gb/insights/how-to-become-an-llm-strategist/\">How to Become an LLM Strategist</a></li>
-</ul>";
+// Further reading links will be built dynamically with locale-aware links
 
-$responsibilitiesTable = "<h2>Responsibilities → Outputs → Metrics</h2>
-<table class=\"table\" style=\"width:100%; border-collapse:collapse; margin:1rem 0;\">
+$responsibilitiesTable = "<table class=\"table\" style=\"width:100%; border-collapse:collapse; margin:1rem 0;\">
   <thead>
     <tr style=\"background:#f5f5f5;\">
       <th style=\"padding:0.5rem; border:1px solid #ddd;\">Responsibility</th>
@@ -216,46 +138,211 @@ $norwichContext = "<h2>LLM Strategist Position in ".htmlspecialchars($city['city
 <p>This LLM Strategist role is available in ".htmlspecialchars($city['city_name'])." as a remote position. Team members in ".htmlspecialchars($city['city_name'])." contribute to our global AI-first SEO expertise while understanding local market nuances.</p>
 <p>We're looking for an LLM Strategist who can help clients optimize for AI answer engines and improve citation accuracy across ChatGPT, Claude, Perplexity, and Google AI Overviews.</p>";
 
-$applySection = "<section class=\"section\">
-  <div style=\"padding: 1rem;\">
-    <p class=\"lead\">Ready to build the future of AI-first SEO?</p>
-    <div class=\"flex-wrap\">
-      <button type=\"button\" class=\"btn brand\" data-ripple onclick=\"openContactSheet('Career Application')\">Apply Now</button>
-      <a href=\"/en-gb/careers/\" class=\"btn ghost\" data-ripple>View All Roles</a>
-    </div>
-  </div>
-</section>";
+// Get locale from request URL for proper links
+$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$locale = '';
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
+  $locale = $matches[1];
+} else {
+  // Fallback: determine locale based on city (UK cities → en-gb, others → en-us)
+  if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
+    $locale = 'en-gb';
+  } else {
+    $locale = 'en-us';
+  }
+}
+$localePrefix = $locale ? "/$locale" : '/en-us';
 ?>
-<main class="container">
-  <h1>LLM Strategist</h1>
-  <?=$hubDefinition?>
-  
-  <ul>
-    <?php foreach ($coreResponsibilities as $resp): ?>
-      <li><?=htmlspecialchars($resp)?></li>
-    <?php endforeach; ?>
-  </ul>
-  
-  <?=$whyRoleExists?>
-  
-  <ul>
-    <?php foreach ($success90Days as $success): ?>
-      <li><?=htmlspecialchars($success)?></li>
-    <?php endforeach; ?>
-  </ul>
-  
-  <?=$whatIsSection?>
-  <?=$dayToDaySection?>
-  <?=$skillsSection?>
-  <?=$responsibilitiesTable?>
-  <?=$comparisonSection?>
-  <?=$influenceSection?>
-  <?=$successSection?>
-  <?=$toolsSection?>
-  <?=$faqHtml?>
-  <?=$furtherReading?>
-  <?=$norwichContext?>
-  <?=$applySection?>
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
+    
+    <!-- Hero Content Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">LLM Strategist</h1>
+      </div>
+      <div class="content-block__body">
+        <?=$hubDefinition?>
+        
+        <ul>
+          <?php foreach ($coreResponsibilities as $resp): ?>
+            <li><?=htmlspecialchars($resp)?></li>
+          <?php endforeach; ?>
+        </ul>
+        
+        <?=$whyRoleExists?>
+        
+        <ul>
+          <?php foreach ($success90Days as $success): ?>
+            <li><?=htmlspecialchars($success)?></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- What is an LLM Strategist -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">What is an LLM Strategist?</h2>
+      </div>
+      <div class="content-block__body">
+        <p>An LLM Strategist is a technical role that bridges traditional SEO and AI system optimization. Unlike SEO Strategists who focus on search engine rankings, LLM Strategists focus on how large language models retrieve, process, and cite information.</p>
+        <p>The role emerged as AI answer engines became primary discovery channels. When users ask ChatGPT "What is [your product]?" or when Google AI Overviews surface your brand, the LLM Strategist ensures accurate retrieval, proper citation, and correct entity alignment.</p>
+        <p>LLM Strategists work with structured data (JSON-LD, schema.org), entity recognition systems, canonical control mechanisms, and citation seeding strategies to influence how AI systems understand and reference brands.</p>
+      </div>
+    </div>
+    
+    <!-- Day to Day -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">What does an LLM Strategist do day to day?</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Daily work includes:</p>
+        <ul>
+          <li><strong>Structured data architecture:</strong> Designing and implementing JSON-LD schemas that enable accurate entity recognition</li>
+          <li><strong>Retrieval optimization:</strong> Analyzing how AI systems retrieve information and optimizing content structure for better discoverability</li>
+          <li><strong>Citation tracking:</strong> Monitoring when and how AI systems cite your brand, identifying gaps and opportunities</li>
+          <li><strong>Entity alignment:</strong> Ensuring AI systems correctly associate your brand with intended topics, services, and attributes</li>
+          <li><strong>Canonical control:</strong> Managing which URLs AI systems treat as authoritative sources</li>
+          <li><strong>Testing and validation:</strong> Running queries in ChatGPT, Claude, Perplexity to verify retrieval and citation accuracy</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Skills -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Skills an LLM Strategist must have</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+          <li><strong>Technical SEO foundation:</strong> Understanding of structured data, schema.org, canonical tags, hreflang</li>
+          <li><strong>Entity recognition systems:</strong> Knowledge of how AI systems identify and classify entities</li>
+          <li><strong>Data modeling:</strong> Ability to structure information in ways AI systems can accurately retrieve</li>
+          <li><strong>Retrieval optimization:</strong> Understanding of how LLMs search and retrieve information from web sources</li>
+          <li><strong>Citation mechanics:</strong> Knowledge of how AI systems attribute sources and generate citations</li>
+          <li><strong>Analytics and measurement:</strong> Ability to track citation rates, retrieval surface area, entity alignment metrics</li>
+          <li><strong>Technical implementation:</strong> Experience with JSON-LD, schema markup, API integrations</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Responsibilities Table -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Responsibilities → Outputs → Metrics</h2>
+      </div>
+      <div class="content-block__body">
+        <?=$responsibilitiesTable?>
+      </div>
+    </div>
+    
+    <!-- Comparison -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">LLM Strategist vs SEO Strategist</h2>
+      </div>
+      <div class="content-block__body">
+        <?=$comparisonSection?>
+      </div>
+    </div>
+    
+    <!-- Influence -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">How LLM Strategists influence retrieval and citations</h2>
+      </div>
+      <div class="content-block__body">
+        <p>LLM Strategists influence AI systems through four primary mechanisms:</p>
+        <ol>
+          <li><strong>Entity grounding:</strong> Ensuring AI systems correctly identify and classify brand entities using structured data</li>
+          <li><strong>Structured data execution:</strong> Implementing JSON-LD schemas that provide clear, machine-readable information about products, services, and organizations</li>
+          <li><strong>Canonical control:</strong> Managing which URLs AI systems treat as authoritative sources through proper canonical tags and internal linking</li>
+          <li><strong>Citation seeding:</strong> Creating content structures that make it easy for AI systems to extract and cite accurate information</li>
+        </ol>
+        <p>For detailed examples, see <a href="<?=htmlspecialchars($localePrefix)?>/insights/how-llm-strategists-influence-retrieval/">How LLM Strategists Influence Retrieval and Citations</a>.</p>
+      </div>
+    </div>
+    
+    <!-- Success Timeline -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">What success looks like in 30/60/90 days</h2>
+      </div>
+      <div class="content-block__body">
+        <?=$successSection?>
+      </div>
+    </div>
+    
+    <!-- Tools -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Tools and systems used</h2>
+      </div>
+      <div class="content-block__body">
+        <?=$toolsSection?>
+      </div>
+    </div>
+    
+    <!-- FAQ -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">FAQ</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="grid" style="gap:1rem;">
+          <?php foreach ($faqs as $faq): ?>
+            <details class="card">
+              <summary><strong><?=htmlspecialchars($faq['q'])?></strong></summary>
+              <p class="small muted"><?=htmlspecialchars($faq['a'])?></p>
+            </details>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Further Reading -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Further Reading</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+          <li><a href="<?=htmlspecialchars($localePrefix)?>/insights/glossary/llm-strategist/">What is an LLM Strategist? (Glossary)</a></li>
+          <li><a href="<?=htmlspecialchars($localePrefix)?>/insights/llm-strategist-vs-seo-strategist/">LLM Strategist vs SEO Strategist</a></li>
+          <li><a href="<?=htmlspecialchars($localePrefix)?>/insights/ai-search-roles/">AI Search Roles</a></li>
+          <li><a href="<?=htmlspecialchars($localePrefix)?>/insights/llm-search-strategy-framework/">LLM Search Strategy Framework</a></li>
+          <li><a href="<?=htmlspecialchars($localePrefix)?>/insights/how-llm-strategists-influence-retrieval/">How LLM Strategists Influence Retrieval and Citations</a></li>
+          <li><a href="<?=htmlspecialchars($localePrefix)?>/insights/llm-strategist-faq/">LLM Strategist FAQ</a></li>
+          <li><a href="<?=htmlspecialchars($localePrefix)?>/insights/how-to-become-an-llm-strategist/">How to Become an LLM Strategist</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- City Context -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">LLM Strategist Position in <?=htmlspecialchars($city['city_name'])?></h2>
+      </div>
+      <div class="content-block__body">
+        <p>This LLM Strategist role is available in <?=htmlspecialchars($city['city_name'])?> as a remote position. Team members in <?=htmlspecialchars($city['city_name'])?> contribute to our global AI-first SEO expertise while understanding local market nuances.</p>
+        <p>We're looking for an LLM Strategist who can help clients optimize for AI answer engines and improve citation accuracy across ChatGPT, Claude, Perplexity, and Google AI Overviews.</p>
+        
+        <!-- CTA Section -->
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+          <p class="lead">Ready to build the future of AI-first SEO?</p>
+          <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn btn--primary" onclick="openContactSheet('Career Application')">Apply Now</button>
+            <a href="<?=htmlspecialchars($localePrefix)?>/careers/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">View All Roles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 </main>
 
 <?php
@@ -341,7 +428,11 @@ $webPageLd = [
 ];
 
 // Schema: JobPosting (keep valid but don't dominate)
-$fullDescription = strip_tags($hubDefinition . $whatIsSection . $dayToDaySection . $skillsSection);
+// Reconstruct full description from content
+$whatIsText = "An LLM Strategist is a technical role that bridges traditional SEO and AI system optimization. Unlike SEO Strategists who focus on search engine rankings, LLM Strategists focus on how large language models retrieve, process, and cite information. The role emerged as AI answer engines became primary discovery channels. When users ask ChatGPT \"What is [your product]?\" or when Google AI Overviews surface your brand, the LLM Strategist ensures accurate retrieval, proper citation, and correct entity alignment. LLM Strategists work with structured data (JSON-LD, schema.org), entity recognition systems, canonical control mechanisms, and citation seeding strategies to influence how AI systems understand and reference brands.";
+$dayToDayText = "Daily work includes: Structured data architecture: Designing and implementing JSON-LD schemas that enable accurate entity recognition. Retrieval optimization: Analyzing how AI systems retrieve information and optimizing content structure for better discoverability. Citation tracking: Monitoring when and how AI systems cite your brand, identifying gaps and opportunities. Entity alignment: Ensuring AI systems correctly associate your brand with intended topics, services, and attributes. Canonical control: Managing which URLs AI systems treat as authoritative sources. Testing and validation: Running queries in ChatGPT, Claude, Perplexity to verify retrieval and citation accuracy.";
+$skillsText = "Required skills include: Technical SEO foundation (structured data, schema.org, canonical tags, hreflang). Entity recognition systems knowledge. Data modeling ability. Retrieval optimization understanding. Citation mechanics knowledge. Analytics and measurement capabilities. Technical implementation experience (JSON-LD, schema markup, API integrations).";
+$fullDescription = strip_tags($hubDefinition) . ' ' . $whatIsText . ' ' . $dayToDayText . ' ' . $skillsText;
 $fullDescription = preg_replace('/\s+/', ' ', $fullDescription);
 $fullDescription = substr($fullDescription, 0, 5000);
 
