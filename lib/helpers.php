@@ -47,6 +47,59 @@ function current_locale(): string {
   return 'en-us';
 }
 
+/**
+ * Generate canonical internal URL with proper locale prefix
+ * 
+ * For LOCAL pages (city-based), uses canonical locale based on city geography.
+ * For GLOBAL pages, uses current locale or default locale.
+ * 
+ * @param string $path Path without locale prefix (e.g., '/services/crawl-clarity/' or '/services/technical-seo/london/')
+ * @param string|null $locale Optional locale override. If null, uses current locale or canonical locale for city pages
+ * @return string Canonical URL with proper locale prefix
+ */
+function canonical_internal_url(string $path, ?string $locale = null): string {
+  $domain = 'https://nrlc.ai';
+  
+  // Normalize path (ensure leading slash, no trailing issues)
+  $path = '/' . ltrim($path, '/');
+  
+  // Handle root path specially
+  if ($path === '/' || $path === '') {
+    $locale = $locale ?? current_locale();
+    return $domain . '/' . $locale . '/';
+  }
+  
+  // Check if this is a LOCAL page (city-based)
+  $isLocalPage = is_local_page($path);
+  
+  if ($isLocalPage) {
+    // For LOCAL pages, determine canonical locale from city
+    if (preg_match('#^/services/([^/]+)/([^/]+)/#', $path, $m)) {
+      $citySlug = $m[2];
+      $canonicalLocale = get_canonical_locale_for_city($citySlug);
+      return $domain . '/' . $canonicalLocale . $path;
+    }
+    
+    if (preg_match('#^/careers/([^/]+)/([^/]+)/#', $path, $m)) {
+      $citySlug = $m[1];
+      $canonicalLocale = get_canonical_locale_for_city($citySlug);
+      return $domain . '/' . $canonicalLocale . $path;
+    }
+  }
+  
+  // For GLOBAL pages, use provided locale or current locale or default
+  if ($locale === null) {
+    $locale = current_locale();
+  }
+  
+  // If no locale detected, default to en-us
+  if (empty($locale)) {
+    $locale = 'en-us';
+  }
+  
+  return $domain . '/' . $locale . $path;
+}
+
 function detect_user_city(): string {
   // Check for city in URL path first
   $path = $_SERVER['REQUEST_URI'] ?? '/';

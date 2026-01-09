@@ -164,6 +164,8 @@ function get_query_aligned_content(string $serviceSlug, string $citySlug = ''): 
  * Get related services for lateral linking (same locale)
  */
 function get_related_services_for_linking(string $serviceSlug, string $locale = '', string $citySlug = ''): array {
+  require_once __DIR__.'/helpers.php';
+  
   // Core services that should be linked
   $coreServices = [
     'crawl-clarity' => 'Crawl Clarity Engineering',
@@ -175,10 +177,11 @@ function get_related_services_for_linking(string $serviceSlug, string $locale = 
   // Remove current service
   unset($coreServices[$serviceSlug]);
   
+  // Initialize related array
+  $related = [];
+  
   // If city is provided, determine canonical locale for city-specific links
-  $canonicalLocale = $locale;
   if ($citySlug) {
-    require_once __DIR__.'/helpers.php';
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
     $canonicalLocale = $isUK ? 'en-gb' : ($locale ?: 'en-us');
     
@@ -194,21 +197,28 @@ function get_related_services_for_linking(string $serviceSlug, string $locale = 
         $related[] = [
           'slug' => $slug,
           'name' => "$name in " . ucwords(str_replace(['-', '_'], ' ', $citySlug)),
-          'url' => "/$canonicalLocale/services/$slug/$citySlug/"
+          'url' => canonical_internal_url("/services/$slug/$citySlug/")
         ];
       }
     }
   }
   
   // Return first 3 core services
-  $related = [];
   $count = 0;
   foreach ($coreServices as $slug => $name) {
     if ($count >= 3) break;
+    
+    // Generate canonical URL using canonical_internal_url()
+    if ($citySlug) {
+      $url = canonical_internal_url("/services/$slug/$citySlug/");
+    } else {
+      $url = canonical_internal_url("/services/$slug/");
+    }
+    
     $related[] = [
       'slug' => $slug,
       'name' => $name,
-      'url' => ($canonicalLocale ? "/$canonicalLocale" : '') . "/services/$slug/" . ($citySlug ? "$citySlug/" : '')
+      'url' => $url
     ];
     $count++;
   }

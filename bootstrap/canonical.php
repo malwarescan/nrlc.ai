@@ -28,7 +28,7 @@ function canonical_guard(): void {
   }
 
   // Skip redirects for static files and special paths
-  $staticPaths = ['/robots.txt', '/favicon.ico', '/sitemap', '/sitemaps', '/healthcheck.html', '/healthz', '/search', '/audit'];
+  $staticPaths = ['/robots.txt', '/favicon.ico', '/sitemap', '/sitemaps', '/healthcheck.html', '/healthz', '/search', '/audit', '/api'];
   foreach ($staticPaths as $staticPath) {
     if (strpos($uri, $staticPath) === 0) {
       return;
@@ -153,6 +153,114 @@ function canonical_guard(): void {
     }
   }
   
+  // Handle GLOBAL service pages in non-canonical locales
+  // GLOBAL service pages (without city) should only exist in en-us unless translated
+  // Redirect non-en-us GLOBAL service pages to en-us
+  if (preg_match('#^/([a-z]{2}-[a-z]{2})/services/([^/]+)/$#', $uri, $m)) {
+    $locale = $m[1];
+    $serviceSlug = $m[2];
+    
+    // Fix service slug mismatches FIRST (before locale redirects)
+    // Redirect /structured-data/ to /structured-data-ai/ (correct service slug)
+    // Also ensure correct locale (en-us only for GLOBAL service pages)
+    if ($serviceSlug === 'structured-data') {
+      $canonical = '/en-us/services/structured-data-ai/';
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
+    }
+    
+    // Fix service slug inconsistency: ai-overview-optimization (singular) → ai-overviews-optimization (plural)
+    // Also ensure correct locale (en-us only for GLOBAL service pages)
+    if ($serviceSlug === 'ai-overview-optimization') {
+      $canonical = '/en-us/services/ai-overviews-optimization/';
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
+    }
+    
+    // Only en-us is canonical for GLOBAL service pages (unless translated)
+    // For now, redirect all non-en-us to en-us
+    if ($locale !== 'en-us') {
+      $canonical = '/en-us/services/' . $serviceSlug . '/';
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
+    }
+  }
+  
+  // Handle locale index pages that don't exist
+  // Only en-us and en-gb index pages should exist (others redirect to en-us)
+  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr)/?$#', $uri, $m)) {
+    $queryString = count($query) ? '?'.http_build_query($query) : '';
+    $redirectUrl = $scheme.'://'.$host.'/en-us/'.$queryString;
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
+  
+  // Handle locale insights pages that don't exist
+  // Only en-us insights should exist (others redirect to en-us)
+  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr)/insights/?#', $uri, $m)) {
+    $queryString = count($query) ? '?'.http_build_query($query) : '';
+    $redirectUrl = $scheme.'://'.$host.'/en-us/insights/'.$queryString;
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
+  
+  // Handle products pages in non-canonical locales
+  // Products should only exist in en-us
+  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr|en-gb)/products/#', $uri, $m)) {
+    $queryString = count($query) ? '?'.http_build_query($query) : '';
+    // Extract path after /products/
+    if (preg_match('#^/[^/]+/products(/.*)$#', $uri, $pathMatch)) {
+      $redirectUrl = $scheme.'://'.$host.'/en-us/products'.$pathMatch[1].$queryString;
+    } else {
+      $redirectUrl = $scheme.'://'.$host.'/en-us/products/'.$queryString;
+    }
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
+  
+  // Handle careers index in non-canonical locales (excluding en-us and en-gb)
+  // Careers index should only exist in en-us and en-gb
+  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr)/careers/?$#', $uri, $m)) {
+    $queryString = count($query) ? '?'.http_build_query($query) : '';
+    $redirectUrl = $scheme.'://'.$host.'/en-us/careers/'.$queryString;
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
+  
+  // Handle blog pages in non-canonical locales
+  // Blog should only exist in en-us
+  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr|en-gb)/blog/#', $uri, $m)) {
+    $queryString = count($query) ? '?'.http_build_query($query) : '';
+    // Extract path after /blog/
+    if (preg_match('#^/[^/]+/blog(/.*)$#', $uri, $pathMatch)) {
+      $redirectUrl = $scheme.'://'.$host.'/en-us/blog'.$pathMatch[1].$queryString;
+    } else {
+      $redirectUrl = $scheme.'://'.$host.'/en-us/blog/'.$queryString;
+    }
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
+  
+  // Handle promptware pages in non-canonical locales
+  // Promptware should only exist in en-us
+  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr|en-gb)/promptware/#', $uri, $m)) {
+    $queryString = count($query) ? '?'.http_build_query($query) : '';
+    // Extract path after /promptware/
+    if (preg_match('#^/[^/]+/promptware(/.*)$#', $uri, $pathMatch)) {
+      $redirectUrl = $scheme.'://'.$host.'/en-us/promptware'.$pathMatch[1].$queryString;
+    } else {
+      $redirectUrl = $scheme.'://'.$host.'/en-us/promptware/'.$queryString;
+    }
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
+  
   // Force locale prefix redirect (e.g., /services/... -> /en-us/services/...)
   // This prevents duplicate canonical issues where Google chooses a different canonical
   // Skip redirect for healthcheck requests (HEAD requests or Railway healthcheck)
@@ -171,6 +279,23 @@ function canonical_guard(): void {
       // For healthcheck, allow the request through without redirect
       // The canonical tag will still point to /en-us/ version
       return;
+    }
+    
+    // Special handling for /promptware/ without locale - redirect to en-us
+    if ($uri === '/promptware/' || $uri === '/promptware') {
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.'/en-us/promptware/'.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
+    }
+    
+    // Special handling for /booking/ - redirect to /book/ (canonical)
+    if ($uri === '/booking/' || $uri === '/booking') {
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $defaultLocale = defined('X_DEFAULT') ? X_DEFAULT : 'en-us';
+      $redirectUrl = $scheme.'://'.$host.'/'.$defaultLocale.'/book/'.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
     }
     
     // Preserve query string (including UTMs for analytics)

@@ -551,10 +551,19 @@ function route_request(): void {
     }
   }
 
-  // Book page route (GET/HEAD requests to /api/book/) - BLOCKED: Governance violation
+  // Book page route (GET/HEAD requests to /api/book/ or /api/book) - BLOCKED: Governance violation
   // Direct booking endpoints are NOT permitted before intent qualification
   // Endpoint is POST-only for form submissions, GET/HEAD requests blocked
-  if ($path === '/api/book/' && ($_SERVER['REQUEST_METHOD'] === 'GET' || $_SERVER['REQUEST_METHOD'] === 'HEAD')) {
+  if (($path === '/api/book/' || $path === '/api/book') && ($_SERVER['REQUEST_METHOD'] === 'GET' || $_SERVER['REQUEST_METHOD'] === 'HEAD')) {
+    // Redirect /api/book to /api/book/ for consistency
+    if ($path === '/api/book') {
+      $queryString = count($_GET) ? '?'.http_build_query($_GET) : '';
+      $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+      $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+      $redirectUrl = $scheme.'://'.$host.'/api/book/'.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
+    }
     http_response_code(403);
     header('Content-Type: application/json');
     header('X-Robots-Tag: noindex, nofollow'); // Prevent indexing of API endpoints
@@ -564,8 +573,8 @@ function route_request(): void {
     exit;
   }
 
-  // Book API route (POST requests to /api/book/)
-  if ($path === '/api/book/' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Book API route (POST requests to /api/book/ or /api/book)
+  if (($path === '/api/book/' || $path === '/api/book') && $_SERVER['REQUEST_METHOD'] === 'POST') {
     header('X-Robots-Tag: noindex, nofollow'); // Prevent indexing of API endpoints
     $api_file = __DIR__.'/../api/book.php';
     if (file_exists($api_file)) {
@@ -584,6 +593,49 @@ function route_request(): void {
     }
   }
 
+  // Book page route - handle /book/ (canonical)
+  // Note: /booking/ is redirected to /book/ by canonical guard
+  if ($path === '/book/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'book/index',
+      'title' => 'Book AI SEO Consultation | NRLC.ai',
+      'excerpt' => 'Schedule a consultation with NRLC.ai experts for AI-first SEO strategy, GEO-16 framework implementation, and LLM optimization.',
+      'canonicalPath' => $actualPath // Use actual path with locale prefix
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    render_page('book/index');
+    return;
+  }
+
+  // Contact page route - redirect to homepage with contact modal trigger
+  if ($path === '/contact/') {
+    $queryString = count($_GET) ? '?'.http_build_query($_GET) : '';
+    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+      $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+    }
+    $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+    // Use current locale or default to en-us
+    $currentLocale = function_exists('current_locale') ? current_locale() : 'en-us';
+    if (!$currentLocale || !preg_match('#^[a-z]{2}-[a-z]{2}$#', $currentLocale)) {
+      $currentLocale = 'en-us';
+    }
+    $redirectUrl = $scheme.'://'.$host.'/'.$currentLocale.'/?contact=1'.$queryString;
+    header("Location: $redirectUrl", true, 301);
+    exit;
+  }
+
+  // About index page - redirect to homepage (no general about page exists)
+  if ($path === '/about/') {
+    header('X-Robots-Tag: noindex, nofollow'); // Don't index redirect pages
+    http_response_code(404);
+    echo "Not Found";
+    return;
+  }
+
   // About pages
   if (preg_match('#^/about/([^/]+)/$#', $path, $m)) {
     $aboutSlug = $m[1];
@@ -600,6 +652,11 @@ function route_request(): void {
       render_page('about/llm-strategy-team');
       return;
     }
+    // If about slug doesn't match, return 404
+    header('X-Robots-Tag: noindex, nofollow');
+    http_response_code(404);
+    echo "Not Found";
+    return;
   }
 
   // Index pages
@@ -1866,6 +1923,52 @@ function route_request(): void {
     }
   }
 
+  // Handle missing docs pages - redirect to main prechunking-seo page
+  if (preg_match('#^/docs/prechunking-seo/(academic-signals|measurement|doctrine|failure-modes)/?#', $path, $m)) {
+    // These docs pages don't exist - redirect to main prechunking-seo page
+    $originalPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $locale = 'en-us';
+    if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $originalPath, $localeMatch)) {
+      $locale = $localeMatch[1];
+    }
+    header("Location: " . absolute_url("/$locale/docs/prechunking-seo/"), true, 301);
+    exit;
+  }
+  
+  // Handle service slug mismatches before routing
+  // Redirect /services/structured-data/ to /services/structured-data-ai/ (correct slug)
+  // Always redirect to en-us (canonical locale for GLOBAL service pages)
+  if (preg_match('#^/services/structured-data/?$#', $path)) {
+    $queryString = !empty($_SERVER['QUERY_STRING']) ? '?'.$_SERVER['QUERY_STRING'] : '';
+    header("Location: " . absolute_url("/en-us/services/structured-data-ai/") . $queryString, true, 301);
+    exit;
+  }
+  
+  // Redirect /services/ai-overview-optimization/ to /services/ai-overviews-optimization/ (plural is correct)
+  // Always redirect to en-us (canonical locale for GLOBAL service pages)
+  if (preg_match('#^/services/ai-overview-optimization/?$#', $path)) {
+    $queryString = !empty($_SERVER['QUERY_STRING']) ? '?'.$_SERVER['QUERY_STRING'] : '';
+    header("Location: " . absolute_url("/en-us/services/ai-overviews-optimization/") . $queryString, true, 301);
+    exit;
+  }
+
+  // Handle missing career pages - redirect to careers index with canonical locale
+  if (preg_match('#^/careers/([^/]+)/([^/]+)/$#', $path, $m)) {
+    $citySlug = $m[1];
+    $roleSlug = $m[2];
+    
+    // Determine canonical locale based on city
+    $canonicalLocale = function_exists('get_canonical_locale_for_city') 
+      ? get_canonical_locale_for_city($citySlug) 
+      : 'en-us';
+    
+    // Career pages are dynamic and should exist for any city/role combination
+    // But if page doesn't render correctly, redirect to careers index
+    // This is a fallback - the page should render normally above
+  }
+
+  // 404 Handler - Add noindex to prevent indexing of 404 pages
+  header('X-Robots-Tag: noindex, nofollow');
   http_response_code(404);
   echo "Not Found";
   } catch (Throwable $e) {

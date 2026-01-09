@@ -149,18 +149,53 @@ function pain_point_section(string $service, string $city, int $count = 4): stri
   return implode("\n", $out);
 }
 
-function approach_section(string $service): string {
+function approach_section(string $service, string $city = ''): string {
   $rows = csv_rows_local('approach_blocks.csv');
   $blocks = array_values(array_filter($rows, fn($r)=>($r['service']??'')===$service));
-  if (!$blocks) return '';
-  det_seed("approach|$service");
+  $c = $city ? titleCaseCity($city) : '';
+  det_seed("approach|$service" . ($city ? "|$city" : ''));
   $pick = det_pick($blocks, max(2, min(3, count($blocks))));
   $out=[];
   foreach ($pick as $b) {
-    $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">".htmlspecialchars($b['block_title'])."</h3><p>".htmlspecialchars($b['body'])."</p></div>";
+    $body = htmlspecialchars($b['body']);
+    // Inject city context if available
+    if ($city && stripos($body, $c) === false) {
+      $body = str_replace('. ', " in {$c}. ", $body, 1);
+    }
+    $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">".htmlspecialchars($b['block_title'])."</h3><p>{$body}</p></div>";
   }
-  // Add a process checklist for heft
-  $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">Our Process</h3><ol class=\"small\"><li>Baseline logs & GSC</li><li>Duplicate path clustering</li><li>Rule design + tests</li><li>Deploy + monitor</li><li>Re-measure & harden</li></ol></div>";
+  
+  // META KERNEL DIRECTIVE: Step-by-step process section
+  $cityContext = $city ? " in {$c}" : '';
+  $processSteps = [
+    [
+      'title' => 'Step 1: Discovery & Baseline Analysis',
+      'description' => "We begin by analyzing your current technical infrastructure, crawl logs, Search Console data, and existing schema implementations. In this phase{$cityContext}, we identify URL canonicalization issues, duplicate content patterns, structured data gaps, and entity clarity problems that impact AI engine visibility."
+    ],
+    [
+      'title' => 'Step 2: Strategy Design & Technical Planning',
+      'description' => "Based on the baseline analysis{$cityContext}, we design a comprehensive optimization strategy that addresses crawl efficiency, schema completeness, entity clarity, and citation accuracy. This includes URL normalization rules, canonical implementation plans, structured data enhancement strategies, and local market optimization approaches tailored to your specific service and geographic context."
+    ],
+    [
+      'title' => 'Step 3: Implementation & Deployment',
+      'description' => "We systematically implement the designed improvements, starting with high-impact technical fixes like URL canonicalization, then moving to structured data enhancements, entity optimization, and content architecture improvements. Each change is tested and validated before deployment to ensure no disruptions to existing functionality or user experience."
+    ],
+    [
+      'title' => 'Step 4: Validation & Monitoring',
+      'description' => "After implementation{$cityContext}, we rigorously test all changes, validate schema markup, verify canonical behavior, and establish monitoring systems. We track crawl efficiency metrics, structured data performance, AI engine citation accuracy, and traditional search rankings to measure improvement and identify any issues."
+    ],
+    [
+      'title' => 'Step 5: Iterative Optimization & Reporting',
+      'description' => "Ongoing optimization involves continuous monitoring, iterative improvements based on performance data, and adaptation to evolving AI engine requirements. We provide regular reporting on citation accuracy, crawl efficiency, visibility metrics, and business outcomes, ensuring you understand exactly how technical improvements translate to real business results{$cityContext}."
+    ]
+  ];
+  
+  $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">Step-by-Step Service Delivery</h3>";
+  foreach ($processSteps as $idx => $step) {
+    $out[] = "<div style=\"margin-bottom: 1.5rem;\"><h4 style=\"margin-top: 0; color: #333;\">{$step['title']}</h4><p>{$step['description']}</p></div>";
+  }
+  $out[] = "</div>";
+  
   return implode("\n", $out);
 }
 
@@ -234,4 +269,206 @@ function faq_block(string $service, string $city, int $count = 6): string {
 function word_count_html(string $html): int {
   $text = trim(strip_tags(preg_replace('/\s+/',' ', $html)));
   return $text ? str_word_count($text) : 0;
+}
+
+/**
+ * META KERNEL DIRECTIVE: Service Overview Section (~150 words)
+ * Explains what the service is and why it matters in THIS city
+ */
+function service_overview_section(string $service, string $city, ?array $cityRow = null): string {
+  $s = ucfirst(str_replace('-', ' ', $service));
+  $c = titleCaseCity($city);
+  det_seed("overview|$service|$city");
+  
+  // Get city-specific context for uniqueness vectors
+  $subdivision = $cityRow['subdivision'] ?? '';
+  $country = $cityRow['country'] ?? 'US';
+  $lat = $cityRow['lat'] ?? null;
+  $lng = $cityRow['lng'] ?? null;
+  
+  // Build city context for uniqueness (UNIQUENESS VECTOR 1: Geographic specificity)
+  $cityContext = $c;
+  $regionContext = '';
+  if ($subdivision) {
+    $cityContext .= ", {$subdivision}";
+    $regionContext = " in {$subdivision}";
+  }
+  
+  // UNIQUENESS VECTOR 2: Market-specific challenges based on subdivision/country
+  $marketContext = '';
+  if ($country === 'GB') {
+    $marketContext = "GDPR compliance, European market penetration, and UK-specific search behaviors";
+  } elseif ($subdivision === 'CA') {
+    $marketContext = "bilingual content requirements, cross-border regulations, and California-specific business compliance";
+  } elseif ($subdivision === 'NY') {
+    $marketContext = "high competition density, enterprise-level technical requirements, and New York-specific market dynamics";
+  } else {
+    $marketContext = "regional search behavior patterns, local business competition, and market-specific optimization needs";
+  }
+  
+  // UNIQUENESS VECTOR 3: City-specific usage patterns (inferred from location)
+  $usagePattern = '';
+  if (($lat && $lat > 40.5 && $lat < 41.0) || stripos($c, 'New York') !== false) {
+    $usagePattern = "dense urban search patterns, mobile-first user behavior, and rapid information retrieval needs";
+  } elseif ($country === 'GB') {
+    $usagePattern = "European AI engine preferences, UK-specific citation patterns, and cross-platform visibility requirements";
+  } else {
+    $usagePattern = "local search intent patterns, regional AI engine behaviors, and city-specific user expectations";
+  }
+  
+  $overviews = [
+    "$s is a comprehensive AI-first SEO optimization service that ensures your business appears accurately in AI-powered search engines like ChatGPT, Claude, and Perplexity. In {$cityContext}, where {$marketContext} create unique challenges for traditional SEO, our $s service addresses entity clarity, structured data completeness, and citation accuracy—three pillars that determine whether AI systems recommend your brand when users ask location-specific questions. The {$usagePattern} in {$c} require technical implementations that go beyond keyword optimization.",
+    
+    "When businesses in {$c} need $s, they're typically facing a critical visibility gap: traditional search rankings don't translate to AI engine recommendations. Large language models require perfectly structured entities, unambiguous location signals, and comprehensive schema markup. {$cityContext} businesses must navigate {$marketContext}, which makes technical SEO foundation critical. Our $s implementation transforms technical SEO debt into AI engine authority, ensuring your brand gets cited correctly with accurate URLs, current information, and proper attribution—especially important given {$c}'s {$usagePattern}.",
+    
+    "$s in {$cityContext} isn't just about rankings—it's about being discoverable when users ask AI assistants for recommendations. AI engines parse your structured data, evaluate entity relationships, and determine citation trustworthiness. The {$marketContext} in {$c} means businesses need more sophisticated optimization than generic SEO templates. Our $s service ensures every signal AI engines need is present: canonical URLs, location-anchored entities, verification signals, and metadata completeness. Given {$c}'s {$usagePattern}, this technical foundation determines whether AI systems cite you or competitors."
+  ];
+  
+  $selected = det_pick($overviews, 1)[0];
+  return "<p>{$selected}</p>";
+}
+
+/**
+ * META KERNEL DIRECTIVE: Pricing Section
+ * City-adjusted pricing with transparent ranges
+ */
+function pricing_section(string $service, string $city, ?array $cityRow = null): string {
+  $s = ucfirst(str_replace('-', ' ', $service));
+  $c = titleCaseCity($city);
+  det_seed("pricing|$service|$city");
+  
+  $country = $cityRow['country'] ?? 'US';
+  $isUK = ($country === 'GB');
+  
+  // Determine pricing based on service type and location
+  $isAudit = strpos($service, 'audit') !== false || strpos($service, 'site-audits') !== false;
+  
+  if ($isAudit) {
+    $priceRange = $isUK ? '£3,500 to £18,000' : '$4,500 to $23,000';
+    $currency = $isUK ? 'GBP' : 'USD';
+    $currencySymbol = $isUK ? '£' : '$';
+  } else {
+    // General service pricing
+    $priceRange = $isUK ? '£2,500 to £12,000' : '$3,500 to $15,000';
+    $currency = $isUK ? 'GBP' : 'USD';
+    $currencySymbol = $isUK ? '£' : '$';
+  }
+  
+  $factors = [
+    'site architecture complexity',
+    'number of service locations',
+    'current technical SEO debt level',
+    'scale of structured data implementation needed',
+    'AI engine visibility goals',
+    'local market competition intensity'
+  ];
+  
+  det_seed("pricing|factors|$service|$city");
+  $selectedFactors = det_pick($factors, 3);
+  $factorsText = implode(', ', array_slice($selectedFactors, 0, -1)) . ', and ' . end($selectedFactors);
+  
+  $content = "<div class=\"box-padding\">";
+  $content .= "<h3 style=\"margin-top: 0; color: #000080;\">Pricing for {$s} in {$c}</h3>";
+  $content .= "<p>Our {$s} engagements in {$c} typically range from <strong>{$priceRange}</strong>, depending on scope, complexity, and desired outcomes. Pricing is influenced by {$factorsText}.</p>";
+  
+  if ($isAudit) {
+    $content .= "<p>Audit and diagnostic work focuses on interpretation, decision clarity, and actionable recommendations—not automated scans or generic checklists. If you're seeking a low-cost automated report, this engagement model may not be the right fit.</p>";
+  } else {
+    $content .= "<p>Implementation costs reflect the depth of technical work required: URL normalization, schema enhancement, entity optimization, and AI engine citation readiness. We provide detailed proposals with clear scope, deliverables, and expected outcomes before engagement begins.</p>";
+  }
+  
+  $content .= "<p>Every engagement includes baseline measurement, ongoing monitoring during implementation, and detailed reporting so you can see exactly how improvements translate to business outcomes. <strong>Contact us for a customized proposal for {$s} in {$c}.</strong></p>";
+  $content .= "</div>";
+  
+  return $content;
+}
+
+/**
+ * META KERNEL DIRECTIVE: Service Area Coverage Section
+ * Lists neighborhoods/areas or describes geographic coverage
+ */
+function service_area_coverage_section(string $city, ?array $cityRow = null): string {
+  $c = titleCaseCity($city);
+  det_seed("coverage|$city");
+  
+  // Get city data for coverage
+  $subdivision = $cityRow['subdivision'] ?? '';
+  $country = $cityRow['country'] ?? 'US';
+  
+  // Generate city-specific neighborhoods/areas based on common patterns
+  // This can be enhanced later with actual neighborhood data
+  $majorCities = [
+    'New York' => ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island'],
+    'Los Angeles' => ['Downtown LA', 'Hollywood', 'Santa Monica', 'Pasadena', 'Long Beach'],
+    'Chicago' => ['Loop', 'River North', 'Lincoln Park', 'Wicker Park', 'Lakeview'],
+    'London' => ['Westminster', 'Camden', 'Islington', 'Hackney', 'Tower Hamlets'],
+    'San Francisco' => ['Financial District', 'Mission District', 'SOMA', 'Castro', 'Pacific Heights'],
+    'Houston' => ['Downtown', 'Montrose', 'Heights', 'Galleria', 'Medical Center'],
+    'Dallas' => ['Downtown', 'Deep Ellum', 'Uptown', 'Oak Lawn', 'Bishop Arts'],
+    'Boston' => ['Downtown', 'Back Bay', 'Cambridge', 'Somerville', 'Charlestown'],
+    'Seattle' => ['Downtown', 'Capitol Hill', 'Ballard', 'Fremont', 'Queen Anne']
+  ];
+  
+  $neighborhoods = $majorCities[$c] ?? [];
+  
+  if (!empty($neighborhoods)) {
+    $neighborhoodList = implode(', ', array_slice($neighborhoods, 0, -1)) . ', and ' . end($neighborhoods);
+    $content = "<div class=\"box-padding\">";
+    $content .= "<h3 style=\"margin-top: 0; color: #000080;\">Service Area Coverage in {$c}</h3>";
+    $content .= "<p>We provide AI-first SEO services throughout {$c} and surrounding areas, including {$neighborhoodList}. Our approach is tailored to local market dynamics and search behavior patterns specific to each neighborhood and business district.</p>";
+    $content .= "<p>Whether your business serves a specific {$c} neighborhood or operates across multiple areas, our {$c}-based optimization strategies ensure maximum visibility in both traditional search results and AI-powered search engines. Geographic relevance signals, local entity optimization, and neighborhood-specific content strategies all contribute to improved AI engine citation accuracy.</p>";
+    $content .= "<p><strong>Ready to improve your AI engine visibility in {$c}?</strong> Contact us to discuss your specific location and service needs.</p>";
+    $content .= "</div>";
+  } else {
+    // Generic coverage for cities without neighborhood data
+    $regionText = $subdivision ? ", {$subdivision}" : '';
+    $content = "<div class=\"box-padding\">";
+    $content .= "<h3 style=\"margin-top: 0; color: #000080;\">Service Area Coverage in {$c}</h3>";
+    $content .= "<p>We provide comprehensive AI-first SEO services throughout {$c}{$regionText} and surrounding metropolitan areas. Our localization strategies account for city-specific search patterns, local business competition, and regional AI engine behavior differences.</p>";
+    $content .= "<p>Our {$c} optimization approach ensures maximum geographic relevance and entity clarity, improving citation accuracy across ChatGPT, Claude, Perplexity, and other AI search platforms. Location-anchored entity signals, local market schema, and city-specific content strategies all contribute to superior AI engine visibility.</p>";
+    $content .= "<p><strong>Interested in AI engine optimization for your {$c} business?</strong> Contact us to discuss your coverage area and specific optimization goals.</p>";
+    $content .= "</div>";
+  }
+  
+  return $content;
+}
+
+/**
+ * META KERNEL DIRECTIVE: Enhanced FAQ with City-Specific Context
+ * Makes FAQs city-specific by injecting city context (5-7 questions)
+ */
+function city_specific_faq_block(string $service, string $city, int $count = 6): string {
+  $rows = csv_rows_local('faq_pools.csv');
+  $pool = array_values(array_filter($rows, fn($r)=>($r['service']??'')===$service));
+  if (!$pool) return '';
+  
+  $c = titleCaseCity($city);
+  det_seed("faq|$service|$city");
+  $pick = det_pick($pool, min($count, max(5, min(7, count($pool))))); // Ensure 5-7 questions
+  
+  $out = ["<div class=\"grid\" style=\"gap:4px\">"];
+  foreach ($pick as $qa) {
+    $q = htmlspecialchars($qa['question']);
+    $a = htmlspecialchars($qa['answer']);
+    
+    // Inject city-specific context into answer
+    // Make answer relevant to this specific city
+    $aEnhanced = $a;
+    if (stripos($a, 'in') === false || stripos($a, $c) === false) {
+      // Add city context if not already present
+      $aEnhanced = str_replace('. ', " in {$c}. ", $aEnhanced, 1);
+    }
+    
+    // Ensure answer addresses local scenarios
+    if (stripos($aEnhanced, 'local') === false && stripos($aEnhanced, 'city') === false) {
+      // Add local context at end if missing
+      if (!preg_match('/in ' . preg_quote($c, '/') . '\.?\s*$/i', $aEnhanced)) {
+        $aEnhanced .= " In {$c}, this approach is tailored to local market conditions and regional search behavior patterns.";
+      }
+    }
+    
+    $out[] = "<details class=\"card\"><summary><strong>$q</strong></summary><p class=\"small muted\">$aEnhanced</p></details>";
+  }
+  $out[]="</div>";
+  return implode("\n", $out);
 }

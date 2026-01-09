@@ -28,7 +28,7 @@ foreach ($blocks as $b) {
           <span style="display: inline-flex; gap: 0.5rem; align-items: center;">
             <button type="button" onclick="openContactSheet('')" style="background: none; border: none; color: inherit; text-decoration: underline; cursor: pointer; font-size: inherit; font-family: inherit; padding: 0;">Contact Us</button>
             <span>|</span>
-            <a href="/booking/" style="color: inherit; text-decoration: underline;">Book Consultation</a>
+            <a href="/book/" style="color: inherit; text-decoration: underline;">Book Consultation</a>
           </span>
         </p>
       </div>

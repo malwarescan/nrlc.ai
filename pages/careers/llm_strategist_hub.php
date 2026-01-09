@@ -260,7 +260,22 @@ $applySection = "<section class=\"section\">
 
 <?php
 // Schema: BreadcrumbList
-$canonicalUrl = 'https://nrlc.ai/en-gb/careers/' . $citySlug . '/' . $roleSlug . '/';
+// Get locale from request URL or use default
+$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$locale = '';
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
+  $locale = $matches[1];
+} else {
+  // Fallback: determine locale based on city (UK cities → en-gb, others → en-us)
+  // Note: helpers.php is already required at the top of this file
+  if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
+    $locale = 'en-gb';
+  } else {
+    $locale = 'en-us';
+  }
+}
+$localePrefix = $locale ? "/$locale" : '/en-us';
+$canonicalUrl = 'https://nrlc.ai' . $localePrefix . '/careers/' . $citySlug . '/' . $roleSlug . '/';
 $breadcrumbLd = [
   '@context' => 'https://schema.org',
   '@type' => 'BreadcrumbList',
@@ -276,7 +291,7 @@ $breadcrumbLd = [
       '@type' => 'ListItem',
       'position' => 2,
       'name' => 'Careers',
-      'item' => 'https://nrlc.ai/en-gb/careers/'
+      'item' => 'https://nrlc.ai' . $localePrefix . '/careers/'
     ],
     [
       '@type' => 'ListItem',
@@ -330,6 +345,17 @@ $fullDescription = strip_tags($hubDefinition . $whatIsSection . $dayToDaySection
 $fullDescription = preg_replace('/\s+/', ' ', $fullDescription);
 $fullDescription = substr($fullDescription, 0, 5000);
 
+// Normalize experience and education requirements
+$rawExperience = '3+ years of technical SEO experience';
+$normExperience = App\Schema\SchemaNormalizers::normalizeExperienceRequirements($rawExperience);
+
+$rawEducation = 'Bachelor\'s degree in Computer Science, Marketing, or related field';
+$normEducation = App\Schema\SchemaNormalizers::normalizeEducationRequirements($rawEducation);
+
+// Ensure address fields are not empty - use defaults if city data is missing
+$addressLocality = !empty($city['city_name']) ? $city['city_name'] : ucwords(str_replace('-', ' ', $citySlug));
+$addressCountry = !empty($city['country']) ? $city['country'] : 'US';
+
 $jobPostingLd = [
   '@context' => 'https://schema.org',
   '@type' => 'JobPosting',
@@ -343,17 +369,51 @@ $jobPostingLd = [
     '@type' => 'Organization',
     '@id' => 'https://nrlc.ai/#organization',
     'name' => 'NRLC.ai',
-    'url' => 'https://nrlc.ai'
+    'url' => 'https://nrlc.ai',
+    'logo' => [
+      '@type' => 'ImageObject',
+      'url' => 'https://nrlc.ai/assets/images/nrlcai%20logo%200.png'
+    ]
   ],
   'jobLocation' => [
     '@type' => 'Place',
     'address' => [
       '@type' => 'PostalAddress',
-      'addressLocality' => $city['city_name'],
-      'addressCountry' => $city['country'] ?? 'GB'
+      'streetAddress' => 'Remote',
+      'addressLocality' => $addressLocality,
+      'postalCode' => '00000',
+      'addressCountry' => $addressCountry
+    ]
+  ],
+  'baseSalary' => [
+    '@type' => 'MonetaryAmount',
+    'currency' => 'USD',
+    'value' => [
+      '@type' => 'QuantitativeValue',
+      'minValue' => '80000',
+      'maxValue' => '150000',
+      'unitText' => 'YEAR'
     ]
   ]
 ];
+
+// Add experience and education requirements if normalized
+if ($normExperience) {
+  $jobPostingLd['experienceRequirements'] = $normExperience;
+}
+if ($normEducation) {
+  $jobPostingLd['educationRequirements'] = $normEducation;
+}
+
+// Add addressRegion only if city subdivision is available and not empty
+if (!empty($city['subdivision'])) {
+  $jobPostingLd['jobLocation']['address']['addressRegion'] = $city['subdivision'];
+}
+
+// Drop nulls and empty arrays (but keep 0 and false values)
+$jobPostingLd = array_filter($jobPostingLd, static function($v) { 
+  return $v !== null && $v !== '' && (!is_array($v) || !empty($v)); 
+});
 
 $GLOBALS['__jsonld'] = [$breadcrumbLd, $faqPageLd, $webPageLd, $jobPostingLd];
 ?>

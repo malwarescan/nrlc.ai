@@ -22,11 +22,13 @@ require_once __DIR__ . '/helpers.php';
  */
 function get_required_internal_links(string $page_type, string $page_slug = '', array $metadata = []): array {
   $links = [];
-  $domain = 'https://nrlc.ai';
+  
+  // Use canonical_internal_url() to ensure all URLs have proper locale prefixes
+  // This prevents redirects and ensures canonical URLs
   
   // 1.1 Always link to Services root
   $links[] = [
-    'url' => $domain . '/services/',
+    'url' => canonical_internal_url('/services/'),
     'anchor' => 'AI SEO Services',
     'type' => 'revenue',
     'required' => true
@@ -34,7 +36,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
   
   // 1.2 Link to primary revenue/service page
   $links[] = [
-    'url' => $domain . '/services/crawl-clarity/',
+    'url' => canonical_internal_url('/services/crawl-clarity/'),
     'anchor' => 'Crawl Clarity Engineering',
     'type' => 'revenue',
     'required' => true
@@ -42,7 +44,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
   
   // 1.3 Link to Insights root
   $links[] = [
-    'url' => $domain . '/insights/',
+    'url' => canonical_internal_url('/insights/'),
     'anchor' => 'AI SEO Research & Insights',
     'type' => 'topical',
     'required' => true
@@ -50,7 +52,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
   
   // 1.4 Link to Tools root
   $links[] = [
-    'url' => $domain . '/tools/',
+    'url' => canonical_internal_url('/tools/'),
     'anchor' => 'SEO Tools & Resources',
     'type' => 'topical',
     'required' => true
@@ -58,7 +60,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
   
   // 1.5 Transactional CTA link
   $links[] = [
-    'url' => $domain . '/services/',
+    'url' => canonical_internal_url('/services/'),
     'anchor' => 'Get Started with AI SEO',
     'type' => 'transactional',
     'required' => true
@@ -72,7 +74,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
       $related_insights = get_related_insights($page_slug, $metadata);
       foreach ($related_insights as $insight) {
         $links[] = [
-          'url' => $domain . '/insights/' . $insight['slug'] . '/',
+          'url' => canonical_internal_url('/insights/' . $insight['slug'] . '/'),
           'anchor' => $insight['title'],
           'type' => 'related',
           'required' => false
@@ -92,7 +94,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
       $related_services = get_related_services($page_slug);
       foreach ($related_services as $service) {
         $links[] = [
-          'url' => $domain . '/services/' . $service['slug'] . '/',
+          'url' => canonical_internal_url('/services/' . $service['slug'] . '/'),
           'anchor' => $service['name'],
           'type' => 'related',
           'required' => false
@@ -103,7 +105,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
       $relevant_insights = get_insights_for_service($page_slug);
       foreach ($relevant_insights as $insight) {
         $links[] = [
-          'url' => $domain . '/insights/' . $insight['slug'] . '/',
+          'url' => canonical_internal_url('/insights/' . $insight['slug'] . '/'),
           'anchor' => $insight['title'],
           'type' => 'related',
           'required' => false
@@ -117,7 +119,7 @@ function get_required_internal_links(string $page_type, string $page_slug = '', 
       $related_tools = get_related_tools($page_slug);
       foreach ($related_tools as $tool) {
         $links[] = [
-          'url' => $domain . '/tools/' . $tool['slug'] . '/',
+          'url' => canonical_internal_url('/tools/' . $tool['slug'] . '/'),
           'anchor' => $tool['name'],
           'type' => 'related',
           'required' => false
@@ -200,7 +202,7 @@ function get_relevant_service(array $metadata = []): ?array {
   foreach ($service_map as $key => $service) {
     if (strpos($keywords, $key) !== false) {
       return [
-        'url' => 'https://nrlc.ai' . $service['url'],
+        'url' => canonical_internal_url($service['url']),
         'anchor' => $service['anchor'],
         'type' => 'revenue',
         'required' => false
@@ -300,7 +302,7 @@ function get_related_tools(string $current_slug): array {
  */
 function get_service_for_tool(string $tool_slug): ?array {
   return [
-    'url' => 'https://nrlc.ai/services/json-ld-strategy/',
+    'url' => canonical_internal_url('/services/json-ld-strategy/'),
     'anchor' => 'JSON-LD Strategy Service',
     'type' => 'revenue',
     'required' => false
@@ -326,7 +328,10 @@ function audit_page_links(string $content, string $page_type, string $page_slug 
   foreach ($matches[1] ?? [] as $idx => $url) {
     $anchor = strip_tags($matches[2][$idx] ?? '');
     
-    if (strpos($url, $domain) === 0 || strpos($url, '/') === 0) {
+    // Check if internal link (domain match or relative path)
+    $isInternal = (strpos($url, $domain) === 0 || strpos($url, '/') === 0 || strpos($url, 'http') !== 0);
+    
+    if ($isInternal) {
       $internal_links[] = [
         'url' => $url,
         'anchor' => trim($anchor)

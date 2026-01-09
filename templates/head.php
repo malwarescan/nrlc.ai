@@ -92,6 +92,70 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
           $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
         }
       }
+    } else {
+      // This is a GLOBAL page
+      // GLOBAL pages should only exist in en-us unless translated
+      // For now, all GLOBAL pages default to en-us canonical
+      
+      // Handle GLOBAL service pages (without city)
+      // GLOBAL service pages should only exist in en-us
+      if (preg_match('#^/services/([^/]+)/$#', $pathWithoutLocale, $serviceMatch)) {
+        if ($currentLocale !== 'en-us') {
+          // Non-en-us GLOBAL service page - canonicalize to en-us
+          $canonicalPath = '/en-us' . $pathWithoutLocale;
+          $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+        }
+      }
+      // Handle insights pages (GLOBAL)
+      // Insights should only exist in en-us
+      else if (preg_match('#^/insights(/.*)?$#', $pathWithoutLocale)) {
+        if ($currentLocale !== 'en-us') {
+          // Non-en-us insights page - canonicalize to en-us
+          $canonicalPath = '/en-us' . $pathWithoutLocale;
+          $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+        }
+      }
+      // Handle careers index page (GLOBAL)
+      // Careers index should only exist in en-us and en-gb
+      else if ($pathWithoutLocale === '/careers/' || $pathWithoutLocale === '/careers') {
+        if ($currentLocale !== 'en-us' && $currentLocale !== 'en-gb') {
+          // Non-en-us/en-gb careers index - canonicalize to en-us
+          $canonicalPath = '/en-us/careers/';
+          $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+        }
+      }
+      // Handle products pages in non-en-us locales
+      // Products should only exist in en-us
+      else if (preg_match('#^/products/#', $pathWithoutLocale)) {
+        if ($currentLocale !== 'en-us') {
+          // Non-en-us products page - canonicalize to en-us
+          $canonicalPath = '/en-us' . $pathWithoutLocale;
+          $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+        }
+        // en-us products pages are legitimate and should be indexed
+      }
+      // Handle promptware pages in non-en-us locales
+      else if (preg_match('#^/promptware/#', $pathWithoutLocale)) {
+        if ($currentLocale !== 'en-us') {
+          // Non-en-us promptware page - canonicalize to en-us
+          $canonicalPath = '/en-us' . $pathWithoutLocale;
+          $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+        }
+      }
+      // Handle blog pages in non-en-us locales
+      else if (preg_match('#^/blog/#', $pathWithoutLocale)) {
+        if ($currentLocale !== 'en-us') {
+          // Non-en-us blog page - canonicalize to en-us
+          $canonicalPath = '/en-us' . $pathWithoutLocale;
+          $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+        }
+      }
+      // Handle other non-canonical locale GLOBAL pages (es-es, fr-fr, de-de, ko-kr)
+      else if (in_array($currentLocale, ['es-es', 'fr-fr', 'de-de', 'ko-kr'])) {
+        // These locales are not supported for GLOBAL pages - canonicalize to en-us
+        $canonicalPath = '/en-us' . $pathWithoutLocale;
+        $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
+      }
     }
   }
 }

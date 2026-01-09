@@ -59,17 +59,23 @@ $GLOBALS['__page_slug'] = 'services/service_city';
 $enhancement = get_service_enhancement($serviceSlug, $citySlug);
 $enhancedIntro = $enhancement['intro'] ?? null;
 
+// META KERNEL DIRECTIVE: Required content sections (8-section template)
 $intro   = $enhancedIntro ?? service_long_intro($serviceSlug, $citySlug);
+$serviceOverview = service_overview_section($serviceSlug, $citySlug, $cityRow);
+$whyChooseUs = why_this_matters_section($serviceSlug, $citySlug);
+$process = approach_section($serviceSlug, $citySlug); // Enhanced with timeline if needed
+$pricing = pricing_section($serviceSlug, $citySlug, $cityRow);
+$faqsHtml = city_specific_faq_block($serviceSlug, $citySlug, 6); // 5-7 questions
+$serviceAreaCoverage = service_area_coverage_section($citySlug, $cityRow);
+
+// Additional sections for depth (used after required sections)
 $local   = local_context_block($citySlug);
 $market  = local_market_insights($citySlug);
 $competition = local_competition_analysis($citySlug);
 $strategy = local_implementation_strategy($citySlug);
 $pain    = pain_point_section($serviceSlug, $citySlug, 4);
-$appro   = approach_section($serviceSlug);
-$why     = why_this_matters_section($serviceSlug, $citySlug);
 $timeline= implementation_timeline_section($citySlug);
 $metrics = success_metrics_section($serviceSlug, $citySlug);
-$faqsHtml= faq_block($serviceSlug, $citySlug, 6);
 
 // Build content with proper structure
 $content = $intro . $local;
@@ -114,6 +120,91 @@ $content = $intro . $local;
           </div>
         </div>
 
+        <!-- META KERNEL DIRECTIVE: SECTION 2 - Service Overview (~150 words) -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Service Overview</h2>
+          </div>
+          <div class="content-block__body">
+            <?= $serviceOverview ?>
+          </div>
+        </div>
+
+        <!-- META KERNEL DIRECTIVE: SECTION 3 - Why Choose Us in [City] -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Why Choose Us in <?= htmlspecialchars($cityTitle) ?></h2>
+          </div>
+          <div class="content-block__body">
+            <div class="grid grid-auto-fit">
+              <?= $whyChooseUs ?>
+            </div>
+            <?php
+            // Add city-specific trust signals
+            if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
+              $region = 'Merseyside';
+              if (strpos($citySlug, 'norwich') !== false) $region = 'Norfolk';
+              elseif (strpos($citySlug, 'stockport') !== false || strpos($citySlug, 'manchester') !== false) $region = 'Greater Manchester';
+              echo "<div class=\"box-padding\"><p><strong>Local Expertise:</strong> We've worked with businesses across $cityTitle and $region, consistently delivering AI-first SEO results that automated tools miss. Our understanding of {$cityTitle}'s market dynamics and search behavior patterns enables us to optimize for both traditional search and AI engines effectively.</p></div>";
+            }
+            ?>
+          </div>
+        </div>
+
+        <!-- META KERNEL DIRECTIVE: SECTION 4 - Process / How It Works -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Process / How It Works</h2>
+          </div>
+          <div class="content-block__body">
+            <div class="grid grid-auto-fit">
+              <?= $process ?>
+            </div>
+            <?= $timeline ?>
+          </div>
+        </div>
+
+        <!-- META KERNEL DIRECTIVE: SECTION 5 - Pricing -->
+        <div class="content-block module">
+          <div class="content-block__body">
+            <?= $pricing ?>
+          </div>
+        </div>
+
+        <!-- META KERNEL DIRECTIVE: SECTION 6 - FAQ (5-7 questions, city-specific) -->
+        <?php if (!empty($faqsHtml)): ?>
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Frequently Asked Questions</h2>
+          </div>
+          <div class="content-block__body">
+            <?= $faqsHtml ?>
+          </div>
+        </div>
+        <?php endif; ?>
+
+        <!-- META KERNEL DIRECTIVE: SECTION 7 - Service Area Coverage -->
+        <div class="content-block module">
+          <div class="content-block__body">
+            <?= $serviceAreaCoverage ?>
+          </div>
+        </div>
+
+        <!-- META KERNEL DIRECTIVE: SECTION 8 - Primary CTA (Conversion-focused) -->
+        <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Ready to Improve Your AI Engine Visibility in <?= htmlspecialchars($cityTitle) ?>?</h2>
+          </div>
+          <div class="content-block__body">
+            <p class="lead">Get started with <?= htmlspecialchars($serviceTitle) ?> in <?= htmlspecialchars($cityTitle) ?> today. Our AI-first SEO approach delivers measurable improvements in citation accuracy, crawl efficiency, and AI engine visibility.</p>
+            <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
+          </div>
+        </div>
+
+        <!-- Additional Depth Sections (after required 8 sections) -->
         <!-- Local Market Insights Content Block -->
         <div class="content-block module">
           <div class="content-block__header">
@@ -134,16 +225,6 @@ $content = $intro . $local;
           </div>
         </div>
 
-        <!-- Localized Strategy Content Block -->
-        <div class="content-block module">
-          <div class="content-block__header">
-            <h2 class="content-block__title">Localized Strategy</h2>
-          </div>
-          <div class="content-block__body">
-            <?= $strategy ?>
-          </div>
-        </div>
-
         <!-- Pain Points & Solutions Content Block -->
         <div class="content-block module">
           <div class="content-block__header">
@@ -156,40 +237,6 @@ $content = $intro . $local;
           </div>
         </div>
 
-        <!-- Why This Matters Content Block -->
-        <div class="content-block module">
-          <div class="content-block__header">
-            <h2 class="content-block__title">Why This Matters</h2>
-          </div>
-          <div class="content-block__body">
-            <div class="grid grid-auto-fit">
-              <?= $why ?>
-            </div>
-          </div>
-        </div>
-
-        <!-- Our Approach Content Block -->
-        <div class="content-block module">
-          <div class="content-block__header">
-            <h2 class="content-block__title">Our Approach</h2>
-          </div>
-          <div class="content-block__body">
-            <div class="grid grid-auto-fit">
-              <?= $appro ?>
-            </div>
-          </div>
-        </div>
-
-        <!-- Implementation Timeline Content Block -->
-        <div class="content-block module">
-          <div class="content-block__header">
-            <h2 class="content-block__title">Implementation Timeline</h2>
-          </div>
-          <div class="content-block__body">
-            <?= $timeline ?>
-          </div>
-        </div>
-
         <!-- Success Metrics Content Block -->
         <div class="content-block module">
           <div class="content-block__header">
@@ -199,18 +246,6 @@ $content = $intro . $local;
             <?= $metrics ?>
           </div>
         </div>
-
-        <!-- FAQ Content Block -->
-        <?php if (!empty($faqsHtml)): ?>
-        <div class="content-block module">
-          <div class="content-block__header">
-            <h2 class="content-block__title">Frequently Asked Questions</h2>
-          </div>
-          <div class="content-block__body">
-            <?= $faqsHtml ?>
-          </div>
-        </div>
-        <?php endif; ?>
 
     <?php
     // STEP 5: Internal Linking Repair
