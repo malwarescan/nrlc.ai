@@ -6,17 +6,41 @@ if (!function_exists('webpage_schema')) {
   require_once __DIR__.'/../../lib/schema_builders.php';
 }
 
-$canonicalUrl = absolute_url('/insights/ai-retrieval-llm-citation/');
+// Get canonical URL with proper locale prefix
+// Use canonical path from meta directive if available, otherwise use request URI
+$canonicalPath = $GLOBALS['__page_meta']['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/insights/ai-retrieval-llm-citation/#i', $canonicalPath, $m)) {
+  $canonicalUrl = absolute_url($canonicalPath);
+} else {
+  // Fallback: use en-us as default for insights pages
+  $canonicalUrl = absolute_url('/en-us/insights/ai-retrieval-llm-citation/');
+}
 
-// Build FAQPage schema (lift-optimized)
+// Build FAQPage schema (lift-optimized) - Expanded from 2 to 6 questions
 $faqItems = [
   [
     'question' => 'How do LLMs retrieve web content?',
-    'answer' => 'LLMs do not browse web pages like users. They select, score, and assemble information from individual content segments before producing an answer.'
+    'answer' => 'LLMs do not browse web pages like users. They select, score, and assemble information from individual content segments before producing an answer. The retrieval process operates in five steps: query interpretation, candidate document selection, segment extraction, segment scoring, and surfacing or citation. Each step evaluates segments for answer quality, relevance, and completeness.'
   ],
   [
     'question' => 'How does AI decide what content to cite?',
-    'answer' => 'Visibility in AI-generated answers depends more on segment clarity and relevance than on traditional page-level optimization.'
+    'answer' => 'AI systems decide which content to cite based on a scoring system that evaluates multiple factors: (1) Segment relevance to the query—how closely the segment matches user intent, (2) Completeness of the answer—whether it fully addresses the question, (3) Atomic clarity—whether the segment can stand alone without context, (4) Source authority signals—domain trust, entity consistency, and structured data, (5) Confidence thresholds—minimum score required for citation. The highest-scoring segments that meet confidence thresholds are selected for citation. This is why prechunking matters: it ensures segments score highly on all these factors, making them more likely to be cited in AI-generated answers.'
+  ],
+  [
+    'question' => 'What factors determine if content gets cited by AI?',
+    'answer' => 'Several factors determine citation likelihood: segment relevance (how closely it matches the query), completeness (whether it fully answers the question), atomic clarity (self-contained without context dependencies), explicit language (no pronouns or ambiguous references), verbatim quotability (can be cited without clarification), source authority (trust signals from the domain), entity consistency (consistent naming across platforms), and structured data (machine-readable signals). Content that scores highly across these factors is more likely to be cited.'
+  ],
+  [
+    'question' => 'Why do high-ranking pages get ignored by AI systems?',
+    'answer' => 'High-ranking pages can be ignored by AI systems if their content chunks are ambiguous, segments depend on context from other sections, multiple answers are combined in one segment, or pronouns and references make segments unclear. AI systems prioritize clear, atomic segments that can be cited verbatim. Page-level ranking does not guarantee segment-level retrieval because AI systems evaluate and extract at the segment level, not the page level.'
+  ],
+  [
+    'question' => 'How is AI citation different from traditional SEO?',
+    'answer' => 'Traditional SEO optimizes for page-level rankings in search results, while AI citation optimization focuses on segment-level retrieval and citation in AI-generated answers. AI systems extract individual segments, score them for relevance and completeness, and cite the highest-scoring segments—regardless of page ranking. This means even well-ranking pages may be ignored if their individual segments are ambiguous or context-dependent. AI citation requires prechunking (structuring content before writing) to ensure segments are atomic, self-contained, and citation-ready.'
+  ],
+  [
+    'question' => 'What is prechunking and how does it affect AI citations?',
+    'answer' => 'Prechunking is the practice of structuring content before writing so each section can be independently retrieved and cited by AI systems. Unlike content chunking (which helps presentation and readability), prechunking governs extraction and retrieval at the segment level. Prechunking directly affects steps 3 and 4 of the retrieval process (segment extraction and segment scoring). If content cannot be cleanly segmented, it will not be retrieved or cited. Prechunked content ensures segments are atomic, self-contained, and score highly on relevance, completeness, and citation readiness factors.'
   ]
 ];
 
@@ -253,6 +277,35 @@ $GLOBALS['__jsonld'] = [
             </p>
           </div>
           <p>Many content creators assume that high page rankings or comprehensive content automatically translate to AI citations. However, AI systems evaluate and extract at the segment level, meaning that even well-ranking pages may be ignored if their individual segments are ambiguous or context-dependent.</p>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">How LLMs Decide Which Content to Cite</h2>
+        </div>
+        <div class="content-block__body">
+          <p>LLMs use a multi-factor decision system to determine which content segments to cite in their answers. The decision process evaluates segments against several criteria and assigns scores based on citation readiness.</p>
+          
+          <h3 class="heading-3">Decision Criteria</h3>
+          <p>LLMs evaluate segments using six primary factors:</p>
+          <ol>
+            <li><strong>Segment Relevance Score:</strong> How closely the segment matches the query intent. Segments that directly address the question receive higher relevance scores.</li>
+            <li><strong>Completeness Score:</strong> Whether the segment fully answers the question without requiring additional context. Complete answers score higher than partial answers.</li>
+            <li><strong>Confidence Threshold:</strong> Minimum confidence level required for citation. Segments below the threshold are filtered out, even if they are relevant.</li>
+            <li><strong>Source Authority:</strong> Trust signals from the source domain, including domain age, backlink profile, entity consistency, and structured data implementation.</li>
+            <li><strong>Atomic Clarity:</strong> Whether the segment can stand alone without context from surrounding sections. Atomic segments that answer exactly one question score higher.</li>
+            <li><strong>Verification Signals:</strong> Structured data, entity consistency, canonical control, and other machine-readable signals that help AI systems verify and trust the content.</li>
+          </ol>
+          
+          <h3 class="heading-3">Scoring and Selection Process</h3>
+          <p>The scoring process weights these factors differently depending on the query type and AI system. For factual queries, relevance and completeness are heavily weighted. For exploratory queries, atomic clarity and verification signals may carry more weight.</p>
+          
+          <p>Once scored, segments are ranked by their composite score. The highest-scoring segments that meet confidence thresholds are selected for citation. Multiple segments may be cited if they provide complementary information or if the query requires a comprehensive answer.</p>
+          
+          <div class="callout-system-truth">
+            <p><strong>Key Insight:</strong> The decision process happens at the segment level, not the page level. This is why prechunking matters: it ensures each segment scores highly on all decision factors, maximizing citation likelihood.</p>
+          </div>
         </div>
       </div>
 
