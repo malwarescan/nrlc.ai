@@ -5,25 +5,22 @@
 require_once __DIR__ . '/../../lib/product_schemas.php';
 
 $GLOBALS['__page_slug'] = 'products/neural-command-os';
-$GLOBALS['pageTitle'] = 'Neural Command OS | NRLC.ai';
-$GLOBALS['pageDesc'] = 'Universal operating system powering all products in the Neural Command ecosystem. AI SEO product by NRLC.ai.';
+$GLOBALS['pageTitle'] = 'Neural Command OS — Installed MCP for Agentic Technical SEO | NRLC.ai';
+$GLOBALS['pageDesc'] = 'Neural Command OS is an installed Model Context Protocol (MCP) that governs agent-driven technical SEO, schema enforcement, and Google Search Console remediation. We install it. Agents operate within it. Results surface in GSC, indexing behavior, and AI visibility.';
 
 // Build comprehensive schemas
 $productSlug = 'neural-command-os';
 $productName = 'Neural Command OS';
-$productDescription = 'Universal operating system powering agentic SEO, schema generation, authority scoring, LLM visibility modeling, and semantic linking across all products.';
+$productDescription = 'Installed Model Context Protocol (MCP) that governs agent-driven technical SEO, schema governance, canonical enforcement, entity model definition, and Google Search Console remediation. Agents operate within the MCP to observe, reason, and act across a site\'s technical SEO surface.';
 $features = [
-  'Agentic SEO',
-  'Schema generation',
-  'Authority scoring',
-  'LLM visibility modeling',
-  'Intelligent onboarding',
-  'API integration',
-  'Funnel generation',
-  'AI Overview optimization',
-  'Dashboard tools',
-  'Domain, service, and entity ontologies',
-  'Semantic linking'
+  'Schema governance layer (JSON-LD as machine interface)',
+  'Canonical law enforcement and indexability constraints',
+  'Entity model definition and semantic relationships',
+  'Agent permissions and execution boundaries',
+  'Google Search Console telemetry integration',
+  'Repair-safe operating environment (scoped, reversible changes)',
+  'LLM visibility modeling and AI citation readiness',
+  'Authority scoring and source credibility assessment'
 ];
 
 $jsonld = array_merge(
@@ -38,18 +35,42 @@ $jsonld = array_merge(
       'mainEntity' => [
         [
           '@type' => 'Question',
-          'name' => 'What is Neural Command OS and how does it power the ecosystem?',
+          'name' => 'How do we use Neural Command OS?',
           'acceptedAnswer' => [
             '@type' => 'Answer',
-            'text' => 'Neural Command OS is the universal operating system that powers all products in the Neural Command ecosystem. It provides agentic SEO, schema generation, authority scoring, LLM visibility modeling, intelligent onboarding, API integration, funnel generation, AI Overview optimization, dashboard tools, domain/service/entity ontologies, and semantic linking. All products share this common infrastructure, creating a cohesive ecosystem.'
+            'text' => 'Neural Command OS is installed, not used manually. We deploy the Model Context Protocol (MCP) which includes schema governance layer deployment, canonical law enforcement, entity model definition, agent permission configuration, and Google Search Console telemetry integration. Once installed, agents operate within the MCP to observe, reason, and act across your site\'s technical SEO surface. Results surface in Google Search Console, indexing behavior, and AI visibility—not in a dashboard you check.'
           ]
         ],
         [
           '@type' => 'Question',
-          'name' => 'How does Neural Command OS improve AI SEO and search visibility?',
+          'name' => 'What is Neural Command OS?',
           'acceptedAnswer' => [
             '@type' => 'Answer',
-            'text' => 'Neural Command OS implements comprehensive AI SEO strategies including structured data optimization, entity mapping, canonical enforcement, and LLM seeding. The platform generates JSON-LD schema, implements GEO-16 framework principles, and ensures content is optimized for AI engines like ChatGPT, Claude, and Perplexity. This results in improved citation accuracy, better AI engine visibility, and enhanced search rankings.'
+            'text' => 'Neural Command OS is an installed Model Context Protocol (MCP) that governs agent-driven technical SEO. It is not a dashboard, SaaS tool, or plugin. It is a control layer that defines how agents observe, reason, and act across a site\'s technical SEO surface. The MCP establishes schema governance (JSON-LD as the machine interface), enforces canonical law and indexability constraints, defines entity models and semantic relationships, configures agent permissions and execution boundaries, and connects Google Search Console as telemetry input.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'Can Neural Command OS fix Google Search Console errors?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'Yes. Google Search Console is connected as a telemetry input source, not a reporting dashboard. Agents operating under the MCP ingest coverage, indexing, canonical, crawl, and enhancement data from GSC. These signals are normalized into site state, and agents act only when MCP conditions allow remediation. The MCP defines state models that agents use to assess canonical status disagreements, indexing exceptions, structured data errors, coverage anomalies, redirect discrepancies, hreflang mismatches, mobile/usability flags, and crawl budget inefficiencies. All remediation actions are scoped, reversible, and justified by protocol constraints.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'How does Neural Command OS handle schema and structured data?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'Schema is positioned as governance, not generation. The MCP deploys JSON-LD schema as the single source of truth for how machines interpret the site. This governance layer enforces consistency, authority, constraint, and disambiguation—not just markup addition. Schema defines canonical law, entity relationships, and indexing constraints. It ensures machine readability for both search engines and LLMs. All schema is scoped to enforce canonical, entity, and indexing law across the site.'
+          ]
+        ],
+        [
+          '@type' => 'Question',
+          'name' => 'What constraints do agents have under Neural Command OS?',
+          'acceptedAnswer' => [
+            '@type' => 'Answer',
+            'text' => 'Agents operating under Neural Command OS have explicit limits for safety and reversibility. Agents do not perform blind bulk changes, do not guess or rely on heuristics, do not deploy template-wide edits without validation, and do not override protocol constraints. Agents are framed as site reliability engineers for search, not AI content tools. All actions are scoped, reversible, and repair-safe. Agents act only when MCP conditions allow remediation, and all changes are justified by protocol constraints.'
           ]
         ],
         [
@@ -57,15 +78,7 @@ $jsonld = array_merge(
           'name' => 'What products are powered by Neural Command OS?',
           'acceptedAnswer' => [
             '@type' => 'Answer',
-            'text' => 'Neural Command OS powers Applicants.io (job schema automation and AI recruiting), OurCasa.ai (property and neighborhood intelligence), Croutons.ai (micro-fact data atomization), Precogs (ontological oracle reasoning), Googlebot Renderer Lab (SEO diagnostics), and NEWFAQ (sentient FAQ and business intelligence). All products leverage the same foundational infrastructure for maximum efficiency and consistency.'
-          ]
-        ],
-        [
-          '@type' => 'Question',
-          'name' => 'How does Neural Command OS handle schema generation and structured data?',
-          'acceptedAnswer' => [
-            '@type' => 'Answer',
-            'text' => 'The platform automatically generates comprehensive JSON-LD schema including WebPage, BreadcrumbList, Service, LocalBusiness, FAQPage, Product, and Organization schemas. It ensures schema consistency across all page types, validates against Schema.org standards, and optimizes for rich results eligibility. The system uses centralized schema builders that emit consistent structured data across the entire ecosystem.'
+            'text' => 'Neural Command OS powers Applicants.io (job schema automation and AI recruiting), OurCasa.ai (property and neighborhood intelligence), Croutons.ai (micro-fact data atomization), Precogs (ontological oracle reasoning), Googlebot Renderer Lab (SEO diagnostics), and NEWFAQ (sentient FAQ and business intelligence). All products share the same MCP infrastructure for schema governance, canonical enforcement, entity model definition, and agent-driven automation.'
           ]
         ],
         [
@@ -78,10 +91,10 @@ $jsonld = array_merge(
         ],
         [
           '@type' => 'Question',
-          'name' => 'How does Neural Command OS measure and track SEO performance?',
+          'name' => 'What are the technical requirements for Neural Command OS installation?',
           'acceptedAnswer' => [
             '@type' => 'Answer',
-            'text' => 'The platform provides comprehensive analytics including AI engine citation tracking, crawl efficiency metrics, structured data performance, rich results impressions, and technical health indicators. It monitors Core Web Vitals, mobile usability, canonical coverage, hreflang accuracy, and provides detailed reporting on how optimizations translate to business outcomes.'
+            'text' => 'Neural Command OS integrates with existing web platforms and content management systems. Installation requires PHP support, database connectivity for entity storage, API endpoints for dynamic content generation, and support for JSON-LD schema markup. The MCP can be deployed on standard hosting environments and works with any modern web infrastructure. Installation establishes the protocol layer—schema governance, canonical enforcement, entity models, agent permissions, and GSC telemetry integration.'
           ]
         ]
       ]
@@ -102,62 +115,142 @@ $GLOBALS['__jsonld'] = $jsonld;
         <h1 class="content-block__title">Neural Command OS</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead">Universal operating system powering all products in the Neural Command ecosystem.</p>
-        <p>This is the platform tying the entire suite together, providing agentic SEO, schema generation, authority scoring, LLM visibility modeling, intelligent onboarding, API integration, funnel generation, AI Overview optimization, dashboard tools, domain/service/entity ontologies, and semantic linking.</p>
-        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> and discover related <a href="/insights/">AI SEO Research & Insights</a>. Learn more about our <a href="/tools/">SEO Tools & Resources</a>.</p>
+        <p class="lead">Installed Model Context Protocol (MCP) for Agentic Technical SEO</p>
+        <div class="callout-system-truth" style="margin: 1.5rem 0; padding: 1rem; border-left: 4px solid var(--color-brand, #12355e); background: var(--color-background-alt, #f5f5f5);">
+          <p><strong>Neural Command OS is not a dashboard, SaaS tool, or plugin.</strong></p>
+          <p>We install an MCP. It governs agents. It fixes technical SEO and Google Search Console issues. You see outcomes—not a dashboard.</p>
+        </div>
+        <p>Neural Command OS establishes an installed control layer that defines how agents observe, reason, and act across your site's technical SEO surface. Once installed, agents operate within the protocol to remediate GSC errors, enforce schema governance, maintain canonical consistency, and optimize for AI visibility. Results surface in Google Search Console improvements, indexing behavior changes, and AI citation rates—not in interfaces you check.</p>
       </div>
     </div>
 
-    <!-- Core Capabilities -->
+    <!-- Installation -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Core Capabilities</h2>
+        <h2 class="content-block__title">Installation: What Gets Deployed</h2>
       </div>
       <div class="content-block__body">
+        <p>Installation is mechanical, deliberate, and bounded. When we deploy Neural Command OS, we establish:</p>
+        <ul>
+          <li><strong>Schema Governance Layer:</strong> JSON-LD schema deployed as the primary machine interface—the single source of truth for how search engines and LLMs interpret your site</li>
+          <li><strong>Canonical Law Enforcement:</strong> Indexability constraints and canonical state rules that agents use to resolve conflicts and maintain structural integrity</li>
+          <li><strong>Entity Model Definition:</strong> Semantic relationships and entity ontologies that enable consistent machine reasoning across all content</li>
+          <li><strong>Agent Permission Configuration:</strong> Execution boundaries and scoped authority that define what agents can observe, reason about, and act upon</li>
+          <li><strong>Google Search Console Telemetry Integration:</strong> GSC connected as a diagnostic signal feed, not a reporting dashboard—agents ingest coverage, indexing, canonical, crawl, and enhancement data</li>
+          <li><strong>Repair-Safe Operating Environment:</strong> All agent actions are scoped, reversible, and justified by protocol constraints—no blind bulk changes, no template-wide edits without validation</li>
+        </ul>
+        <p>This protocol layer enables agent-driven automation while maintaining safety, reversibility, and scope control. Agents act as site reliability engineers for search, not AI content tools.</p>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">How Agents Operate Under the MCP</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Agents operating under Neural Command OS follow a structured workflow defined by the protocol:</p>
+        <ol>
+          <li><strong>Observation:</strong> Agents read current site state from Google Search Console telemetry, schema validation, canonical checks, and entity consistency monitoring</li>
+          <li><strong>State Comparison:</strong> Each state is compared to the expected model defined by the MCP—canonical rules, schema governance, entity relationships, indexing constraints</li>
+          <li><strong>Simulation:</strong> Agents simulate minimal corrective edits within protocol constraints before taking action</li>
+          <li><strong>Action:</strong> Agents apply changes through structured updates to schema, canonical directives, entity relationships, or indexing configurations—all scoped and reversible</li>
+          <li><strong>Verification:</strong> Agents re-query state and validate improvements over time, creating continuous feedback loops</li>
+        </ol>
+        <div class="callout-system-truth" style="margin: 1.5rem 0; padding: 1rem; border-left: 4px solid var(--color-brand, #12355e); background: var(--color-background-alt, #f5f5f5);">
+          <p><strong>Agent Constraints (Non-Negotiable):</strong></p>
+          <ul style="margin: 0.5rem 0 0 0;">
+            <li>Agents do not perform blind bulk changes</li>
+            <li>Agents do not guess or rely on heuristics</li>
+            <li>Agents do not deploy template-wide edits without validation</li>
+            <li>Agents do not override protocol constraints</li>
+          </ul>
+          <p style="margin-top: 0.5rem;">All actions are justified by protocol rules, scoped for safety, and reversible if needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Search Console as Telemetry -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Google Search Console as Telemetry Input</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Google Search Console is not a reporting dashboard you check. It is a diagnostic signal feed consumed by agents operating under the MCP.</p>
+        <p>Agents ingest GSC telemetry as structured signals:</p>
+        <ul>
+          <li><strong>Coverage Data:</strong> Indexed, excluded, blocked, and soft 404 states normalized into site state models</li>
+          <li><strong>Indexing Exceptions:</strong> Crawl errors, server errors, and redirect chains analyzed against protocol rules</li>
+          <li><strong>Canonical Conflicts:</strong> Google-preferred canonicals compared to site-declared canonicals—discrepancies resolved through MCP state law</li>
+          <li><strong>Crawl Budget Signals:</strong> Crawl efficiency and crawl budget allocation monitored for optimization opportunities</li>
+          <li><strong>Enhancement Data:</strong> Structured data errors, mobile usability issues, and Core Web Vitals flags fed into agent reasoning</li>
+        </ul>
+        <p>These signals are normalized into machine-readable state that agents compare against MCP expectations. Agents act only when protocol conditions allow remediation—ensuring all fixes are justified, scoped, and reversible.</p>
+        <div class="callout-evidence" style="margin: 1.5rem 0; padding: 1rem; border-left: 4px solid #d4a574; background: #fff8f0;">
+          <p><strong>GSC Remediation Example:</strong></p>
+          <p>When GSC reports a canonical conflict, agents don't just "fix" it. They analyze entity hierarchies, content similarity vectors, and crawl path dominance. They propose scoped correction actions that preserve structural integrity. They simulate the fix, apply it, verify it, and monitor for regression. This is protocol-governed remediation, not heuristic-based patching.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schema as Governance -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Schema as Governance Layer</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Schema is not generated. It is deployed as governance—the single source of truth for how machines interpret your site.</p>
+        <p>The schema governance layer enforces:</p>
+        <ul>
+          <li><strong>Authority:</strong> Consistent entity definitions and relationships that establish trust signals for search engines and LLMs</li>
+          <li><strong>Constraint:</strong> Canonical rules, indexing directives, and semantic boundaries that limit ambiguity</li>
+          <li><strong>Disambiguation:</strong> Explicit entity naming, service definitions, and location mappings that remove machine interpretation errors</li>
+          <li><strong>Machine Readability:</strong> JSON-LD structured data optimized for both traditional search engine parsing and LLM extraction</li>
+        </ul>
+        <p>This governance layer defines canonical law (which URLs are authoritative), entity relationships (how services, locations, and organizations connect), and indexing constraints (what can and cannot be indexed). Agents use this governance layer to validate site state, identify discrepancies, and propose fixes—all justified by protocol rules.</p>
+        <p>Schema doesn't "add markup." It establishes the machine-readable contract that search engines and AI systems use to understand your site. When agents deploy schema updates, they enforce canonical, entity, and indexing law—not just compliance.</p>
+      </div>
+    </div>
+
+    <!-- Protocol Capabilities -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">What the MCP Provides</h2>
+      </div>
+      <div class="content-block__body">
+        <p>These are not standalone features. They are the protocol layers that enable agent-driven automation:</p>
         <div class="grid grid-auto-fit">
           <div>
-            <h3>Agentic SEO</h3>
-            <p>SEO optimization designed for AI agents and LLMs, ensuring content is discoverable and citable by agentic systems.</p>
+            <h3>Schema Governance</h3>
+            <p>JSON-LD schema deployed as the machine interface. Enforces authority, constraint, disambiguation, and machine readability for search engines and LLMs. Agents use this governance layer to validate state and propose fixes.</p>
           </div>
           <div>
-            <h3>Schema Generation</h3>
-            <p>Automatic generation and optimization of structured data schemas for maximum AI engine visibility.</p>
+            <h3>Canonical Law Enforcement</h3>
+            <p>Indexability constraints and canonical state rules that agents use to resolve conflicts and maintain structural integrity. Defines which URLs are authoritative and enforces consistency across the site.</p>
           </div>
           <div>
-            <h3>Authority Scoring</h3>
-            <p>Intelligent scoring systems that assess content authority and source credibility for search engines and AI systems.</p>
+            <h3>Entity Model Definition</h3>
+            <p>Semantic relationships and entity ontologies that enable consistent machine reasoning. Defines how services, locations, organizations, and content entities relate—removing ambiguity for AI systems.</p>
+          </div>
+          <div>
+            <h3>Agent Permission Configuration</h3>
+            <p>Execution boundaries and scoped authority that define what agents can observe, reason about, and act upon. Ensures all actions are justified, reversible, and within protocol constraints.</p>
+          </div>
+          <div>
+            <h3>GSC Telemetry Integration</h3>
+            <p>Google Search Console connected as diagnostic signal feed. Agents ingest coverage, indexing, canonical, crawl, and enhancement data—not reporting you monitor, but signals agents consume.</p>
           </div>
           <div>
             <h3>LLM Visibility Modeling</h3>
-            <p>Predictive modeling of how content will appear in LLM responses, AI Overviews, and agentic search results.</p>
+            <p>Predictive modeling of how content will be extracted and cited by LLMs and AI Overviews. Agents use this modeling to prioritize optimization efforts and ensure AI citation readiness.</p>
           </div>
           <div>
-            <h3>Intelligent Onboarding</h3>
-            <p>Automated onboarding processes that configure products and services based on user needs and business context.</p>
+            <h3>Authority Scoring</h3>
+            <p>Assessment of content authority and source credibility that informs agent decision-making. Used to prioritize remediation efforts and validate trust signals for search engines and AI systems.</p>
           </div>
           <div>
-            <h3>API Integration</h3>
-            <p>Comprehensive API framework enabling integration with external systems, data sources, and platforms.</p>
-          </div>
-          <div>
-            <h3>Funnel Generation</h3>
-            <p>Automated creation of conversion funnels optimized for both human users and AI agent interactions.</p>
-          </div>
-          <div>
-            <h3>AI Overview Optimization</h3>
-            <p>Specialized optimization for Google AI Overviews and similar AI-generated answer interfaces.</p>
-          </div>
-          <div>
-            <h3>Dashboard Tools</h3>
-            <p>Comprehensive dashboard interfaces providing visibility into all platform activities and performance metrics.</p>
-          </div>
-          <div>
-            <h3>Domain, Service, and Entity Ontologies</h3>
-            <p>Built-in ontological frameworks for domains, services, and entities that enable semantic reasoning.</p>
-          </div>
-          <div>
-            <h3>Semantic Linking</h3>
-            <p>Intelligent linking systems that connect related content, entities, and concepts semantically.</p>
+            <h3>Repair-Safe Environment</h3>
+            <p>All agent actions are scoped, reversible, and justified by protocol constraints. No blind bulk changes, no template-wide edits without validation, no heuristic-based guessing.</p>
           </div>
         </div>
       </div>
@@ -178,7 +271,7 @@ $GLOBALS['__jsonld'] = $jsonld;
           <li><strong>Googlebot Renderer Lab</strong> — SEO diagnostics</li>
           <li><strong>NEWFAQ</strong> — Sentient FAQ and business intelligence</li>
         </ul>
-        <p>All products share common infrastructure for schema generation, authority scoring, LLM visibility modeling, and semantic linking, creating a cohesive ecosystem.</p>
+        <p>All products share the same MCP infrastructure—schema governance, canonical enforcement, entity model definition, and agent-driven automation. This unified protocol layer ensures consistent technical SEO context across the entire ecosystem.</p>
       </div>
     </div>
 
@@ -190,28 +283,32 @@ $GLOBALS['__jsonld'] = $jsonld;
       <div class="content-block__body">
         <div class="grid" style="gap: 1rem;">
           <details class="content-block">
-            <summary><strong>What is Neural Command OS and how does it power the ecosystem?</strong></summary>
-            <p>Neural Command OS is the universal operating system that powers all products in the Neural Command ecosystem. It provides agentic SEO, schema generation, authority scoring, LLM visibility modeling, intelligent onboarding, API integration, funnel generation, AI Overview optimization, dashboard tools, domain/service/entity ontologies, and semantic linking. All products share this common infrastructure, creating a cohesive ecosystem.</p>
+            <summary><strong>How do we use Neural Command OS?</strong></summary>
+            <p>Neural Command OS is installed, not used manually. We deploy the Model Context Protocol (MCP) which includes schema governance layer deployment, canonical law enforcement, entity model definition, agent permission configuration, and Google Search Console telemetry integration. Once installed, agents operate within the MCP to observe, reason, and act across your site's technical SEO surface. Results surface in Google Search Console improvements, indexing behavior changes, and AI citation rates—not in interfaces you check.</p>
           </details>
           <details class="content-block">
-            <summary><strong>How does Neural Command OS improve AI SEO and search visibility?</strong></summary>
-            <p>Neural Command OS implements comprehensive AI SEO strategies including structured data optimization, entity mapping, canonical enforcement, and LLM seeding. The platform generates JSON-LD schema, implements GEO-16 framework principles, and ensures content is optimized for AI engines like ChatGPT, Claude, and Perplexity. This results in improved citation accuracy, better AI engine visibility, and enhanced search rankings.</p>
+            <summary><strong>What is Neural Command OS?</strong></summary>
+            <p>Neural Command OS is an installed Model Context Protocol (MCP) that governs agent-driven technical SEO. It is not a dashboard, SaaS tool, or plugin. It is a control layer that defines how agents observe, reason, and act across a site's technical SEO surface. The MCP establishes schema governance (JSON-LD as the machine interface), enforces canonical law and indexability constraints, defines entity models and semantic relationships, configures agent permissions and execution boundaries, and connects Google Search Console as telemetry input.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>Can Neural Command OS fix Google Search Console errors?</strong></summary>
+            <p>Yes. Google Search Console is connected as a telemetry input source, not a reporting dashboard. Agents operating under the MCP ingest coverage, indexing, canonical, crawl, and enhancement data from GSC. These signals are normalized into site state, and agents act only when MCP conditions allow remediation. The MCP defines state models that agents use to assess canonical status disagreements, indexing exceptions, structured data errors, coverage anomalies, redirect discrepancies, hreflang mismatches, mobile/usability flags, and crawl budget inefficiencies. All remediation actions are scoped, reversible, and justified by protocol constraints.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>How does Neural Command OS handle schema and structured data?</strong></summary>
+            <p>Schema is positioned as governance, not generation. The MCP deploys JSON-LD schema as the single source of truth for how machines interpret the site. This governance layer enforces consistency, authority, constraint, and disambiguation—not just markup addition. Schema defines canonical law, entity relationships, and indexing constraints. It ensures machine readability for both search engines and LLMs. All schema is scoped to enforce canonical, entity, and indexing law across the site.</p>
+          </details>
+          <details class="content-block">
+            <summary><strong>What constraints do agents have under Neural Command OS?</strong></summary>
+            <p>Agents operating under Neural Command OS have explicit limits for safety and reversibility. Agents do not perform blind bulk changes, do not guess or rely on heuristics, do not deploy template-wide edits without validation, and do not override protocol constraints. Agents are framed as site reliability engineers for search, not AI content tools. All actions are scoped, reversible, and repair-safe. Agents act only when MCP conditions allow remediation, and all changes are justified by protocol constraints.</p>
           </details>
           <details class="content-block">
             <summary><strong>What products are powered by Neural Command OS?</strong></summary>
-            <p>Neural Command OS powers Applicants.io (job schema automation and AI recruiting), OurCasa.ai (property and neighborhood intelligence), Croutons.ai (micro-fact data atomization), Precogs (ontological oracle reasoning), Googlebot Renderer Lab (SEO diagnostics), and NEWFAQ (sentient FAQ and business intelligence). All products leverage the same foundational infrastructure for maximum efficiency and consistency.</p>
+            <p>Neural Command OS powers Applicants.io (job schema automation and AI recruiting), OurCasa.ai (property and neighborhood intelligence), Croutons.ai (micro-fact data atomization), Precogs (ontological oracle reasoning), Googlebot Renderer Lab (SEO diagnostics), and NEWFAQ (sentient FAQ and business intelligence). All products share the same MCP infrastructure for schema governance, canonical enforcement, entity model definition, and agent-driven automation.</p>
           </details>
           <details class="content-block">
-            <summary><strong>How does Neural Command OS handle schema generation and structured data?</strong></summary>
-            <p>The platform automatically generates comprehensive JSON-LD schema including WebPage, BreadcrumbList, Service, LocalBusiness, FAQPage, Product, and Organization schemas. It ensures schema consistency across all page types, validates against Schema.org standards, and optimizes for rich results eligibility. The system uses centralized schema builders that emit consistent structured data across the entire ecosystem.</p>
-          </details>
-          <details class="content-block">
-            <summary><strong>What technical requirements does Neural Command OS have?</strong></summary>
-            <p>Neural Command OS integrates with existing web platforms and content management systems. It requires PHP support, database connectivity for entity storage, API endpoints for dynamic content generation, and support for JSON-LD schema markup. The platform is designed to work with any modern web infrastructure and can be deployed on standard hosting environments.</p>
-          </details>
-          <details class="content-block">
-            <summary><strong>How does Neural Command OS measure and track SEO performance?</strong></summary>
-            <p>The platform provides comprehensive analytics including AI engine citation tracking, crawl efficiency metrics, structured data performance, rich results impressions, and technical health indicators. It monitors Core Web Vitals, mobile usability, canonical coverage, hreflang accuracy, and provides detailed reporting on how optimizations translate to business outcomes.</p>
+            <summary><strong>What are the technical requirements for Neural Command OS installation?</strong></summary>
+            <p>Neural Command OS integrates with existing web platforms and content management systems. Installation requires PHP support, database connectivity for entity storage, API endpoints for dynamic content generation, and support for JSON-LD schema markup. The MCP can be deployed on standard hosting environments and works with any modern web infrastructure. Installation establishes the protocol layer—schema governance, canonical enforcement, entity models, agent permissions, and GSC telemetry integration.</p>
           </details>
         </div>
       </div>
