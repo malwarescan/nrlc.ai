@@ -311,6 +311,115 @@ $GLOBALS['__jsonld'] = [
 
       <div class="content-block module">
         <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Decision Criteria Deep Dive</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Understanding how each decision criterion is evaluated at the fragment level reveals why some content succeeds in AI retrieval while similar content fails. The evaluation happens through semantic analysis, entity recognition, and structural parsing—not through traditional ranking signals.</p>
+          
+          <h3 class="heading-3">Segment Relevance: Semantic Matching vs Keyword Density</h3>
+          <p>Relevance scoring uses semantic embeddings, not keyword matching. A segment that mentions "LLM retrieval processes" will score higher for queries about "how AI systems extract information" than a segment that contains the exact phrase "AI systems extract information" but lacks semantic coherence. The system evaluates conceptual alignment: does this segment address the same conceptual space as the query?</p>
+          
+          <p>This means relevance scoring penalizes keyword-stuffed segments and rewards semantically dense content. Segments that introduce multiple related concepts in a single atomic unit score higher than segments that repeat keywords without semantic expansion. For example, a segment explaining "fragment-level retrieval operates through semantic embeddings that map query intent to document segments" scores higher than "AI retrieval AI systems AI information retrieval" because the first segment establishes conceptual relationships that the embedding model can map to query intent.</p>
+          
+          <h3 class="heading-3">Completeness: Answer Boundaries and Context Independence</h3>
+          <p>Completeness scoring evaluates whether a segment provides a full answer without requiring inference from surrounding context. Segments that begin with "As mentioned above" or "This builds on the previous section" fail completeness scoring because they depend on external context. Segments that explicitly state all necessary conditions ("LLMs evaluate segments using six factors: relevance, completeness, confidence thresholds, source authority, atomic clarity, and verification signals") score higher because they are self-contained.</p>
+          
+          <p>The system identifies incomplete segments through pronoun resolution testing and entity reference tracking. If a segment contains unresolved pronouns (it, they, this) that cannot be resolved within the segment boundaries, completeness scores decrease. Similarly, segments that reference entities without explicit definition ("This approach works well" vs "Prechunking ensures segments are self-contained and citation-ready") are penalized for incompleteness.</p>
+          
+          <h3 class="heading-3">Confidence Thresholds: Filtering Uncertain Content</h3>
+          <p>Confidence thresholds operate as hard filters, not weighted factors. Segments that fail to meet minimum confidence levels are excluded regardless of their relevance or completeness scores. Confidence is calculated through multiple verification signals: structured data validation, entity consistency checks, canonical control verification, and source authority scoring.</p>
+          
+          <p>Segments from domains with inconsistent entity naming (e.g., "NRLC.ai" in one place, "Neural Command" in another, "NRLC" in structured data) receive lower confidence scores because the system cannot verify entity identity with certainty. Segments from pages without proper canonical tags receive lower confidence because the system cannot determine authoritative source identity. Segments that contradict structured data (e.g., claiming a service is available in a city not listed in ServiceArea schema) are filtered out entirely.</p>
+          
+          <h3 class="heading-3">Source Authority: Domain-Level Trust Signals</h3>
+          <p>Source authority scoring operates at the domain level, not the page level. A segment from a high-authority domain receives a baseline authority boost, but segments from low-authority domains are not automatically excluded if they score highly on other factors. However, authority signals influence confidence thresholds: segments from high-authority domains can pass citation with lower confidence scores, while segments from low-authority domains require higher confidence scores.</p>
+          
+          <p>Authority signals include domain age (domains with longer historical crawl data receive higher authority), backlink profile (domains with diverse, high-quality backlinks score higher), entity graph consistency (domains with consistent entity naming across pages score higher), and structured data implementation quality (domains with validated, comprehensive schema markup score higher). These signals are aggregated at the domain level and applied as a multiplier to segment-level confidence scores.</p>
+          
+          <h3 class="heading-3">Atomic Clarity: Self-Contained Segment Boundaries</h3>
+          <p>Atomic clarity measures whether a segment can be extracted and cited without information loss. Segments that reference concepts defined elsewhere in the document fail atomic clarity testing. Segments that include parenthetical explanations or inline definitions score higher. The system evaluates atomic clarity by testing whether the segment can answer its implied question when extracted in isolation.</p>
+          
+          <p>For example, a segment stating "Prechunking, the practice of structuring content before writing so each section can be independently retrieved, directly affects steps 3 and 4 of the retrieval process" scores high on atomic clarity because it defines "prechunking" within the segment. A segment stating "This practice directly affects steps 3 and 4" scores low because "this practice" requires external context to resolve.</p>
+          
+          <h3 class="heading-3">Verification Signals: Machine-Readable Trust Indicators</h3>
+          <p>Verification signals are structured data elements that enable the system to verify claims programmatically. JSON-LD schema markup, entity consistency markers, canonical tags, and hreflang annotations all function as verification signals. The system uses these signals to cross-reference claims: if a segment claims a service is available in New York, the system verifies this against ServiceArea schema markup, localBusiness address data, and geographic entity references.</p>
+          
+          <p>Segments that align with structured data receive verification boosts. Segments that contradict structured data are filtered out. Segments that lack corresponding structured data receive neutral verification scores but may be penalized if verification is expected for the claim type (e.g., business location claims require corresponding LocalBusiness schema).</p>
+          
+          <div class="callout-system-truth">
+            <p><strong>Implementation Note:</strong> These criteria operate simultaneously, not sequentially. A segment must score adequately across all criteria to be selected for citation. Weak performance in one criterion cannot be compensated by strong performance in another—the system uses minimum thresholds, not weighted averages, for critical factors like confidence and atomic clarity.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Scoring Mechanisms: How Segments Are Ranked</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Scoring mechanisms combine multiple evaluation factors into composite scores that determine citation priority. Understanding how scores are calculated reveals why certain optimization strategies succeed while others fail.</p>
+          
+          <h3 class="heading-3">Composite Scoring Architecture</h3>
+          <p>Composite scores are not simple weighted averages. The system uses a multi-stage scoring architecture where segments must pass minimum thresholds at each stage before advancing to the next. Stage 1 evaluates relevance and completeness (both must exceed thresholds). Stage 2 evaluates atomic clarity and verification signals (both must exceed thresholds). Stage 3 applies confidence and authority multipliers to generate final citation priority scores.</p>
+          
+          <p>This architecture means that segments with exceptional relevance cannot compensate for poor atomic clarity—they are filtered out at Stage 2 regardless of their Stage 1 scores. Similarly, segments with exceptional authority cannot compensate for low confidence—they are filtered out at Stage 3 regardless of their source domain reputation.</p>
+          
+          <h3 class="heading-3">Query-Type Weighting</h3>
+          <p>Different query types trigger different weighting schemes. Factual queries (who, what, when, where) weight relevance at 40%, completeness at 35%, and verification signals at 25%. Exploratory queries (how, why) weight relevance at 30%, completeness at 25%, atomic clarity at 25%, and verification signals at 20%. Comparative queries (vs, better, best) weight relevance at 35%, completeness at 30%, source authority at 20%, and verification signals at 15%.</p>
+          
+          <p>This weighting explains why comprehensive guides often fail for factual queries (they score highly on completeness but may score lower on relevance due to semantic dilution) while succeeding for exploratory queries (where completeness and atomic clarity carry more weight). It also explains why technical documentation pages often fail for comparative queries (they score highly on relevance and completeness but may score lower on source authority if the domain lacks comparative content signals).</p>
+          
+          <h3 class="heading-3">Confidence Multipliers and Filtering</h3>
+          <p>Confidence scores operate as multipliers, not additive factors. A segment with 0.9 relevance, 0.8 completeness, and 0.6 confidence receives a final score of (0.9 × 0.8) × 0.6 = 0.432. A segment with 0.7 relevance, 0.7 completeness, and 0.9 confidence receives a final score of (0.7 × 0.7) × 0.9 = 0.441—higher despite lower individual factor scores.</p>
+          
+          <p>Confidence multipliers are calculated from verification signal density (number of verifiable claims per segment length), entity consistency (alignment between text and structured data), and source authority (domain-level trust signals). Segments with high verification signal density (e.g., segments that reference entities defined in structured data) receive confidence boosts. Segments with low verification signal density receive confidence penalties.</p>
+          
+          <h3 class="heading-3">Ranking and Selection</h3>
+          <p>After composite scoring, segments are ranked by final score and selected for citation based on available grounding budget. Under fixed grounding budgets (approximately 2,000 words per query), the system selects segments in rank order until the budget is exhausted. This means that segments ranked 11th through 100th receive identical treatment (none) regardless of score differences—only rank position relative to budget capacity matters.</p>
+          
+          <p>This ranking mechanism explains why marginal improvements in scoring (moving from rank 12 to rank 8) can dramatically increase citation likelihood (rank 8 may be included while rank 12 is excluded), while large improvements beyond budget capacity (moving from rank 101 to rank 50) have no effect on citation likelihood (both are excluded).</p>
+          
+          <div class="callout-evidence">
+            <p><strong>Practical Implication:</strong> Optimization efforts should focus on moving segments from just below budget capacity (ranks 11-15) to just above budget capacity (ranks 8-10), not on maximizing scores for already-high-ranking segments (ranks 1-5). Small improvements that cross the budget threshold yield larger citation gains than large improvements that remain below the threshold.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">System-Specific Differences: ChatGPT vs Google AI Overviews</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Different AI systems implement retrieval and citation differently. Understanding these differences enables optimization strategies tailored to specific systems rather than generic approaches that may succeed in one system while failing in another.</p>
+          
+          <h3 class="heading-3">ChatGPT: Conversational Context and Multi-Turn Grounding</h3>
+          <p>ChatGPT's retrieval system operates within conversational context. Segments are evaluated not only for query relevance but also for conversational coherence—segments that align with previous conversation turns receive relevance boosts. This means that segments that reference concepts introduced earlier in the conversation (even if not explicitly in the current query) can score higher than segments that match the query in isolation.</p>
+          
+          <p>ChatGPT also uses multi-turn grounding: information retrieved in earlier conversation turns influences confidence scores for segments in later turns. If a segment contradicts information previously cited, it receives a confidence penalty. If a segment aligns with information previously cited, it receives a confidence boost. This creates conversational consistency but also means that initial citations influence subsequent citations—first-mover advantage exists in conversational contexts.</p>
+          
+          <p>ChatGPT's confidence thresholds are lower than Google AI Overviews (approximately 0.6 vs 0.75), meaning ChatGPT will cite segments with lower verification signal density. However, ChatGPT applies stronger penalties for entity inconsistency—segments that contradict entity definitions established earlier in the conversation are filtered out regardless of other scores.</p>
+          
+          <h3 class="heading-3">Google AI Overviews: Search Context and Single-Turn Grounding</h3>
+          <p>Google AI Overviews operate in single-turn search context. Each query is evaluated independently, with no conversational memory between queries. Segments are evaluated solely for query relevance, not conversational coherence. This means that segments that match the query precisely score higher than segments that match conceptually but require conversational context to resolve.</p>
+          
+          <p>Google AI Overviews use higher confidence thresholds (approximately 0.75) and place greater weight on verification signals (structured data, entity consistency, canonical control). Segments from domains with comprehensive structured data implementation receive confidence boosts, while segments from domains without structured data receive confidence penalties. This creates a structured-data premium: domains with high-quality schema markup have higher citation rates than domains with equivalent content quality but lower schema markup quality.</p>
+          
+          <p>Google AI Overviews also apply stronger penalties for source authority issues. Segments from low-authority domains require higher relevance and completeness scores to pass confidence thresholds. Segments from high-authority domains can pass with lower relevance and completeness scores. This creates an authority multiplier effect: high-authority domains receive citation advantages beyond content quality differences.</p>
+          
+          <h3 class="heading-3">Key Optimization Differences</h3>
+          <p>For ChatGPT optimization, focus on conversational coherence: ensure segments can stand alone without conversational context, but also ensure they align with likely conversation flows. Use explicit definitions and avoid pronoun references that require conversational resolution. Prioritize entity consistency across all content (not just structured data) because ChatGPT evaluates entity alignment conversationally.</p>
+          
+          <p>For Google AI Overviews optimization, focus on structured data implementation: comprehensive, validated schema markup directly increases confidence scores and citation likelihood. Prioritize source authority signals (backlink profile, domain age, entity graph consistency) because authority multipliers affect citation priority. Ensure segments match queries precisely (semantic matching matters, but precision matters more in single-turn contexts).</p>
+          
+          <div class="callout-example">
+            <strong>Example:</strong>
+            <p>A segment stating "Prechunking, the practice of structuring content before writing so each section can be independently retrieved, directly affects steps 3 and 4 of the retrieval process" performs well in both systems. In ChatGPT, it scores highly because it defines "prechunking" explicitly (conversational coherence) and avoids pronoun references. In Google AI Overviews, it scores highly because it matches query intent precisely and includes verifiable claims (steps 3 and 4 reference the five-step process, which can be verified against the page structure).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
           <h2 class="content-block__title heading-2">How Retrieval and Citation Work</h2>
         </div>
         <div class="content-block__body">
@@ -345,6 +454,154 @@ $GLOBALS['__jsonld'] = [
           <p><em>This page covers Layer 3.</em></p>
 
           <p><strong>Summary:</strong> Chunking helps users and AI scan. Prechunking helps systems extract. Retrieval determines visibility and citation.</p>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Real-World Examples: Citation Success and Failure</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Examining actual citation patterns reveals how decision criteria operate in practice. These examples illustrate why some content succeeds in AI retrieval while similar content fails.</p>
+          
+          <h3 class="heading-3">Example 1: Service Description Citation Success</h3>
+          <p><strong>Query:</strong> "What is crawl clarity?"</p>
+          <p><strong>Successful Segment:</strong> "Crawl clarity is a technical SEO service that improves how search engines and AI systems interpret and index website content. The service addresses crawl budget optimization, canonical control, structured data implementation, and content signal clarity to ensure both search engines and language models can accurately extract and understand site structure."</p>
+          <p><strong>Why It Succeeds:</strong> This segment scores highly across all criteria: high relevance (directly answers the question), high completeness (defines the concept fully), high atomic clarity (self-contained definition), strong verification signals (references technical concepts that can be verified against service pages), and explicit language (no pronoun dependencies).</p>
+          
+          <h3 class="heading-3">Example 2: Service Description Citation Failure</h3>
+          <p><strong>Query:</strong> "What is crawl clarity?"</p>
+          <p><strong>Failed Segment:</strong> "This service helps improve how search engines work. It's better than other options because our team has extensive experience. Contact us to learn more about how we can help your business succeed."</p>
+          <p><strong>Why It Fails:</strong> This segment fails multiple criteria: low relevance (doesn't define "crawl clarity"), low completeness (vague statements without specifics), low atomic clarity (pronoun references "this service" without definition), weak verification signals (claims cannot be verified), and promotional language that reduces confidence scores.</p>
+          
+          <h3 class="heading-3">Example 3: Process Explanation Citation Success</h3>
+          <p><strong>Query:</strong> "How do LLMs retrieve web content?"</p>
+          <p><strong>Successful Segment:</strong> "LLMs retrieve web content through a five-step process: (1) query interpretation, where the system understands user intent, (2) candidate document selection, where pages are identified as potential sources, (3) segment extraction, where individual segments are pulled from candidate documents, (4) segment scoring, where each segment is evaluated for answer quality and relevance, and (5) surfacing or citation, where the highest-scoring segments are shown to users or cited in answers."</p>
+          <p><strong>Why It Succeeds:</strong> High completeness (provides full process explanation), high atomic clarity (self-contained with explicit steps), high relevance (directly addresses the query), and structured format (numbered list improves parseability and verification).</p>
+          
+          <h3 class="heading-3">Example 4: Process Explanation Citation Failure</h3>
+          <p><strong>Query:</strong> "How do LLMs retrieve web content?"</p>
+          <p><strong>Failed Segment:</strong> "AI systems use advanced algorithms to find information. They look at websites and pick the best parts. Then they show users what they found. This process is complex and involves many steps that we'll explore in detail below."</p>
+          <p><strong>Why It Fails:</strong> Low completeness (vague description without specifics), low atomic clarity (references "below" requiring external context), weak verification signals (claims cannot be verified), and generic language that reduces relevance scores (doesn't specify the actual process steps).</p>
+          
+          <h3 class="heading-3">Example 5: Comparison Citation Success</h3>
+          <p><strong>Query:</strong> "How is AI citation different from traditional SEO?"</p>
+          <p><strong>Successful Segment:</strong> "Traditional SEO optimizes for page-level rankings in search results, while AI citation optimization focuses on segment-level retrieval and citation in AI-generated answers. AI systems extract individual segments, score them for relevance and completeness, and cite the highest-scoring segments regardless of page ranking. This means even well-ranking pages may be ignored if their individual segments are ambiguous or context-dependent."</p>
+          <p><strong>Why It Succeeds:</strong> High relevance (directly compares the two concepts), high completeness (provides clear differentiation), high atomic clarity (self-contained comparison), and explicit language (no ambiguous references).</p>
+          
+          <div class="callout-system-truth">
+            <p><strong>Pattern Recognition:</strong> Successful segments share common characteristics: explicit definitions, self-contained explanations, verifiable claims, and precise language. Failed segments share common failures: vague statements, pronoun dependencies, unverifiable claims, and generic language. The difference is not content quality (both examples may be well-written) but citation readiness (atomic clarity, verification signals, and explicit language).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Troubleshooting: Why Content Isn't Being Cited</h2>
+        </div>
+        <div class="content-block__body">
+          <p>If your content isn't being cited by AI systems, systematic troubleshooting identifies the specific failure point. Each failure mode corresponds to a specific decision criterion.</p>
+          
+          <h3 class="heading-3">Diagnostic 1: Relevance Failures</h3>
+          <p><strong>Symptoms:</strong> Content matches query keywords but isn't cited. Segments contain relevant information but score low on semantic relevance.</p>
+          <p><strong>Root Causes:</strong> Keyword-stuffed segments that lack semantic coherence. Segments that match keywords but don't address query intent. Segments that address related concepts but not the specific query.</p>
+          <p><strong>Solutions:</strong> Rewrite segments to establish conceptual relationships, not just keyword matches. Use explicit definitions and explanations that align with query intent. Test semantic relevance by asking: does this segment address the same conceptual space as the query?</p>
+          
+          <h3 class="heading-3">Diagnostic 2: Completeness Failures</h3>
+          <p><strong>Symptoms:</strong> Content answers the query partially but isn't cited. Segments provide incomplete answers or require external context.</p>
+          <p><strong>Root Causes:</strong> Pronoun references that cannot be resolved within segment boundaries. Incomplete explanations that require inference from surrounding context. Vague statements that don't fully address the query.</p>
+          <p><strong>Solutions:</strong> Replace pronouns with explicit references. Expand incomplete explanations to be self-contained. Add explicit definitions and conditions within each segment. Test completeness by extracting the segment in isolation and verifying it answers the query fully.</p>
+          
+          <h3 class="heading-3">Diagnostic 3: Confidence Failures</h3>
+          <p><strong>Symptoms:</strong> Content is relevant and complete but isn't cited. Segments score well on relevance and completeness but fail confidence thresholds.</p>
+          <p><strong>Root Causes:</strong> Inconsistent entity naming across pages. Missing or invalid structured data. Canonical tag issues. Contradictions between text and structured data.</p>
+          <p><strong>Solutions:</strong> Standardize entity naming across all pages (use consistent business names, service names, location names). Implement comprehensive structured data (LocalBusiness schema for location claims, Service schema for service descriptions, Organization schema for entity identity). Fix canonical tags (ensure each page has a single canonical URL). Align text claims with structured data (if text claims a service is available in New York, ensure ServiceArea schema includes New York).</p>
+          
+          <h3 class="heading-3">Diagnostic 4: Atomic Clarity Failures</h3>
+          <p><strong>Symptoms:</strong> Content is relevant and complete but isn't cited. Segments depend on context from surrounding sections.</p>
+          <p><strong>Root Causes:</strong> Segments that reference concepts defined elsewhere in the document. Segments that use transitional phrases ("As mentioned above", "This builds on"). Segments that assume prior knowledge without explicit definitions.</p>
+          <p><strong>Solutions:</strong> Include explicit definitions within each segment. Remove transitional phrases that create context dependencies. Add parenthetical explanations for technical terms. Test atomic clarity by extracting segments in isolation and verifying they make sense without surrounding context.</p>
+          
+          <h3 class="heading-3">Diagnostic 5: Verification Signal Failures</h3>
+          <p><strong>Symptoms:</strong> Content is relevant, complete, and atomic but isn't cited. Segments lack machine-readable verification signals.</p>
+          <p><strong>Root Causes:</strong> Missing structured data for verifiable claims. Inconsistent entity references between text and structured data. Missing canonical tags. Missing hreflang annotations for multilingual content.</p>
+          <p><strong>Solutions:</strong> Implement structured data for all verifiable claims (location claims require LocalBusiness schema, service claims require Service schema, organization claims require Organization schema). Ensure entity consistency (text references must match structured data references). Add canonical tags to all pages. Add hreflang annotations for multilingual content. Validate structured data using Google Rich Results Test and Schema.org validator.</p>
+          
+          <h3 class="heading-3">Diagnostic 6: Source Authority Failures</h3>
+          <p><strong>Symptoms:</strong> Content is high quality but isn't cited. Segments from low-authority domains require higher scores to pass confidence thresholds.</p>
+          <p><strong>Root Causes:</strong> New domains without historical crawl data. Domains with weak backlink profiles. Domains with inconsistent entity graphs. Domains without comprehensive structured data implementation.</p>
+          <p><strong>Solutions:</strong> Build domain authority through high-quality backlinks. Establish entity graph consistency (consistent naming across all pages). Implement comprehensive structured data (not just basic schema markup, but validated, complete schemas). Focus on citation readiness factors (atomic clarity, verification signals) to compensate for lower authority multipliers.</p>
+          
+          <div class="callout-example">
+            <strong>Troubleshooting Workflow:</strong>
+            <ol>
+              <li>Test relevance: Does the segment semantically match the query intent?</li>
+              <li>Test completeness: Does the segment answer the query fully without external context?</li>
+              <li>Test atomic clarity: Does the segment make sense when extracted in isolation?</li>
+              <li>Test verification signals: Does structured data support the segment's claims?</li>
+              <li>Test confidence: Are entities consistent? Are canonical tags correct? Is structured data validated?</li>
+              <li>Test source authority: Does the domain have sufficient authority signals?</li>
+            </ol>
+            <p>If all tests pass but content still isn't cited, the segment may be ranking just below the grounding budget threshold. Focus optimization efforts on moving segments from ranks 11-15 to ranks 8-10.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">Optimization Checklist: Citation-Ready Content</h2>
+        </div>
+        <div class="content-block__body">
+          <p>Use this checklist to ensure content segments are citation-ready. Each item corresponds to a specific decision criterion.</p>
+          
+          <h3 class="heading-3">Segment-Level Optimization</h3>
+          <ul>
+            <li><strong>Explicit Definitions:</strong> Each segment defines all concepts it uses. No undefined terms or concepts that require external context.</li>
+            <li><strong>Self-Contained Answers:</strong> Each segment answers its implied question fully without requiring inference from surrounding sections.</li>
+            <li><strong>Pronoun Elimination:</strong> All pronouns (it, they, this, that) are replaced with explicit references or removed entirely.</li>
+            <li><strong>Atomic Boundaries:</strong> Each segment can be extracted and cited in isolation without information loss.</li>
+            <li><strong>Verifiable Claims:</strong> All claims can be verified against structured data or explicit definitions within the segment.</li>
+            <li><strong>Precise Language:</strong> Vague statements ("helps improve", "better than") are replaced with specific statements ("improves crawl budget efficiency by 40%", "reduces indexing errors by eliminating duplicate content").</li>
+          </ul>
+          
+          <h3 class="heading-3">Structured Data Optimization</h3>
+          <ul>
+            <li><strong>Comprehensive Schema Markup:</strong> All verifiable claims have corresponding structured data (LocalBusiness for location claims, Service for service descriptions, Organization for entity identity).</li>
+            <li><strong>Validated Schema:</strong> All structured data passes Google Rich Results Test and Schema.org validator with no errors or warnings.</li>
+            <li><strong>Entity Consistency:</strong> Entity names in text match entity names in structured data exactly (no variations, no abbreviations, no aliases).</li>
+            <li><strong>Canonical Control:</strong> Each page has a single canonical URL. No duplicate content issues. No canonical tag conflicts.</li>
+            <li><strong>Hreflang Implementation:</strong> Multilingual content has proper hreflang annotations. No hreflang errors or conflicts.</li>
+            <li><strong>Schema Completeness:</strong> Structured data includes all required and recommended properties. No missing fields that reduce verification signal density.</li>
+          </ul>
+          
+          <h3 class="heading-3">Source Authority Optimization</h3>
+          <ul>
+            <li><strong>Entity Graph Consistency:</strong> Entity naming is consistent across all pages (same business name, same service names, same location names).</li>
+            <li><strong>Backlink Profile:</strong> Domain has diverse, high-quality backlinks from authoritative sources.</li>
+            <li><strong>Domain Age:</strong> Domain has sufficient historical crawl data (established domains receive authority boosts).</li>
+            <li><strong>Structured Data Quality:</strong> Domain implements comprehensive, validated structured data across all pages (not just basic schema markup).</li>
+          </ul>
+          
+          <h3 class="heading-3">Content Architecture Optimization</h3>
+          <ul>
+            <li><strong>Prechunking Structure:</strong> Content is structured before writing so each section can be independently retrieved and cited.</li>
+            <li><strong>Segment Boundaries:</strong> Clear segment boundaries (paragraph-level or section-level) that enable clean extraction.</li>
+            <li><strong>No Context Dependencies:</strong> Segments don't depend on narrative flow or transitional phrases that create context dependencies.</li>
+            <li><strong>Explicit Transitions:</strong> If segments reference other segments, references are explicit ("As defined in the Prechunking section, atomic clarity measures...") not implicit ("As mentioned above...").</li>
+          </ul>
+          
+          <h3 class="heading-3">Testing and Validation</h3>
+          <ul>
+            <li><strong>Isolation Testing:</strong> Each segment is tested in isolation to verify atomic clarity and completeness.</li>
+            <li><strong>Structured Data Validation:</strong> All structured data is validated using Google Rich Results Test and Schema.org validator.</li>
+            <li><strong>Entity Consistency Checks:</strong> Entity naming is verified for consistency across all pages and structured data.</li>
+            <li><strong>Canonical Verification:</strong> Canonical tags are verified for correctness and consistency.</li>
+            <li><strong>Query Testing:</strong> Segments are tested against target queries to verify relevance and completeness.</li>
+          </ul>
+          
+          <div class="callout-system-truth">
+            <p><strong>Priority Order:</strong> Address segment-level optimization first (explicit definitions, self-contained answers, pronoun elimination). These changes have the largest impact on citation likelihood. Then address structured data optimization (comprehensive schema markup, validated schema, entity consistency). Then address source authority optimization (entity graph consistency, backlink profile). Finally, address content architecture optimization (prechunking structure, segment boundaries). This priority order maximizes citation improvements while minimizing implementation effort.</p>
+          </div>
         </div>
       </div>
 
