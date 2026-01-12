@@ -3,6 +3,8 @@
 // Metadata is now set in router via ctx-based system
 // Remove old placeholder metadata to prevent conflicts
 
+// Note: head.php and header.php are already included by router.php render_page()
+// Metadata is set by router via sudo_meta_directive_ctx()
 require_once __DIR__ . '/../../lib/deterministic.php';
 
 $industrySlug = $_GET['industry'] ?? 'healthcare';
@@ -11,142 +13,156 @@ $industryName = ucwords(str_replace('-', ' ', $industrySlug));
 // Generate deterministic content based on industry
 det_seed("industry|$industrySlug");
 
-$intro = det_pick([
-  "AI SEO optimization for {$industryName} companies requires industry-specific structured data and entity clarity.",
-  "The {$industryName} sector benefits from specialized LLM seeding strategies that align with regulatory requirements.",
-  "Our GEO-16 framework implementation for {$industryName} organizations focuses on compliance-aware content optimization."
-], 1)[0];
+// Industry-specific intro paragraphs explaining why AI search behaves differently
+$industryIntros = [
+  'healthcare' => "Healthcare environments introduce entity ambiguity (medical terminology, credential disambiguation, specialty mapping), compliance pressure (HIPAA-compliant schema governance, regulatory constraint enforcement), and retrieval risk (trust signal requirements, credential verification, medical accuracy standards). Generic SEO fails here because AI systems cannot distinguish qualified providers from unregulated entities without structured credential declarations, MedicalBusiness schema, and explicit trust signals. This industry requires specialized Model Context Protocol (MCP) constraints: medical entity graphs, HIPAA-compliant schema enforcement, credential verification rules, and agent safety boundaries for regulatory compliance.",
+  'fintech' => "Fintech environments introduce entity ambiguity (financial terminology, service classification, regulatory status), compliance pressure (regulatory compliance schemas, financial data protection, trust signal requirements), and retrieval risk (misclassification as unregulated entity, missing credential signals, regulatory non-compliance). Generic SEO fails here because AI systems cannot distinguish regulated financial services from unregulated entities without structured regulatory declarations, FinancialService schema, and explicit trust signals. This industry requires specialized MCP constraints: financial entity graphs, regulatory compliance schema enforcement, trust signal rules, and agent safety boundaries for financial data protection.",
+  'ecommerce' => "E-commerce environments introduce entity ambiguity (product relationships, pricing signals, inventory status), compliance pressure (product schema governance, pricing accuracy, availability signals), and retrieval risk (product misclassification, pricing inconsistency, inventory hallucination). Generic SEO fails here because AI systems cannot accurately recommend products, display pricing, or verify availability without structured Product schema, Offer schema, and explicit entity relationships. This industry requires specialized MCP constraints: product entity graphs, pricing schema enforcement, inventory signal rules, and agent safety boundaries for product data accuracy.",
+  'saas' => "SaaS environments introduce entity ambiguity (software classification, service definitions, API relationships), compliance pressure (SoftwareApplication schema governance, service description accuracy, feature mapping), and retrieval risk (service misclassification, feature hallucination, API endpoint errors). Generic SEO fails here because AI systems cannot accurately recommend software, describe features, or map integrations without structured SoftwareApplication schema, Service schema, and explicit entity relationships. This industry requires specialized MCP constraints: software entity graphs, service schema enforcement, API relationship rules, and agent safety boundaries for software data accuracy.",
+  'education' => "Education environments introduce entity ambiguity (institution classification, credential mapping, program definitions), compliance pressure (EducationalOccupationalProgram schema governance, credential verification, accreditation signals), and retrieval risk (credential misclassification, program hallucination, accreditation confusion). Generic SEO fails here because AI systems cannot accurately recommend educational programs, verify credentials, or map accreditation without structured EducationalOrganization schema, Program schema, and explicit entity relationships. This industry requires specialized MCP constraints: educational entity graphs, credential schema enforcement, accreditation signal rules, and agent safety boundaries for educational data accuracy.",
+  'real-estate' => "Real estate environments introduce entity ambiguity (property classification, location mapping, listing relationships), compliance pressure (RealEstateAgent schema governance, property data accuracy, location signals), and retrieval risk (property misclassification, location hallucination, listing inconsistency). Generic SEO fails here because AI systems cannot accurately recommend properties, verify locations, or map listings without structured RealEstateAgent schema, Place schema, and explicit entity relationships. This industry requires specialized MCP constraints: property entity graphs, location schema enforcement, listing signal rules, and agent safety boundaries for property data accuracy.",
+  'legal' => "Legal environments introduce entity ambiguity (service classification, jurisdiction mapping, practice area definitions), compliance pressure (LegalService schema governance, jurisdiction verification, credential signals), and retrieval risk (service misclassification, jurisdiction hallucination, credential confusion). Generic SEO fails here because AI systems cannot accurately recommend legal services, verify jurisdictions, or map practice areas without structured LegalService schema, Place schema, and explicit entity relationships. This industry requires specialized MCP constraints: legal entity graphs, jurisdiction schema enforcement, credential signal rules, and agent safety boundaries for legal data accuracy."
+];
 
-$challenges = det_pick([
-  "Regulatory compliance in {$industryName} demands precise metadata and structured data implementation.",
-  "Complex industry terminology requires enhanced entity disambiguation and semantic markup.",
-  "Multi-stakeholder content approval processes necessitate robust canonical and hreflang management."
+// Default intro for unknown industries
+$defaultIntro = "{$industryName} environments introduce distinct entity relationships, schema priorities, regulatory constraints, indexing behavior, and retrieval risk that require specialized Model Context Protocol (MCP) configurations. Generic SEO fails here because AI systems cannot accurately interpret industry-specific entities, verify credentials, or map relationships without structured schema governance, entity graphs, and explicit trust signals. This industry requires specialized MCP constraints: industry-specific entity graphs, regulatory schema enforcement, trust signal rules, and agent safety boundaries for data accuracy and compliance.";
+
+$intro = $industryIntros[strtolower($industrySlug)] ?? $defaultIntro;
+
+// Industry-specific constraints
+$constraints = det_pick([
+  "Entity graph complexity requires explicit relationship mapping (services, locations, credentials, regulatory status)",
+  "Schema governance must enforce industry-specific compliance (regulatory schemas, trust signals, credential verification)",
+  "Agent constraints must prevent generic SEO heuristics (no template-wide edits, no heuristic-based optimization)",
+  "Retrieval risk requires specialized trust signals (credential declarations, compliance indicators, accuracy standards)",
+  "Indexing behavior differs from generic SEO (regulatory constraints, credential requirements, compliance boundaries)"
 ], 3);
 
-$solutions = det_pick([
-  "Industry-specific schema markup aligned with {$industryName} best practices and compliance requirements.",
-  "Custom entity mapping for {$industryName} terminology and regulatory frameworks.",
-  "Automated content validation ensuring industry compliance while maintaining SEO effectiveness."
+// Industry-specific entity challenges
+$entityChallenges = det_pick([
+  "Entity ambiguity (industry terminology, classification, relationship mapping)",
+  "Compliance pressure (regulatory schemas, trust signals, credential verification)",
+  "Retrieval risk (misclassification, hallucination, trust signal absence)",
+  "Schema strictness (required properties, format constraints, relationship definitions)",
+  "Agent constraint necessity (protocol boundaries, safety rules, reversible changes)"
 ], 3);
 
+// Industry-specific FAQs
 $faqs = det_pick([
-  ["How does AI SEO differ for {$industryName}?", "Industry-specific compliance requirements and terminology demand specialized structured data implementation."],
-  ["What structured data is most important for {$industryName}?", "Regulatory compliance schemas, industry-specific entities, and authoritative source markup."],
-  ["How quickly can we see results in {$industryName}?", "Typical implementation shows measurable improvements within 60-90 days of deployment."]
+  ["Why does {$industryName} require specialized MCP configuration?", "{$industryName} environments introduce distinct entity relationships, schema priorities, regulatory constraints, and retrieval risk. Generic SEO cannot address industry-specific entity ambiguity, compliance pressure, or trust signal requirements. Specialized MCP configurations define how agents operate, how schema is enforced, and how information is made extractable for AI systems like ChatGPT, Perplexity, and Google AI Overviews."],
+  ["What constraints are enforced for {$industryName} environments?", "MCP constraints for {$industryName} include: entity graph definitions (explicit relationship mapping), schema governance (regulatory compliance enforcement), agent safety rules (protocol boundaries, reversible changes), and trust signal requirements (credential declarations, compliance indicators). These constraints ensure AI systems can accurately interpret, verify, and cite industry-specific information."],
+  ["How does this differ from generic SEO?", "Generic SEO relies on heuristics, templates, and universal rules. {$industryName} MCP configurations define industry-specific entity graphs, regulatory schema enforcement, and agent safety boundaries. This is not a reusable SEO playbook—it is a tailored system configuration that governs how agents observe, reason, and act within industry constraints."],
+  ["What schema is required for {$industryName}?", "Industry-specific schema depends on regulatory requirements, entity relationships, and trust signal needs. Common schemas include industry-specific entity types (MedicalBusiness, FinancialService, SoftwareApplication), regulatory compliance indicators, credential declarations, and explicit relationship mappings. Schema is deployed as governance, not markup—enforcing authority, constraint, and disambiguation."],
+  ["How are agents constrained for {$industryName}?", "Agents operating under {$industryName} MCP configurations have explicit limits: no blind bulk changes, no heuristic-based optimization, no template-wide edits without validation, no protocol constraint overrides. Agents are framed as system reliability engineers for search, not AI content tools. All actions are scoped, reversible, and repair-safe."]
 ], 3);
 ?>
 
-<section class="window container prose">
-  <h1><?= htmlspecialchars($industryName) ?> AI SEO Services</h1>
-  
-  <p class="lead"><?= htmlspecialchars($intro) ?></p>
-  
-  <h2>Industry-Specific Challenges</h2>
-  <p>The <?= htmlspecialchars($industryName) ?> sector faces unique challenges when it comes to AI SEO optimization. These challenges require specialized approaches and deep industry knowledge to address effectively.</p>
-  
-  <ul>
-    <?php foreach ($challenges as $challenge): ?>
-    <li><?= htmlspecialchars($challenge) ?></li>
-    <?php endforeach; ?>
-  </ul>
-  
-  <p>These challenges are compounded by the rapid evolution of AI search engines and the increasing importance of structured data in content discovery. Organizations in the <?= htmlspecialchars($industryName) ?> sector must stay ahead of these trends to maintain competitive advantage.</p>
-  
-  <h2>Our Solutions</h2>
-  <p>Our comprehensive approach to <?= htmlspecialchars($industryName) ?> AI SEO addresses these challenges through proven methodologies and industry-specific expertise.</p>
-  
-  <ul>
-    <?php foreach ($solutions as $solution): ?>
-    <li><?= htmlspecialchars($solution) ?></li>
-    <?php endforeach; ?>
-  </ul>
-  
-  <h2>Implementation Process</h2>
-  <p>Our implementation process for <?= htmlspecialchars($industryName) ?> organizations follows a structured approach that ensures maximum impact and sustainable results.</p>
-  
-  <ol>
-    <li><strong>Industry Assessment:</strong> We begin with a comprehensive analysis of your current AI SEO performance, identifying specific opportunities for improvement within the <?= htmlspecialchars($industryName) ?> context.</li>
-    <li><strong>Strategy Development:</strong> Based on our assessment, we develop a customized strategy that addresses your unique challenges and leverages industry-specific opportunities.</li>
-    <li><strong>Content Optimization:</strong> We optimize your existing content and develop new content that meets AI engine requirements while maintaining relevance for your target audience.</li>
-    <li><strong>Technical Implementation:</strong> Our technical team implements the necessary changes to your website's structure, ensuring optimal performance across all AI search engines.</li>
-    <li><strong>Monitoring and Optimization:</strong> We continuously monitor your performance and make adjustments as needed to ensure sustained improvement.</li>
-  </ol>
-  
-  <h2>Success Metrics</h2>
-  <p>We track a variety of metrics to measure the success of our <?= htmlspecialchars($industryName) ?> AI SEO initiatives:</p>
-  
-  <ul>
-    <li><strong>AI Engine Citations:</strong> Increased visibility in AI-powered search results</li>
-    <li><strong>Organic Traffic Growth:</strong> Measurable improvement in organic search traffic</li>
-    <li><strong>Content Performance:</strong> Enhanced engagement metrics for optimized content</li>
-    <li><strong>Competitive Positioning:</strong> Improved ranking relative to industry competitors</li>
-    <li><strong>ROI Measurement:</strong> Clear demonstration of return on investment</li>
-  </ul>
-  
-  <h2>Industry-Specific Considerations</h2>
-  <p>The <?= htmlspecialchars($industryName) ?> sector has unique characteristics that must be considered when implementing AI SEO strategies. These considerations go beyond standard SEO practices and require specialized knowledge and expertise.</p>
-  
-  <h3>Regulatory Compliance</h3>
-  <p>Organizations in the <?= htmlspecialchars($industryName) ?> sector must ensure that their AI SEO initiatives comply with relevant regulations and industry standards. This includes maintaining data privacy, ensuring content accuracy, and following industry-specific guidelines for digital marketing.</p>
-  
-  <h3>Technical Requirements</h3>
-  <p>The technical infrastructure required for effective AI SEO in the <?= htmlspecialchars($industryName) ?> sector often involves specialized systems and integrations. Organizations must ensure that their technical setup can support the advanced features required for optimal AI engine performance.</p>
-  
-  <h3>Content Strategy</h3>
-  <p>Content development for the <?= htmlspecialchars($industryName) ?> sector requires careful consideration of industry terminology, audience expectations, and competitive landscape. Content must be both technically accurate and accessible to the target audience.</p>
-  
-  <h2>Future Trends and Developments</h2>
-  <p>The <?= htmlspecialchars($industryName) ?> sector is rapidly evolving, and AI SEO strategies must adapt to keep pace with these changes. Organizations that stay ahead of these trends will maintain their competitive advantage.</p>
-  
-  <ul>
-    <li><strong>Emerging Technologies:</strong> New AI technologies and search algorithms will continue to evolve</li>
-    <li><strong>Regulatory Changes:</strong> Industry regulations may impact AI SEO strategies and implementation</li>
-    <li><strong>Consumer Behavior:</strong> Changing consumer preferences will influence content and optimization strategies</li>
-    <li><strong>Competitive Landscape:</strong> New competitors and market entrants will affect positioning strategies</li>
-    <li><strong>Technical Innovation:</strong> Advances in technology will create new opportunities and challenges</li>
-  </ul>
-  
-  <h2>Frequently Asked Questions</h2>
-  <div class="grid" class="grid-gap-4">
-    <?php foreach ($faqs as $faq): ?>
-    <details style="padding: 1rem;">
-      <summary><strong><?= htmlspecialchars($faq[0]) ?></strong></summary>
-      <p class="small muted"><?= htmlspecialchars($faq[1]) ?></p>
-    </details>
-    <?php endforeach; ?>
-  </div>
-  
-  <div class="status-bar">
-    <p class="status-bar-field">Ready to optimize your <?= htmlspecialchars($industryName) ?> presence for AI engines?</p>
-    <button class="btn ripple" onclick="window.location.href='/services/'">Get Started with AI SEO</button>
-  </div>
-  
-  <!-- Required Internal Links Section -->
-  <div class="content-block module" style="margin-top: 2rem;">
-    <div class="content-block__header">
-      <h2 class="content-block__title">Related Resources</h2>
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
+    
+    <!-- Hero Block -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h1 class="content-block__title">AI Search System Configuration for <?= htmlspecialchars($industryName) ?> Environments</h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead"><?= htmlspecialchars($intro) ?></p>
+      </div>
     </div>
-    <div class="content-block__body">
-      <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for industry-specific technical SEO optimization.</p>
-      <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
-      <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and learn more about <a href="/industries/">Industry-Specific Solutions</a>.</p>
-      <p><a href="/services/" class="btn">Get Started with AI SEO</a></p>
+
+    <!-- Industry Constraints -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Why Generic SEO Fails Here</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Generic SEO strategies cannot address <?= htmlspecialchars($industryName) ?>-specific requirements. AI search systems require specialized configurations to accurately interpret, verify, and cite industry information:</p>
+        <ul>
+          <?php foreach ($entityChallenges as $challenge): ?>
+          <li><?= htmlspecialchars($challenge) ?></li>
+          <?php endforeach; ?>
+        </ul>
+        <p>These challenges require Model Context Protocol (MCP) configurations that define how agents operate, how schema is enforced, and how information is made extractable for AI systems like ChatGPT, Perplexity, and Google AI Overviews.</p>
+      </div>
     </div>
+
+    <!-- MCP Configuration -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">MCP Constraints for <?= htmlspecialchars($industryName) ?> Environments</h2>
+      </div>
+      <div class="content-block__body">
+        <p>This industry configuration defines specialized constraints for <a href="/en-us/products/neural-command-os/">Neural Command OS</a> agents operating within <?= htmlspecialchars($industryName) ?> environments:</p>
+        <ul>
+          <?php foreach ($constraints as $constraint): ?>
+          <li><?= htmlspecialchars($constraint) ?></li>
+          <?php endforeach; ?>
+        </ul>
+        <div class="callout-system-truth" style="margin: 1.5rem 0; padding: 1rem; border-left: 4px solid var(--color-brand, #12355e); background: var(--color-background-alt, #f5f5f5);">
+          <p><strong>This is not a reusable SEO playbook.</strong></p>
+          <p>This configuration governs how agents observe, reason, and act within <?= htmlspecialchars($industryName) ?> constraints. Agents do not perform blind bulk changes, do not guess or rely on heuristics, and do not override protocol constraints. All actions are scoped, reversible, and repair-safe.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Frequently Asked Questions</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="grid grid-auto-fit">
+          <?php foreach ($faqs as $faq): ?>
+          <details class="content-block">
+            <summary><strong><?= htmlspecialchars($faq[0]) ?></strong></summary>
+            <p><?= htmlspecialchars($faq[1]) ?></p>
+          </details>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Architecture -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">System Architecture</h2>
+      </div>
+      <div class="content-block__body">
+        <div class="callout-system-truth" style="margin: 1.5rem 0; padding: 1rem; border-left: 4px solid var(--color-brand, #12355e); background: var(--color-background-alt, #f5f5f5);">
+          <p>This <?= htmlspecialchars($industryName) ?> configuration is part of the Neural Command OS architecture. <a href="/en-us/products/neural-command-os/">Neural Command OS</a> installs the Model Context Protocol (MCP) that governs how agents operate. Industry configurations define specialized constraints within that protocol.</p>
+          <p>Services like <a href="/en-us/services/crawl-clarity/">Crawl Clarity Engineering</a> and <a href="/en-us/services/technical-seo/">Technical SEO</a> are applied within this configuration, not as standalone solutions. <a href="/en-us/training/">Training</a> teaches teams how to supervise agents operating within these constraints.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+</main>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "<?= htmlspecialchars($industryName) ?> AI SEO Services",
-  "description": "Specialized AI SEO optimization for <?= htmlspecialchars($industryName) ?> companies",
-  "provider": {
-    "@type": "Organization",
-    "name": "NRLC.ai"
+  "@type": "WebPage",
+  "name": "AI Search System Configuration — <?= htmlspecialchars($industryName) ?>",
+  "description": "Industry-specific AI search system configuration defining entity constraints, schema governance, agent safety rules, and retrieval behavior for <?= htmlspecialchars($industryName) ?> environments.",
+  "url": "https://nrlc.ai/en-us/industries/<?= htmlspecialchars($industrySlug) ?>/",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "name": "Industries",
+    "url": "https://nrlc.ai/en-us/industries/"
   },
-  "areaServed": "Worldwide",
-  "serviceType": "AI SEO Optimization"
+  "about": {
+    "@type": "Thing",
+    "name": "<?= htmlspecialchars($industryName) ?> AI Search Environment",
+    "description": "A constrained AI search environment requiring specialized Model Context Protocols, agent governance, and schema enforcement."
+  },
+  "mentions": {
+    "@type": "SoftwareApplication",
+    "name": "Neural Command OS",
+    "applicationCategory": "AI Search Infrastructure",
+    "url": "https://nrlc.ai/en-us/products/neural-command-os/"
+  }
 }
 </script>
 
@@ -168,3 +184,8 @@ $faqs = det_pick([
   ]
 }
 </script>
+
+<?php
+// Note: footer.php is already included by router.php render_page()
+// Do not duplicate it here to avoid double footers
+?>
