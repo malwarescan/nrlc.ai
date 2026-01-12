@@ -1165,16 +1165,15 @@ function route_request(): void {
     return;
   }
 
+  // META DIRECTIVE KERNEL: /en-us/services/
+  // Intent: Commercial intent, but technical buyer
+  // Title: Describe capability, not selling
   if ($path === '/services/') {
-    // Generate unique metadata using ctx-based system
-    require_once __DIR__.'/../lib/meta_directive.php';
-    $ctx = [
-      'type' => 'service',
-      'slug' => 'services/index',
-      'service' => 'services',
+    $GLOBALS['__page_meta'] = [
+      'title' => 'AI SEO and Generative Search Optimization Services',
+      'description' => 'Technical services focused on correcting AI retrieval failures through diagnostics, structured data execution, and system-level content architecture.',
       'canonicalPath' => $path
     ];
-    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('services/index');
     return;
   }
