@@ -217,6 +217,17 @@ function route_request(): void {
       return;
     }
     
+    // Shopify AI SEO Service
+    if ($m[1] === 'shopify-ai-seo') {
+      $GLOBALS['__page_meta'] = [
+        'title' => 'Shopify AI SEO, AEO & GEO Optimization | NRLC.ai',
+        'description' => 'Shopify AI SEO services optimized for Google AI Overviews, ChatGPT, Claude, and Perplexity. Fix canonical failures, schema conflicts, and retrieval shape issues that prevent Shopify stores from being cited by AI systems.',
+        'canonicalPath' => $path
+      ];
+      render_page('services/shopify-ai-seo');
+      return;
+    }
+    
     // SUDO CANONICAL: Special handling for AI Overviews Optimization
     if ($m[1] === 'ai-overviews-optimization') {
       $GLOBALS['__page_meta'] = [
