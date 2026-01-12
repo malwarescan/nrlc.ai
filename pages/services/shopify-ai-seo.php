@@ -3,9 +3,8 @@
  * Shopify AI SEO, AEO & GEO Optimization Service
  * URL: /en-us/services/shopify-ai-seo/
  * 
- * Positioned as the authority on Shopify AI SEO, AEO, GEO, and LLM optimization.
- * Structured for machines first, buyers second.
- * Explains two paths: AI Visibility Lite vs Full Infrastructure.
+ * Form-less system that forces correct self-selection, controls scope, and protects sales.
+ * Done entirely through page copy, page structure, and explicit gating language.
  */
 
 require_once __DIR__.'/../../lib/helpers.php';
@@ -22,7 +21,7 @@ $GLOBALS['__jsonld'] = [
     '@type' => 'WebPage',
     '@id' => $canonicalUrl . '#webpage',
     'url' => $canonicalUrl,
-    'name' => 'Shopify AI SEO, AEO & GEO Optimization | NRLC.ai',
+    'name' => 'Shopify AI SEO Services | NRLC.ai',
     'description' => 'Shopify AI SEO services optimized for Google AI Overviews, ChatGPT, Claude, and Perplexity. Two paths: AI Visibility Lite for fast exposure, or Full Infrastructure for durable authority.',
     'isPartOf' => [
       '@type' => 'WebSite',
@@ -44,7 +43,7 @@ $GLOBALS['__jsonld'] = [
     '@context' => 'https://schema.org',
     '@type' => 'Service',
     '@id' => $canonicalUrl . '#service',
-    'name' => 'Shopify AI SEO, AEO & GEO Optimization',
+    'name' => 'Shopify AI SEO Services',
     'serviceType' => 'E-commerce AI Search Optimization',
     'description' => 'Shopify SEO services optimized for AI search systems including Google AI Overviews, ChatGPT, Claude, and Perplexity. Two paths: AI Visibility Lite for fast exposure, or Full Infrastructure for durable authority.',
     'provider' => [
@@ -63,42 +62,42 @@ $GLOBALS['__jsonld'] = [
     'mainEntity' => [
       [
         '@type' => 'Question',
-        'name' => 'What is the difference between AI Visibility Lite and Full Infrastructure?',
+        'name' => 'Can I start with Lite and upgrade later?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'AI Visibility Lite creates one canonical AI-focused page for fast exposure in AI answers. Full Infrastructure rebuilds search visibility as a system with canonical governance, schema governance, and scalable control. You can appear in AI answers without fixing everything, but you cannot stay there without structure.'
+          'text' => 'Yes. Lite is a proving ground. It is not a foundation.'
         ]
       ],
       [
         '@type' => 'Question',
-        'name' => 'Which path should I choose for my Shopify store?',
+        'name' => 'Will Lite fix my Shopify SEO?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'Choose AI Visibility Lite if you want fast exposure, have a small catalog, or want proof before investing further. Choose Full Infrastructure if you want durable authority, have a large catalog, compete in saturated markets, or need scalable control.'
+          'text' => 'No. It only creates one trusted AI surface.'
         ]
       ],
       [
         '@type' => 'Question',
-        'name' => 'Does AI Visibility Lite guarantee permanent AI placement?',
+        'name' => 'Can you guarantee AI placement?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'No. AI Visibility Lite is about entry, not dominance. It creates a single authoritative surface for fast exposure but does not fix Shopify canonical sprawl or scale across large catalogs. Full Infrastructure provides durable authority through structural control.'
+          'text' => 'No. No one can. We optimize for eligibility and trust.'
         ]
       ],
       [
         '@type' => 'Question',
-        'name' => 'Can I upgrade from AI Visibility Lite to Full Infrastructure?',
+        'name' => 'Why is this so strict?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'Yes. AI Visibility Lite serves as an entry point and proof layer. Brands that see AI citations working and want to scale, have multiple products or categories, or need long-term positioning can upgrade to Full Infrastructure.'
+          'text' => 'Because unclear boundaries destroy outcomes.'
         ]
       ],
       [
         '@type' => 'Question',
-        'name' => 'Why is Shopify SEO broken for AI search systems?',
+        'name' => 'What is the difference between AI Visibility Lite and Infrastructure?',
         'acceptedAnswer' => [
           '@type' => 'Answer',
-          'text' => 'Shopify was designed for traditional ranking, not AI extraction. It creates duplicate URLs, canonical conflicts, schema pollution from apps, and human-only content that AI systems cannot safely summarize or cite.'
+          'text' => 'AI Visibility Lite creates one canonical AI-focused page for fast exposure. Infrastructure rebuilds search visibility as a system with canonical governance, schema governance, and scalable control. You can enter AI answers without fixing everything, but you cannot stay there without structure.'
         ]
       ]
     ]
@@ -113,14 +112,12 @@ $GLOBALS['__jsonld'] = [
     <!-- Hero -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">Shopify AI SEO, AEO, and GEO</h1>
+        <h1 class="content-block__title">Shopify AI SEO Services</h1>
       </div>
       <div class="content-block__body">
-        <h2>Two Paths to AI Visibility</h2>
-        <p class="lead">Not every Shopify brand wants the same outcome.</p>
-        <p>Some brands want to appear in AI answers quickly.<br>Others want long term control over how search engines and AI systems understand their store.</p>
-        <p>These are different goals.<br>They require different systems.</p>
-        <p><strong>We offer both.</strong></p>
+        <h2>Choose the Path That Matches Your Reality</h2>
+        <p class="lead">This page is intentionally explicit.</p>
+        <p>If you read it carefully, you will already know which path applies to you.<br>If you do not, we will not proceed.</p>
       </div>
     </div>
 
@@ -130,158 +127,144 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title">Path One: AI Visibility Lite</h2>
       </div>
       <div class="content-block__body">
-        <p class="lead"><strong>For Shopify brands that want to appear in AI answers without rebuilding their store</strong></p>
-        <p>AI Visibility Lite is designed for brands that want exposure inside:</p>
-        <ul>
-          <li>Google AI Overviews</li>
-          <li>ChatGPT responses</li>
-          <li>Perplexity summaries</li>
-          <li>"Best product for" style queries</li>
-        </ul>
-        <p>This path does not restructure your Shopify store.<br>It creates a single authoritative surface that AI systems can safely extract from.</p>
+        <h3>This path exists for one reason</h3>
+        <p>To let Shopify brands appear in AI answers without rebuilding their store.</p>
+        <p>You should choose this path only if all of the following are true.</p>
         
-        <h3>What We Build</h3>
+        <h3>This Path Is For You If</h3>
         <ul>
-          <li>One canonical AI focused page</li>
-          <li>Clear question and answer blocks</li>
-          <li>Explicit product definitions</li>
-          <li>Lightweight schema only where needed</li>
-          <li>Clean entity identity for brand and product</li>
-          <li>External reinforcement so AI systems see consistency</li>
+          <li>You want AI visibility quickly</li>
+          <li>You are testing AI discovery for the first time</li>
+          <li>You are not willing to restructure Shopify</li>
+          <li>Your catalog is small or tightly focused</li>
+          <li>You accept that results are probabilistic</li>
         </ul>
         
-        <h3>What This Is For</h3>
+        <h3>What We Do</h3>
         <ul>
-          <li>Brands testing AI discovery</li>
-          <li>Brands that want proof before investing further</li>
-          <li>Brands with small catalogs</li>
-          <li>Brands that want speed over completeness</li>
+          <li>Create one canonical AI focused page</li>
+          <li>Define the product and brand in explicit language</li>
+          <li>Add direct question and answer blocks</li>
+          <li>Deploy minimal clean schema</li>
+          <li>Align language for AI extraction</li>
+          <li>Provide reinforcement guidance outside your site</li>
         </ul>
         
-        <h3>What This Does Not Do</h3>
+        <h3>What This Path Does Not Do</h3>
         <ul>
-          <li>It does not fix Shopify canonical sprawl</li>
-          <li>It does not restructure collections or variants</li>
+          <li>It does not fix Shopify SEO globally</li>
+          <li>It does not clean up canonicals</li>
+          <li>It does not touch collections or variants</li>
           <li>It does not scale across large catalogs</li>
-          <li>It does not guarantee permanent AI placement</li>
+          <li>It does not guarantee placement</li>
         </ul>
-        <p>This path is about entry, not dominance.</p>
+        <p><strong>If you expect more than this, this path is not for you.</strong></p>
       </div>
     </div>
 
-    <!-- Path Two: Full Infrastructure -->
+    <!-- Path Two: Infrastructure -->
     <div class="content-block module">
       <div class="content-block__header">
         <h2 class="content-block__title">Path Two: Shopify AI Search Infrastructure</h2>
       </div>
       <div class="content-block__body">
-        <p class="lead"><strong>For Shopify brands that want durable AI authority</strong></p>
-        <p>This path treats search visibility as a system, not a tactic.</p>
-        <p>It is built for brands that want:</p>
+        <h3>This path exists to make AI visibility durable</h3>
+        <p>You should choose this path only if all of the following are true.</p>
+        
+        <h3>This Path Is For You If</h3>
         <ul>
-          <li>Stable AI citations</li>
-          <li>Scalable organic growth</li>
-          <li>Control over how products are interpreted</li>
-          <li>Reduced ambiguity across AI systems</li>
+          <li>You want long term AI authority</li>
+          <li>You have multiple products or collections</li>
+          <li>You operate in a competitive market</li>
+          <li>You want consistent AI citations</li>
+          <li>You accept structural changes</li>
         </ul>
         
-        <h3>What We Build</h3>
+        <h3>What We Do</h3>
         <ul>
-          <li>Canonical governance across Shopify URLs</li>
-          <li>Controlled index eligibility</li>
-          <li>Schema governance that replaces app conflicts</li>
-          <li>Product pages rewritten for extraction clarity</li>
-          <li>Variant and offer normalization</li>
-          <li>Monitoring for drift between ranking and AI retrieval</li>
+          <li>Enforce canonical governance</li>
+          <li>Control index eligibility</li>
+          <li>Replace app level schema with governed schema</li>
+          <li>Normalize variants and offers</li>
+          <li>Rewrite product pages for extraction clarity</li>
+          <li>Monitor drift between ranking and AI retrieval</li>
         </ul>
-        <p>This path is structural.<br>It compounds over time.</p>
+        <p>This is not a quick win.<br>It is infrastructure.</p>
       </div>
     </div>
 
-    <!-- Decision Table -->
+    <!-- Read This Before Contacting Us -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Decision Table</h2>
+        <h2 class="content-block__title">Read This Before Contacting Us</h2>
       </div>
       <div class="content-block__body">
-        <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
-          <thead>
-            <tr style="border-bottom: 2px solid var(--color-brand, #12355e);">
-              <th style="text-align: left; padding: 0.75rem; font-weight: 600;">Situation</th>
-              <th style="text-align: center; padding: 0.75rem; font-weight: 600;">AI Visibility Lite</th>
-              <th style="text-align: center; padding: 0.75rem; font-weight: 600;">Full Infrastructure</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 0.75rem;">Wants fast AI exposure</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 0.75rem;">Wants minimal Shopify changes</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-              <td style="text-align: center; padding: 0.75rem;">No</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 0.75rem;">Large product catalog</td>
-              <td style="text-align: center; padding: 0.75rem;">No</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 0.75rem;">Competitive market</td>
-              <td style="text-align: center; padding: 0.75rem;">Maybe</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 0.75rem;">Long term AI authority</td>
-              <td style="text-align: center; padding: 0.75rem;">No</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 0.75rem;">Budget sensitive</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-              <td style="text-align: center; padding: 0.75rem;">No</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.75rem;">Shopify Plus scale</td>
-              <td style="text-align: center; padding: 0.75rem;">No</td>
-              <td style="text-align: center; padding: 0.75rem;">Yes</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>If the answer is unclear, start with Lite and upgrade only if signals justify it.</p>
+        <h3>Non Negotiable Boundaries</h3>
+        <p>These rules prevent misalignment.</p>
+        
+        <h4>AI Visibility Lite Boundaries</h4>
+        <ul>
+          <li>One page only</li>
+          <li>One time deployment</li>
+          <li>No ongoing optimization</li>
+          <li>No Shopify wide changes</li>
+          <li>No expansion of scope</li>
+        </ul>
+        <p><strong>If you ask for anything outside this list, the project stops or upgrades.</strong></p>
+        
+        <h4>Infrastructure Boundaries</h4>
+        <ul>
+          <li>Structural changes are required</li>
+          <li>Timeline is measured in months</li>
+          <li>Results compound, not spike</li>
+          <li>Budget reflects system complexity</li>
+        </ul>
+        <p><strong>If you want infrastructure results without infrastructure changes, we will not proceed.</strong></p>
       </div>
     </div>
 
-    <!-- Scope Boundaries -->
+    <!-- How We Decide Without Forms -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Scope Boundaries</h2>
+        <h2 class="content-block__title">How We Decide Without Forms</h2>
       </div>
       <div class="content-block__body">
-        <p>These boundaries are intentional.</p>
-        
-        <h3>AI Visibility Lite Includes</h3>
+        <p>We do not use intake forms.</p>
+        <p>We decide based on:</p>
         <ul>
-          <li>One canonical AI page</li>
-          <li>Defined question and answer structure</li>
-          <li>Limited schema deployment</li>
+          <li>Your initial message</li>
+          <li>The language you use</li>
+          <li>What you ask for first</li>
+          <li>Whether you accept constraints</li>
+        </ul>
+        <p><strong>If your expectations do not match the path you reference, we will redirect or decline.</strong></p>
+      </div>
+    </div>
+
+    <!-- Pricing Ladder -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Pricing Ladder</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Designed to Prevent Scope Creep</strong></p>
+        
+        <h3>AI Visibility Lite</h3>
+        <p><strong>One time engagement.</strong></p>
+        <p><strong>Includes</strong></p>
+        <ul>
+          <li>One AI optimized page</li>
+          <li>Structured Q and A</li>
+          <li>Minimal schema</li>
           <li>Entity normalization</li>
-          <li>Guidance for external reinforcement</li>
+          <li>External reinforcement guidance</li>
         </ul>
+        <p><strong>Excludes everything else.</strong></p>
+        <p><strong>Lite cannot be expanded.<br>It can only be replaced.</strong></p>
         
-        <h3>AI Visibility Lite Does Not Include</h3>
-        <ul>
-          <li>Store wide SEO</li>
-          <li>Canonical cleanup across Shopify</li>
-          <li>Variant or collection restructuring</li>
-          <li>App level conflict resolution</li>
-          <li>Ongoing optimization</li>
-          <li>Guaranteed AI placement</li>
-        </ul>
-        
-        <h3>Full Infrastructure Includes</h3>
+        <h3>Shopify AI Search Infrastructure</h3>
+        <p><strong>Project based engagement.</strong></p>
+        <p><strong>Includes</strong></p>
         <ul>
           <li>Canonical governance</li>
           <li>Schema governance</li>
@@ -289,30 +272,41 @@ $GLOBALS['__jsonld'] = [
           <li>Retrieval optimization</li>
           <li>Ongoing monitoring</li>
         </ul>
+        <p><strong>This tier replaces Lite completely.</strong></p>
+        <p><strong>There is no hybrid tier.</strong></p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">FAQ</h2>
+      </div>
+      <div class="content-block__body">
+        <p><strong>Aligned to This Structure</strong></p>
         
-        <p><strong>Anything outside the selected path requires a scope change.</strong></p>
+        <h4>Can I start with Lite and upgrade later?</h4>
+        <p>Yes. Lite is a proving ground. It is not a foundation.</p>
+        
+        <h4>Will Lite fix my Shopify SEO?</h4>
+        <p>No. It only creates one trusted AI surface.</p>
+        
+        <h4>Can you guarantee AI placement?</h4>
+        <p>No. No one can. We optimize for eligibility and trust.</p>
+        
+        <h4>Why is this so strict?</h4>
+        <p>Because unclear boundaries destroy outcomes.</p>
       </div>
     </div>
 
-    <!-- The Reality -->
+    <!-- Final Statement -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">The Reality</h2>
+        <h2 class="content-block__title">Final Statement</h2>
       </div>
       <div class="content-block__body">
-        <p>You can appear in AI answers without fixing everything.<br>You cannot stay there without structure.</p>
-        <p>That is the difference between the two paths.</p>
-      </div>
-    </div>
-
-    <!-- How to Start -->
-    <div class="content-block module">
-      <div class="content-block__header">
-        <h2 class="content-block__title">How to Start</h2>
-      </div>
-      <div class="content-block__body">
-        <p>Choose AI Visibility Lite if you want speed and proof.<br>Choose full infrastructure if you want durable authority.</p>
-        <p>Both are valid.<br>Only one is permanent.</p>
+        <p>You can enter AI answers without fixing everything.<br>You cannot stay there without structure.</p>
+        <p><strong>Choose the path that matches your reality.</strong></p>
       </div>
     </div>
 
