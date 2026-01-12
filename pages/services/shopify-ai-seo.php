@@ -145,10 +145,28 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
 
+    <!-- Two Paths to Shopify AI Visibility -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Two Paths to Shopify AI Visibility</h2>
+      </div>
+      <div class="content-block__body">
+        <p>There are two very different Shopify buyer intents:</p>
+        
+        <h3>1. Infrastructure Buyers</h3>
+        <p>Want full canonical control, schema governance, and long-term AI trust. Accept complexity and cost for defensible, scalable systems.</p>
+        
+        <h3>2. Visibility Buyers</h3>
+        <p>Do not care about doctrine. Do not want a rebuild. Just want to appear in Google AI Overviews, "Best X for Y" answers, ChatGPT recommendations, and Perplexity summaries.</p>
+        
+        <p><strong>The truth:</strong> You can get into AI answers without fixing everything. But if you want to stay there, you need structure.</p>
+      </div>
+    </div>
+
     <!-- What "Shopify AI SEO" Actually Means -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">What "Shopify AI SEO" Actually Means</h2>
+        <h2 class="content-block__title">Shopify AI SEO (Full Infrastructure)</h2>
       </div>
       <div class="content-block__body">
         <p>We optimize Shopify stores across four simultaneous search layers:</p>
@@ -159,6 +177,53 @@ $GLOBALS['__jsonld'] = [
           <li><strong>LLM Retrieval Optimization</strong><br>We optimize for how models extract facts, not how humans read paragraphs.</li>
         </ol>
         <p>This is search infrastructure, not content tweaks.</p>
+        <p><strong>Who this is for:</strong> Established stores that want reliable, scalable, defensible AI visibility built to last.</p>
+      </div>
+    </div>
+
+    <!-- Shopify AI Visibility (Lite) -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Shopify AI Visibility (Lite)</h2>
+      </div>
+      <div class="content-block__body">
+        <p>If your goal is "I don't need perfection. I just want AI to notice me," the system is simpler.</p>
+        
+        <p>AI systems do not require perfect canonicals, full schema governance, or re-architected collections. They require:</p>
+        <ol>
+          <li>A single, clean, authoritative surface</li>
+          <li>Clear entity identity</li>
+          <li>Extractable answers</li>
+          <li>Low contradiction</li>
+          <li>External reinforcement</li>
+        </ol>
+        
+        <h3>Minimal Shopify AEO / GEO Stack (Visibility Mode)</h3>
+        
+        <h4>1. One AI-Optimized Page (Not the Whole Store)</h4>
+        <p>You do not optimize the entire Shopify site. You create one canonical "AI landing page," one "Best use case" page, or one "Why our product" explainer. This page is short, explicit, fact-dense, and designed to be summarized. AI prefers one clear surface over many noisy ones.</p>
+        
+        <h4>2. Explicit Question-Answer Blocks (AEO Core)</h4>
+        <p>You include 5–10 direct questions, each with 2–3 sentence answers, no marketing fluff:</p>
+        <ul>
+          <li>What is [product]?</li>
+          <li>Who is it for?</li>
+          <li>When should you not use it?</li>
+          <li>How is it different from alternatives?</li>
+          <li>Why do people choose it?</li>
+        </ul>
+        <p>This is what AI extracts.</p>
+        
+        <h4>3. Lightweight, Clean Schema (No Governance Layer)</h4>
+        <p>You only deploy Product, FAQPage, and Organization. Rules: one Product, one FAQPage, no app conflicts, no reviews if they are weak. This alone puts you ahead of 90% of Shopify stores.</p>
+        
+        <h4>4. External AI Reinforcement (Critical)</h4>
+        <p>AI does not trust self-assertion alone. You reinforce the same claims on Medium, Reddit (non-promotional), Quora, blog posts on other domains, and mentions in listicles or comparisons. Same facts, same phrasing, same entity name. This collapses AI uncertainty.</p>
+        
+        <h4>5. Accept the Limits</h4>
+        <p>Visibility mode will not fix long-term crawl inefficiency, solve canonical debt, or scale to thousands of SKUs cleanly. But it will get brands into AI answers, trigger Google AI Overview inclusion, surface products in ChatGPT summaries, and do it fast.</p>
+        
+        <p><strong>Who this is for:</strong> Brands that want proof, early visibility, and a foothold in AI answers without a full store rebuild. This is an entry point and proof layer that can funnel into the full system later.</p>
       </div>
     </div>
 
@@ -258,21 +323,38 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
 
-    <!-- Who This Is For -->
+    <!-- Which Path Should You Choose? -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h2 class="content-block__title">Who This Is For</h2>
+        <h2 class="content-block__title">Which Path Should You Choose?</h2>
       </div>
       <div class="content-block__body">
-        <p>This page is for Shopify stores that:</p>
+        <p><strong>Choose Full Infrastructure if:</strong></p>
         <ul>
-          <li>Already rank but don't convert visibility into revenue</li>
-          <li>Depend on organic traffic for growth</li>
-          <li>Compete in saturated markets</li>
-          <li>Want dominance in AI answers, not just SERPs</li>
-          <li>Care about future-proof visibility</li>
+          <li>You want reliable, scalable, defensible AI visibility</li>
+          <li>You have hundreds or thousands of products</li>
+          <li>You're building for the next decade of search</li>
+          <li>You already rank but don't convert visibility into revenue</li>
+          <li>You compete in saturated markets</li>
+          <li>You want long-term AI trust and authority</li>
         </ul>
-        <p>If you're optimizing for yesterday's SEO, this is not for you.</p>
+        
+        <p><strong>Choose Visibility (Lite) if:</strong></p>
+        <ul>
+          <li>You want proof that AI can cite your brand</li>
+          <li>You need early visibility fast</li>
+          <li>You have a focused product or category</li>
+          <li>You don't need a full store rebuild</li>
+          <li>You want a foothold before committing to infrastructure</li>
+        </ul>
+        
+        <p><strong>When to upgrade from Lite to Full Infrastructure:</strong></p>
+        <ul>
+          <li>You see AI citations working and want to scale</li>
+          <li>You have multiple products or categories</li>
+          <li>You're ready to fix canonical debt and schema conflicts</li>
+          <li>You want defensible, long-term positioning</li>
+        </ul>
       </div>
     </div>
 
