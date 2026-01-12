@@ -114,7 +114,7 @@ $GLOBALS['__jsonld'] = [
       <!-- Hero Block -->
       <div class="content-block module" style="background: var(--color-background-alt, #f5f5f5); padding: var(--spacing-xl); border-left: 4px solid var(--color-brand, #12355e); margin-bottom: var(--spacing-xl);">
         <div class="content-block__header">
-          <h1 class="content-block__title heading-1">Measuring Visibility in AI Search</h1>
+          <h1 class="content-block__title heading-1">Measuring AI Search Visibility and Citation Presence</h1>
         </div>
         <div class="content-block__body">
           <p class="lead text-lg" style="font-size: 1.25rem; margin-bottom: var(--spacing-lg);">Metrics and reporting for AI-mediated search environments</p>

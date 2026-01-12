@@ -34,7 +34,7 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
     <!-- HERO SECTION: KNOWLEDGE BASE POSITIONING -->
     <div class="content-block module" style="margin-bottom: var(--spacing-8);">
       <div class="content-block__header">
-        <h1 class="content-block__title">NRLC.ai: Search Infrastructure Knowledge Base</h1>
+        <h1 class="content-block__title">AI Search Systems, Retrieval Failures, and Generative Engine Optimization</h1>
       </div>
       <div class="content-block__body">
         <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">

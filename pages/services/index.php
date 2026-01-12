@@ -33,7 +33,7 @@ if ($locale === 'en-gb' || $locale === '') {
     <!-- Services Header Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI SEO & AI Visibility Services</h1>
+        <h1 class="content-block__title">AI SEO and Generative Search Optimization Services</h1>
       </div>
       <div class="content-block__body">
         <p class="lead">Professional AI SEO and AI visibility services for businesses that need real improvements in search rankings, AI citations, and generative engine visibility.</p>

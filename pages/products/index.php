@@ -12,7 +12,7 @@
     <!-- Products Header Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI SEO & AI Visibility Products</h1>
+        <h1 class="content-block__title">AI Search and Structured Knowledge Tools</h1>
       </div>
       <div class="content-block__body">
         <p class="lead">AI SEO and AI visibility tools for structured knowledge, search optimization, and generative engine visibility.</p>

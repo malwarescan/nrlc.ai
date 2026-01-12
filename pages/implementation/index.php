@@ -75,7 +75,7 @@ $GLOBALS['__jsonld'] = [
 
       <div class="content-block module" style="margin-bottom: var(--spacing-8);">
         <div class="content-block__header">
-          <h1 class="content-block__title">Implementation</h1>
+          <h1 class="content-block__title">Generative Search Implementation for AI-Readable Architectures</h1>
         </div>
         <div class="content-block__body">
           <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-md);">

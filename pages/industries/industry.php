@@ -51,8 +51,8 @@ $entityChallenges = det_pick([
 $faqs = det_pick([
   ["Why does {$industryName} require specialized MCP configuration?", "{$industryName} environments introduce distinct entity relationships, schema priorities, regulatory constraints, and retrieval risk. Generic SEO cannot address industry-specific entity ambiguity, compliance pressure, or trust signal requirements. Specialized MCP configurations define how agents operate, how schema is enforced, and how information is made extractable for AI systems like ChatGPT, Perplexity, and Google AI Overviews."],
   ["What constraints are enforced for {$industryName} environments?", "MCP constraints for {$industryName} include: entity graph definitions (explicit relationship mapping), schema governance (regulatory compliance enforcement), agent safety rules (protocol boundaries, reversible changes), and trust signal requirements (credential declarations, compliance indicators). These constraints ensure AI systems can accurately interpret, verify, and cite industry-specific information."],
-  ["How does this differ from generic SEO?", "Generic SEO relies on heuristics, templates, and universal rules. {$industryName} MCP configurations define industry-specific entity graphs, regulatory schema enforcement, and agent safety boundaries. This is not a reusable SEO playbook—it is a tailored system configuration that governs how agents observe, reason, and act within industry constraints."],
-  ["What schema is required for {$industryName}?", "Industry-specific schema depends on regulatory requirements, entity relationships, and trust signal needs. Common schemas include industry-specific entity types (MedicalBusiness, FinancialService, SoftwareApplication), regulatory compliance indicators, credential declarations, and explicit relationship mappings. Schema is deployed as governance, not markup—enforcing authority, constraint, and disambiguation."],
+  ["How does this differ from generic SEO?", "Generic SEO relies on heuristics, templates, and universal rules. {$industryName} MCP configurations define industry-specific entity graphs, regulatory schema enforcement, and agent safety boundaries. This is not a reusable SEO playbook. It is a tailored system configuration that governs how agents observe, reason, and act within industry constraints."],
+  ["What schema is required for {$industryName}?", "Industry-specific schema depends on regulatory requirements, entity relationships, and trust signal needs. Common schemas include industry-specific entity types (MedicalBusiness, FinancialService, SoftwareApplication), regulatory compliance indicators, credential declarations, and explicit relationship mappings. Schema is deployed as governance, not markup. It enforces authority, constraint, and disambiguation."],
   ["How are agents constrained for {$industryName}?", "Agents operating under {$industryName} MCP configurations have explicit limits: no blind bulk changes, no heuristic-based optimization, no template-wide edits without validation, no protocol constraint overrides. Agents are framed as system reliability engineers for search, not AI content tools. All actions are scoped, reversible, and repair-safe."]
 ], 3);
 ?>
@@ -144,7 +144,7 @@ $faqs = det_pick([
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "AI Search System Configuration — <?= htmlspecialchars($industryName) ?>",
+  "name": "AI Search System Configuration for <?= htmlspecialchars($industryName) ?>",
   "description": "Industry-specific AI search system configuration defining entity constraints, schema governance, agent safety rules, and retrieval behavior for <?= htmlspecialchars($industryName) ?> environments.",
   "url": "https://nrlc.ai/en-us/industries/<?= htmlspecialchars($industrySlug) ?>/",
   "isPartOf": {
