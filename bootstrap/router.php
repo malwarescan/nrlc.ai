@@ -116,22 +116,14 @@ function route_request(): void {
         require_once __DIR__.'/../lib/SchemaFixes.php';
       }
       
-      // Guard optional function calls
-      $ctx = [
-        'type' => 'home',
-        'slug' => 'home/home',
+      // META DIRECTIVE KERNEL: Homepage / Knowledge Authority Root
+      // Intent: AI search mechanics education + authority anchoring
+      // Title: Explain the system, not the service
+      $GLOBALS['__page_meta'] = [
+        'title' => 'AI Search Systems, Retrieval Failures, and Generative Engine Optimization',
+        'description' => 'Technical research and field analysis explaining how AI search engines retrieve, weight, and cite information, and why traditional SEO structures fail under generative search.',
         'canonicalPath' => '/'
       ];
-      
-      if (function_exists('sudo_meta_directive_ctx')) {
-        $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-      } else {
-        // Fallback metadata if function doesn't exist
-        $GLOBALS['__page_meta'] = [
-          'title' => 'AI SEO & AI Visibility Services | NRLC.ai',
-          'description' => 'Professional AI SEO and AI visibility services. We help businesses improve search rankings and AI-generated answer eligibility.'
-        ];
-      }
       
       // Set founder relationship for Organization schema (homepage only) - OPTIONAL
       if (function_exists('absolute_url') && class_exists('\NRLC\Schema\SchemaFixes')) {
@@ -822,30 +814,28 @@ function route_request(): void {
   }
 
   // AI Search System Routes
+  // META DIRECTIVE KERNEL: /ai-search-diagnostics/
+  // Intent: Problem diagnosis + failure identification
+  // Title: Symptom-first, system-aware
   if ($path === '/ai-search-diagnostics/') {
-    require_once __DIR__.'/../lib/meta_directive.php';
-    $ctx = [
-      'type' => 'page',
-      'slug' => 'ai-search-diagnostics/index',
+    $GLOBALS['__page_meta'] = [
+      'title' => 'AI Search Diagnostics: Identifying Retrieval and Citation Failures',
+      'description' => 'Diagnostic frameworks for sites visible in traditional search but absent from AI answers, covering retrieval gaps, structural blockers, and citation suppression patterns.',
       'canonicalPath' => $path
     ];
-    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'AI Search Diagnostics & Troubleshooting | NRLC.ai';
-    $GLOBALS['__page_meta']['description'] = 'Diagnostic guides for AI search visibility issues. Symptom-first troubleshooting for sites not showing in AI results, traffic declines, and citation failures.';
     render_page('ai-search-diagnostics/index');
     return;
   }
 
+  // META DIRECTIVE KERNEL: /en-us/ai-search-measurement/
+  // Intent: Measurement and validation
+  // Title: Measurement clarity over metrics hype
   if ($path === '/ai-search-measurement/') {
-    require_once __DIR__.'/../lib/meta_directive.php';
-    $ctx = [
-      'type' => 'page',
-      'slug' => 'ai-search-measurement/index',
+    $GLOBALS['__page_meta'] = [
+      'title' => 'Measuring AI Search Visibility and Citation Presence',
+      'description' => 'Methods for evaluating whether content is retrieved, summarized, or cited by AI systems, beyond impressions and traditional ranking metrics.',
       'canonicalPath' => $path
     ];
-    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
-    $GLOBALS['__page_meta']['title'] = 'Measuring Visibility in AI Search | NRLC.ai';
-    $GLOBALS['__page_meta']['description'] = 'Complete guide to measuring and reporting visibility in AI-generated answers, AI Overviews, and zero-click search. What metrics exist, what can be measured, and what executives should expect.';
     render_page('ai-search-measurement/index');
     return;
   }
@@ -1162,16 +1152,15 @@ function route_request(): void {
   }
 
   // Implementation / Support page
+  // META DIRECTIVE KERNEL: /implementation/
+  // Intent: Execution after diagnosis
+  // Title: Action without hype
   if ($path === '/implementation/' || $path === '/implementation') {
-    require_once __DIR__.'/../lib/meta_directive.php';
-    $ctx = [
-      'type' => 'page',
-      'slug' => 'implementation/index',
-      'title' => 'Implementation | Search Infrastructure Support',
-      'excerpt' => 'Implementation support for applying generative search frameworks to large, fragile, or high-risk properties.',
+    $GLOBALS['__page_meta'] = [
+      'title' => 'Generative Search Implementation for AI-Readable Architectures',
+      'description' => 'Hands-on implementation of structural fixes for AI retrieval, including schema execution, content reshaping, entity alignment, and citation-ready formatting.',
       'canonicalPath' => '/implementation/'
     ];
-    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('implementation/index');
     return;
   }
@@ -1191,17 +1180,17 @@ function route_request(): void {
   }
 
   // Products routes
+  // META DIRECTIVE KERNEL: /en-us/products/
+  // Intent: Tooling and systems
+  // Title: Utility-driven
   if ($path === '/products/') {
-    // Generate unique metadata using ctx-based system
-    require_once __DIR__.'/../lib/meta_directive.php';
     // Use actual request path for canonical (includes locale prefix)
     $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-    $ctx = [
-      'type' => 'products_hub',
-      'slug' => 'products/index',
+    $GLOBALS['__page_meta'] = [
+      'title' => 'AI Search and Structured Knowledge Tools',
+      'description' => 'Purpose-built tools for analyzing AI visibility, validating structured data, and shaping content for retrieval and citation by generative engines.',
       'canonicalPath' => $actualPath
     ];
-    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('products/index');
     return;
   }
