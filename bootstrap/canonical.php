@@ -69,6 +69,16 @@ function canonical_guard(): void {
     return;
   }
   
+  // Global hub pages that must remain canonical without locale prefix
+  // These pages are explicitly listed in sitemaps without locale prefixes
+  // and must return 200 (not redirect) to prevent redirect loops
+  // CRITICAL: A URL listed in a sitemap must return a stable 200 response
+  // with a self-consistent canonical and no locale-dependent redirects
+  $globalHubPages = ['/industries/', '/services/', '/products/', '/insights/', '/careers/', '/catalog/', '/blog/', '/case-studies/', '/resources/', '/tools/'];
+  if (in_array($uri, $globalHubPages)) {
+    return; // Allow these pages to exist without locale prefix (they are global hubs)
+  }
+  
   // Products paths are now active - removed redirect to homepage
   // Products page is accessible at /products/ and individual product pages
 
