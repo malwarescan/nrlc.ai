@@ -3,6 +3,8 @@
 // Metadata is now set in router via ctx-based system
 // Remove old placeholder metadata to prevent conflicts
 
+require_once __DIR__ . '/../../lib/deterministic.php';
+
 $industrySlug = $_GET['industry'] ?? 'healthcare';
 $industryName = ucwords(str_replace('-', ' ', $industrySlug));
 
