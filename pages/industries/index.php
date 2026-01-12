@@ -12,9 +12,7 @@ require_once __DIR__ . '/../../templates/header.php';
   <div class="window-body">
     <h1>Industries Where AI Search Behavior, Schema Requirements, and Agent Constraints Differ Materially</h1>
     
-    <p class="lead">Industries exist in our architecture because AI search behavior materially differs by domain. Each industry represents a distinct Model Context Protocol (MCP) configuration with unique entity graphs, different schema priorities, specific indexing and retrieval constraints, and different agent safety rules. Industry pages document specialized system configurations, not vertical marketing content.</p>
-    
-    <p>AI search systems like ChatGPT, Perplexity, and Google AI Overviews process content differently based on industry context. Healthcare queries require HIPAA-compliant structured data and medical entity recognition. Fintech queries demand regulatory compliance schemas and financial entity mapping. Each industry represents a tailored configuration of <a href="/products/neural-command-os/">Neural Command OS</a> where schema governance, canonical enforcement, and agent constraints adapt to domain-specific requirements.</p>
+    <p>Industries are separated here because AI search systems do not behave uniformly across domains. Each industry introduces different entity relationships, schema priorities, regulatory constraints, indexing behavior, and retrieval risk. Neural Command treats industries as distinct system configurations, not marketing verticals. Each industry page represents a tailored Model Context Protocol (MCP) that governs how agents operate, how schema is enforced, and how information is made extractable and stable across Google Search, ChatGPT, Perplexity, and AI Overviews.</p>
     
     <h2>Industry Configurations</h2>
     
