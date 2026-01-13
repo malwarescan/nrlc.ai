@@ -8,11 +8,11 @@ if (!function_exists('webpage_schema')) {
 
 // Get canonical URL with proper locale prefix
 $canonicalPath = $GLOBALS['__page_meta']['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
-if (preg_match('#^/([a-z]{2}-[a-z]{2})/ai-visibility/why-ai-search-does-not-cite-your-business/#i', $canonicalPath, $m)) {
+if (preg_match('#^/([a-z]{2}-[a-z]{2})/why-ai-search-does-not-cite-your-business/#i', $canonicalPath, $m)) {
   $canonicalUrl = absolute_url($canonicalPath);
 } else {
-  // Fallback: use en-us as default for ai-visibility pages
-  $canonicalUrl = absolute_url('/en-us/ai-visibility/why-ai-search-does-not-cite-your-business/');
+  // Fallback: use en-us as default
+  $canonicalUrl = absolute_url('/en-us/why-ai-search-does-not-cite-your-business/');
 }
 
 $GLOBALS['__jsonld'] = [
@@ -77,12 +77,6 @@ $GLOBALS['__jsonld'] = [
       [
         '@type' => 'ListItem',
         'position' => 2,
-        'name' => 'AI Visibility',
-        'item' => absolute_url('/en-us/ai-visibility/')
-      ],
-      [
-        '@type' => 'ListItem',
-        'position' => 3,
         'name' => 'Why AI Search Does Not Cite Your Business',
         'item' => $canonicalUrl
       ]
