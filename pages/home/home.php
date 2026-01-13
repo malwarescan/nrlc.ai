@@ -31,17 +31,17 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
 <section class="section">
   <div class="section__content">
 
-    <!-- HERO SECTION: KNOWLEDGE BASE POSITIONING -->
+    <!-- HERO SECTION: BUSINESS OWNER ORIENTATION -->
     <div class="content-block module" style="margin-bottom: var(--spacing-8);">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI Search Systems, Retrieval Failures, and Generative Engine Optimization</h1>
+        <h1 class="content-block__title">AI Systems Are Already Answering Questions About Your Business</h1>
       </div>
       <div class="content-block__body">
         <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">
-          A reference corpus for generative and AI search behavior. This site explains why generative search systems behave the way they do when traditional SEO explanations stop working.
+          Those answers mention some companies and ignore others. This is not about rankings or traffic. It is about whether AI systems understand your business well enough to mention it. We help businesses make sure they are understood and included.
         </p>
         <div style="margin-top: var(--spacing-lg);">
-          <a href="#knowledge-base" class="btn btn--secondary" title="Enter the knowledge base">Enter Knowledge Base</a>
+          <a href="/ai-optimization/" class="btn btn--secondary" title="How AI selection works">How AI decides what to mention</a>
         </div>
       </div>
     </div>
