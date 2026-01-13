@@ -74,7 +74,7 @@ function canonical_guard(): void {
   // and must return 200 (not redirect) to prevent redirect loops
   // CRITICAL: A URL listed in a sitemap must return a stable 200 response
   // with a self-consistent canonical and no locale-dependent redirects
-  $globalHubPages = ['/industries/', '/services/', '/products/', '/insights/', '/careers/', '/catalog/', '/blog/', '/case-studies/', '/resources/', '/tools/'];
+  $globalHubPages = ['/industries/', '/services/', '/products/', '/insights/', '/careers/', '/catalog/', '/blog/', '/case-studies/', '/resources/', '/tools/', '/ai-optimization/'];
   if (in_array($uri, $globalHubPages)) {
     return; // Allow these pages to exist without locale prefix (they are global hubs)
   }

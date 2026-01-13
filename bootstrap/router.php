@@ -668,6 +668,19 @@ function route_request(): void {
     return;
   }
 
+  // AI Optimization Category Anchor (META DIRECTIVE KERNEL: Category Authority)
+  // Intent: Machines-first category definition
+  // Title: Declarative, zero persuasion
+  if ($path === '/ai-optimization/') {
+    $GLOBALS['__page_meta'] = [
+      'title' => 'AI Optimization: Definition, Mechanism, and Scope',
+      'description' => 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems. This page defines what AI Optimization is, what it is not, and how it differs from SEO, ML optimization, and automation.',
+      'canonicalPath' => '/ai-optimization/'
+    ];
+    render_page('ai-optimization/index');
+    return;
+  }
+
   // GEO Routes
   if ($path === '/generative-engine-optimization/') {
     require_once __DIR__.'/../lib/meta_directive.php';
