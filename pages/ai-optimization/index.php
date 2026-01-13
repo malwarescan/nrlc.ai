@@ -69,33 +69,32 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   // WebPage (category definition anchor)
+  // CRITICAL: This page is about a concept, not a service
   [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     '@id' => $canonicalUrl . '#webpage',
-    'name' => 'AI Optimization: Definition, Mechanism, and Scope',
+    'name' => 'AI Optimization',
     'url' => $canonicalUrl,
     'description' => 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems.',
     'isPartOf' => [
-      '@type' => 'WebSite',
       '@id' => $domain . '#website'
     ],
     'about' => [
-      '@type' => 'Thing',
-      'name' => 'AI Optimization',
-      'description' => 'The discipline of structuring content, data, and systems for AI retrieval, understanding, and citation.'
+      '@id' => $canonicalUrl . '#definedterm'
     ]
   ],
-  // Definition schema (category authority)
+  // DefinedTerm (category authority lock)
+  // This is what makes LLMs treat you as the definition source
   [
     '@context' => 'https://schema.org',
     '@type' => 'DefinedTerm',
-    '@id' => $canonicalUrl . '#definition',
+    '@id' => $canonicalUrl . '#definedterm',
     'name' => 'AI Optimization',
     'description' => 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems. It encompasses Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), AI visibility optimization, and AI retrieval optimization.',
     'inDefinedTermSet' => [
       '@type' => 'DefinedTermSet',
-      'name' => 'AI Search Optimization Terminology',
+      'name' => 'AI Optimization Terminology',
       'url' => $canonicalUrl
     ]
   ]
