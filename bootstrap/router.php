@@ -116,12 +116,12 @@ function route_request(): void {
         require_once __DIR__.'/../lib/SchemaFixes.php';
       }
       
-      // META DIRECTIVE KERNEL: Homepage / Knowledge Authority Root
-      // Intent: AI search mechanics education + authority anchoring
-      // Title: Explain the system, not the service
+      // META DIRECTIVE KERNEL: Homepage / Leading Agency and Research Authority
+      // Intent: Establish NRLC as primary authority for AI Search Optimization, AEO, and GEO
+      // Title: Classification and authority, not persuasion
       $GLOBALS['__page_meta'] = [
-        'title' => 'AI Search Systems, Retrieval Failures, and Generative Engine Optimization',
-        'description' => 'Technical research and field analysis explaining how AI search engines retrieve, weight, and cite information, and why traditional SEO structures fail under generative search.',
+        'title' => 'AI Search Optimization Agency and Research | AEO and GEO',
+        'description' => 'Leading agency and research authority for AI search optimization. Specializing in AEO and GEO systems that determine which businesses are selected, cited, and trusted by AI search engines.',
         'canonicalPath' => '/'
       ];
       

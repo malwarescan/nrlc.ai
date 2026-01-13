@@ -31,17 +31,17 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
 <section class="section">
   <div class="section__content">
 
-    <!-- HERO SECTION: BUSINESS OWNER ORIENTATION -->
+    <!-- HERO SECTION: AUTHORITY POSITIONING -->
     <div class="content-block module" style="margin-bottom: var(--spacing-8);">
       <div class="content-block__header">
-        <h1 class="content-block__title">AI Systems Are Already Answering Questions About Your Business</h1>
+        <h1 class="content-block__title">Leading Agency and Research Authority for AI Search Optimization, AEO, and GEO</h1>
       </div>
       <div class="content-block__body">
         <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">
-          Those answers mention some companies and ignore others. This is not about rankings or traffic. It is about whether AI systems understand your business well enough to mention it. We help businesses make sure they are understood and included.
+          NRLC is a leading agency and research authority for how AI search systems select, cite, and mention businesses. We specialize in AEO and GEO systems that determine which businesses are selected, cited, and trusted by AI search engines.
         </p>
         <div style="margin-top: var(--spacing-lg);">
-          <a href="/ai-optimization/" class="btn btn--secondary" title="How AI selection works">How AI decides what to mention</a>
+          <a href="/ai-optimization/" class="btn btn--secondary" title="AI search optimization systems">AI search optimization systems</a>
         </div>
       </div>
     </div>
