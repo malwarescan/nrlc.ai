@@ -88,6 +88,12 @@ $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       </div>
     </div>
     
+    <div class="content-block module">
+      <div class="content-block__body">
+        <p>This is a failure state within <a href="<?= absolute_url('/ai-optimization/') ?>">AI Optimization</a>, where systems fail to retrieve or select a source during AI-driven search and answer generation.</p>
+      </div>
+    </div>
+    
   </div>
 </section>
 </main>

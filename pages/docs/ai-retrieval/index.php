@@ -214,6 +214,12 @@ $GLOBALS['__jsonld'] = [
         </div>
       </div>
 
+      <div class="content-block module">
+        <div class="content-block__body">
+          <p>This mechanism explains how <a href="<?= absolute_url('/ai-optimization/') ?>">AI Optimization</a> systems retrieve, evaluate, and select sources for AI-generated answers.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
