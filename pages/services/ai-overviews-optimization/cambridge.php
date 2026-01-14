@@ -14,19 +14,39 @@ $GLOBALS['__jsonld'] = [
   [
     '@context' => 'https://schema.org',
     '@type' => 'Service',
-    'name' => 'AI Overviews Optimization for Cambridge Businesses',
-    'serviceType' => 'AI Search Visibility',
-    'description' => 'Cambridge AI Overviews optimization service. We force alignment between Cambridge businesses and Google AI Overviews eligibility requirements.',
+    'name' => 'AI Overviews Optimization',
+    'description' => 'Diagnostic and structural optimization service that enables Cambridge businesses to qualify for visibility and citation in Google AI Overviews.',
+    'areaServed' => [
+      '@type' => 'AdministrativeArea',
+      'name' => 'Cambridge, England'
+    ],
+    'audience' => [
+      '@type' => 'Audience',
+      'audienceType' => 'Business decision-makers'
+    ],
     'provider' => [
       '@type' => 'Organization',
-      'name' => 'Neural Command LLC',
-      'url' => $domain
+      'name' => 'Neural Command',
+      'knowsAbout' => [
+        'AI Overviews eligibility',
+        'generative search visibility',
+        'AI citation systems',
+        'search authority engineering'
+      ],
+      'disambiguatingDescription' => 'Provider of AI visibility and generative search optimization services. Not related to transportation, car rental, delivery services, or subscriptions.'
     ],
-    'areaServed' => [
-      ['@type' => 'Country', 'name' => 'United Kingdom'],
-      ['@type' => 'City', 'name' => 'Cambridge']
-    ],
-    'url' => $canonicalUrl
+    'serviceType' => 'AI Overviews Optimization',
+    'availableChannel' => [
+      '@type' => 'ServiceChannel',
+      'serviceLocation' => [
+        '@type' => 'Place',
+        'address' => [
+          '@type' => 'PostalAddress',
+          'addressLocality' => 'Cambridge',
+          'addressCountry' => 'GB'
+        ]
+      ]
+    ]
   ],
   [
     '@context' => 'https://schema.org',
@@ -69,6 +89,29 @@ $GLOBALS['__jsonld'] = [
         'item' => $canonicalUrl
       ]
     ]
+  ],
+  // Cambridge FAQ Schema
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'FAQPage',
+    'mainEntity' => [
+      [
+        '@type' => 'Question',
+        'name' => 'Why do Cambridge sites rank but not appear in AI Overviews?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'Because rankings measure relevance, while AI Overviews require structural eligibility, grounding clarity, and citation confidence.'
+        ]
+      ],
+      [
+        '@type' => 'Question',
+        'name' => 'Is AI Overview visibility a content problem?',
+        'acceptedAnswer' => [
+          '@type' => 'Answer',
+          'text' => 'No. It is a systems alignment problem involving authority signals, entity clarity, and retrieval confidence.'
+        ]
+      ]
+    ]
   ]
 ];
 ?>
@@ -77,86 +120,83 @@ $GLOBALS['__jsonld'] = [
   <section class="section">
     <div class="section__content">
 
-      <!-- ABOVE THE FOLD: HIGH-INTENT CONVERSION -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h1 class="content-block__title heading-1">Cambridge AI Overviews Optimization</h1>
-        </div>
-        <div class="content-block__body">
-          <p class="lead text-lg">We make Cambridge businesses appear in Google AI Overviews instead of competitors.</p>
-          <p>Cambridge's density of research institutions and startups creates sophisticated search competition that most businesses cannot match.</p>
-          <div style="margin-top: var(--spacing-lg);">
-            <a href="#eligibility-check" class="btn btn--primary">Check Cambridge AI Overview Eligibility</a>
-          </div>
-        </div>
-      </div>
+      <!-- HERO + HEADLINE -->
+      <section class="hero hero-cambridge-ai-overviews">
+        <h1>AI Overview Visibility for Cambridge Businesses</h1>
+        <p class="hero-subhead">
+          If your competitors appear in AI Overviews and you do not, this is not a content problem.
+          It is an eligibility failure.
+        </p>
 
-      <!-- MID PAGE: CAMBRIDGE-SPECIFIC DIAGNOSIS -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h2 class="content-block__title heading-2">Why Cambridge Sites Lose AI Overview Visibility</h2>
+        <div class="hero-cta">
+          <a href="#ai-eligibility-check" class="cta-primary">
+            Check my AI Overview eligibility
+          </a>
         </div>
-        <div class="content-block__body">
-          <p>Cambridge businesses operate in a search environment where University of Cambridge research, startup density, and institutional authority dominate AI retrieval patterns.</p>
-          <p>Your competitors with Cambridge Research Park addresses or university affiliations already control the structural signals that force AI Overview inclusion.</p>
-          <p>We diagnose why Cambridge sites specifically fail eligibility and correct the structural misalignments that prevent appearance.</p>
-        </div>
-      </div>
+      </section>
 
-      <!-- STRUCTURAL SIGNALS DIAGNOSIS -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h2 class="content-block__title heading-2">What Structural Signals Cambridge Sites Usually Lack</h2>
-        </div>
-        <div class="content-block__body">
-          <p>Cambridge businesses typically have malformed entity relationships that break under UK search engine evaluation criteria.</p>
-          <p>Your schema markup does not align with Cambridge's competitive knowledge graph density.</p>
-          <p>Content chunking fails to match the semantic expectations of AI systems trained on academic and research corpora.</p>
-          <p>We force alignment between Cambridge business signals and AI Overview eligibility requirements.</p>
-        </div>
-      </div>
+      <!-- CAMBRIDGE-SPECIFIC PERSUASION LAYER -->
+      <section class="cambridge-persuasion-layer">
+        <h2>Why Cambridge Sites Lose AI Overview Visibility</h2>
 
-      <!-- SERVICE INTERVENTION -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h2 class="content-block__title heading-2">How We Intervene at the System Level</h2>
-        </div>
-        <div class="content-block__body">
-          <p>We control the retrieval patterns that determine AI Overview appearance for Cambridge businesses.</p>
-          <p>We diagnose entity relationship failures that prevent Cambridge sites from meeting AI eligibility thresholds.</p>
-          <p>We correct structural misalignments that cause competitors to appear instead of your business.</p>
-          <p>We make Cambridge businesses eligible for AI Overview inclusion through systematic intervention.</p>
-        </div>
-      </div>
+        <p>
+          Cambridge businesses are not being excluded from AI Overviews because they lack authority.
+          They are excluded because authority is assumed, not made structurally explicit.
+        </p>
 
-      <!-- PROOF LAYER: ANONYMIZED UK EXAMPLE -->
-      <div class="content-block module">
-        <div class="content-block__header">
-          <h2 class="content-block__title heading-2">Cambridge AI Overview Success Pattern</h2>
-        </div>
-        <div class="content-block__body">
-          <div class="callout-evidence">
-            <p>A Cambridge-based research services company appeared in AI Overviews for "Cambridge research facilities" after competitors dominated for 18 months.</p>
-            <p>The intervention corrected entity relationship misalignments and forced schema alignment with Cambridge's institutional knowledge graph.</p>
-            <p>Competitors with university affiliations no longer monopolize Cambridge AI visibility.</p>
-          </div>
-        </div>
-      </div>
+        <p>
+          In research-heavy and technically sophisticated markets like Cambridge, AI systems default to
+          sources that are easy to evaluate, easy to ground, and easy to cite.
+          Correct but ambiguous sites are skipped.
+        </p>
 
-      <!-- ELIGIBILITY CHECK CTA -->
-      <div id="eligibility-check" class="content-block module" style="background: var(--color-background-alt); padding: var(--spacing-xl); margin: var(--spacing-xl) 0;">
-        <div class="content-block__header">
-          <h2 class="content-block__title heading-2">Cambridge AI Overview Eligibility Assessment</h2>
-        </div>
-        <div class="content-block__body">
-          <p>Cambridge businesses lose AI Overview visibility when structural signals fail UK search engine evaluation.</p>
-          <p>We assess why competitors appear instead of your Cambridge business and diagnose the specific eligibility gaps.</p>
-          <p>Control your AI visibility. Audit Cambridge AI Overview eligibility now.</p>
-          <div style="margin-top: var(--spacing-lg);">
-            <a href="#contact" class="btn btn--primary">Audit Cambridge AI Visibility Gaps</a>
-          </div>
-        </div>
-      </div>
+        <p>
+          This creates a silent failure state.
+          Rankings remain.
+          Brand credibility remains.
+          AI visibility disappears.
+        </p>
+
+        <p>
+          AI Overviews do not reward effort.
+          They reward eligibility.
+        </p>
+      </section>
+
+      <!-- MID-PAGE DIAGNOSTIC BLOCK -->
+      <section class="ai-diagnostic-block" id="ai-eligibility-check">
+        <h2>What We Diagnose Before Any Optimization</h2>
+
+        <ul>
+          <li>Why competitors are cited instead of your site</li>
+          <li>Which eligibility signals your pages fail to assert</li>
+          <li>Where authority is diluted or misclassified</li>
+          <li>Why rankings do not translate into AI inclusion</li>
+        </ul>
+
+        <p>
+          This is not a checklist service.
+          We identify structural failures that prevent AI systems from selecting your site at all.
+        </p>
+
+        <p>
+          If your site does not qualify, optimization is irrelevant.
+        </p>
+      </section>
+
+      <!-- CTA REWRITE -->
+      <section class="conversion-cta">
+        <h2>Assess Your AI Overview Eligibility</h2>
+
+        <p>
+          Identify why Cambridge competitors are being cited and whether your site structurally qualifies
+          for AI Overviews before visibility loss compounds.
+        </p>
+
+        <a href="/contact?service=ai-overviews&location=cambridge" class="cta-primary">
+          Run an AI Overview eligibility audit
+        </a>
+      </section>
 
     </div>
   </section>
