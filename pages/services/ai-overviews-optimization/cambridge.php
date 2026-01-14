@@ -154,15 +154,39 @@ $GLOBALS['__jsonld'] = [
 
       <p>If your site does not qualify, optimization is irrelevant.</p>
 
-      <a href="/contact?service=ai-overviews&location=cambridge" class="cta-primary">
-        Run an AI Overview eligibility audit
-      </a>
+      <section class="decision-interruption" aria-labelledby="decision-point">
+        <h2 id="decision-point">Stop Here If This Sounds Familiar</h2>
+        <p>
+          If your site ranks but does not appear in AI Overviews, continuing to read will not fix that.
+          Either your site qualifies for AI citation or it does not.
+        </p>
+        <p>
+          The only useful next step is to determine eligibility.
+        </p>
+        <p>
+          <a href="#primary-cta">Run an AI Overview eligibility audit</a>
+        </p>
+      </section>
 
-      <p>Identify why Cambridge competitors are being cited and whether your site structurally qualifies before visibility loss compounds.</p>
+      <section class="primary-cta-block" role="region" aria-label="Primary Call to Action">
+        <a id="primary-cta"></a>
+        <h2>Assess Your AI Overview Eligibility</h2>
+        <p>
+          Determine why Cambridge competitors are being cited and whether your site structurally qualifies
+          before visibility loss compounds.
+        </p>
+        <p>
+          <a href="/contact?service=ai-overviews&location=cambridge">
+            Run an AI Overview eligibility audit
+          </a>
+        </p>
+      </section>
 
-      <h3>How the Engagement Works</h3>
-      <p>We assess eligibility, identify structural failures, and enforce alignment across content, entities, and authority signals.
-      This is a diagnostic-first engagement, not a checklist service.</p>
+      <details>
+        <summary>How the engagement works</summary>
+        <p>We assess eligibility, identify structural failures, and enforce alignment across content, entities, and authority signals.
+        This is a diagnostic-first engagement, not a checklist service.</p>
+      </details>
 
       <h2>Frequently Asked Questions</h2>
 
