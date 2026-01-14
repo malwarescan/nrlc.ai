@@ -218,6 +218,44 @@ if (function_exists('render_internal_links_section')) {
 </div>
 <?php endif; ?>
 
+<!-- City-Specific Service Pages (GSC Indexing Fix) -->
+<div class="content-block module">
+  <div class="content-block__header">
+    <h2 class="content-block__title">Service Locations</h2>
+  </div>
+  <div class="content-block__body">
+    <p>Find specialized AI SEO services in your city. Our location-specific pages provide tailored insights for local markets.</p>
+
+    <?php
+    // Add links to popular city-service combinations to improve internal linking
+    $popularCities = ['new-york', 'los-angeles', 'london', 'manchester', 'birmingham', 'tokyo', 'seoul', 'singapore'];
+    $popularServices = ['crawl-clarity', 'ai-overviews-optimization', 'generative-seo', 'local-seo-ai'];
+
+    echo '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">';
+
+    foreach ($popularServices as $service) {
+      echo '<div>';
+      echo '<h3>' . ucwords(str_replace('-', ' ', $service)) . '</h3>';
+      echo '<ul style="margin: 0;">';
+
+      foreach ($popularCities as $city) {
+        $isUK = in_array($city, ['london', 'manchester', 'birmingham']);
+        $locale = $isUK ? 'en-gb' : 'en-us';
+        $url = '/' . $locale . '/services/' . $service . '/' . $city . '/';
+        $cityName = ucwords(str_replace('-', ' ', $city));
+
+        echo '<li style="margin-bottom: 0.25rem;"><a href="' . htmlspecialchars($url) . '" title="' . ucwords(str_replace('-', ' ', $service)) . ' in ' . $cityName . '">' . $cityName . '</a></li>';
+      }
+
+      echo '</ul>';
+      echo '</div>';
+    }
+
+    echo '</div>';
+    ?>
+  </div>
+</div>
+
 <?php
 // JSON-LD Schema
 require_once __DIR__ . '/../../lib/helpers.php';

@@ -300,16 +300,18 @@ $offers = det_pick($ppForService, 6);
 
 $domain = 'https://nrlc.ai';
 
-// CANONICAL ENFORCEMENT: Prioritize JSON canonicals to prevent GSC duplicates
-// Use enhancement canonical first, fallback to locale-prefixed URL if not available
+// CANONICAL ENFORCEMENT: Use locale-prefixed URL as canonical for crawled page
+// This prevents GSC indexing issues where crawled URL != canonical URL
+$currentLocale = $GLOBALS['locale'] ?? 'en-us';
+$localePrefix = ($currentLocale === 'en-us') ? '' : '/' . $currentLocale;
+$canonical_url = absolute_url($localePrefix . $pathKey);
+
+// Verify enhancement canonical matches our locale-prefixed canonical
 $enhancement = get_service_enhancement($serviceSlug, $citySlug);
-if ($enhancement['canonical'] ?? null) {
-  $canonical_url = $enhancement['canonical'];
-} else {
-  // Fallback: Generate canonical based on current locale
-  $currentLocale = $GLOBALS['locale'] ?? 'en-us';
-  $localePrefix = ($currentLocale === 'en-us') ? '' : '/' . $currentLocale;
-  $canonical_url = absolute_url($localePrefix . $pathKey);
+$enhancementCanonical = $enhancement['canonical'] ?? null;
+if ($enhancementCanonical && $enhancementCanonical !== $canonical_url) {
+  // Log mismatch but use our locale-prefixed canonical for indexing
+  error_log("Canonical mismatch for {$pathKey}: enhancement={$enhancementCanonical}, using={$canonical_url}");
 }
 
 // STEP 4: Exact Service JSON-LD structure as specified
