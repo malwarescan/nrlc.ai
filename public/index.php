@@ -37,6 +37,10 @@ try {
     route_request();
   }
 } catch (Throwable $e) {
+  // LOG ERROR FOR DEBUGGING (remove after fix)
+  error_log("NRLC ROUTER ERROR: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine());
+  error_log("Stack trace: " . $e->getTraceAsString());
+  
   // FALLBACK: Always return 200 with minimal HTML
   http_response_code(200);
   header('Content-Type: text/html; charset=UTF-8');
