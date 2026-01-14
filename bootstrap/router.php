@@ -444,6 +444,13 @@ function route_request(): void {
     // Handle glossary/llm-strategist
     if ($category === 'glossary' && $articleSlug === 'llm-strategist') {
       $_GET['slug'] = 'glossary/llm-strategist';
+      // Fix: Add proper 404 handling for non-existent glossary terms
+    } elseif ($category === 'glossary') {
+      // Return 404 for glossary terms that don't exist
+      header('X-Robots-Tag: noindex, nofollow');
+      http_response_code(404);
+      echo "Glossary term not found";
+      return;
       $slug = 'glossary/llm-strategist';
     } else {
       // Other nested paths - treat as regular insight
@@ -669,6 +676,16 @@ function route_request(): void {
     header('X-Robots-Tag: noindex, nofollow');
     http_response_code(404);
     echo "Not Found";
+    return;
+  }
+
+  // Fix: Handle /en-us/about/ and similar locale about URLs
+  if (preg_match('#^/([a-z]{2}-[a-z]{2})/about/$#', $path, $m)) {
+    $locale = $m[1];
+    // Redirect locale about URLs to the about index
+    header("Location: " . absolute_url('/about/'), true, 301);
+    exit;
+  }
     return;
   }
 
