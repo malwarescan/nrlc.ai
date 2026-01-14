@@ -8,6 +8,11 @@ require_once __DIR__.'/../../../lib/schema_builders.php';
 $canonicalUrl = absolute_url('/en-gb/services/ai-overviews-optimization/cambridge/');
 // Cache buster for immediate refresh
 $cacheBuster = '?v=' . time();
+
+// Add cache control headers to force refresh
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
 $domain = absolute_url('/');
 
 // Build JSON-LD Schema with Cambridge locality
