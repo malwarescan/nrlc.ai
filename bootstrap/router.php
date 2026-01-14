@@ -684,8 +684,6 @@ function route_request(): void {
     header("Location: " . absolute_url('/about/'), true, 301);
     exit;
   }
-    return;
-  }
 
   // Index pages
   if ($path === '/careers/') {
@@ -2002,12 +2000,14 @@ function route_request(): void {
     // Career pages are dynamic and should exist for any city/role combination
     // But if page doesn't render correctly, redirect to careers index
     // This is a fallback - the page should render normally above
+    return;
   }
 
   // 404 Handler - Add noindex to prevent indexing of 404 pages
   header('X-Robots-Tag: noindex, nofollow');
   http_response_code(404);
   echo "Not Found";
+}
 
 /**
  * Load page metadata from a PHP file before head.php is included
