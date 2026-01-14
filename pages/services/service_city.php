@@ -300,9 +300,17 @@ $offers = det_pick($ppForService, 6);
 
 $domain = 'https://nrlc.ai';
 
-// Use exact canonical URL from Pages.csv if available
+// CANONICAL ENFORCEMENT: Always use clean locale-prefixed URL as canonical
+// Prevents GSC alternate page issues by ensuring consistent canonical URLs
+$currentLocale = $GLOBALS['locale'] ?? 'en-us';
+$localePrefix = ($currentLocale === 'en-us') ? '' : '/' . $currentLocale;
+$canonical_url = absolute_url($localePrefix . $pathKey);
+
+// Fallback to enhancement if available, but enforce locale consistency
 $enhancement = get_service_enhancement($serviceSlug, $citySlug);
-$canonical_url = $enhancement['canonical'] ?? absolute_url($pathKey);
+if ($enhancement['canonical'] ?? null) {
+  $canonical_url = $enhancement['canonical'];
+}
 
 // STEP 4: Exact Service JSON-LD structure as specified
 require_once __DIR__.'/../../lib/service_enhancements.php';
@@ -313,6 +321,10 @@ $serviceType = get_service_type_from_slug($serviceSlug);
 require_once __DIR__.'/../../lib/SchemaFixes.php';
 use NRLC\Schema\SchemaFixes;
 $orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization'; // Stable @id reused everywhere
+
+// CANONICAL ENFORCEMENT: Ensure proper canonical URL for locale-specific content
+// Local pages (city-specific) should NOT have hreflang - they are location-specific
+
 $serviceLd = [
   "@context" => "https://schema.org",
   "@type" => "Service",

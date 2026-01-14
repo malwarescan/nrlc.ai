@@ -278,10 +278,20 @@ function route_request(): void {
     $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
     $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
     
+    // CANONICAL ENFORCEMENT: Redirect query-based URLs to clean URLs
+    // Prevents GSC "alternate page with proper canonical tag" issues
+    if (!empty($_GET['service']) || !empty($_GET['city'])) {
+      $cleanUrl = '/' . $currentLocale . '/services/' . $serviceSlug . '/' . $citySlug . '/';
+      if ($_SERVER['REQUEST_URI'] !== $cleanUrl) {
+        header("Location: " . absolute_url($cleanUrl), true, 301);
+        exit;
+      }
+    }
+
     // Check if UK city - if so, enforce en-gb locale
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
     $currentLocale = current_locale();
-    
+
     if ($isUK && $currentLocale !== 'en-gb') {
       // UK city detected but wrong locale - redirect to en-gb
       // PRESERVE SERVICE TYPE - do not force to local-seo-ai
