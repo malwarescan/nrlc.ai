@@ -16,9 +16,7 @@ if (file_exists(__DIR__.'/../lib/i18n.php')) {
 }
 
 function route_request(): void {
-  // GUARD: route_request must not throw fatal errors
-  try {
-    $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+  $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
   // /{lang}-{region}/ prefix e.g., /en-us/services/..., /ko-kr/...
   if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $path, $m)) {
@@ -2010,13 +2008,6 @@ function route_request(): void {
   header('X-Robots-Tag: noindex, nofollow');
   http_response_code(404);
   echo "Not Found";
-  } catch (Throwable $e) {
-    // FALLBACK: If routing fails, return minimal HTML - always 200
-    http_response_code(200);
-    header('Content-Type: text/html; charset=UTF-8');
-    echo '<!DOCTYPE html><html><head><title>NRLC.ai</title><meta charset="UTF-8"></head><body><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p></body></html>';
-  }
-}
 
 /**
  * Load page metadata from a PHP file before head.php is included
