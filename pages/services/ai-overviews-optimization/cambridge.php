@@ -11,6 +11,8 @@ $domain = absolute_url('/');
 // Build JSON-LD Schema with Cambridge locality
 $GLOBALS['__jsonld'] = [
   ld_organization(),
+  ld_website(),
+  // PAGE-PERTINENT SERVICE SCHEMA (REQUIRED)
   [
     '@context' => 'https://schema.org',
     '@type' => 'Service',
@@ -25,15 +27,7 @@ $GLOBALS['__jsonld'] = [
       'audienceType' => 'Business decision-makers'
     ],
     'provider' => [
-      '@type' => 'Organization',
-      'name' => 'Neural Command',
-      'knowsAbout' => [
-        'AI Overviews eligibility',
-        'generative search visibility',
-        'AI citation systems',
-        'search authority engineering'
-      ],
-      'disambiguatingDescription' => 'Provider of AI visibility and generative search optimization services. Not related to transportation, car rental, delivery services, or subscriptions.'
+      '@id' => absolute_url('/') . '#organization'
     ],
     'serviceType' => 'AI Overviews Optimization',
     'availableChannel' => [
@@ -48,18 +42,28 @@ $GLOBALS['__jsonld'] = [
       ]
     ]
   ],
+  // CORRECTED WEBPAGE SCHEMA
   [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     'url' => $canonicalUrl,
-    'name' => 'AI Overviews Optimization for Cambridge Businesses',
+    'name' => 'AI Overview Visibility for Cambridge Businesses',
+    'description' => 'Cambridge businesses lose AI Overview visibility due to eligibility failures, not content problems. Diagnostic service identifies structural failures preventing AI citation.',
     'isPartOf' => [
-      '@type' => 'WebSite',
-      '@id' => $domain . '#website',
-      'name' => 'NRLC.ai',
-      'url' => $domain
-    ]
+      '@id' => absolute_url('/') . '#website'
+    ],
+    'about' => [
+      '@type' => 'Service',
+      'name' => 'AI Overviews Optimization'
+    ],
+    'primaryImageOfPage' => [
+      '@type' => 'ImageObject',
+      'url' => absolute_url('/logo.png')
+    ],
+    'datePublished' => '2024-01-01',
+    'dateModified' => date('Y-m-d')
   ],
+  // CORRECTED BREADCRUMB LIST (en-gb paths)
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -90,7 +94,7 @@ $GLOBALS['__jsonld'] = [
       ]
     ]
   ],
-  // Cambridge FAQ Schema
+  // CAMBRIDGE FAQ SCHEMA
   [
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',
