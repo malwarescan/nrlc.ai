@@ -340,14 +340,14 @@ $serviceLd = [
     "@type" => "Organization",
     "@id" => $orgId // Reference to single canonical Organization entity
   ],
-  "areaServed" => [
+  "areaServed" => array_filter([
     "@type" => "City",
     "name" => $cityTitle,
-    "containedIn" => $cityRow['subdivision'] ? [
+    "containedIn" => !empty($cityRow['subdivision']) ? [
       "@type" => "State",
       "name" => $cityRow['subdivision']
     ] : null
-  ],
+  ], function($v) { return $v !== null; })
   "url" => $canonical_url,
   "description" => "$serviceName in $cityTitle. Professional implementation with localized expertise, measurable results, and ongoing support."
 ];
