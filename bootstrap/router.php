@@ -48,12 +48,17 @@ function route_request(): void {
       $checkPath = substr($checkPath, strlen($m[0])-1);
     }
     
+    // Debug logging
+    error_log("MARKDOWN_CHECK: originalPath={$originalPath}, basePath={$basePath}, checkPath={$checkPath}");
+    
     if (is_markdown_eligible($checkPath)) {
       // Serve Markdown - we'll handle this after normal routing to get page content
       $GLOBALS['__markdown_request'] = true;
       $GLOBALS['__markdown_base_path'] = $basePath;
+      error_log("MARKDOWN_ELIGIBLE: Setting __markdown_request=true, basePath={$basePath}");
     } else {
       // Not eligible - serve 404
+      error_log("MARKDOWN_NOT_ELIGIBLE: checkPath={$checkPath}");
       header('X-Robots-Tag: noindex, nofollow');
       http_response_code(404);
       echo "Markdown not available for this page";
