@@ -26,14 +26,20 @@ $currentLocale = $GLOBALS['locale'] ?? 'en-us';
 $localePrefix = ($currentLocale === 'en-us') ? '' : '/' . $currentLocale;
 $canonical_url = absolute_url($localePrefix . $pathKey);
 
-// Set page metadata - SEO-OPTIMIZED
+// Set page metadata - ADVANCED SEO-OPTIMIZED
 $GLOBALS['__page_slug'] = 'services/service_city_training';
-$trainingKeywords = "AI SEO training, SEO training {$cityTitle}, AI search optimization training, ChatGPT optimization training, Claude optimization training, Google AI Overviews training, LLM citation training, structured data training, entity optimization training, technical SEO training";
+$trainingKeywords = "AI SEO training {$cityTitle}, SEO training courses {$cityTitle}, AI search optimization training, ChatGPT optimization training, Claude optimization training, Google AI Overviews training, LLM citation training, structured data training, entity optimization training, technical SEO training {$cityTitle}, generative engine optimization training, AEO training, GEO training, AI agent supervision training, Model Context Protocol training, schema governance training, AI search visibility training";
 $GLOBALS['__page_meta'] = [
-  'title' => "AI SEO Training Courses in {$cityTitle} | Neural Command Training",
-  'description' => "Professional AI SEO training courses for teams in {$cityTitle}. Learn how to optimize for ChatGPT, Claude, Google AI Overviews, and LLM citation systems. Hands-on training in structured data, entity optimization, and AI search visibility.",
+  'title' => "AI SEO Training Courses in {$cityTitle} | ChatGPT, Claude & Google AI Overviews | Neural Command",
+  'description' => "Professional AI SEO training courses for teams in {$cityTitle}. Master ChatGPT optimization, Claude optimization, Google AI Overviews, and LLM citation systems. Hands-on training in structured data, entity optimization, schema governance, and AI search visibility. Operational training for Heads of SEO, Technical SEOs, and engineering teams.",
   'keywords' => $trainingKeywords,
-  'canonicalPath' => $pathKey
+  'canonicalPath' => $pathKey,
+  'datePublished' => '2024-01-01',
+  'dateModified' => date('Y-m-d'),
+  'author' => 'Joel Maldonado',
+  'og:type' => 'website',
+  'og:image' => 'https://nrlc.ai/assets/images/nrlc-logo.png',
+  'twitter:card' => 'summary_large_image'
 ];
 
 // Load city data
@@ -357,18 +363,25 @@ $orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization';
 
 // Build comprehensive schema for SEO and extractability
 $GLOBALS['__jsonld'] = [
-  // 1. Course Schema (PRIMARY - Training is education, not service)
+  // 1. Course Schema (PRIMARY - Training is education, not service) - ADVANCED
   [
     '@context' => 'https://schema.org',
     '@type' => 'Course',
     '@id' => $canonical_url . '#course',
     'name' => "AI SEO Training Courses for Teams in {$cityTitle}",
-    'description' => "Professional training courses for marketing and SEO teams in {$cityTitle} who need to understand how AI search systems work, how LLMs ingest content, and how to optimize for generative engines like ChatGPT, Claude, and Google AI Overviews.",
+    'alternateName' => "AI Search Optimization Training {$cityTitle}",
+    'description' => "Professional training courses for marketing and SEO teams in {$cityTitle} who need to understand how AI search systems work, how LLMs ingest content, and how to optimize for generative engines like ChatGPT, Claude, Perplexity, and Google AI Overviews. Operational training covering agent supervision, schema governance, entity optimization, and AI search visibility.",
     'provider' => [
       '@type' => 'Organization',
       '@id' => $orgId,
       'name' => 'Neural Command',
-      'url' => 'https://nrlc.ai'
+      'url' => 'https://nrlc.ai',
+      'logo' => [
+        '@type' => 'ImageObject',
+        'url' => 'https://nrlc.ai/assets/images/nrlc-logo.png',
+        'width' => 43,
+        'height' => 43
+      ]
     ],
     'teaches' => [
       'Agent operation and supervision within Model Context Protocols',
@@ -378,18 +391,35 @@ $GLOBALS['__jsonld'] = [
       'Entity optimization for AI search systems',
       'Schema as a control layer',
       'Search Console telemetry interpretation',
-      'How to avoid AI-induced SEO regressions'
+      'How to avoid AI-induced SEO regressions',
+      'ChatGPT optimization techniques',
+      'Claude optimization strategies',
+      'Google AI Overviews optimization',
+      'LLM citation system mechanics',
+      'Generative Engine Optimization (GEO)',
+      'Answer Engine Optimization (AEO)'
     ],
     'courseCode' => 'AI-SEO-TRAINING',
     'educationalLevel' => 'Professional',
     'learningResourceType' => 'Training Course',
     'timeRequired' => 'PT8H', // 8 hours minimum
-    'inLanguage' => 'en-US',
+    'inLanguage' => $currentLocale === 'en-gb' ? 'en-GB' : 'en-US',
     'availableLanguage' => ['en-US', 'en-GB'],
     'audience' => [
       '@type' => 'EducationalAudience',
       'educationalRole' => 'Professional',
-      'audienceType' => 'Heads of SEO, Technical SEOs, Engineering Teams, Content Leads'
+      'audienceType' => 'Heads of SEO, Technical SEOs, Engineering Teams, Content Leads',
+      'educationalUse' => 'Professional Development'
+    ],
+    'coursePrerequisites' => [
+      '@type' => 'Course',
+      'name' => 'Production SEO Systems Experience',
+      'description' => 'Teams should have experience with production SEO systems, structured data implementation, or content optimization. This is not beginner education.'
+    ],
+    'competencyRequired' => [
+      'Production SEO experience',
+      'Structured data implementation knowledge',
+      'Content optimization experience'
     ],
     'offers' => [
       '@type' => 'Offer',
@@ -399,41 +429,112 @@ $GLOBALS['__jsonld'] = [
         '@type' => 'UnitPriceSpecification',
         'price' => $isUK ? '2500' : '3500',
         'priceCurrency' => $isUK ? 'GBP' : 'USD',
-        'valueAddedTaxIncluded' => true
+        'valueAddedTaxIncluded' => true,
+        'priceType' => 'https://schema.org/MinimumPrice'
       ],
       'availability' => 'https://schema.org/InStock',
-      'url' => $canonical_url
+      'url' => $canonical_url,
+      'validFrom' => '2024-01-01',
+      'category' => 'Professional Training'
     ],
     'areaServed' => [
       '@type' => 'City',
-      'name' => $cityTitle
+      'name' => $cityTitle,
+      'containedIn' => [
+        '@type' => 'State',
+        'name' => $cityRow['subdivision'] ?? ($isUK ? 'Wales' : '')
+      ]
+    ],
+    'hasCourseInstance' => [
+      [
+        '@type' => 'CourseInstance',
+        'courseMode' => 'online',
+        'instructor' => [
+          '@type' => 'Person',
+          'name' => 'Joel Maldonado',
+          'jobTitle' => 'Founder & AI Search Researcher',
+          'worksFor' => [
+            '@id' => $orgId
+          ]
+        ]
+      ],
+      [
+        '@type' => 'CourseInstance',
+        'courseMode' => 'mixed',
+        'instructor' => [
+          '@type' => 'Person',
+          'name' => 'Joel Maldonado',
+          'jobTitle' => 'Founder & AI Search Researcher',
+          'worksFor' => [
+            '@id' => $orgId
+          ]
+        ]
+      ]
+    ],
+    'keywords' => $trainingKeywords,
+    'about' => [
+      '@type' => 'Thing',
+      'name' => 'AI Search Optimization',
+      'description' => 'Training in AI search optimization, including ChatGPT, Claude, Google AI Overviews, and LLM citation systems'
     ]
   ],
 
-  // 2. WebPage Schema
+  // 2. WebPage Schema - ADVANCED
   [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     '@id' => $canonical_url . '#webpage',
-    'name' => "AI SEO Training Courses in {$cityTitle} | Neural Command Training",
+    'name' => "AI SEO Training Courses in {$cityTitle} | ChatGPT, Claude & Google AI Overviews | Neural Command",
     'url' => $canonical_url,
-    'description' => "Professional AI SEO training courses for teams in {$cityTitle}. Learn how to optimize for ChatGPT, Claude, Google AI Overviews, and LLM citation systems.",
+    'description' => "Professional AI SEO training courses for teams in {$cityTitle}. Master ChatGPT optimization, Claude optimization, Google AI Overviews, and LLM citation systems. Hands-on training in structured data, entity optimization, schema governance, and AI search visibility.",
     'isPartOf' => [
       '@type' => 'WebSite',
       '@id' => 'https://nrlc.ai/#website',
       'name' => 'NRLC.ai',
-      'url' => 'https://nrlc.ai'
+      'url' => 'https://nrlc.ai',
+      'potentialAction' => [
+        '@type' => 'SearchAction',
+        'target' => [
+          '@type' => 'EntryPoint',
+          'urlTemplate' => 'https://nrlc.ai/search?q={search_term_string}'
+        ],
+        'query-input' => 'required name=search_term_string'
+      ]
     ],
     'about' => [
       '@id' => $canonical_url . '#course'
     ],
     'primaryImageOfPage' => [
       '@type' => 'ImageObject',
-      'url' => 'https://nrlc.ai/assets/images/nrlc-logo.png'
+      'url' => 'https://nrlc.ai/assets/images/nrlc-logo.png',
+      'width' => 43,
+      'height' => 43,
+      'caption' => 'Neural Command - AI Search Optimization Training'
     ],
-    'inLanguage' => 'en-US',
+    'inLanguage' => $currentLocale === 'en-gb' ? 'en-GB' : 'en-US',
     'datePublished' => '2024-01-01',
-    'dateModified' => date('Y-m-d')
+    'dateModified' => date('Y-m-d'),
+    'author' => [
+      '@type' => 'Person',
+      'name' => 'Joel Maldonado',
+      'jobTitle' => 'Founder & AI Search Researcher',
+      'worksFor' => [
+        '@id' => $orgId
+      ]
+    ],
+    'publisher' => [
+      '@id' => $orgId
+    ],
+    'breadcrumb' => [
+      '@id' => $canonical_url . '#breadcrumb'
+    ],
+    'mainEntity' => [
+      '@id' => $canonical_url . '#course'
+    ],
+    'speakable' => [
+      '@type' => 'SpeakableSpecification',
+      'cssSelector' => ['h1', '.lead']
+    ]
   ],
 
   // 3. BreadcrumbList
@@ -528,13 +629,20 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
 
-  // 5. Organization Schema (reference)
+  // 5. Organization Schema (reference) - ADVANCED
   [
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
     '@id' => $orgId,
     'name' => 'Neural Command',
+    'legalName' => 'Neural Command, LLC',
     'url' => 'https://nrlc.ai',
+    'logo' => [
+      '@type' => 'ImageObject',
+      'url' => 'https://nrlc.ai/assets/images/nrlc-logo.png',
+      'width' => 43,
+      'height' => 43
+    ],
     'knowsAbout' => [
       'AI SEO Training',
       'AI Search Optimization',
@@ -542,7 +650,52 @@ $GLOBALS['__jsonld'] = [
       'Structured Data Governance',
       'Entity Optimization',
       'Model Context Protocols',
+      'Agent Supervision',
+      'ChatGPT Optimization',
+      'Claude Optimization',
+      'Google AI Overviews',
+      'Generative Engine Optimization',
+      'Answer Engine Optimization',
+      'Schema Governance',
+      'AI Search Visibility'
+    ],
+    'areaServed' => [
+      '@type' => 'City',
+      'name' => $cityTitle
+    ],
+    'offers' => [
+      '@id' => $canonical_url . '#course'
+    ]
+  ],
+
+  // 6. Person Schema (Joel Maldonado - Instructor)
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Person',
+    '@id' => 'https://nrlc.ai/#joel-maldonado',
+    'name' => 'Joel Maldonado',
+    'jobTitle' => 'Founder & AI Search Researcher',
+    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in search, retrieval, citations, and extractability for AI-powered search engines.',
+    'worksFor' => [
+      '@id' => $orgId
+    ],
+    'knowsAbout' => [
+      'AI SEO',
+      'AEO',
+      'GEO',
+      'AI Search',
+      'Search Retrieval',
+      'AI Citations',
+      'Extractability',
+      'Generative Engine Optimization',
+      'LLM Seeding',
+      'Structured Data',
+      'Model Context Protocols',
       'Agent Supervision'
+    ],
+    'url' => 'https://nrlc.ai',
+    'sameAs' => [
+      'https://www.linkedin.com/in/joelmaldonado/'
     ]
   ]
 ];
