@@ -6,17 +6,21 @@
 
 function send_email_via_smtp($to, $subject, $message, $headers = []) {
   // SMTP Configuration from environment variables
-  $smtp_host = $_ENV['SMTP_HOST'] ?? 'smtp.gmail.com';
-  $smtp_port = $_ENV['SMTP_PORT'] ?? 587;
-  $smtp_username = $_ENV['SMTP_USERNAME'] ?? '';
-  $smtp_password = $_ENV['SMTP_PASSWORD'] ?? '';
-  $smtp_from_email = $_ENV['SMTP_FROM_EMAIL'] ?? 'noreply@nrlc.ai';
-  $smtp_from_name = $_ENV['SMTP_FROM_NAME'] ?? 'NRLC.ai';
+  // Try both $_ENV and getenv() - Railway may use either
+  $smtp_host = $_ENV['SMTP_HOST'] ?? getenv('SMTP_HOST') ?: 'smtp.gmail.com';
+  $smtp_port = (int)($_ENV['SMTP_PORT'] ?? getenv('SMTP_PORT') ?: 587);
+  $smtp_username = $_ENV['SMTP_USERNAME'] ?? getenv('SMTP_USERNAME') ?: '';
+  $smtp_password = $_ENV['SMTP_PASSWORD'] ?? getenv('SMTP_PASSWORD') ?: '';
+  $smtp_from_email = $_ENV['SMTP_FROM_EMAIL'] ?? getenv('SMTP_FROM_EMAIL') ?: 'noreply@nrlc.ai';
+  $smtp_from_name = $_ENV['SMTP_FROM_NAME'] ?? getenv('SMTP_FROM_NAME') ?: 'NRLC.ai';
+  
+  // Log configuration for debugging (without password)
+  error_log("SMTP Config: Host=$smtp_host, Port=$smtp_port, Username=" . ($smtp_username ? 'SET' : 'NOT SET') . ", Password=" . ($smtp_password ? 'SET' : 'NOT SET'));
   
   // If no SMTP credentials, log error and return false
   // PHP mail() doesn't work on Railway without SMTP
   if (empty($smtp_username) || empty($smtp_password)) {
-    error_log("SMTP not configured: SMTP_USERNAME or SMTP_PASSWORD missing. Set environment variables in Railway.");
+    error_log("SMTP not configured: SMTP_USERNAME or SMTP_PASSWORD missing. Username='" . $smtp_username . "', Password=" . (empty($smtp_password) ? 'EMPTY' : 'SET'));
     // Don't try mail() on Railway - it won't work
     return false;
   }
@@ -40,15 +44,17 @@ function send_email_via_smtp($to, $subject, $message, $headers = []) {
   $email_body = $message;
   $email_headers_string = implode("\r\n", $email_headers);
   
-  // Use PHPMailer-style SMTP if available, otherwise use socket-based SMTP
-  // For now, we'll use a simple socket-based approach
+  // Use socket-based SMTP connection
   try {
-    $smtp = fsockopen($smtp_host, $smtp_port, $errno, $errstr, 30);
+    error_log("Attempting SMTP connection to $smtp_host:$smtp_port");
+    $smtp = @fsockopen($smtp_host, $smtp_port, $errno, $errstr, 30);
     
     if (!$smtp) {
-      error_log("SMTP connection failed: $errstr ($errno)");
+      error_log("SMTP connection failed to $smtp_host:$smtp_port - Error: $errstr ($errno)");
       return false;
     }
+    
+    error_log("SMTP connection established to $smtp_host:$smtp_port");
     
     // Read server greeting
     $response = fgets($smtp, 515);
@@ -151,6 +157,8 @@ function send_email_via_smtp($to, $subject, $message, $headers = []) {
       fclose($smtp);
       return false;
     }
+    
+    error_log("Email sent successfully to $to");
     
     // Quit
     fputs($smtp, "QUIT\r\n");
