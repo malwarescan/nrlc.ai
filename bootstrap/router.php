@@ -17,6 +17,7 @@ if (file_exists(__DIR__.'/../lib/i18n.php')) {
 
 function route_request(): void {
   $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+  $originalPath = $path; // Save original path for redirect checks
 
   // /{lang}-{region}/ prefix e.g., /en-us/services/..., /ko-kr/...
   if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $path, $m)) {
@@ -2057,7 +2058,8 @@ function route_request(): void {
   // CRITICAL FIX: Redirect service-city URLs missing /services/ prefix
   // Pattern: /{locale}/{service-slug}/{city}/ -> /{locale}/services/{service-slug}/{city}/
   // This catches URLs like /en-us/content-optimization-ai/sherbrooke/
-  if (preg_match('#^/([a-z]{2})-([a-z]{2})/([^/]+)/([^/]+)/$#', $path, $m)) {
+  // MUST check originalPath (before locale stripping) to catch locale-prefixed URLs
+  if (preg_match('#^/([a-z]{2})-([a-z]{2})/([^/]+)/([^/]+)/$#', $originalPath, $m)) {
     $locale = strtolower($m[1].'-'.$m[2]);
     $potentialService = $m[3];
     $city = $m[4];
