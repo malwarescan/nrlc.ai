@@ -157,15 +157,26 @@ function approach_section(string $service, string $city = ''): string {
   $blocks = array_values(array_filter($rows, fn($r)=>($r['service']??'')===$service));
   $c = $city ? titleCaseCity($city) : '';
   det_seed("approach|$service" . ($city ? "|$city" : ''));
+  
+  // If no blocks found in CSV, generate service-specific technical content
+  if (empty($blocks)) {
+    $blocks = generate_service_specific_approach_blocks($service, $city);
+  }
+  
   $pick = det_pick($blocks, max(2, min(3, count($blocks))));
   $out=[];
   foreach ($pick as $b) {
-    $body = htmlspecialchars($b['body']);
+    $title = is_array($b) ? ($b['block_title'] ?? $b['title'] ?? '') : '';
+    $body = is_array($b) ? ($b['body'] ?? $b['description'] ?? '') : '';
+    if (empty($title) || empty($body)) continue;
+    
+    $body = htmlspecialchars($body);
+    $title = htmlspecialchars($title);
     // Inject city context if available (only replace first occurrence)
     if ($city && stripos($body, $c) === false) {
       $body = preg_replace('/\. /', " in {$c}. ", $body, 1);
     }
-    $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">".htmlspecialchars($b['block_title'])."</h3><p>{$body}</p></div>";
+    $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">{$title}</h3><p>{$body}</p></div>";
   }
   
   // META KERNEL DIRECTIVE: Step-by-step process section
@@ -319,13 +330,43 @@ function service_overview_section(string $service, string $city, ?array $cityRow
     $usagePattern = "local search intent patterns, regional AI engine behaviors, and city-specific user expectations";
   }
   
-  $overviews = [
-    "$s is a comprehensive AI-first SEO optimization service that ensures your business appears accurately in AI-powered search engines like ChatGPT, Claude, and Perplexity. In {$cityContext}, where {$marketContext} create unique challenges for traditional SEO, our $s service addresses entity clarity, structured data completeness, and citation accuracy—three pillars that determine whether AI systems recommend your brand when users ask location-specific questions. The {$usagePattern} in {$c} require technical implementations that go beyond keyword optimization.",
-    
-    "When businesses in {$c} need $s, they're typically facing a critical visibility gap: traditional search rankings don't translate to AI engine recommendations. Large language models require perfectly structured entities, unambiguous location signals, and comprehensive schema markup. {$cityContext} businesses must navigate {$marketContext}, which makes technical SEO foundation critical. Our $s implementation transforms technical SEO debt into AI engine authority, ensuring your brand gets cited correctly with accurate URLs, current information, and proper attribution—especially important given {$c}'s {$usagePattern}.",
-    
-    "$s in {$cityContext} isn't just about rankings—it's about being discoverable when users ask AI assistants for recommendations. AI engines parse your structured data, evaluate entity relationships, and determine citation trustworthiness. The {$marketContext} in {$c} means businesses need more sophisticated optimization than generic SEO templates. Our $s service ensures every signal AI engines need is present: canonical URLs, location-anchored entities, verification signals, and metadata completeness. Given {$c}'s {$usagePattern}, this technical foundation determines whether AI systems cite you or competitors."
+  // Service-specific technical overviews with deep implementation details
+  $serviceSpecificOverviews = [
+    'mobile-seo-ai' => [
+      "Mobile AI SEO in {$cityContext} optimizes your business for mobile-first AI search engines including Google Mobile-First Indexing, mobile ChatGPT, and mobile Perplexity. Mobile AI systems prioritize mobile-optimized content{$cityContext}, where {$marketContext} create unique mobile optimization challenges. Our Mobile AI SEO service implements mobile-first schema markup (mobile-optimized JSON-LD with responsive design signals), mobile crawl optimization (mobile-specific sitemaps, mobile user-agent handling), mobile performance engineering (Core Web Vitals optimization, mobile page speed), and mobile entity recognition (mobile-friendly structured data, mobile location signals). The {$usagePattern} in {$c} require mobile-specific technical implementations that ensure mobile AI engines can correctly identify, retrieve, and cite your business from mobile-optimized content.",
+      
+      "When businesses in {$c} need Mobile AI SEO, they're facing a critical mobile visibility gap: desktop-optimized content doesn't translate to mobile AI engine recommendations. Mobile AI systems require mobile-optimized structured data, mobile-specific entity mappings, and mobile performance signals. {$cityContext} businesses must navigate {$marketContext}, which makes mobile technical SEO foundation critical. Our Mobile AI SEO implementation transforms mobile technical debt into mobile AI engine authority, ensuring your brand gets cited correctly in mobile AI responses with accurate mobile URLs, current mobile information, and proper mobile attribution—especially important given {$c}'s {$usagePattern}.",
+      
+      "Mobile AI SEO in {$cityContext} ensures your business is discoverable when users ask mobile AI assistants for recommendations. Mobile AI engines parse your mobile structured data, evaluate mobile entity relationships, and determine mobile citation trustworthiness. The {$marketContext} in {$c} means businesses need more sophisticated mobile optimization than generic mobile SEO templates. Our Mobile AI SEO service ensures every mobile signal AI engines need is present: mobile canonical URLs, mobile location-anchored entities, mobile verification signals, and mobile metadata completeness. Given {$c}'s {$usagePattern}, this mobile technical foundation determines whether mobile AI systems cite you or competitors."
+    ],
+    'generative-seo' => [
+      "Generative SEO in {$cityContext} optimizes your content for generative AI systems including ChatGPT, Claude, Perplexity, and Google AI Overviews. Generative AI engines require atomic content blocks, explicit entity definitions, and citation-ready factual statements{$cityContext}, where {$marketContext} create unique generative optimization challenges. Our Generative SEO service implements generative content architecture (atomic content blocks, explicit entity definitions, citation anchors), LLM citation signal optimization (explicit factual statements, verifiable claims, source attribution), generative search intent mapping (query pattern analysis, generative response structure optimization), and multi-model generative optimization (platform-agnostic structured data for ChatGPT, Claude, Perplexity, Google AI Overviews). The {$usagePattern} in {$c} require generative-specific technical implementations that ensure generative AI systems can accurately extract, understand, and cite your content when generating responses.",
+      
+      "When businesses in {$c} need Generative SEO, they're facing a critical generative visibility gap: traditional SEO content doesn't translate to generative AI citations. Generative AI systems require clear, unambiguous content structure with explicit factual statements and citation anchors. {$cityContext} businesses must navigate {$marketContext}, which makes generative content architecture critical. Our Generative SEO implementation transforms content structure into generative AI authority, ensuring your content gets cited correctly in generative AI responses with accurate URLs, verifiable facts, and proper source attribution—especially important given {$c}'s {$usagePattern}.",
+      
+      "Generative SEO in {$cityContext} ensures your content is discoverable when users ask generative AI assistants for information. Generative AI engines parse your content structure, evaluate entity clarity, and determine citation trustworthiness based on explicit factual statements and verifiable claims. The {$marketContext} in {$c} means businesses need more sophisticated generative optimization than generic content templates. Our Generative SEO service ensures every generative signal AI engines need is present: atomic content blocks, explicit entity definitions, citation anchors, and verifiable factual statements. Given {$c}'s {$usagePattern}, this generative content foundation determines whether generative AI systems cite you or competitors."
+    ],
+    'retrieval-optimization-ai' => [
+      "Retrieval Optimization AI in {$cityContext} optimizes how AI retrieval systems retrieve and rank your content. AI retrieval systems use specific signals to determine content relevance{$cityContext}, where {$marketContext} create unique retrieval optimization challenges. Our Retrieval Optimization AI service implements retrieval signal engineering (query-document matching optimization, relevance signal enhancement, retrieval ranking factor alignment), semantic retrieval optimization (comprehensive entity relationships, semantic structure, contextual signals), retrieval ranking factor alignment (freshness signals, authority indicators, relevance markers, trust signals), and query-document matching enhancement (query pattern analysis, document structure optimization, relevance signal enhancement). The {$usagePattern} in {$c} require retrieval-specific technical implementations that ensure AI retrieval systems can correctly match user queries to your content and rank it appropriately.",
+      
+      "When businesses in {$c} need Retrieval Optimization AI, they're facing a critical retrieval visibility gap: content that ranks well in traditional search doesn't necessarily get retrieved by AI systems. AI retrieval systems prioritize different signals than traditional search engines: semantic similarity, entity matching, freshness, authority, and trust. {$cityContext} businesses must navigate {$marketContext}, which makes retrieval signal optimization critical. Our Retrieval Optimization AI implementation transforms content structure into retrieval authority, ensuring your content gets retrieved correctly by AI systems with optimal ranking position, relevance matching, and query-document alignment—especially important given {$c}'s {$usagePattern}.",
+      
+      "Retrieval Optimization AI in {$cityContext} ensures your content is retrieved when users ask AI systems for information. AI retrieval systems parse your content structure, evaluate semantic relationships, and determine retrieval relevance based on query-document matching, entity clarity, and ranking factor alignment. The {$marketContext} in {$c} means businesses need more sophisticated retrieval optimization than generic content structure. Our Retrieval Optimization AI service ensures every retrieval signal AI systems need is present: semantic markup, entity graph optimization, freshness signals, authority indicators, and relevance markers. Given {$c}'s {$usagePattern}, this retrieval optimization foundation determines whether AI retrieval systems retrieve and rank your content or competitors'."
+    ]
   ];
+  
+  // Use service-specific overviews if available, otherwise use generic
+  if (isset($serviceSpecificOverviews[$service])) {
+    $overviews = $serviceSpecificOverviews[$service];
+  } else {
+    $overviews = [
+      "$s is a comprehensive AI-first SEO optimization service that ensures your business appears accurately in AI-powered search engines like ChatGPT, Claude, and Perplexity. In {$cityContext}, where {$marketContext} create unique challenges for traditional SEO, our $s service addresses entity clarity, structured data completeness, and citation accuracy—three pillars that determine whether AI systems recommend your brand when users ask location-specific questions. The {$usagePattern} in {$c} require technical implementations that go beyond keyword optimization.",
+      
+      "When businesses in {$c} need $s, they're typically facing a critical visibility gap: traditional search rankings don't translate to AI engine recommendations. Large language models require perfectly structured entities, unambiguous location signals, and comprehensive schema markup. {$cityContext} businesses must navigate {$marketContext}, which makes technical SEO foundation critical. Our $s implementation transforms technical SEO debt into AI engine authority, ensuring your brand gets cited correctly with accurate URLs, current information, and proper attribution—especially important given {$c}'s {$usagePattern}.",
+      
+      "$s in {$cityContext} isn't just about rankings—it's about being discoverable when users ask AI assistants for recommendations. AI engines parse your structured data, evaluate entity relationships, and determine citation trustworthiness. The {$marketContext} in {$c} means businesses need more sophisticated optimization than generic SEO templates. Our $s service ensures every signal AI engines need is present: canonical URLs, location-anchored entities, verification signals, and metadata completeness. Given {$c}'s {$usagePattern}, this technical foundation determines whether AI systems cite you or competitors."
+    ];
+  }
   
   $selected = det_pick($overviews, 1)[0];
   return "<p>{$selected}</p>";
