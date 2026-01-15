@@ -68,9 +68,9 @@ function local_market_insights(string $city): string {
   
   $data = $marketData[$c] ?? $marketData['New York'];
   
+  // REMOVED H3 - template provides H2 "Local Market Insights", this is just content
   return "<div class=\"box-padding\">
-    <h3 style=\"margin-top: 0; color: #000080;\">$c Market Dynamics</h3>
-    <p>Local businesses operate within a competitive landscape dominated by {$data['industries']}, requiring sophisticated optimization strategies that address {$data['challenges']} while capitalizing on {$data['opportunities']}.</p>
+    <p><strong>$c Market Dynamics:</strong> Local businesses operate within a competitive landscape dominated by {$data['industries']}, requiring sophisticated optimization strategies that address {$data['challenges']} while capitalizing on {$data['opportunities']}.</p>
     <p>Regional search behaviors, local entity recognition patterns, and market-specific AI engine preferences drive measurable improvements in citation rates and organic visibility.</p>
   </div>";
 }
@@ -88,9 +88,9 @@ function local_competition_analysis(string $city): string {
   
   $insight = $competitionInsights[$c] ?? $competitionInsights['New York'];
   
+  // REMOVED H3 - template provides H2 "Competitive Landscape", this is just content
   return "<div class=\"box-padding\">
-    <h3 style=\"margin-top: 0; color: #000080;\">Competitive Landscape in $c</h3>
-    <p>The market features {$insight}. Systematic crawl clarity, comprehensive structured data, and LLM seeding strategies outperform traditional SEO methods.</p>
+    <p>The market in $c features {$insight}. Systematic crawl clarity, comprehensive structured data, and LLM seeding strategies outperform traditional SEO methods.</p>
     <p>Analysis of local competitor implementations identifies optimization gaps and leverages the GEO-16 framework to achieve superior AI engine visibility and citation performance.</p>
   </div>";
 }
@@ -371,7 +371,7 @@ function pricing_section(string $service, string $city, ?array $cityRow = null):
   $factorsText = implode(', ', array_slice($selectedFactors, 0, -1)) . ', and ' . end($selectedFactors);
   
   $content = "<div class=\"box-padding\">";
-  $content .= "<h3 style=\"margin-top: 0; color: #000080;\">Pricing for {$s} in {$c}</h3>";
+  // REMOVED H3 - template now provides H2 wrapper
   $content .= "<p>Our {$s} engagements in {$c} typically range from <strong>{$priceRange}</strong>, depending on scope, complexity, and desired outcomes. Pricing is influenced by {$factorsText}.</p>";
   
   if ($isAudit) {
@@ -426,7 +426,7 @@ function service_area_coverage_section(string $city, ?array $cityRow = null): st
     // Generic coverage for cities without neighborhood data
     $regionText = $subdivision ? ", {$subdivision}" : '';
     $content = "<div class=\"box-padding\">";
-    $content .= "<h3 style=\"margin-top: 0; color: #000080;\">Service Area Coverage in {$c}</h3>";
+    // REMOVED H3 - this section should not have its own heading, it's part of service area coverage
     $content .= "<p>We provide comprehensive AI-first SEO services throughout {$c}{$regionText} and surrounding metropolitan areas. Our localization strategies account for city-specific search patterns, local business competition, and regional AI engine behavior differences.</p>";
     $content .= "<p>Our {$c} optimization approach ensures maximum geographic relevance and entity clarity, improving citation accuracy across ChatGPT, Claude, Perplexity, and other AI search platforms. Location-anchored entity signals, local market schema, and city-specific content strategies all contribute to superior AI engine visibility.</p>";
     $content .= "<p><strong>Interested in AI engine optimization for your {$c} business?</strong> Contact us to discuss your coverage area and specific optimization goals.</p>";

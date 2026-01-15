@@ -166,6 +166,9 @@ $content = $intro . $local;
 
         <!-- META KERNEL DIRECTIVE: SECTION 5 - Pricing -->
         <div class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Pricing for <?= htmlspecialchars($serviceTitle) ?> in <?= htmlspecialchars($cityTitle) ?></h2>
+          </div>
           <div class="content-block__body">
             <?= $pricing ?>
           </div>
