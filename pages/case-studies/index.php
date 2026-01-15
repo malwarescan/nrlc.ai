@@ -34,96 +34,96 @@ if (isset($GLOBALS['__page_meta'])) {
         <div class="grid grid-auto-fit">
           
           <!-- Entity Semantic Poisoning at SAW.com (Real Case Study) -->
-          <div class="box-padding" itemscope itemtype="https://schema.org/Article">
+          <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
               <h3 class="content-block__title heading-3" itemprop="headline">Entity Repair Case Study: Fixing Semantic Misclassification at SAW.com</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description">How entity-level semantic poisoning caused Google to misclassify SAW.com, why SEO fixes failed, and how structured entity repair restored correct business identity.</p>
-              <p>
+              <div class="btn-group">
                 <a href="/case-studies/entity-semantic-poisoning-saw/" class="btn btn--primary" itemprop="url">View Case Study</a>
-              </p>
+              </div>
             </div>
           </div>
 
           <!-- B2B SaaS Case Study -->
-          <div class="box-padding" itemscope itemtype="https://schema.org/Article">
+          <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
               <h3 class="content-block__title heading-3" itemprop="headline">WorkflowMax: 340% AI Citation Increase via Entity Mapping</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description"><strong>Client:</strong> WorkflowMax (Xero subsidiary, project management SaaS). <strong>Result:</strong> 340% increase in AI citations (23% → 78% citation rate). <strong>Method:</strong> Service schema with expertise declarations, atomic content blocks, entity disambiguation. <strong>Timeline:</strong> 90 days.</p>
-              <p>
+              <div class="btn-group">
                 <a href="/case-studies/b2b-saas/" class="btn btn--primary" itemprop="url">View Case Study</a>
-              </p>
+              </div>
             </div>
           </div>
           
           <!-- E-commerce Case Study -->
-          <div class="box-padding" itemscope itemtype="https://schema.org/Article">
+          <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
               <h3 class="content-block__title heading-3" itemprop="headline">Overstock: 250% AI Visibility Increase via Product Schema</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description"><strong>Client:</strong> Overstock.com (e-commerce, 2.1M products). <strong>Result:</strong> 250% increase in AI visibility (18% → 63% mention rate). <strong>Method:</strong> Product schema with Offer, AggregateRating, Brand entities, category taxonomies. <strong>Timeline:</strong> 75 days.</p>
-              <p>
+              <div class="btn-group">
                 <a href="/case-studies/ecommerce/" class="btn btn--primary" itemprop="url">View Case Study</a>
-              </p>
+              </div>
             </div>
           </div>
           
           <!-- Healthcare Case Study -->
-          <div class="box-padding" itemscope itemtype="https://schema.org/Article">
+          <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
               <h3 class="content-block__title heading-3" itemprop="headline">Cleveland Clinic: 180% AI Citation Improvement via MedicalBusiness Schema</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description"><strong>Client:</strong> Cleveland Clinic (healthcare provider, 6,500+ physicians). <strong>Result:</strong> 180% improvement in AI citation rates (31% → 87% citation rate). <strong>Method:</strong> MedicalBusiness schema, HealthcareProvider credentials, specialty mappings, TrustSignal schema. <strong>Timeline:</strong> 60 days.</p>
-              <p>
+              <div class="btn-group">
                 <a href="/case-studies/healthcare/" class="btn btn--primary" itemprop="url">View Case Study</a>
-              </p>
+              </div>
             </div>
-          </div>
-          
+      </div>
+      
           <!-- Fintech Case Study -->
-          <div class="box-padding" itemscope itemtype="https://schema.org/Article">
+          <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
               <h3 class="content-block__title heading-3" itemprop="headline">Stripe: 290% AI Mention Increase via FinancialProduct Schema</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description"><strong>Client:</strong> Stripe (payment processing, $1T+ processed). <strong>Result:</strong> 290% increase in AI mentions (22% → 86% mention rate). <strong>Method:</strong> FinancialProduct schema, regulatory compliance declarations, security certification structured data. <strong>Timeline:</strong> 85 days.</p>
-              <p>
+              <div class="btn-group">
                 <a href="/case-studies/fintech/" class="btn btn--primary" itemprop="url">View Case Study</a>
-              </p>
+              </div>
             </div>
-          </div>
-          
+      </div>
+      
           <!-- Education Case Study -->
-          <div class="box-padding" itemscope itemtype="https://schema.org/Article">
+          <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
               <h3 class="content-block__title heading-3" itemprop="headline">Coursera: 220% AI Citation Increase via Course Schema</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description"><strong>Client:</strong> Coursera (online education, 100M+ learners). <strong>Result:</strong> 220% increase in AI citations (28% → 90% citation rate). <strong>Method:</strong> Course schema with accreditation, EducationalOrganization relationships, atomic content units. <strong>Timeline:</strong> 70 days.</p>
-              <p>
+              <div class="btn-group">
                 <a href="/case-studies/education/" class="btn btn--primary" itemprop="url">View Case Study</a>
-              </p>
+              </div>
             </div>
-          </div>
-          
+      </div>
+      
           <!-- Real Estate Case Study -->
-          <div class="box-padding" itemscope itemtype="https://schema.org/Article">
+          <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
               <h3 class="content-block__title heading-3" itemprop="headline">Zillow: 160% AI Visibility Improvement via RealEstateAgent Schema</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description"><strong>Client:</strong> Zillow (real estate platform, 36M+ listings). <strong>Result:</strong> 160% improvement in AI visibility (35% → 91% mention rate). <strong>Method:</strong> RealEstateAgent schema, Place schema with geographic relationships, location-based entity mappings. <strong>Timeline:</strong> 55 days.</p>
-              <p>
+              <div class="btn-group">
                 <a href="/case-studies/real-estate/" class="btn btn--primary" itemprop="url">View Case Study</a>
-              </p>
+              </div>
             </div>
-          </div>
-          
+      </div>
+      
         </div>
       </div>
     </div>
