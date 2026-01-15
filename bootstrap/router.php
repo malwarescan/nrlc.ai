@@ -343,14 +343,59 @@ function route_request(): void {
   // Pattern matches: /services/{service}/{city}/ (after locale stripping)
   // BUT: If originalPath had no locale prefix, redirect to locale-prefixed URL
   if (preg_match('#^/services/([^/]+)/([^/]+)/$#', $path, $m)) {
+    $serviceSlug = $m[1];
+    $citySlug = $m[2];
+    
+    // SPECIAL HANDLING: Training is education, not a service - use Course schema template
+    if ($serviceSlug === 'training') {
+      // Check if original path had locale prefix (before stripping)
+      $hadLocale = preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath);
+      
+      // If no locale in original path, redirect to locale-prefixed URL
+      if (!$hadLocale) {
+        require_once __DIR__.'/../lib/helpers.php';
+        $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+        $locale = $isUK ? 'en-gb' : 'en-us';
+        
+        $queryString = !empty($_SERVER['QUERY_STRING']) ? '?'.$_SERVER['QUERY_STRING'] : '';
+        $redirectUrl = '/' . $locale . '/services/' . $serviceSlug . '/' . $citySlug . '/';
+        header("Location: " . absolute_url($redirectUrl) . $queryString, true, 301);
+        exit;
+      }
+      
+      // Set GET params for training template
+      $_GET['service'] = $serviceSlug;
+      $_GET['city'] = $citySlug;
+      
+      // Generate metadata using ctx-based system
+      require_once __DIR__.'/../lib/meta_directive.php';
+      require_once __DIR__.'/../lib/helpers.php';
+      $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug));
+      $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+      $currentLocale = function_exists('current_locale') ? current_locale() : 'en-us';
+      
+      // Get actual request path (includes locale prefix) for canonical
+      $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+      
+      $ctx = [
+        'type' => 'training_city',
+        'slug' => "services/training/{$citySlug}",
+        'title' => "AI SEO Training Courses in {$cityTitle} | Neural Command Training",
+        'excerpt' => "Professional AI SEO training courses for teams in {$cityTitle}. Learn how to optimize for ChatGPT, Claude, Google AI Overviews, and LLM citation systems. Hands-on training in structured data, entity optimization, and AI search visibility.",
+        'canonicalPath' => $actualPath,
+        'keywords' => "AI SEO training, SEO training {$cityTitle}, AI search optimization training, ChatGPT optimization training, Claude optimization training, Google AI Overviews training, LLM citation training, structured data training, entity optimization training, technical SEO training"
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      render_page('services/service_city_training');
+      return;
+    }
+    
     // Check if original path had locale prefix (before stripping)
     $hadLocale = preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath);
     
     // If no locale in original path, redirect to locale-prefixed URL
     if (!$hadLocale) {
-      $serviceSlug = $m[1];
-      $citySlug = $m[2];
-      
       // Determine locale based on city (UK cities → en-gb, others → en-us)
       require_once __DIR__.'/../lib/helpers.php';
       $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;

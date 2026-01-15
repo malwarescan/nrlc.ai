@@ -226,18 +226,16 @@ function get_related_services_for_linking(string $serviceSlug, string $locale = 
   return $related;
 }
 
-
 /**
  * Get all cities available for a specific service
  * Returns array of city slugs with their canonical locales
  * 
  * @param string $serviceSlug Service slug (e.g., 'relevance-optimization-ai')
  * @param int $limit Maximum number of cities to return (0 = all)
- * @return array Array of ['city' => citySlug, 'locale' => 'en-gb'|'en-us', 'name' => 'City Name', 'isUK' => bool]
+ * @return array Array of ['city' => citySlug, 'locale' => 'en-gb'|'en-us', 'name' => 'City Name']
  */
 function get_cities_for_service(string $serviceSlug, int $limit = 0): array {
   require_once __DIR__.'/helpers.php';
-  require_once __DIR__.'/content_tokens.php';
   
   static $serviceCitiesCache = [];
   
@@ -279,7 +277,7 @@ function get_cities_for_service(string $serviceSlug, int $limit = 0): array {
       $canonicalLocale = $isUK ? 'en-gb' : 'en-us';
       
       // Get city name
-      $cityName = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug));
+      $cityName = titleCaseCity($citySlug);
       
       $cities[] = [
         'city' => $citySlug,
@@ -308,6 +306,7 @@ function get_cities_for_service(string $serviceSlug, int $limit = 0): array {
  * Generate service-specific city description
  * 
  * @param string $serviceSlug Service slug
+ * @param string $citySlug City slug
  * @param string $cityName City display name
  * @param bool $isUK Whether city is in UK
  * @return string Service-specific description

@@ -462,11 +462,14 @@ function city_specific_faq_block(string $service, string $city, int $count = 6):
       $aEnhanced = preg_replace('/\. /', " in {$c}. ", $aEnhanced, 1);
     }
     
-    // Ensure answer addresses local scenarios
-    if (stripos($aEnhanced, 'local') === false && stripos($aEnhanced, 'city') === false) {
-      // Add local context at end if missing
-      if (!preg_match('/in ' . preg_quote($c, '/') . '\.?\s*$/i', $aEnhanced)) {
-        $aEnhanced .= " In {$c}, this approach is tailored to local market conditions and regional search behavior patterns.";
+    // Ensure answer addresses local scenarios (but avoid repetitive generic phrases)
+    // Only add city context if it adds value, not generic boilerplate
+    if (stripos($aEnhanced, 'local') === false && stripos($aEnhanced, 'city') === false && stripos($aEnhanced, $c) === false) {
+      // Only add city context if answer is truly generic and city adds specificity
+      // Avoid adding the same generic phrase to every answer
+      if (strlen($aEnhanced) < 100 && !preg_match('/in ' . preg_quote($c, '/') . '\.?\s*$/i', $aEnhanced)) {
+        // Only for very short answers that need city context
+        $aEnhanced .= " Services in {$c} are tailored to local market conditions.";
       }
     }
     
