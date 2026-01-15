@@ -284,8 +284,29 @@ function route_request(): void {
   }
 
   // CRITICAL: Service-city pattern MUST come before 404 handler
-  // Pattern matches: /services/{service}/{city}/
+  // Pattern matches: /services/{service}/{city}/ (after locale stripping)
+  // BUT: If originalPath had no locale prefix, redirect to locale-prefixed URL
   if (preg_match('#^/services/([^/]+)/([^/]+)/$#', $path, $m)) {
+    // Check if original path had locale prefix (before stripping)
+    $hadLocale = preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath);
+    
+    // If no locale in original path, redirect to locale-prefixed URL
+    if (!$hadLocale) {
+      $serviceSlug = $m[1];
+      $citySlug = $m[2];
+      
+      // Determine locale based on city (UK cities → en-gb, others → en-us)
+      require_once __DIR__.'/../lib/helpers.php';
+      $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+      $locale = $isUK ? 'en-gb' : 'en-us';
+      
+      $queryString = !empty($_SERVER['QUERY_STRING']) ? '?'.$_SERVER['QUERY_STRING'] : '';
+      $redirectUrl = '/' . $locale . '/services/' . $serviceSlug . '/' . $citySlug . '/';
+      header("Location: " . absolute_url($redirectUrl) . $queryString, true, 301);
+      exit;
+    }
+    
+    // Continue with normal service-city processing (locale was in original path)
     $_GET['service'] = $m[1];
     $_GET['city']    = $m[2];
     
@@ -2091,21 +2112,8 @@ function route_request(): void {
     exit;
   }
 
-  // Handle missing career pages - redirect to careers index with canonical locale
-  if (preg_match('#^/careers/([^/]+)/([^/]+)/$#', $path, $m)) {
-    $citySlug = $m[1];
-    $roleSlug = $m[2];
-    
-    // Determine canonical locale based on city
-    $canonicalLocale = function_exists('get_canonical_locale_for_city') 
-      ? get_canonical_locale_for_city($citySlug) 
-      : 'en-us';
-    
-    // Career pages are dynamic and should exist for any city/role combination
-    // But if page doesn't render correctly, redirect to careers index
-    // This is a fallback - the page should render normally above
-    return;
-  }
+  // NOTE: Career pages are handled above (line 476) - this block is unreachable
+  // If we reach here, the career page pattern didn't match, so it's a 404
 
   // 404 Handler - Add noindex to prevent indexing of 404 pages
   header('X-Robots-Tag: noindex, nofollow');
