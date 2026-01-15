@@ -222,7 +222,7 @@ document.getElementById('booking-form').addEventListener('submit', function(e) {
     body += 'Website: ' + website + '\n';
   }
   if (challenges) {
-    body += '\nWhat they need help with:\n' + challenges + '\n';
+    body += '\nRequesting help with:\n' + challenges + '\n';
   }
   body = encodeURIComponent(body);
   
