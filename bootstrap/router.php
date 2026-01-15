@@ -684,6 +684,13 @@ function route_request(): void {
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
+    // Add enhanced metadata for silent-hydration-seo article
+    if ($slug === 'silent-hydration-seo') {
+      $GLOBALS['__page_meta']['keywords'] = 'JavaScript hydration, SEO failure, Googlebot rendering, silent hydration suppression, deterministic rendering, server-side rendering, React hydration, Vue hydration, search engine indexing, technical SEO';
+      $GLOBALS['__page_meta']['datePublished'] = '2024-01-15';
+      $GLOBALS['__page_meta']['dateModified'] = '2024-01-15';
+    }
+    
     // MACHINE-NATIVE MARKDOWN: If Markdown request, capture output and convert
     if (isset($GLOBALS['__markdown_request']) && $GLOBALS['__markdown_request']) {
       ob_start();
