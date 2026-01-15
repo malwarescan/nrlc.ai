@@ -252,6 +252,14 @@ if (isset($GLOBALS['__custom_css']) && is_array($GLOBALS['__custom_css'])) {
     echo '<link rel="stylesheet" href="' . htmlspecialchars($cssUrl) . '">' . "\n";
   }
 }
+
+// MACHINE-NATIVE MARKDOWN EXPOSURE: Auto-discovery link for eligible pages
+require_once __DIR__.'/../lib/markdown_exposure.php';
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+if (is_markdown_eligible($requestPath)) {
+  $markdownUrl = absolute_url(get_markdown_url($requestPath));
+  echo '<link rel="alternate" type="text/markdown" href="' . htmlspecialchars($markdownUrl) . '">' . "\n";
+}
 ?>
 </head>
 <body>

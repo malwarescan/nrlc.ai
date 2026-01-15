@@ -19,12 +19,56 @@ function route_request(): void {
   $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
   $originalPath = $path; // Save original path for redirect checks
 
+  // MACHINE-NATIVE MARKDOWN EXPOSURE: Handle .md URLs and Accept header content negotiation
+  require_once __DIR__.'/../lib/markdown_exposure.php';
+  
+  // Check for .md extension or Accept: text/markdown header
+  $isMarkdownRequest = false;
+  $basePath = $path;
+  
+  if (preg_match('#\.md$#', $path)) {
+    // Direct .md URL request
+    $isMarkdownRequest = true;
+    $basePath = preg_replace('#\.md$#', '', $path);
+  } elseif (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'text/markdown') !== false) {
+    // Accept header content negotiation
+    $isMarkdownRequest = true;
+  }
+  
+  // If Markdown request, check if page is eligible
+  if ($isMarkdownRequest) {
+    // Remove locale prefix for eligibility check
+    $checkPath = $basePath;
+    if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $checkPath, $m)) {
+      $checkPath = substr($checkPath, strlen($m[0])-1);
+    }
+    
+    if (is_markdown_eligible($checkPath)) {
+      // Serve Markdown - we'll handle this after normal routing to get page content
+      $GLOBALS['__markdown_request'] = true;
+      $GLOBALS['__markdown_base_path'] = $basePath;
+    } else {
+      // Not eligible - serve 404
+      header('X-Robots-Tag: noindex, nofollow');
+      http_response_code(404);
+      echo "Markdown not available for this page";
+      return;
+    }
+  }
+
   // /{lang}-{region}/ prefix e.g., /en-us/services/..., /ko-kr/...
   if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $path, $m)) {
     i18n_set_locale(strtolower($m[1].'-'.$m[2]));
     $path = substr($path, strlen($m[0])-1); // keep leading slash
   } else {
     i18n_set_locale('en-us'); // default
+  }
+  
+  // For Markdown requests, also strip locale from basePath
+  if ($isMarkdownRequest && isset($GLOBALS['__markdown_base_path'])) {
+    if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $GLOBALS['__markdown_base_path'], $m)) {
+      $GLOBALS['__markdown_base_path'] = substr($GLOBALS['__markdown_base_path'], strlen($m[0])-1);
+    }
   }
 
   // Favicon files - MUST be at top before other routes
@@ -626,6 +670,21 @@ function route_request(): void {
       'canonicalPath' => $actualPath // Use actual request path (includes /en-us/)
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    
+    // MACHINE-NATIVE MARKDOWN: If Markdown request, capture output and convert
+    if (isset($GLOBALS['__markdown_request']) && $GLOBALS['__markdown_request']) {
+      ob_start();
+      render_page('insights/article');
+      $html = ob_get_clean();
+      
+      // Convert to Markdown
+      require_once __DIR__.'/../lib/markdown_exposure.php';
+      $canonicalUrl = absolute_url($GLOBALS['__markdown_base_path'] ?? $path);
+      $pageMeta = array_merge($GLOBALS['__page_meta'], ['canonical' => $canonicalUrl]);
+      $markdown = html_to_markdown($html, $pageMeta);
+      serve_markdown($markdown, $canonicalUrl);
+      return;
+    }
     
     render_page('insights/article');
     return;
@@ -1631,6 +1690,21 @@ function route_request(): void {
         'canonicalPath' => $path
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      // MACHINE-NATIVE MARKDOWN: If Markdown request, capture output and convert
+      if (isset($GLOBALS['__markdown_request']) && $GLOBALS['__markdown_request']) {
+        ob_start();
+        render_page('case-studies/case-study');
+        $html = ob_get_clean();
+        
+        // Convert to Markdown
+        require_once __DIR__.'/../lib/markdown_exposure.php';
+        $canonicalUrl = absolute_url($GLOBALS['__markdown_base_path'] ?? $path);
+        $pageMeta = array_merge($GLOBALS['__page_meta'], ['canonical' => $canonicalUrl]);
+        $markdown = html_to_markdown($html, $pageMeta);
+        serve_markdown($markdown, $canonicalUrl);
+        return;
+      }
       
       render_page('case-studies/case-study');
       return;

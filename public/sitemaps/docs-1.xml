@@ -2,115 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/core-concepts/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/croutons/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/precogs/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/workflow/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/failure-modes/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/measurement/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/doctrine/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/academic-signals/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/how-llms-chunk-content/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/chunk-atomicity-inference-cost/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/vectorization-semantic-collisions/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/data-structuring-beyond-pages/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/cross-page-consistency/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/prompt-reverse-engineering/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/citation-eligibility-engineering/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/measuring-prechunking-success/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nrlc.ai/en-us/docs/prechunking-seo/course/failure-modes-why-chunks-die/</loc>
-    <lastmod>2025-12-30</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

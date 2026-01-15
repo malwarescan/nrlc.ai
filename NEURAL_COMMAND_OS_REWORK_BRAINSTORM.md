@@ -344,3 +344,152 @@ structured data generation, technical SEO governance, and automated Google Searc
 5. **Product Ecosystem:** How much should we emphasize that Neural Command OS powers other products vs. standing alone as a product?
 
 6. **Call to Action:** Should the CTA be "Schedule Consultation", "Get Started", or something more specific like "Deploy MCP for Your Site"?
+
+---
+
+## Sentence-by-Sentence Skeleton (Option 2)
+
+### Structure Overview
+**Page Flow:** Problem articulation → False assumption break → Mechanism introduction → Category naming moment → Neutral handoff to /ai-optimization/
+
+**Tone Lock:** Practical, direct, technical but accessible. No sales language, no premature solutions, no over-explaining.
+
+---
+
+### Section 1: Hero (Intro - Authority Formation)
+**Placement:** Top of page, immediately after H1
+**Purpose:** Establish problem awareness and break false assumptions
+**Word Count Limit:** 85-100 words
+
+**Scaffold:**
+
+1. [PROBLEM ARTICULATION] Most organizations struggle with technical SEO because they approach it as a collection of manual tasks rather than a systematic context problem.
+2. [FALSE ASSUMPTION BREAK] They assume that better tools and more automation will solve indexing issues, canonical conflicts, and AI visibility problems.
+3. [MECHANISM INTRODUCTION] But the real challenge is that SEO signals exist in fragmented contexts—schema here, canonicals there, entities elsewhere—making consistent governance impossible.
+4. [CATEGORY NAMING MOMENT] Neural Command OS solves this through a Model Context Protocol (MCP) that establishes unified governance for all SEO signals.
+5. [NEUTRAL HANDOFF] This context layer enables agent-driven automation, Google Search Console remediation, and systematic technical SEO governance.
+
+**What MUST NOT be added:**
+- Feature lists
+- Product capabilities
+- Pricing or sales language
+- "How it works" explanations
+- Benefits or outcomes
+- Call to actions
+
+---
+
+### Section 2: "How Can We Use Neural Command OS?" (Middle - Mechanism Deep Dive)
+**Placement:** After hero, before capabilities
+**Purpose:** Explain MCP concept without getting technical
+**Word Count Limit:** 120-140 words
+
+**Scaffold:**
+
+1. [PROBLEM ARTICULATION] When technical SEO issues arise—from canonical disagreements to schema errors to indexing exceptions—most teams respond with tactical fixes.
+2. [FALSE ASSUMPTION BREAK] They believe that if they just implement the right schema or set the right canonicals, the problems will resolve themselves.
+3. [MECHANISM INTRODUCTION] But these signals don't exist in isolation; they're interconnected through context relationships that determine how search engines and AI systems interpret your site.
+4. [CATEGORY NAMING MOMENT] Neural Command OS provides a Model Context Protocol that defines these relationships as a unified context layer, not a collection of individual fixes.
+5. [NEUTRAL HANDOFF] This MCP enables agents to operate within defined rules for schema generation, canonical enforcement, and AI visibility optimization.
+
+**What MUST NOT be added:**
+- Detailed technical explanations
+- Code examples or architecture diagrams
+- Specific product features
+- Use cases or examples
+- Timeline or implementation details
+- Performance metrics or results
+
+---
+
+### Section 3: "Neural Command OS as MCP for Google Search Console Repair" (Middle - Concrete Application)
+**Placement:** After "How Can We Use", before use cases
+**Purpose:** Show practical application without over-explaining
+**Word Count Limit:** 100-120 words
+
+**Scaffold:**
+
+1. [PROBLEM ARTICULATION] Google Search Console reports surface symptoms—coverage errors, canonical conflicts, structured data issues—but don't explain the underlying context relationships.
+2. [FALSE ASSUMPTION BREAK] Teams assume that fixing individual alerts will resolve the broader indexing and visibility problems.
+3. [MECHANISM INTRODUCTION] But these issues are interconnected; a canonical change affects entity relationships, which impacts schema validity, which influences AI extraction readiness.
+4. [CATEGORY NAMING MOMENT] Neural Command OS acts as a Model Context Protocol that governs these relationships, enabling systematic remediation through agent-driven workflows.
+5. [NEUTRAL HANDOFF] Agents assess issues against defined context rules, simulate corrections, and apply changes that maintain structural integrity across the entire site.
+
+**What MUST NOT be added:**
+- Step-by-step remediation processes
+- Specific error types or solutions
+- Performance improvements or results
+- Integration details
+- Timeframes or success metrics
+- Before/after comparisons
+
+---
+
+### Section 4: "What the MCP Provides" (Final Third - Framework Establishment)
+**Placement:** After GSC section, before platform architecture
+**Purpose:** Define MCP capabilities without listing features
+**Word Count Limit:** 80-100 words
+
+**Scaffold:**
+
+1. [PROBLEM ARTICULATION] Without unified context, technical SEO becomes a series of disconnected optimizations that don't compound or reinforce each other.
+2. [FALSE ASSUMPTION BREAK] Organizations assume that accumulating more tools and features will eventually create the necessary coherence.
+3. [MECHANISM INTRODUCTION] But true governance requires a foundational protocol that defines how all SEO signals relate and validate against each other.
+4. [CATEGORY NAMING MOMENT] The Model Context Protocol provides this foundation through agentic SEO context, schema generation frameworks, and canonical enforcement logic.
+5. [NEUTRAL HANDOFF] These capabilities enable systematic technical SEO governance and AI visibility optimization.
+
+**What MUST NOT be added:**
+- Individual feature descriptions
+- Technical specifications
+- Implementation requirements
+- Performance data
+- Comparison to other tools
+- Cost or complexity information
+
+---
+
+### Section 5: Handoff to /ai-optimization/ (Final Third - Neutral Transition)
+**Placement:** After capabilities, before footer
+**Purpose:** Transition to next page without sales pressure
+**Word Count Limit:** 40-50 words
+
+**Scaffold:**
+
+1. [NEUTRAL HANDOFF] For organizations ready to implement systematic AI visibility optimization, the MCP extends to comprehensive content structuring and LLM extraction readiness.
+2. [NEUTRAL HANDOFF] Learn how Neural Command OS enables agent-driven content optimization and AI citation modeling.
+
+**What MUST NOT be added:**
+- Call to action buttons or links
+- Urgency or deadlines
+- Benefits or outcomes
+- Next steps or processes
+- Contact information
+- Pricing references
+
+---
+
+### Implementation Notes
+
+**Voice Preservation:**
+- Use "Neural Command OS" consistently (not "we" or "our platform")
+- Maintain direct, practical tone
+- Avoid marketing superlatives
+- Keep technical concepts accessible but precise
+
+**Content Control:**
+- Each section builds authority without over-explaining
+- No premature solution framing
+- Category naming happens exactly once per section
+- Handoffs remain neutral and informational
+
+**Structure Enforcement:**
+- Intro establishes problem and breaks assumptions
+- Middle explains mechanism through concrete application
+- Final third defines framework and transitions
+- Total page length: 425-510 words (focused authority formation)
+
+**Validation Check:**
+- Can this be read by someone unaware of the category?
+- Does it answer "how can we use this?" without feature lists?
+- Is the MCP concept introduced clearly but not over-explained?
+- Does it preserve voice for downstream content reuse?
