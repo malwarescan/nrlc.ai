@@ -242,11 +242,15 @@ function is_uk_city(string $citySlug): bool {
  * Determine the canonical locale for a LOCAL page based on city
  * 
  * @param string $citySlug City slug from URL
- * @return string Canonical locale code (e.g., 'en-gb' for UK cities, 'en-us' for others)
+ * @return string Canonical locale code (e.g., 'en-gb' for UK cities, 'en-sg' for Singapore, 'en-us' for others)
  */
 function get_canonical_locale_for_city(string $citySlug): string {
   if (is_uk_city($citySlug)) {
     return 'en-gb';
+  }
+  // Singapore uses en-sg (Singapore English)
+  if (strtolower($citySlug) === 'singapore') {
+    return 'en-sg';
   }
   // Default to en-us for all other cities (US, Canadian, etc.)
   return 'en-us';

@@ -94,12 +94,19 @@ function sitemap_generate_hreflang_urls(string $path): array {
     $citySlug = $m[2];
     require_once __DIR__.'/helpers.php';
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    $isSingapore = (strtolower($citySlug) === 'singapore');
     
     if ($isUK) {
       // UK city: ONLY en-gb canonical
       return [
         'en-gb' => "{$base}/en-gb{$path}",
         'x-default' => "{$base}/en-gb{$path}"
+      ];
+    } elseif ($isSingapore) {
+      // Singapore: ONLY en-sg canonical
+      return [
+        'en-sg' => "{$base}/en-sg{$path}",
+        'x-default' => "{$base}/en-sg{$path}"
       ];
     } else {
       // US city or non-city: ONLY en-us canonical
@@ -115,12 +122,19 @@ function sitemap_generate_hreflang_urls(string $path): array {
     $citySlug = $m[1];
     require_once __DIR__.'/helpers.php';
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    $isSingapore = (strtolower($citySlug) === 'singapore');
     
     if ($isUK) {
       // UK city: ONLY en-gb canonical
       return [
         'en-gb' => "{$base}/en-gb{$path}",
         'x-default' => "{$base}/en-gb{$path}"
+      ];
+    } elseif ($isSingapore) {
+      // Singapore: ONLY en-sg canonical
+      return [
+        'en-sg' => "{$base}/en-sg{$path}",
+        'x-default' => "{$base}/en-sg{$path}"
       ];
     } else {
       // US city or non-city: ONLY en-us canonical

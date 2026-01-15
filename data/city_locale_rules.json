@@ -1519,8 +1519,9 @@
     },
     "singapore": {
         "country": "SG",
-        "canonical_locale": "en-us",
+        "canonical_locale": "en-sg",
         "forbidden_locales": [
+            "en-us",
             "en-gb",
             "fr-fr",
             "es-es",
