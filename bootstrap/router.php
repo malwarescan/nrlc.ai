@@ -141,13 +141,32 @@ function route_request(): void {
       
       // Guard render_page call
       if (function_exists('render_page')) {
-        render_page('home/home');
+        // Capture any output from render_page to check if it failed
+        ob_start();
+        try {
+          render_page('home/home');
+          $output = ob_get_clean();
+          // Check if render_page output minimal fallback HTML (indicates failure)
+          if (strpos($output, '<title>NRLC.ai</title>') !== false && strpos($output, 'AI SEO & AI Visibility Services</h1>') !== false && strlen($output) < 500) {
+            // render_page failed internally, use safe page instead
+            ob_end_clean();
+            throw new Exception('render_page output fallback HTML');
+          }
+          echo $output;
+        } catch (Throwable $e) {
+          ob_end_clean();
+          throw $e;
+        }
       } else {
         // Fallback if render_page doesn't exist
         throw new Exception('render_page function not found');
       }
       return;
     } catch (Throwable $e) {
+      // LOG ERROR FOR DEBUGGING
+      error_log("HOMEPAGE RENDER ERROR: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine());
+      error_log("Stack trace: " . $e->getTraceAsString());
+      
       // FALLBACK: Always return 200 with safe static page
       http_response_code(200);
       $safePage = __DIR__.'/../pages/home/home_safe.php';
