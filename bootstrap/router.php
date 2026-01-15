@@ -30,6 +30,10 @@ function route_request(): void {
     // Direct .md URL request - strip .md from path BEFORE routing
     $isMarkdownRequest = true;
     $basePath = preg_replace('#\.md$#', '', $path);
+    // Add trailing slash if missing (routing patterns expect trailing slash)
+    if (substr($basePath, -1) !== '/') {
+      $basePath .= '/';
+    }
     $path = $basePath; // Update $path so routing works correctly
   } elseif (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'text/markdown') !== false) {
     // Accept header content negotiation
