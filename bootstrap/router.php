@@ -1664,7 +1664,13 @@ function route_request(): void {
         
         // Convert to Markdown
         require_once __DIR__.'/../lib/markdown_exposure.php';
-        $canonicalUrl = absolute_url($GLOBALS['__markdown_base_path'] ?? $path);
+        // Canonical URL should point to HTML version (without .md, with trailing slash)
+        $canonicalPath = ($GLOBALS['__markdown_base_path'] ?? $path);
+        // Ensure trailing slash for canonical
+        if (substr($canonicalPath, -1) !== '/') {
+          $canonicalPath .= '/';
+        }
+        $canonicalUrl = absolute_url($canonicalPath);
         $pageMeta = array_merge($GLOBALS['__page_meta'], ['canonical' => $canonicalUrl]);
         $markdown = html_to_markdown($html, $pageMeta);
         serve_markdown($markdown, $canonicalUrl);
