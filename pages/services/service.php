@@ -821,103 +821,56 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <div class="grid grid-auto-fit">
-          <?php if ($service === 'site-audits'): ?>
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title">New York</h3>
-            </div>
-            <div class="content-block__body">
-              <p>Audit and implementation adapted for multi-entity, multi-location environments common in New York markets.</p>
-              <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/new-york/" class="btn btn--primary">View in New York</a>
-              </div>
-            </div>
-          </div>
+          <?php
+          // CRITICAL FIX: Use canonical_internal_url() to generate proper locale-prefixed URLs
+          // This ensures UK cities link to /en-gb/ and US cities link to /en-us/
+          require_once __DIR__.'/../../lib/helpers.php';
           
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title">London</h3>
-            </div>
-            <div class="content-block__body">
-              <p>Audit and implementation adapted for international and regulated markets common in London business contexts.</p>
-              <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/london/" class="btn btn--primary">View in London</a>
-              </div>
-            </div>
-          </div>
+          $cities = [
+            'new-york' => [
+              'name' => 'New York',
+              'description' => $service === 'site-audits' 
+                ? 'Audit and implementation adapted for multi-entity, multi-location environments common in New York markets.'
+                : 'Full service implementation in New York with local expertise and support.'
+            ],
+            'london' => [
+              'name' => 'London',
+              'description' => $service === 'site-audits'
+                ? 'Audit and implementation adapted for international and regulated markets common in London business contexts.'
+                : 'Comprehensive service delivery in London with UK market expertise.'
+            ],
+            'san-francisco' => [
+              'name' => 'San Francisco',
+              'description' => $service === 'site-audits'
+                ? 'Audit and implementation adapted for high-growth and technically complex ecosystems common in San Francisco.'
+                : 'Tech-focused implementation in San Francisco with Silicon Valley insights.'
+            ],
+            'toronto' => [
+              'name' => 'Toronto',
+              'description' => $service === 'site-audits'
+                ? 'Audit and implementation adapted for multi-jurisdictional and regulated business structures common in Toronto.'
+                : 'Canadian market expertise with Toronto-based implementation and support.'
+            ]
+          ];
           
+          foreach ($cities as $citySlug => $cityData):
+            // Generate canonical URL with proper locale prefix
+            $cityUrl = canonical_internal_url("/services/{$service}/{$citySlug}/");
+            // Extract path from full URL (remove domain)
+            $cityPath = parse_url($cityUrl, PHP_URL_PATH);
+          ?>
           <div class="content-block">
             <div class="content-block__header">
-              <h3 class="content-block__title">San Francisco</h3>
+              <h3 class="content-block__title"><?= htmlspecialchars($cityData['name']) ?></h3>
             </div>
             <div class="content-block__body">
-              <p>Audit and implementation adapted for high-growth and technically complex ecosystems common in San Francisco.</p>
+              <p><?= htmlspecialchars($cityData['description']) ?></p>
               <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/san-francisco/" class="btn btn--primary">View in San Francisco</a>
+                <a href="<?= htmlspecialchars($cityPath) ?>" class="btn btn--primary">View in <?= htmlspecialchars($cityData['name']) ?></a>
               </div>
             </div>
           </div>
-          
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title">Toronto</h3>
-            </div>
-            <div class="content-block__body">
-              <p>Audit and implementation adapted for multi-jurisdictional and regulated business structures common in Toronto.</p>
-              <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/toronto/" class="btn btn--primary">View in Toronto</a>
-              </div>
-            </div>
-          </div>
-          <?php else: ?>
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title">New York</h3>
-            </div>
-            <div class="content-block__body">
-              <p>Full service implementation in New York with local expertise and support.</p>
-              <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/new-york/" class="btn btn--primary">View in New York</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title">London</h3>
-            </div>
-            <div class="content-block__body">
-              <p>Comprehensive service delivery in London with UK market expertise.</p>
-              <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/london/" class="btn btn--primary">View in London</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title">San Francisco</h3>
-            </div>
-            <div class="content-block__body">
-              <p>Tech-focused implementation in San Francisco with Silicon Valley insights.</p>
-              <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/san-francisco/" class="btn btn--primary">View in San Francisco</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title">Toronto</h3>
-            </div>
-            <div class="content-block__body">
-              <p>Canadian market expertise with Toronto-based implementation and support.</p>
-              <div class="btn-group">
-                <a href="/services/<?=htmlspecialchars($service)?>/toronto/" class="btn btn--primary">View in Toronto</a>
-              </div>
-            </div>
-          </div>
-          <?php endif; ?>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
