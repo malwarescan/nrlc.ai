@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   exit;
 }
 
-// Validate required fields
-$required_fields = ['name', 'email', 'service_interest'];
+// Validate required fields (only name and email are required now)
+$required_fields = ['name', 'email'];
 $errors = [];
 
 foreach ($required_fields as $field) {
@@ -38,13 +38,13 @@ if (!empty($errors)) {
   exit;
 }
 
-// Sanitize input data
+// Sanitize input data (with defaults for optional fields)
 $booking_data = [
   'name' => htmlspecialchars(trim($_POST['name'])),
   'email' => htmlspecialchars(trim($_POST['email'])),
   'company' => htmlspecialchars(trim($_POST['company'] ?? '')),
   'website' => htmlspecialchars(trim($_POST['website'] ?? '')),
-  'service_interest' => htmlspecialchars(trim($_POST['service_interest'])),
+  'service_interest' => htmlspecialchars(trim($_POST['service_interest'] ?? 'General AI SEO Consultation')),
   'current_challenges' => htmlspecialchars(trim($_POST['current_challenges'] ?? '')),
   'preferred_time' => htmlspecialchars(trim($_POST['preferred_time'] ?? '')),
   'submitted_at' => date('Y-m-d H:i:s'),

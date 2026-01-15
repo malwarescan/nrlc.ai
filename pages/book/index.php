@@ -54,53 +54,33 @@ $GLOBALS['__jsonld'] = [
       </div>
       <div class="content-block__body">
         <form id="booking-form" method="POST" action="/api/book/">
-          <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
-            <div>
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-          </div>
-          
-          <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
-            <div>
-              <label for="company">Company/Organization</label>
-              <input type="text" id="company" name="company">
-            </div>
-            <div>
-              <label for="website">Website URL</label>
-              <input type="url" id="website" name="website" placeholder="https://example.com">
-            </div>
+          <div style="margin-bottom: var(--spacing-md);">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
           </div>
           
           <div style="margin-bottom: var(--spacing-md);">
-            <label for="service-interest">Service Interest *</label>
-            <select id="service-interest" name="service_interest" required>
-              <option value="">Select a service...</option>
-              <option value="AI-First Site Audits">AI-First Site Audits</option>
-              <option value="Crawl Clarity Engineering">Crawl Clarity Engineering</option>
-              <option value="JSON-LD & Structured Data">JSON-LD & Structured Data</option>
-              <option value="LLM Seeding Optimization">LLM Seeding Optimization</option>
-              <option value="International SEO & Hreflang">International SEO & Hreflang</option>
-              <option value="General AI SEO Consultation">General AI SEO Consultation</option>
-            </select>
+            <label for="email">Your Email *</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
           </div>
           
           <div style="margin-bottom: var(--spacing-md);">
-            <label for="current_challenges">Current Challenges</label>
-            <textarea id="current_challenges" name="current_challenges" rows="4" placeholder="Tell us about your current SEO challenges and goals..."></textarea>
+            <label for="website">Your Website (optional)</label>
+            <input type="url" id="website" name="website" placeholder="https://yoursite.com" autocomplete="url">
           </div>
           
           <div style="margin-bottom: var(--spacing-lg);">
-            <label for="preferred_time">Preferred Time for Consultation</label>
-            <input type="text" id="preferred_time" name="preferred_time" placeholder="e.g., Next week, weekday mornings, etc.">
+            <label for="current_challenges">What can we help you with? (optional)</label>
+            <textarea id="current_challenges" name="current_challenges" rows="3" placeholder="Briefly describe your AI search visibility goals..."></textarea>
           </div>
           
+          <!-- Hidden fields with defaults -->
+          <input type="hidden" id="company" name="company" value="">
+          <input type="hidden" id="service-interest" name="service_interest" value="General AI SEO Consultation">
+          <input type="hidden" id="preferred_time" name="preferred_time" value="">
+          
           <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
-            <button type="submit" class="btn btn--primary" data-ripple>Request Free Consultation</button>
+            <button type="submit" class="btn btn--primary" data-ripple style="font-size: 1.1rem; padding: var(--spacing-md) var(--spacing-lg);">Request Free Consultation</button>
           </div>
         </form>
       </div>
