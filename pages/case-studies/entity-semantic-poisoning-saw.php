@@ -121,6 +121,8 @@ $GLOBALS['__jsonld'] = [
     <article class="content-block module" style="margin-bottom: var(--spacing-8);">
       <div class="content-block__body" style="max-width: 800px; margin: 0 auto;">
         
+        <p style="color: #666; font-size: 0.95rem; margin-bottom: var(--spacing-md);"><em>Client engagement: SAW.com. Scope: Entity repair and semantic constraint enforcement. Duration: 8 weeks. Intervention type: Structured data governance and organization entity consolidation.</em></p>
+        
         <p>For over a year, SAW.com had a problem that looked invisible on the surface.</p>
 
         <p>Pages were indexed. Content was solid. Links were fine. Rankings were not catastrophically bad. But Google consistently associated the brand with industries SAW has nothing to do with. Transportation. Car rentals. Consumer services.</p>
@@ -176,12 +178,14 @@ $GLOBALS['__jsonld'] = [
 
         <p>Entity clarity is not a nice-to-have anymore. It is the foundation.</p>
 
+        <p style="margin-top: var(--spacing-lg); padding-top: var(--spacing-md); border-top: 1px solid var(--color-border); color: #666; font-size: 0.95rem;"><strong>Pattern:</strong> This type of misclassification occurs when historical domain associations, link neighborhoods, or unconstrained service schema create conflicting entity signals. Companies that have sold domains, acquired businesses, or expanded into adjacent verticals are most at risk. The fix requires explicit entity definition at the organization level, not page-level optimization.</p>
+
         <!-- Internal Links -->
         <div style="margin-top: var(--spacing-8); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border);">
           <p><strong>Related:</strong></p>
           <ul>
             <li><a href="/ai-visibility/">AI Visibility and Entity Recognition</a></li>
-            <li><a href="/structured-data/">Structured Data and Entity Optimization</a></li>
+            <li><a href="/services/json-ld-strategy/">JSON-LD Strategy and Structured Data</a></li>
             <li><a href="/insights/schema-governance-and-validation/">Schema Governance & Validation</a></li>
           </ul>
         </div>
