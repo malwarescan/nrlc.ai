@@ -124,7 +124,9 @@ function expand_pain_point(array $p, string $city): string {
   $para3 = "<p><strong>AI SEO Solution:</strong> {$solution} We implement comprehensive technical SEO improvements including structured data optimization, entity mapping, and canonical enforcement. Our approach ensures AI engines can properly crawl, index, and cite your content. <em>Deliverables:</em> {$deliver}. <em>Expected SEO result:</em> {$metric}.</p>";
 
   $list = "<ul class=\"small\"><li>Before/After sitemap analysis and crawl efficiency metrics</li><li>Search Console coverage & discovered URLs trend tracking</li><li>Parameter allowlist vs. strip rules for canonical URLs</li><li>Structured data validation and rich results testing</li><li>Canonical and hreflang implementation verification</li><li>AI engine citation accuracy monitoring</li></ul>";
-  return "<div class=\"content-block\"><div class=\"content-block__header\"><h3 class=\"content-block__title\">$h</h3></div><div class=\"content-block__body\">$para1$para2$para3$list</div></div>";
+  // FIXED: Return only the content, not a full content-block structure
+  // The template already provides the content-block wrapper and H2 heading
+  return "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">$h</h3>$para1$para2$para3$list</div>";
 }
 
 function pain_points_for_service(string $service): array {
@@ -146,6 +148,7 @@ function pain_point_section(string $service, string $city, int $count = 4): stri
          ."<p>We operationalize ongoing checks: URL guards, schema validation, and crawl-stat alarms so improvements persist in {$c}.</p>"
          ."<ul class=\"small\"><li>Daily diffs of sitemaps and canonicals</li><li>Param drift alerts</li><li>Rich results coverage trends</li><li>LLM citation accuracy tracking</li></ul></div>";
   
+  // FIXED: Return content only, template provides wrapper
   return implode("\n", $out);
 }
 
