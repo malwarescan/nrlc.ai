@@ -1771,6 +1771,14 @@ function route_request(): void {
   }
 
   if ($path === '/case-studies/') {
+    // Generate metadata using ctx-based system
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'case_studies_index',
+      'slug' => 'case-studies/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('case-studies/index');
     return;
   }
