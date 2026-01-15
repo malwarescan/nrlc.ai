@@ -226,3 +226,187 @@ function get_related_services_for_linking(string $serviceSlug, string $locale = 
   return $related;
 }
 
+
+/**
+ * Get all cities available for a specific service
+ * Returns array of city slugs with their canonical locales
+ * 
+ * @param string $serviceSlug Service slug (e.g., 'relevance-optimization-ai')
+ * @param int $limit Maximum number of cities to return (0 = all)
+ * @return array Array of ['city' => citySlug, 'locale' => 'en-gb'|'en-us', 'name' => 'City Name', 'isUK' => bool]
+ */
+function get_cities_for_service(string $serviceSlug, int $limit = 0): array {
+  require_once __DIR__.'/helpers.php';
+  require_once __DIR__.'/content_tokens.php';
+  
+  static $serviceCitiesCache = [];
+  
+  // Check cache first
+  if (isset($serviceCitiesCache[$serviceSlug])) {
+    $cities = $serviceCitiesCache[$serviceSlug];
+    return $limit > 0 ? array_slice($cities, 0, $limit) : $cities;
+  }
+  
+  $enhancementsFile = __DIR__ . '/../data/service_enhancements.json';
+  if (!file_exists($enhancementsFile)) {
+    return [];
+  }
+  
+  $data = json_decode(file_get_contents($enhancementsFile), true);
+  if (!is_array($data)) {
+    return [];
+  }
+  
+  $cities = [];
+  $seenCities = [];
+  
+  foreach ($data as $item) {
+    // Only include items with cities and matching service
+    if (($item['service'] ?? '') === $serviceSlug && 
+        !empty($item['city'] ?? '') && 
+        ($item['has_city'] ?? false)) {
+      
+      $citySlug = $item['city'];
+      
+      // Skip duplicates (use first occurrence)
+      if (isset($seenCities[$citySlug])) {
+        continue;
+      }
+      $seenCities[$citySlug] = true;
+      
+      // Determine canonical locale
+      $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+      $canonicalLocale = $isUK ? 'en-gb' : 'en-us';
+      
+      // Get city name
+      $cityName = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug));
+      
+      $cities[] = [
+        'city' => $citySlug,
+        'locale' => $canonicalLocale,
+        'name' => $cityName,
+        'isUK' => $isUK
+      ];
+    }
+  }
+  
+  // Sort: UK cities first, then US cities, then alphabetically
+  usort($cities, function($a, $b) {
+    if ($a['isUK'] !== $b['isUK']) {
+      return $b['isUK'] ? 1 : -1; // UK cities first
+    }
+    return strcmp($a['name'], $b['name']);
+  });
+  
+  // Cache result
+  $serviceCitiesCache[$serviceSlug] = $cities;
+  
+  return $limit > 0 ? array_slice($cities, 0, $limit) : $cities;
+}
+
+/**
+ * Generate service-specific city description
+ * 
+ * @param string $serviceSlug Service slug
+ * @param string $cityName City display name
+ * @param bool $isUK Whether city is in UK
+ * @return string Service-specific description
+ */
+function get_service_city_description(string $serviceSlug, string $cityName, bool $isUK): string {
+  $serviceName = get_service_name_from_slug($serviceSlug);
+  
+  // Service-specific description templates
+  $descriptions = [
+    'site-audits' => [
+      'uk' => "Audit and implementation adapted for international and regulated markets common in {$cityName} business contexts.",
+      'us' => "Audit and implementation adapted for multi-entity, multi-location environments common in {$cityName} markets."
+    ],
+    'relevance-optimization-ai' => [
+      'uk' => "Relevance optimization tailored for {$cityName}'s competitive market, ensuring AI systems accurately understand and cite your business.",
+      'us' => "Relevance optimization in {$cityName} with local market expertise and AI-first optimization strategies."
+    ],
+    'crawl-clarity' => [
+      'uk' => "Crawl clarity engineering for {$cityName} businesses, eliminating technical barriers that prevent AI systems from understanding your site.",
+      'us' => "Crawl clarity implementation in {$cityName} with technical SEO expertise and structured data optimization."
+    ],
+    'json-ld-strategy' => [
+      'uk' => "JSON-LD strategy for {$cityName} businesses, implementing comprehensive structured data for AI engine recognition.",
+      'us' => "JSON-LD and structured data strategy in {$cityName} with schema markup expertise."
+    ],
+    'llm-seeding' => [
+      'uk' => "LLM seeding and citation optimization for {$cityName} businesses, ensuring AI systems reference your brand accurately.",
+      'us' => "LLM seeding services in {$cityName} to improve AI engine citation rates and visibility."
+    ],
+    'ai-overviews-optimization' => [
+      'uk' => "AI Overviews optimization for {$cityName} businesses, improving eligibility for Google AI Overview citations.",
+      'us' => "AI Overviews optimization in {$cityName} with focus on citation eligibility and structured content."
+    ]
+  ];
+  
+  // Check for service-specific description
+  if (isset($descriptions[$serviceSlug])) {
+    $key = $isUK ? 'uk' : 'us';
+    return $descriptions[$serviceSlug][$key];
+  }
+  
+  // Generic fallback based on service type
+  if (strpos($serviceSlug, 'optimization') !== false) {
+    return $isUK 
+      ? "Comprehensive {$serviceName} delivery in {$cityName} with UK market expertise."
+      : "Full service implementation in {$cityName} with local expertise and support.";
+  }
+  
+  // Default generic description
+  return $isUK
+    ? "Comprehensive service delivery in {$cityName} with UK market expertise."
+    : "Full service implementation in {$cityName} with local expertise and support.";
+}
+
+/**
+ * Get related services available in the same city
+ * 
+ * @param string $serviceSlug Current service slug
+ * @param string $citySlug City slug
+ * @param int $limit Maximum number of related services to return
+ * @return array Array of ['slug' => serviceSlug, 'name' => 'Service Name', 'url' => canonicalUrl]
+ */
+function get_related_services_in_city(string $serviceSlug, string $citySlug, int $limit = 3): array {
+  require_once __DIR__.'/helpers.php';
+  
+  // Core services that are commonly available in cities
+  $coreServices = [
+    'site-audits' => 'AI-First Site Audits',
+    'crawl-clarity' => 'Crawl Clarity Engineering',
+    'json-ld-strategy' => 'JSON-LD & Structured Data',
+    'llm-seeding' => 'LLM Seeding & Citation',
+    'ai-overviews-optimization' => 'AI Overviews Optimization',
+    'technical-seo' => 'Technical SEO',
+    'relevance-optimization-ai' => 'Relevance Optimization AI',
+    'content-optimization-ai' => 'Content Optimization AI'
+  ];
+  
+  $related = [];
+  
+  foreach ($coreServices as $slug => $name) {
+    // Skip current service
+    if ($slug === $serviceSlug) {
+      continue;
+    }
+    
+    // Check if this service-city combination exists
+    $enhancement = get_service_enhancement($slug, $citySlug);
+    if ($enhancement) {
+      $related[] = [
+        'slug' => $slug,
+        'name' => $name,
+        'url' => canonical_internal_url("/services/{$slug}/{$citySlug}/")
+      ];
+      
+      if (count($related) >= $limit) {
+        break;
+      }
+    }
+  }
+  
+  return $related;
+}
