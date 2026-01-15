@@ -105,6 +105,8 @@ function send_sms_notification($booking_data) {
 }
 
 function send_email_notification($booking_data) {
+  require_once __DIR__ . '/../lib/smtp_email.php';
+  
   $to = 'info@neuralcommandllc.com';
   $subject = 'New Consultation Request - ' . $booking_data['name'];
   
@@ -126,10 +128,7 @@ Please respond within 24 hours.
 ";
   
   $headers = [
-    'From: noreply@nrlc.ai',
-    'Reply-To: ' . $booking_data['email'],
-    'X-Mailer: PHP/' . phpversion(),
-    'Content-Type: text/plain; charset=UTF-8'
+    'Reply-To' => $booking_data['email']
   ];
   
   // Ensure logs directory exists
@@ -138,12 +137,13 @@ Please respond within 24 hours.
     mkdir($logs_dir, 0755, true);
   }
   
-  $email_sent = @mail($to, $subject, $message, implode("\r\n", $headers));
+  // Try SMTP first, fallback to mail()
+  $email_sent = send_email_via_smtp($to, $subject, $message, $headers);
   
   // Detailed logging with error info
   $email_log = date('Y-m-d H:i:s') . " - Email to $to: " . ($email_sent ? 'SUCCESS' : 'FAILED');
   if (!$email_sent) {
-    $email_log .= " (mail() returned false - check mail server configuration)";
+    $email_log .= " (SMTP/mail() failed - check mail server configuration)";
   }
   $email_log .= "\n";
   file_put_contents($logs_dir . '/email.log', $email_log, FILE_APPEND | LOCK_EX);
@@ -156,6 +156,8 @@ Please respond within 24 hours.
 }
 
 function send_confirmation_email($booking_data) {
+  require_once __DIR__ . '/../lib/smtp_email.php';
+  
   $to = $booking_data['email'];
   $subject = 'Consultation Request Received - NRLC.ai';
   
@@ -179,17 +181,15 @@ The NRLC.ai Team
 ---
 NRLC.ai - Optimizing the Internet for AI Understanding
 Website: https://nrlc.ai
-Email: hirejoelm@gmail.com
+Email: info@neuralcommandllc.com
 ";
   
   $headers = [
-    'From: noreply@nrlc.ai',
-    'Reply-To: hirejoelm@gmail.com',
-    'X-Mailer: PHP/' . phpversion(),
-    'Content-Type: text/plain; charset=UTF-8'
+    'Reply-To' => 'info@neuralcommandllc.com'
   ];
   
-  $confirmation_sent = mail($to, $subject, $message, implode("\r\n", $headers));
+  // Try SMTP first, fallback to mail()
+  $confirmation_sent = send_email_via_smtp($to, $subject, $message, $headers);
   
   // Log confirmation email attempt
   $confirmation_log = date('Y-m-d H:i:s') . " - Confirmation email to $to: " . ($confirmation_sent ? 'SUCCESS' : 'FAILED') . "\n";
