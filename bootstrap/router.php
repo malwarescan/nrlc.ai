@@ -445,14 +445,16 @@ function route_request(): void {
       }
     }
 
-    // Check if UK city - if so, enforce en-gb locale
-    $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    // Check canonical locale for city (UK → en-gb, Singapore → en-sg, others → en-us)
+    $canonicalLocale = function_exists('get_canonical_locale_for_city') 
+      ? get_canonical_locale_for_city($citySlug) 
+      : 'en-us';
     $currentLocale = current_locale();
 
-    if ($isUK && $currentLocale !== 'en-gb') {
-      // UK city detected but wrong locale - redirect to en-gb
+    if ($currentLocale !== $canonicalLocale) {
+      // City detected but wrong locale - redirect to canonical locale
       // PRESERVE SERVICE TYPE - do not force to local-seo-ai
-      $canonical = '/en-gb/services/' . $serviceSlug . '/' . $citySlug . '/';
+      $canonical = '/' . $canonicalLocale . '/services/' . $serviceSlug . '/' . $citySlug . '/';
       header("Location: " . absolute_url($canonical), true, 301);
       exit;
     }

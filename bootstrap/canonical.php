@@ -112,32 +112,18 @@ function canonical_guard(): void {
       }
     }
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
+    $isSingapore = (strtolower($citySlug) === 'singapore');
+    $canonicalLocale = function_exists('get_canonical_locale_for_city') 
+      ? get_canonical_locale_for_city($citySlug) 
+      : ($isUK ? 'en-gb' : ($isSingapore ? 'en-sg' : 'en-us'));
     
-    if ($isUK) {
-      // UK city: MUST be en-gb, redirect all others
-      if ($locale !== 'en-gb') {
-        // PRESERVE SERVICE TYPE - do not force to local-seo-ai
-        $canonical = '/en-gb/services/' . $serviceSlug . '/' . $citySlug . '/';
-        $queryString = count($query) ? '?'.http_build_query($query) : '';
-        $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
-        header("Location: $redirectUrl", true, 301);
-        exit;
-      }
-      // REMOVED: Service type forcing - each service type must have unique intent
-      // This was causing massive intent collision (all services → local-seo-ai)
-    } else {
-      // US city or non-city: MUST be en-us (default locale)
-      // Allow other locales only if they're genuinely translated (future enhancement)
-      // For now, redirect non-en-us to en-us for city pages
-      if ($locale !== 'en-us') {
-        // Check if this is actually a US city (could add US city detection)
-        // For now, assume non-UK cities are US
-        $canonical = '/en-us/services/' . $serviceSlug . '/' . $citySlug . '/';
-        $queryString = count($query) ? '?'.http_build_query($query) : '';
-        $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
-        header("Location: $redirectUrl", true, 301);
-        exit;
-      }
+    // Redirect non-canonical locale versions to canonical locale
+    if ($locale !== $canonicalLocale) {
+      $canonical = '/' . $canonicalLocale . '/services/' . $serviceSlug . '/' . $citySlug . '/';
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.$canonical.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
     }
   }
   
