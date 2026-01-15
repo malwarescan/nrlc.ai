@@ -20,7 +20,13 @@ $pathKey = "/services/$serviceSlug/$citySlug/";
 det_seed($pathKey);
 
 $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
-$cityTitle = titleCaseCity($citySlug);
+// Safely get city title
+try {
+  $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
+} catch (Throwable $e) {
+  error_log("titleCaseCity failed for {$citySlug}: " . $e->getMessage());
+  $cityTitle = ucwords(str_replace(['-','_'],' ',$citySlug));
+}
 
 // INTENT TAXONOMY: Generate H1, subhead, and CTA based on URL contract (CLASS 2: Geo Service)
 // Ensure locale is set from original REQUEST_URI (router may have modified path)
