@@ -34,6 +34,12 @@ function canonical_guard(): void {
       return;
     }
   }
+  
+  // Skip canonical redirects for .md URLs (Markdown exposure)
+  // These are handled by router.php which strips .md before routing
+  if (preg_match('#\.md$#', $uri)) {
+    return;
+  }
 
   // Force HTTPS redirect (fallback if .htaccess doesn't catch it)
   // Skip HTTPS enforcement for localhost/127.0.0.1 (local development)
