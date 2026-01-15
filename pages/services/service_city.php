@@ -38,11 +38,21 @@ if (!isset($GLOBALS['locale'])) {
     $GLOBALS['locale'] = 'en-us';
   }
 }
-$intentContent = service_intent_content($serviceSlug, $citySlug);
-$pageTitle = $intentContent['h1'];
-$subhead = $intentContent['subhead'];
-$ctaText = $intentContent['cta'];
-$ctaQualifier = $intentContent['cta_qualifier'];
+// Safely get intent content
+try {
+  $intentContent = service_intent_content($serviceSlug, $citySlug);
+  $pageTitle = $intentContent['h1'] ?? ucwords(str_replace('-', ' ', $serviceSlug)) . ' in ' . $cityTitle;
+  $subhead = $intentContent['subhead'] ?? "Professional {$serviceTitle} services in {$cityTitle}.";
+  $ctaText = $intentContent['cta'] ?? "Request {$serviceTitle}";
+  $ctaQualifier = $intentContent['cta_qualifier'] ?? "No obligation. Response within 24 hours.";
+} catch (Throwable $e) {
+  error_log("service_intent_content failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
+  // Fallback content
+  $pageTitle = ucwords(str_replace('-', ' ', $serviceSlug)) . ' in ' . $cityTitle;
+  $subhead = "Professional {$serviceTitle} services in {$cityTitle}.";
+  $ctaText = "Request {$serviceTitle}";
+  $ctaQualifier = "No obligation. Response within 24 hours.";
+}
 
 // Load city data for schema
 try {
