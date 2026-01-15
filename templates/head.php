@@ -125,14 +125,19 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
         }
       }
       // Handle products pages in non-en-us locales
-      // Products should only exist in en-us
+      // Products can exist in multiple locales if they're in hreflang allowlist
       else if (preg_match('#^/products/#', $pathWithoutLocale)) {
-        if ($currentLocale !== 'en-us') {
-          // Non-en-us products page - canonicalize to en-us
+        // Check if products are in hreflang allowlist
+        require_once __DIR__.'/../lib/hreflang_allowlist.php';
+        $allowlist = require __DIR__.'/../lib/hreflang_allowlist.php';
+        $productsInAllowlist = isset($allowlist['/products/']) && in_array($currentLocale, $allowlist['/products/']);
+        
+        if (!$productsInAllowlist && $currentLocale !== 'en-us') {
+          // Non-en-us products page not in allowlist - canonicalize to en-us
           $canonicalPath = '/en-us' . $pathWithoutLocale;
           $noindexMeta = '<meta name="robots" content="noindex,nofollow">' . "\n";
         }
-        // en-us products pages are legitimate and should be indexed
+        // en-us and allowlisted locale products pages are legitimate and should be indexed
       }
       // Handle promptware pages in non-en-us locales
       else if (preg_match('#^/promptware/#', $pathWithoutLocale)) {

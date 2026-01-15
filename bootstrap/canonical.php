@@ -227,8 +227,10 @@ function canonical_guard(): void {
   }
   
   // Handle products pages in non-canonical locales
-  // Products should only exist in en-us
-  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr|en-gb)/products/#', $uri, $m)) {
+  // Products can exist in multiple locales if they're in hreflang allowlist
+  // Only redirect unsupported locales (not in allowlist)
+  if (preg_match('#^/(es-es|fr-fr|de-de|ko-kr)/products/#', $uri, $m)) {
+    // These locales are not in hreflang allowlist - redirect to en-us
     $queryString = count($query) ? '?'.http_build_query($query) : '';
     // Extract path after /products/
     if (preg_match('#^/[^/]+/products(/.*)$#', $uri, $pathMatch)) {
@@ -239,6 +241,7 @@ function canonical_guard(): void {
     header("Location: $redirectUrl", true, 301);
     exit;
   }
+  // en-gb products are allowed (in hreflang allowlist) - no redirect
   
   // Handle careers index in non-canonical locales (excluding en-us and en-gb)
   // Careers index should only exist in en-us and en-gb

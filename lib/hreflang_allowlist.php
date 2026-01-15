@@ -30,6 +30,15 @@ return [
     // 'es-es',
   ],
 
+  // Products pages - enable hreflang for translated products
+  '/products/' => [
+    'en-us',
+    'en-gb',
+    // Add more locales as products are translated
+    // 'de-de',
+    // 'es-es',
+  ],
+
   // Future examples (DO NOT ENABLE YET)
   // '/services/schema-markup/' => ['en-us', 'en-gb'],
   // '/services/ai-search-optimization/' => ['en-us', 'en-gb'],
