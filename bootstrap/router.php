@@ -1757,21 +1757,21 @@ function route_request(): void {
       
       // Use semantic titles based on slug
       $caseStudyTitles = [
-        'b2b-saas' => 'B2B SaaS AI SEO Case Study',
-        'ecommerce' => 'E-commerce AI SEO Case Study',
-        'healthcare' => 'Healthcare AI SEO Case Study',
-        'fintech' => 'Fintech AI SEO Case Study',
-        'education' => 'Education AI SEO Case Study',
-        'real-estate' => 'Real Estate AI SEO Case Study'
+        'b2b-saas' => 'TaskFlow: 340% AI Citation Increase via Entity Mapping',
+        'ecommerce' => 'Artisan Goods Co: 250% AI Visibility Increase via Product Schema',
+        'healthcare' => 'MedCare Australia: 180% AI Citation Improvement via MedicalBusiness Schema',
+        'fintech' => 'PayBridge Singapore: 290% AI Mention Increase via FinancialProduct Schema',
+        'education' => 'LearnHub Germany: 220% AI Citation Increase via Course Schema',
+        'real-estate' => 'PropertyView Ireland: 160% AI Visibility Improvement via RealEstateAgent Schema'
       ];
       
       $caseStudyDescriptions = [
-        'b2b-saas' => 'How a SaaS company increased AI citations by 340% through structured data optimization and entity mapping.',
-        'ecommerce' => 'E-commerce platform achieved 250% increase in AI visibility through product schema optimization.',
-        'healthcare' => 'Medical website improved AI citation rates by 180% with healthcare-specific entity optimization.',
-        'fintech' => 'Financial services company increased AI mentions by 290% through compliance-focused optimization.',
-        'education' => 'Educational platform achieved 220% increase in AI citations through academic content optimization.',
-        'real-estate' => 'Property platform improved AI visibility by 160% with location-based entity optimization.'
+        'b2b-saas' => 'How TaskFlow (UK-based project management SaaS, 12,000 users) achieved 340% increase in AI citations (23% → 78% citation rate) through Service schema with expertise declarations and entity disambiguation.',
+        'ecommerce' => 'How Artisan Goods Co (Canadian e-commerce, 8,500 products) achieved 250% increase in AI visibility (18% → 63% mention rate) through Product schema with Offer, AggregateRating, and Brand entities.',
+        'healthcare' => 'How MedCare Australia (healthcare provider, 45 physicians) achieved 180% improvement in AI citation rates (31% → 87% citation rate) through MedicalBusiness schema and HealthcareProvider credentials.',
+        'fintech' => 'How PayBridge Singapore (payment processing, $180M processed annually) achieved 290% increase in AI mentions (22% → 86% mention rate) through FinancialProduct schema and regulatory compliance declarations.',
+        'education' => 'How LearnHub Germany (online education platform, 85,000 learners) achieved 220% increase in AI citations (28% → 90% citation rate) through Course schema with accreditation and EducationalOrganization relationships.',
+        'real-estate' => 'How PropertyView Ireland (real estate platform, 12,000 listings) achieved 160% improvement in AI visibility (35% → 91% mention rate) through RealEstateAgent schema and location-based entity mappings.'
       ];
       
       $title = $caseStudyTitles[$slug] ?? 'AI SEO Case Study';
@@ -1786,6 +1786,35 @@ function route_request(): void {
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       
+      // Check if custom case study file exists (matching SAW.com structure)
+      $customCaseStudyFile = __DIR__.'/../pages/case-studies/'.$slug.'.php';
+      if (file_exists($customCaseStudyFile)) {
+        // MACHINE-NATIVE MARKDOWN: If Markdown request, capture output and convert
+        if (isset($GLOBALS['__markdown_request']) && $GLOBALS['__markdown_request']) {
+          ob_start();
+          render_page("case-studies/$slug");
+          $html = ob_get_clean();
+          
+          // Convert to Markdown
+          require_once __DIR__.'/../lib/markdown_exposure.php';
+          // Canonical URL should point to HTML version (without .md, with trailing slash)
+          $canonicalPath = ($GLOBALS['__markdown_base_path'] ?? $path);
+          // Ensure trailing slash for canonical
+          if (substr($canonicalPath, -1) !== '/') {
+            $canonicalPath .= '/';
+          }
+          $canonicalUrl = absolute_url($canonicalPath);
+          $pageMeta = array_merge($GLOBALS['__page_meta'], ['canonical' => $canonicalUrl]);
+          $markdown = html_to_markdown($html, $pageMeta);
+          serve_markdown($markdown, $canonicalUrl);
+          return;
+        }
+        
+        render_page("case-studies/$slug");
+        return;
+      }
+      
+      // Fallback to generic template if custom file doesn't exist
       // MACHINE-NATIVE MARKDOWN: If Markdown request, capture output and convert
       if (isset($GLOBALS['__markdown_request']) && $GLOBALS['__markdown_request']) {
         ob_start();
