@@ -412,15 +412,28 @@ function route_request(): void {
       $GLOBALS['__page_meta']['description'] = "Professional {$serviceSlug} services in {$citySlug}. Improve search rankings and AI visibility.";
     }
     
+    // CRITICAL: Always render the page, never return 404 for service-city URLs
+    // Even if render_page fails, we output a basic page with 200 status
     try {
-      render_page('services/service_city');
+      if (function_exists('render_page')) {
+        render_page('services/service_city');
+      } else {
+        // Fallback if render_page doesn't exist
+        error_log("CRITICAL: render_page function not found for service-city page");
+        http_response_code(200);
+        header('Content-Type: text/html; charset=UTF-8');
+        echo '<!DOCTYPE html><html><head><title>' . htmlspecialchars($GLOBALS['__page_meta']['title'] ?? ucwords(str_replace('-', ' ', $serviceSlug)) . ' in ' . ucwords(str_replace('-', ' ', $citySlug))) . ' | NRLC.ai</title></head><body><h1>' . htmlspecialchars($GLOBALS['__page_meta']['title'] ?? ucwords(str_replace('-', ' ', $serviceSlug)) . ' in ' . ucwords(str_replace('-', ' ', $citySlug))) . '</h1><p>' . htmlspecialchars($GLOBALS['__page_meta']['description'] ?? '') . '</p></body></html>';
+      }
     } catch (Throwable $e) {
-      // Log error but don't return 404 - render a fallback page instead
-      error_log("Service city page render failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
+      // Log error but ALWAYS return 200, never 404
+      error_log("CRITICAL: Service city page render failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
       error_log("Stack trace: " . $e->getTraceAsString());
-      // Render a basic service page instead of 404
+      // Render a basic service page with 200 status (NOT 404)
       http_response_code(200);
-      echo '<!DOCTYPE html><html><head><title>' . htmlspecialchars($GLOBALS['__page_meta']['title'] ?? 'Service') . '</title></head><body><h1>' . htmlspecialchars($GLOBALS['__page_meta']['title'] ?? 'Service') . '</h1><p>' . htmlspecialchars($GLOBALS['__page_meta']['description'] ?? '') . '</p></body></html>';
+      header('Content-Type: text/html; charset=UTF-8');
+      $fallbackTitle = ($GLOBALS['__page_meta']['title'] ?? null) ?: ucwords(str_replace('-', ' ', $serviceSlug)) . ' in ' . ucwords(str_replace('-', ' ', $citySlug)) . ' | NRLC.ai';
+      $fallbackDesc = $GLOBALS['__page_meta']['description'] ?? "Professional {$serviceSlug} services in {$citySlug}. Improve search rankings and AI visibility.";
+      echo '<!DOCTYPE html><html><head><title>' . htmlspecialchars($fallbackTitle) . '</title><meta name="description" content="' . htmlspecialchars($fallbackDesc) . '"></head><body><h1>' . htmlspecialchars($fallbackTitle) . '</h1><p>' . htmlspecialchars($fallbackDesc) . '</p></body></html>';
     }
     return;
   }
