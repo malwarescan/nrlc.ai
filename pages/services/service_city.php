@@ -39,15 +39,23 @@ $ctaText = $intentContent['cta'];
 $ctaQualifier = $intentContent['cta_qualifier'];
 
 // Load city data for schema
-$citiesData = csv_read_data('cities.csv');
-$cityRow = null;
-foreach ($citiesData as $c) {
-  if (($c['city_name'] ?? '') === $citySlug) {
-    $cityRow = $c;
-    break;
+try {
+  $citiesData = csv_read_data('cities.csv');
+  $cityRow = null;
+  foreach ($citiesData as $c) {
+    // Match by city_name (slug) or city_slug if available
+    if (($c['city_name'] ?? '') === $citySlug || ($c['city_slug'] ?? '') === $citySlug) {
+      $cityRow = $c;
+      break;
+    }
   }
-}
-if (!$cityRow) {
+  if (!$cityRow) {
+    // Fallback: create minimal city row
+    $cityRow = ['city_name' => $cityTitle, 'country' => 'US', 'subdivision' => ''];
+  }
+} catch (Throwable $e) {
+  // If city data lookup fails, use fallback
+  error_log("City data lookup failed for {$citySlug}: " . $e->getMessage());
   $cityRow = ['city_name' => $cityTitle, 'country' => 'US', 'subdivision' => ''];
 }
 
@@ -60,22 +68,46 @@ $enhancement = get_service_enhancement($serviceSlug, $citySlug);
 $enhancedIntro = $enhancement['intro'] ?? null;
 
 // META KERNEL DIRECTIVE: Required content sections (8-section template)
-$intro   = $enhancedIntro ?? service_long_intro($serviceSlug, $citySlug);
-$serviceOverview = service_overview_section($serviceSlug, $citySlug, $cityRow);
-$whyChooseUs = why_this_matters_section($serviceSlug, $citySlug);
-$process = approach_section($serviceSlug, $citySlug); // Enhanced with timeline if needed
-$pricing = pricing_section($serviceSlug, $citySlug, $cityRow);
-$faqsHtml = city_specific_faq_block($serviceSlug, $citySlug, 6); // 5-7 questions
-$serviceAreaCoverage = service_area_coverage_section($citySlug, $cityRow);
+// Wrap all content generation in try-catch to prevent fatal errors
+try {
+  $intro   = $enhancedIntro ?? (function_exists('service_long_intro') ? service_long_intro($serviceSlug, $citySlug) : "<p>Professional {$serviceTitle} services in {$cityTitle}.</p>");
+  $serviceOverview = function_exists('service_overview_section') ? service_overview_section($serviceSlug, $citySlug, $cityRow) : '';
+  $whyChooseUs = function_exists('why_this_matters_section') ? why_this_matters_section($serviceSlug, $citySlug) : '';
+  $process = function_exists('approach_section') ? approach_section($serviceSlug, $citySlug) : '';
+  $pricing = function_exists('pricing_section') ? pricing_section($serviceSlug, $citySlug, $cityRow) : '';
+  $faqsHtml = function_exists('city_specific_faq_block') ? city_specific_faq_block($serviceSlug, $citySlug, 6) : '';
+  $serviceAreaCoverage = function_exists('service_area_coverage_section') ? service_area_coverage_section($citySlug, $cityRow) : '';
+} catch (Throwable $e) {
+  error_log("Content generation failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
+  // Fallback content
+  $intro = "<p>Professional {$serviceTitle} services in {$cityTitle}.</p>";
+  $serviceOverview = '';
+  $whyChooseUs = '';
+  $process = '';
+  $pricing = '';
+  $faqsHtml = '';
+  $serviceAreaCoverage = '';
+}
 
 // Additional sections for depth (used after required sections)
-$local   = local_context_block($citySlug);
-$market  = local_market_insights($citySlug);
-$competition = local_competition_analysis($citySlug);
-$strategy = local_implementation_strategy($citySlug);
-$pain    = pain_point_section($serviceSlug, $citySlug, 4);
-$timeline= implementation_timeline_section($citySlug);
-$metrics = success_metrics_section($serviceSlug, $citySlug);
+try {
+  $local   = function_exists('local_context_block') ? local_context_block($citySlug) : '';
+  $market  = function_exists('local_market_insights') ? local_market_insights($citySlug) : '';
+  $competition = function_exists('local_competition_analysis') ? local_competition_analysis($citySlug) : '';
+  $strategy = function_exists('local_implementation_strategy') ? local_implementation_strategy($citySlug) : '';
+  $pain    = function_exists('pain_point_section') ? pain_point_section($serviceSlug, $citySlug, 4) : '';
+  $timeline= function_exists('implementation_timeline_section') ? implementation_timeline_section($citySlug) : '';
+  $metrics = function_exists('success_metrics_section') ? success_metrics_section($serviceSlug, $citySlug) : '';
+} catch (Throwable $e) {
+  error_log("Additional content generation failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
+  $local = '';
+  $market = '';
+  $competition = '';
+  $strategy = '';
+  $pain = '';
+  $timeline = '';
+  $metrics = '';
+}
 
 // Build content with proper structure
 $content = $intro . $local;
