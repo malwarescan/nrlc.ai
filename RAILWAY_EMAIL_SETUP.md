@@ -38,9 +38,19 @@ SMTP_FROM_EMAIL = noreply@nrlc.ai
 SMTP_FROM_NAME = NRLC.ai
 ```
 
+**Example Configuration:**
+```
+SMTP_HOST = smtp.gmail.com
+SMTP_PORT = 587
+SMTP_USERNAME = neuralcommand@gmail.com
+SMTP_PASSWORD = xxxx xxxx xxxx xxxx (the 16-char app password)
+SMTP_FROM_EMAIL = noreply@nrlc.ai
+SMTP_FROM_NAME = NRLC.ai
+```
+
 **Important:** 
-- Replace `your-email@gmail.com` with **any Gmail address** (yours, company Gmail, etc.)
-- Replace `xxxx xxxx xxxx xxxx` with the 16-character app password (you can include or remove spaces)
+- You can use **any Gmail address** (like `neuralcommand@gmail.com`, `hirejoelm@gmail.com`, etc.)
+- Replace `xxxx xxxx xxxx xxxx` with the 16-character app password from that Gmail account
 - The Gmail account is just for sending - emails will go TO `info@neuralcommand.com` (or any address)
 
 ### Step 3: Redeploy
