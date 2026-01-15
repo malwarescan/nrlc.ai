@@ -385,10 +385,26 @@ function route_request(): void {
       }
     }
     // service_meta_title() already includes | NRLC.ai
-    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug);
-    $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
+    try {
+      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug);
+      $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
+    } catch (Throwable $e) {
+      // Fallback if service intent taxonomy fails
+      error_log("Service meta generation failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
+      $GLOBALS['__page_meta']['title'] = ucwords(str_replace('-', ' ', $serviceSlug)) . ' in ' . ucwords(str_replace('-', ' ', $citySlug)) . ' | NRLC.ai';
+      $GLOBALS['__page_meta']['description'] = "Professional {$serviceSlug} services in {$citySlug}. Improve search rankings and AI visibility.";
+    }
     
-    render_page('services/service_city');
+    try {
+      render_page('services/service_city');
+    } catch (Throwable $e) {
+      // Log error but don't return 404 - render a fallback page instead
+      error_log("Service city page render failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
+      error_log("Stack trace: " . $e->getTraceAsString());
+      // Render a basic service page instead of 404
+      http_response_code(200);
+      echo '<!DOCTYPE html><html><head><title>' . htmlspecialchars($GLOBALS['__page_meta']['title'] ?? 'Service') . '</title></head><body><h1>' . htmlspecialchars($GLOBALS['__page_meta']['title'] ?? 'Service') . '</h1><p>' . htmlspecialchars($GLOBALS['__page_meta']['description'] ?? '') . '</p></body></html>';
+    }
     return;
   }
 
