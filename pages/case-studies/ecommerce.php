@@ -4,34 +4,63 @@ require_once __DIR__ . '/../../lib/helpers.php';
 
 $canonical_url = absolute_url('/case-studies/ecommerce/');
 
-// Schema stack - all in single JSON-LD graph
+// Enhanced metadata for SEO and AI extractability
+if (isset($GLOBALS['__page_meta'])) {
+  $GLOBALS['__page_meta']['keywords'] = 'E-commerce AI SEO case study, Artisan Goods Co, AI product recommendation optimization, Product schema, Offer schema, AggregateRating, Brand entities, category taxonomies, ChatGPT optimization, Claude optimization, Perplexity optimization, Canadian e-commerce, AI visibility, competitor hallucination prevention';
+  $GLOBALS['__page_meta']['datePublished'] = '2024-10-15';
+  $GLOBALS['__page_meta']['dateModified'] = '2024-10-15';
+  $GLOBALS['__page_meta']['author'] = 'Joel Maldonado';
+  $GLOBALS['__page_meta']['about'] = ['AI Product Recommendation Optimization', 'E-commerce', 'Product Schema', 'Offer Schema', 'Structured Data'];
+  $GLOBALS['__page_meta']['mentions'] = ['Artisan Goods Co', 'ChatGPT', 'Claude', 'Perplexity', 'Google AI Overviews'];
+}
+
+$orgId = absolute_url('/') . '#organization';
+$personId = absolute_url('/') . '#joel-maldonado';
+
+// Schema stack - all in single JSON-LD graph (AI SEO Optimized)
 $GLOBALS['__jsonld'] = [
-  // 1. Article (primary)
+  // 1. Article (primary) - Enhanced
   [
     '@context' => 'https://schema.org',
     '@type' => 'Article',
     '@id' => $canonical_url . '#article',
     'headline' => 'Artisan Goods Co: 250% AI Visibility Increase via Product Schema',
     'description' => 'A forensic case study on correcting AI system product recommendation failures for a Canadian e-commerce platform through Product schema optimization and entity mapping.',
+    'keywords' => 'E-commerce, AI product recommendation optimization, Product schema, Offer schema, AggregateRating, Brand entities, category taxonomies, ChatGPT, Claude, Perplexity, Canadian e-commerce',
     'author' => [
-      '@type' => 'Organization',
-      'name' => 'Neural Command',
-      'url' => 'https://nrlc.ai'
+      '@type' => 'Person',
+      '@id' => $personId,
+      'name' => 'Joel Maldonado'
     ],
     'publisher' => [
       '@type' => 'Organization',
+      '@id' => $orgId,
       'name' => 'Neural Command',
       'url' => 'https://nrlc.ai',
       'logo' => [
         '@type' => 'ImageObject',
-        'url' => absolute_url('/assets/images/nrlc-logo.png')
+        'url' => absolute_url('/assets/images/nrlc-logo.png'),
+        'width' => 43,
+        'height' => 43
       ]
     ],
     'datePublished' => '2024-10-15',
     'dateModified' => '2024-10-15',
+    'inLanguage' => 'en-US',
     'mainEntityOfPage' => [
       '@type' => 'WebPage',
       '@id' => $canonical_url
+    ],
+    'about' => [
+      '@type' => 'Thing',
+      'name' => 'AI Product Recommendation Optimization',
+      'description' => 'The process of optimizing Product schema and entity mapping to improve AI system product recommendations'
+    ],
+    'mentions' => [
+      ['@type' => 'Organization', 'name' => 'Artisan Goods Co', 'description' => 'Canadian e-commerce platform'],
+      ['@type' => 'SoftwareApplication', 'name' => 'ChatGPT', 'description' => 'AI language model'],
+      ['@type' => 'SoftwareApplication', 'name' => 'Claude', 'description' => 'AI language model'],
+      ['@type' => 'SoftwareApplication', 'name' => 'Perplexity', 'description' => 'AI search engine']
     ]
   ],
   
@@ -40,26 +69,71 @@ $GLOBALS['__jsonld'] = [
     '@context' => 'https://schema.org',
     '@type' => 'Thing',
     'name' => 'Artisan Goods Co',
+    'sameAs' => 'https://artisangoods.com',
     'disambiguatingDescription' => 'Canadian e-commerce platform specializing in artisan products with 8,500 SKUs'
   ],
   
-  // 3. Organization (NRLC authority anchor)
+  // 3. Person (Joel Maldonado - Author)
   [
     '@context' => 'https://schema.org',
-    '@type' => 'Organization',
-    '@id' => absolute_url('/') . '#organization',
-    'name' => 'Neural Command',
-    'url' => 'https://nrlc.ai',
+    '@type' => 'Person',
+    '@id' => $personId,
+    'name' => 'Joel Maldonado',
+    'givenName' => 'Joel',
+    'familyName' => 'Maldonado',
+    'jobTitle' => 'Founder & AI Search Researcher',
+    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems.',
+    'worksFor' => [
+      '@id' => $orgId
+    ],
     'knowsAbout' => [
       'AI SEO',
+      'AEO',
+      'GEO',
       'E-commerce Optimization',
       'Product Schema',
       'AI Citation Systems',
       'Structured Data'
+    ],
+    'url' => 'https://nrlc.ai',
+    'sameAs' => [
+      'https://www.linkedin.com/in/joelmaldonado/'
     ]
   ],
   
-  // 4. BreadcrumbList
+  // 4. Organization (NRLC authority anchor) - Enhanced
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Organization',
+    '@id' => $orgId,
+    'name' => 'Neural Command',
+    'legalName' => 'Neural Command, LLC',
+    'url' => 'https://nrlc.ai',
+    'logo' => [
+      '@type' => 'ImageObject',
+      'url' => absolute_url('/assets/images/nrlc-logo.png'),
+      'width' => 43,
+      'height' => 43
+    ],
+    'knowsAbout' => [
+      'AI SEO',
+      'AEO',
+      'GEO',
+      'E-commerce Optimization',
+      'Product Schema',
+      'Offer Schema',
+      'AI Citation Systems',
+      'Structured Data',
+      'Brand Entities',
+      'Category Taxonomies'
+    ],
+    'areaServed' => 'Worldwide',
+    'sameAs' => [
+      'https://www.linkedin.com/company/neural-command/'
+    ]
+  ],
+  
+  // 5. BreadcrumbList
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -67,25 +141,36 @@ $GLOBALS['__jsonld'] = [
       [
         '@type' => 'ListItem',
         'position' => 1,
+        'name' => 'Home',
+        'item' => absolute_url('/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 2,
         'name' => 'Case Studies',
         'item' => absolute_url('/case-studies/')
       ],
       [
         '@type' => 'ListItem',
-        'position' => 2,
+        'position' => 3,
         'name' => 'Artisan Goods Co: 250% AI Visibility Increase',
         'item' => $canonical_url
       ]
     ]
   ],
   
-  // 5. WebPage
+  // 6. WebPage - Enhanced
   [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     '@id' => $canonical_url,
     'name' => 'Artisan Goods Co: 250% AI Visibility Increase via Product Schema',
     'description' => 'How Artisan Goods Co (Canadian e-commerce, 8,500 products) achieved 250% increase in AI visibility (18% → 63% mention rate) through Product schema with Offer, AggregateRating, and Brand entities.',
+    'url' => $canonical_url,
+    'keywords' => 'E-commerce AI SEO case study, Artisan Goods Co, AI product recommendation optimization, Product schema, Offer schema, AggregateRating, Brand entities, category taxonomies, ChatGPT optimization, Claude optimization, Perplexity optimization, Canadian e-commerce',
+    'inLanguage' => 'en-US',
+    'datePublished' => '2024-10-15',
+    'dateModified' => '2024-10-15',
     'isPartOf' => [
       '@type' => 'WebSite',
       'name' => 'NRLC.ai',
@@ -95,6 +180,22 @@ $GLOBALS['__jsonld'] = [
       '@type' => 'Thing',
       'name' => 'AI product recommendation failure',
       'description' => 'The condition where AI systems fail to recommend products from an e-commerce platform despite superior inventory, pricing, and customer service'
+    ],
+    'primaryImageOfPage' => [
+      '@type' => 'ImageObject',
+      'url' => absolute_url('/assets/images/nrlc-logo.png'),
+      'width' => 43,
+      'height' => 43,
+      'caption' => 'Neural Command - AI SEO Case Study'
+    ],
+    'author' => [
+      '@id' => $personId
+    ],
+    'publisher' => [
+      '@id' => $orgId
+    ],
+    'breadcrumb' => [
+      '@id' => $canonical_url . '#breadcrumb'
     ]
   ]
 ];

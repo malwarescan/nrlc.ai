@@ -4,34 +4,63 @@ require_once __DIR__ . '/../../lib/helpers.php';
 
 $canonical_url = absolute_url('/case-studies/b2b-saas/');
 
-// Schema stack - all in single JSON-LD graph
+// Enhanced metadata for SEO and AI extractability
+if (isset($GLOBALS['__page_meta'])) {
+  $GLOBALS['__page_meta']['keywords'] = 'B2B SaaS AI SEO case study, TaskFlow, AI citation optimization, entity mapping, Service schema, structured data optimization, ChatGPT optimization, Claude optimization, Perplexity optimization, UK SaaS, project management software, AI visibility, entity disambiguation, expertise declarations';
+  $GLOBALS['__page_meta']['datePublished'] = '2024-11-20';
+  $GLOBALS['__page_meta']['dateModified'] = '2024-11-20';
+  $GLOBALS['__page_meta']['author'] = 'Joel Maldonado';
+  $GLOBALS['__page_meta']['about'] = ['AI Citation Optimization', 'B2B SaaS', 'Entity Mapping', 'Service Schema', 'Structured Data'];
+  $GLOBALS['__page_meta']['mentions'] = ['TaskFlow', 'ChatGPT', 'Claude', 'Perplexity', 'Google AI Overviews'];
+}
+
+$orgId = absolute_url('/') . '#organization';
+$personId = absolute_url('/') . '#joel-maldonado';
+
+// Schema stack - all in single JSON-LD graph (AI SEO Optimized)
 $GLOBALS['__jsonld'] = [
-  // 1. Article (primary)
+  // 1. Article (primary) - Enhanced
   [
     '@context' => 'https://schema.org',
     '@type' => 'Article',
     '@id' => $canonical_url . '#article',
     'headline' => 'TaskFlow: 340% AI Citation Increase via Entity Mapping',
     'description' => 'A forensic case study on correcting AI system citation failures for a UK-based project management SaaS platform through structured data optimization and entity disambiguation.',
+    'keywords' => 'B2B SaaS, AI citation optimization, entity mapping, Service schema, structured data, ChatGPT, Claude, Perplexity, UK SaaS, project management software',
     'author' => [
-      '@type' => 'Organization',
-      'name' => 'Neural Command',
-      'url' => 'https://nrlc.ai'
+      '@type' => 'Person',
+      '@id' => $personId,
+      'name' => 'Joel Maldonado'
     ],
     'publisher' => [
       '@type' => 'Organization',
+      '@id' => $orgId,
       'name' => 'Neural Command',
       'url' => 'https://nrlc.ai',
       'logo' => [
         '@type' => 'ImageObject',
-        'url' => absolute_url('/assets/images/nrlc-logo.png')
+        'url' => absolute_url('/assets/images/nrlc-logo.png'),
+        'width' => 43,
+        'height' => 43
       ]
     ],
     'datePublished' => '2024-11-20',
     'dateModified' => '2024-11-20',
+    'inLanguage' => 'en-US',
     'mainEntityOfPage' => [
       '@type' => 'WebPage',
       '@id' => $canonical_url
+    ],
+    'about' => [
+      '@type' => 'Thing',
+      'name' => 'AI Citation Optimization',
+      'description' => 'The process of optimizing structured data and entity mapping to improve AI system citations'
+    ],
+    'mentions' => [
+      ['@type' => 'Organization', 'name' => 'TaskFlow', 'description' => 'UK-based project management SaaS platform'],
+      ['@type' => 'SoftwareApplication', 'name' => 'ChatGPT', 'description' => 'AI language model'],
+      ['@type' => 'SoftwareApplication', 'name' => 'Claude', 'description' => 'AI language model'],
+      ['@type' => 'SoftwareApplication', 'name' => 'Perplexity', 'description' => 'AI search engine']
     ]
   ],
   
@@ -40,26 +69,70 @@ $GLOBALS['__jsonld'] = [
     '@context' => 'https://schema.org',
     '@type' => 'Thing',
     'name' => 'TaskFlow',
+    'sameAs' => 'https://taskflow.com',
     'disambiguatingDescription' => 'UK-based project management SaaS platform with 12,000 active users'
   ],
   
-  // 3. Organization (NRLC authority anchor)
+  // 3. Person (Joel Maldonado - Author)
   [
     '@context' => 'https://schema.org',
-    '@type' => 'Organization',
-    '@id' => absolute_url('/') . '#organization',
-    'name' => 'Neural Command',
-    'url' => 'https://nrlc.ai',
+    '@type' => 'Person',
+    '@id' => $personId,
+    'name' => 'Joel Maldonado',
+    'givenName' => 'Joel',
+    'familyName' => 'Maldonado',
+    'jobTitle' => 'Founder & AI Search Researcher',
+    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems.',
+    'worksFor' => [
+      '@id' => $orgId
+    ],
     'knowsAbout' => [
       'AI SEO',
+      'AEO',
+      'GEO',
       'Entity Optimization',
       'Structured Data',
       'AI Citation Systems',
       'B2B SaaS Optimization'
+    ],
+    'url' => 'https://nrlc.ai',
+    'sameAs' => [
+      'https://www.linkedin.com/in/joelmaldonado/'
     ]
   ],
   
-  // 4. BreadcrumbList
+  // 4. Organization (NRLC authority anchor) - Enhanced
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Organization',
+    '@id' => $orgId,
+    'name' => 'Neural Command',
+    'legalName' => 'Neural Command, LLC',
+    'url' => 'https://nrlc.ai',
+    'logo' => [
+      '@type' => 'ImageObject',
+      'url' => absolute_url('/assets/images/nrlc-logo.png'),
+      'width' => 43,
+      'height' => 43
+    ],
+    'knowsAbout' => [
+      'AI SEO',
+      'AEO',
+      'GEO',
+      'Entity Optimization',
+      'Structured Data',
+      'AI Citation Systems',
+      'B2B SaaS Optimization',
+      'Service Schema',
+      'Entity Mapping'
+    ],
+    'areaServed' => 'Worldwide',
+    'sameAs' => [
+      'https://www.linkedin.com/company/neural-command/'
+    ]
+  ],
+  
+  // 5. BreadcrumbList
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -67,25 +140,36 @@ $GLOBALS['__jsonld'] = [
       [
         '@type' => 'ListItem',
         'position' => 1,
+        'name' => 'Home',
+        'item' => absolute_url('/')
+      ],
+      [
+        '@type' => 'ListItem',
+        'position' => 2,
         'name' => 'Case Studies',
         'item' => absolute_url('/case-studies/')
       ],
       [
         '@type' => 'ListItem',
-        'position' => 2,
+        'position' => 3,
         'name' => 'TaskFlow: 340% AI Citation Increase',
         'item' => $canonical_url
       ]
     ]
   ],
   
-  // 5. WebPage
+  // 6. WebPage - Enhanced
   [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     '@id' => $canonical_url,
     'name' => 'TaskFlow: 340% AI Citation Increase via Entity Mapping',
-    'description' => 'How TaskFlow (UK-based project management SaaS) achieved 340% increase in AI citations (23% → 78% citation rate) through Service schema with expertise declarations and entity disambiguation.',
+    'description' => 'How TaskFlow (UK-based project management SaaS, 12,000 users) achieved 340% increase in AI citations (23% → 78% citation rate) through Service schema with expertise declarations and entity disambiguation.',
+    'url' => $canonical_url,
+    'keywords' => 'B2B SaaS AI SEO case study, TaskFlow, AI citation optimization, entity mapping, Service schema, structured data optimization, ChatGPT optimization, Claude optimization, Perplexity optimization, UK SaaS, project management software',
+    'inLanguage' => 'en-US',
+    'datePublished' => '2024-11-20',
+    'dateModified' => '2024-11-20',
     'isPartOf' => [
       '@type' => 'WebSite',
       'name' => 'NRLC.ai',
@@ -95,6 +179,22 @@ $GLOBALS['__jsonld'] = [
       '@type' => 'Thing',
       'name' => 'AI citation failure',
       'description' => 'The condition where AI systems fail to cite or recommend a platform despite strong market authority and comprehensive documentation'
+    ],
+    'primaryImageOfPage' => [
+      '@type' => 'ImageObject',
+      'url' => absolute_url('/assets/images/nrlc-logo.png'),
+      'width' => 43,
+      'height' => 43,
+      'caption' => 'Neural Command - AI SEO Case Study'
+    ],
+    'author' => [
+      '@id' => $personId
+    ],
+    'publisher' => [
+      '@id' => $orgId
+    ],
+    'breadcrumb' => [
+      '@id' => $canonical_url . '#breadcrumb'
     ]
   ]
 ];
