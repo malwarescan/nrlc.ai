@@ -27,9 +27,10 @@ function route_request(): void {
   $basePath = $path;
   
   if (preg_match('#\.md$#', $path)) {
-    // Direct .md URL request
+    // Direct .md URL request - strip .md from path BEFORE routing
     $isMarkdownRequest = true;
     $basePath = preg_replace('#\.md$#', '', $path);
+    $path = $basePath; // Update $path so routing works correctly
   } elseif (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'text/markdown') !== false) {
     // Accept header content negotiation
     $isMarkdownRequest = true;
@@ -64,8 +65,9 @@ function route_request(): void {
     i18n_set_locale('en-us'); // default
   }
   
-  // For Markdown requests, also strip locale from basePath
+  // For Markdown requests, also strip locale from basePath (after locale stripping)
   if ($isMarkdownRequest && isset($GLOBALS['__markdown_base_path'])) {
+    // basePath still has locale, strip it to match $path
     if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $GLOBALS['__markdown_base_path'], $m)) {
       $GLOBALS['__markdown_base_path'] = substr($GLOBALS['__markdown_base_path'], strlen($m[0])-1);
     }
@@ -679,7 +681,13 @@ function route_request(): void {
       
       // Convert to Markdown
       require_once __DIR__.'/../lib/markdown_exposure.php';
-      $canonicalUrl = absolute_url($GLOBALS['__markdown_base_path'] ?? $path);
+      // Canonical URL should point to HTML version (without .md, with trailing slash)
+      $canonicalPath = ($GLOBALS['__markdown_base_path'] ?? $path);
+      // Ensure trailing slash for canonical
+      if (substr($canonicalPath, -1) !== '/') {
+        $canonicalPath .= '/';
+      }
+      $canonicalUrl = absolute_url($canonicalPath);
       $pageMeta = array_merge($GLOBALS['__page_meta'], ['canonical' => $canonicalUrl]);
       $markdown = html_to_markdown($html, $pageMeta);
       serve_markdown($markdown, $canonicalUrl);
