@@ -295,6 +295,18 @@ function route_request(): void {
     $serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
     $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
     
+    // Get current locale BEFORE any redirects
+    $currentLocale = function_exists('current_locale') ? current_locale() : 'en-us';
+    if (!$currentLocale || !preg_match('#^[a-z]{2}-[a-z]{2}$#', $currentLocale)) {
+      // Fallback: detect from original request URI
+      $originalPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+      if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath, $localeMatch)) {
+        $currentLocale = strtolower($localeMatch[1].'-'.$localeMatch[2]);
+      } else {
+        $currentLocale = 'en-us';
+      }
+    }
+    
     // CANONICAL ENFORCEMENT: Redirect query-based URLs to clean URLs
     // Prevents GSC "alternate page with proper canonical tag" issues
     if (!empty($_GET['service']) || !empty($_GET['city'])) {
