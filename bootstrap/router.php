@@ -1463,7 +1463,8 @@ function route_request(): void {
     'healthcare' => 27,
     'fintech' => 28,
     'education' => 29,
-    'real-estate' => 30
+    'real-estate' => 30,
+    'entity-semantic-poisoning-saw' => 'saw' // Special case study with custom page
   ];
   
   // Reverse map: ID → slug (for redirects from old numeric URLs)
@@ -1523,6 +1524,21 @@ function route_request(): void {
   // Route: /case-studies/{slug}/ (CANONICAL - SEO-friendly, semantic URLs)
   if (preg_match('#^/case-studies/([^/]+)/$#', $path, $m)) {
     $slug = $m[1];
+    
+    // Special handling for entity-semantic-poisoning-saw (custom page)
+    if ($slug === 'entity-semantic-poisoning-saw') {
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'case_study',
+        'slug' => "case-studies/$slug",
+        'title' => 'Entity Repair Case Study: Fixing Semantic Misclassification at SAW.com',
+        'excerpt' => 'How entity-level semantic poisoning caused Google to misclassify SAW.com, why SEO fixes failed, and how structured entity repair restored correct business identity.',
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page('case-studies/entity-semantic-poisoning-saw');
+      return;
+    }
     
     // Check if it's a known case study slug
     if (isset($caseStudySlugMap[$slug])) {
