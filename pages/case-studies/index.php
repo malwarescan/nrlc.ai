@@ -36,7 +36,7 @@ if (isset($GLOBALS['__page_meta'])) {
           <!-- Entity Semantic Poisoning at SAW.com (Real Case Study) -->
           <div class="box-padding" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
-              <h3 class="content-block__title heading-3" itemprop="headline">Entity Repair Case Study: SAW.com</h3>
+              <h3 class="content-block__title heading-3" itemprop="headline">Entity Repair Case Study: Fixing Semantic Misclassification at SAW.com</h3>
             </div>
             <div class="content-block__body">
               <p itemprop="description">How entity-level semantic poisoning caused Google to misclassify SAW.com, why SEO fixes failed, and how structured entity repair restored correct business identity.</p>
