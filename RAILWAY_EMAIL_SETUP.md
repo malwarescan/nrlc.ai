@@ -15,12 +15,24 @@
 
 ### Step 1: Get Gmail App Password
 
-1. Go to: https://myaccount.google.com/apppasswords
-2. Sign in with **any Gmail account** (yours, company Gmail, etc.)
-3. Select "Mail" and "Other (Custom name)"
-4. Enter: "NRLC Booking Form"
-5. Click "Generate"
-6. **Copy the 16-character password** (you'll need this)
+**⚠️ IMPORTANT: You need 2-Step Verification enabled first!**
+
+If you see "The setting you are looking for is not available", you need to:
+
+1. **Enable 2-Step Verification first:**
+   - Go to: https://myaccount.google.com/security
+   - Click "2-Step Verification"
+   - Follow the setup process (you'll need your phone)
+
+2. **Then get App Password:**
+   - Go to: https://myaccount.google.com/apppasswords
+   - Sign in with **any Gmail account** (yours, company Gmail, etc.)
+   - Select "Mail" and "Other (Custom name)"
+   - Enter: "NRLC Booking Form"
+   - Click "Generate"
+   - **Copy the 16-character password** (you'll need this)
+
+**Don't want to enable 2-Step Verification?** Use SendGrid instead (see below) - it's easier and more reliable!
 
 ### Step 2: Add Environment Variables in Railway
 
@@ -90,21 +102,40 @@ Submit a test booking form. Emails should now send to:
 
 ---
 
-## 📧 Alternative: Use SendGrid (More Reliable)
+## 📧 Alternative: Use SendGrid (Easier & More Reliable)
 
-If Gmail doesn't work, SendGrid is more reliable for production:
+**If you don't want to enable 2-Step Verification on Gmail, use SendGrid instead!**
 
-1. Sign up at https://sendgrid.com (free tier: 100 emails/day)
-2. Create API key in SendGrid dashboard
-3. Set Railway variables:
+SendGrid is actually easier to set up and more reliable for production:
+
+### SendGrid Setup (Recommended):
+
+1. **Sign up:** Go to https://sendgrid.com (free tier: 100 emails/day forever)
+2. **Verify your email** (they'll send you a confirmation)
+3. **Create API Key:**
+   - Go to Settings → API Keys
+   - Click "Create API Key"
+   - Name it: "NRLC Booking Form"
+   - Select "Full Access" or "Restricted Access" → "Mail Send"
+   - Click "Create & View"
+   - **Copy the API key** (you'll only see it once!)
+
+4. **Set Railway variables:**
    ```
    SMTP_HOST = smtp.sendgrid.net
    SMTP_PORT = 587
    SMTP_USERNAME = apikey
-   SMTP_PASSWORD = your-sendgrid-api-key
+   SMTP_PASSWORD = SG.xxxxxxxxxxxxx (paste your SendGrid API key here)
    SMTP_FROM_EMAIL = noreply@nrlc.ai
    SMTP_FROM_NAME = NRLC.ai
    ```
+
+**Why SendGrid is better:**
+- ✅ No 2-Step Verification needed
+- ✅ More reliable delivery
+- ✅ Better for production
+- ✅ Free tier: 100 emails/day
+- ✅ Easy to set up (5 minutes)
 
 ---
 
