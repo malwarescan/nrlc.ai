@@ -30,7 +30,7 @@ return [
     // 'es-es',
   ],
 
-  // Products pages - enable hreflang for translated products
+  // Products index page - enable hreflang for translated products
   '/products/' => [
     'en-us',
     'en-gb',
@@ -38,6 +38,11 @@ return [
     // 'de-de',
     // 'es-es',
   ],
+
+  // Individual product pages - enable hreflang for translated products
+  // Note: Individual product pages will match /products/{slug}/ pattern
+  // Add specific product pages here as they are translated, or use wildcard matching
+  // For now, we'll handle this dynamically in hreflang.php if needed
 
   // Future examples (DO NOT ENABLE YET)
   // '/services/schema-markup/' => ['en-us', 'en-gb'],

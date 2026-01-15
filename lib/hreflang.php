@@ -45,13 +45,27 @@ function hreflang_links(string $pathWithoutLocalePrefix): array {
   }
   
   // Check if page is in allowlist
-  if (!isset($allowlist[$normalizedPath])) {
+  $allowedLocales = null;
+  if (isset($allowlist[$normalizedPath])) {
+    $allowedLocales = $allowlist[$normalizedPath];
+  } else {
+    // Check if this is a product page and products index is in allowlist
+    // Individual product pages inherit hreflang from products index if enabled
+    if (preg_match('#^/products/([^/]+)/$#', $normalizedPath, $productMatch)) {
+      if (isset($allowlist['/products/'])) {
+        // Product pages inherit locales from products index
+        $allowedLocales = $allowlist['/products/'];
+      }
+    }
+  }
+  
+  if ($allowedLocales === null) {
     // Page not in allowlist: return empty (no hreflang)
     return [];
   }
   
-  // D3: Page is in allowlist - generate hreflang for allowed locales only
-  $allowedLocales = $allowlist[$normalizedPath];
+  // D3: Page is in allowlist (or inherits from parent) - generate hreflang for allowed locales only
+  // $allowedLocales is already set above
   
   // Validate: must have at least 2 locales
   if (count($allowedLocales) < 2) {
