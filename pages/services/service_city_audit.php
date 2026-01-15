@@ -10,6 +10,7 @@ require_once __DIR__.'/../../lib/content_tokens.php';
 require_once __DIR__.'/../../lib/csv.php';
 require_once __DIR__.'/../../lib/nrlc_linking_kernel.php';
 require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
+require_once __DIR__.'/../../lib/service_enhancements.php';
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'site-audits';
