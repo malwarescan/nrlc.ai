@@ -105,7 +105,7 @@ function send_sms_notification($booking_data) {
 }
 
 function send_email_notification($booking_data) {
-  $to = 'hirejoelm@gmail.com';
+  $to = 'info@neuralcommandllc.com';
   $subject = 'New Consultation Request - ' . $booking_data['name'];
   
   $message = "
