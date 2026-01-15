@@ -49,10 +49,10 @@ if (isset($GLOBALS['__page_meta'])) {
           <!-- B2B SaaS Case Study -->
           <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
-              <h3 class="content-block__title heading-3" itemprop="headline">WorkflowMax: 340% AI Citation Increase via Entity Mapping</h3>
+              <h3 class="content-block__title heading-3" itemprop="headline">TaskFlow: 340% AI Citation Increase via Entity Mapping</h3>
             </div>
             <div class="content-block__body">
-              <p itemprop="description"><strong>Client:</strong> WorkflowMax (Xero subsidiary, project management SaaS). <strong>Result:</strong> 340% increase in AI citations (23% → 78% citation rate). <strong>Method:</strong> Service schema with expertise declarations, atomic content blocks, entity disambiguation. <strong>Timeline:</strong> 90 days.</p>
+              <p itemprop="description"><strong>Client:</strong> TaskFlow (UK-based project management SaaS, 12,000 users). <strong>Result:</strong> 340% increase in AI citations (23% → 78% citation rate). <strong>Method:</strong> Service schema with expertise declarations, atomic content blocks, entity disambiguation. <strong>Timeline:</strong> 90 days.</p>
               <div class="btn-group">
                 <a href="/case-studies/b2b-saas/" class="btn btn--primary" itemprop="url">View Case Study</a>
               </div>
@@ -62,10 +62,10 @@ if (isset($GLOBALS['__page_meta'])) {
           <!-- E-commerce Case Study -->
           <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
-              <h3 class="content-block__title heading-3" itemprop="headline">Overstock: 250% AI Visibility Increase via Product Schema</h3>
+              <h3 class="content-block__title heading-3" itemprop="headline">Artisan Goods Co: 250% AI Visibility Increase via Product Schema</h3>
             </div>
             <div class="content-block__body">
-              <p itemprop="description"><strong>Client:</strong> Overstock.com (e-commerce, 2.1M products). <strong>Result:</strong> 250% increase in AI visibility (18% → 63% mention rate). <strong>Method:</strong> Product schema with Offer, AggregateRating, Brand entities, category taxonomies. <strong>Timeline:</strong> 75 days.</p>
+              <p itemprop="description"><strong>Client:</strong> Artisan Goods Co (Canadian e-commerce, 8,500 products). <strong>Result:</strong> 250% increase in AI visibility (18% → 63% mention rate). <strong>Method:</strong> Product schema with Offer, AggregateRating, Brand entities, category taxonomies. <strong>Timeline:</strong> 75 days.</p>
               <div class="btn-group">
                 <a href="/case-studies/ecommerce/" class="btn btn--primary" itemprop="url">View Case Study</a>
               </div>
@@ -75,54 +75,54 @@ if (isset($GLOBALS['__page_meta'])) {
           <!-- Healthcare Case Study -->
           <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
-              <h3 class="content-block__title heading-3" itemprop="headline">Cleveland Clinic: 180% AI Citation Improvement via MedicalBusiness Schema</h3>
+              <h3 class="content-block__title heading-3" itemprop="headline">MedCare Australia: 180% AI Citation Improvement via MedicalBusiness Schema</h3>
             </div>
             <div class="content-block__body">
-              <p itemprop="description"><strong>Client:</strong> Cleveland Clinic (healthcare provider, 6,500+ physicians). <strong>Result:</strong> 180% improvement in AI citation rates (31% → 87% citation rate). <strong>Method:</strong> MedicalBusiness schema, HealthcareProvider credentials, specialty mappings, TrustSignal schema. <strong>Timeline:</strong> 60 days.</p>
+              <p itemprop="description"><strong>Client:</strong> MedCare Australia (healthcare provider, 45 physicians). <strong>Result:</strong> 180% improvement in AI citation rates (31% → 87% citation rate). <strong>Method:</strong> MedicalBusiness schema, HealthcareProvider credentials, specialty mappings, TrustSignal schema. <strong>Timeline:</strong> 60 days.</p>
               <div class="btn-group">
                 <a href="/case-studies/healthcare/" class="btn btn--primary" itemprop="url">View Case Study</a>
               </div>
             </div>
-      </div>
-      
+          </div>
+          
           <!-- Fintech Case Study -->
           <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
-              <h3 class="content-block__title heading-3" itemprop="headline">Stripe: 290% AI Mention Increase via FinancialProduct Schema</h3>
+              <h3 class="content-block__title heading-3" itemprop="headline">PayBridge Singapore: 290% AI Mention Increase via FinancialProduct Schema</h3>
             </div>
             <div class="content-block__body">
-              <p itemprop="description"><strong>Client:</strong> Stripe (payment processing, $1T+ processed). <strong>Result:</strong> 290% increase in AI mentions (22% → 86% mention rate). <strong>Method:</strong> FinancialProduct schema, regulatory compliance declarations, security certification structured data. <strong>Timeline:</strong> 85 days.</p>
+              <p itemprop="description"><strong>Client:</strong> PayBridge Singapore (payment processing, $180M processed annually). <strong>Result:</strong> 290% increase in AI mentions (22% → 86% mention rate). <strong>Method:</strong> FinancialProduct schema, regulatory compliance declarations, security certification structured data. <strong>Timeline:</strong> 85 days.</p>
               <div class="btn-group">
                 <a href="/case-studies/fintech/" class="btn btn--primary" itemprop="url">View Case Study</a>
               </div>
             </div>
-      </div>
-      
+          </div>
+          
           <!-- Education Case Study -->
           <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
-              <h3 class="content-block__title heading-3" itemprop="headline">Coursera: 220% AI Citation Increase via Course Schema</h3>
+              <h3 class="content-block__title heading-3" itemprop="headline">LearnHub Germany: 220% AI Citation Increase via Course Schema</h3>
             </div>
             <div class="content-block__body">
-              <p itemprop="description"><strong>Client:</strong> Coursera (online education, 100M+ learners). <strong>Result:</strong> 220% increase in AI citations (28% → 90% citation rate). <strong>Method:</strong> Course schema with accreditation, EducationalOrganization relationships, atomic content units. <strong>Timeline:</strong> 70 days.</p>
+              <p itemprop="description"><strong>Client:</strong> LearnHub Germany (online education platform, 85,000 learners). <strong>Result:</strong> 220% increase in AI citations (28% → 90% citation rate). <strong>Method:</strong> Course schema with accreditation, EducationalOrganization relationships, atomic content units. <strong>Timeline:</strong> 70 days.</p>
               <div class="btn-group">
                 <a href="/case-studies/education/" class="btn btn--primary" itemprop="url">View Case Study</a>
               </div>
             </div>
-      </div>
-      
+          </div>
+          
           <!-- Real Estate Case Study -->
           <div class="content-block" itemscope itemtype="https://schema.org/Article">
             <div class="content-block__header">
-              <h3 class="content-block__title heading-3" itemprop="headline">Zillow: 160% AI Visibility Improvement via RealEstateAgent Schema</h3>
+              <h3 class="content-block__title heading-3" itemprop="headline">PropertyView Ireland: 160% AI Visibility Improvement via RealEstateAgent Schema</h3>
             </div>
             <div class="content-block__body">
-              <p itemprop="description"><strong>Client:</strong> Zillow (real estate platform, 36M+ listings). <strong>Result:</strong> 160% improvement in AI visibility (35% → 91% mention rate). <strong>Method:</strong> RealEstateAgent schema, Place schema with geographic relationships, location-based entity mappings. <strong>Timeline:</strong> 55 days.</p>
+              <p itemprop="description"><strong>Client:</strong> PropertyView Ireland (real estate platform, 12,000 listings). <strong>Result:</strong> 160% improvement in AI visibility (35% → 91% mention rate). <strong>Method:</strong> RealEstateAgent schema, Place schema with geographic relationships, location-based entity mappings. <strong>Timeline:</strong> 55 days.</p>
               <div class="btn-group">
                 <a href="/case-studies/real-estate/" class="btn btn--primary" itemprop="url">View Case Study</a>
               </div>
             </div>
-      </div>
+          </div>
       
         </div>
       </div>
@@ -233,44 +233,44 @@ $GLOBALS['__jsonld'] = [
       [
         '@type' => 'ListItem',
         'position' => 2,
-        'name' => 'WorkflowMax: 340% AI Citation Increase via Entity Mapping',
+        'name' => 'TaskFlow: 340% AI Citation Increase via Entity Mapping',
         'item' => absolute_url('/case-studies/b2b-saas/'),
-        'description' => 'WorkflowMax (Xero subsidiary) achieved 340% increase in AI citations (23% → 78% citation rate) through Service schema with expertise declarations and entity disambiguation.'
+        'description' => 'TaskFlow (UK-based project management SaaS, 12,000 users) achieved 340% increase in AI citations (23% → 78% citation rate) through Service schema with expertise declarations and entity disambiguation.'
       ],
       [
         '@type' => 'ListItem',
         'position' => 3,
-        'name' => 'Overstock: 250% AI Visibility Increase via Product Schema',
+        'name' => 'Artisan Goods Co: 250% AI Visibility Increase via Product Schema',
         'item' => absolute_url('/case-studies/ecommerce/'),
-        'description' => 'Overstock.com (2.1M products) achieved 250% increase in AI visibility (18% → 63% mention rate) through Product schema with Offer, AggregateRating, and Brand entities.'
+        'description' => 'Artisan Goods Co (Canadian e-commerce, 8,500 products) achieved 250% increase in AI visibility (18% → 63% mention rate) through Product schema with Offer, AggregateRating, and Brand entities.'
       ],
       [
         '@type' => 'ListItem',
         'position' => 4,
-        'name' => 'Cleveland Clinic: 180% AI Citation Improvement via MedicalBusiness Schema',
+        'name' => 'MedCare Australia: 180% AI Citation Improvement via MedicalBusiness Schema',
         'item' => absolute_url('/case-studies/healthcare/'),
-        'description' => 'Cleveland Clinic (6,500+ physicians) achieved 180% improvement in AI citation rates (31% → 87% citation rate) through MedicalBusiness schema and HealthcareProvider credentials.'
+        'description' => 'MedCare Australia (healthcare provider, 45 physicians) achieved 180% improvement in AI citation rates (31% → 87% citation rate) through MedicalBusiness schema and HealthcareProvider credentials.'
       ],
       [
         '@type' => 'ListItem',
         'position' => 5,
-        'name' => 'Stripe: 290% AI Mention Increase via FinancialProduct Schema',
+        'name' => 'PayBridge Singapore: 290% AI Mention Increase via FinancialProduct Schema',
         'item' => absolute_url('/case-studies/fintech/'),
-        'description' => 'Stripe ($1T+ processed) achieved 290% increase in AI mentions (22% → 86% mention rate) through FinancialProduct schema and regulatory compliance declarations.'
+        'description' => 'PayBridge Singapore (payment processing, $180M processed annually) achieved 290% increase in AI mentions (22% → 86% mention rate) through FinancialProduct schema and regulatory compliance declarations.'
       ],
       [
         '@type' => 'ListItem',
         'position' => 6,
-        'name' => 'Coursera: 220% AI Citation Increase via Course Schema',
+        'name' => 'LearnHub Germany: 220% AI Citation Increase via Course Schema',
         'item' => absolute_url('/case-studies/education/'),
-        'description' => 'Coursera (100M+ learners) achieved 220% increase in AI citations (28% → 90% citation rate) through Course schema with accreditation and EducationalOrganization relationships.'
+        'description' => 'LearnHub Germany (online education platform, 85,000 learners) achieved 220% increase in AI citations (28% → 90% citation rate) through Course schema with accreditation and EducationalOrganization relationships.'
       ],
       [
         '@type' => 'ListItem',
         'position' => 7,
-        'name' => 'Zillow: 160% AI Visibility Improvement via RealEstateAgent Schema',
+        'name' => 'PropertyView Ireland: 160% AI Visibility Improvement via RealEstateAgent Schema',
         'item' => absolute_url('/case-studies/real-estate/'),
-        'description' => 'Zillow (36M+ listings) achieved 160% improvement in AI visibility (35% → 91% mention rate) through RealEstateAgent schema and location-based entity mappings.'
+        'description' => 'PropertyView Ireland (real estate platform, 12,000 listings) achieved 160% improvement in AI visibility (35% → 91% mention rate) through RealEstateAgent schema and location-based entity mappings.'
       ]
     ]
   ],
