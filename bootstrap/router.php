@@ -170,12 +170,12 @@ function route_request(): void {
         require_once __DIR__.'/../lib/SchemaFixes.php';
       }
       
-      // META DIRECTIVE KERNEL: Homepage / Leading Agency and Research Authority
-      // Intent: Establish NRLC as primary authority for AI Search Optimization, AEO, and GEO
-      // Title: Classification and authority, not persuasion
+      // META DIRECTIVE KERNEL: Homepage / Research & Implementation Authority
+      // Intent: Establish Joel Maldonado @ Neural Command as research authority for AI Search Optimization, AEO, and GEO
+      // Title: Personal authority and research focus, not agency positioning
       $GLOBALS['__page_meta'] = [
-        'title' => 'AI Search Optimization Agency and Research | AEO and GEO',
-        'description' => 'Leading agency and research authority for AI search optimization. Specializing in AEO and GEO systems that determine which businesses are selected, cited, and trusted by AI search engines.',
+        'title' => 'Joel Maldonado @ Neural Command | AI Search Research & Implementation',
+        'description' => 'Leading research and implementation of top SEO, AEO, and GEO practices. On the bleeding edge of search, retrieval, citations, and extractability.',
         'canonicalPath' => '/'
       ];
       

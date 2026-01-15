@@ -31,14 +31,14 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
 <section class="section">
   <div class="section__content">
 
-    <!-- HERO SECTION: AUTHORITY POSITIONING -->
+    <!-- HERO SECTION: RESEARCH & IMPLEMENTATION AUTHORITY -->
     <div class="content-block module" style="margin-bottom: var(--spacing-8);">
       <div class="content-block__header">
-        <h1 class="content-block__title">Leading Agency and Research Authority for AI Search Optimization, AEO, and GEO</h1>
+        <h1 class="content-block__title">Joel Maldonado @ Neural Command</h1>
       </div>
       <div class="content-block__body">
         <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">
-          NRLC is a leading agency and research authority for how AI search systems select, cite, and mention businesses. We specialize in AEO and GEO systems that determine which businesses are selected, cited, and trusted by AI search engines.
+          Leading research and implementation of top SEO, AEO, and GEO practices. On the bleeding edge of search, retrieval, citations, and extractability.
         </p>
         <div style="margin-top: var(--spacing-lg);">
           <a href="/ai-optimization/" class="btn btn--secondary" title="AI search optimization systems">AI search optimization systems</a>
