@@ -1647,6 +1647,22 @@ function route_request(): void {
         'canonicalPath' => $path
       ];
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      // MACHINE-NATIVE MARKDOWN: If Markdown request, capture output and convert
+      if (isset($GLOBALS['__markdown_request']) && $GLOBALS['__markdown_request']) {
+        ob_start();
+        render_page('case-studies/entity-semantic-poisoning-saw');
+        $html = ob_get_clean();
+        
+        // Convert to Markdown
+        require_once __DIR__.'/../lib/markdown_exposure.php';
+        $canonicalUrl = absolute_url($GLOBALS['__markdown_base_path'] ?? $path);
+        $pageMeta = array_merge($GLOBALS['__page_meta'], ['canonical' => $canonicalUrl]);
+        $markdown = html_to_markdown($html, $pageMeta);
+        serve_markdown($markdown, $canonicalUrl);
+        return;
+      }
+      
       render_page('case-studies/entity-semantic-poisoning-saw');
       return;
     }
