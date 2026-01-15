@@ -91,6 +91,13 @@ $GLOBALS['__jsonld'] = [
 <section class="section">
   <div class="section__content">
     
+    <!-- ARTICLE DATE NOTICE -->
+    <div class="content-block module" style="background: #fff3cd; border-left: 4px solid #ffc107; padding: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+      <div class="content-block__body">
+        <p><strong>Article Date:</strong> This article was created in September 2024. As technology and retrieval systems evolve, this content will be updated to reflect current practices and system behavior.</p>
+      </div>
+    </div>
+
     <!-- MANDATORY READER-FACING PREFACE -->
     <div class="content-block module" style="background: #f9f9f9; border-left: 4px solid #4a90e2; padding: var(--spacing-md); margin-bottom: var(--spacing-lg);">
       <div class="content-block__body">
