@@ -31,6 +31,15 @@ try {
             return true;
         }
         
+        // CRITICAL: Route .md URLs through index.php (Markdown exposure)
+        // These are virtual URLs that don't exist as files
+        if (preg_match('#\.md$#', $path)) {
+            if (file_exists(__DIR__ . '/index.php')) {
+                require_once __DIR__ . '/index.php';
+            }
+            return true;
+        }
+        
         // If it's a real file (not a directory), serve it
         if (is_file($file)) {
             return false;
