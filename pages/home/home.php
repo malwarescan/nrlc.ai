@@ -34,11 +34,11 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
     <!-- HERO SECTION: RESEARCH & IMPLEMENTATION AUTHORITY -->
     <div class="content-block module" style="margin-bottom: var(--spacing-8);">
       <div class="content-block__header">
-        <h1 class="content-block__title">Joel Maldonado @ Neural Command</h1>
+        <h1 class="content-block__title">Joel Maldonado: SEO, AEO, and GEO Research & Implementation</h1>
       </div>
       <div class="content-block__body">
         <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">
-          Leading research and implementation of top SEO, AEO, and GEO practices. On the bleeding edge of search, retrieval, citations, and extractability.
+          Research and implementation at the bleeding edge of AI search, retrieval, citations, and extractability. Defining the SEO, AEO, and GEO practices that determine how AI systems select and cite businesses.
         </p>
         <div style="margin-top: var(--spacing-lg);">
           <a href="/ai-optimization/" class="btn btn--secondary" title="AI search optimization systems">AI search optimization systems</a>
@@ -289,7 +289,8 @@ try {
         '@id' => $baseUrl . '#joel-maldonado',
         'name' => 'Joel Maldonado',
         'jobTitle' => 'Founder',
-        'description' => 'Joel Maldonado is the founder of Neural Command, LLC, where he builds systems that convert search authority into AI-readable, citation-safe knowledge for modern search engines and large language models.',
+        'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in search, retrieval, citations, and extractability for AI-powered search engines.',
+        'knowsAbout' => ['SEO', 'AEO', 'GEO', 'AI Search', 'Search Retrieval', 'AI Citations', 'Extractability'],
         'worksFor' => [
           '@type' => 'Organization',
           '@id' => $baseUrl . '#neural-command'
