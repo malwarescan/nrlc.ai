@@ -176,6 +176,7 @@ function route_request(): void {
       $GLOBALS['__page_meta'] = [
         'title' => 'Joel Maldonado | SEO, AEO, GEO & AI Search Research',
         'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. On the bleeding edge of search, retrieval, citations, and extractability.',
+        'keywords' => 'Joel Maldonado, SEO, AEO, GEO, AI Search, AI Search Optimization, Generative Engine Optimization, LLM Seeding, Structured Data, AI Citations, Search Retrieval',
         'canonicalPath' => '/'
       ];
       

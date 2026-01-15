@@ -288,9 +288,11 @@ try {
         '@type' => 'Person',
         '@id' => $baseUrl . '#joel-maldonado',
         'name' => 'Joel Maldonado',
-        'jobTitle' => 'Founder',
+        'givenName' => 'Joel',
+        'familyName' => 'Maldonado',
+        'jobTitle' => 'Founder & AI Search Researcher',
         'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in search, retrieval, citations, and extractability for AI-powered search engines.',
-        'knowsAbout' => ['SEO', 'AEO', 'GEO', 'AI Search', 'Search Retrieval', 'AI Citations', 'Extractability'],
+        'knowsAbout' => ['SEO', 'AEO', 'GEO', 'AI Search', 'Search Retrieval', 'AI Citations', 'Extractability', 'Generative Engine Optimization', 'LLM Seeding', 'Structured Data'],
         'worksFor' => [
           '@type' => 'Organization',
           '@id' => $baseUrl . '#neural-command'
@@ -300,6 +302,12 @@ try {
           '@id' => $baseUrl . '#neural-command'
         ],
         'url' => $baseUrl,
+        'image' => [
+          '@type' => 'ImageObject',
+          'url' => $baseUrl . 'assets/images/nrlc-logo.png',
+          'width' => 43,
+          'height' => 43
+        ],
         'sameAs' => [
           'https://www.linkedin.com/company/neural-command/'
         ]
@@ -308,37 +316,95 @@ try {
         '@type' => 'Organization',
         '@id' => $baseUrl . '#neural-command',
         'name' => 'Neural Command, LLC',
+        'legalName' => 'Neural Command, LLC',
         'url' => $baseUrl,
         'logo' => [
           '@type' => 'ImageObject',
-          'url' => $logoUrl
+          'url' => $logoUrl,
+          'width' => 43,
+          'height' => 43
         ],
         'founder' => [
           '@type' => 'Person',
           '@id' => $baseUrl . '#joel-maldonado'
         ],
+        'knowsAbout' => [
+          'AI Search Optimization',
+          'AEO',
+          'GEO',
+          'SEO',
+          'LLM Seeding',
+          'Structured Data',
+          'AI Citations',
+          'Search Retrieval',
+          'Extractability'
+        ],
+        'areaServed' => 'Worldwide',
         'sameAs' => [
           'https://www.linkedin.com/company/neural-command/'
         ]
       ],
       [
         '@type' => 'WebPage',
-        '@id' => $baseUrl . '#why-i-built-this-system',
-        'name' => 'Why This Knowledge Base Exists',
+        '@id' => $baseUrl . '#webpage',
+        'url' => $baseUrl,
+        'name' => $GLOBALS['__page_meta']['title'] ?? 'Joel Maldonado | SEO, AEO, GEO & AI Search Research',
+        'description' => $GLOBALS['__page_meta']['description'] ?? 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems.',
+        'inLanguage' => 'en-US',
+        'datePublished' => '2020-01-01', // Approximate founding date
+        'dateModified' => date('Y-m-d'), // Current date
         'about' => [
           '@type' => 'Person',
           '@id' => $baseUrl . '#joel-maldonado'
         ],
+        'author' => [
+          '@type' => 'Person',
+          '@id' => $baseUrl . '#joel-maldonado'
+        ],
+        'publisher' => [
+          '@type' => 'Organization',
+          '@id' => $baseUrl . '#neural-command'
+        ],
+        'primaryImageOfPage' => [
+          '@type' => 'ImageObject',
+          'url' => $logoUrl,
+          'width' => 43,
+          'height' => 43
+        ],
         'isPartOf' => [
           '@type' => 'WebSite',
           '@id' => $baseUrl . '#website'
+        ],
+        'breadcrumb' => [
+          '@type' => 'BreadcrumbList',
+          'itemListElement' => [
+            [
+              '@type' => 'ListItem',
+              'position' => 1,
+              'name' => 'Home',
+              'item' => $baseUrl
+            ]
+          ]
         ]
       ],
       [
         '@type' => 'WebSite',
         '@id' => $baseUrl . '#website',
         'url' => $baseUrl,
-        'name' => 'Neural Command'
+        'name' => 'Neural Command',
+        'inLanguage' => 'en-US',
+        'publisher' => [
+          '@type' => 'Organization',
+          '@id' => $baseUrl . '#neural-command'
+        ],
+        'potentialAction' => [
+          '@type' => 'SearchAction',
+          'target' => [
+            '@type' => 'EntryPoint',
+            'urlTemplate' => $baseUrl . '?q={search_term_string}'
+          ],
+          'query-input' => 'required name=search_term_string'
+        ]
       ]
     ]
   ];

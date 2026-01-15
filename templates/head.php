@@ -202,20 +202,36 @@ $baseSchemas = base_schemas();
 <meta property="og:title" content="<?=htmlspecialchars($title)?>">
 <meta property="og:description" content="<?=htmlspecialchars($desc)?>">
 <meta property="og:site_name" content="NRLC.ai">
-<meta property="og:image" content="https://nrlc.ai/assets/nrlc-og-image.jpg">
+<meta property="og:locale" content="<?= htmlspecialchars(str_replace('-', '_', current_locale())) ?>">
+<meta property="og:image" content="https://nrlc.ai/assets/images/nrlc-logo.png">
+<meta property="og:image:secure_url" content="https://nrlc.ai/assets/images/nrlc-logo.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="43">
+<meta property="og:image:height" content="43">
+<meta property="og:image:alt" content="NRLC.ai - AI Search Optimization, AEO, and GEO Research">
+<?php
+// Article meta tags for homepage (author and publisher)
+if ($canonicalPath === '/' || $canonicalPath === '/en-us/' || $canonicalPath === ''):
+?>
+<meta property="article:author" content="Joel Maldonado">
+<meta property="article:publisher" content="https://nrlc.ai">
+<?php endif; ?>
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="<?=absolute_url($canonicalPath)?>">
-<meta property="twitter:title" content="<?=htmlspecialchars($title)?>">
-<meta property="twitter:description" content="<?=htmlspecialchars($desc)?>">
-<meta property="twitter:image" content="https://nrlc.ai/assets/nrlc-og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="<?=absolute_url($canonicalPath)?>">
+<meta name="twitter:title" content="<?=htmlspecialchars($title)?>">
+<meta name="twitter:description" content="<?=htmlspecialchars($desc)?>">
+<meta name="twitter:image" content="https://nrlc.ai/assets/images/nrlc-logo.png">
+<meta name="twitter:image:alt" content="NRLC.ai - AI Search Optimization, AEO, and GEO Research">
+<meta name="twitter:creator" content="@neuralcommand">
+<meta name="twitter:site" content="@neuralcommand">
 
 <!-- Additional SEO Meta -->
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
 <meta name="bingbot" content="index, follow">
-<meta name="author" content="NRLC.ai">
+<meta name="author" content="Joel Maldonado">
 <meta name="keywords" content="<?= htmlspecialchars($customKeywords ?? 'AI SEO, GEO-16, LLM Seeding, Structured Data, Crawl Clarity, ' . extract_keywords_from_title($title)) ?>">
 <!-- Schema.org Powered -->
 <meta name="generator" content="Schema.org Structured Data">
