@@ -2,12 +2,21 @@
 
 **The booking form emails won't work until you configure SMTP in Railway.**
 
+## ✅ Yes, You Can Use Gmail!
+
+**Important:** You can use ANY Gmail account to send emails. Gmail is just the sending service - you can send emails TO any email address (like `info@neuralcommand.com`), even if that address isn't on Google.
+
+**Example:**
+- Use Gmail account: `hirejoelm@gmail.com` (or any Gmail)
+- Send emails TO: `info@neuralcommand.com` ✅ (works fine!)
+- Send emails TO: Any email address ✅ (works fine!)
+
 ## ⚡ Quick Setup (5 minutes)
 
 ### Step 1: Get Gmail App Password
 
 1. Go to: https://myaccount.google.com/apppasswords
-2. Sign in if needed
+2. Sign in with **any Gmail account** (yours, company Gmail, etc.)
 3. Select "Mail" and "Other (Custom name)"
 4. Enter: "NRLC Booking Form"
 5. Click "Generate"
@@ -30,8 +39,9 @@ SMTP_FROM_NAME = NRLC.ai
 ```
 
 **Important:** 
-- Replace `your-email@gmail.com` with your actual Gmail address
+- Replace `your-email@gmail.com` with **any Gmail address** (yours, company Gmail, etc.)
 - Replace `xxxx xxxx xxxx xxxx` with the 16-character app password (you can include or remove spaces)
+- The Gmail account is just for sending - emails will go TO `info@neuralcommand.com` (or any address)
 
 ### Step 3: Redeploy
 
