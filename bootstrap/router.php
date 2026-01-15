@@ -2054,6 +2054,24 @@ function route_request(): void {
     exit;
   }
   
+  // CRITICAL FIX: Redirect service-city URLs missing /services/ prefix
+  // Pattern: /{locale}/{service-slug}/{city}/ -> /{locale}/services/{service-slug}/{city}/
+  // This catches URLs like /en-us/content-optimization-ai/sherbrooke/
+  if (preg_match('#^/([a-z]{2})-([a-z]{2})/([^/]+)/([^/]+)/$#', $path, $m)) {
+    $locale = strtolower($m[1].'-'.$m[2]);
+    $potentialService = $m[3];
+    $city = $m[4];
+    
+    // Check if this looks like a service-city URL (not already /services/)
+    // Common service patterns: ends with -ai, -seo, -optimization, etc.
+    if (preg_match('#(-ai|-seo|-optimization|-strategy|-audits?|training)$#i', $potentialService)) {
+      $queryString = !empty($_SERVER['QUERY_STRING']) ? '?'.$_SERVER['QUERY_STRING'] : '';
+      $redirectUrl = '/' . $locale . '/services/' . $potentialService . '/' . $city . '/';
+      header("Location: " . absolute_url($redirectUrl) . $queryString, true, 301);
+      exit;
+    }
+  }
+  
   // Handle service slug mismatches before routing
   // Redirect /services/structured-data/ to /services/structured-data-ai/ (correct slug)
   // Always redirect to en-us (canonical locale for GLOBAL service pages)
