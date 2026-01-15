@@ -53,7 +53,7 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title heading-2">Schedule Your Consultation</h2>
       </div>
       <div class="content-block__body">
-        <form id="booking-form" method="POST" action="/api/book/">
+        <form id="booking-form">
           <div style="margin-bottom: var(--spacing-md);">
             <label for="name">Your Name *</label>
             <input type="text" id="name" name="name" required autocomplete="name">
@@ -74,13 +74,8 @@ $GLOBALS['__jsonld'] = [
             <textarea id="current_challenges" name="current_challenges" rows="3" placeholder="Briefly describe your AI search visibility goals..."></textarea>
           </div>
           
-          <!-- Hidden fields with defaults -->
-          <input type="hidden" id="company" name="company" value="">
-          <input type="hidden" id="service-interest" name="service_interest" value="General AI SEO Consultation">
-          <input type="hidden" id="preferred_time" name="preferred_time" value="">
-          
           <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
-            <button type="submit" class="btn btn--primary" data-ripple style="font-size: 1.1rem; padding: var(--spacing-md) var(--spacing-lg);">Request Free Consultation</button>
+            <button type="submit" class="btn btn--primary" data-ripple style="font-size: 1.1rem; padding: var(--spacing-md) var(--spacing-lg);">Email Us</button>
           </div>
         </form>
       </div>
@@ -171,48 +166,24 @@ $GLOBALS['__jsonld'] = [
 <!-- Success Message (hidden by default) -->
 <div id="success-message" class="content-block module" style="display: none; margin-bottom: var(--spacing-8); border: 2px solid #00aa00; background: #f0fff0;">
   <div class="content-block__header" style="border-bottom-color: #00aa00;">
-    <h2 class="content-block__title heading-2" style="color: #00aa00;">✓ Consultation Request Received</h2>
+    <h2 class="content-block__title heading-2" style="color: #00aa00;">✓ Email Client Opened</h2>
   </div>
   <div class="content-block__body">
     <p class="lead">Thank You!</p>
-    <p>Your consultation request has been successfully submitted.</p>
+    <p>Your email client should have opened with a pre-filled message to us.</p>
     <div style="padding: var(--spacing-md); background: #ffffff; border: 1px solid #00aa00; border-radius: 4px; margin-top: var(--spacing-md);">
-      <p><strong>Booking ID:</strong> <span id="booking-id"></span></p>
       <p><strong>What's Next:</strong></p>
       <ul>
-        <li>You'll receive a confirmation email shortly</li>
-        <li>Our team will review your request</li>
-        <li>We'll contact you within 24 hours to schedule your consultation</li>
+        <li>Review the email that opened in your email client</li>
+        <li>Click "Send" to send it to us</li>
+        <li>We'll respond within 24 hours</li>
       </ul>
-      <p style="margin-top: var(--spacing-md); margin-bottom: 0;"><strong>Notifications Sent:</strong></p>
-      <ul id="notification-status" style="margin-top: var(--spacing-sm);">
-        <li>Email notification to team: <span id="email-status">Pending...</span></li>
-        <li>SMS notification to team: <span id="sms-status">Pending...</span></li>
-        <li>Confirmation email to you: <span id="confirmation-status">Pending...</span></li>
-      </ul>
-      <p style="margin-top: var(--spacing-md);"><em>Note: Email delivery depends on server configuration. All requests are logged and we monitor submissions regularly.</em></p>
+      <p style="margin-top: var(--spacing-md);"><strong>If your email client didn't open:</strong></p>
+      <p style="margin-bottom: 0;"><a href="mailto:info@neuralcommand.com?subject=Consultation Request">Click here to email us directly</a></p>
     </div>
     <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
       <a href="/" class="btn btn--secondary" data-ripple>Return to Homepage</a>
       <a href="/services/" class="btn btn--secondary" data-ripple>View Services</a>
-    </div>
-  </div>
-</div>
-
-<!-- Error Message (hidden by default) -->
-<div id="error-message" class="content-block module" style="display: none; margin-bottom: var(--spacing-8); border: 2px solid #cc0000; background: #fff0f0;">
-  <div class="content-block__header" style="border-bottom-color: #cc0000;">
-    <h2 class="content-block__title heading-2" style="color: #cc0000;">⚠ Submission Error</h2>
-  </div>
-  <div class="content-block__body">
-    <p id="error-text"></p>
-    <p>Please try again or contact us directly:</p>
-    <ul>
-      <li>Email: <a href="mailto:info@neuralcommandllc.com">info@neuralcommandllc.com</a></li>
-      <li>Phone: +1-844-568-4624</li>
-    </ul>
-    <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
-      <button id="retry-btn" class="btn btn--primary" data-ripple>Try Again</button>
     </div>
   </div>
 </div>
@@ -231,97 +202,55 @@ $GLOBALS['__jsonld'] = [
 </style>
 
 <script>
-document.getElementById('booking-form').addEventListener('submit', async function(e) {
+document.getElementById('booking-form').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  const formData = new FormData(this);
-  const submitBtn = this.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
+  // Get form values
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const website = document.getElementById('website').value.trim();
+  const challenges = document.getElementById('current_challenges').value.trim();
+  
+  // Build email subject
+  const subject = encodeURIComponent('Consultation Request from ' + name);
+  
+  // Build email body
+  let body = 'New consultation request:\n\n';
+  body += 'Name: ' + name + '\n';
+  body += 'Email: ' + email + '\n';
+  if (website) {
+    body += 'Website: ' + website + '\n';
+  }
+  if (challenges) {
+    body += '\nWhat they need help with:\n' + challenges + '\n';
+  }
+  body = encodeURIComponent(body);
+  
+  // Create mailto link
+  const mailtoLink = 'mailto:info@neuralcommand.com?subject=' + subject + '&body=' + body;
+  
+  // Open email client
+  window.location.href = mailtoLink;
+  
+  // Show success message
   const formBlock = this.closest('.content-block');
   const successMessage = document.getElementById('success-message');
-  const errorMessage = document.getElementById('error-message');
   const sectionContent = document.querySelector('.section__content');
   
-  // Show loading state
-  submitBtn.textContent = 'Submitting...';
-  submitBtn.disabled = true;
+  // Hide form, show success
+  formBlock.style.display = 'none';
+  sectionContent.insertBefore(successMessage, formBlock);
+  successMessage.style.display = 'block';
   
-  try {
-    const response = await fetch('/api/book/', {
-      method: 'POST',
-      body: formData
-    });
-    
-    const result = await response.json();
-    
-    if (result.ok) {
-      // Hide form block
-      formBlock.style.display = 'none';
-      
-      // Insert success message before form block
-      sectionContent.insertBefore(successMessage, formBlock);
-      
-      // Show success message
-      successMessage.style.display = 'block';
-      document.getElementById('booking-id').textContent = result.booking_id || 'N/A';
-      
-      // Update notification status
-      const notifications = result.notifications || {};
-      document.getElementById('email-status').textContent = notifications.email_sent ? '✓ Sent' : '✗ Not sent (check mail config)';
-      document.getElementById('email-status').style.color = notifications.email_sent ? '#00aa00' : '#ff9900';
-      document.getElementById('sms-status').textContent = notifications.sms_sent ? '✓ Logged' : '✗ Failed';
-      document.getElementById('sms-status').style.color = notifications.sms_sent ? '#00aa00' : '#ff9900';
-      document.getElementById('confirmation-status').textContent = notifications.confirmation_sent ? '✓ Sent' : '✗ Not sent (check mail config)';
-      document.getElementById('confirmation-status').style.color = notifications.confirmation_sent ? '#00aa00' : '#ff9900';
-      
-      // Scroll to success message
-      successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      
-      // Reset form
-      this.reset();
-    } else {
-      throw new Error(result.error || result.errors?.join(', ') || 'Submission failed');
-    }
-  } catch (error) {
-    // Hide form block
-    formBlock.style.display = 'none';
-    
-    // Insert error message before form block
-    sectionContent.insertBefore(errorMessage, formBlock);
-    
-    // Show error message
-    errorMessage.style.display = 'block';
-    document.getElementById('error-text').textContent = error.message || 'Sorry, there was an error submitting your request.';
-    
-    // Scroll to error message
-    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    
-    console.error('Booking error:', error);
-  } finally {
-    // Restore button state (only if form is still visible)
-    if (formBlock.style.display !== 'none') {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }
-  }
-});
-
-// Retry button - show form again
-document.getElementById('retry-btn').addEventListener('click', function() {
-  const formBlock = document.querySelector('#booking-form').closest('.content-block');
-  const errorMessage = document.getElementById('error-message');
-  const submitBtn = document.querySelector('#booking-form button[type="submit"]');
+  // Update success message
+  document.getElementById('booking-id').textContent = 'N/A (Email sent via your email client)';
+  document.getElementById('email-status').textContent = '✓ Opening email client...';
+  document.getElementById('email-status').style.color = '#00aa00';
+  document.getElementById('sms-status').textContent = 'N/A';
+  document.getElementById('confirmation-status').textContent = 'N/A';
   
-  // Hide error, show form
-  errorMessage.style.display = 'none';
-  formBlock.style.display = 'block';
-  
-  // Restore button state
-  submitBtn.textContent = 'Request Free Consultation';
-  submitBtn.disabled = false;
-  
-  // Scroll to form
-  formBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Scroll to success message
+  successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 </script>
 
