@@ -598,6 +598,7 @@ function route_request(): void {
       $slug = $category . '/' . $articleSlug;
     }
   } elseif (preg_match('#^/insights/([^/]+)/$#', $path, $m)) {
+    error_log("INSIGHTS_ROUTE_MATCH: path={$path}, slug={$m[1]}, markdown_request=" . (isset($GLOBALS['__markdown_request']) && $GLOBALS['__markdown_request'] ? 'true' : 'false'));
     $_GET['slug'] = $m[1];
     $slug = $m[1];
     
