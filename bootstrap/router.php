@@ -282,9 +282,14 @@ function route_request(): void {
     return;
   }
 
+  // CRITICAL: Service-city pattern MUST come before 404 handler
+  // Pattern matches: /services/{service}/{city}/
   if (preg_match('#^/services/([^/]+)/([^/]+)/$#', $path, $m)) {
     $_GET['service'] = $m[1];
     $_GET['city']    = $m[2];
+    
+    // DEBUG: Log that we matched this pattern
+    error_log("ROUTER: Matched service-city pattern: service={$m[1]}, city={$m[2]}, path={$path}");
     
     // Generate unique metadata using ctx-based system
     require_once __DIR__.'/../lib/meta_directive.php';
