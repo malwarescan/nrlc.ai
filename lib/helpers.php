@@ -34,6 +34,8 @@ function current_locale(): string {
         return 'en-us';
       case 'en-gb':
         return 'en-gb';
+      case 'en-sg':
+        return 'en-sg';
       case 'es':
       case 'es-es':
         return 'es-es';
