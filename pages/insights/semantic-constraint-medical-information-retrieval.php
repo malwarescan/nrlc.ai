@@ -55,9 +55,22 @@ $GLOBALS['__jsonld'] = [
       'name' => 'NRLC.ai',
       'url' => 'https://nrlc.ai'
     ],
-    'datePublished' => '2026-01-15',
+    'datePublished' => '2024-09-01',
+    'dateModified' => '2026-01-15',
     'isAccessibleForFree' => true,
-    'license' => 'https://creativecommons.org/licenses/by/4.0/'
+    'license' => 'https://creativecommons.org/licenses/by/4.0/',
+    'keywords' => 'medical information retrieval, Schema.org medical extensions, semantic constraint, medical schema governance, pharmaceutical compliance, regulated search systems, AI answer synthesis, medical data governance, MedicalWebPage, structured medical data',
+    'about' => [
+      '@type' => 'Thing',
+      'name' => 'Medical Information Retrieval Governance'
+    ],
+    'mentions' => [
+      ['@type' => 'Thing', 'name' => 'Schema.org'],
+      ['@type' => 'Thing', 'name' => 'MedicalWebPage'],
+      ['@type' => 'Thing', 'name' => 'Drug'],
+      ['@type' => 'Thing', 'name' => 'MedicalIndication'],
+      ['@type' => 'Thing', 'name' => 'MedicalContraindication']
+    ]
   ],
   
   // C. DefinedTermSet (glossary stabilization layer)
@@ -340,6 +353,21 @@ $GLOBALS['__jsonld'] = [
         <ul>
           <li>MedicalContraindication and adverseOutcome entities encoded.</li>
           <li>Safety remains coupled to usage context.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Related Articles & Internal Linking for SEO -->
+    <div class="content-block module">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Related Research</h2>
+      </div>
+      <div class="content-block__body">
+        <ul>
+          <li><a href="/insights/ai-retrieval-llm-citation/">How LLMs Retrieve and Cite Web Content</a> - Understanding the retrieval layer that determines visibility in AI Overviews and LLM answers</li>
+          <li><a href="/insights/prechunking-content-ai-retrieval/">Prechunking Content for AI Retrieval</a> - How to structure content before writing so each section can be independently retrieved and cited</li>
+          <li><a href="/insights/schema-governance-and-validation/">Schema Governance & Validation</a> - Enterprise schema governance processes for managing risk at scale</li>
+          <li><a href="/ai-optimization/">AI Optimization</a> - The discipline of structuring content, data, and systems for AI search engines</li>
         </ul>
       </div>
     </div>

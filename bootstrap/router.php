@@ -493,8 +493,8 @@ function route_request(): void {
       $articleTitle = "How LLMs Retrieve and Cite Web Content";
       $excerpt = "Understand how AI systems extract, score, and surface content for answers and citations.";
     } elseif ($slug === 'semantic-constraint-medical-information-retrieval') {
-      $articleTitle = "Semantic Constraint in Medical Information Retrieval";
-      $excerpt = "Technical analysis of structured medical data as a constraint mechanism for regulated information retrieval systems. Research on how semantic structure reduces interpretive variance in downstream retrieval systems.";
+      $articleTitle = "Semantic Constraint in Medical Information Retrieval | Medical Schema Governance";
+      $excerpt = "Technical analysis of structured medical data as a constraint mechanism for regulated information retrieval systems. Learn how Schema.org medical extensions function as semantic governance interfaces for pharmaceutical organizations, regulatory workflows, and AI answer synthesis systems.";
     } elseif ($slug === 'how-to-get-your-business-mentioned-in-chatgpt') {
       $articleTitle = "How to Get Your Business Mentioned in ChatGPT | AI Citation Guide";
       $excerpt = "Learn what signals matter for your business to be mentioned in ChatGPT, including entity consistency, structured data, and citation readiness.";
