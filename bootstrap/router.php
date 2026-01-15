@@ -2029,6 +2029,7 @@ function route_request(): void {
   header('X-Robots-Tag: noindex, nofollow');
   http_response_code(404);
   echo "Not Found";
+}
 
 /**
  * Load page metadata from a PHP file before head.php is included
@@ -2178,7 +2179,4 @@ function render_page(string $slug): void {
     header('Content-Type: text/html; charset=UTF-8');
     echo '<!DOCTYPE html><html><head><title>NRLC.ai</title><meta charset="UTF-8"></head><body><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p></body></html>';
   }
-}
-
-// Close route_request() function
 }
