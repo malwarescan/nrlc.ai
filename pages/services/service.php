@@ -814,66 +814,128 @@ $GLOBALS['__jsonld'] = [
     <?php endif; ?>
 
     <?php if ($service !== 'ai-search-optimization'): ?>
+    <?php
+    // DYNAMIC CITY LISTING: Get all available cities for this service
+    $availableCities = get_cities_for_service($service, 0); // 0 = all cities
+    
+    // Prioritize major cities for display (show top 12, then "View All" if more exist)
+    $majorCities = ['new-york', 'london', 'san-francisco', 'toronto', 'los-angeles', 'chicago', 'boston', 'seattle', 'manchester', 'birmingham', 'edinburgh', 'glasgow'];
+    $prioritizedCities = [];
+    $otherCities = [];
+    
+    foreach ($availableCities as $city) {
+      if (in_array($city['city'], $majorCities)) {
+        $prioritizedCities[] = $city;
+      } else {
+        $otherCities[] = $city;
+      }
+    }
+    
+    // Sort prioritized cities by the order in $majorCities
+    usort($prioritizedCities, function($a, $b) use ($majorCities) {
+      $posA = array_search($a['city'], $majorCities);
+      $posB = array_search($b['city'], $majorCities);
+      if ($posA === false) $posA = 999;
+      if ($posB === false) $posB = 999;
+      return $posA <=> $posB;
+    });
+    
+    // Combine: prioritized first, then others (alphabetically)
+    $displayCities = array_merge($prioritizedCities, $otherCities);
+    $showAllLink = count($availableCities) > 12;
+    $displayCities = array_slice($displayCities, 0, 12);
+    
+    // Build ItemList schema for city listings
+    $cityListItems = [];
+    foreach ($displayCities as $index => $city) {
+      $cityUrl = canonical_internal_url("/services/{$service}/{$city['city']}/");
+      $cityListItems[] = [
+        '@type' => 'ListItem',
+        'position' => $index + 1,
+        'name' => $city['name'],
+        'item' => $cityUrl
+      ];
+    }
+    ?>
+    
     <!-- City Selection Content Block -->
     <div class="content-block module">
       <div class="content-block__header">
         <h2 class="content-block__title">Available Cities</h2>
       </div>
       <div class="content-block__body">
-        <div class="grid grid-auto-fit">
-          <?php
-          // CRITICAL FIX: Use canonical_internal_url() to generate proper locale-prefixed URLs
-          // This ensures UK cities link to /en-gb/ and US cities link to /en-us/
-          require_once __DIR__.'/../../lib/helpers.php';
+        <?php if (empty($displayCities)): ?>
+          <p>Service available globally. <a href="/contact/">Contact us</a> to discuss your location-specific needs.</p>
+        <?php else: ?>
+          <p>We provide <?= htmlspecialchars($serviceName) ?> services in cities across the United States, United Kingdom, and internationally. Select a city below to view location-specific information and expertise.</p>
           
-          $cities = [
-            'new-york' => [
-              'name' => 'New York',
-              'description' => $service === 'site-audits' 
-                ? 'Audit and implementation adapted for multi-entity, multi-location environments common in New York markets.'
-                : 'Full service implementation in New York with local expertise and support.'
-            ],
-            'london' => [
-              'name' => 'London',
-              'description' => $service === 'site-audits'
-                ? 'Audit and implementation adapted for international and regulated markets common in London business contexts.'
-                : 'Comprehensive service delivery in London with UK market expertise.'
-            ],
-            'san-francisco' => [
-              'name' => 'San Francisco',
-              'description' => $service === 'site-audits'
-                ? 'Audit and implementation adapted for high-growth and technically complex ecosystems common in San Francisco.'
-                : 'Tech-focused implementation in San Francisco with Silicon Valley insights.'
-            ],
-            'toronto' => [
-              'name' => 'Toronto',
-              'description' => $service === 'site-audits'
-                ? 'Audit and implementation adapted for multi-jurisdictional and regulated business structures common in Toronto.'
-                : 'Canadian market expertise with Toronto-based implementation and support.'
-            ]
-          ];
-          
-          foreach ($cities as $citySlug => $cityData):
-            // Generate canonical URL with proper locale prefix
-            $cityUrl = canonical_internal_url("/services/{$service}/{$citySlug}/");
-            // Extract path from full URL (remove domain)
-            $cityPath = parse_url($cityUrl, PHP_URL_PATH);
-          ?>
-          <div class="content-block">
-            <div class="content-block__header">
-              <h3 class="content-block__title"><?= htmlspecialchars($cityData['name']) ?></h3>
-            </div>
-            <div class="content-block__body">
-              <p><?= htmlspecialchars($cityData['description']) ?></p>
-              <div class="btn-group">
-                <a href="<?= htmlspecialchars($cityPath) ?>" class="btn btn--primary">View in <?= htmlspecialchars($cityData['name']) ?></a>
+          <div class="grid grid-auto-fit">
+            <?php foreach ($displayCities as $city): 
+              // Generate service-specific description
+              $cityDescription = get_service_city_description($service, $city['name'], $city['isUK']);
+              
+              // Generate canonical URL with proper locale prefix
+              $cityUrl = canonical_internal_url("/services/{$service}/{$city['city']}/");
+              $cityPath = parse_url($cityUrl, PHP_URL_PATH);
+              
+              // Get related services in this city (for cross-linking)
+              $relatedServices = get_related_services_in_city($service, $city['city'], 2);
+            ?>
+            <div class="content-block">
+              <div class="content-block__header">
+                <h3 class="content-block__title"><?= htmlspecialchars($city['name']) ?></h3>
+              </div>
+              <div class="content-block__body">
+                <p><?= htmlspecialchars($cityDescription) ?></p>
+                
+                <div class="btn-group" style="margin-bottom: var(--spacing-sm);">
+                  <a href="<?= htmlspecialchars($cityPath) ?>" class="btn btn--primary" title="<?= htmlspecialchars($serviceName) ?> in <?= htmlspecialchars($city['name']) ?>">View in <?= htmlspecialchars($city['name']) ?></a>
+                </div>
+                
+                <?php if (!empty($relatedServices)): ?>
+                  <div style="margin-top: var(--spacing-sm); padding-top: var(--spacing-sm); border-top: 1px solid #e0e0e0;">
+                    <p style="font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;">Also available in <?= htmlspecialchars($city['name']) ?>:</p>
+                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.875rem;">
+                      <?php foreach ($relatedServices as $related): ?>
+                        <li style="margin-bottom: 0.25rem;">
+                          <a href="<?= htmlspecialchars($related['url']) ?>" title="<?= htmlspecialchars($related['name']) ?>"><?= htmlspecialchars($related['name']) ?></a>
+                        </li>
+                      <?php endforeach; ?>
+                    </ul>
+                  </div>
+                <?php endif; ?>
               </div>
             </div>
+            <?php endforeach; ?>
           </div>
-          <?php endforeach; ?>
-        </div>
+          
+          <?php if ($showAllLink): ?>
+            <div style="margin-top: var(--spacing-lg); text-align: center;">
+              <p style="font-size: 0.9rem; color: #666; margin-bottom: var(--spacing-sm);">
+                We provide services in <?= count($availableCities) ?> cities worldwide.
+              </p>
+              <p>
+                <a href="/contact/?service=<?= urlencode($service) ?>" class="btn btn--secondary" title="Contact us for services in your city">Contact Us for Your City</a>
+              </p>
+            </div>
+          <?php endif; ?>
+        <?php endif; ?>
       </div>
     </div>
+    
+    <?php
+    // Add ItemList schema for city listings (SEO best practice)
+    if (!empty($cityListItems)) {
+      $GLOBALS['__jsonld'][] = [
+        '@context' => 'https://schema.org',
+        '@type' => 'ItemList',
+        '@id' => $canonical_url . '#city-list',
+        'name' => "Available Cities for {$serviceName}",
+        'description' => "Cities where {$serviceName} services are available",
+        'itemListElement' => $cityListItems
+      ];
+    }
+    ?>
     <?php endif; ?>
 
     <?php if ($service === 'ai-search-optimization'): ?>
