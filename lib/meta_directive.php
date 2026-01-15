@@ -658,7 +658,8 @@ function sudo_meta_directive_ctx(array $ctx): array {
     case 'case_studies_index':
       // Case studies index: Real-world examples and success stories
       $title = 'AI SEO Case Studies & Success Stories | Real Results | Neural Command';
-      $desc = 'Real-world AI SEO case studies featuring detailed results and implementation strategies. Entity repair, structured data optimization, AI citation growth, and measurable improvements in search visibility.';
+      $desc = 'Real-world AI SEO case studies featuring detailed results and implementation strategies. Entity repair, structured data optimization, AI citation growth, and measurable improvements in search visibility. International clients: UK, Canada, Australia, Singapore, Germany, Ireland.';
+      $keywords = 'AI SEO case studies, SEO success stories, entity optimization case study, structured data case study, AI citation case study, ChatGPT optimization results, Claude optimization results, Google AI Overviews case study, LLM citation growth, semantic SEO case study, AEO case studies, GEO case studies, international SEO results, AI search optimization results';
       if ($excerpt) {
         $desc = $excerpt;
       }

@@ -5,12 +5,14 @@
 
 $canonical_url = absolute_url('/case-studies/');
 
-// ADVANCED: Enhance metadata for SEO
+// ADVANCED: Enhance metadata for SEO and AI SEO
 if (isset($GLOBALS['__page_meta'])) {
-  $GLOBALS['__page_meta']['keywords'] = 'AI SEO case studies, SEO success stories, entity optimization case study, structured data case study, AI citation case study, ChatGPT optimization results, Claude optimization results, Google AI Overviews case study, LLM citation growth, semantic SEO case study';
+  $GLOBALS['__page_meta']['keywords'] = 'AI SEO case studies, SEO success stories, entity optimization case study, structured data case study, AI citation case study, ChatGPT optimization results, Claude optimization results, Google AI Overviews case study, LLM citation growth, semantic SEO case study, AEO case studies, GEO case studies, international SEO results, AI search optimization results, entity repair case study, schema optimization results, AI visibility improvement';
   $GLOBALS['__page_meta']['datePublished'] = '2024-01-01';
   $GLOBALS['__page_meta']['dateModified'] = date('Y-m-d');
   $GLOBALS['__page_meta']['author'] = 'Joel Maldonado';
+  $GLOBALS['__page_meta']['about'] = ['AI SEO Optimization', 'Case Studies', 'Entity Optimization', 'Structured Data', 'AI Citations'];
+  $GLOBALS['__page_meta']['mentions'] = ['TaskFlow', 'Artisan Goods Co', 'MedCare Australia', 'PayBridge Singapore', 'LearnHub Germany', 'PropertyView Ireland', 'SAW.com'];
 }
 ?>
 
@@ -139,14 +141,15 @@ use NRLC\Schema\SchemaFixes;
 $orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization';
 
 $GLOBALS['__jsonld'] = [
-  // 1. WebPage Schema - ADVANCED
+  // 1. WebPage Schema - ADVANCED (AI SEO Optimized)
   [
     '@context' => 'https://schema.org',
     '@type' => 'WebPage',
     '@id' => $canonical_url . '#webpage',
     'name' => 'AI SEO Case Studies & Success Stories | Real Results | Neural Command',
-    'description' => 'Real-world AI SEO case studies featuring detailed results and implementation strategies. Entity repair, structured data optimization, AI citation growth, and measurable improvements in search visibility.',
+    'description' => 'Real-world AI SEO case studies featuring detailed results and implementation strategies. Entity repair, structured data optimization, AI citation growth, and measurable improvements in search visibility. International clients: UK, Canada, Australia, Singapore, Germany, Ireland.',
     'url' => $canonical_url,
+    'keywords' => 'AI SEO case studies, SEO success stories, entity optimization, structured data optimization, AI citation growth, ChatGPT optimization, Claude optimization, Google AI Overviews, LLM citation systems, semantic SEO, AEO case studies, GEO case studies, international SEO results',
     'isPartOf' => [
       '@type' => 'WebSite',
       '@id' => 'https://nrlc.ai/#website',
@@ -162,9 +165,19 @@ $GLOBALS['__jsonld'] = [
       ]
     ],
     'about' => [
-      '@type' => 'Thing',
-      'name' => 'AI SEO Case Studies',
-      'description' => 'Real-world examples of AI SEO optimization success'
+      ['@type' => 'Thing', 'name' => 'AI SEO Case Studies', 'description' => 'Real-world examples of AI SEO optimization success'],
+      ['@type' => 'Thing', 'name' => 'Entity Optimization', 'description' => 'Entity-level semantic repair and classification correction'],
+      ['@type' => 'Thing', 'name' => 'Structured Data Optimization', 'description' => 'Schema markup implementation for AI search systems'],
+      ['@type' => 'Thing', 'name' => 'AI Citation Growth', 'description' => 'Measurable improvements in AI system citations and mentions']
+    ],
+    'mentions' => [
+      ['@type' => 'Organization', 'name' => 'TaskFlow', 'description' => 'UK-based project management SaaS'],
+      ['@type' => 'Organization', 'name' => 'Artisan Goods Co', 'description' => 'Canadian e-commerce platform'],
+      ['@type' => 'Organization', 'name' => 'MedCare Australia', 'description' => 'Australian healthcare provider'],
+      ['@type' => 'Organization', 'name' => 'PayBridge Singapore', 'description' => 'Singapore payment processing platform'],
+      ['@type' => 'Organization', 'name' => 'LearnHub Germany', 'description' => 'German online education platform'],
+      ['@type' => 'Organization', 'name' => 'PropertyView Ireland', 'description' => 'Irish real estate platform'],
+      ['@type' => 'Organization', 'name' => 'SAW.com', 'description' => 'Premium domain brokerage']
     ],
     'primaryImageOfPage' => [
       '@type' => 'ImageObject',
@@ -178,6 +191,7 @@ $GLOBALS['__jsonld'] = [
     'dateModified' => date('Y-m-d'),
     'author' => [
       '@type' => 'Person',
+      '@id' => 'https://nrlc.ai/#joel-maldonado',
       'name' => 'Joel Maldonado',
       'jobTitle' => 'Founder & AI Search Researcher',
       'worksFor' => [
@@ -208,20 +222,35 @@ $GLOBALS['__jsonld'] = [
     'mainEntity' => [
       '@id' => $canonical_url . '#itemlist'
     ],
+    'hasPart' => [
+      ['@id' => absolute_url('/case-studies/entity-semantic-poisoning-saw/')],
+      ['@id' => absolute_url('/case-studies/b2b-saas/')],
+      ['@id' => absolute_url('/case-studies/ecommerce/')],
+      ['@id' => absolute_url('/case-studies/healthcare/')],
+      ['@id' => absolute_url('/case-studies/fintech/')],
+      ['@id' => absolute_url('/case-studies/education/')],
+      ['@id' => absolute_url('/case-studies/real-estate/')]
+    ],
+    'relatedLink' => [
+      absolute_url('/ai-visibility/'),
+      absolute_url('/services/json-ld-strategy/'),
+      absolute_url('/insights/')
+    ],
     'speakable' => [
       '@type' => 'SpeakableSpecification',
       'cssSelector' => ['h1', '.lead']
     ]
   ],
 
-  // 2. ItemList Schema - ADVANCED (Case Studies List)
+  // 2. ItemList Schema - ADVANCED (Case Studies List - AI SEO Optimized)
   [
     '@context' => 'https://schema.org',
     '@type' => 'ItemList',
     '@id' => $canonical_url . '#itemlist',
     'name' => 'AI SEO Case Studies & Success Stories',
-    'description' => 'Real-world examples of AI SEO optimization success, featuring detailed results and implementation strategies.',
+    'description' => 'Real-world examples of AI SEO optimization success, featuring detailed results and implementation strategies. International clients from UK, Canada, Australia, Singapore, Germany, and Ireland.',
     'numberOfItems' => 7,
+    'itemListOrder' => 'https://schema.org/ItemListOrderDescending',
     'itemListElement' => [
       [
         '@type' => 'ListItem',
@@ -275,7 +304,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
 
-  // 3. Organization Schema - ADVANCED
+  // 3. Organization Schema - ADVANCED (AI SEO Optimized)
   [
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
@@ -299,7 +328,21 @@ $GLOBALS['__jsonld'] = [
       'Claude Optimization',
       'Google AI Overviews',
       'LLM Citation Systems',
-      'Search Visibility'
+      'Search Visibility',
+      'AEO (Answer Engine Optimization)',
+      'GEO (Generative Engine Optimization)',
+      'International SEO',
+      'Schema Markup',
+      'Entity Repair'
+    ],
+    'areaServed' => [
+      ['@type' => 'Country', 'name' => 'United Kingdom'],
+      ['@type' => 'Country', 'name' => 'Canada'],
+      ['@type' => 'Country', 'name' => 'Australia'],
+      ['@type' => 'Country', 'name' => 'Singapore'],
+      ['@type' => 'Country', 'name' => 'Germany'],
+      ['@type' => 'Country', 'name' => 'Ireland'],
+      ['@type' => 'Country', 'name' => 'United States']
     ]
   ],
 
