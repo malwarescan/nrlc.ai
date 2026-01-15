@@ -515,6 +515,26 @@ function sudo_meta_directive_ctx(array $ctx): array {
       $title = $title . ' ' . $suffix;
       break;
       
+    case 'training_city':
+      // Training is education, not a service - use training-specific meta
+      if ($city) {
+        require_once __DIR__.'/helpers.php';
+        $cityName = ucwords(str_replace(['-', '_'], ' ', $city));
+        
+        // Use provided title/description if available, otherwise generate
+        if ($title && $excerpt) {
+          // Title and description already provided in ctx
+          $desc = $excerpt;
+        } else {
+          $title = "AI SEO Training Courses in $cityName | Neural Command Training";
+          $desc = "Professional AI SEO training courses for teams in $cityName. Learn how to optimize for ChatGPT, Claude, Google AI Overviews, and LLM citation systems.";
+        }
+      } else {
+        $title = $title ?: 'AI SEO Training Courses | Neural Command Training';
+        $desc = $excerpt ?: 'Professional training courses for marketing and SEO teams on AI search systems, LLM citation, and generative engine optimization.';
+      }
+      break;
+      
     case 'service':
       if ($city && $service) {
         // Service + City pages: ENFORCE UNIQUE INTENT PER SERVICE TYPE
