@@ -13,16 +13,12 @@ function send_email_via_smtp($to, $subject, $message, $headers = []) {
   $smtp_from_email = $_ENV['SMTP_FROM_EMAIL'] ?? 'noreply@nrlc.ai';
   $smtp_from_name = $_ENV['SMTP_FROM_NAME'] ?? 'NRLC.ai';
   
-  // If no SMTP credentials, fall back to mail() function
+  // If no SMTP credentials, log error and return false
+  // PHP mail() doesn't work on Railway without SMTP
   if (empty($smtp_username) || empty($smtp_password)) {
-    // Try PHP mail() as fallback
-    $default_headers = [
-      'From: ' . $smtp_from_email,
-      'X-Mailer: PHP/' . phpversion(),
-      'Content-Type: text/plain; charset=UTF-8'
-    ];
-    $all_headers = array_merge($default_headers, $headers);
-    return @mail($to, $subject, $message, implode("\r\n", $all_headers));
+    error_log("SMTP not configured: SMTP_USERNAME or SMTP_PASSWORD missing. Set environment variables in Railway.");
+    // Don't try mail() on Railway - it won't work
+    return false;
   }
   
   // Build email headers
