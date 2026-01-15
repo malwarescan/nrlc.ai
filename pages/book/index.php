@@ -66,7 +66,7 @@ $GLOBALS['__jsonld'] = [
           
           <div style="margin-bottom: var(--spacing-md);">
             <label for="website">Your Website (optional)</label>
-            <input type="url" id="website" name="website" placeholder="https://yoursite.com" autocomplete="url">
+            <input type="text" id="website" name="website" placeholder="yoursite.com or https://yoursite.com">
           </div>
           
           <div style="margin-bottom: var(--spacing-lg);">
