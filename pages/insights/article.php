@@ -64,6 +64,8 @@ $insight_articles = [
   'grounding-budgets-prechunking' => 'grounding-budgets-prechunking.php',
   // ChatGPT business mentions
   'how-to-get-your-business-mentioned-in-chatgpt' => 'how-to-get-your-business-mentioned-in-chatgpt.php',
+  // Medical information retrieval research
+  'semantic-constraint-medical-information-retrieval' => 'semantic-constraint-medical-information-retrieval.php',
   // Localized slugs (es-es, fr-fr, de-de, ko-kr slugs map to same file)
   'goldmine-seleccion-titulos-google' => 'goldmine-google-title-selection.php',
   'goldmine-selection-titres-google' => 'goldmine-google-title-selection.php',

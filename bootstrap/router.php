@@ -473,6 +473,9 @@ function route_request(): void {
     } elseif ($slug === 'ai-retrieval-llm-citation') {
       $articleTitle = "How LLMs Retrieve and Cite Web Content";
       $excerpt = "Understand how AI systems extract, score, and surface content for answers and citations.";
+    } elseif ($slug === 'semantic-constraint-medical-information-retrieval') {
+      $articleTitle = "Semantic Constraint in Medical Information Retrieval";
+      $excerpt = "Technical analysis of structured medical data as a constraint mechanism for regulated information retrieval systems. Research on how semantic structure reduces interpretive variance in downstream retrieval systems.";
     } elseif ($slug === 'how-to-get-your-business-mentioned-in-chatgpt') {
       $articleTitle = "How to Get Your Business Mentioned in ChatGPT | AI Citation Guide";
       $excerpt = "Learn what signals matter for your business to be mentioned in ChatGPT, including entity consistency, structured data, and citation readiness.";
@@ -2007,7 +2010,6 @@ function route_request(): void {
   header('X-Robots-Tag: noindex, nofollow');
   http_response_code(404);
   echo "Not Found";
-}
 
 /**
  * Load page metadata from a PHP file before head.php is included
@@ -2159,3 +2161,5 @@ function render_page(string $slug): void {
   }
 }
 
+// Close route_request() function
+}
