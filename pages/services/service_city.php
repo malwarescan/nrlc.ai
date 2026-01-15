@@ -330,6 +330,7 @@ $orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization'; // Stable @i
 // CANONICAL ENFORCEMENT: Ensure proper canonical URL for locale-specific content
 // Local pages (city-specific) should NOT have hreflang - they are location-specific
 
+// ADVANCED: Enhanced Service schema for technical-seo
 $serviceLd = [
   "@context" => "https://schema.org",
   "@type" => "Service",
@@ -339,27 +340,134 @@ $serviceLd = [
     "@type" => "Organization",
     "@id" => $orgId // Reference to single canonical Organization entity
   ],
-  "areaServed" => "Global",
-  "url" => $canonical_url
+  "areaServed" => [
+    "@type" => "City",
+    "name" => $cityTitle,
+    "containedIn" => $cityRow['subdivision'] ? [
+      "@type" => "State",
+      "name" => $cityRow['subdivision']
+    ] : null
+  ],
+  "url" => $canonical_url,
+  "description" => "$serviceName in $cityTitle. Professional implementation with localized expertise, measurable results, and ongoing support."
 ];
+
+// ADVANCED: Special enhancements for technical-seo
+if ($serviceSlug === 'technical-seo') {
+  $serviceLd['serviceType'] = 'Technical SEO & Core Web Vitals Optimization';
+  $serviceLd['category'] = 'Technical SEO';
+  $serviceLd['hasOfferCatalog'] = [
+    '@type' => 'OfferCatalog',
+    'name' => 'Technical SEO Services',
+    'itemListElement' => [
+      [
+        '@type' => 'Offer',
+        'itemOffered' => [
+          '@type' => 'Service',
+          'name' => 'Core Web Vitals Optimization',
+          'description' => 'Improve LCP, FID, and CLS scores for better search rankings'
+        ]
+      ],
+      [
+        '@type' => 'Offer',
+        'itemOffered' => [
+          '@type' => 'Service',
+          'name' => 'Crawl Efficiency Optimization',
+          'description' => 'Optimize sitemap structure and crawl budget utilization'
+        ]
+      ],
+      [
+        '@type' => 'Offer',
+        'itemOffered' => [
+          '@type' => 'Service',
+          'name' => 'Mobile Performance Engineering',
+          'description' => 'Responsive design and mobile-optimized loading'
+        ]
+      ],
+      [
+        '@type' => 'Offer',
+        'itemOffered' => [
+          '@type' => 'Service',
+          'name' => 'Sitemap Architecture',
+          'description' => 'Efficient sitemap structures with proper sharding and indexing'
+        ]
+      ]
+    ]
+  ];
+  $serviceLd['audience'] = [
+    '@type' => 'Audience',
+    'audienceType' => 'Businesses needing technical SEO improvements',
+    'geographicArea' => [
+      '@type' => 'City',
+      'name' => $cityTitle
+    ]
+  ];
+}
 
 // Build complete schema array (avoid duplicates)
 // Start with existing schemas if any (from router or other includes)
 $jsonldSchemas = $GLOBALS['__jsonld'] ?? [];
 
-// Add WebPage schema
+// ADVANCED: Enhanced WebPage schema
+$webPageDesc = "$serviceTitle in $cityTitle. Professional implementation with measurable results. Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).";
+if ($serviceSlug === 'technical-seo') {
+  $webPageDesc = "Technical SEO services in $cityTitle. Fix crawl issues, improve Core Web Vitals, optimize sitemaps, and enhance mobile performance. Professional technical SEO implementation with measurable results for businesses in $cityTitle.";
+}
+
 $jsonldSchemas[] = [
   "@context" => "https://schema.org",
   "@type" => "WebPage",
   "@id" => $canonical_url . '#webpage',
   "name" => $pageTitle,
   "url" => $canonical_url,
-  "description" => "$serviceTitle implementation in $cityTitle with localized expertise and support.",
+  "description" => $webPageDesc,
   "isPartOf" => [
     "@type" => "WebSite",
     "@id" => $domain . '/#website',
     "name" => "NRLC.ai",
-    "url" => $domain
+    "url" => $domain,
+    "potentialAction" => [
+      "@type" => "SearchAction",
+      "target" => [
+        "@type" => "EntryPoint",
+        "urlTemplate" => "https://nrlc.ai/search?q={search_term_string}"
+      ],
+      "query-input" => "required name=search_term_string"
+    ]
+  ],
+  "about" => [
+    "@id" => $canonical_url . '#service'
+  ],
+  "primaryImageOfPage" => [
+    "@type" => "ImageObject",
+    "url" => "https://nrlc.ai/assets/images/nrlc-logo.png",
+    "width" => 43,
+    "height" => 43,
+    "caption" => "NRLC.ai - AI Search Optimization"
+  ],
+  "inLanguage" => $currentLocale === 'en-gb' ? 'en-GB' : 'en-US',
+  "datePublished" => "2024-01-01",
+  "dateModified" => date('Y-m-d'),
+  "author" => [
+    "@type" => "Person",
+    "name" => "Joel Maldonado",
+    "jobTitle" => "Founder & AI Search Researcher",
+    "worksFor" => [
+      "@id" => $orgId
+    ]
+  ],
+  "publisher" => [
+    "@id" => $orgId
+  ],
+  "breadcrumb" => [
+    "@id" => $canonical_url . '#breadcrumb'
+  ],
+  "mainEntity" => [
+    "@id" => $canonical_url . '#service'
+  ],
+  "speakable" => [
+    "@type" => "SpeakableSpecification",
+    "cssSelector" => ["h1", ".lead"]
   ]
 ];
 
@@ -396,8 +504,52 @@ $jsonldSchemas[] = [
   ]
 ];
 
-// Add Service schema
+// Add Service schema with @id for reference
+$serviceLd['@id'] = $canonical_url . '#service';
 $jsonldSchemas[] = $serviceLd;
+
+// ADVANCED: Add Organization schema reference with enhanced details
+$jsonldSchemas[] = [
+  "@context" => "https://schema.org",
+  "@type" => "Organization",
+  "@id" => $orgId,
+  "name" => "Neural Command",
+  "legalName" => "Neural Command, LLC",
+  "url" => "https://nrlc.ai",
+  "logo" => [
+    "@type" => "ImageObject",
+    "url" => "https://nrlc.ai/assets/images/nrlc-logo.png",
+    "width" => 43,
+    "height" => 43
+  ],
+  "knowsAbout" => $serviceSlug === 'technical-seo' ? [
+    "Technical SEO",
+    "Core Web Vitals Optimization",
+    "Crawl Efficiency",
+    "Sitemap Architecture",
+    "Mobile Performance",
+    "Site Speed Optimization",
+    "AI Search Optimization",
+    "Structured Data",
+    "Schema Markup",
+    "Entity Optimization"
+  ] : [
+    "AI Search Optimization",
+    "AEO",
+    "GEO",
+    "SEO",
+    "Structured Data",
+    "LLM Seeding",
+    "AI Visibility"
+  ],
+  "areaServed" => [
+    "@type" => "City",
+    "name" => $cityTitle
+  ],
+  "offers" => [
+    "@id" => $canonical_url . '#service'
+  ]
+];
 
 // GBP-ALIGNED: LocalBusiness schema removed per directive
 // Service pages use Organization schema only (via base_schemas() or explicit Organization schema)

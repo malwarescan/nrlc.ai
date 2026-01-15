@@ -655,6 +655,15 @@ function sudo_meta_directive_ctx(array $ctx): array {
       $desc = 'AI SEO and AI visibility tools for structured knowledge, search optimization, and generative engine visibility. Product catalog of AI search optimization tools.';
       break;
       
+    case 'case_studies_index':
+      // Case studies index: Real-world examples and success stories
+      $title = 'AI SEO Case Studies & Success Stories | Real Results | Neural Command';
+      $desc = 'Real-world AI SEO case studies featuring detailed results and implementation strategies. Entity repair, structured data optimization, AI citation growth, and measurable improvements in search visibility.';
+      if ($excerpt) {
+        $desc = $excerpt;
+      }
+      break;
+      
     default:
       $suffix = '| NRLC.ai';
       if ($excerpt) {
