@@ -31,163 +31,172 @@ $GLOBALS['__jsonld'] = [
 ];
 ?>
 
-<main role="main">
-<section class="container">
-        
-        <!-- Hero / Mission Window -->
-        <div class="window" style="margin-bottom: 2rem;">
-          <div class="title-bar">
-            <div class="title-bar-text">Book AI SEO Consultation</div>
+<main role="main" class="container">
+<section class="section">
+  <div class="section__content">
+
+    <!-- Hero Section -->
+    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h1 class="content-block__title heading-1">Book AI SEO Consultation</h1>
+      </div>
+      <div class="content-block__body">
+        <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">
+          Get expert guidance on implementing the GEO-16 framework, optimizing for AI engines, and improving your LLM citation rates.
+        </p>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title heading-2">Schedule Your Consultation</h2>
+      </div>
+      <div class="content-block__body">
+        <form id="booking-form" method="POST" action="/api/book/">
+          <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+            <div>
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
           </div>
-          <div class="window-body">
-            <h2 style="margin: 0 0 1rem 0; font-size: 2rem; color: #000080;">Schedule Your AI SEO Consultation</h2>
-            <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">Get expert guidance on implementing the GEO-16 framework, optimizing for AI engines, and improving your LLM citation rates.</p>
-            
-            <form id="booking-form" method="POST" action="/api/book/" style="margin-top: 2rem;">
-              <div class="grid-2">
-                <div>
-                  <label for="name">Full Name *</label>
-                  <input type="text" id="name" name="name" required>
-                </div>
-                <div>
-                  <label for="email">Email Address *</label>
-                  <input type="email" id="email" name="email" required>
-                </div>
-              </div>
-              
-              <div class="grid-2">
-                <div>
-                  <label for="company">Company/Organization</label>
-                  <input type="text" id="company" name="company">
-                </div>
-                <div>
-                  <label for="website">Website URL</label>
-                  <input type="url" id="website" name="website" placeholder="https://example.com">
-                </div>
-              </div>
-              
-              <div>
-                <label for="service-interest">Service Interest *</label>
-                <select id="service-interest" name="service_interest" required>
-                  <option value="">Select a service...</option>
-                  <option value="AI-First Site Audits">AI-First Site Audits</option>
-                  <option value="Crawl Clarity Engineering">Crawl Clarity Engineering</option>
-                  <option value="JSON-LD & Structured Data">JSON-LD & Structured Data</option>
-                  <option value="LLM Seeding Optimization">LLM Seeding Optimization</option>
-                  <option value="International SEO & Hreflang">International SEO & Hreflang</option>
-                  <option value="General AI SEO Consultation">General AI SEO Consultation</option>
-                </select>
-              </div>
-              
-              <div>
-                <label for="current_challenges">Current Challenges</label>
-                <textarea id="current_challenges" name="current_challenges" rows="3" placeholder="Tell us about your current SEO challenges and goals..."></textarea>
-              </div>
-              
-              <div>
-                <label for="preferred_time">Preferred Time for Consultation</label>
-                <input type="text" id="preferred_time" name="preferred_time" placeholder="e.g., Next week, weekday mornings, etc.">
-              </div>
-              
-              <div style="text-align: center; margin-top: 2rem;">
-                <button type="submit" class="btn" data-ripple style="width: 100%; max-width: 300px;">Request Free Consultation</button>
-              </div>
-            </form>
+          
+          <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+            <div>
+              <label for="company">Company/Organization</label>
+              <input type="text" id="company" name="company">
+            </div>
+            <div>
+              <label for="website">Website URL</label>
+              <input type="url" id="website" name="website" placeholder="https://example.com">
+            </div>
+          </div>
+          
+          <div style="margin-bottom: var(--spacing-md);">
+            <label for="service-interest">Service Interest *</label>
+            <select id="service-interest" name="service_interest" required>
+              <option value="">Select a service...</option>
+              <option value="AI-First Site Audits">AI-First Site Audits</option>
+              <option value="Crawl Clarity Engineering">Crawl Clarity Engineering</option>
+              <option value="JSON-LD & Structured Data">JSON-LD & Structured Data</option>
+              <option value="LLM Seeding Optimization">LLM Seeding Optimization</option>
+              <option value="International SEO & Hreflang">International SEO & Hreflang</option>
+              <option value="General AI SEO Consultation">General AI SEO Consultation</option>
+            </select>
+          </div>
+          
+          <div style="margin-bottom: var(--spacing-md);">
+            <label for="current_challenges">Current Challenges</label>
+            <textarea id="current_challenges" name="current_challenges" rows="4" placeholder="Tell us about your current SEO challenges and goals..."></textarea>
+          </div>
+          
+          <div style="margin-bottom: var(--spacing-lg);">
+            <label for="preferred_time">Preferred Time for Consultation</label>
+            <input type="text" id="preferred_time" name="preferred_time" placeholder="e.g., Next week, weekday mornings, etc.">
+          </div>
+          
+          <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
+            <button type="submit" class="btn btn--primary" data-ripple>Request Free Consultation</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <!-- Why Choose NRLC.ai Window -->
-  <div class="window" style="margin-bottom: 2rem;">
-    <div class="title-bar">
-      <div class="title-bar-text">Why Choose NRLC.ai?</div>
-    </div>
-    <div class="window-body">
-      <p>Our team combines deep expertise in traditional SEO with cutting-edge AI engine optimization. We've developed the GEO-16 framework through extensive research analyzing 1,700+ AI engine citations across four major platforms. Our approach is data-driven, implementation-focused, and results-oriented.</p>
-      
-      <div class="grid-auto-fit margin-top-20">
-        <div class="box-padding" style="background: #f8f8f8;">
-          <h4 style="margin-top: 0; color: #000080;">Research-Driven</h4>
-          <p>Our GEO-16 framework is based on comprehensive analysis of actual AI engine citations and behavior patterns.</p>
-        </div>
-        <div class="box-padding" style="background: #f8f8f8;">
-          <h4 style="margin-top: 0; color: #000080;">Implementation-Focused</h4>
-          <p>We provide actionable recommendations with clear implementation steps and measurable outcomes.</p>
-        </div>
-        <div class="box-padding" style="background: #f8f8f8;">
-          <h4 style="margin-top: 0; color: #000080;">Results-Oriented</h4>
-          <p>Our clients typically see significant improvements in AI citation rates within 90 days of implementation.</p>
+    <!-- Why Choose NRLC.ai -->
+    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title heading-2">Why Choose NRLC.ai?</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Our team combines deep expertise in traditional SEO with cutting-edge AI engine optimization. We've developed the GEO-16 framework through extensive research analyzing 1,700+ AI engine citations across four major platforms. Our approach is data-driven, implementation-focused, and results-oriented.</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+          <div style="padding: var(--spacing-md); background: #f8f8f8; border: 1px solid var(--color-border); border-radius: 4px;">
+            <h3 style="margin-top: 0; color: var(--color-text-primary);">Research-Driven</h3>
+            <p>Our GEO-16 framework is based on comprehensive analysis of actual AI engine citations and behavior patterns.</p>
+          </div>
+          <div style="padding: var(--spacing-md); background: #f8f8f8; border: 1px solid var(--color-border); border-radius: 4px;">
+            <h3 style="margin-top: 0; color: var(--color-text-primary);">Implementation-Focused</h3>
+            <p>We provide actionable recommendations with clear implementation steps and measurable outcomes.</p>
+          </div>
+          <div style="padding: var(--spacing-md); background: #f8f8f8; border: 1px solid var(--color-border); border-radius: 4px;">
+            <h3 style="margin-top: 0; color: var(--color-text-primary);">Results-Oriented</h3>
+            <p>Our clients typically see significant improvements in AI citation rates within 90 days of implementation.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- FAQ Window -->
-  <div class="window" style="margin-bottom: 2rem;">
-    <div class="title-bar">
-      <div class="title-bar-text">Frequently Asked Questions</div>
-    </div>
-    <div class="window-body">
-      <h2 style="color: #000080; margin-top: 0;">Common Questions About Our Services</h2>
-      
-      <div class="box-padding" style="margin-bottom: 1rem;">
-        <h3 style="margin-top: 0; color: #000080;">What happens during a consultation?</h3>
-        <p>During your initial consultation, we'll discuss your current SEO challenges, AI engine visibility goals, and technical infrastructure. We'll review your site's structure, existing schema implementation, and crawl efficiency. You'll receive preliminary recommendations and a clear outline of how our services can address your specific needs.</p>
+    <!-- FAQ Section -->
+    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title heading-2">Frequently Asked Questions</h2>
       </div>
+      <div class="content-block__body">
+        <div style="margin-bottom: var(--spacing-md);">
+          <h3 style="margin-top: 0; color: var(--color-text-primary);">What happens during a consultation?</h3>
+          <p>During your initial consultation, we'll discuss your current SEO challenges, AI engine visibility goals, and technical infrastructure. We'll review your site's structure, existing schema implementation, and crawl efficiency. You'll receive preliminary recommendations and a clear outline of how our services can address your specific needs.</p>
+        </div>
 
-      <div class="box-padding" style="margin-bottom: 1rem;">
-        <h3 style="margin-top: 0; color: #000080;">How long does implementation take?</h3>
-        <p>Most implementations follow a 6-8 week timeline from initial audit to deployment. Phase 1 (Discovery & Audit) takes 1-2 weeks, Phase 2 (Implementation) takes 3-4 weeks, and Phase 3 (Validation & Monitoring) takes 1-2 weeks. Complex multi-regional implementations may require additional time for proper testing and validation.</p>
-      </div>
+        <div style="margin-bottom: var(--spacing-md);">
+          <h3 style="margin-top: 0; color: var(--color-text-primary);">How long does implementation take?</h3>
+          <p>Most implementations follow a 6-8 week timeline from initial audit to deployment. Phase 1 (Discovery & Audit) takes 1-2 weeks, Phase 2 (Implementation) takes 3-4 weeks, and Phase 3 (Validation & Monitoring) takes 1-2 weeks. Complex multi-regional implementations may require additional time for proper testing and validation.</p>
+        </div>
 
-      <div class="box-padding" style="margin-bottom: 1rem;">
-        <h3 style="margin-top: 0; color: #000080;">What results can I expect?</h3>
-        <p>Organizations implementing our GEO-16 framework typically see 200-400% improvements in AI citation rates within 90 days. Technical implementations like crawl clarity optimization often show measurable results within 2-3 weeks. We provide detailed reporting on citation accuracy, crawl efficiency, rich results impressions, and AI engine visibility metrics.</p>
-      </div>
+        <div style="margin-bottom: var(--spacing-md);">
+          <h3 style="margin-top: 0; color: var(--color-text-primary);">What results can I expect?</h3>
+          <p>Organizations implementing our GEO-16 framework typically see 200-400% improvements in AI citation rates within 90 days. Technical implementations like crawl clarity optimization often show measurable results within 2-3 weeks. We provide detailed reporting on citation accuracy, crawl efficiency, rich results impressions, and AI engine visibility metrics.</p>
+        </div>
 
-      <div class="box-padding" style="margin-bottom: 1rem;">
-        <h3 style="margin-top: 0; color: #000080;">Do you work with all industries?</h3>
-        <p>Yes, our GEO-16 framework and technical SEO services apply across all industries. We have particular expertise in B2B SaaS, professional services, e-commerce, and technical documentation sites. Our approach is methodology-driven rather than industry-specific, though we tailor implementations to your specific business context and competitive landscape.</p>
-      </div>
+        <div style="margin-bottom: var(--spacing-md);">
+          <h3 style="margin-top: 0; color: var(--color-text-primary);">Do you work with all industries?</h3>
+          <p>Yes, our GEO-16 framework and technical SEO services apply across all industries. We have particular expertise in B2B SaaS, professional services, e-commerce, and technical documentation sites. Our approach is methodology-driven rather than industry-specific, though we tailor implementations to your specific business context and competitive landscape.</p>
+        </div>
 
-      <div class="box-padding" style="margin-bottom: 1rem;">
-        <h3 style="margin-top: 0; color: #000080;">What's included in your audit?</h3>
-        <p>Our comprehensive audit covers all sixteen GEO-16 framework pillars: metadata completeness, content freshness, semantic structure, entity clarity, verification signals, and technical quality. We analyze crawl efficiency, schema implementation, URL structure, hreflang configuration, canonical management, and AI engine citation patterns. You'll receive a detailed report with prioritized recommendations and implementation roadmap.</p>
-      </div>
+        <div style="margin-bottom: var(--spacing-md);">
+          <h3 style="margin-top: 0; color: var(--color-text-primary);">What's included in your audit?</h3>
+          <p>Our comprehensive audit covers all sixteen GEO-16 framework pillars: metadata completeness, content freshness, semantic structure, entity clarity, verification signals, and technical quality. We analyze crawl efficiency, schema implementation, URL structure, hreflang configuration, canonical management, and AI engine citation patterns. You'll receive a detailed report with prioritized recommendations and implementation roadmap.</p>
+        </div>
 
-      <div class="box-padding">
-        <h3 style="margin-top: 0; color: #000080;">Can you help with international SEO?</h3>
-        <p>Absolutely. International SEO is one of our core specialties. We implement comprehensive hreflang configurations, locale-specific structured data, regional content optimization, and multi-regional crawl management. Our team has experience with complex multi-country implementations across North America, Europe, and Asia-Pacific markets.</p>
+        <div>
+          <h3 style="margin-top: 0; color: var(--color-text-primary);">Can you help with international SEO?</h3>
+          <p>Absolutely. International SEO is one of our core specialties. We implement comprehensive hreflang configurations, locale-specific structured data, regional content optimization, and multi-regional crawl management. Our team has experience with complex multi-country implementations across North America, Europe, and Asia-Pacific markets.</p>
+        </div>
       </div>
     </div>
-    
+
     <!-- Related Resources -->
-    <div class="window" style="margin-bottom: 2rem;">
-      <div class="title-bar">
-        <div class="title-bar-text">Related Resources</div>
+    <div class="content-block module" style="margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title heading-2">Related Resources</h2>
       </div>
-      <div class="window-body">
+      <div class="content-block__body">
         <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
         <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
         <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view our <a href="/products/">Products</a>.</p>
-        <div style="text-align: center; margin-top: 1.5rem;">
+        <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
           <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </section>
 </main>
 
-<!-- Success Message Window (hidden by default, will replace form window) -->
-<div id="success-window" class="window" style="display: none; margin-bottom: 2rem; border: 3px solid #00aa00;">
-  <div class="title-bar" style="background: #00aa00; color: white;">
-    <div class="title-bar-text">✓ Consultation Request Received</div>
+<!-- Success Message (hidden by default) -->
+<div id="success-message" class="content-block module" style="display: none; margin-bottom: var(--spacing-8); border: 2px solid #00aa00; background: #f0fff0;">
+  <div class="content-block__header" style="border-bottom-color: #00aa00;">
+    <h2 class="content-block__title heading-2" style="color: #00aa00;">✓ Consultation Request Received</h2>
   </div>
-  <div class="window-body">
-    <h2 style="color: #00aa00; margin-top: 0;">Thank You!</h2>
-    <p class="lead">Your consultation request has been successfully submitted.</p>
-    <div class="box-padding" style="background: #f0fff0; border: 1px solid #00aa00; margin-top: 1rem;">
+  <div class="content-block__body">
+    <p class="lead">Thank You!</p>
+    <p>Your consultation request has been successfully submitted.</p>
+    <div style="padding: var(--spacing-md); background: #ffffff; border: 1px solid #00aa00; border-radius: 4px; margin-top: var(--spacing-md);">
       <p><strong>Booking ID:</strong> <span id="booking-id"></span></p>
       <p><strong>What's Next:</strong></p>
       <ul>
@@ -195,39 +204,51 @@ $GLOBALS['__jsonld'] = [
         <li>Our team will review your request</li>
         <li>We'll contact you within 24 hours to schedule your consultation</li>
       </ul>
-      <p style="margin-bottom: 0;"><strong>Notifications Sent:</strong></p>
-      <ul id="notification-status" style="margin-top: 0.5rem;">
+      <p style="margin-top: var(--spacing-md); margin-bottom: 0;"><strong>Notifications Sent:</strong></p>
+      <ul id="notification-status" style="margin-top: var(--spacing-sm);">
         <li>Email notification to team: <span id="email-status">Pending...</span></li>
         <li>SMS notification to team: <span id="sms-status">Pending...</span></li>
         <li>Confirmation email to you: <span id="confirmation-status">Pending...</span></li>
       </ul>
-      <p style="margin-top: 1rem;"><em>Note: Email delivery depends on server configuration. All requests are logged and we monitor submissions regularly.</em></p>
+      <p style="margin-top: var(--spacing-md);"><em>Note: Email delivery depends on server configuration. All requests are logged and we monitor submissions regularly.</em></p>
     </div>
-    <div style="text-align: center; margin-top: 1.5rem;">
-      <a href="/" class="btn" data-ripple>Return to Homepage</a>
-      <a href="/services/" class="btn" data-ripple style="margin-left: 1rem;">View Services</a>
+    <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
+      <a href="/" class="btn btn--secondary" data-ripple>Return to Homepage</a>
+      <a href="/services/" class="btn btn--secondary" data-ripple>View Services</a>
     </div>
   </div>
 </div>
 
-<!-- Error Message Window (hidden by default, will replace form window) -->
-<div id="error-window" class="window" style="display: none; margin-bottom: 2rem; border: 3px solid #cc0000;">
-  <div class="title-bar" style="background: #cc0000; color: white;">
-    <div class="title-bar-text">⚠ Submission Error</div>
+<!-- Error Message (hidden by default) -->
+<div id="error-message" class="content-block module" style="display: none; margin-bottom: var(--spacing-8); border: 2px solid #cc0000; background: #fff0f0;">
+  <div class="content-block__header" style="border-bottom-color: #cc0000;">
+    <h2 class="content-block__title heading-2" style="color: #cc0000;">⚠ Submission Error</h2>
   </div>
-  <div class="window-body">
-    <h2 style="color: #cc0000; margin-top: 0;">Submission Failed</h2>
-    <p id="error-message"></p>
+  <div class="content-block__body">
+    <p id="error-text"></p>
     <p>Please try again or contact us directly:</p>
     <ul>
-      <li>Email: <a href="mailto:hirejoelm@gmail.com">hirejoelm@gmail.com</a></li>
+      <li>Email: <a href="mailto:info@neuralcommandllc.com">info@neuralcommandllc.com</a></li>
       <li>Phone: +1-844-568-4624</li>
     </ul>
-    <div style="text-align: center; margin-top: 1.5rem;">
-      <button id="retry-btn" class="btn" data-ripple>Try Again</button>
+    <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
+      <button id="retry-btn" class="btn btn--primary" data-ripple>Try Again</button>
     </div>
   </div>
 </div>
+
+<style>
+/* Responsive grid for form fields */
+@media (min-width: 640px) {
+  #booking-form > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  
+  .content-block__body > div[style*="grid-template-columns"] {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  }
+}
+</style>
 
 <script>
 document.getElementById('booking-form').addEventListener('submit', async function(e) {
@@ -236,10 +257,10 @@ document.getElementById('booking-form').addEventListener('submit', async functio
   const formData = new FormData(this);
   const submitBtn = this.querySelector('button[type="submit"]');
   const originalText = submitBtn.textContent;
-  const formWindow = this.closest('.window');
-  const successWindow = document.getElementById('success-window');
-  const errorWindow = document.getElementById('error-window');
-  const mainSection = document.querySelector('main section.container');
+  const formBlock = this.closest('.content-block');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+  const sectionContent = document.querySelector('.section__content');
   
   // Show loading state
   submitBtn.textContent = 'Submitting...';
@@ -254,13 +275,14 @@ document.getElementById('booking-form').addEventListener('submit', async functio
     const result = await response.json();
     
     if (result.ok) {
-      // REPLACE form window with success window in the same location
-      formWindow.style.display = 'none';
+      // Hide form block
+      formBlock.style.display = 'none';
       
-      // Insert success window in the first position of main section
-      mainSection.insertBefore(successWindow, mainSection.firstChild);
+      // Insert success message before form block
+      sectionContent.insertBefore(successMessage, formBlock);
       
       // Show success message
+      successMessage.style.display = 'block';
       document.getElementById('booking-id').textContent = result.booking_id || 'N/A';
       
       // Update notification status
@@ -272,10 +294,8 @@ document.getElementById('booking-form').addEventListener('submit', async functio
       document.getElementById('confirmation-status').textContent = notifications.confirmation_sent ? '✓ Sent' : '✗ Not sent (check mail config)';
       document.getElementById('confirmation-status').style.color = notifications.confirmation_sent ? '#00aa00' : '#ff9900';
       
-      successWindow.style.display = 'block';
-      
-      // Scroll to top of success window
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
       
       // Reset form
       this.reset();
@@ -283,45 +303,45 @@ document.getElementById('booking-form').addEventListener('submit', async functio
       throw new Error(result.error || result.errors?.join(', ') || 'Submission failed');
     }
   } catch (error) {
-    // REPLACE form window with error window
-    formWindow.style.display = 'none';
+    // Hide form block
+    formBlock.style.display = 'none';
     
-    // Insert error window in the first position of main section
-    mainSection.insertBefore(errorWindow, mainSection.firstChild);
+    // Insert error message before form block
+    sectionContent.insertBefore(errorMessage, formBlock);
     
     // Show error message
-    document.getElementById('error-message').textContent = error.message || 'Sorry, there was an error submitting your request.';
-    errorWindow.style.display = 'block';
+    errorMessage.style.display = 'block';
+    document.getElementById('error-text').textContent = error.message || 'Sorry, there was an error submitting your request.';
     
-    // Scroll to top of error window
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to error message
+    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
     
     console.error('Booking error:', error);
   } finally {
     // Restore button state (only if form is still visible)
-    if (formWindow.style.display !== 'none') {
+    if (formBlock.style.display !== 'none') {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     }
   }
 });
 
-// Retry button - show form window again
+// Retry button - show form again
 document.getElementById('retry-btn').addEventListener('click', function() {
-  const formWindow = document.querySelector('#booking-form').closest('.window');
-  const errorWindow = document.getElementById('error-window');
+  const formBlock = document.querySelector('#booking-form').closest('.content-block');
+  const errorMessage = document.getElementById('error-message');
   const submitBtn = document.querySelector('#booking-form button[type="submit"]');
   
   // Hide error, show form
-  errorWindow.style.display = 'none';
-  formWindow.style.display = 'block';
+  errorMessage.style.display = 'none';
+  formBlock.style.display = 'block';
   
   // Restore button state
   submitBtn.textContent = 'Request Free Consultation';
   submitBtn.disabled = false;
   
   // Scroll to form
-  formWindow.scrollIntoView({ behavior: 'smooth' });
+  formBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 </script>
 
