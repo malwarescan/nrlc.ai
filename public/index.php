@@ -18,6 +18,24 @@ if (strpos($host, 'www.') === 0) {
 }
 
 try {
+  // CRITICAL: Force HTTPS security headers for production (helps Google recognize HTTPS)
+  $host = $_SERVER['HTTP_HOST'] ?? '';
+  $isLocalhost = in_array($host, ['localhost', '127.0.0.1']) || 
+                 strpos($host, 'localhost:') === 0 || 
+                 strpos($host, '127.0.0.1:') === 0;
+  
+  if (!$isLocalhost) {
+    // Force HTTPS headers to help Google recognize the page is served over HTTPS
+    // Railway sets HTTP_X_FORWARDED_PROTO, but we also set explicit headers
+    if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+      $_SERVER['HTTPS'] = 'on';
+    }
+    // Set Strict-Transport-Security header (HSTS) to signal HTTPS is required
+    if (!headers_sent()) {
+      header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+    }
+  }
+  
   // Guard all require_once calls
   if (file_exists(__DIR__.'/../bootstrap/env.php')) {
     require_once __DIR__.'/../bootstrap/env.php';
