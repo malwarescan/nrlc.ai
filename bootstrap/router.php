@@ -346,6 +346,29 @@ function route_request(): void {
     $serviceSlug = $m[1];
     $citySlug = $m[2];
     
+    // CHECK FOR CUSTOM SERVICE-CITY PAGE FIRST
+    // Pattern: pages/services/{service}/{city}.php
+    $customServiceCityFile = __DIR__ . '/../pages/services/' . $serviceSlug . '/' . $citySlug . '.php';
+    if (file_exists($customServiceCityFile)) {
+      // Custom page exists - include it directly
+      $_GET['service'] = $serviceSlug;
+      $_GET['city'] = $citySlug;
+      
+      // Set locale if not already set
+      if (!isset($GLOBALS['locale'])) {
+        $originalPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        if (preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath, $localeMatch)) {
+          $GLOBALS['locale'] = strtolower($localeMatch[1].'-'.$localeMatch[2]);
+        } else {
+          $GLOBALS['locale'] = 'en-us';
+        }
+      }
+      
+      // Include the custom page (it handles its own schema and content)
+      require_once $customServiceCityFile;
+      return;
+    }
+    
     // SPECIAL HANDLING: Training is education, not a service - use Course schema template
     if ($serviceSlug === 'training') {
       // Check if original path had locale prefix (before stripping)
