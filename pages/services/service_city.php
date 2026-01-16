@@ -3,25 +3,50 @@ declare(strict_types=1);
 // Note: head.php and header.php are already included by router.php render_page()
 // Do not duplicate them here to avoid double headers
 
-require_once __DIR__.'/../../lib/content_tokens.php';
-require_once __DIR__.'/../../lib/schema_builders.php';
-require_once __DIR__.'/../../lib/helpers.php';
-require_once __DIR__.'/../../lib/deterministic.php';
-require_once __DIR__.'/../../lib/csv.php';
-require_once __DIR__.'/../../lib/service_enhancements.php';
-require_once __DIR__.'/../../lib/service_intent_taxonomy.php';
-require_once __DIR__.'/../../lib/gbp_config.php';
+// GUARD ALL REQUIRE_ONCE CALLS - prevent fatal errors if files don't exist
+$requiredFiles = [
+  'content_tokens.php',
+  'schema_builders.php',
+  'helpers.php',
+  'deterministic.php',
+  'csv.php',
+  'service_enhancements.php',
+  'service_intent_taxonomy.php',
+  'gbp_config.php'
+];
+
+foreach ($requiredFiles as $file) {
+  $path = __DIR__.'/../../lib/'.$file;
+  if (file_exists($path)) {
+    try {
+      require_once $path;
+    } catch (Throwable $e) {
+      error_log("Failed to require {$file}: " . $e->getMessage());
+      // Continue - some functions may still work
+    }
+  } else {
+    error_log("Required file not found: {$file}");
+  }
+}
 
 // Assume $serviceSlug, $citySlug, $currentUrl are provided by router
 $serviceSlug = $_GET['service'] ?? 'crawl-clarity';
-$citySlug    = $_GET['city']    ?? detect_user_city();
+$citySlug    = $_GET['city']    ?? (function_exists('detect_user_city') ? detect_user_city() : 'atlanta');
 $pathKey = "/services/$serviceSlug/$citySlug/";
 
-det_seed($pathKey);
+// Guard det_seed call
+if (function_exists('det_seed')) {
+  try {
+    det_seed($pathKey);
+  } catch (Throwable $e) {
+    error_log("det_seed failed: " . $e->getMessage());
+  }
+}
 
 // Use proper service name mapping to ensure correct capitalization (e.g., "Generative SEO" not "Generative seo")
-require_once __DIR__.'/../../lib/service_enhancements.php';
-$serviceTitle = get_service_name_from_slug($serviceSlug);
+$serviceTitle = function_exists('get_service_name_from_slug') 
+  ? get_service_name_from_slug($serviceSlug) 
+  : ucwords(str_replace('-', ' ', $serviceSlug));
 // Safely get city title
 try {
   $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
@@ -155,7 +180,7 @@ $content = $intro . $local;
           <div class="content-block__body">
             <?php
             // GBP-ALIGNED: First sentence must clearly state business provides service
-            $gbpName = gbp_business_name();
+            $gbpName = function_exists('gbp_business_name') ? gbp_business_name() : 'NRLC.ai';
             $serviceTitleEscaped = htmlspecialchars($serviceTitle);
             echo '<p class="lead" itemprop="description">' . htmlspecialchars($gbpName) . ' provides <strong>' . $serviceTitleEscaped . '</strong> for businesses.</p>';
             ?>
@@ -172,7 +197,7 @@ $content = $intro . $local;
             <!-- CONVERSION-FIRST CTAs: Primary (service-named) + Secondary (proof) -->
             <?php
             $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
-            $localized = get_localized_service_strings($locale);
+            $localized = function_exists('get_localized_service_strings') ? get_localized_service_strings($locale) : [];
             $secondaryCta = $localized['cta_secondary'] ?? 'See Proof / Case Studies';
             ?>
             <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
