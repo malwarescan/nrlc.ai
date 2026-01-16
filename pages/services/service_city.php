@@ -67,7 +67,9 @@ if (!isset($GLOBALS['locale'])) {
 }
 // Safely get intent content
 try {
-  $intentContent = service_intent_content($serviceSlug, $citySlug);
+  $intentContent = function_exists('service_intent_content') 
+    ? service_intent_content($serviceSlug, $citySlug) 
+    : [];
   $pageTitle = $intentContent['h1'] ?? ucwords(str_replace('-', ' ', $serviceSlug)) . ' in ' . $cityTitle;
   $subhead = $intentContent['subhead'] ?? "Professional {$serviceTitle} services in {$cityTitle}.";
   $ctaText = $intentContent['cta'] ?? "Request {$serviceTitle}";
@@ -83,7 +85,7 @@ try {
 
 // Load city data for schema
 try {
-  $citiesData = csv_read_data('cities.csv');
+  $citiesData = function_exists('csv_read_data') ? csv_read_data('cities.csv') : [];
   $cityRow = null;
   foreach ($citiesData as $c) {
     // Match by city_name (slug) or city_slug if available
@@ -119,7 +121,7 @@ if (isset($GLOBALS['__page_meta']) && is_array($GLOBALS['__page_meta'])) {
 }
 
 // Try to get enhanced intro from service_enhancements.json
-$enhancement = get_service_enhancement($serviceSlug, $citySlug);
+$enhancement = function_exists('get_service_enhancement') ? get_service_enhancement($serviceSlug, $citySlug) : [];
 $enhancedIntro = $enhancement['intro'] ?? null;
 
 // META KERNEL DIRECTIVE: Required content sections (8-section template)
@@ -375,7 +377,9 @@ $content = $intro . $local;
     $localePrefix = $locale ? "/$locale" : '';
 
     // Get related services for lateral linking (include city for city-specific links)
-    $relatedServices = get_related_services_for_linking($serviceSlug, $locale, $citySlug);
+    $relatedServices = function_exists('get_related_services_for_linking') 
+      ? get_related_services_for_linking($serviceSlug, $locale, $citySlug) 
+      : [];
     ?>
 
     <!-- STEP 5: Related Services Footer Block -->
