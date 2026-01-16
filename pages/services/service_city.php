@@ -187,6 +187,16 @@ $content = $intro . $local;
             echo '<p class="lead" itemprop="description">' . htmlspecialchars($gbpName) . ' provides <strong>' . $serviceTitleEscaped . '</strong> for businesses.</p>';
             ?>
             <p class="lead"><?= htmlspecialchars($subhead) ?></p>
+            
+            <!-- DEFINITION LOCK: AI Extractability (first 120 words) -->
+            <?php
+            $definition = function_exists('service_definition_lock') 
+              ? service_definition_lock($serviceSlug, $citySlug) 
+              : "<p><dfn>{$serviceTitle}</dfn> is an AI-first SEO service that optimizes your content for AI search systems including ChatGPT, Claude, Perplexity, and Google AI Overviews in {$cityTitle}.</p>";
+            ?>
+            <div class="definition-lock box-padding" style="background: #f8f9fa; border-left: 3px solid #4a90e2; margin: 1.5rem 0; padding: 1rem;" itemscope itemtype="https://schema.org/DefinedTerm">
+              <?= $definition ?>
+            </div>
             <?php
             // Add local proof line for UK cities
             if (function_exists('is_uk_city') && is_uk_city($citySlug)) {
@@ -196,17 +206,26 @@ $content = $intro . $local;
               echo "<p>We've worked with businesses across $cityTitle and $region and consistently deliver results that automated tools miss.</p>";
             }
             ?>
-            <!-- CONVERSION-FIRST CTAs: Primary (service-named) + Secondary (proof) -->
+            <!-- CONVERSION-FIRST CTAs: Primary (benefit-focused) + Secondary (proof) -->
             <?php
             $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
             $localized = function_exists('get_localized_service_strings') ? get_localized_service_strings($locale) : [];
             $secondaryCta = $localized['cta_secondary'] ?? 'See Proof / Case Studies';
+            
+            // Improved CTA copy (benefit-focused)
+            $heroCtaPrimary = "Get Your Free AI Visibility Audit";
+            $heroCtaSecondary = "See Case Studies";
             ?>
             <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
-              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
-              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;"><?= htmlspecialchars($secondaryCta) ?></a>
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($heroCtaPrimary) ?>')"><?= htmlspecialchars($heroCtaPrimary) ?></button>
+              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;"><?= htmlspecialchars($heroCtaSecondary) ?></a>
             </div>
-            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><strong>No obligation.</strong> Response within 24 hours. See how AI systems currently describe your business.</p>
+            
+            <!-- TRUST SIGNALS -->
+            <div style="margin: 1.5rem 0; padding: 1rem; background: #f0f7ff; border-radius: 4px; text-align: center;">
+              <p style="margin: 0; font-size: 0.95rem; color: #333;"><strong>Trusted by businesses in <?= htmlspecialchars($cityTitle) ?></strong> | <strong>24-hour response time</strong> | <strong>No long-term contracts</strong></p>
+            </div>
           </div>
         </div>
 
@@ -238,6 +257,19 @@ $content = $intro . $local;
               echo "<div class=\"box-padding\"><p><strong>Local Expertise:</strong> We've worked with businesses across $cityTitle and $region, consistently delivering AI-first SEO results that automated tools miss. Our understanding of {$cityTitle}'s market dynamics and search behavior patterns enables us to optimize for both traditional search and AI engines effectively.</p></div>";
             }
             ?>
+          </div>
+        </section>
+        
+        <!-- STRATEGIC CTA #1: After Why Choose Us (Social Proof → Action) -->
+        <section class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; margin: 2rem 0;">
+          <div class="content-block__body">
+            <p class="lead" style="margin-bottom: 1rem;"><strong>See How AI Systems Currently Describe Your Business</strong></p>
+            <p style="margin-bottom: 1.5rem;">Get a free AI visibility audit showing exactly how ChatGPT, Claude, Perplexity, and Google AI Overviews see your business—and what's missing.</p>
+            <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Free AI Visibility Audit')">Get Free AI Visibility Audit</button>
+              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">View Case Studies</a>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">No obligation. Response within 24 hours.</p>
           </div>
         </section>
 
@@ -278,6 +310,19 @@ $content = $intro . $local;
             <?php endif; ?>
           </div>
         </section>
+        
+        <!-- STRATEGIC CTA #2: After Process (Education → Action) -->
+        <section class="content-block module" style="background: #fff5e6; border-left: 3px solid #ff9800; margin: 2rem 0;">
+          <div class="content-block__body">
+            <p class="lead" style="margin-bottom: 1rem;"><strong>Ready to Start Your <?= htmlspecialchars($serviceTitle) ?> Project?</strong></p>
+            <p style="margin-bottom: 1.5rem;">Our structured approach delivers measurable improvements in AI engine visibility, citation accuracy, and crawl efficiency. Get started with a free consultation.</p>
+            <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('Start <?= htmlspecialchars($serviceTitle) ?> Project')">Start Your Project</button>
+              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #ff9800; color: #ff9800;">See Results</a>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Free consultation. No obligation. Response within 24 hours.</p>
+          </div>
+        </section>
 
         <!-- META KERNEL DIRECTIVE: SECTION 5 - Pricing -->
         <section class="content-block module">
@@ -286,6 +331,19 @@ $content = $intro . $local;
           </div>
           <div class="content-block__body">
             <?= $pricing ?>
+          </div>
+        </section>
+        
+        <!-- STRATEGIC CTA #3: After Pricing (Pricing → Action) -->
+        <section class="content-block module" style="background: #e8f5e9; border-left: 3px solid #4caf50; margin: 2rem 0;">
+          <div class="content-block__body">
+            <p class="lead" style="margin-bottom: 1rem;"><strong>Get a Custom Quote for <?= htmlspecialchars($serviceTitle) ?> in <?= htmlspecialchars($cityTitle) ?></strong></p>
+            <p style="margin-bottom: 1.5rem;">Pricing varies based on your current technical SEO debt, AI engine visibility goals, and number of service locations. Get a detailed proposal with clear scope, deliverables, and expected outcomes.</p>
+            <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Custom Quote for <?= htmlspecialchars($serviceTitle) ?>')">Get Custom Quote</button>
+              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4caf50; color: #4caf50;">View Case Studies</a>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Free consultation. No obligation. Response within 24 hours.</p>
           </div>
         </section>
 
@@ -316,10 +374,10 @@ $content = $intro . $local;
           <div class="content-block__body">
             <p class="lead">Get started with <strong><?= htmlspecialchars($serviceTitle) ?></strong> in <strong><?= htmlspecialchars($cityTitle) ?></strong> today. Our <strong>AI-first SEO</strong> approach delivers measurable improvements in <strong>citation accuracy</strong>, <strong>crawl efficiency</strong>, and <strong>AI engine visibility</strong>.</p>
             <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
-              <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
+              <button type="button" class="btn btn--primary" onclick="openContactSheet('Start Improving Your AI Citations Today')">Start Improving Your AI Citations Today</button>
               <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/insights/') : '/en-us/insights/' ?>" class="btn btn--secondary">Research & Insights</a>
             </div>
-            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><strong>No obligation.</strong> Response within 24 hours. See measurable improvements in AI engine visibility.</p>
           </div>
         </section>
 
@@ -382,18 +440,30 @@ $content = $intro . $local;
       : [];
     ?>
 
-    <!-- STEP 5: Related Services Footer Block -->
+    <!-- STEP 5: Related Services Footer Block (Card Layout) -->
     <section class="content-block module">
       <div class="content-block__header">
         <h2 class="content-block__title">Related Services</h2>
       </div>
       <div class="content-block__body">
-        <ul>
+        <?php if (!empty($relatedServices)): ?>
+        <div class="grid grid-auto-fit" style="gap: 1.5rem; margin-bottom: 2rem;">
           <?php foreach ($relatedServices as $related): ?>
-          <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
+          <div class="card" style="border: 1px solid #e0e0e0; border-radius: 4px; padding: 1.5rem; background: #fff;">
+            <h3 style="margin-top: 0; margin-bottom: 0.75rem; font-size: 1.1rem;">
+              <a href="<?= htmlspecialchars($related['url']) ?>" style="color: #4a90e2; text-decoration: none;"><?= htmlspecialchars($related['name']) ?></a>
+            </h3>
+            <?php if (!empty($related['description'])): ?>
+            <p style="margin-bottom: 1rem; color: #666; font-size: 0.95rem;"><?= htmlspecialchars($related['description']) ?></p>
+            <?php endif; ?>
+            <a href="<?= htmlspecialchars($related['url']) ?>" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2; padding: 0.5rem 1rem; text-decoration: none; display: inline-block; border-radius: 4px;">Learn More</a>
+          </div>
           <?php endforeach; ?>
-        </ul>
-        <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a> | <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/ai-optimization/') : '/en-us/ai-optimization/' ?>">AI Optimization</a> | <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/insights/') : '/en-us/insights/' ?>">Research & Insights</a></p>
+        </div>
+        <?php endif; ?>
+        <div style="border-top: 1px solid #e0e0e0; padding-top: 1.5rem; margin-top: 1.5rem;">
+          <p style="text-align: center; margin: 0;"><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a> | <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/ai-optimization/') : '/en-us/ai-optimization/' ?>">AI Optimization</a> | <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/insights/') : '/en-us/insights/' ?>">Research & Insights</a></p>
+        </div>
       </div>
     </section>
 

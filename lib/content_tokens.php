@@ -16,6 +16,32 @@ function csv_rows_local(string $file): array {
 }
 function titleCaseCity(string $slug): string { return ucwords(str_replace(['-','_'],' ',$slug)); }
 
+/**
+ * Generate service definition for AI extractability (definition lock - first 120 words)
+ * Must appear immediately after H1 for optimal AI extraction
+ */
+function service_definition_lock(string $serviceSlug, string $citySlug): string {
+  $serviceName = get_service_name_from_slug($serviceSlug);
+  $cityName = titleCaseCity($citySlug);
+  
+  // Service-specific definitions
+  $definitions = [
+    'generative-seo' => "<dfn>Generative SEO</dfn> is an AI-first SEO service that optimizes content structure, entity clarity, and citation signals for generative AI systems including ChatGPT, Claude, Perplexity, and Google AI Overviews. In {$cityName}, Generative SEO ensures your content is discoverable when users ask generative AI assistants for information by implementing atomic content blocks, explicit entity definitions, citation anchors, and verifiable factual statements.",
+    'link-building-ai' => "<dfn>Link Building AI</dfn> is an AI-first link building service that optimizes link profiles for AI search systems including ChatGPT, Perplexity, and Google AI Overviews. In {$cityName}, Link Building AI improves link authority and citation likelihood by implementing AI link signals, link quality indicators, and authority markers that AI systems use to evaluate and value link profiles.",
+    'mobile-seo-ai' => "<dfn>Mobile SEO AI</dfn> is a mobile-first AI search optimization service for mobile AI systems including mobile ChatGPT and mobile Perplexity. In {$cityName}, Mobile SEO AI optimizes content for mobile-first indexing, mobile Core Web Vitals, and mobile AI search visibility to ensure your content ranks well in mobile AI search results.",
+    'retrieval-optimization-ai' => "<dfn>Retrieval Optimization AI</dfn> is an AI search optimization service that optimizes how AI retrieval systems retrieve and rank your content. In {$cityName}, Retrieval Optimization AI implements retrieval signal engineering, semantic retrieval optimization, and query-document matching enhancement to ensure AI retrieval systems can correctly match user queries to your content.",
+    'ai-overviews-optimization' => "<dfn>AI Overviews Optimization</dfn> is a specialized SEO service that optimizes how Google AI Overviews includes your content. In {$cityName}, AI Overviews Optimization implements AI Overviews-specific structured data, entity clarity optimization, and AI Overviews citation signals to ensure your content gets included correctly in Google AI Overviews.",
+    'ai-citation-optimization' => "<dfn>AI Citation Optimization</dfn> is an AI-first SEO service that optimizes how AI systems cite your content. In {$cityName}, AI Citation Optimization implements citation signal engineering, citation anchor implementation, and source attribution to ensure AI systems cite your content with optimal citation frequency and accuracy.",
+    'technical-seo' => "<dfn>Technical SEO</dfn> is a comprehensive SEO service that optimizes technical infrastructure, crawl efficiency, and site performance. In {$cityName}, Technical SEO implements URL normalization, schema enhancement, mobile performance optimization, and sitemap architecture to ensure search engines and AI systems can efficiently crawl and index your content.",
+    'site-audits' => "<dfn>AI-First Site Audits</dfn> is a comprehensive audit service that analyzes your site's technical SEO, structured data, and AI engine visibility. In {$cityName}, AI-First Site Audits identify crawl efficiency issues, schema gaps, entity clarity problems, and AI citation barriers to provide actionable recommendations for improvement.",
+  ];
+  
+  // Default definition if service-specific not found
+  $default = "<dfn>{$serviceName}</dfn> is an AI-first SEO service that optimizes your content for AI search systems including ChatGPT, Claude, Perplexity, and Google AI Overviews. In {$cityName}, {$serviceName} ensures your content is discoverable, citable, and ranked correctly by AI systems through structured data optimization, entity clarity, and citation signal implementation.";
+  
+  return $definitions[$serviceSlug] ?? $default;
+}
+
 function service_long_intro(string $service, string $city): string {
   $s = ucfirst(str_replace('-',' ', $service));
   $c = titleCaseCity($city);
