@@ -163,25 +163,20 @@
     if (preg_match('#^/insights/([^/]+)/$#', $pathWithoutLocale, $m) && $m[1] !== 'insights') {
       $articleSlug = $m[1];
       
-      // Try to get title from page meta (set by router before header is included)
-      $articleTitle = null;
-      if (isset($GLOBALS['__page_meta']['title'])) {
-        $articleTitle = $GLOBALS['__page_meta']['title'];
-        // Remove " | NRLC.ai" suffix if present
-        $articleTitle = preg_replace('/\s*\|\s*NRLC\.ai\s*$/i', '', $articleTitle);
-      }
+      // Use clean slug-to-title mapping (short, clean titles for breadcrumbs)
+      $slugTitleMap = [
+        'ai-retrieval-llm-citation' => 'How LLMs Retrieve and Cite Web Content',
+        'prechunking-content-ai-retrieval' => 'Prechunking Content for AI Retrieval',
+        'content-chunking-seo' => 'Content Chunking for SEO',
+        'silent-hydration-seo' => 'The Silent Killer of Search Rankings',
+        'semantic-constraint-medical-information-retrieval' => 'Semantic Constraint in Medical Information Retrieval',
+        'how-to-get-your-business-mentioned-in-chatgpt' => 'How to Get Your Business Mentioned in ChatGPT',
+      ];
+      $articleTitle = $slugTitleMap[$articleSlug] ?? ucwords(str_replace(['-', '_'], ' ', $articleSlug));
       
-      // Fallback: use slug-to-title mapping from router
-      if (!$articleTitle) {
-        $slugTitleMap = [
-          'ai-retrieval-llm-citation' => 'How LLMs Retrieve and Cite Web Content',
-          'prechunking-content-ai-retrieval' => 'Prechunking Content for AI Retrieval',
-          'content-chunking-seo' => 'Content Chunking for SEO',
-          'silent-hydration-seo' => 'The Silent Killer of Search Rankings',
-          'semantic-constraint-medical-information-retrieval' => 'Semantic Constraint in Medical Information Retrieval',
-          'how-to-get-your-business-mentioned-in-chatgpt' => 'How to Get Your Business Mentioned in ChatGPT',
-        ];
-        $articleTitle = $slugTitleMap[$articleSlug] ?? ucwords(str_replace(['-', '_'], ' ', $articleSlug));
+      // If title has colon, truncate at colon (remove subtitle)
+      if (strpos($articleTitle, ':') !== false) {
+        $articleTitle = trim(substr($articleTitle, 0, strpos($articleTitle, ':')));
       }
       
       $breadcrumbs[] = ['name' => $articleTitle, 'url' => ''];
