@@ -525,16 +525,35 @@ if ($enhancementCanonical && $enhancementCanonical !== $canonical_url) {
 }
 
 // STEP 4: Exact Service JSON-LD structure as specified
-require_once __DIR__.'/../../lib/service_enhancements.php';
-$serviceName = get_service_name_from_slug($serviceSlug);
-$serviceType = get_service_type_from_slug($serviceSlug);
+// Guard all require_once and function calls
+if (file_exists(__DIR__.'/../../lib/service_enhancements.php')) {
+  require_once __DIR__.'/../../lib/service_enhancements.php';
+}
+$serviceName = function_exists('get_service_name_from_slug') ? get_service_name_from_slug($serviceSlug) : ucwords(str_replace('-', ' ', $serviceSlug));
+$serviceType = function_exists('get_service_type_from_slug') ? get_service_type_from_slug($serviceSlug) : 'AI-First SEO Services';
 
 // GBP-ALIGNED: Service schema references single canonical Organization @id
-require_once __DIR__.'/../../lib/SchemaFixes.php';
-use NRLC\Schema\SchemaFixes;
-$orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization'; // Stable @id reused everywhere
-$personId = SchemaFixes::ensureHttps(gbp_website()) . '#joel-maldonado';
-$domain = SchemaFixes::ensureHttps(gbp_website());
+$orgId = 'https://nrlc.ai#organization';
+$personId = 'https://nrlc.ai#joel-maldonado';
+$domain = 'https://nrlc.ai';
+
+// Try to use SchemaFixes if available
+if (file_exists(__DIR__.'/../../lib/SchemaFixes.php')) {
+  try {
+    require_once __DIR__.'/../../lib/SchemaFixes.php';
+    if (class_exists('NRLC\Schema\SchemaFixes') && function_exists('gbp_website')) {
+      $website = gbp_website();
+      if ($website) {
+        $orgId = \NRLC\Schema\SchemaFixes::ensureHttps($website) . '#organization';
+        $personId = \NRLC\Schema\SchemaFixes::ensureHttps($website) . '#joel-maldonado';
+        $domain = \NRLC\Schema\SchemaFixes::ensureHttps($website);
+      }
+    }
+  } catch (Throwable $e) {
+    error_log("SchemaFixes failed: " . $e->getMessage());
+    // Use defaults above
+  }
+}
 
 // CANONICAL ENFORCEMENT: Ensure proper canonical URL for locale-specific content
 // Local pages (city-specific) should NOT have hreflang - they are location-specific
