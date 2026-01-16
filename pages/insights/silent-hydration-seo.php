@@ -37,6 +37,23 @@ ob_start();
           <p class="lead" itemprop="description">For years, companies have poured millions into content, backlinks, site speed, and technical optimization—yet their rankings remained stubbornly flat. Audits returned clean. Pages loaded instantly. Core Web Vitals passed. Google Search Console showed pages as indexed. Nothing looked broken.</p>
           <p>And yet, traffic never moved.</p>
           <p>This is the story of why. And how a hidden failure inside modern JavaScript rendering has quietly become one of the most dangerous suppressors of organic search visibility on the internet.</p>
+          
+          <!-- DEFINITION LOCK: AI Extractability (first 120 words) -->
+          <div class="definition-lock box-padding" style="background: #f8f9fa; border-left: 3px solid #4a90e2; margin: 1.5rem 0; padding: 1rem;" itemscope itemtype="https://schema.org/DefinedTerm">
+            <p><dfn itemprop="name">Silent Hydration Suppression</dfn> <span itemprop="description">is a phenomenon where JavaScript hydration fails during Googlebot's rendering process, causing search engines to index incomplete pages even though the site appears fully functional to human users. This occurs when server-rendered HTML fails to hydrate properly under crawler conditions (throttled execution, aggressive timeouts, speculative cancellation), resulting in Google indexing pages missing critical content, schema markup, internal links, and canonical tags. The site appears operational to users but is semantically hollow in search results, leading to suppressed rankings without visible errors.</span></p>
+          </div>
+          
+          <!-- TRUST SIGNALS -->
+          <div style="margin: 1.5rem 0; padding: 1rem; background: #f0f7ff; border-radius: 4px; text-align: center;">
+            <p style="margin: 0; font-size: 0.95rem; color: #333;"><strong>24-hour response time</strong> | <strong>No obligation</strong> | <strong>Free consultation</strong></p>
+          </div>
+          
+          <!-- CONVERSION-FIRST CTAs: Hero (benefit-focused) -->
+          <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Free Hydration Failure Audit')">Get Free Hydration Failure Audit</button>
+            <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">See Case Studies</a>
+          </div>
+          <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><strong>No obligation.</strong> Response within 24 hours. Discover if hydration failure is suppressing your rankings.</p>
         </div>
       </div>
 
@@ -107,6 +124,19 @@ ob_start();
           <p>This isn't a niche frontend issue. It's a systemic search visibility risk.</p>
         </div>
       </div>
+      
+      <!-- STRATEGIC CTA #1: After Problem Identification (Education → Action) -->
+      <section class="content-block module" style="background: #f0f7ff; border-left: 3px solid #4a90e2; margin: 2rem 0;">
+        <div class="content-block__body">
+          <p class="lead" style="margin-bottom: 1rem;"><strong>Is Hydration Failure Suppressing Your Rankings?</strong></p>
+          <p style="margin-bottom: 1.5rem;">Discover if silent hydration suppression is preventing Google from indexing your complete pages. Get a free audit that tests your site under actual Googlebot rendering conditions to identify hydration failures that traditional SEO tools miss.</p>
+          <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Free Hydration Failure Audit')">Get Free Hydration Audit</button>
+            <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">View Case Studies</a>
+          </div>
+          <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">No obligation. Response within 24 hours. Identify hydration issues that are killing your rankings.</p>
+        </div>
+      </section>
 
       <div class="content-block module">
         <div class="content-block__header">
@@ -137,6 +167,32 @@ ob_start();
           <p>That's the silent killer of modern SEO.</p>
         </div>
       </div>
+      
+      <!-- STRATEGIC CTA #2: After Solution (Education → Action) -->
+      <section class="content-block module" style="background: #fff5e6; border-left: 3px solid #ff9800; margin: 2rem 0;">
+        <div class="content-block__body">
+          <p class="lead" style="margin-bottom: 1rem;"><strong>Fix Hydration Failure and Restore Your Rankings</strong></p>
+          <p style="margin-bottom: 1.5rem;">Ready to implement deterministic rendering parity and fix silent hydration suppression? Our team provides comprehensive technical SEO audits that test under actual Googlebot conditions, identify hydration failures, and deliver architectural fixes that restore search visibility.</p>
+          <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn btn--primary" onclick="openContactSheet('Fix Hydration Failure')">Get Technical SEO Audit</button>
+            <a href="/en-us/services/technical-seo/" class="btn" style="background: transparent; border: 1px solid #ff9800; color: #ff9800;">Explore Technical SEO</a>
+          </div>
+          <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Free consultation. No obligation. Response within 24 hours. Fix the silent killer of your rankings.</p>
+        </div>
+      </section>
+      
+      <!-- STRATEGIC CTA #3: Final CTA (Conversion-focused) -->
+      <section class="content-block module" style="background: #e8f5e9; border-left: 3px solid #4caf50; margin: 2rem 0;">
+        <div class="content-block__body">
+          <p class="lead" style="margin-bottom: 1rem;"><strong>Start Improving Your Search Visibility Today</strong></p>
+          <p style="margin-bottom: 1.5rem;">Don't let silent hydration suppression kill your rankings. Get a free AI visibility audit that identifies hydration failures, rendering issues, and technical SEO problems that traditional tools miss.</p>
+          <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Free AI Visibility Audit')">Get Your Free AI Visibility Audit</button>
+            <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4caf50; color: #4caf50;">View Case Studies</a>
+          </div>
+          <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Free consultation. No obligation. Response within 24 hours. Discover what's really suppressing your rankings.</p>
+        </div>
+      </section>
     </article>
 
     <!-- Navigation back to insights -->

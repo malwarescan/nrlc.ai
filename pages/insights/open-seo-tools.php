@@ -27,7 +27,24 @@ $domain = 'https://nrlc.ai';
         <h1 class="content-block__title">Open Source SEO Tools - Free Tools for AI Optimization</h1>
       </div>
       <div class="content-block__body">
-        <p class="lead" style="font-size: 1.2rem; margin-bottom: 2rem;">A comprehensive guide to open-source SEO tools that provide real value for AI-first optimization, including practical implementations and integrations with NRLC.ai's services for maximum impact.</p>
+        <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;">A comprehensive guide to open-source SEO tools that provide real value for AI-first optimization, including practical implementations and integrations with NRLC.ai's services for maximum impact.</p>
+        
+        <!-- DEFINITION LOCK: AI Extractability (first 120 words) -->
+        <div class="definition-lock box-padding" style="background: #f8f9fa; border-left: 3px solid #4a90e2; margin: 1.5rem 0; padding: 1rem;" itemscope itemtype="https://schema.org/DefinedTerm">
+          <p><dfn itemprop="name">Open Source SEO Tools</dfn> <span itemprop="description">are freely available software tools that enable AI-first SEO optimization through structured data validation, entity recognition, content quality assessment, and semantic analysis. These tools provide essential capabilities for optimizing content for AI search systems including ChatGPT, Claude, Perplexity, and Google AI Overviews by implementing metadata completeness checks, content freshness monitoring, semantic structure analysis, and entity clarity validation.</span></p>
+        </div>
+        
+        <!-- TRUST SIGNALS -->
+        <div style="margin: 1.5rem 0; padding: 1rem; background: #f0f7ff; border-radius: 4px; text-align: center;">
+          <p style="margin: 0; font-size: 0.95rem; color: #333;"><strong>24-hour response time</strong> | <strong>No obligation</strong> | <strong>Free consultation</strong></p>
+        </div>
+        
+        <!-- CONVERSION-FIRST CTAs: Hero (benefit-focused) -->
+        <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+          <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Free AI Visibility Audit')">Get Your Free AI Visibility Audit</button>
+          <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">See Case Studies</a>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><strong>No obligation.</strong> Response within 24 hours. See how AI systems currently describe your business.</p>
       </div>
     </div>
     <div class="content-block module">
