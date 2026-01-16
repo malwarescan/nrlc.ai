@@ -154,7 +154,8 @@ $content = $intro . $local;
             <?php
             // GBP-ALIGNED: First sentence must clearly state business provides service
             $gbpName = gbp_business_name();
-            echo '<p class="lead" itemprop="description">' . htmlspecialchars($gbpName . ' provides <strong>' . $serviceTitle . '</strong> for businesses.') . '</p>';
+            $serviceTitleEscaped = htmlspecialchars($serviceTitle);
+            echo '<p class="lead" itemprop="description">' . htmlspecialchars($gbpName) . ' provides <strong>' . $serviceTitleEscaped . '</strong> for businesses.</p>';
             ?>
             <p class="lead"><?= htmlspecialchars($subhead) ?></p>
             <?php
