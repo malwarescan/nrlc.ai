@@ -173,17 +173,6 @@ $GLOBALS['__jsonld'] = [
   <section class="section">
     <div class="section__content">
       
-      <!-- Back Links to Pillar and Spoke 1 -->
-      <div class="content-block module" style="margin-bottom: var(--spacing-md);">
-        <div class="content-block__body">
-          <p style="margin-bottom: var(--spacing-sm);">
-            <a href="<?= absolute_url('/en-us/insights/content-chunking-seo/') ?>" class="btn btn--secondary">← Start with Content Chunking</a>
-          </p>
-          <p>
-            <a href="<?= absolute_url('/en-us/insights/prechunking-content-ai-retrieval/') ?>" class="btn btn--secondary">← Learn Prechunking</a>
-          </p>
-        </div>
-      </div>
 
       <!-- Hero Block -->
       <div class="content-block module">
