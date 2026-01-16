@@ -553,7 +553,7 @@ label{
   }
 }
 
-/* Breadcrumbs - Clean, Functional Navigation */
+/* Breadcrumbs - Clean, Functional Navigation - HORIZONTAL */
 .breadcrumb {
   background: var(--win-face);
   border-bottom: 1px solid var(--win-dark);
@@ -565,28 +565,29 @@ label{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 8px;
+  gap: 0;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .breadcrumb__item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
 .breadcrumb__item:not(:last-child)::after {
-  content: '›';
-  margin-left: 8px;
+  content: ' › ';
+  margin: 0 4px;
   color: var(--win-dark);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .breadcrumb__link {
   color: var(--brand);
   text-decoration: underline;
   transition: color 0.1s ease;
+  white-space: nowrap;
 }
 
 .breadcrumb__link:hover {
@@ -597,6 +598,7 @@ label{
 .breadcrumb__current {
   color: var(--win-text);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 /* END Early Apple × Windows 98 — Retro-Futuristic, Playful, Distinctive */
