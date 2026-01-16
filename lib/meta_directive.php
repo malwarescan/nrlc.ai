@@ -656,6 +656,13 @@ function sudo_meta_directive_ctx(array $ctx): array {
       $desc = 'AI SEO and AI visibility tools for structured knowledge, search optimization, and generative engine visibility. Product catalog of AI search optimization tools.';
       break;
       
+    case 'tools_hub':
+      // Tools hub: Comprehensive reviews and comparisons of AI SEO tools
+      $title = 'AI SEO Tools & Platform Reviews | Neural Command';
+      $desc = 'Comprehensive reviews and comparisons of AI SEO tools, platforms, and optimization solutions for ChatGPT, Claude, Perplexity, and Google AI Overviews.';
+      $keywords = 'AI SEO tools, AI search tools, tool reviews, ChatGPT tools, Claude tools, Perplexity tools, Google AI Overviews tools, structured data tools, schema tools, crawl analysis tools, content optimization tools, AI visibility tools, analytics tools, competitive analysis tools, Neural Command OS, Googlebot Renderer Lab';
+      break;
+      
     case 'case_studies_index':
       // Case studies index: Real-world examples and success stories
       $title = 'AI SEO Case Studies & Success Stories | Real Results | Neural Command';

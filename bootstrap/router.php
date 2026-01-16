@@ -1657,6 +1657,13 @@ function route_request(): void {
   }
 
   if ($path === '/tools/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'tools_hub',
+      'slug' => 'tools/index',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('tools/index');
     return;
   }
