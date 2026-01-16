@@ -79,6 +79,18 @@ try {
 // This runs when the file is included, so metadata is available to head.php
 $GLOBALS['__page_slug'] = 'services/service_city';
 
+// Enhance metadata with keywords (CRITICAL FOR SEO)
+if (isset($GLOBALS['__page_meta']) && is_array($GLOBALS['__page_meta'])) {
+  $serviceKeywords = [
+    'link-building-ai' => "Link building AI {$cityTitle}, AI link building {$cityTitle}, AI link optimization, ChatGPT link building, Perplexity link building, Google AI Overviews link building, AI link signals, link authority optimization, AI citation services {$cityTitle}",
+    'mobile-seo-ai' => "Mobile SEO AI {$cityTitle}, mobile AI search optimization, mobile-first indexing, mobile Core Web Vitals, mobile ChatGPT optimization, mobile Perplexity optimization {$cityTitle}",
+    'generative-seo' => "Generative SEO {$cityTitle}, generative search optimization, ChatGPT optimization, Claude optimization, Perplexity optimization, Google AI Overviews optimization, AI citation optimization {$cityTitle}",
+    'retrieval-optimization-ai' => "Retrieval Optimization AI {$cityTitle}, AI retrieval optimization, semantic retrieval, query-document matching, AI search visibility, retrieval ranking optimization {$cityTitle}",
+  ];
+  $defaultKeywords = "AI SEO {$cityTitle}, AI search optimization {$cityTitle}, ChatGPT optimization {$cityTitle}, Perplexity optimization {$cityTitle}, Google AI Overviews optimization {$cityTitle}, AI visibility services {$cityTitle}, structured data services {$cityTitle}";
+  $GLOBALS['__page_meta']['keywords'] = $serviceKeywords[$serviceSlug] ?? $defaultKeywords;
+}
+
 // Try to get enhanced intro from service_enhancements.json
 $enhancement = get_service_enhancement($serviceSlug, $citySlug);
 $enhancedIntro = $enhancement['intro'] ?? null;
@@ -129,20 +141,20 @@ try {
 $content = $intro . $local;
 ?>
 
-<main role="main" class="container">
-<section class="section">
+<main role="main" class="container" itemscope itemtype="https://schema.org/Service">
+<article itemscope itemtype="https://schema.org/Article" class="section">
   <div class="section__content">
         
         <!-- Hero Content Block (GBP-ALIGNED: Above-the-fold classifier) -->
-        <div class="content-block module">
+        <header class="content-block module">
           <div class="content-block__header">
-            <h1 class="content-block__title"><?= htmlspecialchars($pageTitle) ?></h1>
+            <h1 class="content-block__title" itemprop="headline"><?= htmlspecialchars($pageTitle) ?></h1>
           </div>
           <div class="content-block__body">
             <?php
             // GBP-ALIGNED: First sentence must clearly state business provides service
             $gbpName = gbp_business_name();
-            echo '<p class="lead">' . htmlspecialchars($gbpName . ' provides ' . $serviceTitle . ' for businesses.') . '</p>';
+            echo '<p class="lead" itemprop="description">' . htmlspecialchars($gbpName . ' provides <strong>' . $serviceTitle . '</strong> for businesses.') . '</p>';
             ?>
             <p class="lead"><?= htmlspecialchars($subhead) ?></p>
             <?php
@@ -169,17 +181,17 @@ $content = $intro . $local;
         </div>
 
         <!-- META KERNEL DIRECTIVE: SECTION 2 - Service Overview (~150 words) -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Service Overview</h2>
           </div>
           <div class="content-block__body">
             <?= $serviceOverview ?>
           </div>
-        </div>
+        </section>
 
         <!-- META KERNEL DIRECTIVE: SECTION 3 - Why Choose Us in [City] -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Why Choose Us in <?= htmlspecialchars($cityTitle) ?></h2>
           </div>
@@ -197,10 +209,10 @@ $content = $intro . $local;
             }
             ?>
           </div>
-        </div>
+        </section>
 
         <!-- META KERNEL DIRECTIVE: SECTION 4 - Process / How It Works -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Process / How It Works</h2>
           </div>
@@ -210,74 +222,75 @@ $content = $intro . $local;
             </div>
             <?= $timeline ?>
           </div>
-        </div>
+        </section>
 
         <!-- META KERNEL DIRECTIVE: SECTION 5 - Pricing -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Pricing for <?= htmlspecialchars($serviceTitle) ?> in <?= htmlspecialchars($cityTitle) ?></h2>
           </div>
           <div class="content-block__body">
             <?= $pricing ?>
           </div>
-        </div>
+        </section>
 
         <!-- META KERNEL DIRECTIVE: SECTION 6 - FAQ (5-7 questions, city-specific) -->
         <?php if (!empty($faqsHtml)): ?>
-        <div class="content-block module">
+        <section class="content-block module" itemscope itemtype="https://schema.org/FAQPage">
           <div class="content-block__header">
             <h2 class="content-block__title">Frequently Asked Questions</h2>
           </div>
           <div class="content-block__body">
             <?= $faqsHtml ?>
           </div>
-        </div>
+        </section>
         <?php endif; ?>
 
         <!-- META KERNEL DIRECTIVE: SECTION 7 - Service Area Coverage -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__body">
             <?= $serviceAreaCoverage ?>
           </div>
-        </div>
+        </section>
 
         <!-- META KERNEL DIRECTIVE: SECTION 8 - Primary CTA (Conversion-focused) -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
-            <h2 class="content-block__title">Ready to Improve Your AI Engine Visibility in <?= htmlspecialchars($cityTitle) ?>?</h2>
+            <h2 class="content-block__title">Ready to Improve Your <strong>AI Engine Visibility</strong> in <?= htmlspecialchars($cityTitle) ?>?</h2>
           </div>
           <div class="content-block__body">
-            <p class="lead">Get started with <?= htmlspecialchars($serviceTitle) ?> in <?= htmlspecialchars($cityTitle) ?> today. Our AI-first SEO approach delivers measurable improvements in citation accuracy, crawl efficiency, and AI engine visibility.</p>
+            <p class="lead">Get started with <strong><?= htmlspecialchars($serviceTitle) ?></strong> in <strong><?= htmlspecialchars($cityTitle) ?></strong> today. Our <strong>AI-first SEO</strong> approach delivers measurable improvements in <strong>citation accuracy</strong>, <strong>crawl efficiency</strong>, and <strong>AI engine visibility</strong>.</p>
             <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
+              <a href="<?= absolute_url('/en-us/insights/') ?>" class="btn btn--secondary">Research & Insights</a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
           </div>
-        </div>
+        </section>
 
         <!-- Additional Depth Sections (after required 8 sections) -->
         <!-- Local Market Insights Content Block -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Local Market Insights</h2>
           </div>
           <div class="content-block__body">
             <?= $market ?>
           </div>
-        </div>
+        </section>
 
         <!-- Competitive Landscape Content Block -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Competitive Landscape</h2>
           </div>
           <div class="content-block__body">
             <?= $competition ?>
           </div>
-        </div>
+        </section>
 
         <!-- Pain Points & Solutions Content Block -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Pain Points & Solutions</h2>
           </div>
@@ -286,17 +299,17 @@ $content = $intro . $local;
               <?= $pain ?>
             </div>
           </div>
-        </div>
+        </section>
 
         <!-- Success Metrics Content Block -->
-        <div class="content-block module">
+        <section class="content-block module">
           <div class="content-block__header">
             <h2 class="content-block__title">Success Metrics</h2>
           </div>
           <div class="content-block__body">
             <?= $metrics ?>
           </div>
-        </div>
+        </section>
 
     <?php
     // STEP 5: Internal Linking Repair
@@ -313,7 +326,7 @@ $content = $intro . $local;
     ?>
 
     <!-- STEP 5: Related Services Footer Block -->
-    <div class="content-block module">
+    <section class="content-block module">
       <div class="content-block__header">
         <h2 class="content-block__title">Related Services</h2>
       </div>
@@ -323,9 +336,9 @@ $content = $intro . $local;
           <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
           <?php endforeach; ?>
         </ul>
-        <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a></p>
+        <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a> | <a href="<?= absolute_url('/en-us/ai-optimization/') ?>">AI Optimization</a> | <a href="<?= absolute_url('/en-us/insights/') ?>">Research & Insights</a></p>
       </div>
-    </div>
+    </section>
 
     <?php
     // LINKING KERNEL: Add required internal links
@@ -335,6 +348,7 @@ $content = $intro . $local;
     ?>
 
   </div>
+</article>
 </section>
 </main>
 
@@ -374,6 +388,8 @@ $serviceType = get_service_type_from_slug($serviceSlug);
 require_once __DIR__.'/../../lib/SchemaFixes.php';
 use NRLC\Schema\SchemaFixes;
 $orgId = SchemaFixes::ensureHttps(gbp_website()) . '#organization'; // Stable @id reused everywhere
+$personId = SchemaFixes::ensureHttps(gbp_website()) . '#joel-maldonado';
+$domain = SchemaFixes::ensureHttps(gbp_website());
 
 // CANONICAL ENFORCEMENT: Ensure proper canonical URL for locale-specific content
 // Local pages (city-specific) should NOT have hreflang - they are location-specific
@@ -456,11 +472,72 @@ if ($serviceSlug === 'technical-seo') {
 // Start with existing schemas if any (from router or other includes)
 $jsonldSchemas = $GLOBALS['__jsonld'] ?? [];
 
+// Person schema (Joel Maldonado) - CRITICAL FOR AUTHORITY
+$serviceSpecificKnowsAbout = [
+  'link-building-ai' => ['Link Building AI', 'AI Link Optimization', 'AI Citation Services', 'Link Authority Optimization', 'AI Link Signals', 'ChatGPT Link Building', 'Perplexity Link Building', 'Google AI Overviews Link Building'],
+  'mobile-seo-ai' => ['Mobile SEO AI', 'Mobile-First Indexing', 'Mobile Core Web Vitals', 'Mobile AI Search Optimization', 'Mobile ChatGPT Optimization', 'Mobile Perplexity Optimization'],
+  'generative-seo' => ['Generative SEO', 'Generative Search Optimization', 'ChatGPT Optimization', 'Claude Optimization', 'Perplexity Optimization', 'Google AI Overviews Optimization', 'AI Citation Optimization'],
+  'retrieval-optimization-ai' => ['Retrieval Optimization AI', 'AI Retrieval Optimization', 'Semantic Retrieval', 'Query-Document Matching', 'AI Search Visibility', 'Retrieval Ranking Optimization'],
+];
+$defaultKnowsAbout = ['AI Search Optimization', 'AEO', 'GEO', 'SEO', 'Structured Data', 'LLM Seeding', 'AI Visibility'];
+$personKnowsAbout = $serviceSpecificKnowsAbout[$serviceSlug] ?? $defaultKnowsAbout;
+
+$jsonldSchemas[] = [
+  '@context' => 'https://schema.org',
+  '@type' => 'Person',
+  '@id' => $personId,
+  'name' => 'Joel Maldonado',
+  'givenName' => 'Joel',
+  'familyName' => 'Maldonado',
+  'jobTitle' => 'Founder & AI Search Researcher',
+  'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in search, retrieval, citations, and extractability for AI-powered search engines.',
+  'knowsAbout' => $personKnowsAbout,
+  'worksFor' => [
+    '@type' => 'Organization',
+    '@id' => $orgId
+  ],
+  'affiliation' => [
+    '@type' => 'Organization',
+    '@id' => $orgId
+  ],
+  'url' => $domain,
+  'sameAs' => [
+    'https://www.linkedin.com/company/neural-command/',
+    'https://twitter.com/neuralcommand',
+    'https://www.crunchbase.com/person/joel-maldonado'
+  ]
+];
+
 // ADVANCED: Enhanced WebPage schema
 $webPageDesc = "$serviceTitle in $cityTitle. Professional implementation with measurable results. Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).";
 if ($serviceSlug === 'technical-seo') {
   $webPageDesc = "Technical SEO services in $cityTitle. Fix crawl issues, improve Core Web Vitals, optimize sitemaps, and enhance mobile performance. Professional technical SEO implementation with measurable results for businesses in $cityTitle.";
 }
+
+// Service-specific about and mentions arrays
+$serviceAbout = [
+  'link-building-ai' => [
+    ['@type' => 'Thing', 'name' => 'Link Building AI', 'description' => 'AI-first link building service that optimizes link profiles for AI search systems'],
+    ['@type' => 'Thing', 'name' => 'AI Link Optimization', 'description' => 'Optimization of link profiles for AI search systems including ChatGPT, Perplexity, and Google AI Overviews'],
+    ['@type' => 'Thing', 'name' => 'AI Link Signals', 'description' => 'Signals that AI systems use to evaluate and value link profiles'],
+  ],
+  'mobile-seo-ai' => [
+    ['@type' => 'Thing', 'name' => 'Mobile SEO AI', 'description' => 'Mobile-first AI search optimization for mobile AI systems'],
+    ['@type' => 'Thing', 'name' => 'Mobile-First Indexing', 'description' => 'Search engine indexing that prioritizes mobile-optimized content'],
+  ],
+  'generative-seo' => [
+    ['@type' => 'Thing', 'name' => 'Generative SEO', 'description' => 'Optimization for generative AI systems that create summaries and citations'],
+    ['@type' => 'Thing', 'name' => 'AI Citation Optimization', 'description' => 'Optimization of content for accurate AI system citations'],
+  ],
+  'retrieval-optimization-ai' => [
+    ['@type' => 'Thing', 'name' => 'Retrieval Optimization AI', 'description' => 'Optimization of content structure for AI system retrieval and extraction'],
+    ['@type' => 'Thing', 'name' => 'Semantic Retrieval', 'description' => 'AI system retrieval based on semantic relationships and entity understanding'],
+  ],
+];
+$defaultAbout = [
+  ['@type' => 'Thing', 'name' => 'AI Search Optimization', 'description' => 'Optimization of content for AI search systems'],
+  ['@type' => 'Thing', 'name' => 'AI Visibility', 'description' => 'Visibility of businesses in AI-generated search results'],
+];
 
 $jsonldSchemas[] = [
   "@context" => "https://schema.org",
@@ -469,6 +546,10 @@ $jsonldSchemas[] = [
   "name" => $pageTitle,
   "url" => $canonical_url,
   "description" => $webPageDesc,
+  "inLanguage" => $currentLocale === 'en-gb' ? 'en-GB' : 'en-US',
+  "datePublished" => "2024-01-01",
+  "dateModified" => date('Y-m-d'),
+  "keywords" => $GLOBALS['__page_meta']['keywords'] ?? "AI SEO {$cityTitle}, AI search optimization {$cityTitle}",
   "isPartOf" => [
     "@type" => "WebSite",
     "@id" => $domain . '/#website',
@@ -483,8 +564,31 @@ $jsonldSchemas[] = [
       "query-input" => "required name=search_term_string"
     ]
   ],
-  "about" => [
-    "@id" => $canonical_url . '#service'
+  "about" => array_merge(
+    [["@id" => $canonical_url . '#service']],
+    $serviceAbout[$serviceSlug] ?? $defaultAbout
+  ),
+  "mentions" => [
+    [
+      "@type" => "SoftwareApplication",
+      "name" => "ChatGPT",
+      "description" => "AI language model by OpenAI"
+    ],
+    [
+      "@type" => "SoftwareApplication",
+      "name" => "Perplexity",
+      "description" => "AI-powered search engine"
+    ],
+    [
+      "@type" => "SoftwareApplication",
+      "name" => "Google AI Overviews",
+      "description" => "Google's AI-powered search overview feature"
+    ],
+    [
+      "@type" => "SoftwareApplication",
+      "name" => "Claude",
+      "description" => "AI language model by Anthropic"
+    ]
   ],
   "primaryImageOfPage" => [
     "@type" => "ImageObject",
@@ -493,16 +597,9 @@ $jsonldSchemas[] = [
     "height" => 43,
     "caption" => "NRLC.ai - AI Search Optimization"
   ],
-  "inLanguage" => $currentLocale === 'en-gb' ? 'en-GB' : 'en-US',
-  "datePublished" => "2024-01-01",
-  "dateModified" => date('Y-m-d'),
   "author" => [
     "@type" => "Person",
-    "name" => "Joel Maldonado",
-    "jobTitle" => "Founder & AI Search Researcher",
-    "worksFor" => [
-      "@id" => $orgId
-    ]
+    "@id" => $personId
   ],
   "publisher" => [
     "@id" => $orgId
@@ -629,6 +726,93 @@ if (!empty($faqs) && !$hasFAQPage) {
     }, $faqs)
   ];
   $jsonldSchemas[] = $faqLd;
+}
+
+// Thing schemas for key service concepts (CRITICAL FOR ENTITY CLARITY)
+$serviceThingSchemas = [
+  'link-building-ai' => [
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'Link Building AI',
+      'description' => 'AI-first link building service that optimizes link profiles for AI search systems including ChatGPT, Perplexity, and Google AI Overviews'
+    ],
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'AI Link Optimization',
+      'description' => 'Optimization of link profiles for AI search systems to improve link authority and citation likelihood'
+    ],
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'AI Link Signals',
+      'description' => 'Signals that AI systems use to evaluate and value link profiles, including link quality indicators and authority markers'
+    ],
+  ],
+  'mobile-seo-ai' => [
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'Mobile SEO AI',
+      'description' => 'Mobile-first AI search optimization for mobile AI systems including mobile ChatGPT and mobile Perplexity'
+    ],
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'Mobile-First Indexing',
+      'description' => 'Search engine indexing that prioritizes mobile-optimized content for mobile AI systems'
+    ],
+  ],
+  'generative-seo' => [
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'Generative SEO',
+      'description' => 'Optimization for generative AI systems that create summaries and citations, including ChatGPT, Claude, and Perplexity'
+    ],
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'AI Citation Optimization',
+      'description' => 'Optimization of content for accurate AI system citations and mentions'
+    ],
+  ],
+  'retrieval-optimization-ai' => [
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'Retrieval Optimization AI',
+      'description' => 'Optimization of content structure for AI system retrieval and extraction'
+    ],
+    [
+      '@context' => 'https://schema.org',
+      '@type' => 'Thing',
+      'name' => 'Semantic Retrieval',
+      'description' => 'AI system retrieval based on semantic relationships and entity understanding'
+    ],
+  ],
+];
+
+$defaultThingSchemas = [
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Thing',
+    'name' => 'AI Search Optimization',
+    'description' => 'Optimization of content for AI search systems including ChatGPT, Perplexity, and Google AI Overviews'
+  ],
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Thing',
+    'name' => 'AI Visibility',
+    'description' => 'Visibility of businesses in AI-generated search results and AI system citations'
+  ],
+];
+
+// Add Thing schemas for this service
+$thingSchemas = $serviceThingSchemas[$serviceSlug] ?? $defaultThingSchemas;
+foreach ($thingSchemas as $thingSchema) {
+  $jsonldSchemas[] = $thingSchema;
 }
 
 $GLOBALS['__jsonld'] = $jsonldSchemas;
