@@ -564,7 +564,7 @@ label{
 .breadcrumb__list {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0;
   list-style: none;
@@ -573,8 +573,11 @@ label{
 }
 
 .breadcrumb__item {
-  display: inline-block;
+  display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .breadcrumb__item:not(:last-child)::after {
