@@ -563,6 +563,7 @@ label{
 
 .breadcrumb__list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   gap: 0;
@@ -572,7 +573,7 @@ label{
 }
 
 .breadcrumb__item {
-  display: inline-flex;
+  display: inline-block;
   align-items: center;
 }
 
