@@ -201,7 +201,9 @@ function service_intent_content(string $serviceSlug, ?string $citySlug = null, ?
  * @return string
  */
 function service_meta_title(string $serviceSlug, ?string $citySlug = null): string {
-  $serviceTitle = ucwords(str_replace(['-', '_'], ' ', $serviceSlug));
+  // Use proper service name mapping to ensure correct capitalization (e.g., "Generative SEO" not "Generative Seo")
+  require_once __DIR__ . '/service_enhancements.php';
+  $serviceTitle = get_service_name_from_slug($serviceSlug);
   $cityTitle = $citySlug ? (function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug))) : null;
   
   // Get current locale for localization (check GLOBALS first, then URL)
@@ -245,7 +247,21 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
  * @return string
  */
 function service_meta_description(string $serviceSlug, ?string $citySlug = null): string {
-  // CONVERSION-FIRST: Localized meta description for all geo service pages
+  // CONVERSION-FIRST: Service and city-specific meta description
+  require_once __DIR__ . '/service_enhancements.php';
+  $serviceName = get_service_name_from_slug($serviceSlug);
+  
+  if ($citySlug) {
+    $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug));
+    $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+    $localized = get_localized_service_strings($locale);
+    $modifier = $localized['meta_modifier'];
+    
+    // Service and city-specific description
+    return "$serviceName services for $cityTitle businesses. Professional implementation, measurable results. $modifier. Call or email to start.";
+  }
+  
+  // Non-geo services fallback
   $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
   $localized = get_localized_service_strings($locale);
   return $localized['meta_desc'];

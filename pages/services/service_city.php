@@ -19,7 +19,9 @@ $pathKey = "/services/$serviceSlug/$citySlug/";
 
 det_seed($pathKey);
 
-$serviceTitle = ucfirst(str_replace('-',' ', $serviceSlug));
+// Use proper service name mapping to ensure correct capitalization (e.g., "Generative SEO" not "Generative seo")
+require_once __DIR__.'/../../lib/service_enhancements.php';
+$serviceTitle = get_service_name_from_slug($serviceSlug);
 // Safely get city title
 try {
   $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-','_'],' ',$citySlug));
@@ -393,8 +395,16 @@ $domain = 'https://nrlc.ai';
 
 // CANONICAL ENFORCEMENT: Use locale-prefixed URL as canonical for crawled page
 // This prevents GSC indexing issues where crawled URL != canonical URL
+// Check actual request URI to see if locale prefix is present (even for en-us)
 $currentLocale = $GLOBALS['locale'] ?? 'en-us';
-$localePrefix = ($currentLocale === 'en-us') ? '' : '/' . $currentLocale;
+$originalPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+$hasLocalePrefix = preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath, $m);
+// If URL includes locale prefix, use it in canonical; otherwise use locale-based logic
+if ($hasLocalePrefix) {
+  $localePrefix = '/' . strtolower($m[1] . '-' . $m[2]);
+} else {
+  $localePrefix = ($currentLocale === 'en-us') ? '' : '/' . $currentLocale;
+}
 $canonical_url = absolute_url($localePrefix . $pathKey);
 
 // Verify enhancement canonical matches our locale-prefixed canonical
