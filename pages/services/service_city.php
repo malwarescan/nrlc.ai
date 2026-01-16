@@ -218,10 +218,54 @@ $content = $intro . $local;
             <h2 class="content-block__title">Process / How It Works</h2>
           </div>
           <div class="content-block__body">
-            <div class="grid grid-auto-fit">
-              <?= $process ?>
+            <?php
+            // approach_section() returns approach blocks + step-by-step section
+            // Split the output to handle grid vs full-width sections properly
+            $processOutput = $process;
+            
+            // Extract approach blocks (everything before "Step-by-Step Service Delivery")
+            if (strpos($processOutput, 'Step-by-Step Service Delivery') !== false) {
+              // Find the position of the "Step-by-Step Service Delivery" heading
+              $stepByStepPos = strpos($processOutput, '<h3');
+              $stepByStepHeadingPos = strpos($processOutput, 'Step-by-Step Service Delivery');
+              
+              if ($stepByStepHeadingPos !== false) {
+                // Find the start of the div containing "Step-by-Step Service Delivery"
+                // Look backwards from the heading to find the opening <div class="box-padding">
+                $searchStart = max(0, $stepByStepPos - 100);
+                $beforeStepByStep = substr($processOutput, 0, $searchStart);
+                $stepByStepDivStart = strrpos($beforeStepByStep, '<div class="box-padding">');
+                
+                if ($stepByStepDivStart !== false) {
+                  $approachBlocks = trim(substr($processOutput, 0, $stepByStepDivStart));
+                  $stepByStepSection = substr($processOutput, $stepByStepDivStart);
+                  
+                  // Display approach blocks in grid
+                  if (!empty($approachBlocks)) {
+                    echo '<div class="grid grid-auto-fit">' . $approachBlocks . '</div>';
+                  }
+                  
+                  // Display step-by-step section full-width (not in grid)
+                  echo $stepByStepSection;
+                } else {
+                  // Fallback: display all in grid
+                  echo '<div class="grid grid-auto-fit">' . $processOutput . '</div>';
+                }
+              } else {
+                // Fallback: display all in grid
+                echo '<div class="grid grid-auto-fit">' . $processOutput . '</div>';
+              }
+            } else {
+              // No step-by-step section, just display approach blocks in grid
+              echo '<div class="grid grid-auto-fit">' . $processOutput . '</div>';
+            }
+            ?>
+            
+            <?php if (!empty($timeline)): ?>
+            <div class="box-padding">
+              <?= $timeline ?>
             </div>
-            <?= $timeline ?>
+            <?php endif; ?>
           </div>
         </section>
 
