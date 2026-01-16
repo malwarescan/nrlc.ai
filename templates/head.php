@@ -13,6 +13,7 @@ if (!headers_sent()) {
 require_once __DIR__.'/../lib/helpers.php';
 require_once __DIR__.'/../lib/schema_builders.php';
 require_once __DIR__.'/../lib/hreflang.php';
+require_once __DIR__.'/../config/locales.php'; // Required for locale metadata in HTML lang and Content-Language
 
 $slug = $GLOBALS['__page_slug'] ?? 'home/home';
 
@@ -166,8 +167,16 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
 }
 
 $baseSchemas = base_schemas();
+// CRITICAL: Language signals for Google Translated Results
+// - HTML lang attribute with full locale code (e.g., en-US)
+// - Content-Language meta tag
+// These help Google detect page language and enable automatic translation
+$currentLocale = current_locale();
+$localeMeta = LOCALES[$currentLocale] ?? LOCALES[X_DEFAULT];
+$htmlLang = $localeMeta['lang'] . '-' . strtoupper($localeMeta['region']);
+$contentLanguage = $localeMeta['lang'] . '-' . strtolower($localeMeta['region']);
 ?><!doctype html>
-<html lang="<?=htmlspecialchars(substr(current_locale(),0,2))?>">
+<html lang="<?=htmlspecialchars($htmlLang)?>">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKNQCB74W7"></script>
@@ -181,6 +190,7 @@ $baseSchemas = base_schemas();
 <?php if (isset($noindexMeta)) echo $noindexMeta; ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Language" content="<?= htmlspecialchars($contentLanguage) ?>">
 <title><?=htmlspecialchars($title)?></title>
 <meta name="description" content="<?=htmlspecialchars($desc)?>">
 <?php if (!empty($customKeywords)): ?>
