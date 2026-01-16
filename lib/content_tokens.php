@@ -231,12 +231,20 @@ function approach_section(string $service, string $city = ''): string {
   ];
   
   // Return approach blocks and step-by-step section separately using a delimiter
-  $approachOutput = implode("\n", $approachBlocks);
-  $stepByStepOutput = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">Step-by-Step Service Delivery</h3>";
-  foreach ($processSteps as $idx => $step) {
-    $stepByStepOutput .= "<div style=\"margin-bottom: 1.5rem;\"><h4 style=\"margin-top: 0; color: #333;\">{$step['title']}</h4><p>{$step['description']}</p></div>";
+  // Style approach blocks as cards with better visual distinction
+  $approachOutput = '';
+  foreach ($approachBlocks as $block) {
+    // Wrap each block in a card-style container
+    $approachOutput .= "<div style=\"border: 1px solid #e0e0e0; border-radius: 4px; padding: 1.5rem; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); height: 100%;\">{$block}</div>";
   }
-  $stepByStepOutput .= "</div>";
+  
+  // Step-by-step section (H3 will be added in template for consistency, so don't include it here)
+  $stepByStepOutput = '';
+  foreach ($processSteps as $idx => $step) {
+    $isLast = ($idx === count($processSteps) - 1);
+    $borderStyle = $isLast ? '' : 'border-bottom: 1px solid #f0f0f0;';
+    $stepByStepOutput .= "<div style=\"margin-bottom: 0; padding-bottom: 1.5rem; {$borderStyle}\"><h4 style=\"margin-top: 0; margin-bottom: 0.75rem; color: #333; font-size: 1.1rem; font-weight: 600;\">{$step['title']}</h4><p style=\"margin-bottom: 0; color: #666; line-height: 1.6;\">{$step['description']}</p></div>";
+  }
   
   // Use a unique delimiter to split in template
   return $approachOutput . "<!--STEP_BY_STEP_DELIMITER-->" . $stepByStepOutput;

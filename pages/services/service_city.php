@@ -288,24 +288,32 @@ $content = $intro . $local;
             if (strpos($processOutput, '<!--STEP_BY_STEP_DELIMITER-->') !== false) {
               list($approachBlocks, $stepByStepSection) = explode('<!--STEP_BY_STEP_DELIMITER-->', $processOutput, 2);
               
-              // Display approach blocks in grid
+              // Display approach blocks in grid with proper styling
               if (!empty(trim($approachBlocks))) {
-                echo '<div class="grid grid-auto-fit">' . trim($approachBlocks) . '</div>';
+                echo '<div class="grid grid-auto-fit" style="gap: 1.5rem; margin-bottom: 2.5rem;">' . trim($approachBlocks) . '</div>';
               }
               
-              // Display step-by-step section full-width (not in grid)
+              // Display step-by-step section full-width with clear visual separation
               if (!empty(trim($stepByStepSection))) {
+                echo '<div style="border-top: 2px solid #e0e0e0; padding-top: 2.5rem; margin-top: 3rem;">';
+                echo '<h3 style="margin-top: 0; margin-bottom: 2rem; font-size: 1.4rem; color: #333; font-weight: 600;">Step-by-Step Service Delivery</h3>';
+                echo '<div style="max-width: 800px;">';
                 echo trim($stepByStepSection);
+                echo '</div>';
+                echo '</div>';
               }
             } else {
               // Fallback: if no delimiter, display all in grid (backward compatibility)
-              echo '<div class="grid grid-auto-fit">' . $processOutput . '</div>';
+              echo '<div class="grid grid-auto-fit" style="gap: 1.5rem;">' . $processOutput . '</div>';
             }
             ?>
             
             <?php if (!empty($timeline)): ?>
-            <div class="box-padding">
-              <?= $timeline ?>
+            <div style="border-top: 2px solid #e0e0e0; padding-top: 2rem; margin-top: 2.5rem;">
+              <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem; color: #333;">Typical Engagement Timeline</h3>
+              <div class="box-padding" style="background: #f8f9fa; border-left: 3px solid #4a90e2; padding: 1.5rem; border-radius: 4px;">
+                <?= $timeline ?>
+              </div>
             </div>
             <?php endif; ?>
           </div>
