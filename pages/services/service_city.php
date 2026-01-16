@@ -437,7 +437,7 @@ if ($hasLocalePrefix) {
 $canonical_url = absolute_url($localePrefix . $pathKey);
 
 // Verify enhancement canonical matches our locale-prefixed canonical
-$enhancement = get_service_enhancement($serviceSlug, $citySlug);
+$enhancement = function_exists('get_service_enhancement') ? get_service_enhancement($serviceSlug, $citySlug) : [];
 $enhancementCanonical = $enhancement['canonical'] ?? null;
 if ($enhancementCanonical && $enhancementCanonical !== $canonical_url) {
   // Log mismatch but use our locale-prefixed canonical for indexing
