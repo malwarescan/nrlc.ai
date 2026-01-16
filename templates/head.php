@@ -183,6 +183,9 @@ $baseSchemas = base_schemas();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?=htmlspecialchars($title)?></title>
 <meta name="description" content="<?=htmlspecialchars($desc)?>">
+<?php if (!empty($customKeywords)): ?>
+<meta name="keywords" content="<?= htmlspecialchars(is_array($customKeywords) ? implode(', ', $customKeywords) : $customKeywords) ?>">
+<?php endif; ?>
 <!-- Base ICO (legacy + broad UA support) -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 
