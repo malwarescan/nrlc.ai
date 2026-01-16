@@ -32,6 +32,20 @@ function get_localized_service_strings(string $locale): array {
       'cta_secondary' => 'See Proof / Case Studies',
       'cta_qualifier' => 'No obligation. Response within 24 hours.',
     ],
+    'en-sg' => [
+      'meta_modifier' => 'Conversion + AI Visibility',
+      'meta_desc' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'subhead' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'cta_secondary' => 'See Proof / Case Studies',
+      'cta_qualifier' => 'No obligation. Response within 24 hours.',
+    ],
+    'en-au' => [
+      'meta_modifier' => 'Conversion + AI Visibility',
+      'meta_desc' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'subhead' => 'Get a plan that fixes rankings and conversions fast: technical issues, content gaps, and AI retrieval (ChatGPT, Claude, Google AI Overviews).',
+      'cta_secondary' => 'See Proof / Case Studies',
+      'cta_qualifier' => 'No obligation. Response within 24 hours.',
+    ],
     'fr-fr' => [
       'meta_modifier' => 'Conversion + visibilité IA',
       'meta_desc' => 'Un plan clair pour améliorer le classement et la conversion: technique, contenu, et visibilité IA (ChatGPT, Claude, Google AI Overviews).',
@@ -144,6 +158,8 @@ function service_intent_content(string $serviceSlug, ?string $citySlug = null, ?
       $auditCtaPatterns = [
         'en-us' => "Request a $cityTitle $ctaServiceTitle",
         'en-gb' => "Request a $cityTitle $ctaServiceTitle",
+        'en-sg' => "Request a $cityTitle $ctaServiceTitle",
+        'en-au' => "Request a $cityTitle $ctaServiceTitle",
         'fr-fr' => "Demander $ctaServiceTitle à $cityTitle",
         'es-es' => "Solicitar $ctaServiceTitle en $cityTitle",
         'de-de' => "$ctaServiceTitle in $cityTitle anfordern",
@@ -226,6 +242,8 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
     $prepositions = [
       'en-us' => 'in',
       'en-gb' => 'in',
+      'en-sg' => 'in',
+      'en-au' => 'in',
       'fr-fr' => 'à',
       'es-es' => 'en',
       'de-de' => 'in',

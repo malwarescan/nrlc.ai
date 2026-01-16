@@ -113,9 +113,10 @@ function canonical_guard(): void {
     }
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
     $isSingapore = (strtolower($citySlug) === 'singapore');
+    $isAustralian = function_exists('is_australian_city') ? is_australian_city($citySlug) : false;
     $canonicalLocale = function_exists('get_canonical_locale_for_city') 
       ? get_canonical_locale_for_city($citySlug) 
-      : ($isUK ? 'en-gb' : ($isSingapore ? 'en-sg' : 'en-us'));
+      : ($isUK ? 'en-gb' : ($isSingapore ? 'en-sg' : ($isAustralian ? 'en-au' : 'en-us')));
     
     // Redirect non-canonical locale versions to canonical locale
     if ($locale !== $canonicalLocale) {

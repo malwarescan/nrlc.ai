@@ -274,7 +274,11 @@ function get_cities_for_service(string $serviceSlug, int $limit = 0): array {
       
       // Determine canonical locale
       $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
-      $canonicalLocale = $isUK ? 'en-gb' : 'en-us';
+      $isSingapore = (strtolower($citySlug) === 'singapore');
+      $isAustralian = function_exists('is_australian_city') ? is_australian_city($citySlug) : false;
+      $canonicalLocale = function_exists('get_canonical_locale_for_city') 
+        ? get_canonical_locale_for_city($citySlug)
+        : ($isUK ? 'en-gb' : ($isSingapore ? 'en-sg' : ($isAustralian ? 'en-au' : 'en-us')));
       
       // Get city name
       $cityName = titleCaseCity($citySlug);

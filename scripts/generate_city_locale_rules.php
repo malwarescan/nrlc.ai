@@ -29,12 +29,13 @@ $countryToLocale = [
     'GB' => 'en-gb',
     'US' => 'en-us',
     'CA' => 'en-us', // Default to en-us for Canada (can be overridden)
-    'AU' => 'en-us', // Default to en-us for Australia (can be overridden)
+    'AU' => 'en-au', // Australia uses en-au (Australian English)
+    'SG' => 'en-sg', // Singapore uses en-sg (Singapore English)
     // Add more as needed
 ];
 
 // All available locales (for forbidden list)
-$allLocales = ['en-us', 'en-gb', 'fr-fr', 'es-es', 'de-de', 'ko-kr'];
+$allLocales = ['en-us', 'en-gb', 'en-sg', 'en-au', 'fr-fr', 'es-es', 'de-de', 'ko-kr'];
 
 foreach ($citiesData as $row) {
     $citySlug = $row['city_name'] ?? '';

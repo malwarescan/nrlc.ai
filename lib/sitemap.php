@@ -95,6 +95,7 @@ function sitemap_generate_hreflang_urls(string $path): array {
     require_once __DIR__.'/helpers.php';
     $isUK = function_exists('is_uk_city') ? is_uk_city($citySlug) : false;
     $isSingapore = (strtolower($citySlug) === 'singapore');
+    $isAustralian = function_exists('is_australian_city') ? is_australian_city($citySlug) : false;
     
     if ($isUK) {
       // UK city: ONLY en-gb canonical
@@ -107,6 +108,12 @@ function sitemap_generate_hreflang_urls(string $path): array {
       return [
         'en-sg' => "{$base}/en-sg{$path}",
         'x-default' => "{$base}/en-sg{$path}"
+      ];
+    } elseif ($isAustralian) {
+      // Australian city: ONLY en-au canonical
+      return [
+        'en-au' => "{$base}/en-au{$path}",
+        'x-default' => "{$base}/en-au{$path}"
       ];
     } else {
       // US city or non-city: ONLY en-us canonical

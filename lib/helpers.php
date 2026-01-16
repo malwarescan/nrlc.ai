@@ -241,10 +241,52 @@ function is_uk_city(string $citySlug): bool {
 }
 
 /**
+ * Check if a city slug is an Australian city
+ * Returns true if the city is known to be in Australia
+ */
+function is_australian_city(string $citySlug): bool {
+  $australianCities = [
+    'sydney', 'melbourne', 'brisbane', 'perth', 'adelaide', 'gold-coast',
+    'newcastle', 'canberra', 'sunshine-coast', 'wollongong', 'hobart',
+    'geelong', 'townsville', 'cairns', 'darwin', 'toowoomba', 'ballarat',
+    'bendigo', 'albury', 'launceston', 'mackay', 'rockhampton', 'bunbury',
+    'bundaberg', 'coffs-harbour', 'wagga-wagga', 'hervey-bay', 'port-macquarie',
+    'shepparton', 'nambour', 'orange', 'tamworth', 'nowra', 'traralgon'
+  ];
+  
+  $cityLower = strtolower($citySlug);
+  
+  // Check exact match first
+  if (in_array($cityLower, $australianCities)) {
+    return true;
+  }
+  
+  // Check if city slug contains an Australian city name as a whole word
+  foreach ($australianCities as $auCity) {
+    $auCityNoHyphen = str_replace('-', '', $auCity);
+    $cityLowerNoHyphen = str_replace('-', '', $cityLower);
+    
+    if ($cityLowerNoHyphen === $auCityNoHyphen) {
+      return true;
+    }
+    
+    // Check if Australian city name appears as a prefix
+    if (strpos($cityLowerNoHyphen, $auCityNoHyphen) === 0 && strlen($cityLowerNoHyphen) > strlen($auCityNoHyphen)) {
+      $nextChar = $cityLowerNoHyphen[strlen($auCityNoHyphen)] ?? '';
+      if (!ctype_alpha($nextChar)) {
+        return true;
+      }
+    }
+  }
+  
+  return false;
+}
+
+/**
  * Determine the canonical locale for a LOCAL page based on city
  * 
  * @param string $citySlug City slug from URL
- * @return string Canonical locale code (e.g., 'en-gb' for UK cities, 'en-sg' for Singapore, 'en-us' for others)
+ * @return string Canonical locale code (e.g., 'en-gb' for UK cities, 'en-sg' for Singapore, 'en-au' for Australia, 'en-us' for others)
  */
 function get_canonical_locale_for_city(string $citySlug): string {
   if (is_uk_city($citySlug)) {
@@ -253,6 +295,10 @@ function get_canonical_locale_for_city(string $citySlug): string {
   // Singapore uses en-sg (Singapore English)
   if (strtolower($citySlug) === 'singapore') {
     return 'en-sg';
+  }
+  // Australia uses en-au (Australian English)
+  if (is_australian_city($citySlug)) {
+    return 'en-au';
   }
   // Default to en-us for all other cities (US, Canadian, etc.)
   return 'en-us';

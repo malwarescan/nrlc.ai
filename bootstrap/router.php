@@ -468,7 +468,7 @@ function route_request(): void {
       }
     }
 
-    // Check canonical locale for city (UK → en-gb, Singapore → en-sg, others → en-us)
+    // Check canonical locale for city (UK → en-gb, Singapore → en-sg, Australia → en-au, others → en-us)
     $canonicalLocale = function_exists('get_canonical_locale_for_city') 
       ? get_canonical_locale_for_city($citySlug) 
       : 'en-us';
