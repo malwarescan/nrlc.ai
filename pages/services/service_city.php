@@ -317,7 +317,7 @@ $content = $intro . $local;
             <p class="lead">Get started with <strong><?= htmlspecialchars($serviceTitle) ?></strong> in <strong><?= htmlspecialchars($cityTitle) ?></strong> today. Our <strong>AI-first SEO</strong> approach delivers measurable improvements in <strong>citation accuracy</strong>, <strong>crawl efficiency</strong>, and <strong>AI engine visibility</strong>.</p>
             <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
-              <a href="<?= absolute_url('/en-us/insights/') ?>" class="btn btn--secondary">Research & Insights</a>
+              <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/insights/') : '/en-us/insights/' ?>" class="btn btn--secondary">Research & Insights</a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
           </div>
@@ -393,7 +393,7 @@ $content = $intro . $local;
           <li><a href="<?= htmlspecialchars($related['url']) ?>"><?= htmlspecialchars($related['name']) ?></a></li>
           <?php endforeach; ?>
         </ul>
-        <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a> | <a href="<?= absolute_url('/en-us/ai-optimization/') ?>">AI Optimization</a> | <a href="<?= absolute_url('/en-us/insights/') ?>">Research & Insights</a></p>
+        <p><a href="<?= htmlspecialchars($localePrefix . '/') ?>">Home</a> | <a href="<?= htmlspecialchars($localePrefix . '/services/') ?>">All Services</a> | <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/ai-optimization/') : '/en-us/ai-optimization/' ?>">AI Optimization</a> | <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/insights/') : '/en-us/insights/' ?>">Research & Insights</a></p>
       </div>
     </section>
 
