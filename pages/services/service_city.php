@@ -434,7 +434,9 @@ if ($hasLocalePrefix) {
 } else {
   $localePrefix = ($currentLocale === 'en-us') ? '' : '/' . $currentLocale;
 }
-$canonical_url = absolute_url($localePrefix . $pathKey);
+$canonical_url = function_exists('absolute_url') 
+  ? absolute_url($localePrefix . $pathKey) 
+  : 'https://nrlc.ai' . $localePrefix . $pathKey;
 
 // Verify enhancement canonical matches our locale-prefixed canonical
 $enhancement = function_exists('get_service_enhancement') ? get_service_enhancement($serviceSlug, $citySlug) : [];
