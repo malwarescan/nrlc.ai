@@ -151,7 +151,7 @@
   
   <?php
   // Breadcrumbs for Insights section (when on insights pages)
-  if (strpos($_SERVER['REQUEST_URI'] ?? '', '/insights/') === 0): 
+  if (strpos($_SERVER['REQUEST_URI'] ?? '', '/insights/') !== false): 
     require_once __DIR__.'/../lib/helpers.php';
     $breadcrumbs = current_breadcrumbs();
     
