@@ -645,8 +645,9 @@ function sudo_meta_directive_ctx(array $ctx): array {
     case 'insights_hub':
       // Insights hub: Technical analyses and research-backed explanations
       // Intent: AI Search & Retrieval Insights (not blog, not thought leadership)
-      $title = 'AI Search Insights – Retrieval, Citation, and Trust | NRLC.ai';
-      $desc = 'Technical analyses and research-backed explanations of how AI search and answer engines extract, evaluate, and cite web content.';
+      $title = 'AI Search & Retrieval Insights | Research & Analysis | NRLC.ai';
+      $desc = 'Technical analyses and research-backed explanations of how AI search and answer engines (ChatGPT, Perplexity, Google AI Overviews) extract, evaluate, and cite web content. AEO, GEO, and retrieval mechanics.';
+      $keywords = 'AI search insights, AI retrieval research, AI citation analysis, ChatGPT research, Perplexity research, Google AI Overviews research, AEO research, GEO research, structured data research, AI SEO insights, retrieval mechanics, citation behavior, AI search systems, answer engine research';
       break;
       
     case 'products_hub':
