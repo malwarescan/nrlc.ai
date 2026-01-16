@@ -171,12 +171,12 @@ function route_request(): void {
       }
       
       // META DIRECTIVE KERNEL: Homepage / Research & Implementation Authority
-      // Intent: Establish Joel Maldonado as research authority for SEO, AEO, GEO, and AI search
-      // Title: Personal authority with SEO/GEO/AEO/AI keywords for search visibility
+      // Intent: Establish Neural Command as leading research and implementation agency for AI Search Optimization
+      // Title: Front-load "AI Search Optimization" (primary keyword), include brand and authority positioning
       $GLOBALS['__page_meta'] = [
-        'title' => 'Joel Maldonado | SEO, AEO, GEO & AI Search Research',
-        'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. On the bleeding edge of search, retrieval, citations, and extractability.',
-        'keywords' => 'Joel Maldonado, SEO, AEO, GEO, AI Search, AI Search Optimization, Generative Engine Optimization, LLM Seeding, Structured Data, AI Citations, Search Retrieval',
+        'title' => 'AI Search Optimization | Neural Command Research & Agency',
+        'description' => 'Neural Command is the leading research and implementation agency for AI Search Optimization. We optimize content for ChatGPT, Google AI Overviews, Claude, and Perplexity through AEO, GEO, and structured data engineering.',
+        'keywords' => 'AI Search Optimization, AEO, GEO, Neural Command, AI SEO, ChatGPT Optimization, Google AI Overviews, Claude Optimization, Perplexity Optimization, LLM Seeding, Structured Data, AI Citations, Search Retrieval, Joel Maldonado',
         'canonicalPath' => '/'
       ];
       
