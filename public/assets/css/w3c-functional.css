@@ -399,7 +399,7 @@ hr {
 }
 
 .nav-primary__toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 4px;
   padding: var(--spacing-xs);
