@@ -305,15 +305,24 @@ function route_request(): void {
       return;
     }
     
-    // Tier 1 Reinforcement: Custom Norwich page
+    // FIX: Redirect invalid service slug "ai-seo-norwich" to proper service page
+    // "ai-seo-norwich" is not a valid service slug - redirect to a valid service for Norwich
     if ($m[1] === 'ai-seo-norwich') {
-      $GLOBALS['__page_meta'] = [
-        'title' => 'AI SEO & AI Visibility Services in Norwich | NRLC.ai',
-        'description' => 'AI SEO and AI visibility services for businesses in Norwich. Improve visibility across Google Search, Google AI Overviews, and AI-driven platforms like ChatGPT. Remote delivery.',
-        'canonicalPath' => $path
-      ];
-      render_page('services/ai-seo-norwich');
-      return;
+      // Determine correct locale for Norwich (UK city → en-gb)
+      $canonicalLocale = function_exists('get_canonical_locale_for_city') 
+        ? get_canonical_locale_for_city('norwich') 
+        : 'en-gb';
+      
+      // Redirect to a valid service (e.g., ai-search-optimization or generative-seo)
+      $queryString = !empty($_SERVER['QUERY_STRING']) ? '?'.$_SERVER['QUERY_STRING'] : '';
+      $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+      if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+        $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+      }
+      $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+      $redirectUrl = $scheme . '://' . $host . '/' . $canonicalLocale . '/services/ai-search-optimization/norwich/' . $queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
     }
     
     // Generate unique metadata using ctx-based system

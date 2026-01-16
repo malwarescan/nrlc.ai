@@ -279,12 +279,47 @@ function canonical_guard(): void {
                      strpos($_SERVER['HTTP_USER_AGENT'], 'GoogleHC') !== false);
   
   if (!preg_match('#^/([a-z]{2})-([a-z]{2})(/|$)#i', $uri)) {
-    // Path doesn't have locale prefix - redirect to default locale
+    // Path doesn't have locale prefix - redirect to correct locale based on content
     // But skip redirect for healthcheck requests to allow healthcheck to pass
     if ($isHealthcheck) {
       // For healthcheck, allow the request through without redirect
       // The canonical tag will still point to /en-us/ version
       return;
+    }
+    
+    // CRITICAL: Handle service+city URLs without locale prefix
+    // Detect city and redirect to correct locale (UK → en-gb, Singapore → en-sg, etc.)
+    if (preg_match('#^/services/([^/]+)/([^/]+)/#', $uri, $serviceMatch)) {
+      $serviceSlug = $serviceMatch[1];
+      $citySlug = $serviceMatch[2];
+      
+      // Guard require_once and function calls
+      if (file_exists(__DIR__.'/../lib/helpers.php')) {
+        try {
+          require_once __DIR__.'/../lib/helpers.php';
+        } catch (Throwable $e) {
+          // Silent fail
+        }
+      }
+      
+      // Determine canonical locale based on city
+      $canonicalLocale = function_exists('get_canonical_locale_for_city') 
+        ? get_canonical_locale_for_city($citySlug) 
+        : 'en-us';
+      
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $redirectUrl = $scheme.'://'.$host.'/'.$canonicalLocale.'/services/'.$serviceSlug.'/'.$citySlug.'/'.$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
+    }
+    
+    // Handle insights pages without locale
+    if (preg_match('#^/insights/(.+)$#', $uri, $insightMatch)) {
+      $queryString = count($query) ? '?'.http_build_query($query) : '';
+      $defaultLocale = defined('X_DEFAULT') ? X_DEFAULT : 'en-us';
+      $redirectUrl = $scheme.'://'.$host.'/'.$defaultLocale.'/insights/'.$insightMatch[1].$queryString;
+      header("Location: $redirectUrl", true, 301);
+      exit;
     }
     
     // Special handling for /promptware/ without locale - redirect to en-us
