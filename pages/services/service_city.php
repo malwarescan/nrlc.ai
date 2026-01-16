@@ -489,14 +489,23 @@ $content = $intro . $local;
 
 <?php
 // JSON-LD (Service + FAQPage embedded)
-$ppMap = csv_rows_local('painpoint_token_map.csv');
-$ppForService = array_values(array_filter($ppMap, fn($r)=>$r['service']===$serviceSlug));
-$fqRows = csv_rows_local('faq_pools.csv');
-$fqForService = array_values(array_filter($fqRows, fn($r)=>$r['service']===$serviceSlug));
-det_seed("ld|$pathKey");
-$fqPick = det_pick($fqForService, 6);
-$faqs = array_map(fn($f)=>['q'=>$f['question'],'a'=>$f['answer']], $fqPick);
-$offers = det_pick($ppForService, 6);
+// Guard all function calls
+$ppMap = function_exists('csv_rows_local') ? csv_rows_local('painpoint_token_map.csv') : [];
+$ppForService = array_values(array_filter($ppMap, fn($r)=>($r['service']??'')===$serviceSlug));
+$fqRows = function_exists('csv_rows_local') ? csv_rows_local('faq_pools.csv') : [];
+$fqForService = array_values(array_filter($fqRows, fn($r)=>($r['service']??'')===$serviceSlug));
+
+if (function_exists('det_seed')) {
+  try {
+    det_seed("ld|$pathKey");
+  } catch (Throwable $e) {
+    error_log("det_seed failed: " . $e->getMessage());
+  }
+}
+
+$fqPick = function_exists('det_pick') ? det_pick($fqForService, 6) : array_slice($fqForService, 0, 6);
+$faqs = array_map(fn($f)=>['q'=>$f['question']??'', 'a'=>$f['answer']??''], $fqPick);
+$offers = function_exists('det_pick') ? det_pick($ppForService, 6) : array_slice($ppForService, 0, 6);
 
 $domain = 'https://nrlc.ai';
 
