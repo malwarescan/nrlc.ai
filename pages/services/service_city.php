@@ -431,11 +431,13 @@ $domain = SchemaFixes::ensureHttps(gbp_website());
 // Local pages (city-specific) should NOT have hreflang - they are location-specific
 
 // ADVANCED: Enhanced Service schema for technical-seo
+// CRITICAL: Service schema must have description for Google rich results eligibility
 $serviceLd = [
   "@context" => "https://schema.org",
   "@type" => "Service",
   "name" => $serviceName,
   "serviceType" => $serviceType,
+  "description" => "$serviceName in $cityTitle. Professional implementation with localized expertise, measurable results, and ongoing support.",
   "provider" => [
     "@type" => "Organization",
     "@id" => $orgId // Reference to single canonical Organization entity
@@ -448,8 +450,7 @@ $serviceLd = [
       "name" => $cityRow['subdivision']
     ] : null
   ], function($v) { return $v !== null; }),
-  "url" => $canonical_url,
-  "description" => "$serviceName in $cityTitle. Professional implementation with localized expertise, measurable results, and ongoing support."
+  "url" => $canonical_url
 ];
 
 // ADVANCED: Special enhancements for technical-seo
@@ -726,10 +727,9 @@ $jsonldSchemas[] = [
   "areaServed" => [
     "@type" => "City",
     "name" => $cityTitle
-  ],
-  "offers" => [
-    "@id" => $canonical_url . '#service'
   ]
+  // Note: Organization offers field removed - Service schema already references Organization via provider
+  // Having both Organization.offers and Service.provider creates redundant relationships
 ];
 
 // GBP-ALIGNED: LocalBusiness schema removed per directive
@@ -747,9 +747,11 @@ foreach ($jsonldSchemas as $schema) {
 }
 
 if (!empty($faqs) && !$hasFAQPage) {
+  // CRITICAL: FAQPage schema must have @id for Google tracking and rich results eligibility
   $faqLd = [
     '@context' => 'https://schema.org',
     '@type' => 'FAQPage',
+    '@id' => $canonical_url . '#faq',
     'mainEntity' => array_map(function($faq) {
       return [
         '@type' => 'Question',
