@@ -311,7 +311,7 @@ hr {
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-lg);
-  padding: var(--spacing-md) var(--container-padding);
+  padding: var(--spacing-lg) var(--container-padding); /* Increased vertical padding */
   background-color: var(--color-bg-primary);
   max-width: var(--container-max-width);
   margin: 0 auto;
@@ -339,18 +339,16 @@ hr {
 .nav-primary__cta {
   flex: 0 0 auto;
   margin-left: var(--spacing-lg);
-  padding-left: var(--spacing-lg);
-  border-left: 1px solid var(--color-border);
   display: flex;
   align-items: center;
 }
 
 .nav-primary__contact-btn {
   /* Use site button styles but adapt for nav */
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg); /* Increased to match nav links */
   font-weight: var(--font-weight-medium);
-  padding: var(--spacing-12) var(--spacing-lg);
-  min-height: 40px; /* Slightly smaller than standard btn (44px) for nav fit */
+  padding: var(--spacing-12) var(--spacing-xl); /* Increased horizontal padding */
+  min-height: 44px; /* Full button height for prominence */
   white-space: nowrap;
   margin: 0;
   flex-shrink: 0;
@@ -360,8 +358,6 @@ hr {
 @media (max-width: 768px) {
   .nav-primary__cta {
     margin-left: var(--spacing-md);
-    padding-left: var(--spacing-md);
-    border-left: none;
   }
   
   /* On mobile, show in menu if needed */
@@ -383,7 +379,7 @@ hr {
 }
 
 .nav-primary__brand {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl); /* Increased from xl to 2xl */
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   text-decoration: none;
@@ -393,7 +389,7 @@ hr {
 }
 
 .nav-primary__brand img {
-  height: 32px;
+  height: 40px; /* Increased from 32px to 40px */
   width: auto;
   display: block;
   transform-origin: center center;
@@ -473,11 +469,11 @@ hr {
 
 .nav-primary__link {
   display: block;
-  padding: var(--spacing-12) var(--spacing-md);
+  padding: var(--spacing-12) var(--spacing-lg); /* Increased horizontal padding */
   color: var(--color-text-primary);
   text-decoration: none;
   font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg); /* Increased from base to lg (18px) */
   border-bottom: 2px solid transparent;
   transition: border-color var(--duration-fast) var(--ease-functional),
               color var(--duration-fast) var(--ease-functional);
