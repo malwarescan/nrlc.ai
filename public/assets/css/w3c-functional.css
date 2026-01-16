@@ -335,6 +335,41 @@ hr {
   border-left: 1px solid var(--color-border);
 }
 
+/* Contact Button in Navigation - Prominent CTA */
+.nav-primary__cta {
+  flex: 0 0 auto;
+  margin-left: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+}
+
+.nav-primary__contact-btn {
+  /* Use site button styles but adapt for nav */
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-12) var(--spacing-lg);
+  min-height: 40px; /* Slightly smaller than standard btn (44px) for nav fit */
+  white-space: nowrap;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Ensure contact button is prominent and integrated */
+@media (max-width: 768px) {
+  .nav-primary__cta {
+    margin-left: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    border-left: none;
+  }
+  
+  /* On mobile, show in menu if needed */
+  .nav-primary__menu[aria-hidden="false"] + .nav-primary__cta {
+    display: none;
+  }
+}
+
 @media (min-width: 640px) {
   .nav-primary {
     padding: var(--spacing-md) var(--container-padding-sm);

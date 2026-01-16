@@ -91,17 +91,13 @@
       </li>
     </ul>
     
-    <!-- Tier 1 Navigation (Right Side - Utility Only, Visually Demoted) -->
-    <ul class="nav-primary__menu nav-primary__menu--secondary">
+    <!-- Contact Button (Right Side - Prominent CTA) -->
+    <div class="nav-primary__cta">
       <?php
-      // Tier 1: Utility items only (right-aligned, visually demoted)
-      // Contact is the only Tier 1 item allowed in global nav
       $contactAttrs = menu_item_seo_attrs('Contact');
       ?>
-      <li class="nav-primary__item">
-        <button class="nav-primary__link nav-primary__link--secondary" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
-      </li>
-    </ul>
+      <button class="btn btn--primary nav-primary__contact-btn" id="contact-trigger" type="button" title="<?= $contactAttrs['title'] ?>" aria-label="<?= $contactAttrs['aria-label'] ?>">Contact</button>
+    </div>
   </nav>
   
   <?php
