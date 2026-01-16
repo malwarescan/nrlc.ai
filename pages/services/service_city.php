@@ -395,7 +395,7 @@ $serviceLd = [
       "@type" => "State",
       "name" => $cityRow['subdivision']
     ] : null
-  ], function($v) { return $v !== null; })
+  ], function($v) { return $v !== null; }),
   "url" => $canonical_url,
   "description" => "$serviceName in $cityTitle. Professional implementation with localized expertise, measurable results, and ongoing support."
 ];
