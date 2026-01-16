@@ -97,9 +97,15 @@ function service_intent_content(string $serviceSlug, ?string $citySlug = null, ?
       ];
     } else {
       // CLASS 1: Core Service
+      // Apply locale-aware terminology
+      require_once __DIR__ . '/locale_terminology.php';
+      $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+      $subhead = "We help businesses improve search rankings and AI visibility through structured data, semantic optimization, and technical SEO.";
+      $subhead = localize_terminology($subhead, $locale);
+      
       return [
         'h1' => "Professional $serviceTitle for Growth-Focused Businesses",
-        'subhead' => "We help businesses improve search rankings and AI visibility through structured data, semantic optimization, and technical SEO.",
+        'subhead' => $subhead,
         'cta' => "Request $serviceTitle Services",
         'cta_qualifier' => "No obligation. Response within 24 hours."
       ];
@@ -211,6 +217,10 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
   $localized = get_localized_service_strings($locale);
   $modifier = $localized['meta_modifier'];
   
+  // Apply locale-specific terminology (UK spelling for en-gb, en-sg, en-au)
+  require_once __DIR__ . '/locale_terminology.php';
+  $modifier = localize_terminology($modifier, $locale);
+  
   if ($cityTitle) {
     // Localize "in" preposition
     $prepositions = [
@@ -233,10 +243,13 @@ function service_meta_title(string $serviceSlug, ?string $citySlug = null): stri
   // Non-geo services
   if (in_array($serviceSlug, ['site-audits', 'technical-seo-audits'])) {
     $auditModifier = $serviceSlug === 'site-audits' ? 'Technical & Structural Website Audits' : 'Crawl & Indexing Diagnostics';
+    $auditModifier = localize_terminology($auditModifier, $locale);
     return "$serviceTitle | $auditModifier | NRLC.ai";
   }
   
-  return "$serviceTitle | $serviceTitle Services | NRLC.ai";
+  $servicesText = "$serviceTitle Services";
+  $servicesText = localize_terminology($servicesText, $locale);
+  return "$serviceTitle | $servicesText | NRLC.ai";
 }
 
 /**
@@ -251,20 +264,27 @@ function service_meta_description(string $serviceSlug, ?string $citySlug = null)
   require_once __DIR__ . '/service_enhancements.php';
   $serviceName = get_service_name_from_slug($serviceSlug);
   
+  // Get current locale
+  $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+  
+  // Apply locale-specific terminology (UK spelling for en-gb, en-sg, en-au)
+  require_once __DIR__ . '/locale_terminology.php';
+  
   if ($citySlug) {
     $cityTitle = function_exists('titleCaseCity') ? titleCaseCity($citySlug) : ucwords(str_replace(['-', '_'], ' ', $citySlug));
-    $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
     $localized = get_localized_service_strings($locale);
     $modifier = $localized['meta_modifier'];
     
-    // Service and city-specific description
-    return "$serviceName services for $cityTitle businesses. Professional implementation, measurable results. $modifier. Call or email to start.";
+    // Apply locale terminology to description
+    $modifier = localize_terminology($modifier, $locale);
+    $description = "$serviceName services for $cityTitle businesses. Professional implementation, measurable results. $modifier. Call or email to start.";
+    return localize_terminology($description, $locale);
   }
   
   // Non-geo services fallback
-  $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
   $localized = get_localized_service_strings($locale);
-  return $localized['meta_desc'];
+  $desc = $localized['meta_desc'];
+  return localize_terminology($desc, $locale);
 }
 
 /**

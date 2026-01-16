@@ -580,11 +580,20 @@ function sudo_meta_directive_ctx(array $ctx): array {
           $serviceDisplayName = $serviceMap[$service];
         }
         
+        // Get current locale for terminology localization
+        $locale = $GLOBALS['locale'] ?? (function_exists('current_locale') ? current_locale() : 'en-us');
+        
+        // Apply locale-aware terminology (UK spelling for en-gb, en-sg, en-au)
+        require_once __DIR__.'/locale_terminology.php';
+        $serviceDisplayName = localize_terminology($serviceDisplayName, $locale);
+        
         // UNIQUE TITLE: Service type + City + Intent
         $title = "$serviceDisplayName Services in $cityName | NRLC.ai";
+        $title = localize_terminology($title, $locale);
         
         // UNIQUE DESCRIPTION: Service-specific + City + Action
         $desc = "$serviceDisplayName services for $cityName businesses. Professional implementation, measurable results. Call or email to start.";
+        $desc = localize_terminology($desc, $locale);
       } else {
         // Service hub or non-local service pages
         if ($service === 'services' || $slug === 'services/index') {
