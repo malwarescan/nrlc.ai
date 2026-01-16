@@ -150,33 +150,40 @@
   <?php endif; ?>
   
   <?php
-  // Secondary navigation for Insights section (when on insights pages)
+  // Breadcrumbs for Insights section (when on insights pages)
   if (strpos($_SERVER['REQUEST_URI'] ?? '', '/insights/') === 0): 
-    $allInsightsAttrs = menu_item_seo_attrs('All Insights');
-    $semanticModelingAttrs = menu_item_seo_attrs('Semantic Modeling');
-    $dataVirtualizationAttrs = menu_item_seo_attrs('Data Virtualization');
-    $enterpriseLlmAttrs = menu_item_seo_attrs('Enterprise LLM');
-    $performanceCachingAttrs = menu_item_seo_attrs('Performance & Caching');
-    $isAllInsights = ($_SERVER['REQUEST_URI'] ?? '') === '/insights/';
+    require_once __DIR__.'/../lib/helpers.php';
+    $breadcrumbs = current_breadcrumbs();
+    
+    // Get current page title for last breadcrumb
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $pathWithoutLocale = preg_replace('#^/[a-z]{2}-[a-z]{2}#i', '', $path);
+    
+    // If it's an individual article (not the insights index), add article title
+    if (preg_match('#^/insights/([^/]+)/$#', $pathWithoutLocale, $m) && $m[1] !== 'insights') {
+      $articleSlug = $m[1];
+      // Get article title from page meta if available
+      $articleTitle = $GLOBALS['__page_meta']['title'] ?? ucwords(str_replace(['-', '_'], ' ', $articleSlug));
+      // Remove " | NRLC.ai" suffix if present
+      $articleTitle = preg_replace('/\s*\|\s*NRLC\.ai\s*$/i', '', $articleTitle);
+      $breadcrumbs[] = ['name' => $articleTitle, 'url' => ''];
+    }
   ?>
-  <nav class="nav-secondary" aria-label="Insights Navigation">
-    <ul class="nav-secondary__menu">
-      <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/insights/') ?>" class="nav-secondary__link" title="<?= $allInsightsAttrs['title'] ?>" aria-label="<?= $allInsightsAttrs['aria-label'] ?>"<?= $isAllInsights ? ' aria-current="page"' : '' ?>>All Insights</a>
-      </li>
-      <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/insights/semantic-modeling/') ?>" class="nav-secondary__link" title="<?= $semanticModelingAttrs['title'] ?>" aria-label="<?= $semanticModelingAttrs['aria-label'] ?>">Semantic Modeling</a>
-      </li>
-      <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/insights/data-virtualization/') ?>" class="nav-secondary__link" title="<?= $dataVirtualizationAttrs['title'] ?>" aria-label="<?= $dataVirtualizationAttrs['aria-label'] ?>">Data Virtualization</a>
-      </li>
-      <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/insights/enterprise-llm/') ?>" class="nav-secondary__link" title="<?= $enterpriseLlmAttrs['title'] ?>" aria-label="<?= $enterpriseLlmAttrs['aria-label'] ?>">Enterprise LLM</a>
-      </li>
-      <li class="nav-secondary__item">
-        <a href="<?= absolute_url('/insights/performance-caching/') ?>" class="nav-secondary__link" title="<?= $performanceCachingAttrs['title'] ?>" aria-label="<?= $performanceCachingAttrs['aria-label'] ?>">Performance & Caching</a>
-      </li>
-    </ul>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <?php foreach ($breadcrumbs as $index => $crumb): ?>
+        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <?php if (!empty($crumb['url'])): ?>
+            <a href="<?= htmlspecialchars($crumb['url']) ?>" class="breadcrumb__link" itemprop="item">
+              <span itemprop="name"><?= htmlspecialchars($crumb['name']) ?></span>
+            </a>
+          <?php else: ?>
+            <span class="breadcrumb__current" itemprop="name"><?= htmlspecialchars($crumb['name']) ?></span>
+          <?php endif; ?>
+          <meta itemprop="position" content="<?= $index + 1 ?>">
+        </li>
+      <?php endforeach; ?>
+    </ol>
   </nav>
   <?php endif; ?>
 </header>

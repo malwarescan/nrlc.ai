@@ -80,14 +80,7 @@ if (isset($all_articles[$slug])) {
   // Set flag before including article so article can check if nav is needed
   $GLOBALS['__insights_nav_needed'] = true;
   include __DIR__ . '/' . $all_articles[$slug];
-  // Add navigation back to insights index if article didn't add it
-  if (!isset($GLOBALS['__insights_nav_added'])) {
-    echo '<div class="content-block module">';
-    echo '<div class="content-block__body">';
-    echo '<p><a href="/insights/" class="btn">← View All Research & Insights</a></p>';
-    echo '</div>';
-    echo '</div>';
-  }
+  // Breadcrumbs are now in header.php - no need for bottom button
   return;
 }
 
