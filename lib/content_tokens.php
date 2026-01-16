@@ -164,7 +164,7 @@ function approach_section(string $service, string $city = ''): string {
   }
   
   $pick = det_pick($blocks, max(2, min(3, count($blocks))));
-  $out=[];
+  $approachBlocks = [];
   foreach ($pick as $b) {
     $title = is_array($b) ? ($b['block_title'] ?? $b['title'] ?? '') : '';
     $body = is_array($b) ? ($b['body'] ?? $b['description'] ?? '') : '';
@@ -176,7 +176,7 @@ function approach_section(string $service, string $city = ''): string {
     if ($city && stripos($body, $c) === false) {
       $body = preg_replace('/\. /', " in {$c}. ", $body, 1);
     }
-    $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">{$title}</h3><p>{$body}</p></div>";
+    $approachBlocks[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">{$title}</h3><p>{$body}</p></div>";
   }
   
   // META KERNEL DIRECTIVE: Step-by-step process section
@@ -204,13 +204,16 @@ function approach_section(string $service, string $city = ''): string {
     ]
   ];
   
-  $out[] = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">Step-by-Step Service Delivery</h3>";
+  // Return approach blocks and step-by-step section separately using a delimiter
+  $approachOutput = implode("\n", $approachBlocks);
+  $stepByStepOutput = "<div class=\"box-padding\"><h3 style=\"margin-top: 0; color: #000080;\">Step-by-Step Service Delivery</h3>";
   foreach ($processSteps as $idx => $step) {
-    $out[] = "<div style=\"margin-bottom: 1.5rem;\"><h4 style=\"margin-top: 0; color: #333;\">{$step['title']}</h4><p>{$step['description']}</p></div>";
+    $stepByStepOutput .= "<div style=\"margin-bottom: 1.5rem;\"><h4 style=\"margin-top: 0; color: #333;\">{$step['title']}</h4><p>{$step['description']}</p></div>";
   }
-  $out[] = "</div>";
+  $stepByStepOutput .= "</div>";
   
-  return implode("\n", $out);
+  // Use a unique delimiter to split in template
+  return $approachOutput . "<!--STEP_BY_STEP_DELIMITER-->" . $stepByStepOutput;
 }
 
 function why_this_matters_section(string $service, string $city): string {

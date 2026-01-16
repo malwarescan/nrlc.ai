@@ -219,44 +219,25 @@ $content = $intro . $local;
           </div>
           <div class="content-block__body">
             <?php
-            // approach_section() returns approach blocks + step-by-step section
+            // approach_section() returns approach blocks + step-by-step section separated by delimiter
             // Split the output to handle grid vs full-width sections properly
             $processOutput = $process;
             
-            // Extract approach blocks (everything before "Step-by-Step Service Delivery")
-            if (strpos($processOutput, 'Step-by-Step Service Delivery') !== false) {
-              // Find the position of the "Step-by-Step Service Delivery" heading
-              $stepByStepPos = strpos($processOutput, '<h3');
-              $stepByStepHeadingPos = strpos($processOutput, 'Step-by-Step Service Delivery');
+            // Split on the delimiter
+            if (strpos($processOutput, '<!--STEP_BY_STEP_DELIMITER-->') !== false) {
+              list($approachBlocks, $stepByStepSection) = explode('<!--STEP_BY_STEP_DELIMITER-->', $processOutput, 2);
               
-              if ($stepByStepHeadingPos !== false) {
-                // Find the start of the div containing "Step-by-Step Service Delivery"
-                // Look backwards from the heading to find the opening <div class="box-padding">
-                $searchStart = max(0, $stepByStepPos - 100);
-                $beforeStepByStep = substr($processOutput, 0, $searchStart);
-                $stepByStepDivStart = strrpos($beforeStepByStep, '<div class="box-padding">');
-                
-                if ($stepByStepDivStart !== false) {
-                  $approachBlocks = trim(substr($processOutput, 0, $stepByStepDivStart));
-                  $stepByStepSection = substr($processOutput, $stepByStepDivStart);
-                  
-                  // Display approach blocks in grid
-                  if (!empty($approachBlocks)) {
-                    echo '<div class="grid grid-auto-fit">' . $approachBlocks . '</div>';
-                  }
-                  
-                  // Display step-by-step section full-width (not in grid)
-                  echo $stepByStepSection;
-                } else {
-                  // Fallback: display all in grid
-                  echo '<div class="grid grid-auto-fit">' . $processOutput . '</div>';
-                }
-              } else {
-                // Fallback: display all in grid
-                echo '<div class="grid grid-auto-fit">' . $processOutput . '</div>';
+              // Display approach blocks in grid
+              if (!empty(trim($approachBlocks))) {
+                echo '<div class="grid grid-auto-fit">' . trim($approachBlocks) . '</div>';
+              }
+              
+              // Display step-by-step section full-width (not in grid)
+              if (!empty(trim($stepByStepSection))) {
+                echo trim($stepByStepSection);
               }
             } else {
-              // No step-by-step section, just display approach blocks in grid
+              // Fallback: if no delimiter, display all in grid (backward compatibility)
               echo '<div class="grid grid-auto-fit">' . $processOutput . '</div>';
             }
             ?>
