@@ -143,8 +143,8 @@ $GLOBALS['__jsonld'] = [
 
 // Meta tags
 $GLOBALS['__page_meta'] = [
-  'title' => 'Learn SEO → AI SEO: Beginner Education Hub | Neural Command',
-  'description' => 'Beginner-friendly education on SEO fundamentals and how AI is transforming search engine optimization. Learn the basics before advancing to advanced AI SEO research.',
+  'title' => 'Learn SEO → AI SEO: Beginner Hub | Neural Command',
+  'description' => 'Beginner-friendly education on SEO fundamentals and AI transformation. Learn the basics before advancing to advanced AI SEO research.',
   'keywords' => 'Learn SEO, SEO basics, SEO for beginners, AI SEO, SEO education, SEO fundamentals, types of SEO, ChatGPT SEO, Neural Command',
   'canonicalPath' => '/en-us/learn/'
 ];
