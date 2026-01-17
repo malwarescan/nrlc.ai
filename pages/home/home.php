@@ -591,6 +591,16 @@ try {
         '@type' => 'Thing',
         'name' => 'AI Search Optimization',
         'description' => 'The comprehensive discipline that encompasses AEO, GEO, and related practices for optimizing content visibility in AI-powered search systems.'
+      ],
+      [
+        '@type' => 'Service',
+        '@id' => $baseUrl . '#service-ai-search-optimization',
+        'name' => 'AI Search Optimization',
+        'description' => 'Enterprise-grade implementation of GEO and AEO frameworks to improve LLM citation frequency.',
+        'provider' => [
+          '@type' => ['Organization', 'ResearchOrganization'],
+          '@id' => $baseUrl . '#neural-command'
+        ]
       ]
     ]
   ];
