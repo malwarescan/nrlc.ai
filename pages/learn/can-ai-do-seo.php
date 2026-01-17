@@ -98,6 +98,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   // Course (Educational Content - Answer-First Architecture)
+  // Course Info Structured Data for Google's Course Info Rich Results
   [
     '@context' => 'https://schema.org',
     '@type' => 'Course',
@@ -117,6 +118,9 @@ $GLOBALS['__jsonld'] = [
     'educationalLevel' => 'Beginner',
     'inLanguage' => 'en-US',
     'courseCode' => 'LEARN-AI-SEO-001',
+    'courseMode' => 'online',
+    'timeRequired' => 'PT10M', // Estimated reading time: 10 minutes (ISO 8601 duration)
+    'coursePrerequisites' => 'None', // Beginner-friendly, no prerequisites
     'teaches' => [
       'AI and SEO Integration',
       'SEO Task Automation',

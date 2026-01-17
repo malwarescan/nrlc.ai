@@ -98,6 +98,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   // Course (Educational Content - Answer-First Architecture)
+  // Course Info Structured Data for Google's Course Info Rich Results
   [
     '@context' => 'https://schema.org',
     '@type' => 'Course',
@@ -117,6 +118,9 @@ $GLOBALS['__jsonld'] = [
     'educationalLevel' => 'Beginner',
     'inLanguage' => 'en-US',
     'courseCode' => 'LEARN-SEO-TYPES-002',
+    'courseMode' => 'online',
+    'timeRequired' => 'PT12M', // Estimated reading time: 12 minutes (ISO 8601 duration)
+    'coursePrerequisites' => 'None', // Beginner-friendly, no prerequisites
     'teaches' => [
       'On-Page SEO',
       'Off-Page SEO',
@@ -152,7 +156,7 @@ $GLOBALS['__jsonld'] = [
 
 // Meta tags
 $GLOBALS['__page_meta'] = [
-  'title' => 'What are the 4 Types of SEO? | Beginner SEO Education | Neural Command',
+  'title' => 'What are the 4 Types of SEO? | Beginner Education',
   'description' => 'The four types of SEO are: on-page, off-page, technical, and local SEO. Learn how each type works and how they complement each other for optimal search performance.',
   'keywords' => 'types of SEO, on-page SEO, off-page SEO, technical SEO, local SEO, SEO fundamentals, SEO for beginners',
   'canonicalPath' => '/en-us/learn/types-of-seo/'
