@@ -57,6 +57,15 @@ function hreflang_links(string $pathWithoutLocalePrefix): array {
         $allowedLocales = $allowlist['/products/'];
       }
     }
+    
+    // Check if this is a learn page and learn index is in allowlist
+    // Individual learn pages inherit hreflang from learn index if enabled
+    if (preg_match('#^/learn/([^/]+)/$#', $normalizedPath, $learnMatch)) {
+      if (isset($allowlist['/learn/'])) {
+        // Learn pages inherit locales from learn index
+        $allowedLocales = $allowlist['/learn/'];
+      }
+    }
   }
   
   if ($allowedLocales === null) {
