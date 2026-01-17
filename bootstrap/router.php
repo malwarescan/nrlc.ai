@@ -971,6 +971,34 @@ function route_request(): void {
     return;
   }
 
+  // Learn Hub Route (Beginner Education)
+  if ($path === '/learn/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'learn/index',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    render_page('learn/index');
+    return;
+  }
+
+  // Learn Pages Routes (Beginner Education)
+  if ($path === '/learn/can-ai-do-seo/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'learn/can-ai-do-seo',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    render_page('learn/can-ai-do-seo');
+    return;
+  }
+
   // Answer First Architecture Route
   if ($path === '/answer-first-architecture/') {
     require_once __DIR__.'/../lib/meta_directive.php';
