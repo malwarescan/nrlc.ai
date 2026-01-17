@@ -45,3 +45,9 @@
 - [About Joel Maldonado](https://nrlc.ai/): Profile of the founder and lead researcher. Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems, establishing foundational frameworks for AI Search Optimization.
 
 - [Contact Agency](https://nrlc.ai/): Inquiry form for enterprise AI optimization partnerships. Neural Command provides technical implementation support, AI visibility optimization services, and structured data engineering.
+
+## Metadata
+
+- **Last Updated**: 2026-01-27
+- **Status**: Live Research Feed
+- **Primary Entity**: Neural Command Research Lab
