@@ -477,7 +477,49 @@ if ($indexPageEntries) {
   echo "Built index pages sitemap: " . count($indexPageEntries) . " URLs\n";
 }
 
-// 12. Semantic infrastructure service pages sitemap
+// 12a. Learn & Course pages sitemap (Beginner Education Hub)
+$learnEntries = [];
+$learnPages = [
+  '/learn/',  // Hub page
+  '/learn/can-ai-do-seo/',
+  '/learn/types-of-seo/',
+  // Future learn pages will be added here:
+  // '/learn/seo-80-20-rule/',
+  // '/learn/chatgpt-seo/',
+  // '/learn/ai-30-percent-rule/',
+];
+
+// Add Answer First Architecture page (research methodology)
+$learnPages[] = '/answer-first-architecture/';
+
+foreach ($learnPages as $path) {
+  // SITEMAP CANONICAL ONLY: Only include en-us canonical (learn pages are en-us for now)
+  $canonicalUrl = "https://nrlc.ai/en-us{$path}";
+  
+  // Check if page file exists to get actual lastmod
+  $pageFile = __DIR__ . '/../pages' . str_replace('/', '', $path) . '.php';
+  if (!file_exists($pageFile)) {
+    // Try index.php for hub pages
+    $pageFile = __DIR__ . '/../pages' . rtrim($path, '/') . '/index.php';
+  }
+  
+  $lastmod = file_exists($pageFile) ? date('Y-m-d', filemtime($pageFile)) : $today;
+  $priority = ($path === '/learn/' || $path === '/answer-first-architecture/') ? '0.9' : '0.8';
+  
+  $learnEntries[] = sitemap_entry_simple($canonicalUrl, $lastmod, 'weekly', $priority);
+}
+
+if ($learnEntries) {
+  $xmlFile = "{$outDir}learn-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_urlset($learnEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built learn sitemap: " . count($learnEntries) . " URLs\n";
+}
+
+// 12b. Semantic infrastructure service pages sitemap
 $semanticServiceEntries = [];
 $semanticServices = [
   'data-mapping',
