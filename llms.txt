@@ -1,27 +1,47 @@
-# Neural Command Research Lab - AI Agent Summary
+# Neural Command | AI Search Research Lab & Agency
 
-## About Neural Command
-Neural Command is an AI Search Optimization (GEO) research lab and agency specializing in AEO (Answer Engine Optimization), entity mapping, and LLM visibility research for enterprise brands. Founded by Joel Maldonado in 2020, Neural Command conducts deep research into how AI systems—including ChatGPT, Google AI Overviews, Claude, and Perplexity—retrieve, evaluate, and cite content.
+> Neural Command is a specialized research laboratory and agency focused on Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO). We bridge the gap between technical LLM research and enterprise-grade SEO implementation. Founded by Joel Maldonado in 2020, Neural Command conducts deep research into how AI systems—including ChatGPT, Google AI Overviews, Claude, and Perplexity—retrieve, evaluate, and cite content.
 
-## Research Focus
-Neural Command's research establishes foundational frameworks for:
-- Generative Engine Optimization (GEO)
-- Answer Engine Optimization (AEO)
-- Entity mapping and disambiguation
-- LLM visibility and citation frequency
-- Structured data engineering for AI systems
-- Retrieval signal optimization
+## Core Services & Frameworks
 
-## Services
-Enterprise-grade implementation of GEO and AEO frameworks to improve LLM citation frequency, entity clarity, and AI search visibility.
+- [GEO Implementation](https://nrlc.ai/en-us/generative-engine-optimization/): Learn how to implement Generative Engine Optimization strategies for ChatGPT, Claude, Perplexity, and Google AI Overviews. Foundational mechanics, confidence scoring, and failure patterns documented by Neural Command's systematic research.
 
-## Key Resources
-- Knowledge Base: Organized by conditions businesses experience (not categories)
-- Research Documentation: Systematic observation and analysis of AI search behavior
-- Implementation Services: Applying deeply studied principles to optimize content for AI-powered search engines
+- [AEO Strategy](https://nrlc.ai/en-us/services/): Learn how to implement Answer Engine Optimization frameworks for AI answer engines that generate direct answers. Focuses on entity clarity, atomic content segments, structured data, and citation-ready formatting.
 
-## Contact
-- Website: https://nrlc.ai
-- Founder: Joel Maldonado
-- Phone: +1-844-568-4624
-- Location: Santa Monica, CA
+- [AI Search Diagnostics](https://nrlc.ai/en-us/ai-search-diagnostics/): Learn how to diagnose why your site is indexed but not appearing in AI results. Symptom-first troubleshooting for sites not showing in AI results, traffic declines, and citation failures.
+
+- [AI Search Audit](https://nrlc.ai/en-us/services/site-audits/): Learn how to evaluate your brand visibility across Gemini, Perplexity, and OpenAI. Technical methodology for assessing LLM citation frequency and AI search visibility.
+
+## Research & Data
+
+- [GEO Research](https://nrlc.ai/en-us/generative-engine-optimization/): Neural Command's foundational research on how AI systems retrieve, score, and cite content segments. Documents retrieval signal engineering, semantic structure optimization, and confidence threshold alignment.
+
+- [LLM Visibility Research](https://nrlc.ai/en-us/ai-search-measurement/): Original research on measuring visibility in AI search. Documents what metrics exist, what can be measured, what is inferred, and what executives should expect in AI-mediated search.
+
+- [Entity Mapping Lab](https://nrlc.ai/en-us/glossary/): Documentation on structuring JSON-LD for AI Knowledge Graphs. Standard terminology and definitions for generative search, AI-mediated search, and retrieval mechanics.
+
+- [Field Notes](https://nrlc.ai/en-us/field-notes/): Observational notes on AI search behavior written as "We observed X behavior across Y surfaces under Z constraints." No speculation, no predictions, no marketing—pure observational authority.
+
+- [AI Search Strategy Research](https://nrlc.ai/en-us/ai-search-strategy/): Calm assessment of what SEO controls, what it lost, and how teams should adapt in the generative era. Documents the strategic gap between traditional SEO and AI search requirements.
+
+- [AI Search Operations Research](https://nrlc.ai/en-us/ai-search-operations/): Research on what to stop doing, what to keep doing, and what signals generative engines ignore. Documents practices with diminishing returns and emerging AI search signals.
+
+- [AI Search Migrations](https://nrlc.ai/en-us/ai-search-migrations/): Step-by-step procedural guides for restructuring, migrating, and rebuilding content for AI retrieval. Documents the architectural requirements for segment-level retrieval and entity-level citation.
+
+- [AI Search Risk Management](https://nrlc.ai/en-us/ai-search-risk/): Enterprise risk management for AI citations and visibility. Documents brand protection, governance, and institutional trust in AI-mediated search environments.
+
+- [AI Search Tools Reality](https://nrlc.ai/en-us/ai-search-tools-reality/): Honest assessment of what SEO tools can and cannot see in AI-mediated search. Documents the limits of traditional tooling and prevents false expectations.
+
+## Implementation Guides
+
+- [Services](https://nrlc.ai/en-us/services/): Enterprise-grade implementation of GEO and AEO frameworks to improve LLM citation frequency. Learn how Neural Command applies deeply studied principles to optimize content for AI-powered search engines.
+
+- [Training](https://nrlc.ai/training/): Learn how to implement AI search optimization practices through hands-on training. Educational programs covering GEO, AEO, structured data engineering, and LLM visibility optimization.
+
+- [Insights](https://nrlc.ai/en-us/insights/): Research articles documenting Neural Command's systematic observation and analysis of AI search behavior. Field-tested insights on retrieval mechanics, citation patterns, and extractability requirements.
+
+## Optional
+
+- [About Joel Maldonado](https://nrlc.ai/): Profile of the founder and lead researcher. Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems, establishing foundational frameworks for AI Search Optimization.
+
+- [Contact Agency](https://nrlc.ai/): Inquiry form for enterprise AI optimization partnerships. Neural Command provides technical implementation support, AI visibility optimization services, and structured data engineering.
