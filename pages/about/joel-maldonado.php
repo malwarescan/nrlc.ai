@@ -132,11 +132,11 @@ $GLOBALS['__jsonld'] = [
   <section class="section">
     <div class="section__content">
       
-      <div class="content-block module">
+      <!-- Hero Block -->
+      <div class="content-block module" style="background: var(--color-background-alt, #f5f5f5); padding: var(--spacing-xl); border-left: 4px solid var(--color-brand, #12355e); margin-bottom: var(--spacing-xl);">
         <div class="content-block__header">
-          <h1 class="content-block__title">Joel Maldonado</h1>
+          <h1 class="content-block__title heading-1">Joel Maldonado</h1>
         </div>
-        
         <div class="content-block__body">
           <?php if (file_exists(__DIR__ . '/../../public/assets/images/joel-maldonado.png')): ?>
             <div style="float: right; margin: 0 0 1.5rem 1.5rem; max-width: 200px;">
@@ -146,7 +146,9 @@ $GLOBALS['__jsonld'] = [
             </div>
           <?php endif; ?>
           
-          <p class="lead">Joel David Maldonado is an AI Search Optimization Researcher specializing in structured data, knowledge graphs, entity resolution, and answer engine optimization. He is the founder of Neural Command LLC, where he leads research and development of methodologies for improving brand visibility in AI-powered search engines.</p>
+          <p class="lead text-lg" style="font-size: 1.1rem; margin-bottom: var(--spacing-lg);">
+            Joel David Maldonado is an AI Search Optimization Researcher specializing in structured data, knowledge graphs, entity resolution, and answer engine optimization. He is the founder of Neural Command LLC, where he leads research and development of methodologies for improving brand visibility in AI-powered search engines.
+          </p>
           
           <p>With over 10 years of experience in technical SEO and structured data implementation, Joel has developed frameworks including the LLM Search Strategy Framework and GEO-16 methodology for AI citation optimization. His research focuses on how AI systems extract, cite, and surface authoritative content in generative search results.</p>
           
