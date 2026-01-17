@@ -1385,6 +1385,16 @@ label {
   
   .nav-primary__toggle {
     display: flex;
+    margin-left: auto;
+    order: 3;
+  }
+  
+  .nav-primary__cta {
+    order: 4;
+  }
+  
+  .nav-primary__menu {
+    order: 2;
   }
   
   .nav-primary__menu {
