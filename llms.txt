@@ -16,6 +16,8 @@
 
 - [GEO Research](https://nrlc.ai/en-us/generative-engine-optimization/): Neural Command's foundational research on how AI systems retrieve, score, and cite content segments. Documents retrieval signal engineering, semantic structure optimization, and confidence threshold alignment.
 
+- [Answer First Architecture](https://nrlc.ai/en-us/answer-first-architecture/): Neural Command's foundational AEO methodology for structuring content so AI systems extract primary answers in the first 1-2 sentences. Documents the three power patterns (Definition Lock, Information Gain Layer, Entity Anchor) and research findings showing 73% higher citation frequency with Answer First Architecture.
+
 - [LLM Visibility Research](https://nrlc.ai/en-us/ai-search-measurement/): Original research on measuring visibility in AI search. Documents what metrics exist, what can be measured, what is inferred, and what executives should expect in AI-mediated search.
 
 - [Entity Mapping Lab](https://nrlc.ai/en-us/glossary/): Documentation on structuring JSON-LD for AI Knowledge Graphs. Standard terminology and definitions for generative search, AI-mediated search, and retrieval mechanics.

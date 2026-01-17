@@ -971,6 +971,22 @@ function route_request(): void {
     return;
   }
 
+  // Answer First Architecture Route
+  if ($path === '/answer-first-architecture/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    // Use actual request path for canonical (includes locale if present)
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'answer-first-architecture/index',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    // Page sets its own meta tags, but we ensure canonical is correct
+    render_page('answer-first-architecture/index');
+    return;
+  }
+
   // GEO Routes
   if ($path === '/generative-engine-optimization/') {
     require_once __DIR__.'/../lib/meta_directive.php';
