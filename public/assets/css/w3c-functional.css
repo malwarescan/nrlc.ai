@@ -1693,6 +1693,141 @@ label {
 }
 
 /* ==========================================================================
+   Mobile Fixed Action Buttons (Call & Chat)
+   ========================================================================== */
+
+.mobile-fixed-actions {
+  display: none; /* Hidden on desktop */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+  z-index: 9999; /* Above Tawk.to widget (usually 9998) */
+  pointer-events: none; /* Allow clicks to pass through container */
+}
+
+.mobile-fixed-action {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-brand, #12355e);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform var(--duration-base) var(--ease-functional),
+              box-shadow var(--duration-base) var(--ease-functional),
+              background var(--duration-base) var(--ease-functional);
+  pointer-events: auto; /* Enable clicks on buttons */
+  min-height: 64px;
+  max-width: 160px;
+}
+
+.mobile-fixed-action:hover,
+.mobile-fixed-action:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background: var(--color-brand-dark, #0d2847);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.mobile-fixed-action:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-fixed-action svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+.mobile-fixed-action__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+}
+
+.mobile-fixed-action--call {
+  background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+}
+
+.mobile-fixed-action--call:hover,
+.mobile-fixed-action--call:focus {
+  background: linear-gradient(135deg, #0052a3 0%, #003366 100%);
+}
+
+.mobile-fixed-action--chat {
+  background: linear-gradient(135deg, #12355e 0%, #0d2847 100%);
+}
+
+.mobile-fixed-action--chat:hover,
+.mobile-fixed-action--chat:focus {
+  background: linear-gradient(135deg, #0d2847 0%, #081a2e 100%);
+}
+
+/* Show only on mobile */
+@media (min-width: 769px) {
+  .mobile-fixed-actions {
+    display: none !important;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .mobile-fixed-actions {
+    display: flex;
+  }
+  
+  /* Add bottom padding to body to prevent content from being hidden behind buttons */
+  body {
+    padding-bottom: 100px;
+  }
+  
+  /* Ensure buttons don't overlap with Tawk.to widget */
+  .mobile-fixed-action--chat {
+    margin-right: 0;
+  }
+  
+  .mobile-fixed-action--call {
+    margin-left: 0;
+  }
+}
+
+/* Very small screens - adjust button size */
+@media (max-width: 375px) {
+  .mobile-fixed-action {
+    padding: var(--spacing-sm) var(--spacing-md);
+    min-height: 56px;
+    max-width: 140px;
+  }
+  
+  .mobile-fixed-action svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .mobile-fixed-action__label {
+    font-size: 10px;
+  }
+}
+
+/* ==========================================================================
    END W3C Functional Authority Design System
    ========================================================================== */
 
