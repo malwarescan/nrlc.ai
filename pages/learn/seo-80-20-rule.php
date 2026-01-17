@@ -306,7 +306,8 @@ $GLOBALS['__page_meta'] = [
           <p>Focus on the 20% of high-impact SEO activities that drive 80% of your results. Learn how to identify and prioritize these activities for maximum impact.</p>
           <p><a href="<?= absolute_url('/en-us/learn/') ?>" class="btn btn--primary">Continue Learning</a></p>
         </section>
-      </article>
+        </div>
+      </div>
     </div>
   </section>
 </main>
