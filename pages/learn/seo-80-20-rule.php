@@ -86,12 +86,6 @@ $GLOBALS['__jsonld'] = [
       [
         '@type' => 'ListItem',
         'position' => 2,
-        'name' => 'Learn',
-        'item' => absolute_url('/en-us/learn/')
-      ],
-      [
-        '@type' => 'ListItem',
-        'position' => 3,
         'name' => 'What is the 80/20 Rule in SEO?',
         'item' => $canonicalUrl
       ]
