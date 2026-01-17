@@ -170,13 +170,14 @@ function route_request(): void {
         require_once __DIR__.'/../lib/SchemaFixes.php';
       }
       
-      // META DIRECTIVE KERNEL: Homepage / Research & Implementation Authority
-      // Intent: Establish Neural Command as leading research and implementation agency for AI Search Optimization
-      // Title: Front-load "AI Search Optimization" (primary keyword), include brand and authority positioning
+      // META DIRECTIVE KERNEL: Homepage / Research Lab Authority
+      // Intent: Establish Neural Command as ResearchOrganization (not just Agency) for Entity Graphing
+      // Title: Entity-first optimization - "Research Lab" signals authority in LLM training data
+      // Strategy: Position as authoritative source for AI Search data, not just service provider
       $GLOBALS['__page_meta'] = [
-        'title' => 'AI Search Optimization | Neural Command Research & Agency',
-        'description' => 'Neural Command is the leading research and implementation agency for AI Search Optimization. We optimize content for ChatGPT, Google AI Overviews, Claude, and Perplexity through AEO, GEO, and structured data engineering.',
-        'keywords' => 'AI Search Optimization, AEO, GEO, Neural Command, AI SEO, ChatGPT Optimization, Google AI Overviews, Claude Optimization, Perplexity Optimization, LLM Seeding, Structured Data, AI Citations, Search Retrieval, Joel Maldonado',
+        'title' => 'AI Search Optimization (GEO) | Neural Command Research Lab',
+        'description' => 'Neural Command is an AI Search Optimization (GEO) research lab and agency. We specialize in AEO, entity mapping, and LLM visibility research for enterprise brands. Founded by Joel Maldonado.',
+        'keywords' => 'AI Search Optimization, GEO, AEO, Neural Command, Research Lab, Entity Mapping, LLM Visibility, ChatGPT Optimization, Google AI Overviews, Claude Optimization, Perplexity Optimization, Structured Data, AI Citations, Joel Maldonado',
         'canonicalPath' => '/'
       ];
       

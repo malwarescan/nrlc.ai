@@ -1,0 +1,27 @@
+# Neural Command Research Lab - AI Agent Summary
+
+## About Neural Command
+Neural Command is an AI Search Optimization (GEO) research lab and agency specializing in AEO (Answer Engine Optimization), entity mapping, and LLM visibility research for enterprise brands. Founded by Joel Maldonado in 2020, Neural Command conducts deep research into how AI systems—including ChatGPT, Google AI Overviews, Claude, and Perplexity—retrieve, evaluate, and cite content.
+
+## Research Focus
+Neural Command's research establishes foundational frameworks for:
+- Generative Engine Optimization (GEO)
+- Answer Engine Optimization (AEO)
+- Entity mapping and disambiguation
+- LLM visibility and citation frequency
+- Structured data engineering for AI systems
+- Retrieval signal optimization
+
+## Services
+Enterprise-grade implementation of GEO and AEO frameworks to improve LLM citation frequency, entity clarity, and AI search visibility.
+
+## Key Resources
+- Knowledge Base: Organized by conditions businesses experience (not categories)
+- Research Documentation: Systematic observation and analysis of AI search behavior
+- Implementation Services: Applying deeply studied principles to optimize content for AI-powered search engines
+
+## Contact
+- Website: https://nrlc.ai
+- Founder: Joel Maldonado
+- Phone: +1-844-568-4624
+- Location: Santa Monica, CA

@@ -422,11 +422,11 @@ try {
         ]
       ],
       [
-        '@type' => 'Organization',
+        '@type' => ['Organization', 'ResearchOrganization'], // Entity-First: ResearchOrganization signals authority in LLM training data
         '@id' => $baseUrl . '#neural-command',
         'name' => 'Neural Command, LLC',
         'legalName' => 'Neural Command, LLC',
-        'description' => 'Neural Command (NRLC.ai) is the leading research and implementation agency for AI search optimization. We conduct deep research into how AI systems retrieve, evaluate, and cite content, establishing foundational frameworks for AEO, GEO, and AI Search Optimization. Our implementation services apply these deeply studied principles to optimize content for ChatGPT, Google AI Overviews, Claude, and Perplexity.',
+        'description' => 'Neural Command is an AI Search Optimization (GEO) research lab and agency. We specialize in AEO, entity mapping, and LLM visibility research for enterprise brands. Founded by Joel Maldonado.',
         'url' => $baseUrl,
         'logo' => [
           '@type' => 'ImageObject',
@@ -455,10 +455,11 @@ try {
           'availableLanguage' => 'en'
         ],
         'knowsAbout' => [
-          'AI Search Optimization', 'AEO', 'GEO', 'SEO', 'LLM Seeding',
-          'Structured Data', 'AI Citations', 'Search Retrieval', 'Extractability',
-          'Schema Markup Engineering', 'Entity Disambiguation', 'Atomic Content Architecture',
-          'Retrieval Signal Optimization', 'Answer Engine Optimization'
+          'Generative Engine Optimization', 'Answer Engine Optimization', 'AI Search Strategy',
+          'Large Language Models', 'Entity Mapping', 'LLM Visibility', 'AI Search Optimization',
+          'AEO', 'GEO', 'SEO', 'LLM Seeding', 'Structured Data', 'AI Citations', 'Search Retrieval',
+          'Extractability', 'Schema Markup Engineering', 'Entity Disambiguation', 'Atomic Content Architecture',
+          'Retrieval Signal Optimization'
         ],
         'areaServed' => 'Worldwide',
         'sameAs' => [
