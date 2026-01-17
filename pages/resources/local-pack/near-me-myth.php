@@ -120,12 +120,19 @@ $GLOBALS['__jsonld'] = [
   <section class="section">
     <div class="section__content">
       
-      <div class="content-block module">
+      <!-- Hero Block -->
+      <div class="content-block module" style="background: var(--color-background-alt, #f5f5f5); padding: var(--spacing-xl); border-left: 4px solid var(--color-brand, #12355e); margin-bottom: var(--spacing-xl);">
         <div class="content-block__header">
-          <h1 class="content-block__title">Why "Near Me" Doesn't Rank You (And What Actually Does)</h1>
+          <h1 class="content-block__title heading-1">Why "Near Me" Doesn't Rank You (And What Actually Does)</h1>
         </div>
         <div class="content-block__body">
-          <p class="lead">"Near me" is interpreted as local intent, not a keyword you must paste. Stuffing it in title tags is a quality downgrade that can trigger spam signals.</p>
+          <p class="lead text-lg" style="font-size: 1.1rem; margin-bottom: var(--spacing-lg);">
+            "Near me" is interpreted as local intent, not a keyword you must paste. Stuffing it in title tags is a quality downgrade that can trigger spam signals.
+          </p>
+          <div class="btn-group" style="margin-top: var(--spacing-lg);">
+            <a href="<?= absolute_url('/en-us/resources/local-pack/city-service-pages-doorway-risk/') ?>" class="btn btn--primary" title="Previous: City + Service Pages">Previous Article</a>
+            <a href="<?= absolute_url('/en-us/resources/local-pack/') ?>" class="btn btn--secondary" title="Back to Local Pack Hub">Back to Hub</a>
+          </div>
         </div>
       </div>
       
@@ -237,6 +244,10 @@ $GLOBALS['__jsonld'] = [
             <li><a href="<?= absolute_url('/en-us/resources/local-pack/gsc-local-forensics/') ?>">Search Console Forensics for Local Businesses</a></li>
             <li><a href="<?= absolute_url('/en-us/resources/local-pack/') ?>">Local Pack Engineering Hub</a></li>
           </ul>
+          <div class="btn-group" style="margin-top: var(--spacing-lg);">
+            <a href="<?= absolute_url('/en-us/resources/local-pack/gsc-local-forensics/') ?>" class="btn btn--primary" title="Next: Search Console Forensics">Next Article</a>
+            <a href="<?= absolute_url('/en-us/resources/local-pack/') ?>" class="btn btn--secondary" title="Back to Local Pack Hub">Back to Hub</a>
+          </div>
         </div>
       </div>
       

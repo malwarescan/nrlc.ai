@@ -940,11 +940,28 @@ function route_request(): void {
       return;
     }
     if ($aboutSlug === 'joel-maldonado') {
-      // Canonical entity home is /en-us/about/joel-maldonado/
-      // Redirect non-locale version to canonical locale URL (301)
-      $canonicalUrl = absolute_url('/en-us/about/joel-maldonado/');
-      header("Location: $canonicalUrl", true, 301);
-      exit;
+      // Check if original path already had locale prefix (to avoid redirect loop)
+      $hadLocalePrefix = preg_match('#^/([a-z]{2})-([a-z]{2})/#i', $originalPath);
+      
+      if ($hadLocalePrefix) {
+        // Original path had locale, render the page (canonical is /en-us/about/joel-maldonado/)
+        require_once __DIR__.'/../lib/meta_directive.php';
+        $ctx = [
+          'type' => 'about',
+          'slug' => "about/joel-maldonado",
+          'title' => "Joel David Maldonado | Founder & LLM Strategist | NRLC.ai",
+          'excerpt' => "Joel David Maldonado is the founder of NRLC.ai and an LLM Strategist specializing in AI search optimization, generative engine optimization, and structured knowledge systems.",
+          'canonicalPath' => '/en-us/about/joel-maldonado/'
+        ];
+        $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+        render_page('about/joel-maldonado');
+        return;
+      } else {
+        // No locale prefix, redirect to canonical locale URL (301)
+        $canonicalUrl = absolute_url('/en-us/about/joel-maldonado/');
+        header("Location: $canonicalUrl", true, 301);
+        exit;
+      }
     }
     // If about slug doesn't match, return 404
     header('X-Robots-Tag: noindex, nofollow');

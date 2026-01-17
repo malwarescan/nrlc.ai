@@ -42,24 +42,25 @@ $localPackArticles = [
     'description' => 'Learn the four failure modes GSC reveals fast and exact workflows to catch suppression onset before it impacts visibility.',
     'pillar' => 'Search Console Forensics'
   ],
-  [
-    'slug' => 'schema-entity-validation',
-    'title' => 'The Only LocalBusiness Schema That Matters',
-    'description' => 'Entity validation done correctly: NAP matching, geo coordinates, openingHours, and schema governance rules that actually work.',
-    'pillar' => 'Schema and Entity Validation'
-  ],
-  [
-    'slug' => 'service-area-without-doorways',
-    'title' => 'Service Areas Without Doorway Pages',
-    'description' => 'When to use areaServed vs serviceArea, and how to represent service areas correctly without triggering doorway abuse flags.',
-    'pillar' => 'Schema and Entity Validation'
-  ],
-  [
-    'slug' => 'schema-governance-multi-location',
-    'title' => 'Schema Governance Rules for Multi-Location and SAB Businesses',
-    'description' => 'One location page per real address, unique @id per location, parent Organization entity links. Avoid duplication traps.',
-    'pillar' => 'Schema and Entity Validation'
-  ],
+  // TODO: Coming soon
+  // [
+  //   'slug' => 'schema-entity-validation',
+  //   'title' => 'The Only LocalBusiness Schema That Matters',
+  //   'description' => 'Entity validation done correctly: NAP matching, geo coordinates, openingHours, and schema governance rules that actually work.',
+  //   'pillar' => 'Schema and Entity Validation'
+  // ],
+  // [
+  //   'slug' => 'service-area-without-doorways',
+  //   'title' => 'Service Areas Without Doorway Pages',
+  //   'description' => 'When to use areaServed vs serviceArea, and how to represent service areas correctly without triggering doorway abuse flags.',
+  //   'pillar' => 'Schema and Entity Validation'
+  // ],
+  // [
+  //   'slug' => 'schema-governance-multi-location',
+  //   'title' => 'Schema Governance Rules for Multi-Location and SAB Businesses',
+  //   'description' => 'One location page per real address, unique @id per location, parent Organization entity links. Avoid duplication traps.',
+  //   'pillar' => 'Schema and Entity Validation'
+  // ],
   [
     'slug' => 'local-seo-grifts',
     'title' => 'Local SEO Grifts That Keep Contractors Broke',

@@ -122,16 +122,28 @@ $GLOBALS['__jsonld'] = [
   <section class="section">
     <div class="section__content">
       
-      <div class="content-block module">
+      <!-- Hero Block -->
+      <div class="content-block module" style="background: var(--color-background-alt, #f5f5f5); padding: var(--spacing-xl); border-left: 4px solid var(--color-brand, #12355e); margin-bottom: var(--spacing-xl);">
         <div class="content-block__header">
-          <h1 class="content-block__title">Search Console Forensics for Local Businesses</h1>
+          <h1 class="content-block__title heading-1">Search Console Forensics for Local Businesses</h1>
         </div>
-        
         <div class="content-block__body">
           
-          <p class="lead">Google Search Console reveals four failure modes fast. Learn exact workflows to catch suppression onset before it impacts visibility.</p>
-          
-          <h2>The Four Failure Modes GSC Reveals Fast</h2>
+          <p class="lead text-lg" style="font-size: 1.1rem; margin-bottom: var(--spacing-lg);">
+            Google Search Console reveals four failure modes fast. Learn exact workflows to catch suppression onset before it impacts visibility.
+          </p>
+          <div class="btn-group" style="margin-top: var(--spacing-lg);">
+            <a href="<?= absolute_url('/en-us/resources/local-pack/near-me-myth/') ?>" class="btn btn--primary" title="Previous: Why Near Me Doesn't Rank You">Previous Article</a>
+            <a href="<?= absolute_url('/en-us/resources/local-pack/') ?>" class="btn btn--secondary" title="Back to Local Pack Hub">Back to Hub</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-block module">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">The Four Failure Modes GSC Reveals Fast</h2>
+        </div>
+        <div class="content-block__body">
           
           <h3>1. Indexed but Not Ranking (Quality / Intent Mismatch)</h3>
           <p><strong>Symptom:</strong> Pages are indexed, but they don't appear in search results for relevant queries.</p>

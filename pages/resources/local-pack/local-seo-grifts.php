@@ -141,14 +141,15 @@ $GLOBALS['__jsonld'] = [
     <div class="section__content">
       
       <!-- Hero Block -->
-      <div class="content-block module">
+      <div class="content-block module" style="background: var(--color-background-alt, #f5f5f5); padding: var(--spacing-xl); border-left: 4px solid var(--color-brand, #12355e); margin-bottom: var(--spacing-xl);">
         <div class="content-block__header">
           <h1 class="content-block__title heading-1">Local SEO Grifts That Keep Contractors Broke</h1>
         </div>
         <div class="content-block__body">
           
-          <!-- INTRO (top 8–12 sentences) -->
-          <p>If someone tells you to rank "near me" by stuffing it into titles and headers, you're being sold a string trick.</p>
+          <p class="lead text-lg" style="font-size: 1.1rem; margin-bottom: var(--spacing-lg);">
+            If someone tells you to rank "near me" by stuffing it into titles and headers, you're being sold a string trick.
+          </p>
           
           <p>If someone tells you to make 30 city pages by swapping the city name, you're being sold the same string trick with more paperwork.</p>
           
@@ -272,9 +273,12 @@ $GLOBALS['__jsonld'] = [
           
           <p>Start here: <a href="<?= absolute_url('/en-us/resources/local-pack/') ?>">Local Pack Engineering Hub</a></p>
           
-          <p>Then: <a href="<?= absolute_url('/en-us/resources/local-pack/schema-entity-validation/') ?>">Schema and Entity Validation</a></p>
-          
           <p>Then: <a href="<?= absolute_url('/en-us/resources/local-pack/gsc-local-forensics/') ?>">Search Console Forensics</a></p>
+          
+          <div class="btn-group" style="margin-top: var(--spacing-lg);">
+            <a href="<?= absolute_url('/en-us/resources/local-pack/city-service-pages-doorway-risk/') ?>" class="btn btn--primary" title="Next: City + Service Pages">Next Article</a>
+            <a href="<?= absolute_url('/en-us/resources/local-pack/') ?>" class="btn btn--secondary" title="Back to Local Pack Hub">Back to Hub</a>
+          </div>
         </div>
       </div>
       
