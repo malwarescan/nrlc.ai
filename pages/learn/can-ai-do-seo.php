@@ -97,21 +97,15 @@ $GLOBALS['__jsonld'] = [
       ]
     ]
   ],
-  // Article (Educational Content)
+  // Course (Educational Content - Answer-First Architecture)
   [
     '@context' => 'https://schema.org',
-    '@type' => 'Article',
-    '@id' => $canonicalUrl . '#article',
-    'headline' => 'Can AI Do SEO?',
+    '@type' => 'Course',
+    '@id' => $canonicalUrl . '#course',
     'name' => 'Can AI Do SEO?',
     'description' => 'Yes, AI enhances SEO processes but requires human oversight for strategy, context, and quality control. Learn which SEO tasks AI can perform and which require human expertise.',
     'url' => $canonicalUrl,
-    'author' => [
-      '@type' => 'Organization',
-      '@id' => absolute_url('/') . '#organization',
-      'name' => 'Neural Command LLC'
-    ],
-    'publisher' => [
+    'provider' => [
       '@type' => 'Organization',
       '@id' => absolute_url('/') . '#organization',
       'name' => 'Neural Command LLC',
@@ -120,15 +114,16 @@ $GLOBALS['__jsonld'] = [
         'url' => absolute_url('/logo.png')
       ]
     ],
-    'datePublished' => '2026-01-27',
-    'dateModified' => date('Y-m-d'),
-    'mainEntityOfPage' => [
-      '@type' => 'WebPage',
-      '@id' => $canonicalUrl
-    ],
-    'keywords' => 'Can AI do SEO, AI SEO, artificial intelligence SEO, AI tools SEO, ChatGPT SEO, SEO automation, AI content generation',
+    'educationalLevel' => 'Beginner',
     'inLanguage' => 'en-US',
-    'articleSection' => 'Beginner Education',
+    'courseCode' => 'LEARN-AI-SEO-001',
+    'teaches' => [
+      'AI and SEO Integration',
+      'SEO Task Automation',
+      'AI Tools for SEO',
+      'Human Oversight in SEO',
+      'SEO Best Practices with AI'
+    ],
     'about' => [
       '@type' => 'DefinedTerm',
       '@id' => $canonicalUrl . '#ai-seo',

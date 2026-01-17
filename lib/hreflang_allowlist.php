@@ -39,10 +39,15 @@ return [
     // 'es-es',
   ],
 
-  // Individual product pages - enable hreflang for translated products
-  // Note: Individual product pages will match /products/{slug}/ pattern
-  // Add specific product pages here as they are translated, or use wildcard matching
-  // For now, we'll handle this dynamically in hreflang.php if needed
+  // Learn Hub - beginner education pages
+  '/learn/' => [
+    'en-us',
+    'en-gb',
+    // Add more locales as learn pages are translated
+  ],
+
+  // Individual learn pages - inherit hreflang from /learn/ if needed
+  // Learn pages matching /learn/{slug}/ pattern can inherit from /learn/
 
   // Future examples (DO NOT ENABLE YET)
   // '/services/schema-markup/' => ['en-us', 'en-gb'],

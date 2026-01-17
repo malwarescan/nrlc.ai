@@ -97,21 +97,15 @@ $GLOBALS['__jsonld'] = [
       ]
     ]
   ],
-  // Article (Educational Content)
+  // Course (Educational Content - Answer-First Architecture)
   [
     '@context' => 'https://schema.org',
-    '@type' => 'Article',
-    '@id' => $canonicalUrl . '#article',
-    'headline' => 'What are the 4 Types of SEO?',
+    '@type' => 'Course',
+    '@id' => $canonicalUrl . '#course',
     'name' => 'What are the 4 Types of SEO?',
     'description' => 'The four types of SEO are: on-page, off-page, technical, and local SEO. Learn how each type works and how they complement each other for optimal search performance.',
     'url' => $canonicalUrl,
-    'author' => [
-      '@type' => 'Organization',
-      '@id' => absolute_url('/') . '#organization',
-      'name' => 'Neural Command LLC'
-    ],
-    'publisher' => [
+    'provider' => [
       '@type' => 'Organization',
       '@id' => absolute_url('/') . '#organization',
       'name' => 'Neural Command LLC',
@@ -120,15 +114,17 @@ $GLOBALS['__jsonld'] = [
         'url' => absolute_url('/logo.png')
       ]
     ],
-    'datePublished' => '2026-01-27',
-    'dateModified' => date('Y-m-d'),
-    'mainEntityOfPage' => [
-      '@type' => 'WebPage',
-      '@id' => $canonicalUrl
-    ],
-    'keywords' => 'types of SEO, on-page SEO, off-page SEO, technical SEO, local SEO, SEO fundamentals, SEO for beginners',
+    'educationalLevel' => 'Beginner',
     'inLanguage' => 'en-US',
-    'articleSection' => 'Beginner Education',
+    'courseCode' => 'LEARN-SEO-TYPES-002',
+    'teaches' => [
+      'On-Page SEO',
+      'Off-Page SEO',
+      'Technical SEO',
+      'Local SEO',
+      'SEO Fundamentals',
+      'SEO Strategy'
+    ],
     'about' => [
       '@type' => 'DefinedTerm',
       '@id' => $canonicalUrl . '#seo-types',
