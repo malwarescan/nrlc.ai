@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../lib/schema_builders.php';
 require_once __DIR__ . '/../../lib/helpers.php';
+require_once __DIR__ . '/../../lib/person_entity.php';
 
 $canonical_url = absolute_url('/case-studies/b2b-saas/');
 
@@ -15,7 +16,7 @@ if (isset($GLOBALS['__page_meta'])) {
 }
 
 $orgId = absolute_url('/') . '#organization';
-$personId = absolute_url('/') . '#joel-maldonado';
+$personId = JOEL_PERSON_ID;
 
 // Schema stack - all in single JSON-LD graph (AI SEO Optimized)
 $GLOBALS['__jsonld'] = [
@@ -27,11 +28,7 @@ $GLOBALS['__jsonld'] = [
     'headline' => 'TaskFlow: 340% AI Citation Increase via Entity Mapping',
     'description' => 'A forensic case study on correcting AI system citation failures for a UK-based project management SaaS platform through structured data optimization and entity disambiguation.',
     'keywords' => 'B2B SaaS, AI citation optimization, entity mapping, Service schema, structured data, ChatGPT, Claude, Perplexity, UK SaaS, project management software',
-    'author' => [
-      '@type' => 'Person',
-      '@id' => $personId,
-      'name' => 'Joel Maldonado'
-    ],
+    'author' => ['@id' => JOEL_PERSON_ID, '@type' => 'Person', 'name' => 'Joel David Maldonado', 'url' => JOEL_ENTITY_HOME_URL],
     'publisher' => [
       '@type' => 'Organization',
       '@id' => $orgId,
@@ -72,20 +69,6 @@ $GLOBALS['__jsonld'] = [
     'sameAs' => 'https://taskflow.com',
     'disambiguatingDescription' => 'UK-based project management SaaS platform with 12,000 active users'
   ],
-  
-  // 3. Person (Joel Maldonado - Author)
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Person',
-    '@id' => $personId,
-    'name' => 'Joel Maldonado',
-    'givenName' => 'Joel',
-    'familyName' => 'Maldonado',
-    'jobTitle' => 'Founder & AI Search Researcher',
-    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems.',
-    'worksFor' => [
-      '@id' => $orgId
-    ],
     'knowsAbout' => [
       'AI SEO',
       'AEO',
@@ -101,7 +84,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 4. Organization (NRLC authority anchor) - Enhanced
+  // 3. Organization (NRLC authority anchor) - Enhanced
   [
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
@@ -132,7 +115,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 5. BreadcrumbList
+  // 4. BreadcrumbList
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -187,9 +170,7 @@ $GLOBALS['__jsonld'] = [
       'height' => 43,
       'caption' => 'Neural Command - AI SEO Case Study'
     ],
-    'author' => [
-      '@id' => $personId
-    ],
+    'author' => ['@id' => JOEL_PERSON_ID, '@type' => 'Person', 'name' => 'Joel David Maldonado', 'url' => JOEL_ENTITY_HOME_URL],
     'publisher' => [
       '@id' => $orgId
     ],

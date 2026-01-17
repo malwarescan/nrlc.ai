@@ -1,4 +1,14 @@
 <?php
+/**
+ * Schema Builders - Core Schema Markup Functions
+ * 
+ * CRITICAL RULE: Person Entity
+ * - Never mint new Person entities
+ * - All author references must use JOEL_PERSON_ID from lib/person_entity.php
+ * - Full Person payload exists ONLY on /en-us/about/joel-maldonado/
+ * - See docs/PERSON_ENTITY_IMPLEMENTATION.md for details
+ */
+
 require_once __DIR__.'/helpers.php';
 require_once __DIR__.'/SchemaFixes.php';
 require_once __DIR__.'/gbp_config.php';

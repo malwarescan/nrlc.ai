@@ -25,9 +25,10 @@ foreach ($recentPosts as $postNum) {
       '@id' => $url
     ],
     'author' => [
-      '@type' => 'Organization',
-      '@id' => 'https://nrlc.ai/#organization',
-      'name' => 'Neural Command'
+      '@id' => 'https://nrlc.ai/en-us/about/joel-maldonado/#person',
+      '@type' => 'Person',
+      'name' => 'Joel David Maldonado',
+      'url' => 'https://nrlc.ai/en-us/about/joel-maldonado/'
     ],
     'publisher' => [
       '@type' => 'Organization',

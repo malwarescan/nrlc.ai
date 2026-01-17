@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../lib/schema_builders.php';
 require_once __DIR__ . '/../../lib/helpers.php';
+require_once __DIR__ . '/../../lib/person_entity.php';
 
 $canonical_url = absolute_url('/case-studies/healthcare/');
 
@@ -15,7 +16,7 @@ if (isset($GLOBALS['__page_meta'])) {
 }
 
 $orgId = absolute_url('/') . '#organization';
-$personId = absolute_url('/') . '#joel-maldonado';
+$personId = JOEL_PERSON_ID;
 
 // Schema stack - all in single JSON-LD graph (AI SEO Optimized)
 $GLOBALS['__jsonld'] = [
@@ -27,11 +28,7 @@ $GLOBALS['__jsonld'] = [
     'headline' => 'MedCare Australia: 180% AI Citation Improvement via MedicalBusiness Schema',
     'description' => 'A forensic case study on correcting AI system citation failures for an Australian healthcare provider through MedicalBusiness schema optimization and credential declarations.',
     'keywords' => 'Healthcare, AI citation optimization, MedicalBusiness schema, HealthcareProvider credentials, specialty mappings, TrustSignal schema, ChatGPT, Claude, Perplexity, Australian healthcare, medical provider SEO',
-    'author' => [
-      '@type' => 'Person',
-      '@id' => $personId,
-      'name' => 'Joel Maldonado'
-    ],
+    'author' => ['@id' => JOEL_PERSON_ID, '@type' => 'Person', 'name' => 'Joel David Maldonado', 'url' => JOEL_ENTITY_HOME_URL],
     'publisher' => [
       '@type' => 'Organization',
       '@id' => $orgId,
@@ -72,20 +69,6 @@ $GLOBALS['__jsonld'] = [
     'sameAs' => 'https://medcare.com.au',
     'disambiguatingDescription' => 'Australian healthcare provider offering comprehensive medical services with 45 physicians'
   ],
-  
-  // 3. Person (Joel Maldonado - Author)
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Person',
-    '@id' => $personId,
-    'name' => 'Joel Maldonado',
-    'givenName' => 'Joel',
-    'familyName' => 'Maldonado',
-    'jobTitle' => 'Founder & AI Search Researcher',
-    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems.',
-    'worksFor' => [
-      '@id' => $orgId
-    ],
     'knowsAbout' => [
       'AI SEO',
       'AEO',
@@ -101,7 +84,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 4. Organization (NRLC authority anchor) - Enhanced
+  // 3. Organization (NRLC authority anchor) - Enhanced
   [
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
@@ -133,7 +116,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 5. BreadcrumbList
+  // 4. BreadcrumbList
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
@@ -188,9 +171,7 @@ $GLOBALS['__jsonld'] = [
       'height' => 43,
       'caption' => 'Neural Command - AI SEO Case Study'
     ],
-    'author' => [
-      '@id' => $personId
-    ],
+    'author' => ['@id' => JOEL_PERSON_ID, '@type' => 'Person', 'name' => 'Joel David Maldonado', 'url' => JOEL_ENTITY_HOME_URL],
     'publisher' => [
       '@id' => $orgId
     ],

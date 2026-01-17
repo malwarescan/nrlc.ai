@@ -328,8 +328,10 @@ function generate_insights_schema_bundle(
     'datePublished' => $date_published,
     'dateModified' => $date_modified,
     'author' => [
+      '@id' => 'https://nrlc.ai/en-us/about/joel-maldonado/#person',
       '@type' => 'Person',
-      'name' => 'Joel Maldonado'
+      'name' => 'Joel David Maldonado',
+      'url' => 'https://nrlc.ai/en-us/about/joel-maldonado/'
     ],
     'publisher' => [
       '@type' => 'Organization',

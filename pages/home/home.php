@@ -391,44 +391,13 @@ if (!isset($GLOBALS['__jsonld']) || !is_array($GLOBALS['__jsonld'])) {
 
 // Guard schema addition - wrap in try-catch
 try {
+  // Person entity removed - homepage only references canonical Person @id via Organization.founder
+  // Full Person payload exists only on /en-us/about/joel-maldonado/
+  require_once __DIR__ . '/../../lib/person_entity.php';
+  
   $GLOBALS['__jsonld'][] = [
     '@context' => 'https://schema.org',
     '@graph' => [
-      [
-        '@type' => 'Person',
-        '@id' => $baseUrl . '#joel-maldonado',
-        'name' => 'Joel Maldonado',
-        'givenName' => 'Joel',
-        'familyName' => 'Maldonado',
-        'jobTitle' => 'Founder & AI Search Researcher',
-        'description' => 'Joel Maldonado is the founder of Neural Command, the leading research and implementation agency for AI search optimization. He conducts deep research into how AI systems retrieve, evaluate, and cite content, establishing the foundational frameworks for AEO, GEO, and AI Search Optimization.',
-        'knowsAbout' => [
-          'SEO', 'AEO', 'GEO', 'AI Search', 'Search Retrieval', 'AI Citations', 
-          'Extractability', 'Generative Engine Optimization', 'LLM Seeding', 
-          'Structured Data', 'Schema Markup', 'Entity Mapping', 'Answer Engine Optimization',
-          'Retrieval Signal Engineering', 'Atomic Content Architecture'
-        ],
-        'worksFor' => [
-          '@type' => 'Organization',
-          '@id' => $baseUrl . '#neural-command'
-        ],
-        'affiliation' => [
-          '@type' => 'Organization',
-          '@id' => $baseUrl . '#neural-command'
-        ],
-        'url' => $baseUrl,
-        'image' => [
-          '@type' => 'ImageObject',
-          'url' => $baseUrl . 'assets/images/nrlc-logo.png',
-          'width' => 43,
-          'height' => 43
-        ],
-        'sameAs' => [
-          'https://www.linkedin.com/company/neural-command/',
-          'https://twitter.com/neuralcommand',
-          'https://www.crunchbase.com/person/joel-maldonado'
-        ]
-      ],
       [
         '@type' => ['Organization', 'ResearchOrganization'], // Entity-First: ResearchOrganization signals authority in LLM training data
         '@id' => $baseUrl . '#neural-command',
@@ -444,7 +413,7 @@ try {
         ],
         'founder' => [
           '@type' => 'Person',
-          '@id' => $baseUrl . '#joel-maldonado'
+          '@id' => JOEL_PERSON_ID
         ],
         'foundingDate' => '2020',
         'address' => [
@@ -504,7 +473,7 @@ try {
           ],
           [
             '@type' => 'Person',
-            '@id' => $baseUrl . '#joel-maldonado'
+            '@id' => JOEL_PERSON_ID
           ]
         ],
         'mentions' => [
@@ -531,7 +500,7 @@ try {
         ],
         'author' => [
           '@type' => 'Person',
-          '@id' => $baseUrl . '#joel-maldonado'
+          '@id' => JOEL_PERSON_ID
         ],
         'publisher' => [
           '@type' => 'Organization',
@@ -616,16 +585,8 @@ try {
   // Silent fail - schema is optional
 }
 
-// Also set founder for backward compatibility - GUARDED
-try {
-  $GLOBALS['__homepage_org_founder'] = [
-    '@type' => 'Person',
-    '@id' => $baseUrl . '#joel-maldonado',
-    'name' => 'Joel Maldonado'
-  ];
-} catch (Throwable $e) {
-  // Silent fail
-}
+// Founder is already set by router.php with canonical Person @id
+// No need for backward compatibility - router handles it correctly
 
 // FAQ SCHEMA: AI Visibility Questions (optimized for search intent) - GUARDED
 try {

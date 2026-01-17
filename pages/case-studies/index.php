@@ -190,16 +190,15 @@ $GLOBALS['__jsonld'] = [
     'datePublished' => '2024-01-01',
     'dateModified' => date('Y-m-d'),
     'author' => [
+      '@id' => 'https://nrlc.ai/en-us/about/joel-maldonado/#person',
       '@type' => 'Person',
-      '@id' => 'https://nrlc.ai/#joel-maldonado',
-      'name' => 'Joel Maldonado',
-      'jobTitle' => 'Founder & AI Search Researcher',
-      'worksFor' => [
-        '@id' => $orgId
-      ]
+      'name' => 'Joel David Maldonado',
+      'url' => 'https://nrlc.ai/en-us/about/joel-maldonado/'
     ],
     'publisher' => [
-      '@id' => $orgId
+      '@type' => 'Organization',
+      '@id' => $orgId,
+      'name' => 'Neural Command'
     ],
     'breadcrumb' => [
       '@type' => 'BreadcrumbList',
@@ -346,36 +345,9 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
 
-  // 4. Person Schema (Joel Maldonado - Author)
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Person',
-    '@id' => 'https://nrlc.ai/#joel-maldonado',
-    'name' => 'Joel Maldonado',
-    'jobTitle' => 'Founder & AI Search Researcher',
-    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in search, retrieval, citations, and extractability for AI-powered search engines.',
-    'worksFor' => [
-      '@id' => $orgId
-    ],
-    'knowsAbout' => [
-      'AI SEO',
-      'AEO',
-      'GEO',
-      'AI Search',
-      'Search Retrieval',
-      'AI Citations',
-      'Extractability',
-      'Entity Optimization',
-      'Structured Data',
-      'Case Studies'
-    ],
-    'url' => 'https://nrlc.ai',
-    'sameAs' => [
-      'https://www.linkedin.com/in/joelmaldonado/'
-    ]
-  ],
+  // 4. Person Schema removed - case studies only reference canonical Person @id in author field
 
-  // 5. CollectionPage Schema (for case studies collection)
+  // 4. CollectionPage Schema (for case studies collection)
   [
     '@context' => 'https://schema.org',
     '@type' => 'CollectionPage',

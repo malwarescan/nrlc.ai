@@ -113,7 +113,7 @@ $date = date('Y-m-d', strtotime("-$postNumber days"));
      "@type":"BlogPosting",
      "headline":"Advanced <?=$topic?> Strategies for 2025",
      "description":"Comprehensive guide to <?=strtolower($topic)?> optimization, featuring the latest techniques and best practices for AI-powered search engines.",
-     "author":{"@type":"Person","name":"Joel Maldonado"},
+     "author":{"@id":"https://nrlc.ai/en-us/about/joel-maldonado/#person","@type":"Person","name":"Joel David Maldonado","url":"https://nrlc.ai/en-us/about/joel-maldonado/"},
      "publisher":{"@type":"Organization","name":"Neural Command","logo":{"@type":"ImageObject","url":"https://nrlc.ai/assets/images/nrlcai%20logo%200.png"}},
      "datePublished":"<?=$date?>",
      "dateModified":"<?=$date?>",

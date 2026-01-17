@@ -197,11 +197,13 @@ function route_request(): void {
       if (function_exists('absolute_url') && class_exists('\NRLC\Schema\SchemaFixes')) {
         try {
           $baseUrl = \NRLC\Schema\SchemaFixes::ensureHttps(absolute_url('/en-us/'));
-          $joelPersonId = $baseUrl . '#joel-maldonado';
+          // Use canonical Person @id from entity home
+          require_once __DIR__.'/../lib/person_entity.php';
           $GLOBALS['__homepage_org_founder'] = [
             '@type' => 'Person',
-            '@id' => $joelPersonId,
-            'name' => 'Joel Maldonado'
+            '@id' => JOEL_PERSON_ID,
+            'name' => 'Joel David Maldonado',
+            'url' => JOEL_ENTITY_HOME_URL
           ];
         } catch (Throwable $e) {
           // Silent fail - this is optional
@@ -936,6 +938,13 @@ function route_request(): void {
       $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
       render_page('about/llm-strategy-team');
       return;
+    }
+    if ($aboutSlug === 'joel-maldonado') {
+      // Canonical entity home is /en-us/about/joel-maldonado/
+      // Redirect non-locale version to canonical locale URL (301)
+      $canonicalUrl = absolute_url('/en-us/about/joel-maldonado/');
+      header("Location: $canonicalUrl", true, 301);
+      exit;
     }
     // If about slug doesn't match, return 404
     header('X-Robots-Tag: noindex, nofollow');

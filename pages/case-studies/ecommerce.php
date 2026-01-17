@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../lib/schema_builders.php';
 require_once __DIR__ . '/../../lib/helpers.php';
+require_once __DIR__ . '/../../lib/person_entity.php';
 
 $canonical_url = absolute_url('/case-studies/ecommerce/');
 
@@ -15,7 +16,7 @@ if (isset($GLOBALS['__page_meta'])) {
 }
 
 $orgId = absolute_url('/') . '#organization';
-$personId = absolute_url('/') . '#joel-maldonado';
+$personId = JOEL_PERSON_ID;
 
 // Schema stack - all in single JSON-LD graph (AI SEO Optimized)
 $GLOBALS['__jsonld'] = [
@@ -27,11 +28,7 @@ $GLOBALS['__jsonld'] = [
     'headline' => 'Artisan Goods Co: 250% AI Visibility Increase via Product Schema',
     'description' => 'A forensic case study on correcting AI system product recommendation failures for a Canadian e-commerce platform through Product schema optimization and entity mapping.',
     'keywords' => 'E-commerce, AI product recommendation optimization, Product schema, Offer schema, AggregateRating, Brand entities, category taxonomies, ChatGPT, Claude, Perplexity, Canadian e-commerce',
-    'author' => [
-      '@type' => 'Person',
-      '@id' => $personId,
-      'name' => 'Joel Maldonado'
-    ],
+    'author' => ['@id' => 'https://nrlc.ai/en-us/about/joel-maldonado/#person', '@type' => 'Person', 'name' => 'Joel David Maldonado', 'url' => 'https://nrlc.ai/en-us/about/joel-maldonado/'],
     'publisher' => [
       '@type' => 'Organization',
       '@id' => $orgId,
@@ -73,35 +70,7 @@ $GLOBALS['__jsonld'] = [
     'disambiguatingDescription' => 'Canadian e-commerce platform specializing in artisan products with 8,500 SKUs'
   ],
   
-  // 3. Person (Joel Maldonado - Author)
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Person',
-    '@id' => $personId,
-    'name' => 'Joel Maldonado',
-    'givenName' => 'Joel',
-    'familyName' => 'Maldonado',
-    'jobTitle' => 'Founder & AI Search Researcher',
-    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems.',
-    'worksFor' => [
-      '@id' => $orgId
-    ],
-    'knowsAbout' => [
-      'AI SEO',
-      'AEO',
-      'GEO',
-      'E-commerce Optimization',
-      'Product Schema',
-      'AI Citation Systems',
-      'Structured Data'
-    ],
-    'url' => 'https://nrlc.ai',
-    'sameAs' => [
-      'https://www.linkedin.com/in/joelmaldonado/'
-    ]
-  ],
-  
-  // 4. Organization (NRLC authority anchor) - Enhanced
+  // 3. Organization (NRLC authority anchor) - Enhanced
   [
     '@context' => 'https://schema.org',
     '@type' => 'Organization',
@@ -133,7 +102,7 @@ $GLOBALS['__jsonld'] = [
     ]
   ],
   
-  // 5. BreadcrumbList
+  // 4. BreadcrumbList
   [
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
