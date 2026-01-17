@@ -22,14 +22,6 @@
         require_once __DIR__ . '/../lib/helpers.php';
       }
       
-      // Home
-      $homeAttrs = menu_item_seo_attrs('Home');
-      $isHome = ($_SERVER['REQUEST_URI'] ?? '/') === '/' || ($_SERVER['REQUEST_URI'] ?? '/') === '/en-us/';
-      ?>
-      <li class="nav-primary__item">
-        <a href="<?= absolute_url('/') ?>" class="nav-primary__link" title="<?= $homeAttrs['title'] ?>" aria-label="<?= $homeAttrs['aria-label'] ?>"<?= $isHome ? ' aria-current="page"' : '' ?>>Home</a>
-      </li>
-      
       <?php
       // Knowledge Base Dropdown - Contains all 10 pillars
       $kbAttrs = menu_item_seo_attrs('Knowledge Base');
