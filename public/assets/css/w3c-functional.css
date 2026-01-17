@@ -1399,7 +1399,15 @@ label {
   }
   
   .nav-primary__cta {
-    display: none !important;
+    display: flex !important;
+    order: 4;
+    margin-left: var(--spacing-md);
+  }
+  
+  .nav-primary__contact-btn {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-8) var(--spacing-md);
+    min-height: 44px;
   }
   
   .nav-primary__item {
