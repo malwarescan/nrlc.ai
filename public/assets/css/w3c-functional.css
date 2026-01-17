@@ -1414,14 +1414,17 @@ label {
   
   /* Hide dropdown on mobile - show as regular link */
   .nav-primary__dropdown {
-    display: none;
+    display: none !important;
   }
   
-  /* Make Knowledge Base link go to dropdown trigger */
+  /* Remove dropdown indicator on mobile - it's just a regular link */
   .nav-primary__item--has-dropdown .nav-primary__link::after {
-    content: ' ▼';
-    font-size: 0.75em;
-    opacity: 0.7;
+    content: '';
+  }
+  
+  /* Make Knowledge Base item behave like regular nav item on mobile */
+  .nav-primary__item--has-dropdown {
+    position: static;
   }
   
   .grid-2,
