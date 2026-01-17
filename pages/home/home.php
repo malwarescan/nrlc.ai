@@ -84,6 +84,22 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
       </div>
     </section>
 
+    <!-- BEGINNER SEO COURSES BANNER - PROMINENT ABOVE THE FOLD -->
+    <div class="content-block module" style="background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%); color: #fff; padding: 2rem; border-radius: 8px; margin: var(--spacing-xl) 0 var(--spacing-lg) 0; text-align: center; box-shadow: 0 4px 12px rgba(0,102,204,0.3);">
+      <div class="content-block__body">
+        <h2 class="content-block__title" style="color: #fff; margin-bottom: 1rem; font-size: 2rem; font-weight: 700;">
+          Beginner SEO Courses Now Open: Build the Foundation for AEO/GEO Mastery
+        </h2>
+        <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #fff; font-weight: 400;">
+          Learn SEO fundamentals before advancing to advanced AEO/GEO research. Start with beginner-friendly courses designed to build your foundation.
+        </p>
+        <div class="btn-group" style="justify-content: center; gap: 1rem;">
+          <a href="<?= absolute_url('/en-us/learn/') ?>" class="btn btn--primary" style="background: #fff; color: #0066cc; font-weight: 700; padding: 1rem 2rem; font-size: 1.1rem; border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.2);" title="Start Learning: Beginner SEO Courses">Start Learning</a>
+          <a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="btn" style="background: rgba(255,255,255,0.2); color: #fff; border: 2px solid rgba(255,255,255,0.5); padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600;" title="Advanced Research: AEO/GEO">Advanced Research</a>
+        </div>
+      </div>
+    </div>
+
     <!-- ABOUT THIS KNOWLEDGE BASE: CONSOLIDATED AUTHORITATIVE FRAMING -->
     <section class="content-block module" id="knowledge-base" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
       <div class="content-block__header">
