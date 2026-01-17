@@ -1838,9 +1838,10 @@ label {
     padding-bottom: 100px;
   }
   
-  /* Footer mobile formatting */
+  /* Footer mobile formatting - CENTERED */
   .site-footer {
     padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
   }
   
   .site-footer__grid {
@@ -1848,17 +1849,24 @@ label {
   }
   
   .site-footer__identity {
-    text-align: left;
+    text-align: center;
   }
   
   .site-footer__identity p {
     font-size: var(--font-size-sm);
     line-height: 1.6;
+    text-align: center;
+  }
+  
+  .site-footer__links-section {
+    align-items: center;
+    text-align: center;
   }
   
   .site-footer__links-wrapper {
-    justify-content: flex-start;
+    justify-content: center;
     gap: var(--spacing-sm);
+    text-align: center;
   }
   
   .site-footer__link {
@@ -1867,7 +1875,7 @@ label {
   }
   
   .site-footer__links-section p {
-    text-align: left;
+    text-align: center;
     font-size: var(--font-size-xs);
     line-height: 1.5;
     margin-top: var(--spacing-md);
