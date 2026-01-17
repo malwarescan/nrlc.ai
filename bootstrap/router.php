@@ -1012,6 +1012,19 @@ function route_request(): void {
     return;
   }
 
+  if ($path === '/learn/seo-80-20-rule/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $actualPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    $ctx = [
+      'type' => 'page',
+      'slug' => 'learn/seo-80-20-rule',
+      'canonicalPath' => $actualPath
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    render_page('learn/seo-80-20-rule');
+    return;
+  }
+
   // Answer First Architecture Route
   if ($path === '/answer-first-architecture/') {
     require_once __DIR__.'/../lib/meta_directive.php';
