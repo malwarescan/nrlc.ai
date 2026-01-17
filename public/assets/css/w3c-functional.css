@@ -1383,22 +1383,33 @@ label {
     position: relative;
   }
   
-  .nav-primary__toggle {
-    display: flex;
-    margin-left: auto;
-    order: 3;
-  }
-  
-  .nav-primary__cta {
-    order: 4;
+  .nav-primary__brand {
+    order: 1;
+    flex: 0 0 auto;
   }
   
   .nav-primary__menu {
     order: 2;
+    flex: 0 0 auto;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
   
-  .nav-primary__menu {
-    display: none;
+  .nav-primary__toggle {
+    display: flex;
+    order: 3;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+  
+  .nav-primary__cta {
+    display: none !important;
+  }
+  
+  .nav-primary__menu[aria-hidden="false"] {
+    display: flex !important;
     flex-direction: column;
     width: 100%;
     margin-top: var(--spacing-md);
