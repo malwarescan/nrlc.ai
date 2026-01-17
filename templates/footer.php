@@ -16,25 +16,25 @@ foreach ($blocks as $b) {
     <div class="site-footer__grid">
       <!-- GBP-ALIGNED: Footer identity block (identical across all pages/locales) -->
       <div class="site-footer__identity">
-        <p style="font-weight: 600; margin-bottom: 0.5rem;"><?= htmlspecialchars(gbp_business_name()) ?></p>
+        <p class="site-footer__business-name"><?= htmlspecialchars(gbp_business_name()) ?></p>
         <?php
         $addressDisplay = gbp_address_display();
         if (!empty($addressDisplay)):
         ?>
-        <p style="margin: 0.25rem 0; font-size: 0.9rem;"><?= htmlspecialchars($addressDisplay) ?></p>
+        <p class="site-footer__address"><?= htmlspecialchars($addressDisplay) ?></p>
         <?php endif; ?>
-        <p class="site-footer__contact-line" style="margin: 0.25rem 0; font-size: 0.9rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
-          <a href="tel:<?= htmlspecialchars(str_replace([' ', '-', '(', ')'], '', gbp_phone())) ?>" style="color: inherit; text-decoration: none;"><?= htmlspecialchars(gbp_phone()) ?></a>
-          <span style="display: inline-flex; gap: 0.5rem; align-items: center;">
-            <button type="button" onclick="openContactSheet('')" style="background: none; border: none; color: inherit; text-decoration: underline; cursor: pointer; font-size: inherit; font-family: inherit; padding: 0;">Contact Us</button>
-            <span>|</span>
-            <a href="/book/" style="color: inherit; text-decoration: underline;">Book Consultation</a>
-          </span>
+        <p class="site-footer__phone">
+          <a href="tel:<?= htmlspecialchars(str_replace([' ', '-', '(', ')'], '', gbp_phone())) ?>" class="site-footer__phone-link"><?= htmlspecialchars(gbp_phone()) ?></a>
         </p>
+        <div class="site-footer__actions">
+          <button type="button" onclick="openContactSheet('')" class="site-footer__action-btn">Contact Us</button>
+          <span class="site-footer__separator">|</span>
+          <a href="/book/" class="site-footer__action-link">Book Consultation</a>
+        </div>
       </div>
       
       <div class="site-footer__links-section">
-        <div class="site-footer__links-wrapper">
+        <nav class="site-footer__links-wrapper" aria-label="Footer links">
           <a href="https://nrlcmd.com" target="_blank" rel="noopener" class="site-footer__link">NRL CMD</a>
           <a href="https://www.crunchbase.com/organization/neural-command" target="_blank" rel="noopener" class="site-footer__link">Crunchbase</a>
           <a href="<?= htmlspecialchars(gbp_url()) ?>" target="_blank" rel="noopener" class="site-footer__link">Google Business</a>
@@ -45,8 +45,8 @@ foreach ($blocks as $b) {
           $isCareers = strpos($_SERVER['REQUEST_URI'] ?? '', '/careers') !== false;
           ?>
           <a href="<?= absolute_url('/careers/') ?>" class="site-footer__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
-        </div>
-        <p class="site-footer__copyright" style="margin-top: var(--spacing-md);"><small>© <?= date('Y') ?> <?= htmlspecialchars(gbp_business_name()) ?> — The Semantic Infrastructure for the AI Internet</small></p>
+        </nav>
+        <p class="site-footer__copyright"><small>© <?= date('Y') ?> <?= htmlspecialchars(gbp_business_name()) ?> — The Semantic Infrastructure for the AI Internet</small></p>
       </div>
     </div>
   </div>

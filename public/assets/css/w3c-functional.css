@@ -1343,7 +1343,7 @@ label {
 .site-footer__links-section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
 }
 
 .site-footer__links-wrapper {
@@ -1352,6 +1352,14 @@ label {
   gap: var(--spacing-md);
   align-items: center;
   justify-content: flex-start;
+}
+
+.site-footer__copyright {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
 }
 
 @media (min-width: 768px) {
@@ -1749,13 +1757,24 @@ label {
     text-align: center;
   }
   
-  .site-footer__identity p {
-    font-size: var(--font-size-sm);
-    line-height: 1.6;
+  .site-footer__identity {
     text-align: center !important;
   }
   
-  .site-footer__contact-line {
+  .site-footer__business-name {
+    font-size: var(--font-size-base);
+    text-align: center !important;
+  }
+  
+  .site-footer__address {
+    text-align: center !important;
+  }
+  
+  .site-footer__phone {
+    text-align: center !important;
+  }
+  
+  .site-footer__actions {
     justify-content: center !important;
   }
   
@@ -1775,11 +1794,12 @@ label {
     padding: var(--spacing-4) 0;
   }
   
-  .site-footer__links-section p,
+  .site-footer__links-wrapper {
+    justify-content: center !important;
+  }
+  
   .site-footer__copyright {
     text-align: center !important;
-    font-size: var(--font-size-xs);
-    line-height: 1.5;
     margin-top: var(--spacing-md);
   }
   
