@@ -99,7 +99,7 @@ $GLOBALS['__jsonld'] = [
     '@type' => 'EducationalOccupationalProgram',
     '@id' => $canonicalUrl . '#program',
     'name' => 'Learn SEO → AI SEO: Beginner Education Hub',
-    'description' => 'Beginner-friendly education on SEO fundamentals and how AI is transforming search engine optimization. Learn the basics before advancing to advanced AI SEO research.',
+    'description' => 'Beginner-friendly education on SEO fundamentals and AI transformation. Learn the basics before advancing to advanced AI SEO research.',
     'url' => $canonicalUrl,
     'provider' => [
       '@type' => 'Organization',
@@ -107,6 +107,7 @@ $GLOBALS['__jsonld'] = [
       'name' => 'Neural Command LLC'
     ],
     'educationalCredentialAwarded' => 'None',
+    'educationalLevel' => 'Beginner',
     'programType' => 'Educational',
     'occupationalCategory' => 'Search Engine Optimization',
     'teaches' => [
