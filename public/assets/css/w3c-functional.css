@@ -1411,7 +1411,7 @@ label {
   .nav-primary__menu[aria-hidden="false"] {
     display: flex !important;
     flex-direction: column;
-    width: 100%;
+    width: 100% !important;
     margin-top: var(--spacing-md);
     position: absolute;
     top: 100%;
@@ -1422,14 +1422,6 @@ label {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: var(--spacing-md);
-  }
-  
-  .nav-primary__menu[aria-hidden="false"] {
-    display: flex !important;
-  }
-  
-  .nav-primary__menu[aria-hidden="true"] {
-    display: none !important;
   }
   
   .nav-primary__item {
