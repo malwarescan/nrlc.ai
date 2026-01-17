@@ -53,6 +53,14 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
       </div>
     </header>
 
+    <!-- BEGINNER SEO COURSES BANNER - THIN BANNER AT TOP -->
+    <div style="background: #e8f5e9; border: 2px solid #4caf50; padding: var(--spacing-md) var(--spacing-lg); margin: 0 0 var(--spacing-lg) 0; text-align: center; border-radius: 4px;">
+      <p style="margin: 0; font-size: 1rem; color: #2e7d32; font-weight: 500;">
+        <strong>Beginner SEO Courses Now Open:</strong> Build the Foundation for AEO/GEO Mastery. 
+        <a href="<?= absolute_url('/en-us/learn/') ?>" style="color: #2e7d32; text-decoration: underline; font-weight: 600;" title="Start Learning: Beginner SEO Courses">Start Learning →</a>
+      </p>
+    </div>
+
     <!-- TECHNICAL DEFINITIONS SECTION: CRITICAL FOR AI EXTRACTABILITY -->
     <section class="content-block module" id="definitions" itemscope itemtype="https://schema.org/DefinedTermSet" style="background: #f0f7ff; border-left: 4px solid #0066cc; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
       <div class="content-block__header">
@@ -83,14 +91,6 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
         </dl>
       </div>
     </section>
-
-    <!-- BEGINNER SEO COURSES BANNER - THIN BANNER -->
-    <div style="background: #e8f5e9; border: 2px solid #4caf50; padding: var(--spacing-md) var(--spacing-lg); margin: var(--spacing-lg) 0; text-align: center; border-radius: 4px;">
-      <p style="margin: 0; font-size: 1rem; color: #2e7d32; font-weight: 500;">
-        <strong>Beginner SEO Courses Now Open:</strong> Build the Foundation for AEO/GEO Mastery. 
-        <a href="<?= absolute_url('/en-us/learn/') ?>" style="color: #2e7d32; text-decoration: underline; font-weight: 600;" title="Start Learning: Beginner SEO Courses">Start Learning →</a>
-      </p>
-    </div>
 
     <!-- ABOUT THIS KNOWLEDGE BASE: CONSOLIDATED AUTHORITATIVE FRAMING -->
     <section class="content-block module" id="knowledge-base" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
