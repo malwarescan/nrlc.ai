@@ -23,7 +23,7 @@ foreach ($blocks as $b) {
         ?>
         <p style="margin: 0.25rem 0; font-size: 0.9rem;"><?= htmlspecialchars($addressDisplay) ?></p>
         <?php endif; ?>
-        <p style="margin: 0.25rem 0; font-size: 0.9rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <p class="site-footer__contact-line" style="margin: 0.25rem 0; font-size: 0.9rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
           <a href="tel:<?= htmlspecialchars(str_replace([' ', '-', '(', ')'], '', gbp_phone())) ?>" style="color: inherit; text-decoration: none;"><?= htmlspecialchars(gbp_phone()) ?></a>
           <span style="display: inline-flex; gap: 0.5rem; align-items: center;">
             <button type="button" onclick="openContactSheet('')" style="background: none; border: none; color: inherit; text-decoration: underline; cursor: pointer; font-size: inherit; font-family: inherit; padding: 0;">Contact Us</button>
@@ -46,7 +46,7 @@ foreach ($blocks as $b) {
           ?>
           <a href="<?= absolute_url('/careers/') ?>" class="site-footer__link" title="<?= $careersAttrs['title'] ?>" aria-label="<?= $careersAttrs['aria-label'] ?>"<?= $isCareers ? ' aria-current="page"' : '' ?>>Careers</a>
         </div>
-        <p style="margin-top: var(--spacing-md); text-align: right;"><small>© <?= date('Y') ?> <?= htmlspecialchars(gbp_business_name()) ?> — The Semantic Infrastructure for the AI Internet</small></p>
+        <p class="site-footer__copyright" style="margin-top: var(--spacing-md);"><small>© <?= date('Y') ?> <?= htmlspecialchars(gbp_business_name()) ?> — The Semantic Infrastructure for the AI Internet</small></p>
       </div>
     </div>
   </div>

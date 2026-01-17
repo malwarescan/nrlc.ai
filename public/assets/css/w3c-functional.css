@@ -1314,6 +1314,7 @@ label {
 .site-footer__identity p {
   line-height: 1.6;
   margin-bottom: var(--spacing-8);
+  text-align: left;
 }
 
 .site-footer__identity p:last-child {
@@ -1855,7 +1856,11 @@ label {
   .site-footer__identity p {
     font-size: var(--font-size-sm);
     line-height: 1.6;
-    text-align: center;
+    text-align: center !important;
+  }
+  
+  .site-footer__contact-line {
+    justify-content: center !important;
   }
   
   .site-footer__links-section {
@@ -1874,8 +1879,9 @@ label {
     padding: var(--spacing-4) 0;
   }
   
-  .site-footer__links-section p {
-    text-align: center;
+  .site-footer__links-section p,
+  .site-footer__copyright {
+    text-align: center !important;
     font-size: var(--font-size-xs);
     line-height: 1.5;
     margin-top: var(--spacing-md);
