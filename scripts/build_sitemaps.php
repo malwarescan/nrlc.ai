@@ -483,8 +483,8 @@ $learnPages = [
   '/learn/',  // Hub page
   '/learn/can-ai-do-seo/',
   '/learn/types-of-seo/',
+  '/learn/seo-80-20-rule/',
   // Future learn pages will be added here:
-  // '/learn/seo-80-20-rule/',
   // '/learn/chatgpt-seo/',
   // '/learn/ai-30-percent-rule/',
 ];
