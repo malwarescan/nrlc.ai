@@ -166,29 +166,34 @@ $GLOBALS['__page_meta'] = [
 
 <main role="main" class="container">
   <section class="section">
-    <div class="content-wrapper">
-      <!-- Hero: Answer-First Architecture -->
-      <header class="hero">
-        <nav aria-label="Breadcrumb" class="breadcrumb">
-          <ol>
-            <li><a href="<?= absolute_url('/') ?>">Home</a></li>
-            <li><a href="<?= absolute_url('/en-us/learn/') ?>">Learn</a></li>
-            <li aria-current="page">What is the 80/20 Rule in SEO?</li>
-          </ol>
-        </nav>
-        
-        <h1 class="heading-1">What is the 80/20 Rule in SEO?</h1>
-        
-        <!-- Definition Lock: Direct Answer in First Sentence -->
-        <div class="definition-lock" style="background: #f0f8ff; border-left: 4px solid #0066cc; padding: var(--spacing-lg); border-radius: 4px; margin: var(--spacing-lg) 0;">
-          <p class="lead" style="font-size: var(--font-size-lg); font-weight: 500; margin-bottom: var(--spacing-md);">
-            The 80/20 Rule in SEO (Pareto Principle) states that <strong>20% of your SEO efforts drive 80% of your results</strong>. This means a small number of high-impact activities—such as keyword research, content optimization, and technical fixes—produce most of your organic traffic and rankings.
-          </p>
+    <div class="section__content">
+      
+      <!-- Hero Block -->
+      <div class="content-block module" style="background: var(--color-background-alt, #f5f5f5); padding: var(--spacing-xl); border-left: 4px solid var(--color-brand, #12355e); margin-bottom: var(--spacing-xl);">
+        <div class="content-block__header">
+          <h1 class="content-block__title heading-1">What is the 80/20 Rule in SEO?</h1>
         </div>
-      </header>
+        <div class="content-block__body">
+          <!-- Answer-First: Direct answer in first sentence -->
+          <div style="background: #f0f7ff; border-left: 4px solid #0066cc; padding: var(--spacing-md); margin-bottom: var(--spacing-lg);" itemscope itemtype="https://schema.org/DefinedTerm">
+            <p style="margin: 0; font-size: 1.1rem; line-height: 1.6; font-weight: 600;">
+              <dfn itemprop="name">The 80/20 Rule in SEO (Pareto Principle) states that 20% of your SEO efforts drive 80% of your results</dfn>. This means a small number of high-impact activities—such as keyword research, content optimization, and technical fixes—produce most of your organic traffic and rankings.
+            </p>
+          </div>
+          
+          <p class="lead text-lg" style="font-size: 1.1rem; margin-bottom: var(--spacing-lg);">
+            Understanding this principle helps you prioritize SEO tasks and focus on high-impact activities that deliver the most value for your time and effort.
+          </p>
+          
+          <div class="btn-group" style="margin-top: var(--spacing-lg);">
+            <a href="<?= absolute_url('/en-us/learn/') ?>" class="btn btn--secondary" title="Back to Learn Hub">Back to Learn Hub</a>
+          </div>
+        </div>
+      </div>
 
       <!-- Main Content -->
-      <article class="article-content">
+      <div class="content-block module">
+        <div class="content-block__body">
         <!-- What is the 80/20 Rule? -->
         <section>
           <h2 class="heading-2">Understanding the 80/20 Rule in SEO</h2>
