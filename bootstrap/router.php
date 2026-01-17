@@ -16,7 +16,7 @@ if (file_exists(__DIR__.'/../lib/i18n.php')) {
 }
 
 function route_request(): void {
-  $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+    $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
   $originalPath = $path; // Save original path for redirect checks
 
   // MACHINE-NATIVE MARKDOWN EXPOSURE: Handle .md URLs and Accept header content negotiation
@@ -216,7 +216,7 @@ function route_request(): void {
         // Capture any output from render_page to check if it failed
         ob_start();
         try {
-          render_page('home/home');
+        render_page('home/home');
           $output = ob_get_clean();
           // Check if render_page output minimal fallback HTML (indicates failure)
           if (strpos($output, '<title>NRLC.ai</title>') !== false && strpos($output, 'AI SEO & AI Visibility Services</h1>') !== false && strlen($output) < 500) {
@@ -497,7 +497,7 @@ function route_request(): void {
       ? get_canonical_locale_for_city($citySlug) 
       : 'en-us';
     $currentLocale = current_locale();
-
+    
     if ($currentLocale !== $canonicalLocale) {
       // City detected but wrong locale - redirect to canonical locale
       // PRESERVE SERVICE TYPE - do not force to local-seo-ai
@@ -575,8 +575,8 @@ function route_request(): void {
     }
     // service_meta_title() already includes | NRLC.ai
     try {
-      $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug);
-      $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
+    $GLOBALS['__page_meta']['title'] = service_meta_title($serviceSlug, $citySlug);
+    $GLOBALS['__page_meta']['description'] = service_meta_description($serviceSlug, $citySlug);
     } catch (Throwable $e) {
       // Fallback if service intent taxonomy fails
       error_log("Service meta generation failed for {$serviceSlug}/{$citySlug}: " . $e->getMessage());
@@ -588,7 +588,7 @@ function route_request(): void {
     // Even if render_page fails, we output a basic page with 200 status
     try {
       if (function_exists('render_page')) {
-        render_page('services/service_city');
+    render_page('services/service_city');
       } else {
         // Fallback if render_page doesn't exist
         error_log("CRITICAL: render_page function not found for service-city page");
@@ -2068,6 +2068,63 @@ function route_request(): void {
   if ($path === '/resources/') {
     render_page('resources/index');
     return;
+  }
+
+  // Local Pack Engineering Hub
+  if ($path === '/resources/local-pack/') {
+    require_once __DIR__.'/../lib/meta_directive.php';
+    $ctx = [
+      'type' => 'resource',
+      'slug' => 'resources/local-pack',
+      'title' => 'Local Pack Engineering for Service Businesses',
+      'excerpt' => 'Resources teaching service businesses how Local Pack visibility actually works, what gets them suppressed (doorway clusters, scaled content abuse), and what to do instead (entity validation, crawl cleanliness, GSC forensics, schema governance).',
+      'canonicalPath' => $path
+    ];
+    $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+    render_page('resources/local-pack/index');
+    return;
+  }
+
+  // Local Pack Articles
+  if (preg_match('#^/resources/local-pack/([^/]+)/$#', $path, $m)) {
+    $articleSlug = $m[1];
+    $articleMap = [
+      'city-service-pages-doorway-risk' => [
+        'title' => 'City + Service Pages Are the New "Near Me" Spam',
+        'description' => 'Templated geo pages and "near me" stuffing are doorway abuse. Learn why they get suppressed, how Google clusters them, and what to build instead.',
+        'file' => 'city-service-pages-doorway-risk'
+      ],
+      'near-me-myth' => [
+        'title' => 'Why "Near Me" Doesn\'t Rank You (And What Actually Does)',
+        'description' => '"Near me" is interpreted as local intent, not a keyword you must paste. Learn what actually moves the needle in Local Pack rankings.',
+        'file' => 'near-me-myth'
+      ],
+      'gsc-local-forensics' => [
+        'title' => 'Search Console Forensics for Local Businesses',
+        'description' => 'Learn the four failure modes GSC reveals fast and exact workflows to catch suppression onset before it impacts visibility.',
+        'file' => 'gsc-local-forensics'
+      ],
+      'local-seo-grifts' => [
+        'title' => 'Local SEO Grifts That Keep Contractors Broke',
+        'description' => 'The two grifts: "near me stuffing" and "templated city pages." What to demand from any SEO and non-negotiables for service businesses.',
+        'file' => 'local-seo-grifts'
+      ]
+    ];
+    
+    if (isset($articleMap[$articleSlug])) {
+      $article = $articleMap[$articleSlug];
+      require_once __DIR__.'/../lib/meta_directive.php';
+      $ctx = [
+        'type' => 'resource',
+        'slug' => "resources/local-pack/$articleSlug",
+        'title' => $article['title'],
+        'excerpt' => $article['description'],
+        'canonicalPath' => $path
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      render_page("resources/local-pack/{$article['file']}");
+      return;
+    }
   }
 
   // Diagnostic page

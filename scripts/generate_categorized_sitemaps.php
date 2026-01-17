@@ -320,6 +320,8 @@ function get_case_studies(): array {
 if (!function_exists('get_resources')) {
 function get_resources(): array {
   $resources = [];
+  
+  // Generic resource-{N} pages
   $resourceFiles = glob(__DIR__ . '/../pages/resources/resource-*.php');
   
   foreach ($resourceFiles as $file) {
@@ -327,11 +329,45 @@ function get_resources(): array {
     if (isset($matches[1])) {
       $resourceNum = $matches[1];
       $resources[] = [
-        'loc' => "https://nrlc.ai/resources/resource-{$resourceNum}/",
+        'loc' => "https://nrlc.ai/en-us/resources/resource-{$resourceNum}/",
         'lastmod' => date('Y-m-d', filemtime($file)),
         'changefreq' => 'monthly',
         'priority' => '0.5'
       ];
+    }
+  }
+  
+  // Local Pack Engineering Hub and Articles
+  // Use router's articleMap as source of truth to ensure only routed pages are included
+  $localPackHubFile = __DIR__ . '/../pages/resources/local-pack/index.php';
+  if (file_exists($localPackHubFile)) {
+    // Add hub index page
+    $resources[] = [
+      'loc' => "https://nrlc.ai/en-us/resources/local-pack/",
+      'lastmod' => date('Y-m-d', filemtime($localPackHubFile)),
+      'changefreq' => 'weekly',
+      'priority' => '0.8'
+    ];
+    
+    // Add Local Pack articles - only include pages that are routed in router.php
+    // This prevents 404s from appearing in sitemap
+    $localPackArticleMap = [
+      'city-service-pages-doorway-risk' => 'city-service-pages-doorway-risk',
+      'near-me-myth' => 'near-me-myth',
+      'gsc-local-forensics' => 'gsc-local-forensics',
+      'local-seo-grifts' => 'local-seo-grifts'
+    ];
+    
+    foreach ($localPackArticleMap as $slug => $fileBase) {
+      $articleFile = __DIR__ . '/../pages/resources/local-pack/' . $fileBase . '.php';
+      if (file_exists($articleFile)) {
+        $resources[] = [
+          'loc' => "https://nrlc.ai/en-us/resources/local-pack/{$slug}/",
+          'lastmod' => date('Y-m-d', filemtime($articleFile)),
+          'changefreq' => 'monthly',
+          'priority' => '0.7'
+        ];
+      }
     }
   }
   
