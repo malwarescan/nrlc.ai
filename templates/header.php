@@ -22,7 +22,6 @@
         require_once __DIR__ . '/../lib/helpers.php';
       }
       
-      <?php
       // Knowledge Base Dropdown - Contains all 10 pillars
       $kbAttrs = menu_item_seo_attrs('Knowledge Base');
       $isKnowledgeBase = strpos($_SERVER['REQUEST_URI'] ?? '', '/generative-engine-optimization/') !== false ||
