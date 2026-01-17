@@ -1311,6 +1311,26 @@ label {
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+.site-footer__identity p {
+  line-height: 1.6;
+  margin-bottom: var(--spacing-8);
+}
+
+.site-footer__identity p:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer__links-section p {
+  text-align: left;
+  margin-top: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .site-footer__links-section p {
+    text-align: right;
+  }
+}
+
 @media (min-width: 768px) {
   .site-footer__identity {
     border-bottom: none;
@@ -1322,8 +1342,7 @@ label {
 .site-footer__links-section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  align-items: flex-end;
+  gap: var(--spacing-md);
 }
 
 .site-footer__links-wrapper {
@@ -1331,7 +1350,17 @@ label {
   flex-wrap: wrap;
   gap: var(--spacing-md);
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+  .site-footer__links-section {
+    align-items: flex-end;
+  }
+  
+  .site-footer__links-wrapper {
+    justify-content: flex-end;
+  }
 }
 
 .site-footer__link {
@@ -1807,6 +1836,41 @@ label {
   /* Add bottom padding to body to prevent content from being hidden behind buttons */
   body {
     padding-bottom: 100px;
+  }
+  
+  /* Footer mobile formatting */
+  .site-footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .site-footer__grid {
+    gap: var(--spacing-lg);
+  }
+  
+  .site-footer__identity {
+    text-align: left;
+  }
+  
+  .site-footer__identity p {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+  
+  .site-footer__links-wrapper {
+    justify-content: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .site-footer__link {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-4) 0;
+  }
+  
+  .site-footer__links-section p {
+    text-align: left;
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+    margin-top: var(--spacing-md);
   }
   
   /* Ensure buttons don't overlap with Tawk.to widget - position chat button on left */
