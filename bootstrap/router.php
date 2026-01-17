@@ -125,6 +125,18 @@ function route_request(): void {
     }
   }
 
+  // llms.txt - 2026 standard for AI agents
+  if ($path === '/llms.txt') {
+    $llms_file = __DIR__.'/../llms.txt';
+    if (file_exists($llms_file)) {
+      header('Content-Type: text/plain; charset=UTF-8');
+      header('Cache-Control: public, max-age=86400'); // 24 hours cache
+      header('X-Robots-Tag: noindex, nofollow'); // Don't compete with HTML homepage in traditional search
+      readfile($llms_file);
+      return;
+    }
+  }
+
   // Handle invalid search URLs (404)
   if (preg_match('#^/search#', $path)) {
     // Search pages should not be indexed
