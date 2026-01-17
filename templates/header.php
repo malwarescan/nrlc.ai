@@ -49,7 +49,7 @@
       $glossaryAttrs = menu_item_seo_attrs('Glossary');
       ?>
       <li class="nav-primary__item nav-primary__item--has-dropdown">
-        <a href="<?= absolute_url('/') ?>#knowledge-base" class="nav-primary__link" title="<?= $kbAttrs['title'] ?>" aria-label="<?= $kbAttrs['aria-label'] ?>"<?= $isKnowledgeBase ? ' aria-current="page"' : '' ?>>Knowledge Base</a>
+        <a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="nav-primary__link" title="<?= $kbAttrs['title'] ?>" aria-label="<?= $kbAttrs['aria-label'] ?>"<?= $isKnowledgeBase ? ' aria-current="page"' : '' ?>>Knowledge Base</a>
         <ul class="nav-primary__dropdown" aria-label="Knowledge Base sections">
           <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="nav-primary__dropdown-link" title="<?= $geoAttrs['title'] ?>" aria-label="<?= $geoAttrs['aria-label'] ?>">GEO</a></li>
           <li><a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>" class="nav-primary__dropdown-link" title="<?= $diagnosticsAttrs['title'] ?>" aria-label="<?= $diagnosticsAttrs['aria-label'] ?>">Diagnostics</a></li>
