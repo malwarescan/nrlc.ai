@@ -98,7 +98,7 @@ $GLOBALS['__jsonld'] = [
     '@id' => $canonicalUrl . '#article',
     'headline' => 'Answer First Architecture: The Methodology for AI Extractability',
     'name' => 'Answer First Architecture',
-    'description' => 'Answer First Architecture is the practice of structuring content so AI systems extract primary answers in the first 1-2 sentences. Neural Command\'s research documents 73% higher citation frequency with Answer First Architecture compared to traditional SEO formatting.',
+    'description' => 'Answer First Architecture structures content so AI systems extract primary answers in the first 1-2 sentences. Neural Command\'s research documents 73% higher citation frequency.',
     'url' => $canonicalUrl,
     'author' => [
       '@type' => 'Organization',
@@ -179,7 +179,7 @@ $GLOBALS['__jsonld'] = [
 // Meta tags
 $GLOBALS['__page_meta'] = [
   'title' => 'Answer First Architecture | Neural Command Research Lab',
-  'description' => 'Answer First Architecture is the practice of structuring content so AI systems extract primary answers in the first 1-2 sentences. Neural Command\'s research documents 73% higher citation frequency with Answer First Architecture.',
+  'description' => 'Answer First Architecture structures content so AI systems extract primary answers in the first 1-2 sentences. Neural Command\'s research documents 73% higher citation frequency.',
   'keywords' => 'Answer First Architecture, AEO, Answer Engine Optimization, AI extraction, AI citation, content architecture, definition lock, entity anchor, Neural Command',
   'canonicalPath' => '/en-us/answer-first-architecture/'
 ];
