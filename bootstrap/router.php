@@ -1757,16 +1757,45 @@ function route_request(): void {
     $_GET['tool'] = $m[1];
     $toolSlug = $m[1];
     
-    // Generate unique metadata using ctx-based system
+    // Specialized Ahrefs page (in-depth, aligned with AI Search Tools Reality)
+    if ($toolSlug === 'ahrefs') {
+      // Build canonical path with locale prefix
+      require_once __DIR__.'/../lib/meta_directive.php';
+      require_once __DIR__.'/../lib/helpers.php';
+      $locale = function_exists('current_locale') ? current_locale() : 'en-us';
+      $canonicalPath = '/' . $locale . $path;
+      
+      $ctx = [
+        'type' => 'tool',
+        'slug' => "tools/ahrefs",
+        'title' => 'Ahrefs: What It Measures and What It Misses in AI Search',
+        'excerpt' => 'Honest assessment of Ahrefs capabilities and limitations in AI-mediated search. Learn what Ahrefs measures (rankings, backlinks) and what it cannot see (AI Overview citations, answer engine visibility).',
+        'canonicalPath' => $canonicalPath
+      ];
+      $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
+      
+      // Set custom keywords for Ahrefs page
+      $GLOBALS['__page_meta']['keywords'] = 'Ahrefs, SEO tool, traditional SEO, rankings tracking, backlink analysis, AI search tools, AI Overview citations, answer engine visibility, SEO tool limitations, AI search measurement, retrieval vs rankings';
+      
+      render_page('tools/ahrefs-specialized');
+      return;
+    }
+    
+    // Generic tool template for other tools
     require_once __DIR__.'/../lib/meta_directive.php';
+    require_once __DIR__.'/../lib/helpers.php';
     $toolName = ucwords(str_replace(['-', '_'], ' ', $toolSlug));
+    
+    // Build canonical path with locale prefix (path is already stripped of locale)
+    $locale = function_exists('current_locale') ? current_locale() : 'en-us';
+    $canonicalPath = '/' . $locale . $path;
     
     $ctx = [
       'type' => 'tool',
       'slug' => "tools/$toolSlug",
       'title' => $toolName,
       'excerpt' => "Use this tool to optimize AI SEO with $toolName. Free AI SEO tool for technical audits, schema validation, and search engine optimization.",
-      'canonicalPath' => $path
+      'canonicalPath' => $canonicalPath
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     
