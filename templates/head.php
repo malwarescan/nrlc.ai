@@ -50,6 +50,15 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
       $canonicalPath = $requestPath;
     }
   }
+  
+  // --- OG defaults (NRLC) - fallback case ---
+  $siteName = "NRLC.ai";
+  $baseUrl  = "https://nrlc.ai";
+  $canonical = absolute_url($canonicalPath);
+  $ogImage = $baseUrl . "/assets/og/nrlc-og-1200x630.jpg";
+  $ogImageVersion = "1";
+  $ogImageWithVer = $ogImage . "?v=" . rawurlencode($ogImageVersion);
+  $ogLocale = str_replace('-', '_', current_locale());
 } else {
   // Router metadata exists - use it exclusively
   $meta = $GLOBALS['__page_meta'];
@@ -57,6 +66,15 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
   $desc = $meta['description'] ?? 'AI SEO services and solutions';
   $canonicalPath = $meta['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
   $customKeywords = $meta['keywords'] ?? null;
+  
+  // --- OG defaults (NRLC) ---
+  $siteName = "NRLC.ai";
+  $baseUrl  = "https://nrlc.ai";
+  $canonical = absolute_url($canonicalPath);
+  $ogImage = $meta['ogImage'] ?? ($baseUrl . "/assets/og/nrlc-og-1200x630.jpg");
+  $ogImageVersion = $meta['ogImageVersion'] ?? "1";
+  $ogImageWithVer = $ogImage . "?v=" . rawurlencode($ogImageVersion);
+  $ogLocale = str_replace('-', '_', current_locale());
   
   // Check if noindex is explicitly set in metadata (e.g., for API endpoints)
   $noindexMeta = (!empty($meta['noindex'])) ? '<meta name="robots" content="noindex,nofollow">' . "\n" : '';
@@ -216,17 +234,17 @@ $contentLanguage = $localeMeta['lang'] . '-' . strtolower($localeMeta['region'])
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="<?=absolute_url($canonicalPath)?>">
-<meta property="og:title" content="<?=htmlspecialchars($title)?>">
-<meta property="og:description" content="<?=htmlspecialchars($desc)?>">
-<meta property="og:site_name" content="NRLC.ai">
-<meta property="og:locale" content="<?= htmlspecialchars(str_replace('-', '_', current_locale())) ?>">
-<meta property="og:image" content="https://nrlc.ai/assets/images/nrlc-logo.png">
-<meta property="og:image:secure_url" content="https://nrlc.ai/assets/images/nrlc-logo.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="43">
-<meta property="og:image:height" content="43">
-<meta property="og:image:alt" content="NRLC.ai - AI Search Optimization, AEO, and GEO Research">
+<meta property="og:site_name" content="<?= htmlspecialchars($siteName ?? 'NRLC.ai', ENT_QUOTES) ?>">
+<meta property="og:url" content="<?= htmlspecialchars($canonical ?? absolute_url($canonicalPath), ENT_QUOTES) ?>">
+<meta property="og:title" content="<?= htmlspecialchars($title, ENT_QUOTES) ?>">
+<meta property="og:description" content="<?= htmlspecialchars($desc, ENT_QUOTES) ?>">
+<meta property="og:locale" content="<?= htmlspecialchars($ogLocale ?? str_replace('-', '_', current_locale()), ENT_QUOTES) ?>">
+<meta property="og:image" content="<?= htmlspecialchars($ogImageWithVer ?? ($baseUrl ?? 'https://nrlc.ai') . '/assets/og/nrlc-og-1200x630.jpg', ENT_QUOTES) ?>">
+<meta property="og:image:secure_url" content="<?= htmlspecialchars($ogImageWithVer ?? ($baseUrl ?? 'https://nrlc.ai') . '/assets/og/nrlc-og-1200x630.jpg', ENT_QUOTES) ?>">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="<?= htmlspecialchars($title, ENT_QUOTES) ?>">
 <?php
 // Article meta tags for homepage (author and publisher)
 if ($canonicalPath === '/' || $canonicalPath === '/en-us/' || $canonicalPath === ''):
@@ -237,11 +255,9 @@ if ($canonicalPath === '/' || $canonicalPath === '/en-us/' || $canonicalPath ===
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="<?=absolute_url($canonicalPath)?>">
-<meta name="twitter:title" content="<?=htmlspecialchars($title)?>">
-<meta name="twitter:description" content="<?=htmlspecialchars($desc)?>">
-<meta name="twitter:image" content="https://nrlc.ai/assets/images/nrlc-logo.png">
-<meta name="twitter:image:alt" content="NRLC.ai - AI Search Optimization, AEO, and GEO Research">
+<meta name="twitter:title" content="<?= htmlspecialchars($title, ENT_QUOTES) ?>">
+<meta name="twitter:description" content="<?= htmlspecialchars($desc, ENT_QUOTES) ?>">
+<meta name="twitter:image" content="<?= htmlspecialchars($ogImageWithVer ?? ($baseUrl ?? 'https://nrlc.ai') . '/assets/og/nrlc-og-1200x630.jpg', ENT_QUOTES) ?>">
 <meta name="twitter:creator" content="@neuralcommand">
 <meta name="twitter:site" content="@neuralcommand">
 
