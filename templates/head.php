@@ -270,6 +270,13 @@ if ($canonicalPath === '/' || $canonicalPath === '/en-us/' || $canonicalPath ===
 <!-- Schema.org Powered -->
 <meta name="generator" content="Schema.org Structured Data">
 <meta name="schema-org" content="https://schema.org">
+
+<!-- CROUTONS PROTOCOL META TAGS -->
+<meta name="croutons-protocol" content="micro-facts">
+<meta name="croutons-verified" content="nrlc-ai">
+<meta name="croutons-version" content="1.0">
+<meta name="croutons-api" content="https://croutons.ai/api">
+
 <!-- W3C Functional Authority Design System -->
 <link rel="stylesheet" href="<?= asset_url('/assets/css/w3c-functional.css') ?>">
 <!-- Hero Isometric Animation -->
