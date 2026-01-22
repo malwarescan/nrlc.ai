@@ -1,0 +1,11 @@
+/* Particle container styling */
+.snap-particles {
+  overflow: hidden !important;
+  z-index: 10;
+}
+
+/* Ensure cards have position relative for particle positioning */
+#left-card,
+#right-card {
+  position: relative;
+}

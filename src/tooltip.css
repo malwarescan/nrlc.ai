@@ -1,0 +1,44 @@
+/* Tooltip CSS for mechanism rows */
+.mechanism-row {
+  position: relative;
+}
+
+.mechanism-row::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  transform: translateX(-50%);
+  background: #0A0A0A;
+  border: 1px solid rgba(0, 194, 255, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+.mechanism-row:hover::after {
+  opacity: 1;
+  visibility: visible;
+  top: -45px;
+}
+
+/* Specific tooltip content */
+.mechanism-row:nth-child(1)::after {
+  content: "Clean .md twins of key pages for agent-friendly extraction.";
+}
+
+.mechanism-row:nth-child(3)::after {
+  content: "Append-only fact feed with stable @id, source URL, timestamps, and state.";
+}
+
+.mechanism-row:nth-child(5)::after {
+  content: "Change events logged so drift and freshness stay visible over time.";
+}
