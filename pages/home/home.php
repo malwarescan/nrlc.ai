@@ -245,6 +245,38 @@ if (file_exists(__DIR__ . '/../../lib/schema_builders.php')) {
       </div>
     </nav>
 
+    <!-- TOP MARKETS & SOLUTIONS: DIRECT INTERNAL LINKING TO MONEY PAGES -->
+    <section class="content-block module" id="top-markets" style="margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Top Markets & AI Search Solutions</h2>
+      </div>
+      <div class="content-block__body">
+        <p style="margin-bottom: var(--spacing-lg);">Neural Command provides specialized AI Search Optimization services across major technical hubs, targeting high-intent citation growth for enterprise brands.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md);">
+          <div style="border: 1px solid #eee; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
+            <h3 style="font-size: 1rem; margin-top: 0;"><a href="<?= absolute_url('/en-us/services/ai-search-optimization/san-jose/') ?>">AI Search - San Jose</a></h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 0;">Targeting Silicon Valley AI Overviews & ChatGPT citations.</p>
+          </div>
+          <div style="border: 1px solid #eee; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
+            <h3 style="font-size: 1rem; margin-top: 0;"><a href="<?= absolute_url('/en-us/services/ai-search-optimization/miami/') ?>">AI Search - Miami</a></h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 0;">Dominating South Florida's bilingual AI search landscape.</p>
+          </div>
+          <div style="border: 1px solid #eee; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
+            <h3 style="font-size: 1rem; margin-top: 0;"><a href="<?= absolute_url('/en-us/services/generative-seo/atlanta/') ?>">Generative SEO - Atlanta</a></h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 0;">Engineering citation signals for B2B & Services hubs.</p>
+          </div>
+          <div style="border: 1px solid #eee; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
+            <h3 style="font-size: 1rem; margin-top: 0;"><a href="<?= absolute_url('/en-us/products/applicants-io/') ?>">Applicants.io Platform</a></h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 0;">AI-native job search platform for recruiters.</p>
+          </div>
+          <div style="border: 1px solid #eee; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
+            <h3 style="font-size: 1rem; margin-top: 0;"><a href="<?= absolute_url('/en-us/insights/open-seo-tools/') ?>">Open SEO Tools Directory</a></h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 0;">The definitive guide to open-source AI optimization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- THE AUTHORITY GAP: WHY TRADITIONAL SEO FAILS IN AI SEARCH -->
     <section class="content-block module" id="authority-explanation" style="margin-bottom: var(--spacing-8);">
       <div class="content-block__header">

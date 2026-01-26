@@ -187,9 +187,9 @@ function route_request(): void {
       // Title: Entity-first optimization - "Research Lab" signals authority in LLM training data
       // Strategy: Position as authoritative source for AI Search data, not just service provider
       $GLOBALS['__page_meta'] = [
-        'title' => 'AI Search Optimization (GEO) | Neural Command Research Lab',
-        'description' => 'Neural Command is an AI Search Optimization (GEO) research lab and agency. We specialize in AEO, entity mapping, and LLM visibility research for enterprise brands. Founded by Joel Maldonado.',
-        'keywords' => 'AI Search Optimization, GEO, AEO, Neural Command, Research Lab, Entity Mapping, LLM Visibility, ChatGPT Optimization, Google AI Overviews, Claude Optimization, Perplexity Optimization, Structured Data, AI Citations, Joel Maldonado',
+        'title' => 'Neural Command (NRLC) | AI Search Optimization for AI Overviews + ChatGPT Citations',
+        'description' => 'Leading research and implementation agency for AI Search Optimization (GEO/AEO). We help enterprise brands win citations in Google AI Overviews, ChatGPT, and Perplexity through technical excellence.',
+        'keywords' => 'Neural Command, NRLC, AI Search Optimization, GEO, AEO, ChatGPT Optimization, Google AI Overviews, AI Citations, Search Retrieval, Joel Maldonado',
         'canonicalPath' => '/'
       ];
       
@@ -388,8 +388,8 @@ function route_request(): void {
         }
       }
       
-      // Include the custom page (it handles its own schema and content)
-      require_once $customServiceCityFile;
+      // Include the custom page via render_page to ensure layout templates are included
+      render_page('services/' . $serviceSlug . '/' . $citySlug);
       return;
     }
     

@@ -75,11 +75,13 @@ $GLOBALS['__jsonld'] = [
     ],
     'datePublished' => '2026-01-18',
     'dateModified' => date('Y-m-d'),
+    'mainEntityOfPage' => $canonicalUrl,
     'about' => [
       [
-        '@type' => 'DefinedTerm',
+        '@type' => 'SoftwareApplication',
+        '@id' => $canonicalUrl . '#ahrefs-software',
         'name' => 'Ahrefs',
-        'description' => 'Traditional SEO tool for rankings, backlinks, and traffic analysis'
+        'sameAs' => 'https://www.wikidata.org/wiki/Q104862444'
       ],
       [
         '@type' => 'DefinedTerm',
@@ -88,20 +90,21 @@ $GLOBALS['__jsonld'] = [
       ]
     ],
     'mentions' => [
-      ['@type' => 'SoftwareApplication', 'name' => 'Ahrefs', 'applicationCategory' => 'SEO Tool'],
       ['@type' => 'Thing', 'name' => 'Traditional SEO Metrics'],
       ['@type' => 'Thing', 'name' => 'AI Overview Citations'],
       ['@type' => 'Thing', 'name' => 'Answer Engine Visibility']
     ],
     'keywords' => 'Ahrefs, SEO tool, traditional SEO, rankings tracking, backlink analysis, AI search tools, AI Overview citations, answer engine visibility, SEO tool limitations, AI search measurement, retrieval vs rankings'
   ],
-  // SoftwareApplication (Ahrefs)
+  // SoftwareApplication (Ahrefs - Subject Entity)
   [
     '@context' => 'https://schema.org',
     '@type' => 'SoftwareApplication',
+    '@id' => $canonicalUrl . '#ahrefs-software',
     'name' => 'Ahrefs',
     'applicationCategory' => 'SEO Tool',
     'operatingSystem' => 'Web-based',
+    'sameAs' => 'https://www.wikidata.org/wiki/Q104862444',
     'offers' => [
       '@type' => 'Offer',
       'description' => 'SEO tool for rankings tracking, backlink analysis, and traffic estimation'

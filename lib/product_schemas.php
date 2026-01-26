@@ -665,18 +665,21 @@ function product_dataset_schemas(string $productSlug, string $productName, strin
 function applicants_io_schemas(): array {
   $baseUrl = SchemaFixes::ensureHttps(absolute_url('/'));
   $productUrl = $baseUrl . 'products/applicants-io/';
+  $productId = $productUrl . '#product';
   
   return [
-    // JobPosting template
+    // JobPosting template (Entity Reference)
     [
       '@context' => 'https://schema.org',
       '@type' => 'JobPosting',
-      'title' => 'Job Posting via Applicants.io',
-      'description' => 'Applicants.io provides automated JobPosting schema generation for maximum Google Jobs visibility',
+      '@id' => $productUrl . '#job-schema-engine',
+      'title' => 'AI-Native Job Posting Engine',
+      'description' => 'Applicants.io provides automated JobPosting schema generation for maximum Google Jobs visibility and LLM citation accuracy.',
       'employmentType' => 'FULL_TIME',
       'hiringOrganization' => [
         '@type' => 'Organization',
-        'name' => 'Employer using Applicants.io'
+        'name' => 'Neural Command',
+        '@id' => $baseUrl . '#organization'
       ],
       'jobLocation' => [
         '@type' => 'Place',
@@ -685,22 +688,35 @@ function applicants_io_schemas(): array {
           'addressCountry' => 'US'
         ]
       ],
+      'skills' => 'Schema.org, JSON-LD, Google Jobs API, AI Retrieval Optimization',
       'baseSalary' => [
         '@type' => 'MonetaryAmount',
-        'currency' => 'USD'
+        'currency' => 'USD',
+        'value' => [
+            '@type' => 'QuantitativeValue',
+            'unitText' => 'YEAR'
+        ]
       ]
     ],
     
-    // Occupation
+    // Occupation (Market Definition)
     [
       '@context' => 'https://schema.org',
       '@type' => 'Occupation',
-      'name' => 'Recruiting Platform',
+      '@id' => $productUrl . '#occupation',
+      'name' => 'AI-First Recruiting Platform',
+      'description' => 'A next-generation category of recruitment software that prioritizes machine-readable job entities for AI search assistants.',
       'occupationLocation' => [
         '@type' => 'City',
         'name' => 'Worldwide'
       ],
-      'skills' => ['JobPosting schema', 'Google Jobs optimization', 'Resume parsing', 'AI ranking']
+      'skills' => [
+        'JobPosting structured data automation', 
+        'Google Jobs indexing priority', 
+        'LLM-friendly resume parsing', 
+        'AI-driven applicant ranking'
+      ],
+      'mainEntityOfPage' => $productUrl
     ]
   ];
 }
