@@ -61,8 +61,11 @@ meta-test:
 
 meta-validate:
 	@php scripts/validate_meta_seo.php
+	
+croutons-discover:
+	@$(PHP) scripts/trigger_croutons_discovery.php
 
-.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full meta-test meta-validate sitemap-ai ndjson-verify stream-test catalog-build feed-merchant
+.PHONY: build matrix careers careers_with_service news ping validate content-check csv-fix-smoke contracts content-gate news-fresh sitemap-smoke sitemap-build sitemap-validate sitemap-ping sitemap-full meta-test meta-validate sitemap-ai ndjson-verify stream-test catalog-build feed-merchant croutons-discover
 
 # ================= Universal GSC Indexing Recovery (White-Label) =================
 BASE ?= https://example.com

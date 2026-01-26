@@ -276,6 +276,12 @@ if ($canonicalPath === '/' || $canonicalPath === '/en-us/' || $canonicalPath ===
 <meta name="croutons-verified" content="nrlc-ai">
 <meta name="croutons-version" content="1.0">
 <meta name="croutons-api" content="https://croutons.ai/api">
+<?php
+// Croutons Protocol: Automated discovery link for atomic facts
+$croutonsPath = trim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH), '/') ?: 'index';
+$croutonsMarkdownUrl = "https://md.croutons.ai/nrlc.ai/{$croutonsPath}.md";
+?>
+<link rel="alternate" type="text/markdown" href="<?= htmlspecialchars($croutonsMarkdownUrl) ?>">
 
 <!-- W3C Functional Authority Design System -->
 <link rel="stylesheet" href="<?= asset_url('/assets/css/w3c-functional.css') ?>">
