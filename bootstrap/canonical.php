@@ -22,6 +22,9 @@ function canonical_guard(): void {
   $uri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
   $query  = $_GET ?? [];
 
+  // Add Croutons Link header for HTML pages
+  add_croutons_link_header($uri);
+
   // Skip canonical redirects for API paths
   if (strpos($uri, '/api/') === 0) {
     return;
@@ -364,5 +367,60 @@ function canonical_guard(): void {
     header("Location: $final", true, 301);
     exit;
   }
+}
+
+/**
+ * Add Croutons Link header for markdown alternates
+ */
+function add_croutons_link_header(string $uri): void {
+  // Only add for HTML pages, not static files or API endpoints
+  $staticExtensions = ['.css', '.js', '.json', '.xml', '.txt', '.ico', '.png', '.jpg', '.gif', '.svg', '.webp'];
+  $isStaticFile = false;
+  foreach ($staticExtensions as $ext) {
+    if (str_ends_with($uri, $ext)) {
+      $isStaticFile = true;
+      break;
+    }
+  }
+  
+  // Skip for static files, API paths, and system paths
+  if ($isStaticFile || 
+      strpos($uri, '/api/') === 0 || 
+      strpos($uri, '/robots.txt') === 0 ||
+      strpos($uri, '/favicon.ico') === 0 ||
+      strpos($uri, '/sitemap') === 0 ||
+      strpos($uri, '/healthz') === 0) {
+    return;
+  }
+  
+  // Map URI to markdown path according to Croutons requirements
+  $markdownPath = map_uri_to_markdown_path($uri);
+  $markdownUrl = "https://md.croutons.ai/nrlc.ai" . $markdownPath;
+  
+  // Add Link header if not already sent
+  if (!headers_sent()) {
+    header("Link: <{$markdownUrl}>; rel=\"alternate\"; type=\"text/markdown\"");
+  }
+}
+
+/**
+ * Map URI path to markdown path according to Croutons requirements
+ */
+function map_uri_to_markdown_path(string $uri): string {
+  // Homepage and locale homepages map to index.md
+  if ($uri === '/' || $uri === '/en-us/' || $uri === '/index.html') {
+    return '/index.md';
+  }
+  
+  // Remove trailing slash
+  $path = rtrim($uri, '/');
+  
+  // Remove .html extension if present
+  if (str_ends_with($path, '.html')) {
+    $path = substr($path, 0, -5);
+  }
+  
+  // Add .md extension
+  return $path . '.md';
 }
 
