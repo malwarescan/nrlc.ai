@@ -62,6 +62,8 @@ $insight_articles = [
   'prechunking-content-ai-retrieval' => 'prechunking-content-ai-retrieval.php',
   'ai-retrieval-llm-citation' => 'ai-retrieval-llm-citation.php',
   'grounding-budgets-prechunking' => 'grounding-budgets-prechunking.php',
+  // Agentic Commerce
+  'agentic-commerce-aps' => 'agentic-commerce-aps.php',
   // ChatGPT business mentions
   'how-to-get-your-business-mentioned-in-chatgpt' => 'how-to-get-your-business-mentioned-in-chatgpt.php',
   // Medical information retrieval research
