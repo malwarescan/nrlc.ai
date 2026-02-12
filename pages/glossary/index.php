@@ -420,6 +420,7 @@ $GLOBALS['__jsonld'] = [
         <div class="content-block__body">
           <p>Explore related knowledge base sections and research:</p>
           <ul>
+            <li><a href="<?= absolute_url('/en-us/ai-visibility-dictionary/') ?>"><strong>AI Visibility Dictionary</strong></a> — Grounding queries, citation surfaces, prechunking, and 35+ AI visibility terms</li>
             <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>"><strong>Generative Engine Optimization</strong></a> — Core concepts</li>
             <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/failure-modes/') ?>"><strong>Failure Modes</strong></a> — Failure pattern definitions</li>
             <li><a href="<?= absolute_url('/en-us/field-notes/') ?>"><strong>Field Notes</strong></a> — Observational terminology</li>

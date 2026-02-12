@@ -10,7 +10,7 @@
       "duration": "PT7M32S",
       "uploadDate": "2026-02-01",
       "topic": "tools",
-      "related": [],
+      "related": ["ai-visibility-dictionary-overview"],
       "chapters": [
         { "start": "0:00", "title": "What the Bing AI Performance report shows" },
         { "start": "1:15", "title": "Cited Pages and Grounding Queries" },
@@ -20,6 +20,20 @@
         { "start": "6:30", "title": "Templates and next steps" }
       ],
       "transcript": "This video shows how to use Bing's AI Performance report to get cited more in AI answers. Bing Webmaster Tools shows two things that matter: which pages get cited and the grounding queries that triggered retrieval. Cited pages are the URLs from your site that Bing or Copilot referenced as sources. Grounding queries are the phrases the AI used to retrieve sources before generating the answer. Export cited pages and grounding queries for the last 28 days and last 7 days. Build a simple table: URL, grounding query, matching section, whether an answer block exists, and fix type. Score each row: Winner if cited and clear, Cited but weak if the answer is buried, Missing answer if no clean answer exists, or Wrong page if the query belongs on a different URL. Apply four upgrades: Answer Block Injection for weak or missing answers, Chunk Mirror to surface buried answers near the top, Page Routing when the wrong page is cited, and Citation Ladder Expansion to turn winner pages into a hub of child pages. Use the 8-step workflow and the AI answer block template on the page. Add an H2 that mirrors the intent, a direct answer in one to three sentences, and three to seven bullet facts. Put at least one answer block in the top 20 to 30 percent of the page. Submit your video sitemap and watch pages to Google Search Console for faster discovery."
+    },
+    {
+      "slug": "ai-visibility-dictionary-overview",
+      "title": "AI Visibility Dictionary: Key Terms for AI Search & Citations",
+      "summary": "A walkthrough of the AI Visibility Dictionary — key terms for AI search visibility, grounding queries, citation surfaces, and retrieval. Use as the canonical reference for your team's terminology.",
+      "description": "This video introduces the AI Visibility Dictionary on NRLC.ai: definitions for breadth, depth, grounding query, fan-out query, citation surface, citation gravity, prechunking, snippetability, answer box, and other terms used in AI search visibility and AI citations. Each entry is written to be liftable by AI systems with a direct definition, concrete example, and a \"so what\" line. Use the page as the canonical reference for your team's terminology.",
+      "embedUrl": "https://www.youtube.com/embed/NaWurV2YEe8?si=-HtYZYlN8sJW659G",
+      "thumbnailUrl": "https://img.youtube.com/vi/NaWurV2YEe8/maxresdefault.jpg",
+      "duration": "PT5M0S",
+      "uploadDate": "2026-02-12",
+      "topic": "knowledge-base",
+      "related": ["bing-ai-citations-grounding-queries"],
+      "chapters": [],
+      "transcript": ""
     }
   ]
 }

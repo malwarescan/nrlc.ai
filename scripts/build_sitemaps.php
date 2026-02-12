@@ -451,7 +451,8 @@ $indexPages = [
   '/resources/',
   '/catalog/',
   '/ai-visibility/',  // AI Visibility main hub page
-  '/training/ai-search-systems/'  // Training page
+  '/ai-visibility-dictionary/',  // AI Visibility Dictionary (DefinedTermSet)
+  '/training/ai-search-systems/',  // Training page
 ];
 
 foreach ($indexPages as $path) {

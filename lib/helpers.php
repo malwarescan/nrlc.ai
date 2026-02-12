@@ -806,6 +806,8 @@ function menu_item_seo_attrs(string $linkText, ?string $description = null): arr
       'Googlebot Renderer Lab' => 'Googlebot Renderer Lab - AI SEO Product',
       'NEWFAQ' => 'NEWFAQ - AI SEO Product',
       'Neural Command OS' => 'Neural Command OS - AI SEO Product',
+      'Glossary' => 'Glossary - AI Search Terms & Definitions',
+      'AI Visibility Dictionary' => 'AI Visibility Dictionary - Key Terms for AI Search & Citations',
     ];
     
     $title = $titleMap[$linkText] ?? "$linkText - NRLC.ai";

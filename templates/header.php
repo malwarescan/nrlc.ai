@@ -33,7 +33,8 @@
                          strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-risk/') !== false ||
                          strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-search-tools-reality/') !== false ||
                          strpos($_SERVER['REQUEST_URI'] ?? '', '/field-notes/') !== false ||
-                         strpos($_SERVER['REQUEST_URI'] ?? '', '/glossary/') !== false;
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/glossary/') !== false ||
+                         strpos($_SERVER['REQUEST_URI'] ?? '', '/ai-visibility-dictionary/') !== false;
       
       // Individual pillar checks for active state
       $geoAttrs = menu_item_seo_attrs('Generative Engine Optimization');
@@ -46,10 +47,12 @@
       $toolsRealityAttrs = menu_item_seo_attrs('AI Search Tools Reality');
       $fieldNotesAttrs = menu_item_seo_attrs('Field Notes');
       $glossaryAttrs = menu_item_seo_attrs('Glossary');
+      $aiVisibilityDictAttrs = menu_item_seo_attrs('AI Visibility Dictionary');
       ?>
       <li class="nav-primary__item nav-primary__item--has-dropdown">
         <a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="nav-primary__link" title="<?= $kbAttrs['title'] ?>" aria-label="<?= $kbAttrs['aria-label'] ?>"<?= $isKnowledgeBase ? ' aria-current="page"' : '' ?>>Knowledge Base</a>
         <ul class="nav-primary__dropdown" aria-label="Knowledge Base sections">
+          <li><a href="<?= absolute_url('/en-us/ai-visibility-dictionary/') ?>" class="nav-primary__dropdown-link" title="<?= $aiVisibilityDictAttrs['title'] ?>" aria-label="<?= $aiVisibilityDictAttrs['aria-label'] ?>">AI Visibility Dictionary</a></li>
           <li><a href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>" class="nav-primary__dropdown-link" title="<?= $geoAttrs['title'] ?>" aria-label="<?= $geoAttrs['aria-label'] ?>">GEO</a></li>
           <li><a href="<?= absolute_url('/en-us/ai-search-diagnostics/') ?>" class="nav-primary__dropdown-link" title="<?= $diagnosticsAttrs['title'] ?>" aria-label="<?= $diagnosticsAttrs['aria-label'] ?>">Diagnostics</a></li>
           <li><a href="<?= absolute_url('/en-us/ai-search-measurement/') ?>" class="nav-primary__dropdown-link" title="<?= $measurementAttrs['title'] ?>" aria-label="<?= $measurementAttrs['aria-label'] ?>">Measurement</a></li>

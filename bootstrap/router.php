@@ -1365,6 +1365,21 @@ function route_request(): void {
     return;
   }
 
+  if ($path === '/ai-visibility-dictionary/' || $path === '/ai-visibility-dictionary') {
+    if ($path === '/ai-visibility-dictionary') {
+      header('Location: ' . absolute_url('/' . current_locale() . '/ai-visibility-dictionary/'), true, 301);
+      return;
+    }
+    $locale = current_locale();
+    $GLOBALS['__page_meta'] = [
+      'title' => 'AI Visibility Dictionary | Key Terms for AI Search & Citations | NRLC.ai',
+      'description' => 'Definitions for grounding queries, citation surfaces, prechunking, retrieval share, and 35+ terms used in AI search visibility and AI citations. Canonical reference for teams.',
+      'canonicalPath' => "/{$locale}/ai-visibility-dictionary/",
+    ];
+    render_page('ai-visibility-dictionary');
+    return;
+  }
+
   // AI Search Diagnostics sub-pages
   if (preg_match('#^/ai-search-diagnostics/([^/]+)/$#', $path, $m)) {
     $pageSlug = $m[1];
@@ -1908,10 +1923,11 @@ function route_request(): void {
       header('Location: ' . absolute_url('/' . current_locale() . '/videos/'), true, 301);
       return;
     }
+    $locale = current_locale();
     $GLOBALS['__page_meta'] = [
       'title' => 'Video guides | AI SEO & Bing AI Citations | NRLC.ai',
       'description' => 'Watch walkthroughs on Bing AI Citations, grounding queries, and turning citation data into citeable content. Neural Command video guides for AI search optimization.',
-      'canonicalPath' => '/videos/',
+      'canonicalPath' => "/{$locale}/videos/",
     ];
     render_page('videos/index');
     return;

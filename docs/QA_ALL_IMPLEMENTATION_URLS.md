@@ -10,9 +10,11 @@
 |---|-----|------|-----|
 | 1 | `https://nrlc.ai/en-us/bay-area/` | Bay Area hub | 200, H1, proof, FAQ, 8 city links (card-style), canonical |
 | 2 | `https://nrlc.ai/en-us/insights/grounding-queries-fan-out-ai-visibility/` | Grounding vs fan-out article | 200, Article+FAQPage schema, definition in first 100 words, FAQ, sources |
-| 3 | `https://nrlc.ai/en-us/tools/bing-ai-citations/` | Bing AI Citations landing | 200, 8-step workflow, templates, FAQ, CTA (nrlc.ai + croutons.ai), video placeholder |
+| 3 | `https://nrlc.ai/en-us/tools/bing-ai-citations/` | Bing AI Citations landing | 200, 8-step workflow, templates, FAQ, CTA (nrlc.ai + croutons.ai), YouTube embed |
+| 4 | `https://nrlc.ai/en-us/videos/` | Videos hub | 200, H1 "Video guides", canonical = /en-us/videos/, link to watch page(s) |
+| 5 | `https://nrlc.ai/en-us/videos/bing-ai-citations-grounding-queries/` | Video watch page | 200, H1, summary, embed, duration/date, Chapters, Transcript, VideoObject + hasPart Clip, canonical = same URL |
 
-**Local:** `http://localhost:8000/en-us/bay-area/` | `http://localhost:8000/en-us/insights/grounding-queries-fan-out-ai-visibility/` | `http://localhost:8000/en-us/tools/bing-ai-citations/`
+**Local:** `http://localhost:8000/en-us/bay-area/` | `http://localhost:8000/en-us/insights/grounding-queries-fan-out-ai-visibility/` | `http://localhost:8000/en-us/tools/bing-ai-citations/` | `http://localhost:8000/en-us/videos/` | `http://localhost:8000/en-us/videos/bing-ai-citations-grounding-queries/`
 
 ---
 
@@ -24,12 +26,12 @@ These are the 8 city links on the Bay Area hub (ai-search-optimization only).
 |---|-----|
 | 4 | `https://nrlc.ai/en-us/services/ai-search-optimization/san-francisco/` |
 | 5 | `https://nrlc.ai/en-us/services/ai-search-optimization/san-jose/` |
-| 6 | `https://nrlc.ai/en-us/services/ai-search-optimization/oakland/` |
-| 7 | `https://nrlc.ai/en-us/services/ai-search-optimization/palo-alto/` |
-| 8 | `https://nrlc.ai/en-us/services/ai-search-optimization/mountain-view/` |
-| 9 | `https://nrlc.ai/en-us/services/ai-search-optimization/sunnyvale/` |
-| 10 | `https://nrlc.ai/en-us/services/ai-search-optimization/santa-clara/` |
-| 11 | `https://nrlc.ai/en-us/services/ai-search-optimization/san-mateo/` |
+| 8 | `https://nrlc.ai/en-us/services/ai-search-optimization/oakland/` |
+| 9 | `https://nrlc.ai/en-us/services/ai-search-optimization/palo-alto/` |
+| 10 | `https://nrlc.ai/en-us/services/ai-search-optimization/mountain-view/` |
+| 11 | `https://nrlc.ai/en-us/services/ai-search-optimization/sunnyvale/` |
+| 12 | `https://nrlc.ai/en-us/services/ai-search-optimization/santa-clara/` |
+| 13 | `https://nrlc.ai/en-us/services/ai-search-optimization/san-mateo/` |
 
 **QA:** Each returns 200, has “Nearby cities we serve” (Bay Area block), and for 4–9 below: local context block + local FAQs from overrides.
 
@@ -83,11 +85,11 @@ These city **slugs** have entries in `data/bay_area_city_overrides.json`. Every 
 
 | # | URL |
 |---|-----|
-| 17 | `https://nrlc.ai/en-us/services/generative-seo/` |
-| 18 | `https://nrlc.ai/en-us/services/ai-search-optimization/` |
-| 19 | `https://nrlc.ai/en-us/services/site-audits/` |
-| 20 | `https://nrlc.ai/en-us/services/crawl-clarity/` |
-| 21 | `https://nrlc.ai/en-us/services/retrieval-optimization-ai/` |
+| 19 | `https://nrlc.ai/en-us/services/generative-seo/` |
+| 20 | `https://nrlc.ai/en-us/services/ai-search-optimization/` |
+| 21 | `https://nrlc.ai/en-us/services/site-audits/` |
+| 22 | `https://nrlc.ai/en-us/services/crawl-clarity/` |
+| 23 | `https://nrlc.ai/en-us/services/retrieval-optimization-ai/` |
 
 **QA:** 200, proof block (“Why Neural Command”), FAQ section, FAQPage schema, canonical = same en-us URL, Service schema `provider` = `@id` organization.
 
@@ -97,8 +99,8 @@ These city **slugs** have entries in `data/bay_area_city_overrides.json`. Every 
 
 | # | URL | What we did |
 |---|-----|-------------|
-| 22 | `https://nrlc.ai/en-us/` | Home (schema/canonical context). |
-| 23 | `https://nrlc.ai/en-us/services/` | Services index: Bay Area link to /en-us/bay-area/, proof, FAQ, Person @id. |
+| 24 | `https://nrlc.ai/en-us/` | Home (schema/canonical context). |
+| 25 | `https://nrlc.ai/en-us/services/` | Services index: Bay Area link to /en-us/bay-area/, proof, FAQ, Person @id. |
 
 ---
 
@@ -116,6 +118,8 @@ These city **slugs** have entries in `data/bay_area_city_overrides.json`. Every 
 - **Index pages:** `https://nrlc.ai/sitemaps/index-pages-1.xml` → must contain `https://nrlc.ai/en-us/bay-area/`
 - **Insights:** `https://nrlc.ai/sitemaps/insights-1.xml` → must contain `https://nrlc.ai/en-us/insights/grounding-queries-fan-out-ai-visibility/`
 - **Tools:** `https://nrlc.ai/sitemaps/tools-1.xml` → must contain `https://nrlc.ai/en-us/tools/bing-ai-citations/`
+- **Videos:** `https://nrlc.ai/sitemaps/videos-1.xml` → must contain `https://nrlc.ai/en-us/videos/bing-ai-citations-grounding-queries/` (video:video entry)
+- **Index pages:** must contain `https://nrlc.ai/en-us/videos/`
 - **Services:** `https://nrlc.ai/sitemaps/services-1.xml` → contains service+city URLs (including Bay Area cities)
 
 ---
@@ -126,6 +130,8 @@ These city **slugs** have entries in `data/bay_area_city_overrides.json`. Every 
 https://nrlc.ai/en-us/bay-area/
 https://nrlc.ai/en-us/insights/grounding-queries-fan-out-ai-visibility/
 https://nrlc.ai/en-us/tools/bing-ai-citations/
+https://nrlc.ai/en-us/videos/
+https://nrlc.ai/en-us/videos/bing-ai-citations-grounding-queries/
 https://nrlc.ai/en-us/services/ai-search-optimization/san-francisco/
 https://nrlc.ai/en-us/services/ai-search-optimization/san-jose/
 https://nrlc.ai/en-us/services/ai-search-optimization/oakland/
@@ -160,4 +166,4 @@ For **full** QA of every Bay Area service+city URL, generate all combinations of
 
 ---
 
-**Summary:** 3 new pages, 8 hub city links, 9 override cities (sample one URL per city), 5 canonical/fixed URLs, 5 generic service examples, 2 index pages, 1 redirect, 4 sitemap checks = **22+ distinct URLs** in the flat list. Use section 9 for a quick crawl/QA pass.
+**Summary:** 5 new pages (bay-area, grounding-queries article, bing-ai-citations tool, videos hub, video watch), 8 hub city links, 9 override cities (sample one URL per city), 5 canonical/fixed URLs, 5 generic service examples, 2 index pages, 1 redirect, 5 sitemap checks = **24+ distinct URLs** in the flat list. Use section 9 for a quick crawl/QA pass.
