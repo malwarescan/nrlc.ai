@@ -149,14 +149,14 @@ function get_services(): array {
       'priority' => '0.9'
     ];
     
-    // Service/city combinations
+    // Service/city combinations — SEO FORWARD: emit canonical locale-prefixed URLs only (en-us, en-gb, etc.)
     $citiesData = csv_to_rows('cities.csv');
     foreach ($citiesData as $city) {
       $citySlug = $city['city_name'] ?? '';
       if (empty($citySlug)) continue;
-      
+      $locale = function_exists('get_canonical_locale_for_city') ? get_canonical_locale_for_city($citySlug) : 'en-us';
       $services[] = [
-        'loc' => "https://nrlc.ai/services/{$slug}/{$citySlug}/",
+        'loc' => "https://nrlc.ai/{$locale}/services/{$slug}/{$citySlug}/",
         'lastmod' => date('Y-m-d'),
         'changefreq' => 'weekly',
         'priority' => '0.8'
@@ -177,9 +177,9 @@ function get_insights(): array {
   foreach ($insightFiles as $file) {
     $slug = basename($file, '.php');
     if ($slug === 'index' || $slug === 'article') continue;
-    
+    // SEO FORWARD: canonical for insights is en-us (non-en-us gets noindex)
     $insights[] = [
-      'loc' => "https://nrlc.ai/insights/{$slug}/",
+      'loc' => "https://nrlc.ai/en-us/insights/{$slug}/",
       'lastmod' => date('Y-m-d', filemtime($file)),
       'changefreq' => 'monthly',
       'priority' => '0.7'
@@ -199,9 +199,9 @@ function get_tools(): array {
   foreach ($toolFiles as $file) {
     $slug = basename($file, '.php');
     if ($slug === 'index' || $slug === 'tool') continue;
-    
+    // SEO FORWARD: canonical for tools is en-us
     $tools[] = [
-      'loc' => "https://nrlc.ai/tools/{$slug}/",
+      'loc' => "https://nrlc.ai/en-us/tools/{$slug}/",
       'lastmod' => date('Y-m-d', filemtime($file)),
       'changefreq' => 'monthly',
       'priority' => '0.6'
@@ -255,9 +255,9 @@ function get_careers(): array {
     foreach ($citiesData as $city) {
       $citySlug = $city['city_name'] ?? '';
       if (empty($citySlug)) continue;
-      
+      $locale = function_exists('get_canonical_locale_for_city') ? get_canonical_locale_for_city($citySlug) : 'en-us';
       $careers[] = [
-        'loc' => "https://nrlc.ai/careers/{$citySlug}/{$role}/",
+        'loc' => "https://nrlc.ai/{$locale}/careers/{$citySlug}/{$role}/",
         'lastmod' => date('Y-m-d'),
         'changefreq' => 'weekly',
         'priority' => '0.7'
@@ -279,8 +279,9 @@ function get_blog_posts(): array {
     preg_match('/blog-post-(\d+)\.php$/', basename($file), $matches);
     if (isset($matches[1])) {
       $postNum = $matches[1];
+      // SEO FORWARD: canonical for blog is en-us
       $blogPosts[] = [
-        'loc' => "https://nrlc.ai/blog/blog-post-{$postNum}/",
+        'loc' => "https://nrlc.ai/en-us/blog/blog-post-{$postNum}/",
         'lastmod' => date('Y-m-d', filemtime($file)),
         'changefreq' => 'monthly',
         'priority' => '0.6'
@@ -302,8 +303,9 @@ function get_case_studies(): array {
     preg_match('/case-study-(\d+)\.php$/', basename($file), $matches);
     if (isset($matches[1])) {
       $caseNum = $matches[1];
+      // SEO FORWARD: canonical for case-studies is en-us
       $caseStudies[] = [
-        'loc' => "https://nrlc.ai/case-studies/case-study-{$caseNum}/",
+        'loc' => "https://nrlc.ai/en-us/case-studies/case-study-{$caseNum}/",
         'lastmod' => date('Y-m-d', filemtime($file)),
         'changefreq' => 'monthly',
         'priority' => '0.7'
@@ -443,6 +445,18 @@ function get_index_pages(): array {
       'lastmod' => date('Y-m-d'),
       'changefreq' => 'weekly',
       'priority' => '0.8'
+    ],
+    [
+      'loc' => 'https://nrlc.ai/en-us/book/',
+      'lastmod' => date('Y-m-d'),
+      'changefreq' => 'weekly',
+      'priority' => '0.9'
+    ],
+    [
+      'loc' => 'https://nrlc.ai/en-us/bay-area/',
+      'lastmod' => date('Y-m-d'),
+      'changefreq' => 'weekly',
+      'priority' => '0.9'
     ],
     [
       'loc' => 'https://nrlc.ai/catalog/',

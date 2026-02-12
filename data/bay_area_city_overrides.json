@@ -1,0 +1,76 @@
+{
+  "_comment": "Per-city overrides: local_problem, who_we_help, local_faqs (2+ for unique content + FAQPage). Keys = city slug.",
+  "san-francisco": {
+    "local_problem": "In San Francisco, startups and agencies compete for AI visibility with limited in-house SEO resources. Many rely on traditional rankings while ChatGPT, Perplexity, and Google AI Overviews recommend competitors. We help SF teams fix entity clarity, structured data, and citation-ready content so AI systems retrieve and cite your brand.",
+    "who_we_help": "Startups, fintech, marketing agencies, and growth teams in SOMA, Financial District, and across San Francisco.",
+    "local_faqs": [
+      {"question": "Do you work with startups and agencies in San Francisco?", "answer": "Yes. We work with SF startups, fintech, and marketing agencies on AI visibility—entity clarity, structured data, and citation-ready content so ChatGPT, Perplexity, and Google AI Overviews surface and cite your brand correctly."},
+      {"question": "How does AI search visibility differ from traditional SEO in San Francisco?", "answer": "Traditional SEO focuses on rankings and links. AI search visibility in SF means optimizing for how ChatGPT, Perplexity, and Google AI Overviews retrieve and cite your business. We align your content and schema so AI systems recommend you when users ask relevant questions."},
+      {"question": "Can you help with AI Overviews and citations for SF businesses?", "answer": "Yes. We optimize for Google AI Overviews and AI citations: clear entity definitions, factual statements, and structured data so your SF business is accurately described and cited in AI-generated answers."}
+    ]
+  },
+  "san-jose": {
+    "local_problem": "In San Jose and Silicon Valley, enterprise tech and hardware companies need schema at scale and AI visibility that matches their market presence. Legacy SEO often misses how AI systems evaluate and cite B2B content. We align GEO and AEO with your existing technical stack and market.",
+    "who_we_help": "Enterprise software, hardware, semiconductors, and B2B tech in San Jose and the South Bay.",
+    "local_faqs": [
+      {"question": "Do you serve enterprise and B2B tech companies in San Jose and Silicon Valley?", "answer": "Yes. We work with enterprise software, hardware, and B2B tech in San Jose and the South Bay on schema at scale and AI visibility—so AI systems correctly evaluate and cite your products and solutions."},
+      {"question": "How do you handle AI visibility for technical and product content in the South Bay?", "answer": "We align GEO and AEO with your technical stack: entity clarity, structured data, and citation-ready content so ChatGPT, Perplexity, and Google AI Overviews accurately represent your technical offerings and market position."}
+    ]
+  },
+  "palo-alto": {
+    "local_problem": "Palo Alto and the Peninsula are home to high-growth startups and VCs who need AI search visibility for brand and due diligence. Generic SEO doesn't address how AI systems surface and cite companies. We implement GEO-16 and structured data so your brand is correctly represented in AI-generated answers.",
+    "who_we_help": "VC-backed startups, high-growth companies, and professional services along the Peninsula.",
+    "local_faqs": [
+      {"question": "Do you work with VC-backed startups in Palo Alto and the Peninsula?", "answer": "Yes. We help Peninsula startups and high-growth companies get AI search visibility—entity clarity and structured data so your brand is correctly represented in AI answers and due-diligence research."},
+      {"question": "Why does AI visibility matter for Palo Alto and Peninsula businesses?", "answer": "Investors and partners use ChatGPT, Perplexity, and AI Overviews to research companies. We ensure your brand is accurately cited and described in those systems so you show up when it matters."}
+    ]
+  },
+  "oakland": {
+    "local_problem": "Oakland and the East Bay have a diverse mix of local businesses and tech that need AI visibility without the one-size-fits-all playbook. We help Oakland businesses get cited in AI search with entity clarity and citation-ready content tailored to your industry and competition.",
+    "who_we_help": "Local businesses, downtown and Jack London Square area, and East Bay tech and professional services.",
+    "local_faqs": [
+      {"question": "Do you serve Oakland and East Bay businesses?", "answer": "Yes. We work with Oakland and East Bay businesses—downtown, Jack London Square, and across the East Bay—on AI visibility and citation-ready content tailored to your industry."},
+      {"question": "How do you tailor AI visibility for Oakland vs. SF or San Jose?", "answer": "We tailor approach by market: Oakland and East Bay get the same technical rigor (entity clarity, structured data, citations) with messaging and positioning that fits local competition and customer expectations."}
+    ]
+  },
+  "mountain-view": {
+    "local_problem": "In Mountain View, tech companies and startups need AI visibility that matches the density of innovation. Competing for attention in AI search requires clear entity definitions and citation-ready content so ChatGPT, Perplexity, and Google AI Overviews surface your brand when researchers and buyers search.",
+    "who_we_help": "Tech companies, startups, and B2B teams in Mountain View and the mid-Peninsula.",
+    "local_faqs": [
+      {"question": "Do you work with Mountain View and mid-Peninsula tech companies?", "answer": "Yes. We work with Mountain View and mid-Peninsula tech companies on AI visibility—entity clarity, structured data, and citation-ready content so AI systems surface and cite your brand correctly."},
+      {"question": "Why is AI search visibility important for Mountain View businesses?", "answer": "Mountain View is at the center of tech and AI adoption. Buyers and partners use AI search to evaluate vendors. We ensure your brand is accurately represented and cited in ChatGPT, Perplexity, and Google AI Overviews."}
+    ]
+  },
+  "sunnyvale": {
+    "local_problem": "Sunnyvale and the South Bay are home to hardware, software, and semiconductor companies that need AI visibility at scale. Legacy SEO often ignores how AI systems retrieve and cite B2B content. We align your content and schema so AI engines correctly represent your solutions and market position.",
+    "who_we_help": "Hardware, software, semiconductor, and B2B tech in Sunnyvale and the South Bay.",
+    "local_faqs": [
+      {"question": "Do you serve Sunnyvale and South Bay tech companies?", "answer": "Yes. We work with Sunnyvale and South Bay tech—hardware, software, semiconductors—on AI visibility and schema so ChatGPT, Perplexity, and Google AI Overviews accurately cite your solutions."},
+      {"question": "How do you handle AI visibility for B2B and technical brands in Sunnyvale?", "answer": "We focus on entity clarity, structured data, and citation-ready technical content so AI systems correctly evaluate and recommend your offerings when users ask relevant questions."}
+    ]
+  },
+  "santa-clara": {
+    "local_problem": "Santa Clara and the South Bay host enterprise tech and event-driven businesses that need AI visibility for both product and local presence. We help Santa Clara companies get cited in AI search with entity clarity and structured data tailored to your industry and competition.",
+    "who_we_help": "Enterprise tech, event venues, and B2B companies in Santa Clara and the South Bay.",
+    "local_faqs": [
+      {"question": "Do you work with Santa Clara and South Bay enterprises?", "answer": "Yes. We work with Santa Clara and South Bay enterprises on AI visibility—entity clarity, structured data, and citation-ready content so AI systems surface your brand when it matters."},
+      {"question": "Can you help with AI citations for Santa Clara businesses?", "answer": "Yes. We optimize for AI citations: clear entity definitions and factual content so your Santa Clara business is accurately described and cited in ChatGPT, Perplexity, and Google AI Overviews."}
+    ]
+  },
+  "berkeley": {
+    "local_problem": "Berkeley and the East Bay have a strong mix of research, education, and innovation-driven businesses that need AI visibility. We help Berkeley companies get cited in AI search with entity clarity and citation-ready content that fits your audience and competitive landscape.",
+    "who_we_help": "Research-driven businesses, education tech, and innovation-focused companies in Berkeley and the East Bay.",
+    "local_faqs": [
+      {"question": "Do you serve Berkeley and East Bay businesses?", "answer": "Yes. We work with Berkeley and East Bay businesses on AI visibility—entity clarity, structured data, and citation-ready content so AI systems accurately represent and cite your brand."},
+      {"question": "How do you approach AI visibility for Berkeley's research and innovation focus?", "answer": "We tailor content and schema for clarity and citation: clear entity definitions and factual statements so ChatGPT, Perplexity, and Google AI Overviews correctly describe your work and offerings."}
+    ]
+  },
+  "fremont": {
+    "local_problem": "Fremont and the Tri-City area have growing tech and manufacturing presence that need AI visibility. We help Fremont businesses get cited in AI search with entity clarity and citation-ready content so AI systems recommend you when users search.",
+    "who_we_help": "Tech, manufacturing, and local businesses in Fremont and the Tri-City area.",
+    "local_faqs": [
+      {"question": "Do you work with Fremont and Tri-City area businesses?", "answer": "Yes. We work with Fremont and Tri-City area businesses on AI visibility—entity clarity, structured data, and citation-ready content so ChatGPT, Perplexity, and Google AI Overviews surface your brand."},
+      {"question": "Why should Fremont businesses care about AI search visibility?", "answer": "More searches are answered by AI. We ensure your Fremont business is accurately described and cited in AI-generated answers so you show up when potential customers and partners search."}
+    ]
+  }
+}

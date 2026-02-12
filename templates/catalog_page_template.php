@@ -38,7 +38,7 @@ if ($hasHeader) include __DIR__.'/header.php';
 ?>
 
 <main class="container">
-  <nav aria-label="breadcrumb"><a href="/">Home</a> › <a href="/catalog/">Catalog</a> › <?= htmlspecialchars($item['name']) ?></nav>
+  <nav aria-label="breadcrumb"><a href="<?= htmlspecialchars(absolute_url('/'), ENT_QUOTES) ?>">Home</a> › <a href="<?= htmlspecialchars(absolute_url('/en-us/catalog/'), ENT_QUOTES) ?>">Catalog</a> › <?= htmlspecialchars($item['name']) ?></nav>
   <header>
     <h1><?= htmlspecialchars($item['name']) ?></h1>
     <?php if (!empty($item['short'])): ?><p><?= htmlspecialchars($item['short']) ?></p><?php endif; ?>

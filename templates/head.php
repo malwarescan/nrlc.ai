@@ -231,6 +231,8 @@ $contentLanguage = $localeMeta['lang'] . '-' . strtolower($localeMeta['region'])
 <!-- Minimal browser UI hint -->
 <meta name="theme-color" content="#0B1220">
 <link rel="canonical" href="<?=absolute_url($canonicalPath)?>">
+<!-- AI/LLM discovery: plain-text site summary for crawlers -->
+<link rel="alternate" type="text/plain" href="<?= htmlspecialchars($baseUrl ?? 'https://nrlc.ai', ENT_QUOTES) ?>/llms.txt" title="LLM-oriented site summary">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">

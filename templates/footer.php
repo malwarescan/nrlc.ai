@@ -29,12 +29,13 @@ foreach ($blocks as $b) {
         <div class="site-footer__actions">
           <button type="button" onclick="openContactSheet('')" class="site-footer__action-btn">Contact Us</button>
           <span class="site-footer__separator">|</span>
-          <a href="/book/" class="site-footer__action-link">Book Consultation</a>
+          <a href="<?= absolute_url('/en-us/book/') ?>" class="site-footer__action-link">Book Consultation</a>
         </div>
       </div>
       
       <div class="site-footer__links-section">
         <nav class="site-footer__links-wrapper" aria-label="Footer links">
+          <a href="https://neuralcommandllc.com" target="_blank" rel="noopener" class="site-footer__link">Neural Command LLC</a>
           <a href="https://nrlcmd.com" target="_blank" rel="noopener" class="site-footer__link">NRL CMD</a>
           <a href="https://www.crunchbase.com/organization/neural-command" target="_blank" rel="noopener" class="site-footer__link">Crunchbase</a>
           <a href="<?= htmlspecialchars(gbp_url()) ?>" target="_blank" rel="noopener" class="site-footer__link">Google Business</a>

@@ -1,6 +1,6 @@
 <header role="banner" class="site-header">
   <nav class="nav-primary" aria-label="Primary Navigation">
-    <a href="/" class="nav-primary__brand" title="Neural Command LLC: AI SEO - NRLC.ai Home">
+    <a href="<?= htmlspecialchars(absolute_url('/'), ENT_QUOTES) ?>" class="nav-primary__brand" title="Neural Command LLC: AI SEO - NRLC.ai Home">
       <img 
         src="/assets/images/nrlc-logo.png" 
         alt="Neural Command LLC: AI SEO - NRLC.ai Logo" 

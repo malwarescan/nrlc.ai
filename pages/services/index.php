@@ -14,11 +14,12 @@ if (preg_match('#^/([a-z]{2}-[a-z]{2})/#', $currentPath, $matches)) {
 }
 $localePrefix = $locale ? "/$locale" : '';
 
-// Get canonical URL and domain
+// Get canonical URL and domain (use canonical Person @id from entity home only)
+require_once __DIR__ . '/../../lib/person_entity.php';
 $canonicalUrl = absolute_url('/services/');
 $domain = absolute_url('/');
 $orgId = SchemaFixes::ensureHttps($domain) . '#organization';
-$personId = SchemaFixes::ensureHttps($domain) . '#joel-maldonado';
+$personId = JOEL_PERSON_ID;
 
 // Enhance metadata with keywords
 if (isset($GLOBALS['__page_meta']) && is_array($GLOBALS['__page_meta'])) {
@@ -101,6 +102,16 @@ $serviceDefinitions = [
             Technical <abbr title="Search Engine Optimization">SEO</abbr> service that fixes <strong>crawl issues</strong>, improves <strong>site speed</strong>, and optimizes <strong>Core Web Vitals</strong>. We resolve technical barriers that prevent <strong>search engines</strong> from indexing and ranking your content effectively. This includes <strong>URL normalization</strong>, <strong>canonical enforcement</strong>, and <strong>crawl budget optimization</strong>.
           </dd>
         </dl>
+      </div>
+    </section>
+
+    <!-- Proof block: E-E-A-T and AI citation methodology -->
+    <section class="content-block module" style="background: #f9f9f9; border-left: 4px solid #0066cc; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Why Neural Command</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Neural Command implements the <strong>GEO-16 framework</strong> and <strong>Answer First Architecture</strong> to improve how often brands are cited in AI-generated answers. Our methodology is documented in peer-observed research and applied across site audits, structured data, and training. We focus on entity clarity, retrieval signals, and citation-ready content so AI systems can extract and cite your brand with confidence.</p>
       </div>
     </section>
 
@@ -282,6 +293,29 @@ $serviceDefinitions = [
       </div>
     </nav>
 
+    <!-- FAQ Section (FAQPage schema output at bottom) -->
+    <section class="content-block module" id="faq">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Frequently Asked Questions</h2>
+      </div>
+      <div class="content-block__body">
+        <dl>
+          <dt><strong>What is AI Search Optimization?</strong></dt>
+          <dd>AI Search Optimization is the practice of optimizing content and technical signals so that AI systems like ChatGPT, Perplexity, and Google AI Overviews can retrieve, evaluate, and cite your brand. It includes GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization).</dd>
+          <dt><strong>What is GEO?</strong></dt>
+          <dd>GEO (Generative Engine Optimization) is optimizing for generative AI systems that retrieve and cite web content. It focuses on retrieval signals, semantic structure, and citation-ready formatting.</dd>
+          <dt><strong>What is AEO?</strong></dt>
+          <dd>AEO (Answer Engine Optimization) is optimizing for AI answer engines that generate direct answers. It emphasizes entity clarity, atomic content segments, and structured data so AI systems can extract and cite with confidence.</dd>
+          <dt><strong>Do you work with SMBs?</strong></dt>
+          <dd>Yes. Neural Command works with SMBs, mid-market companies, and enterprises. Our GEO-16 and implementation services scale to your budget and goals.</dd>
+          <dt><strong>Do you serve Santa Monica and Los Angeles?</strong></dt>
+          <dd>Yes. We are headquartered in Santa Monica and serve clients in Los Angeles, California, and nationwide (USA).</dd>
+          <dt><strong>How do I get started?</strong></dt>
+          <dd>Book a consultation at nrlc.ai. We'll review your current AI visibility and outline a strategy for GEO and AEO implementation.</dd>
+        </dl>
+      </div>
+    </section>
+
     <!-- Related Resources -->
     <section class="content-block module">
       <div class="content-block__header">
@@ -334,10 +368,10 @@ if (function_exists('render_internal_links_section')) {
   </div>
   <div class="content-block__body">
     <p>Find specialized <strong>AI SEO</strong> services in your city. Our location-specific pages provide tailored insights for local markets.</p>
-
+        <p><strong>San Francisco Bay Area:</strong> <a href="<?= htmlspecialchars(absolute_url('/en-us/bay-area/')) ?>" title="AI Search Optimization for the San Francisco Bay Area">AI Search Optimization for the Bay Area</a> — San Francisco, San Jose, Oakland, Silicon Valley, Peninsula.</p>
     <?php
     // Add links to popular city-service combinations to improve internal linking
-    $popularCities = ['new-york', 'los-angeles', 'london', 'manchester', 'birmingham', 'tokyo', 'seoul', 'singapore'];
+    $popularCities = ['santa-monica', 'san-francisco', 'san-jose', 'los-angeles', 'new-york', 'london', 'manchester', 'birmingham', 'tokyo', 'seoul', 'singapore'];
     $popularServices = ['crawl-clarity', 'ai-overviews-optimization', 'generative-seo', 'local-seo-ai'];
 
     echo '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">';
@@ -371,38 +405,8 @@ require_once __DIR__ . '/../../lib/helpers.php';
 $domain = 'https://nrlc.ai';
 $canonicalUrl = absolute_url('/services/');
 
-// Person schema (Joel Maldonado)
+// Schema: no full Person here — only reference canonical Person @id (full payload lives on /en-us/about/joel-maldonado/)
 $GLOBALS['__jsonld'] = [
-  [
-    '@context' => 'https://schema.org',
-    '@type' => 'Person',
-    '@id' => $personId,
-    'name' => 'Joel Maldonado',
-    'givenName' => 'Joel',
-    'familyName' => 'Maldonado',
-    'jobTitle' => 'Founder & AI Search Researcher',
-    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in search, retrieval, citations, and extractability for AI-powered search engines.',
-    'knowsAbout' => [
-      'AI Search Optimization', 'AEO', 'GEO', 'AI SEO Services',
-      'Structured Data Services', 'Technical SEO Services', 'AI Citation Services',
-      'LLM Seeding', 'Schema Markup', 'AI Visibility Services'
-    ],
-    'worksFor' => [
-      '@type' => 'Organization',
-      '@id' => $orgId
-    ],
-    'affiliation' => [
-      '@type' => 'Organization',
-      '@id' => $orgId
-    ],
-    'url' => $domain,
-    'sameAs' => [
-      'https://www.linkedin.com/company/neural-command/',
-      'https://twitter.com/neuralcommand',
-      'https://www.crunchbase.com/person/joel-maldonado'
-    ]
-  ],
-  
   // WebPage schema (ENHANCED)
   [
     "@context" => "https://schema.org",
@@ -670,6 +674,14 @@ $GLOBALS['__jsonld'] = [
     "@type" => "Thing",
     "name" => "Technical SEO Services",
     "description" => "Technical SEO service that fixes crawl issues, improves site speed, and optimizes Core Web Vitals"
-  ]
+  ],
+  ld_faq([
+    ['q' => 'What is AI Search Optimization?', 'a' => 'AI Search Optimization is the practice of optimizing content and technical signals so that AI systems like ChatGPT, Perplexity, and Google AI Overviews can retrieve, evaluate, and cite your brand. It includes GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization).'],
+    ['q' => 'What is GEO?', 'a' => 'GEO (Generative Engine Optimization) is optimizing for generative AI systems that retrieve and cite web content. It focuses on retrieval signals, semantic structure, and citation-ready formatting.'],
+    ['q' => 'What is AEO?', 'a' => 'AEO (Answer Engine Optimization) is optimizing for AI answer engines that generate direct answers. It emphasizes entity clarity, atomic content segments, and structured data so AI systems can extract and cite with confidence.'],
+    ['q' => 'Do you work with SMBs?', 'a' => 'Yes. Neural Command works with SMBs, mid-market companies, and enterprises. Our GEO-16 and implementation services scale to your budget and goals.'],
+    ['q' => 'Do you serve Santa Monica and Los Angeles?', 'a' => 'Yes. We are headquartered in Santa Monica and serve clients in Los Angeles, California, and nationwide (USA).'],
+    ['q' => 'How do I get started?', 'a' => 'Book a consultation at nrlc.ai. We\'ll review your current AI visibility and outline a strategy for GEO and AEO implementation.']
+  ])
 ];
 ?>

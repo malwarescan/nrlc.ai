@@ -36,7 +36,9 @@
 
 ## Implementation Guides
 
-- [Services](https://nrlc.ai/en-us/services/): Enterprise-grade implementation of GEO and AEO frameworks to improve LLM citation frequency. Learn how Neural Command applies deeply studied principles to optimize content for AI-powered search engines.
+- [Services](https://nrlc.ai/en-us/services/): Enterprise-grade implementation of GEO and AEO frameworks to improve LLM citation frequency.
+
+- [Bay Area AI Search Optimization](https://nrlc.ai/en-us/bay-area/): AI Search Optimization and GEO/AEO services for the San Francisco Bay Area—San Francisco, San Jose, Silicon Valley, Oakland, and the Peninsula. Neural Command serves founders, growth teams, and marketing directors across the Bay Area with the same research-backed GEO-16 methodology used nationwide. Learn how Neural Command applies deeply studied principles to optimize content for AI-powered search engines.
 
 - [Training](https://nrlc.ai/training/): Learn how to implement AI search optimization practices through hands-on training. Educational programs covering GEO, AEO, structured data engineering, and LLM visibility optimization.
 

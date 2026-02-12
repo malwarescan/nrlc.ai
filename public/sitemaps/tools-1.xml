@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nrlc.ai/tools/ahrefs/</loc>
+    <loc>https://nrlc.ai/en-us/tools/ahrefs-specialized/</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nrlc.ai/en-us/tools/bard/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/bard/</loc>
+    <loc>https://nrlc.ai/en-us/tools/brightedge/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/brightedge/</loc>
+    <loc>https://nrlc.ai/en-us/tools/chatgpt/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/chatgpt/</loc>
+    <loc>https://nrlc.ai/en-us/tools/claude/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/claude/</loc>
+    <loc>https://nrlc.ai/en-us/tools/copilot/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/copilot/</loc>
+    <loc>https://nrlc.ai/en-us/tools/google-ai-overviews/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/google-ai-overviews/</loc>
+    <loc>https://nrlc.ai/en-us/tools/json-ld-validator/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/json-ld-validator/</loc>
+    <loc>https://nrlc.ai/en-us/tools/moz/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/moz/</loc>
+    <loc>https://nrlc.ai/en-us/tools/perplexity/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/perplexity/</loc>
+    <loc>https://nrlc.ai/en-us/tools/schema-generator/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/schema-generator/</loc>
+    <loc>https://nrlc.ai/en-us/tools/screaming-frog/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/screaming-frog/</loc>
+    <loc>https://nrlc.ai/en-us/tools/seer-interactive/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/seer-interactive/</loc>
+    <loc>https://nrlc.ai/en-us/tools/semrush/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/semrush/</loc>
+    <loc>https://nrlc.ai/en-us/tools/sitebulb/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nrlc.ai/tools/sitebulb/</loc>
-    <lastmod>2026-01-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://nrlc.ai/tools/structured-data-testing/</loc>
+    <loc>https://nrlc.ai/en-us/tools/structured-data-testing/</loc>
     <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

@@ -64,6 +64,8 @@ $insight_articles = [
   'grounding-budgets-prechunking' => 'grounding-budgets-prechunking.php',
   // Agentic Commerce
   'agentic-commerce-aps' => 'agentic-commerce-aps.php',
+  // Grounding vs fan-out AI visibility
+  'grounding-queries-fan-out-ai-visibility' => 'grounding-queries-fan-out-ai-visibility.php',
   // ChatGPT business mentions
   'how-to-get-your-business-mentioned-in-chatgpt' => 'how-to-get-your-business-mentioned-in-chatgpt.php',
   // Medical information retrieval research

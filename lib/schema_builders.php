@@ -61,11 +61,13 @@ function ld_organization(): array {
 
 function ld_website_with_searchaction(): array {
   // Google Search Gallery compliant WebSite schema with SearchAction
-  // Required for site search box rich result eligibility
+  // Required for site search box rich result eligibility; stable @id for graph reference
+  $baseUrl = SchemaFixes::ensureHttps(gbp_website());
   $homeUrl = SchemaFixes::ensureHttps(absolute_url('/en-us/'));
   return [
     '@context'=>'https://schema.org',
     '@type'=>'WebSite',
+    '@id'=>$baseUrl . '#website',
     'url'=>$homeUrl,
     'name'=>'NRLC.ai',
     'potentialAction'=>[

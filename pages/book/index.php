@@ -3,6 +3,11 @@
 // Metadata is set by router via sudo_meta_directive_ctx()
 // See bootstrap/router.php for book page metadata configuration
 require_once __DIR__ . '/../../lib/schema_builders.php';
+require_once __DIR__ . '/../../lib/helpers.php';
+require_once __DIR__ . '/../../lib/gbp_config.php';
+
+$orgId = 'https://nrlc.ai/#organization';
+$canonicalUrl = absolute_url('/en-us/book/');
 
 $GLOBALS['__page_slug'] = 'book/index';
 $GLOBALS['__jsonld'] = [
@@ -13,13 +18,10 @@ $GLOBALS['__jsonld'] = [
     '@type' => 'Service',
     'name' => 'AI SEO Consultation Booking',
     'description' => 'Schedule a consultation with NRLC.ai experts for AI-first SEO strategy, GEO-16 framework implementation, and LLM optimization.',
-    'provider' => [
-      '@type' => 'Organization',
-      'name' => 'NRLC.ai',
-      'url' => 'https://nrlc.ai'
-    ],
+    'provider' => [ '@type' => 'Organization', '@id' => $orgId ],
     'serviceType' => 'AI SEO Consultation',
     'areaServed' => 'Worldwide',
+    'url' => $canonicalUrl,
     'offers' => [
       '@type' => 'Offer',
       'name' => 'Free Initial Consultation',
@@ -27,7 +29,15 @@ $GLOBALS['__jsonld'] = [
       'priceCurrency' => 'USD',
       'availability' => 'https://schema.org/InStock'
     ]
-  ]
+  ],
+  ld_faq([
+    ['q' => 'What happens during a consultation?', 'a' => 'We discuss your current SEO challenges, AI engine visibility goals, and technical infrastructure. We review your site\'s structure, existing schema, and crawl efficiency and give preliminary recommendations.'],
+    ['q' => 'Is the consultation free?', 'a' => 'Yes. The initial consultation is free with no obligation.'],
+    ['q' => 'How long is the call?', 'a' => 'Typically 30–45 minutes. We\'ll outline how our services can address your specific needs.'],
+    ['q' => 'Do you work with small businesses?', 'a' => 'Yes. We work with SMBs, mid-market companies, and enterprises.'],
+    ['q' => 'Do you serve Santa Monica and LA?', 'a' => 'Yes. Neural Command is headquartered in Santa Monica and serves Los Angeles, California, and nationwide.'],
+    ['q' => 'What if I\'m not ready to implement?', 'a' => 'No problem. The consultation is exploratory. We\'ll leave you with a clear picture and next steps when you\'re ready.']
+  ])
 ];
 ?>
 
@@ -44,6 +54,7 @@ $GLOBALS['__jsonld'] = [
         <p class="lead" style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">
           Get expert guidance on implementing the GEO-16 framework, optimizing for AI engines, and improving your LLM citation rates.
         </p>
+        <p style="background: #f0f7ff; border-left: 4px solid #0066cc; padding: var(--spacing-md); margin: 0;">Neural Command consultations focus on your current AI visibility and a clear path to improvement. We use the <strong>GEO-16</strong> and <strong>Answer First Architecture</strong> to guide strategy and implementation so you get cited in ChatGPT, Perplexity, and Google AI Overviews.</p>
       </div>
     </div>
 
@@ -150,11 +161,11 @@ $GLOBALS['__jsonld'] = [
         <h2 class="content-block__title heading-2">Related Resources</h2>
       </div>
       <div class="content-block__body">
-        <p>Explore our comprehensive <a href="/services/">AI SEO Services</a> including <a href="/services/crawl-clarity/">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
-        <p>Discover our latest <a href="/insights/">AI SEO Research & Insights</a> including the <a href="/insights/geo16-introduction/">GEO-16 Framework</a> for AI citation optimization.</p>
-        <p>Browse our <a href="/tools/">SEO Tools & Resources</a> and view our <a href="/products/">Products</a>.</p>
+        <p>Explore our comprehensive <a href="<?= htmlspecialchars(absolute_url('/en-us/services/')) ?>">AI SEO Services</a> including <a href="<?= htmlspecialchars(absolute_url('/en-us/services/crawl-clarity/')) ?>">Crawl Clarity Engineering</a> for technical SEO optimization.</p>
+        <p>Discover our latest <a href="<?= htmlspecialchars(absolute_url('/en-us/insights/')) ?>">AI SEO Research & Insights</a> including the <a href="<?= htmlspecialchars(absolute_url('/en-us/insights/geo16-introduction/')) ?>">GEO-16 Framework</a> for AI citation optimization.</p>
+        <p>Browse our <a href="<?= htmlspecialchars(absolute_url('/en-us/tools/')) ?>">SEO Tools & Resources</a> and view our <a href="<?= htmlspecialchars(absolute_url('/en-us/products/')) ?>">Products</a>.</p>
         <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
-          <a href="/services/" class="btn btn--primary">Get Started with AI SEO</a>
+          <a href="<?= htmlspecialchars(absolute_url('/en-us/services/')) ?>" class="btn btn--primary">Get Started with AI SEO</a>
         </div>
       </div>
     </div>
@@ -182,8 +193,8 @@ $GLOBALS['__jsonld'] = [
       <p style="margin-bottom: 0;"><a href="mailto:info@neuralcommand.com?subject=Consultation Request">Click here to email us directly</a></p>
     </div>
     <div class="btn-group" style="justify-content: center; margin-top: var(--spacing-lg);">
-      <a href="/" class="btn btn--secondary" data-ripple>Return to Homepage</a>
-      <a href="/services/" class="btn btn--secondary" data-ripple>View Services</a>
+      <a href="<?= htmlspecialchars(absolute_url('/en-us/')) ?>" class="btn btn--secondary" data-ripple>Return to Homepage</a>
+      <a href="<?= htmlspecialchars(absolute_url('/en-us/services/')) ?>" class="btn btn--secondary" data-ripple>View Services</a>
     </div>
   </div>
 </div>

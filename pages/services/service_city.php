@@ -12,7 +12,8 @@ $requiredFiles = [
   'csv.php',
   'service_enhancements.php',
   'service_intent_taxonomy.php',
-  'gbp_config.php'
+  'gbp_config.php',
+  'bay_area.php'
 ];
 
 foreach ($requiredFiles as $file) {
@@ -145,6 +146,23 @@ try {
   $faqsHtml = '';
   $serviceAreaCoverage = '';
 }
+// Bay Area: append local FAQs from overrides (same HTML pattern as city_specific_faq_block)
+if (function_exists('is_bay_area_city') && is_bay_area_city($citySlug) && function_exists('bay_area_city_override')) {
+  $localOverride = bay_area_city_override($citySlug);
+  $localFaqs = $localOverride['local_faqs'] ?? [];
+  if (!empty($localFaqs) && is_array($localFaqs)) {
+    $parts = ['<div class="grid" style="gap:4px">'];
+    foreach ($localFaqs as $faq) {
+      $q = htmlspecialchars($faq['question'] ?? '');
+      $a = htmlspecialchars($faq['answer'] ?? '');
+      if ($q !== '' && $a !== '') {
+        $parts[] = "<details class=\"card\"><summary><strong>$q</strong></summary><p class=\"small muted\">$a</p></details>";
+      }
+    }
+    $parts[] = '</div>';
+    $faqsHtml = $faqsHtml . "\n" . implode("\n", $parts);
+  }
+}
 
 // Additional sections for depth (used after required sections)
 try {
@@ -205,6 +223,16 @@ $content = $intro . $local;
               elseif (strpos($citySlug, 'stockport') !== false || strpos($citySlug, 'manchester') !== false) $region = 'Greater Manchester';
               echo "<p>We've worked with businesses across $cityTitle and $region and consistently deliver results that automated tools miss.</p>";
             }
+            // Bay Area: optional per-city unique copy (local problem + who we help) for 35%+ uniqueness
+            if (function_exists('is_bay_area_city') && is_bay_area_city($citySlug) && function_exists('bay_area_city_override')) {
+              $localOverride = bay_area_city_override($citySlug);
+              if (!empty($localOverride['local_problem']) || !empty($localOverride['who_we_help'])) {
+                echo '<div class="bay-area-local-context" style="margin: 1.5rem 0; padding: 1rem; background: #f5f9fc; border-left: 3px solid #4a90e2;">';
+                if (!empty($localOverride['local_problem'])) echo '<p>' . htmlspecialchars($localOverride['local_problem']) . '</p>';
+                if (!empty($localOverride['who_we_help'])) echo '<p><strong>Who we help here:</strong> ' . htmlspecialchars($localOverride['who_we_help']) . '</p>';
+                echo '</div>';
+              }
+            }
             ?>
             <!-- CONVERSION-FIRST CTAs: Primary (benefit-focused) + Secondary (proof) -->
             <?php
@@ -218,7 +246,7 @@ $content = $intro . $local;
             ?>
             <div class="btn-group text-center" style="margin: 1.5rem 0; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($heroCtaPrimary) ?>')"><?= htmlspecialchars($heroCtaPrimary) ?></button>
-              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;"><?= htmlspecialchars($heroCtaSecondary) ?></a>
+              <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/case-studies/') : '/en-us/case-studies/' ?>" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;"><?= htmlspecialchars($heroCtaSecondary) ?></a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><strong>No obligation.</strong> Response within 24 hours. See how AI systems currently describe your business.</p>
             
@@ -267,7 +295,7 @@ $content = $intro . $local;
             <p style="margin-bottom: 1.5rem;">Get a free AI visibility audit showing exactly how ChatGPT, Claude, Perplexity, and Google AI Overviews see your business—and what's missing.</p>
             <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Free AI Visibility Audit')">Get Free AI Visibility Audit</button>
-              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">View Case Studies</a>
+              <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/case-studies/') : '/en-us/case-studies/' ?>" class="btn" style="background: transparent; border: 1px solid #4a90e2; color: #4a90e2;">View Case Studies</a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">No obligation. Response within 24 hours.</p>
           </div>
@@ -326,7 +354,7 @@ $content = $intro . $local;
             <p style="margin-bottom: 1.5rem;">Our structured approach delivers measurable improvements in AI engine visibility, citation accuracy, and crawl efficiency. Get started with a free consultation.</p>
             <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('Start <?= htmlspecialchars($serviceTitle) ?> Project')">Start Your Project</button>
-              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #ff9800; color: #ff9800;">See Results</a>
+              <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/case-studies/') : '/en-us/case-studies/' ?>" class="btn" style="background: transparent; border: 1px solid #ff9800; color: #ff9800;">See Results</a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Free consultation. No obligation. Response within 24 hours.</p>
           </div>
@@ -349,7 +377,7 @@ $content = $intro . $local;
             <p style="margin-bottom: 1.5rem;">Pricing varies based on your current technical SEO debt, AI engine visibility goals, and number of service locations. Get a detailed proposal with clear scope, deliverables, and expected outcomes.</p>
             <div class="btn-group text-center" style="gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
               <button type="button" class="btn btn--primary" onclick="openContactSheet('Get Custom Quote for <?= htmlspecialchars($serviceTitle) ?>')">Get Custom Quote</button>
-              <a href="/case-studies/" class="btn" style="background: transparent; border: 1px solid #4caf50; color: #4caf50;">View Case Studies</a>
+              <a href="<?= function_exists('absolute_url') ? absolute_url('/en-us/case-studies/') : '/en-us/case-studies/' ?>" class="btn" style="background: transparent; border: 1px solid #4caf50; color: #4caf50;">View Case Studies</a>
             </div>
             <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Free consultation. No obligation. Response within 24 hours.</p>
           </div>
@@ -373,6 +401,18 @@ $content = $intro . $local;
             <?= $serviceAreaCoverage ?>
           </div>
         </section>
+
+        <?php if (function_exists('nearby_bay_area_cities_html')) { $nearbyHtml = nearby_bay_area_cities_html($serviceSlug, $citySlug, $GLOBALS['locale'] ?? 'en-us'); if ($nearbyHtml !== '') { ?>
+        <!-- Bay Area: Nearby cities we serve (internal link module) -->
+        <section class="content-block module">
+          <div class="content-block__header">
+            <h2 class="content-block__title">Nearby Cities We Serve</h2>
+          </div>
+          <div class="content-block__body">
+            <?= $nearbyHtml ?>
+          </div>
+        </section>
+        <?php } } ?>
 
         <!-- META KERNEL DIRECTIVE: SECTION 8 - Primary CTA (Conversion-focused) -->
         <section class="content-block module">
@@ -505,6 +545,16 @@ if (function_exists('det_seed')) {
 
 $fqPick = function_exists('det_pick') ? det_pick($fqForService, 6) : array_slice($fqForService, 0, 6);
 $faqs = array_map(fn($f)=>['q'=>$f['question']??'', 'a'=>$f['answer']??''], $fqPick);
+// Bay Area: merge local_faqs from overrides into FAQPage schema
+if (function_exists('is_bay_area_city') && is_bay_area_city($citySlug) && function_exists('bay_area_city_override')) {
+  $localOverride = bay_area_city_override($citySlug);
+  $localFaqs = $localOverride['local_faqs'] ?? [];
+  if (!empty($localFaqs) && is_array($localFaqs)) {
+    $localMapped = array_map(fn($f) => ['q' => $f['question'] ?? '', 'a' => $f['answer'] ?? ''], $localFaqs);
+    $localMapped = array_values(array_filter($localMapped, fn($f) => $f['q'] !== '' && $f['a'] !== ''));
+    $faqs = array_merge($faqs, $localMapped);
+  }
+}
 $offers = function_exists('det_pick') ? det_pick($ppForService, 6) : array_slice($ppForService, 0, 6);
 
 $domain = 'https://nrlc.ai';

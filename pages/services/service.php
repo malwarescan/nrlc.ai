@@ -675,9 +675,18 @@ if ($service === 'ai-overviews-optimization') {
 // Default service page with city selection
 $domain = 'https://nrlc.ai';
 
-// Use exact canonical URL from Pages.csv if available
-$enhancement = get_service_enhancement($service, '');
-$canonical_url = $enhancement['canonical'] ?? ($domain . '/services/' . $service . '/');
+// Citeability: schema URLs must match page canonical (locale-prefixed, e.g. /en-us/services/generative-seo/)
+$canonicalPath = $GLOBALS['__page_meta']['canonicalPath'] ?? '/en-us/services/' . $service . '/';
+$canonical_url = function_exists('absolute_url') ? absolute_url($canonicalPath) : ($domain . $canonicalPath);
+
+// FAQ set for generic service pages (E-E-A-T + FAQ rich results)
+$serviceFaqs = [
+  ['q' => "What is {$serviceName}?", 'a' => "{$serviceName} is a professional service from Neural Command that improves how search engines and AI systems find, understand, and cite your business. We focus on entity clarity, structured data, and content that aligns with how AI systems evaluate and recommend."],
+  ['q' => 'How do I get started?', 'a' => 'Book a free consultation at nrlc.ai/en-us/book/. We review your current visibility and outline a strategy. No obligation; response within 24 hours.'],
+  ['q' => 'Do you work with small businesses?', 'a' => 'Yes. We work with SMBs, mid-market companies, and enterprises. Scope and approach are tailored to your size and goals.'],
+  ['q' => 'How long until we see results?', 'a' => 'Timeline depends on scope—audits and structural fixes can show impact in weeks; full implementation and AI citation shifts often take longer. We outline expectations in the consultation.'],
+  ['q' => 'Do you serve Santa Monica and LA?', 'a' => 'Yes. Neural Command is headquartered in Santa Monica and serves Los Angeles, California, and nationwide (including UK).']
+];
 
 $GLOBALS['__jsonld'] = [
   [
@@ -724,11 +733,7 @@ $GLOBALS['__jsonld'] = [
     "@type" => "Service",
     "name" => $serviceName,
     "serviceType" => get_service_type_from_slug($service),
-    "provider" => [
-      "@type" => "Organization",
-      "name" => "Neural Command LLC",
-      "url" => "https://nrlc.ai"
-    ],
+    "provider" => ["@id" => "https://nrlc.ai/#organization"],
     "areaServed" => $service === 'ai-search-optimization' 
       ? [
           ["@type" => "Country", "name" => "United States"],
@@ -739,6 +744,10 @@ $GLOBALS['__jsonld'] = [
     "url" => $canonical_url
   ]
 ];
+
+$faqSchema = ld_faq($serviceFaqs);
+$faqSchema['@id'] = $canonical_url . '#faq';
+$GLOBALS['__jsonld'][] = $faqSchema;
 ?>
 
 <main role="main">
@@ -761,6 +770,16 @@ $GLOBALS['__jsonld'] = [
           <button type="button" class="btn btn--primary" onclick="openContactSheet('<?= htmlspecialchars($ctaText) ?>')"><?= htmlspecialchars($ctaText) ?></button>
         </div>
         <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;"><?= htmlspecialchars($ctaQualifier) ?></p>
+      </div>
+    </div>
+
+    <!-- Proof block: E-E-A-T and methodology (META DIRECTIVE: money page proof) -->
+    <div class="content-block module" style="background: #f9f9f9; border-left: 4px solid #0066cc; padding: var(--spacing-md); margin-bottom: var(--spacing-8);">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Why Neural Command</h2>
+      </div>
+      <div class="content-block__body">
+        <p>Neural Command implements the <strong>GEO-16 framework</strong> and <strong>Answer First Architecture</strong> to improve how often brands are cited in AI-generated answers. Our methodology is documented in peer-observed research and applied across site audits, structured data, and training. We focus on entity clarity, retrieval signals, and citation-ready content so AI systems can extract and cite your brand with confidence.</p>
       </div>
     </div>
 
@@ -1024,6 +1043,21 @@ $GLOBALS['__jsonld'] = [
       </div>
     </div>
     <?php endif; ?>
+
+    <!-- FAQ section (META DIRECTIVE: 3–6 FAQs + FAQPage schema) -->
+    <div class="content-block module" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="content-block__header">
+        <h2 class="content-block__title">Frequently Asked Questions</h2>
+      </div>
+      <div class="content-block__body">
+        <dl>
+          <?php foreach ($serviceFaqs as $faq): ?>
+          <dt><strong><?= htmlspecialchars($faq['q']) ?></strong></dt>
+          <dd><?= htmlspecialchars($faq['a']) ?></dd>
+          <?php endforeach; ?>
+        </dl>
+      </div>
+    </div>
 
     <?php
     // STEP 5: Internal Linking Repair
