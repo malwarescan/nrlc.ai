@@ -142,6 +142,52 @@ function ld_faq(array $faqs): array {
   ];
 }
 
+/**
+ * VideoObject schema for watch pages (Google video discovery, key moments).
+ * $video: slug, title, description, thumbnailUrl, uploadDate, duration (ISO 8601), embedUrl, chapters [{start, title}].
+ * Optional: publisher array with @id/name/logo; defaults to site Organization.
+ */
+function ld_video_object(array $video, string $canonicalUrl): array {
+  $domain = SchemaFixes::ensureHttps(gbp_website());
+  $orgId = $domain . '#organization';
+  $vo = [
+    '@context' => 'https://schema.org',
+    '@type' => 'VideoObject',
+    '@id' => $canonicalUrl . '#video',
+    'name' => $video['title'] ?? '',
+    'description' => $video['description'] ?? ($video['summary'] ?? ''),
+    'thumbnailUrl' => isset($video['thumbnailUrl']) ? SchemaFixes::ensureHttps($video['thumbnailUrl']) : null,
+    'uploadDate' => $video['uploadDate'] ?? null,
+    'duration' => $video['duration'] ?? null,
+    'embedUrl' => isset($video['embedUrl']) ? SchemaFixes::ensureHttps($video['embedUrl']) : null,
+    'publisher' => [
+      '@type' => 'Organization',
+      '@id' => $orgId,
+    ],
+  ];
+  $vo = array_filter($vo);
+
+  // Key moments: SeekToAction and/or hasPart Clip
+  if (!empty($video['chapters']) && is_array($video['chapters'])) {
+    require_once __DIR__ . '/videos.php';
+    $clips = [];
+    foreach ($video['chapters'] as $i => $ch) {
+      $start = $ch['start'] ?? '0:00';
+      $sec = chapter_start_to_seconds($start);
+      $clips[] = [
+        '@type' => 'Clip',
+        'name' => $ch['title'] ?? ('Chapter ' . ($i + 1)),
+        'startOffset' => $sec,
+      ];
+    }
+    if (!empty($clips)) {
+      $vo['hasPart'] = $clips;
+    }
+  }
+
+  return $vo;
+}
+
 function ld_local_business(?array $cityCtx): array {
   return [
     '@context'=>'https://schema.org',

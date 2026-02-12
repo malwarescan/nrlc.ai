@@ -46,6 +46,35 @@ function sitemap_render_videos(array $entries): string {
   return $xml . "</urlset>\n";
 }
 
+/**
+ * One video sitemap entry (watch page URL + video:video) for Google.
+ * $video: title, description, thumbnailUrl, uploadDate (Y-m-d), duration (ISO 8601), embedUrl.
+ * $watchPageLoc: absolute URL of the watch page.
+ * Duration is converted to integer seconds for video:duration.
+ */
+function sitemap_entry_video(string $watchPageLoc, array $video): string {
+  require_once __DIR__ . '/videos.php';
+  $loc = htmlspecialchars($watchPageLoc, ENT_XML1 | ENT_QUOTES, 'UTF-8');
+  $title = htmlspecialchars($video['title'] ?? '', ENT_XML1 | ENT_QUOTES, 'UTF-8');
+  $description = htmlspecialchars($video['description'] ?? $video['summary'] ?? '', ENT_XML1 | ENT_QUOTES, 'UTF-8');
+  $thumbnail = htmlspecialchars($video['thumbnailUrl'] ?? '', ENT_XML1 | ENT_QUOTES, 'UTF-8');
+  $pubDate = $video['uploadDate'] ?? gmdate('Y-m-d');
+  $durationSec = video_duration_to_seconds($video['duration'] ?? 'PT0S');
+  $playerLoc = htmlspecialchars($video['embedUrl'] ?? '', ENT_XML1 | ENT_QUOTES, 'UTF-8');
+
+  $out = "  <url>\n    <loc>{$loc}</loc>\n    <video:video>\n";
+  $out .= "      <video:thumbnail_loc>{$thumbnail}</video:thumbnail_loc>\n";
+  $out .= "      <video:title>{$title}</video:title>\n";
+  $out .= "      <video:description>{$description}</video:description>\n";
+  $out .= "      <video:publication_date>{$pubDate}</video:publication_date>\n";
+  $out .= "      <video:duration>{$durationSec}</video:duration>\n";
+  if ($playerLoc !== '') {
+    $out .= "      <video:player_loc>{$playerLoc}</video:player_loc>\n";
+  }
+  $out .= "    </video:video>\n  </url>\n";
+  return $out;
+}
+
 function sitemap_render_news(array $entries): string {
   $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
          "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" " .

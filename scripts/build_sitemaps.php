@@ -445,6 +445,7 @@ $indexPages = [
   '/careers/',
   '/industries/',
   '/tools/',
+  '/videos/',  // Video guides hub
   '/case-studies/',
   '/blog/',
   '/resources/',
@@ -699,6 +700,23 @@ if ($aiVisibilityEntries) {
   sitemap_write_gzipped($gzFile, $content);
   $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
   echo "Built AI Visibility sitemap: " . count($aiVisibilityEntries) . " URLs\n";
+}
+
+// 18. Video watch pages sitemap (Google video discovery: video:video entries)
+$videoEntries = [];
+require_once __DIR__ . '/../lib/videos.php';
+foreach (get_all_videos() as $video) {
+  $watchPageLoc = 'https://nrlc.ai/en-us/videos/' . ($video['slug'] ?? '') . '/';
+  $videoEntries[] = sitemap_entry_video($watchPageLoc, $video);
+}
+if ($videoEntries) {
+  $xmlFile = "{$outDir}videos-1.xml";
+  $gzFile = "{$xmlFile}.gz";
+  $content = sitemap_render_videos($videoEntries);
+  file_put_contents($xmlFile, $content);
+  sitemap_write_gzipped($gzFile, $content);
+  $sitemaps[] = ['loc' => "https://nrlc.ai/sitemaps/" . basename($gzFile), 'lastmod' => $today];
+  echo "Built video sitemap: " . count($videoEntries) . " URLs\n";
 }
 
 // Generate unified index

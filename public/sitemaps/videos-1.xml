@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- This sitemap has been removed as there are no video entries -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://nrlc.ai/en-us/videos/bing-ai-citations-grounding-queries/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/EPTXAAWJlvo/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Bing AI Citations: How to Use Grounding Queries and Cited Pages to Get Cited More</video:title>
+      <video:description>Bing&apos;s AI Performance report (inside Bing Webmaster Tools) shows which pages get cited in AI answers and the grounding queries that triggered retrieval. This video walks through exporting cited pages and grounding queries, building a URL-to-query mapping, scoring rows (Winner, Cited but weak, Missing answer, Wrong page), and applying the four upgrades: Answer Block Injection, Chunk Mirror, Page Routing, and Citation Ladder Expansion. Includes the 8-step workflow and templates for AI-ready answer blocks.</video:description>
+      <video:publication_date>2026-02-01</video:publication_date>
+      <video:duration>452</video:duration>
+      <video:player_loc>https://www.youtube.com/embed/EPTXAAWJlvo</video:player_loc>
+    </video:video>
+  </url>
 </urlset>

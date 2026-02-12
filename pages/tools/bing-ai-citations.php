@@ -53,9 +53,8 @@ $GLOBALS['__jsonld'][] = $faqSchema;
         <div class="content-block__body">
           <p class="lead">Bing’s <strong>AI Performance report</strong> (inside Bing Webmaster Tools) shows two things that matter for AI visibility: <strong>which pages get cited</strong> in AI answers and the <strong>grounding queries</strong> that triggered retrieval. This page gives you the exact workflow to turn that data into citeable content.</p>
           <p>If you want the video walkthrough, watch it here:</p>
-          <div class="video-embed-placeholder" style="min-height: 200px; background: #eee; border: 1px dashed #999; padding: 2rem; text-align: center; color: #666;">
-            <!-- Replace with your YouTube embed: <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" ...></iframe> -->
-            <p style="margin: 0;">Add your YouTube embed above this comment in the template.</p>
+          <div class="video-embed" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1rem 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/EPTXAAWJlvo?si=6lqL4XtTvbL-T5Mq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
           </div>
         </div>
       </header>

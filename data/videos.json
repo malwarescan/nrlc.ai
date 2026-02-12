@@ -1,0 +1,25 @@
+{
+  "videos": [
+    {
+      "slug": "bing-ai-citations-grounding-queries",
+      "title": "Bing AI Citations: How to Use Grounding Queries and Cited Pages to Get Cited More",
+      "summary": "Use Bing's AI Performance report to see which pages get cited and which grounding queries triggered retrieval. This walkthrough shows the exact workflow to turn that data into citeable content.",
+      "description": "Bing's AI Performance report (inside Bing Webmaster Tools) shows which pages get cited in AI answers and the grounding queries that triggered retrieval. This video walks through exporting cited pages and grounding queries, building a URL-to-query mapping, scoring rows (Winner, Cited but weak, Missing answer, Wrong page), and applying the four upgrades: Answer Block Injection, Chunk Mirror, Page Routing, and Citation Ladder Expansion. Includes the 8-step workflow and templates for AI-ready answer blocks.",
+      "embedUrl": "https://www.youtube.com/embed/EPTXAAWJlvo?si=6lqL4XtTvbL-T5Mq",
+      "thumbnailUrl": "https://img.youtube.com/vi/EPTXAAWJlvo/maxresdefault.jpg",
+      "duration": "PT7M32S",
+      "uploadDate": "2026-02-01",
+      "topic": "tools",
+      "related": [],
+      "chapters": [
+        { "start": "0:00", "title": "What the Bing AI Performance report shows" },
+        { "start": "1:15", "title": "Cited Pages and Grounding Queries" },
+        { "start": "2:30", "title": "Export and URL–Query mapping" },
+        { "start": "4:00", "title": "Scoring rows (Winner, Weak, Missing, Wrong page)" },
+        { "start": "5:00", "title": "Four upgrades for citeability" },
+        { "start": "6:30", "title": "Templates and next steps" }
+      ],
+      "transcript": "This video shows how to use Bing's AI Performance report to get cited more in AI answers. Bing Webmaster Tools shows two things that matter: which pages get cited and the grounding queries that triggered retrieval. Cited pages are the URLs from your site that Bing or Copilot referenced as sources. Grounding queries are the phrases the AI used to retrieve sources before generating the answer. Export cited pages and grounding queries for the last 28 days and last 7 days. Build a simple table: URL, grounding query, matching section, whether an answer block exists, and fix type. Score each row: Winner if cited and clear, Cited but weak if the answer is buried, Missing answer if no clean answer exists, or Wrong page if the query belongs on a different URL. Apply four upgrades: Answer Block Injection for weak or missing answers, Chunk Mirror to surface buried answers near the top, Page Routing when the wrong page is cited, and Citation Ladder Expansion to turn winner pages into a hub of child pages. Use the 8-step workflow and the AI answer block template on the page. Add an H2 that mirrors the intent, a direct answer in one to three sentences, and three to seven bullet facts. Put at least one answer block in the top 20 to 30 percent of the page. Submit your video sitemap and watch pages to Google Search Console for faster discovery."
+    }
+  ]
+}

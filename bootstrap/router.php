@@ -1780,11 +1780,22 @@ function route_request(): void {
     }
   }
 
-  // Tools routes
-  if (preg_match('#^/tools/([^/]+)/$#', $path, $m)) {
-    $_GET['tool'] = $m[1];
+  // Tools routes (match with or without trailing slash — redirect to canonical with slash)
+  if (preg_match('#^/tools/([^/]+)/?$#', $path, $m)) {
     $toolSlug = $m[1];
-    
+    $hasTrailingSlash = (substr($path, -1) === '/');
+    if (!$hasTrailingSlash) {
+      require_once __DIR__ . '/../lib/helpers.php';
+      $locale = function_exists('current_locale') ? current_locale() : 'en-us';
+      $redirectUrl = absolute_url("/{$locale}/tools/{$toolSlug}/");
+      if (!empty($_SERVER['QUERY_STRING'])) {
+        $redirectUrl .= '?' . $_SERVER['QUERY_STRING'];
+      }
+      header('Location: ' . $redirectUrl, true, 301);
+      exit;
+    }
+    $_GET['tool'] = $toolSlug;
+
     // Specialized Ahrefs page (in-depth, aligned with AI Search Tools Reality)
     if ($toolSlug === 'ahrefs') {
       // Build canonical path with locale prefix
@@ -1859,6 +1870,50 @@ function route_request(): void {
     ];
     $GLOBALS['__page_meta'] = sudo_meta_directive_ctx($ctx);
     render_page('tools/index');
+    return;
+  }
+
+  // Video watch pages — one URL per video, crawlable, VideoObject schema
+  if (preg_match('#^/videos/([^/]+)/?$#', $path, $m)) {
+    $videoSlug = $m[1];
+    $hasTrailingSlash = (substr($path, -1) === '/');
+    $locale = current_locale();
+
+    if (!$hasTrailingSlash) {
+      header('Location: ' . absolute_url("/{$locale}/videos/{$videoSlug}/"), true, 301);
+      return;
+    }
+
+    require_once __DIR__.'/../lib/videos.php';
+    $video = get_video_by_slug($videoSlug);
+    if (!$video) {
+      header('X-Robots-Tag: noindex, nofollow');
+      http_response_code(404);
+      echo 'Video not found';
+      return;
+    }
+
+    $GLOBALS['__video'] = $video;
+    $GLOBALS['__page_meta'] = [
+      'title' => $video['title'] . ' | NRLC.ai',
+      'description' => $video['summary'] ?? substr($video['description'] ?? '', 0, 160),
+      'canonicalPath' => "/{$locale}/videos/{$videoSlug}/",
+    ];
+    render_page('videos/watch');
+    return;
+  }
+
+  if ($path === '/videos/' || $path === '/videos') {
+    if ($path === '/videos') {
+      header('Location: ' . absolute_url('/' . current_locale() . '/videos/'), true, 301);
+      return;
+    }
+    $GLOBALS['__page_meta'] = [
+      'title' => 'Video guides | AI SEO & Bing AI Citations | NRLC.ai',
+      'description' => 'Watch walkthroughs on Bing AI Citations, grounding queries, and turning citation data into citeable content. Neural Command video guides for AI search optimization.',
+      'canonicalPath' => '/videos/',
+    ];
+    render_page('videos/index');
     return;
   }
 
