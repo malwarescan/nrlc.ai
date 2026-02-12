@@ -87,12 +87,6 @@ $uploadDate = $video['uploadDate'] ?? '';
         <iframe width="560" height="315" src="<?php echo htmlspecialchars($video['embedUrl'] ?? ''); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
       </div>
 
-      <?php if (!empty($video['thumbnailUrl'])) : ?>
-      <figure style="margin: 0 0 1rem;">
-        <img src="<?php echo htmlspecialchars($video['thumbnailUrl']); ?>" alt="<?php echo htmlspecialchars($video['title']); ?> thumbnail" width="1280" height="720" loading="eager" itemprop="thumbnailUrl" style="max-width: 100%; height: auto;">
-      </figure>
-      <?php endif; ?>
-
       <p class="video-meta" style="color: var(--text-muted, #666); font-size: 0.9rem;">
         <?php if ($duration) : ?>
           <span>Duration: <?php echo htmlspecialchars($duration); ?></span>
