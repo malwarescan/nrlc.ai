@@ -725,7 +725,10 @@ function route_request(): void {
       $excerpt = "Google's llms.txt reveals how Google trains LLMs on Search. Turn that blueprint into executable AI SEO strategy, structured data, and technical SEO.";
     } elseif ($slug === 'semantic-queries') {
       $articleTitle = "Semantic Query Optimization for AI Systems";
-      $excerpt = "Learn how semantic queries improve retrieval performance with relationship traversal, compare SQL joins vs graph traversal, and view failure modes and performance metrics.";
+      $excerpt = "Optimize content for semantic queries in AI systems. Learn how AI systems understand and process natural language queries.";
+    } elseif ($slug === 'prompt-to-product') {
+      $articleTitle = "Prompt to Product: How AI Answers Become Revenue";
+      $excerpt = "Neural Command's P2P doctrine maps customer self-diagnosis prompts directly to brand recommendations in AI systems, engineering the pathway from problem queries to purchase decisions.";
     } elseif ($slug === 'semantic-modeling') {
       $articleTitle = "Why Teams Adopt Semantic Modeling";
       $excerpt = "Understanding the business value of semantic infrastructure. How organizations achieve 90% reduction in time-to-consumption and enable reliable AI workflows.";
