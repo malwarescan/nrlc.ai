@@ -90,6 +90,72 @@ $GLOBALS['__jsonld'] = [
       ]
     ]
   ],
+  // HowTo Schema for P2P Process
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'HowTo',
+    '@id' => $canonicalUrl . '#howto',
+    'name' => 'How to Implement Prompt to Product (P2P) Optimization',
+    'description' => 'Complete guide to implementing Neural Command\'s P2P doctrine for AI Search Optimization, from prompt mapping to brand capture.',
+    'image' => absolute_url('/assets/images/p2p-process.jpg'),
+    'totalTime' => 'PT6H', // 6 weeks implementation
+    'supply' => [
+      [
+        '@type' => 'HowToSupply',
+        'name' => 'Prompt Map Dataset'
+      ],
+      [
+        '@type' => 'HowToSupply', 
+        'name' => 'Content Blueprint'
+      ],
+      [
+        '@type' => 'HowToSupply',
+        'name' => 'Schema Markup Templates'
+      ]
+    ],
+    'tool' => [
+      [
+        '@type' => 'HowToTool',
+        'name' => 'Protocol Compliance Audit Script'
+      ],
+      [
+        '@type' => 'HowToTool',
+        'name' => 'AI Mention Tracking Tools'
+      ]
+    ],
+    'step' => [
+      [
+        '@type' => 'HowToStep',
+        'name' => 'Extract Customer Prompts',
+        'text' => 'Extract problem prompts from Reddit, forums, and customer support queries. Cluster prompts by problem type and identify constraint patterns.',
+        'url' => $canonicalUrl . '#crouton-layer-1'
+      ],
+      [
+        '@type' => 'HowToStep',
+        'name' => 'Map Solution Classes',
+        'text' => 'Map problem prompts to solution classes that AI systems default to. Create solution graphs showing problem-to-product pathways.',
+        'url' => $canonicalUrl . '#crouton-layer-2'
+      ],
+      [
+        '@type' => 'HowToStep',
+        'name' => 'Create Citable Methods',
+        'text' => 'Develop how-to guides and step-by-step instructions that AI systems can cite. Ensure content is atomic and verbatim quotable.',
+        'url' => $canonicalUrl . '#crouton-layer-3'
+      ],
+      [
+        '@type' => 'HowToStep',
+        'name' => 'Optimize Tool Categories',
+        'text' => 'Create comparison content and decision trees for tool selection. Position your brand within relevant tool categories.',
+        'url' => $canonicalUrl . '#crouton-layer-4'
+      ],
+      [
+        '@type' => 'HowToStep',
+        'name' => 'Implement Brand Capture',
+        'text' => 'Create brand-specific capture pages optimized for "best for constraints" queries. Add conversion optimization and checkout pathways.',
+        'url' => $canonicalUrl . '#crouton-layer-5'
+      ]
+    ]
+  ],
   // BreadcrumbList
   [
     '@context' => 'https://schema.org',
@@ -173,7 +239,7 @@ $GLOBALS['__jsonld'] = [
     <div class="section__content">
       
       <!-- Hero Block: P2P Doctrine -->
-      <div class="content-block module">
+      <div class="content-block module" id="crouton-p2p-doctrine">
         <div class="content-block__header">
           <h1 class="content-block__title heading-1">Prompt to Product (P2P): How AI Answers Become Revenue</h1>
         </div>
@@ -181,10 +247,19 @@ $GLOBALS['__jsonld'] = [
           <p class="lead text-lg">Neural Command's proprietary P2P doctrine maps customer self-diagnosis prompts directly to brand recommendations in AI systems. We engineer the pathway from "Why exhausted all day?" to checkout, capturing revenue at the AI answer layer before traditional search becomes relevant.</p>
           
           <!-- Definition Lock: P2P Doctrine -->
-          <div class="callout-system-truth" style="background: #f0f7ff; border-left: 4px solid #0066cc; padding: var(--spacing-md); margin: var(--spacing-lg) 0;" itemscope itemtype="https://schema.org/DefinedTerm">
+          <div class="callout-system-truth" style="background: #f0f7ff; border-left: 4px solid #0066cc; padding: var(--spacing-md); margin: var(--spacing-lg) 0;" itemscope itemtype="https://schema.org/DefinedTerm" id="crouton-p2p-definition">
             <p style="margin: 0; font-size: 1.1rem; line-height: 1.6;">
               <dfn itemprop="name"><strong>Prompt to Product (P2P)</strong></dfn> is Neural Command's proprietary doctrine that maps customer self-diagnosis prompts directly to brand recommendations in AI systems. Unlike traditional <abbr title="Search Engine Optimization">SEO</abbr> that optimizes for keywords and rankings, P2P optimizes for how AI systems answer customer questions and recommend solutions. The doctrine engineers the pathway from problem recognition to purchase recommendation, capturing revenue at the AI answer layer.
             </p>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "DefinedTerm",
+              "@id": "https://nrlc.ai/crouton-p2p-definition",
+              "name": "Prompt to Product (P2P)",
+              "description": "Neural Command's proprietary doctrine that maps customer self-diagnosis prompts directly to brand recommendations in AI systems, engineering the pathway from problem recognition to purchase recommendation."
+            }
+            </script>
           </div>
         </div>
       </div>
@@ -232,7 +307,7 @@ $GLOBALS['__jsonld'] = [
       </div>
 
       <!-- The 5-Layer P2P Funnel -->
-      <div class="content-block module">
+      <div class="content-block module" id="crouton-p2p-funnel">
         <div class="content-block__header">
           <h2 class="content-block__title heading-2">5-Layer P2P Funnel: From Problem to Purchase</h2>
         </div>
@@ -242,43 +317,88 @@ $GLOBALS['__jsonld'] = [
           <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
             
             <!-- Layer 1 -->
-            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
-              <h3 style="margin-top: 0; color: #e91e63;">Layer 1: Self-Diagnosis</h3>
-              <p><strong>Customer Prompts:</strong> "Why tired no energy cheap?" "Fix overthinking fast no meds?"</p>
+            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;" itemscope itemtype="https://schema.org/HowToStep" id="crouton-layer-1">
+              <h3 style="margin-top: 0; color: #e91e63;" itemprop="name">Layer 1: Self-Diagnosis</h3>
+              <p itemprop="text"><strong>Customer Prompts:</strong> "Why tired no energy cheap?" "Fix overthinking fast no meds?"</p>
               <p><strong>P2P Engineering:</strong> Prompt clusters + constraint analysis</p>
               <p><strong>AI Processing:</strong> Problem identification and constraint extraction</p>
+              <script type="application/ld+json">
+              {
+                "@context": "https://schema.org",
+                "@type": "HowToStep",
+                "@id": "https://nrlc.ai/crouton-layer-1",
+                "name": "Self-Diagnosis Layer",
+                "text": "Customer prompts like 'Why tired no energy cheap?' with constraint analysis and problem identification."
+              }
+              </script>
             </div>
             
             <!-- Layer 2 -->
-            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
-              <h3 style="margin-top: 0; color: #9c27b0;">Layer 2: Solution Classes</h3>
-              <p><strong>AI Defaults:</strong> Habits, frameworks, approaches</p>
+            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;" itemscope itemtype="https://schema.org/HowToStep" id="crouton-layer-2">
+              <h3 style="margin-top: 0; color: #9c27b0;" itemprop="name">Layer 2: Solution Classes</h3>
+              <p itemprop="text"><strong>AI Defaults:</strong> Habits, frameworks, approaches</p>
               <p><strong>P2P Engineering:</strong> Solution class mapping and categorization</p>
               <p><strong>AI Processing:</strong> Solution type identification and filtering</p>
+              <script type="application/ld+json">
+              {
+                "@context": "https://schema.org",
+                "@type": "HowToStep",
+                "@id": "https://nrlc.ai/crouton-layer-2",
+                "name": "Solution Classes Layer",
+                "text": "AI defaults to habits, frameworks, and approaches with solution class mapping and categorization."
+              }
+              </script>
             </div>
             
             <!-- Layer 3 -->
-            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
-              <h3 style="margin-top: 0; color: #673ab7;">Layer 3: Methods</h3>
-              <p><strong>AI Citations:</strong> How-to guides, step-by-step instructions</p>
+            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;" itemscope itemtype="https://schema.org/HowToStep" id="crouton-layer-3">
+              <h3 style="margin-top: 0; color: #673ab7;" itemprop="name">Layer 3: Methods</h3>
+              <p itemprop="text"><strong>AI Citations:</strong> How-to guides, step-by-step instructions</p>
               <p><strong>P2P Engineering:</strong> Citable method creation and optimization</p>
               <p><strong>AI Processing:</strong> Method extraction and citation selection</p>
+              <script type="application/ld+json">
+              {
+                "@context": "https://schema.org",
+                "@type": "HowToStep",
+                "@id": "https://nrlc.ai/crouton-layer-3",
+                "name": "Methods Layer",
+                "text": "How-to guides and step-by-step instructions that AI systems cite with method extraction and citation selection."
+              }
+              </script>
             </div>
             
             <!-- Layer 4 -->
-            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;">
-              <h3 style="margin-top: 0; color: #3f51b5;">Layer 4: Tool Category</h3>
-              <p><strong>AI Processing:</strong> Comparisons, decision trees, tool selection</p>
+            <div style="border: 1px solid #ddd; padding: var(--spacing-md); border-radius: 4px; background: #fff;" itemscope itemtype="https://schema.org/HowToStep" id="crouton-layer-4">
+              <h3 style="margin-top: 0; color: #3f51b5;" itemprop="name">Layer 4: Tool Category</h3>
+              <p itemprop="text"><strong>AI Processing:</strong> Comparisons, decision trees, tool selection</p>
               <p><strong>P2P Engineering:</strong> Category positioning and comparison content</p>
               <p><strong>AI Processing:</strong> Tool evaluation and recommendation logic</p>
+              <script type="application/ld+json">
+              {
+                "@context": "https://schema.org",
+                "@type": "HowToStep",
+                "@id": "https://nrlc.ai/crouton-layer-4",
+                "name": "Tool Category Layer",
+                "text": "Comparisons, decision trees, and tool selection with category positioning and comparison content."
+              }
+              </script>
             </div>
             
             <!-- Layer 5 -->
-            <div style="border: 2px solid #4caf50; padding: var(--spacing-md); border-radius: 4px; background: #e8f5e9;">
-              <h3 style="margin-top: 0; color: #4caf50;">Layer 5: Brand Capture</h3>
-              <p><strong>Customer Question:</strong> "Why Neural Command?"</p>
+            <div style="border: 2px solid #4caf50; padding: var(--spacing-md); border-radius: 4px; background: #e8f5e9;" itemscope itemtype="https://schema.org/HowToStep" id="crouton-layer-5">
+              <h3 style="margin-top: 0; color: #4caf50;" itemprop="name">Layer 5: Brand Capture</h3>
+              <p itemprop="text"><strong>Customer Question:</strong> "Why Neural Command?"</p>
               <p><strong>P2P Engineering:</strong> Brand-specific capture pages and conversion optimization</p>
               <p><strong>AI Processing:</strong> Brand recommendation and purchase pathway</p>
+              <script type="application/ld+json">
+              {
+                "@context": "https://schema.org",
+                "@type": "HowToStep",
+                "@id": "https://nrlc.ai/crouton-layer-5",
+                "name": "Brand Capture Layer",
+                "text": "Brand-specific capture pages and conversion optimization with brand recommendation and purchase pathway."
+              }
+              </script>
             </div>
             
           </div>
