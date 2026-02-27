@@ -14,6 +14,9 @@ if (empty($slug) && isset($_SERVER['REQUEST_URI'])) {
   }
 }
 
+// Debug logging
+error_log("INSIGHTS_DEBUG: slug='$slug', REQUEST_URI='" . ($_SERVER['REQUEST_URI'] ?? 'none') . "'");
+
 // Handle GEO-16 articles
 $geo16_articles = [
   'geo16-introduction' => 'geo16-introduction.php',
