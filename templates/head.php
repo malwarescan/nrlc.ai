@@ -14,6 +14,7 @@ require_once __DIR__.'/../lib/helpers.php';
 require_once __DIR__.'/../lib/schema_builders.php';
 require_once __DIR__.'/../lib/hreflang.php';
 require_once __DIR__.'/../config/locales.php'; // Required for locale metadata in HTML lang and Content-Language
+require_once __DIR__.'/../config/clarity.php'; // Microsoft Clarity configuration
 
 $slug = $GLOBALS['__page_slug'] ?? 'home/home';
 
@@ -205,6 +206,16 @@ $contentLanguage = $localeMeta['lang'] . '-' . strtolower($localeMeta['region'])
 
   gtag('config', 'G-TKNQCB74W7');
 </script>
+
+<?php if (clarity_should_load()): ?>
+<!-- Microsoft Clarity Configuration -->
+<script>
+  window.clarityConfig = <?= clarity_get_js_config() ?>;
+</script>
+
+<!-- Microsoft Clarity - Behavioral Analytics -->
+<script src="<?= asset_url('/assets/js/clarity.js') ?>"></script>
+<?php endif; ?>
 <?php if (isset($noindexMeta)) echo $noindexMeta; ?>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

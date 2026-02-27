@@ -15,8 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "playwright": "^1.40.0",
+    "@microsoft/clarity": "^1.0.2",
     "cheerio": "^1.0.0-rc.12",
+    "playwright": "^1.40.0",
     "turndown": "^7.1.3"
   }
 }
