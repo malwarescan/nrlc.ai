@@ -9,7 +9,10 @@ $slug = $_GET['slug'] ?? '';
 // Debug: If slug is empty, try to extract from REQUEST_URI as fallback
 if (empty($slug) && isset($_SERVER['REQUEST_URI'])) {
   $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-  if (preg_match('#/insights/([^/]+)/?$#', $uri, $matches)) {
+  // Handle both /insights/slug and /en-us/insights/slug patterns
+  if (preg_match('#/([a-z]{2}-[a-z]{2})/insights/([^/]+)/?$#', $uri, $matches)) {
+    $slug = $matches[2];
+  } elseif (preg_match('#/insights/([^/]+)/?$#', $uri, $matches)) {
     $slug = $matches[1];
   }
 }
