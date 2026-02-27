@@ -2,7 +2,7 @@
 /**
  * Microsoft Clarity Configuration for NRLC.ai
  * 
- * This file contains the Microsoft Clarity project configuration
+ * This file contains Microsoft Clarity project configuration
  * and helper functions for behavioral analytics integration.
  */
 
@@ -21,15 +21,15 @@ function clarity_get_page_type($path) {
     $path = trim($path, '/');
     
     if (empty($path) || $path === 'en-us') return 'homepage';
-    if (strpos($path, 'services/') === 0) return 'service';
-    if (strpos($path, 'insights/') === 0) return 'insight';
-    if (strpos($path, 'videos/') === 0) return 'video';
-    if (strpos($path, 'tools/') === 0) return 'tool';
-    if (strpos($path, 'learn/') === 0) return 'learn';
-    if (strpos($path, 'careers/') === 0) return 'career';
-    if (strpos($path, 'industries/') === 0) return 'industry';
-    if (strpos($path, 'products/') === 0) return 'product';
-    if (strpos($path, 'promptware/') === 0) return 'promptware';
+    if (strpos($path, 'services/') !== false) return 'service';
+    if (strpos($path, 'insights/') !== false) return 'insight';
+    if (strpos($path, 'videos/') !== false) return 'video';
+    if (strpos($path, 'tools/') !== false) return 'tool';
+    if (strpos($path, '/learn/') !== false) return 'learn';
+    if (strpos($path, '/careers/') !== false) return 'career';
+    if (strpos($path, '/industries/') !== false) return 'industry';
+    if (strpos($path, '/products/') !== false) return 'product';
+    if (strpos($path, '/promptware/') !== false) return 'promptware';
     
     return 'other';
 }
@@ -38,17 +38,20 @@ function clarity_get_page_type($path) {
 function clarity_get_journey_stage($path) {
     $path = trim($path, '/');
     
+    // Remove locale prefix for journey stage detection
+    $pathWithoutLocale = preg_replace('#^/[a-z]{2}-[a-z]{2}/#', '', $path);
+    
     // Homepage visitors are in awareness stage
-    if (empty($path) || $path === 'en-us') return 'awareness';
+    if (empty($pathWithoutLocale) || $pathWithoutLocale === 'en-us') return 'awareness';
     
     // Learn and insights visitors are in consideration stage
-    if (strpos($path, 'learn/') === 0 || strpos($path, 'insights/') === 0) return 'consideration';
+    if (strpos($pathWithoutLocale, '/learn/') !== false || strpos($pathWithoutLocale, '/insights/') !== false) return 'consideration';
     
     // Tools and videos visitors are in evaluation stage
-    if (strpos($path, 'tools/') === 0 || strpos($path, 'videos/') === 0) return 'evaluation';
+    if (strpos($pathWithoutLocale, '/tools/') !== false || strpos($pathWithoutLocale, '/videos/') !== false) return 'evaluation';
     
     // Services and careers visitors are in conversion stage
-    if (strpos($path, 'services/') === 0 || strpos($path, 'careers/') === 0) return 'conversion';
+    if (strpos($pathWithoutLocale, '/services/') !== false || strpos($pathWithoutLocale, '/careers/') !== false) return 'conversion';
     
     return 'unknown';
 }
