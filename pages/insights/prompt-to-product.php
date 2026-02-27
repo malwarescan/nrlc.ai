@@ -699,6 +699,65 @@ $GLOBALS['__jsonld'] = [
         </div>
       </div>
 
+      <!-- P2P Video Explanation -->
+      <div class="content-block module" id="crouton-p2p-video">
+        <div class="content-block__header">
+          <h2 class="content-block__title heading-2">P2P Explained: Watch the Video</h2>
+        </div>
+        <div class="content-block__body">
+          <p>See Neural Command's P2P doctrine in action. This video explains how AI answers become revenue through prompt-to-product optimization.</p>
+          
+          <!-- Video Embed with Schema -->
+          <div style="text-align: center; margin: var(--spacing-lg) 0;" itemscope itemtype="https://schema.org/VideoObject" id="crouton-p2p-video-object">
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/rM7Zieuy-EY?si=dezLa6hQzSMudoAO" 
+              title="Prompt to Product (P2P) Explained by Neural Command" 
+              itemprop="embedUrl"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+            </iframe>
+            
+            <!-- Video Schema Markup -->
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              "@id": "https://nrlc.ai/crouton-p2p-video-object",
+              "name": "Prompt to Product (P2P) Explained by Neural Command",
+              "description": "Neural Command explains how P2P doctrine maps customer prompts to AI recommendations, turning AI answers into revenue through strategic content optimization.",
+              "thumbnailUrl": "https://img.youtube.com/vi/rM7Zieuy-EY/hqdefault.jpg",
+              "uploadDate": "2026-02-27",
+              "duration": "PT10M30S",
+              "embedUrl": "https://www.youtube.com/embed/rM7Zieuy-EY?si=dezLa6hQzSMudoAO",
+              "contentUrl": "https://www.youtube.com/watch?v=rM7Zieuy-EY",
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://nrlc.ai/#organization",
+                "name": "Neural Command LLC"
+              },
+              "author": {
+                "@type": "Organization", 
+                "@id": "https://nrlc.ai/#organization",
+                "name": "Neural Command LLC"
+              },
+              "isPartOf": {
+                "@type": "CreativeWorkSeries",
+                "name": "Neural Command AI Search Optimization Series"
+              }
+            }
+            </script>
+          </div>
+          
+          <div class="callout-evidence">
+            <p><strong>Key Takeaway:</strong> P2P optimization captures revenue at the AI answer layer, before customers even reach traditional search. The video shows real-world implementation examples and results.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Implementation CTA -->
       <div class="content-block module" style="background: #f9f9f9; border-left: 3px solid #4a90e2; padding: var(--spacing-md); margin-bottom: var(--spacing-8); margin-top: var(--spacing-xl);">
         <div class="content-block__body">
