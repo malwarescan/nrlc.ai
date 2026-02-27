@@ -33,4 +33,15 @@
       <video:player_loc>https://www.youtube.com/embed/rM7Zieuy-EY?si=dezLa6hQzSMudoAO</video:player_loc>
     </video:video>
   </url>
+  <url>
+    <loc>https://nrlc.ai/en-us/videos/prompt-to-product/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/rM7Zieuy-EY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Prompt to Product (P2P) Video: How AI Answers Become Revenue</video:title>
+      <video:description>Neural Command explains how P2P doctrine maps customer prompts to AI recommendations, turning AI answers into revenue through strategic content optimization. Learn the 5-layer funnel from self-diagnosis to brand capture, and see real-world implementation examples.</video:description>
+      <video:publication_date>2026-02-27</video:publication_date>
+      <video:duration>630</video:duration>
+      <video:player_loc>https://www.youtube.com/embed/rM7Zieuy-EY?si=dezLa6hQzSMudoAO</video:player_loc>
+    </video:video>
+  </url>
 </urlset>

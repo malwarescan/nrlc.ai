@@ -721,6 +721,20 @@ $GLOBALS['__jsonld'] = [
               allowfullscreen>
             </iframe>
             
+            <!-- Video Watch Link -->
+            <div style="margin-top: var(--spacing-md); text-align: center;">
+              <a href="<?= absolute_url('/en-us/videos/prompt-to-product/') ?>" class="btn btn--primary" style="display: inline-flex; align-items: center; gap: var(--spacing-sm);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: var(--spacing-xs);">
+                  <path d="M10 16.5l6-6 6-6v3a2 2 0 012 2h3a2 2 0 012-2v-3a2 2 0 01-2l-6 6-6z"/>
+                  <path d="M14 13h-3v-2h3a2 2 0 012 2h-3a2 2 0 01-2v2h3a2 2 0 012-2v-2h-3a2 2 0 01-2l2-2-2z"/>
+                </svg>
+                Watch Full Video
+              </a>
+              <p style="font-size: 0.9rem; color: #666; margin-top: var(--spacing-sm); margin-bottom: 0;">
+                <strong>10 minutes 30 seconds</strong> • Dedicated video page with transcript and detailed explanations
+              </p>
+            </div>
+            
             <!-- Video Schema Markup -->
             <script type="application/ld+json">
             {

@@ -34,6 +34,28 @@
       "related": ["bing-ai-citations-grounding-queries"],
       "chapters": [],
       "transcript": ""
+    },
+    {
+      "slug": "prompt-to-product",
+      "title": "Prompt to Product (P2P): How AI Answers Become Revenue",
+      "summary": "Neural Command explains how P2P doctrine maps customer prompts to AI recommendations, turning AI answers into revenue through strategic content optimization. Learn the 5-layer funnel from self-diagnosis to brand capture.",
+      "description": "Neural Command explains how P2P doctrine maps customer prompts to AI recommendations, turning AI answers into revenue through strategic content optimization. Learn the 5-layer funnel: Self-Diagnosis, Solution Classes, Methods, Tool Category, and Brand Capture. See real-world implementation examples and understand how to capture revenue at the AI answer layer before traditional search becomes relevant.",
+      "embedUrl": "https://www.youtube.com/embed/rM7Zieuy-EY?si=dezLa6hQzSMudoAO",
+      "thumbnailUrl": "https://img.youtube.com/vi/rM7Zieuy-EY/hqdefault.jpg",
+      "duration": "PT10M30S",
+      "uploadDate": "2026-02-27",
+      "topic": "ai-optimization",
+      "related": ["prompt-to-product"],
+      "chapters": [
+        { "start": "0:00", "title": "P2P Overview" },
+        { "start": "1:30", "title": "Self-Diagnosis Layer" },
+        { "start": "3:00", "title": "Solution Classes" },
+        { "start": "4:30", "title": "Methods Layer" },
+        { "start": "6:00", "title": "Tool Category" },
+        { "start": "8:00", "title": "Brand Capture" },
+        { "start": "9:30", "title": "Implementation & Results" }
+      ],
+      "transcript": "In this video, Neural Command explains the Prompt to Product (P2P) doctrine. The video covers how AI answers become revenue through strategic content optimization, mapping customer prompts to brand recommendations. Learn about the 5-layer funnel: Self-Diagnosis, Solution Classes, Methods, Tool Category, and Brand Capture. See real-world implementation examples and understand how to capture revenue at the AI answer layer before traditional search becomes relevant."
     }
   ]
 }
