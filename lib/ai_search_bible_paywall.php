@@ -15,6 +15,8 @@ function ai_search_bible_paywall_config(): array {
     'stripe_buy_button_id' => $_ENV['STRIPE_BUY_BUTTON_ID'] ?? getenv('STRIPE_BUY_BUTTON_ID') ?: '',
     'stripe_secret_key' => $_ENV['STRIPE_SECRET_KEY'] ?? getenv('STRIPE_SECRET_KEY') ?: '',
     'stripe_webhook_secret' => $_ENV['STRIPE_WEBHOOK_SECRET'] ?? getenv('STRIPE_WEBHOOK_SECRET') ?: '',
+    'stripe_webhook_secret_live' => $_ENV['STRIPE_WEBHOOK_SECRET_LIVE'] ?? getenv('STRIPE_WEBHOOK_SECRET_LIVE') ?: '',
+    'stripe_webhook_secret_test' => $_ENV['STRIPE_WEBHOOK_SECRET_TEST'] ?? getenv('STRIPE_WEBHOOK_SECRET_TEST') ?: '',
     'entitlement_key' => $_ENV['NRLC_ENTITLEMENT_KEY'] ?? getenv('NRLC_ENTITLEMENT_KEY') ?: 'ai_search_bible',
     'price_label' => $_ENV['AI_SEARCH_BIBLE_PRICE_LABEL'] ?? getenv('AI_SEARCH_BIBLE_PRICE_LABEL') ?: '$99',
   ];
@@ -132,8 +134,40 @@ function ai_search_bible_upsert_entitlement(array $payload): bool {
 
 function ai_search_bible_verify_webhook_signature(string $payload, string $signatureHeader): bool {
   $cfg = ai_search_bible_paywall_config();
-  $secret = $cfg['stripe_webhook_secret'];
-  if ($secret === '' || $signatureHeader === '') {
+  if ($signatureHeader === '') {
+    return false;
+  }
+
+  $event = json_decode($payload, true);
+  $eventLivemode = is_array($event) ? (($event['livemode'] ?? null) === true) : null;
+
+  // Preferred dual-secret mode.
+  // If livemode is true -> verify with live secret.
+  // If livemode is false -> verify with test secret.
+  // Fallback: legacy single STRIPE_WEBHOOK_SECRET for backward compatibility.
+  $candidateSecrets = [];
+  if ($eventLivemode === true) {
+    if ($cfg['stripe_webhook_secret_live'] !== '') {
+      $candidateSecrets[] = $cfg['stripe_webhook_secret_live'];
+    }
+  } elseif ($eventLivemode === false) {
+    if ($cfg['stripe_webhook_secret_test'] !== '') {
+      $candidateSecrets[] = $cfg['stripe_webhook_secret_test'];
+    }
+  } else {
+    // If event JSON is malformed/unknown, try both mode secrets then legacy.
+    if ($cfg['stripe_webhook_secret_live'] !== '') {
+      $candidateSecrets[] = $cfg['stripe_webhook_secret_live'];
+    }
+    if ($cfg['stripe_webhook_secret_test'] !== '') {
+      $candidateSecrets[] = $cfg['stripe_webhook_secret_test'];
+    }
+  }
+  if ($cfg['stripe_webhook_secret'] !== '') {
+    $candidateSecrets[] = $cfg['stripe_webhook_secret'];
+  }
+
+  if (empty($candidateSecrets)) {
     return false;
   }
 
@@ -161,10 +195,12 @@ function ai_search_bible_verify_webhook_signature(string $payload, string $signa
   }
 
   $signedPayload = $timestamp . '.' . $payload;
-  $expected = hash_hmac('sha256', $signedPayload, $secret);
-  foreach ($signatures as $signature) {
-    if (hash_equals($expected, $signature)) {
-      return true;
+  foreach ($candidateSecrets as $secret) {
+    $expected = hash_hmac('sha256', $signedPayload, $secret);
+    foreach ($signatures as $signature) {
+      if (hash_equals($expected, $signature)) {
+        return true;
+      }
     }
   }
   return false;
