@@ -892,6 +892,16 @@ function route_request(): void {
     }
   }
 
+  // AI Search Bible checkout endpoint (public)
+  if (($path === '/api/ai-search-bible/checkout' || $path === '/api/ai-search-bible/checkout/') && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('X-Robots-Tag: noindex, nofollow');
+    $apiFile = __DIR__.'/../api/ai-search-bible-checkout.php';
+    if (file_exists($apiFile)) {
+      include $apiFile;
+      return;
+    }
+  }
+
   // Stripe webhook endpoint
   // Route both GET/POST so non-POST returns 405 from handler instead of 404.
   if ($path === '/api/stripe/webhook' || $path === '/api/stripe/webhook/') {
@@ -1279,13 +1289,28 @@ function route_request(): void {
   }
 
   if ($path === '/ai-search-bible/full/' || $path === '/ai-search-bible/full') {
-    require_once __DIR__.'/../lib/auth.php';
     require_once __DIR__.'/../lib/ai_search_bible_paywall.php';
-    $isLoggedIn = is_authenticated();
-    $userId = current_user_id();
-    $hasEntitlement = $isLoggedIn && is_string($userId) && $userId !== '' && ai_search_bible_user_has_active_entitlement($userId);
-    $GLOBALS['__ai_search_bible_unlocked'] = $hasEntitlement;
-    $GLOBALS['__ai_search_bible_logged_in'] = $isLoggedIn;
+    ai_search_bible_session_bootstrap();
+
+    $checkoutSessionId = isset($_GET['session_id']) ? trim((string)$_GET['session_id']) : '';
+    if ($checkoutSessionId !== '') {
+      $checkoutSession = ai_search_bible_retrieve_checkout_session($checkoutSessionId);
+      if (is_array($checkoutSession) && ai_search_bible_checkout_is_paid($checkoutSession)) {
+        ai_search_bible_grant_session_access($checkoutSessionId);
+        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+        if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+          $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+        }
+        $host = $_SERVER['HTTP_HOST'] ?? 'nrlc.ai';
+        header('Location: ' . $scheme . '://' . $host . '/ai-search-bible/full/', true, 302);
+        exit;
+      }
+      header('Location: ' . absolute_url('/ai-search-bible/'), true, 302);
+      exit;
+    }
+
+    $GLOBALS['__ai_search_bible_unlocked'] = ai_search_bible_session_has_access();
+    $GLOBALS['__ai_search_bible_logged_in'] = false;
     $GLOBALS['__ai_search_bible_price_label'] = ai_search_bible_paywall_config()['price_label'];
     $GLOBALS['__ai_search_bible_buy_button_id'] = ai_search_bible_paywall_config()['stripe_buy_button_id'];
     $GLOBALS['__ai_search_bible_publishable_key'] = ai_search_bible_paywall_config()['stripe_publishable_key'];
@@ -1303,11 +1328,9 @@ function route_request(): void {
   }
 
   if ($path === '/ai-search-bible/dataset/' || $path === '/ai-search-bible/dataset') {
-    require_once __DIR__.'/../lib/auth.php';
     require_once __DIR__.'/../lib/ai_search_bible_paywall.php';
-    $isLoggedIn = is_authenticated();
-    $userId = current_user_id();
-    $GLOBALS['__ai_search_bible_unlocked'] = $isLoggedIn && is_string($userId) && $userId !== '' && ai_search_bible_user_has_active_entitlement($userId);
+    ai_search_bible_session_bootstrap();
+    $GLOBALS['__ai_search_bible_unlocked'] = ai_search_bible_session_has_access();
     $GLOBALS['__page_meta'] = [
       'title' => 'AI Search Bible Dataset',
       'description' => 'Bonus dataset bundle for AI Search Bible customers.',

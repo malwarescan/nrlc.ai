@@ -27,6 +27,97 @@ function ai_search_bible_entitlement_key(): string {
   return $cfg['entitlement_key'];
 }
 
+function ai_search_bible_session_has_access(): bool {
+  ai_search_bible_session_bootstrap();
+  return !empty($_SESSION['ai_search_bible_session_access']) && $_SESSION['ai_search_bible_session_access'] === true;
+}
+
+function ai_search_bible_grant_session_access(string $checkoutSessionId): void {
+  ai_search_bible_session_bootstrap();
+  $_SESSION['ai_search_bible_session_access'] = true;
+  $_SESSION['ai_search_bible_checkout_session_id'] = $checkoutSessionId;
+}
+
+function ai_search_bible_create_checkout_session(string $successUrl, string $cancelUrl): array {
+  $cfg = ai_search_bible_paywall_config();
+  $secret = $cfg['stripe_secret_key'];
+  $priceId = $_ENV['AI_SEARCH_BIBLE_STRIPE_PRICE_ID'] ?? getenv('AI_SEARCH_BIBLE_STRIPE_PRICE_ID') ?: '';
+  $mode = $_ENV['AI_SEARCH_BIBLE_STRIPE_MODE'] ?? getenv('AI_SEARCH_BIBLE_STRIPE_MODE') ?: 'payment';
+
+  if ($secret === '' || $priceId === '') {
+    return ['ok' => false, 'error' => 'Stripe checkout is not configured.'];
+  }
+
+  $postFields = http_build_query([
+    'mode' => ($mode === 'subscription' ? 'subscription' : 'payment'),
+    'line_items[0][price]' => $priceId,
+    'line_items[0][quantity]' => 1,
+    'success_url' => $successUrl,
+    'cancel_url' => $cancelUrl,
+    'allow_promotion_codes' => 'true',
+  ]);
+
+  $ch = curl_init('https://api.stripe.com/v1/checkout/sessions');
+  curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => $postFields,
+    CURLOPT_HTTPHEADER => [
+      'Authorization: Bearer ' . $secret,
+      'Content-Type: application/x-www-form-urlencoded',
+    ],
+    CURLOPT_TIMEOUT => 30,
+  ]);
+  $raw = curl_exec($ch);
+  $err = curl_error($ch);
+  $status = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  if (!is_string($raw) || $raw === '' || $err !== '') {
+    return ['ok' => false, 'error' => 'Stripe checkout request failed.'];
+  }
+  $decoded = json_decode($raw, true);
+  if ($status >= 400 || !is_array($decoded) || empty($decoded['url'])) {
+    return ['ok' => false, 'error' => 'Unable to create Stripe checkout session.'];
+  }
+
+  return ['ok' => true, 'url' => (string)$decoded['url']];
+}
+
+function ai_search_bible_retrieve_checkout_session(string $sessionId): ?array {
+  $cfg = ai_search_bible_paywall_config();
+  $secret = $cfg['stripe_secret_key'];
+  if ($secret === '' || $sessionId === '') {
+    return null;
+  }
+  $ch = curl_init('https://api.stripe.com/v1/checkout/sessions/' . rawurlencode($sessionId));
+  curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPGET => true,
+    CURLOPT_HTTPHEADER => [
+      'Authorization: Bearer ' . $secret,
+    ],
+    CURLOPT_TIMEOUT => 30,
+  ]);
+  $raw = curl_exec($ch);
+  $status = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  if (!is_string($raw) || $status >= 400) {
+    return null;
+  }
+  $decoded = json_decode($raw, true);
+  return is_array($decoded) ? $decoded : null;
+}
+
+function ai_search_bible_checkout_is_paid(array $checkoutSession): bool {
+  $mode = (string)($checkoutSession['mode'] ?? 'payment');
+  if ($mode === 'subscription') {
+    return (string)($checkoutSession['status'] ?? '') === 'complete' && !empty($checkoutSession['subscription']);
+  }
+  return (string)($checkoutSession['payment_status'] ?? '') === 'paid';
+}
+
 function ai_search_bible_get_entitlement_for_user(string $userId): ?array {
   $pdo = nrlc_pdo();
   if (!$pdo) {

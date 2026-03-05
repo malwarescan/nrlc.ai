@@ -12,10 +12,7 @@ require_once __DIR__ . '/../../lib/ai_search_bible_paywall.php';
 
 $canonicalUrl = absolute_url('/ai-search-bible/full/');
 $isUnlocked = (bool)($GLOBALS['__ai_search_bible_unlocked'] ?? false);
-$isLoggedIn = (bool)($GLOBALS['__ai_search_bible_logged_in'] ?? false);
 $priceLabel = (string)($GLOBALS['__ai_search_bible_price_label'] ?? ai_search_bible_paywall_config()['price_label']);
-$buyButtonId = (string)($GLOBALS['__ai_search_bible_buy_button_id'] ?? ai_search_bible_paywall_config()['stripe_buy_button_id']);
-$publishableKey = (string)($GLOBALS['__ai_search_bible_publishable_key'] ?? ai_search_bible_paywall_config()['stripe_publishable_key']);
 
 $GLOBALS['__jsonld'] = [
   ld_organization(),
@@ -114,37 +111,13 @@ $GLOBALS['__jsonld'] = [
             </ul>
             <p>These are the exact building blocks used inside the Neural Command platform.</p>
 
-            <?php if (!$isLoggedIn): ?>
+            <form method="post" action="<?= htmlspecialchars(absolute_url('/api/ai-search-bible/checkout')) ?>">
               <div class="btn-group" style="margin-top: var(--spacing-lg);">
-                <a href="<?= htmlspecialchars(absolute_url('/login.php?redirect=' . urlencode('/ai-search-bible/full/'))) ?>" class="btn btn--primary">Log in to Purchase</a>
-                <a href="<?= htmlspecialchars(absolute_url('/login.php?redirect=' . urlencode('/ai-search-bible/full/'))) ?>" class="btn btn--secondary">Already purchased? Log in</a>
+                <button type="submit" class="btn btn--primary" id="ai-search-bible-buy-button">Unlock Full Access</button>
+                <a href="<?= htmlspecialchars(absolute_url('/ai-search-bible/')) ?>" class="btn btn--secondary">Back to Preview</a>
               </div>
-            <?php else: ?>
-              <?php if ($buyButtonId !== '' && $publishableKey !== ''): ?>
-                <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-                <stripe-buy-button
-                  id="ai-search-bible-buy-button"
-                  buy-button-id="<?= htmlspecialchars($buyButtonId) ?>"
-                  publishable-key="<?= htmlspecialchars($publishableKey) ?>">
-                </stripe-buy-button>
-              <?php else: ?>
-                <p>Stripe Buy Button is not configured. Set <code>STRIPE_BUY_BUTTON_ID</code> and <code>STRIPE_PUBLISHABLE_KEY</code>.</p>
-              <?php endif; ?>
-              <div class="btn-group" style="margin-top: var(--spacing-lg);">
-                <button type="button" class="btn btn--secondary" id="check-access-btn">Already purchased? Check access</button>
-                <a href="<?= htmlspecialchars(absolute_url('/login.php?redirect=' . urlencode('/ai-search-bible/full/'))) ?>" class="btn btn--secondary">Already purchased? Log in</a>
-                <button type="button" class="btn btn--secondary" id="paid-still-locked-btn">I paid but it's still locked</button>
-              </div>
-              <p style="margin-top: .5rem;"><small>Use the same email at checkout as your account email.</small></p>
-              <p style="margin-top: .5rem;"><small>Payment processing can take up to ~30 seconds to sync.</small></p>
-
-              <div id="paid-still-locked-modal" style="display:none; margin-top: 1rem; border: 1px solid #dce3ef; border-radius: 6px; padding: 0.75rem; background: #fff;">
-                <p><strong>Payment mismatch help</strong></p>
-                <p>If checkout used a different email than your account email, unlock may fail on V1.</p>
-                <p>Please contact support with your account email and Stripe receipt email for manual reconciliation.</p>
-                <p><a href="mailto:info@neuralcommand.com?subject=AI%20Search%20Bible%20Unlock%20Issue">Contact support</a></p>
-              </div>
-            <?php endif; ?>
+            </form>
+            <p style="margin-top: .5rem;"><small>After payment, Stripe redirects back to this page and unlocks access automatically.</small></p>
           </div>
         </div>
 
@@ -521,34 +494,6 @@ $GLOBALS['__jsonld'] = [
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'checkout_started', { product: 'ai-search-bible' });
       }
-    });
-  }
-
-  var checkAccessButton = document.getElementById('check-access-btn');
-  var paidStillLockedButton = document.getElementById('paid-still-locked-btn');
-  var paidStillLockedModal = document.getElementById('paid-still-locked-modal');
-  if (checkAccessButton) {
-    checkAccessButton.addEventListener('click', function () {
-      fetch('<?= htmlspecialchars(absolute_url('/api/entitlements/me')) ?>', { credentials: 'same-origin' })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data && data.ai_search_bible === true) {
-            if (typeof window.gtag === 'function') {
-              window.gtag('event', 'checkout_success', { product: 'ai-search-bible' });
-            }
-            window.location.reload();
-            return;
-          }
-          alert('Access not active yet. Please wait a few seconds and try again.');
-        })
-        .catch(function () {
-          alert('Unable to check access right now.');
-        });
-    });
-  }
-  if (paidStillLockedButton && paidStillLockedModal) {
-    paidStillLockedButton.addEventListener('click', function () {
-      paidStillLockedModal.style.display = paidStillLockedModal.style.display === 'none' ? 'block' : 'none';
     });
   }
 })();
