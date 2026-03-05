@@ -882,6 +882,27 @@ function route_request(): void {
     }
   }
 
+  // AI Search Bible entitlement check endpoint
+  if (($path === '/api/entitlements/me' || $path === '/api/entitlements/me/') && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    header('X-Robots-Tag: noindex, nofollow');
+    $apiFile = __DIR__.'/../api/entitlements-me.php';
+    if (file_exists($apiFile)) {
+      include $apiFile;
+      return;
+    }
+  }
+
+  // Stripe webhook endpoint
+  // Route both GET/POST so non-POST returns 405 from handler instead of 404.
+  if ($path === '/api/stripe/webhook' || $path === '/api/stripe/webhook/') {
+    header('X-Robots-Tag: noindex, nofollow');
+    $apiFile = __DIR__.'/../api/stripe-webhook.php';
+    if (file_exists($apiFile)) {
+      include $apiFile;
+      return;
+    }
+  }
+
   // Other API routes - Add noindex to prevent indexing
   if (preg_match('#^/api/([^/]+)/?$#', $path, $m)) {
     header('X-Robots-Tag: noindex, nofollow'); // Prevent indexing of API endpoints
@@ -1241,6 +1262,84 @@ function route_request(): void {
       render_page('generative-engine-optimization/failure-modes/'.$failureModeSlug);
       return;
     }
+  }
+
+  // AI Search Bible routes
+  if ($path === '/ai-search-bible/' || $path === '/ai-search-bible') {
+    $GLOBALS['__page_meta'] = [
+      'title' => 'The AI Search Bible: Fan-Out Retrieval, Croutonization & AI SEO Framework | Neural Command',
+      'description' => 'The complete AI Search Bible explaining how ChatGPT, Gemini and AI search engines retrieve information using fan-out queries, RRF fusion, entities and retrieval surfaces.',
+      'keywords' => 'AI Search Bible, fan-out retrieval, croutonization, AI SEO framework, reciprocal rank fusion, entity anchoring, AI citations',
+      'canonicalPath' => '/ai-search-bible/',
+      'ogTitle' => 'AI Search Bible - How AI Search Actually Works',
+      'ogDescription' => 'The Neural Command framework for AI visibility, fan-out retrieval, croutonized knowledge and retrieval surface engineering.'
+    ];
+    render_page('ai-search-bible/index');
+    return;
+  }
+
+  if ($path === '/ai-search-bible/full/' || $path === '/ai-search-bible/full') {
+    require_once __DIR__.'/../lib/auth.php';
+    require_once __DIR__.'/../lib/ai_search_bible_paywall.php';
+    $isLoggedIn = is_authenticated();
+    $userId = current_user_id();
+    $hasEntitlement = $isLoggedIn && is_string($userId) && $userId !== '' && ai_search_bible_user_has_active_entitlement($userId);
+    $GLOBALS['__ai_search_bible_unlocked'] = $hasEntitlement;
+    $GLOBALS['__ai_search_bible_logged_in'] = $isLoggedIn;
+    $GLOBALS['__ai_search_bible_price_label'] = ai_search_bible_paywall_config()['price_label'];
+    $GLOBALS['__ai_search_bible_buy_button_id'] = ai_search_bible_paywall_config()['stripe_buy_button_id'];
+    $GLOBALS['__ai_search_bible_publishable_key'] = ai_search_bible_paywall_config()['stripe_publishable_key'];
+    $GLOBALS['__page_meta'] = [
+      'title' => 'The AI Search Bible',
+      'description' => 'Paywalled technical framework for AI search systems, retrieval architecture, and citation engineering.',
+      'keywords' => 'AI Search Bible full, AI retrieval architecture, fan-out systems, reciprocal rank fusion, enterprise schema',
+      'canonicalPath' => '/ai-search-bible/full/',
+      'ogTitle' => 'AI Search Bible - Full Document',
+      'ogDescription' => 'Paywalled technical documentation for AI search systems and retrieval engineering.',
+      'noindex' => true
+    ];
+    render_page('ai-search-bible/full');
+    return;
+  }
+
+  if ($path === '/ai-search-bible/dataset/' || $path === '/ai-search-bible/dataset') {
+    require_once __DIR__.'/../lib/auth.php';
+    require_once __DIR__.'/../lib/ai_search_bible_paywall.php';
+    $isLoggedIn = is_authenticated();
+    $userId = current_user_id();
+    $GLOBALS['__ai_search_bible_unlocked'] = $isLoggedIn && is_string($userId) && $userId !== '' && ai_search_bible_user_has_active_entitlement($userId);
+    $GLOBALS['__page_meta'] = [
+      'title' => 'AI Search Bible Dataset',
+      'description' => 'Bonus dataset bundle for AI Search Bible customers.',
+      'canonicalPath' => '/ai-search-bible/dataset/',
+      'noindex' => true
+    ];
+    render_page('ai-search-bible/dataset');
+    return;
+  }
+
+  if ($path === '/admin/stripe-events/' || $path === '/admin/stripe-events') {
+    require_once __DIR__.'/../lib/auth.php';
+    require_once __DIR__.'/../lib/ai_search_bible_paywall.php';
+    if (!is_authenticated()) {
+      header('Location: /login.php?redirect=' . urlencode('/admin/stripe-events/'));
+      exit;
+    }
+    $adminEmail = strtolower((string)($_ENV['ADMIN_EMAIL'] ?? getenv('ADMIN_EMAIL') ?: ''));
+    $currentEmail = strtolower((string)(current_user_email() ?? ''));
+    if ($adminEmail === '' || $currentEmail === '' || $adminEmail !== $currentEmail) {
+      http_response_code(403);
+      echo 'Access denied';
+      return;
+    }
+    $GLOBALS['__page_meta'] = [
+      'title' => 'Stripe Webhook Events Admin',
+      'description' => 'Debug view for Stripe webhook processing events.',
+      'canonicalPath' => '/admin/stripe-events/',
+      'noindex' => true
+    ];
+    render_page('admin/stripe-events');
+    return;
   }
 
   // AI Search System Routes

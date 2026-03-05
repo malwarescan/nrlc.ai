@@ -83,6 +83,7 @@ function authenticate(string $username, string $password): bool {
       $_SESSION['user_id'] = $user['id'];
       $_SESSION['user_role'] = $user['role'];
       $_SESSION['user_name'] = $user['name'] ?? $username;
+      $_SESSION['user_email'] = $user['email'] ?? (filter_var($username, FILTER_VALIDATE_EMAIL) ? $username : null);
       return true;
     }
   }
@@ -108,8 +109,10 @@ function get_users(): array {
   // Option 1: Environment variables
   $adminUser = getenv('ADMIN_USERNAME');
   $adminPass = getenv('ADMIN_PASSWORD');
+  $adminEmail = getenv('ADMIN_EMAIL');
   $clientUser = getenv('CLIENT_USERNAME');
   $clientPass = getenv('CLIENT_PASSWORD');
+  $clientEmail = getenv('CLIENT_EMAIL');
   
   $users = [];
   
@@ -119,7 +122,8 @@ function get_users(): array {
       'username' => $adminUser,
       'password_hash' => password_hash($adminPass, PASSWORD_DEFAULT),
       'role' => 'admin',
-      'name' => 'Admin'
+      'name' => 'Admin',
+      'email' => $adminEmail ?: (filter_var($adminUser, FILTER_VALIDATE_EMAIL) ? $adminUser : null),
     ];
   }
   
@@ -129,7 +133,8 @@ function get_users(): array {
       'username' => $clientUser,
       'password_hash' => password_hash($clientPass, PASSWORD_DEFAULT),
       'role' => 'client',
-      'name' => 'Client'
+      'name' => 'Client',
+      'email' => $clientEmail ?: (filter_var($clientUser, FILTER_VALIDATE_EMAIL) ? $clientUser : null),
     ];
   }
   
@@ -149,18 +154,51 @@ function get_users(): array {
         'username' => 'admin',
         'password_hash' => password_hash('admin', PASSWORD_DEFAULT), // CHANGE IN PRODUCTION
         'role' => 'admin',
-        'name' => 'Admin'
+        'name' => 'Admin',
+        'email' => 'admin@example.com',
       ],
       [
         'id' => 2,
         'username' => 'client',
         'password_hash' => password_hash('client', PASSWORD_DEFAULT), // CHANGE IN PRODUCTION
         'role' => 'client',
-        'name' => 'Client'
+        'name' => 'Client',
+        'email' => 'client@example.com',
       ]
     ];
   }
   
   return $users;
+}
+
+function current_user_id(): ?string {
+  return isset($_SESSION['user_id']) ? (string)$_SESSION['user_id'] : null;
+}
+
+function current_user_email(): ?string {
+  if (!empty($_SESSION['user_email']) && is_string($_SESSION['user_email'])) {
+    return $_SESSION['user_email'];
+  }
+  if (!empty($_SESSION['user_name']) && filter_var($_SESSION['user_name'], FILTER_VALIDATE_EMAIL)) {
+    return $_SESSION['user_name'];
+  }
+  return null;
+}
+
+function find_user_by_email(string $email): ?array {
+  $needle = strtolower(trim($email));
+  if ($needle === '') {
+    return null;
+  }
+  foreach (get_users() as $user) {
+    $candidate = strtolower((string)($user['email'] ?? ''));
+    if ($candidate === '' && !empty($user['username']) && filter_var($user['username'], FILTER_VALIDATE_EMAIL)) {
+      $candidate = strtolower((string)$user['username']);
+    }
+    if ($candidate === $needle) {
+      return $user;
+    }
+  }
+  return null;
 }
 

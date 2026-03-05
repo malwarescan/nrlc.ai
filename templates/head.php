@@ -65,6 +65,8 @@ if (!isset($GLOBALS['__page_meta']) || !is_array($GLOBALS['__page_meta'])) {
   $meta = $GLOBALS['__page_meta'];
   $title = $meta['title'] ?? 'NRLC.ai';
   $desc = $meta['description'] ?? 'AI SEO services and solutions';
+  $ogTitle = $meta['ogTitle'] ?? $title;
+  $ogDescription = $meta['ogDescription'] ?? $desc;
   $canonicalPath = $meta['canonicalPath'] ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
   $customKeywords = $meta['keywords'] ?? null;
   
@@ -249,15 +251,15 @@ $contentLanguage = $localeMeta['lang'] . '-' . strtolower($localeMeta['region'])
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="<?= htmlspecialchars($siteName ?? 'NRLC.ai', ENT_QUOTES) ?>">
 <meta property="og:url" content="<?= htmlspecialchars($canonical ?? absolute_url($canonicalPath), ENT_QUOTES) ?>">
-<meta property="og:title" content="<?= htmlspecialchars($title, ENT_QUOTES) ?>">
-<meta property="og:description" content="<?= htmlspecialchars($desc, ENT_QUOTES) ?>">
+<meta property="og:title" content="<?= htmlspecialchars($ogTitle ?? $title, ENT_QUOTES) ?>">
+<meta property="og:description" content="<?= htmlspecialchars($ogDescription ?? $desc, ENT_QUOTES) ?>">
 <meta property="og:locale" content="<?= htmlspecialchars($ogLocale ?? str_replace('-', '_', current_locale()), ENT_QUOTES) ?>">
 <meta property="og:image" content="<?= htmlspecialchars($ogImageWithVer ?? ($baseUrl ?? 'https://nrlc.ai') . '/assets/og/nrlc-og-1200x630.jpg', ENT_QUOTES) ?>">
 <meta property="og:image:secure_url" content="<?= htmlspecialchars($ogImageWithVer ?? ($baseUrl ?? 'https://nrlc.ai') . '/assets/og/nrlc-og-1200x630.jpg', ENT_QUOTES) ?>">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="<?= htmlspecialchars($title, ENT_QUOTES) ?>">
+<meta property="og:image:alt" content="<?= htmlspecialchars($ogTitle ?? $title, ENT_QUOTES) ?>">
 <?php
 // Article meta tags for homepage (author and publisher)
 if ($canonicalPath === '/' || $canonicalPath === '/en-us/' || $canonicalPath === ''):
@@ -268,8 +270,8 @@ if ($canonicalPath === '/' || $canonicalPath === '/en-us/' || $canonicalPath ===
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<?= htmlspecialchars($title, ENT_QUOTES) ?>">
-<meta name="twitter:description" content="<?= htmlspecialchars($desc, ENT_QUOTES) ?>">
+<meta name="twitter:title" content="<?= htmlspecialchars($ogTitle ?? $title, ENT_QUOTES) ?>">
+<meta name="twitter:description" content="<?= htmlspecialchars($ogDescription ?? $desc, ENT_QUOTES) ?>">
 <meta name="twitter:image" content="<?= htmlspecialchars($ogImageWithVer ?? ($baseUrl ?? 'https://nrlc.ai') . '/assets/og/nrlc-og-1200x630.jpg', ENT_QUOTES) ?>">
 <meta name="twitter:creator" content="@neuralcommand">
 <meta name="twitter:site" content="@neuralcommand">
