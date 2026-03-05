@@ -118,6 +118,8 @@ $GLOBALS['__jsonld'] = [
               </div>
             </form>
             <p style="margin-top: .5rem;"><small>After payment, Stripe redirects back to this page and unlocks access automatically.</small></p>
+            <p style="margin-top: .5rem;"><small>Use the same email at checkout as your account email.</small></p>
+            <p><small><a href="mailto:support@nrlc.ai?subject=AI%20Search%20Bible%20Unlock%20Issue">I paid but it&rsquo;s still locked</a> - include your Checkout Session ID (starts with <code>cs_</code>) so support can unlock access quickly.</small></p>
           </div>
         </div>
 

@@ -1296,10 +1296,15 @@ function route_request(): void {
     }
 
     $checkoutSessionId = isset($_GET['session_id']) ? trim((string)$_GET['session_id']) : '';
+    error_log('ai-bible-full: method=' . ($_SERVER['REQUEST_METHOD'] ?? 'UNKNOWN') . ' path=' . $path . ' session_id_present=' . ($checkoutSessionId !== '' ? 'yes' : 'no'));
     if ($checkoutSessionId !== '') {
       $checkoutSession = ai_search_bible_retrieve_checkout_session($checkoutSessionId);
+      $retrieveOk = is_array($checkoutSession);
+      $paymentStatus = $retrieveOk ? (string)($checkoutSession['payment_status'] ?? 'unknown') : 'retrieve_failed';
+      error_log('ai-bible-full: stripe_retrieve=' . ($retrieveOk ? 'yes' : 'no') . ' payment_status=' . $paymentStatus);
       if (is_array($checkoutSession) && ai_search_bible_checkout_is_paid($checkoutSession)) {
         ai_search_bible_grant_session_access($checkoutSessionId);
+        error_log('ai-bible-full: decision=grant redirect=/ai-search-bible/full/');
         $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
         if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
           $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
@@ -1308,6 +1313,7 @@ function route_request(): void {
         header('Location: ' . $scheme . '://' . $host . '/ai-search-bible/full/', true, 302);
         exit;
       }
+      error_log('ai-bible-full: decision=deny redirect=/ai-search-bible/');
       header('Location: ' . absolute_url('/ai-search-bible/'), true, 302);
       exit;
     }
