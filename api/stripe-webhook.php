@@ -11,6 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $payload = file_get_contents('php://input') ?: '';
+$eventForMode = json_decode($payload, true);
+$isLiveMode = is_array($eventForMode) && (($eventForMode['livemode'] ?? null) === true);
+$isTestMode = is_array($eventForMode) && (($eventForMode['livemode'] ?? null) === false);
+if ($isLiveMode) {
+  header('X-Stripe-Mode: live');
+} elseif ($isTestMode) {
+  header('X-Stripe-Mode: test');
+} else {
+  header('X-Stripe-Mode: unknown');
+}
+
 $signature = $_SERVER['HTTP_STRIPE_SIGNATURE'] ?? '';
 if (!ai_search_bible_verify_webhook_signature($payload, $signature)) {
   http_response_code(400);
