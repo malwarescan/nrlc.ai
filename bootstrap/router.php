@@ -1291,6 +1291,9 @@ function route_request(): void {
   if ($path === '/ai-search-bible/full/' || $path === '/ai-search-bible/full') {
     require_once __DIR__.'/../lib/ai_search_bible_paywall.php';
     ai_search_bible_session_bootstrap();
+    if (!headers_sent()) {
+      header('Cache-Control: private, no-store');
+    }
 
     $checkoutSessionId = isset($_GET['session_id']) ? trim((string)$_GET['session_id']) : '';
     if ($checkoutSessionId !== '') {
