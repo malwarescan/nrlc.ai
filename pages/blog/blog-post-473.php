@@ -1,3 +1,28 @@
+
+<script id="croutons-faq-schema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What should be evaluated for Blog Post 473?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Review entity alignment, user intent coverage, and supporting local evidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this refresh improve retrieval quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It strengthens machine-readable structure and improves topical clarity for retrieval systems."
+      }
+    }
+  ]
+}
+</script>
 <?php
 // Prevent direct access. This file is a data/partial for routed templates only.
 if (!defined('ROUTER_CONTEXT')) {
@@ -128,3 +153,8 @@ $date = date('Y-m-d', strtotime("-$postNumber days"));
 // Note: footer.php is already included by router.php render_page()
 // Do not duplicate it here to avoid double footers
 ?>
+
+<section id="croutons-entity-refresh">
+<h2>Blog Post 473: Entity-First Update</h2>
+<p>This page was refreshed with entity-depth coverage, clearer intent matching, and stronger retrieval semantics.</p>
+</section>
