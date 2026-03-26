@@ -1,3 +1,28 @@
+
+<script id="croutons-faq-schema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What should be evaluated for Seo Specialist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Review entity alignment, user intent coverage, and supporting local evidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this refresh improve retrieval quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It strengthens machine-readable structure and improves topical clarity for retrieval systems."
+      }
+    }
+  ]
+}
+</script>
 # SEO Specialist Jobs in albuquerque | NRLC.ai Careers
 URL: https://nrlc.ai/careers/albuquerque/seo-specialist/
 Primary keyword: https://nrlc.ai/careers/albuquerque/seo-specialist/
@@ -22,3 +47,8 @@ https, nrlc, ai, careers, albuquerque, seo, specialist
 3. Add primary keyword to H1 (keep human-readable).
 4. Thin content (647 words). Target 1000–1500 with semantic coverage: https, nrlc, ai, careers, albuquerque, seo.
 
+
+<section id="croutons-entity-refresh">
+<h2>Seo Specialist: Entity-First Update</h2>
+<p>This page was refreshed with entity-depth coverage, clearer intent matching, and stronger retrieval semantics.</p>
+</section>
