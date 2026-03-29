@@ -1,3 +1,12 @@
+---
+title: AI Search SEO Specialist, Edmonton | Master AI Search with the AI Search Bible
+description: Join NRLC.AI as an AI Search SEO Specialist in Edmonton. Master AI-powered
+  search optimization with the comprehensive AI Search Bible and shape the future
+  of search.
+meta_description: Join NRLC.AI as an AI Search SEO Specialist in Edmonton. Master
+  AI-powered search optimization with the comprehensive AI Search Bible and shape
+  the future of search.
+---
 
 <script id="croutons-faq-schema" type="application/ld+json">
 {
@@ -52,3 +61,76 @@ https, nrlc, ai, careers, albuquerque, seo, specialist
 <h2>Seo Specialist: Entity-First Update</h2>
 <p>This page was refreshed with entity-depth coverage, clearer intent matching, and stronger retrieval semantics.</p>
 </section>
+
+<!-- croutons-keyword-bridge -->
+Learn more about advanced AI Search Optimization strategies in our comprehensive <a href="https://nrlc.ai/en-us/ai-search-bible/" class="crouton-bridge-link">AI Search Bible</a>.
+<script type="application/ld+json" id="croutons-keyword-bridge-jsonld">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "JobPosting",
+      "@id": "https://nrlc.ai/en-us/careers/edmonton/seo-specialist/#jobposting",
+      "url": "https://nrlc.ai/en-us/careers/edmonton/seo-specialist/",
+      "title": "AI Search SEO Specialist, Edmonton",
+      "about": {
+        "@type": "DefinedTerm",
+        "name": "AI Search",
+        "url": "https://nrlc.ai/en-us/ai-search-bible/"
+      },
+      "skills": [
+        {
+          "@type": "DefinedTerm",
+          "name": "AI Search Optimization",
+          "url": "https://nrlc.ai/en-us/ai-search-bible/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "SEO Strategy",
+          "url": "https://nrlc.ai/en-us/careers/edmonton/seo-specialist/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Technical SEO",
+          "url": "https://nrlc.ai/en-us/careers/edmonton/seo-specialist/"
+        }
+      ],
+      "mentions": {
+        "@type": "Thing",
+        "url": "https://nrlc.ai/en-us/ai-search-bible/",
+        "name": "The AI Search Bible"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Edmonton",
+          "addressRegion": "AB",
+          "addressCountry": "CA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 53.5444,
+          "longitude": -113.4909
+        }
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nrlc.ai/en-us/careers/edmonton/seo-specialist/#webpage",
+      "url": "https://nrlc.ai/en-us/careers/edmonton/seo-specialist/",
+      "name": "AI Search SEO Specialist, Edmonton Job Page",
+      "about": {
+        "@type": "DefinedTerm",
+        "name": "AI Search",
+        "url": "https://nrlc.ai/en-us/ai-search-bible/"
+      },
+      "mentions": {
+        "@type": "Thing",
+        "url": "https://nrlc.ai/en-us/ai-search-bible/",
+        "name": "The AI Search Bible"
+      }
+    }
+  ]
+}
+</script>
