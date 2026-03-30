@@ -218,15 +218,21 @@ function route_request(): void {
         try {
         render_page('home/home');
           $output = ob_get_clean();
-          // Check if render_page output minimal fallback HTML (indicates failure)
-          if (strpos($output, '<title>NRLC.ai</title>') !== false && strpos($output, 'AI SEO & AI Visibility Services</h1>') !== false && strlen($output) < 500) {
-            // render_page failed internally, use safe page instead
-            ob_end_clean();
+          // render_page() failure signature: head+header already sent, then stub document is appended.
+          // Stub contains: second <!DOCTYPE>, <!-- NRLC_RENDER_FALLBACK -->, and <p>AI SEO & AI Visibility Services</p> after </header>.
+          $stubPara = '<p>AI SEO & AI Visibility Services</p>';
+          $hasDoubleDoctype = substr_count($output, '<!DOCTYPE') >= 2;
+          $stubAfterHeader = strpos($output, '</header>') !== false
+            && strpos($output, $stubPara) !== false
+            && strpos($output, $stubPara) > strpos($output, '</header>');
+          if ($hasDoubleDoctype || $stubAfterHeader) {
             throw new Exception('render_page output fallback HTML');
           }
           echo $output;
         } catch (Throwable $e) {
-          ob_end_clean();
+          while (ob_get_level() > 0) {
+            ob_end_clean();
+          }
           throw $e;
         }
       } else {
@@ -2867,6 +2873,14 @@ function load_page_metadata(string $filePath): void {
   $GLOBALS['pageDesc'] = $enforcedDesc;
 }
 
+/**
+ * Include templates + pages/{slug}.php. On Throwable, logs and echoes a minimal stub (still HTTP 200).
+ *
+ * Failure markers for audits and homepage guard:
+ * - HTML: second <!DOCTYPE>, or <!-- NRLC_RENDER_FALLBACK --> + stub paragraph after </header>
+ * - Header: X-NRLC-Render: fallback (only if no bytes sent yet; usually false after head.php)
+ * - Logs: error_log lines containing "render_page failed: slug="
+ */
 function render_page(string $slug): void {
   // GUARD: render_page must not throw fatal errors - always return 200
   try {
@@ -2970,6 +2984,9 @@ function render_page(string $slug): void {
     );
     http_response_code(200);
     header('Content-Type: text/html; charset=UTF-8');
-    echo '<!DOCTYPE html><html><head><title>NRLC.ai</title><meta charset="UTF-8"></head><body><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p></body></html>';
+    if (!headers_sent()) {
+      header('X-NRLC-Render: fallback');
+    }
+    echo '<!DOCTYPE html><html><head><title>NRLC.ai</title><meta charset="UTF-8"></head><body><!-- NRLC_RENDER_FALLBACK --><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p></body></html>';
   }
 }

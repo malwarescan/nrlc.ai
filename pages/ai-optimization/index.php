@@ -20,39 +20,39 @@ $personId = SchemaFixes::ensureHttps($domain) . '#joel-maldonado';
 // Set page metadata (declarative, intent-locked) - ENHANCED
 $GLOBALS['__page_meta'] = [
   'title' => 'AI Optimization: Definition, Mechanism, and Scope',
-  'description' =&gt; 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems. This page defines what AI Optimization is, what it is not, and how it differs from SEO, ML optimization, and automation.',
-  'canonicalPath' =&gt; '/ai-optimization/',
-  'keywords' =&gt; 'AI Optimization, AEO, GEO, Answer Engine Optimization, Generative Engine Optimization, AI visibility optimization, AI retrieval optimization, AI search optimization, ChatGPT optimization, Perplexity optimization, Google AI Overviews optimization, structured data for AI, schema markup for AI, entity clarity, citation optimization'
+  'description' => 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems. This page defines what AI Optimization is, what it is not, and how it differs from SEO, ML optimization, and automation.',
+  'canonicalPath' => '/ai-optimization/',
+  'keywords' => 'AI Optimization, AEO, GEO, Answer Engine Optimization, Generative Engine Optimization, AI visibility optimization, AI retrieval optimization, AI search optimization, ChatGPT optimization, Perplexity optimization, Google AI Overviews optimization, structured data for AI, schema markup for AI, entity clarity, citation optimization'
 ];
 
 // Build JSON-LD Schema (ENHANCED)
 $GLOBALS['__jsonld'] = [
   // Person schema (Joel Maldonado)
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'Person',
-    '@id' =&gt; $personId,
-    'name' =&gt; 'Joel Maldonado',
-    'givenName' =&gt; 'Joel',
-    'familyName' =&gt; 'Maldonado',
-    'jobTitle' =&gt; 'Founder &amp; AI Search Researcher',
-    'description' =&gt; 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in AI Optimization, search, retrieval, citations, and extractability for AI-powered search engines.',
-    'knowsAbout' =&gt; [
+    '@context' => 'https://schema.org',
+    '@type' => 'Person',
+    '@id' => $personId,
+    'name' => 'Joel Maldonado',
+    'givenName' => 'Joel',
+    'familyName' => 'Maldonado',
+    'jobTitle' => 'Founder & AI Search Researcher',
+    'description' => 'Joel Maldonado researches and implements SEO, AEO, and GEO practices for AI search systems. Founder of Neural Command, LLC, specializing in AI Optimization, search, retrieval, citations, and extractability for AI-powered search engines.',
+    'knowsAbout' => [
       'AI Optimization', 'AEO', 'GEO', 'Answer Engine Optimization',
       'Generative Engine Optimization', 'AI Visibility Optimization',
       'AI Retrieval Optimization', 'Structured Data for AI',
       'Schema Markup for AI', 'Entity Clarity', 'Citation Optimization'
     ],
-    'worksFor' =&gt; [
-      '@type' =&gt; 'Organization',
-      '@id' =&gt; $orgId
+    'worksFor' => [
+      '@type' => 'Organization',
+      '@id' => $orgId
     ],
-    'affiliation' =&gt; [
-      '@type' =&gt; 'Organization',
-      '@id' =&gt; $orgId
+    'affiliation' => [
+      '@type' => 'Organization',
+      '@id' => $orgId
     ],
-    'url' =&gt; $domain,
-    'sameAs' =&gt; [
+    'url' => $domain,
+    'sameAs' => [
       'https://www.linkedin.com/company/neural-command/',
       'https://twitter.com/neuralcommand',
       'https://www.crunchbase.com/person/joel-maldonado'
@@ -61,52 +61,52 @@ $GLOBALS['__jsonld'] = [
   
   // Organization (site-wide anchor)
   [
-    '@context' =&gt; 'https://schema.org',
-    '@graph' =&gt; [
+    '@context' => 'https://schema.org',
+    '@graph' => [
       [
-        '@type' =&gt; 'Organization',
-        '@id' =&gt; $orgId,
-        'name' =&gt; 'Neural Command LLC',
-        'url' =&gt; $domain,
-        'logo' =&gt; [
-          '@type' =&gt; 'ImageObject',
-          '@id' =&gt; $domain . '#logo',
-          'url' =&gt; absolute_url('/logo.png')
+        '@type' => 'Organization',
+        '@id' => $orgId,
+        'name' => 'Neural Command LLC',
+        'url' => $domain,
+        'logo' => [
+          '@type' => 'ImageObject',
+          '@id' => $domain . '#logo',
+          'url' => absolute_url('/logo.png')
         ],
-        'sameAs' =&gt; [
+        'sameAs' => [
           'https://www.linkedin.com/company/neural-command/'
         ]
       ],
       [
-        '@type' =&gt; 'WebSite',
-        '@id' =&gt; $domain . '#website',
-        'url' =&gt; $domain,
-        'name' =&gt; 'NRLC.ai',
-        'publisher' =&gt; [
-          '@id' =&gt; $orgId
+        '@type' => 'WebSite',
+        '@id' => $domain . '#website',
+        'url' => $domain,
+        'name' => 'NRLC.ai',
+        'publisher' => [
+          '@id' => $orgId
         ],
-        'inLanguage' =&gt; 'en-US'
+        'inLanguage' => 'en-US'
       ]
     ]
   ],
   
   // BreadcrumbList
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'BreadcrumbList',
-    '@id' =&gt; $canonicalUrl . '#breadcrumb',
-    'itemListElement' =&gt; [
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    '@id' => $canonicalUrl . '#breadcrumb',
+    'itemListElement' => [
       [
-        '@type' =&gt; 'ListItem',
-        'position' =&gt; 1,
-        'name' =&gt; 'Home',
-        'item' =&gt; $domain
+        '@type' => 'ListItem',
+        'position' => 1,
+        'name' => 'Home',
+        'item' => $domain
       ],
       [
-        '@type' =&gt; 'ListItem',
-        'position' =&gt; 2,
-        'name' =&gt; 'AI Optimization',
-        'item' =&gt; $canonicalUrl
+        '@type' => 'ListItem',
+        'position' => 2,
+        'name' => 'AI Optimization',
+        'item' => $canonicalUrl
       ]
     ]
   ],
@@ -114,128 +114,128 @@ $GLOBALS['__jsonld'] = [
   // WebPage (category definition anchor) - ENHANCED
   // CRITICAL: This page is about a concept, not a service
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'WebPage',
-    '@id' =&gt; $canonicalUrl . '#webpage',
-    'name' =&gt; 'AI Optimization: Definition, Mechanism, and Scope',
-    'url' =&gt; $canonicalUrl,
-    'description' =&gt; 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems.',
-    'inLanguage' =&gt; 'en-US',
-    'datePublished' =&gt; '2024-01-01',
-    'dateModified' =&gt; date('Y-m-d'),
-    'keywords' =&gt; $GLOBALS['__page_meta']['keywords'],
-    'isPartOf' =&gt; [
-      '@id' =&gt; $domain . '#website'
+    '@context' => 'https://schema.org',
+    '@type' => 'WebPage',
+    '@id' => $canonicalUrl . '#webpage',
+    'name' => 'AI Optimization: Definition, Mechanism, and Scope',
+    'url' => $canonicalUrl,
+    'description' => 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems.',
+    'inLanguage' => 'en-US',
+    'datePublished' => '2024-01-01',
+    'dateModified' => date('Y-m-d'),
+    'keywords' => $GLOBALS['__page_meta']['keywords'],
+    'isPartOf' => [
+      '@id' => $domain . '#website'
     ],
-    'about' =&gt; [
+    'about' => [
       [
-        '@id' =&gt; $canonicalUrl . '#definedterm',
-        '@type' =&gt; 'DefinedTerm',
-        'name' =&gt; 'AI Optimization'
+        '@id' => $canonicalUrl . '#definedterm',
+        '@type' => 'DefinedTerm',
+        'name' => 'AI Optimization'
       ],
       [
-        '@type' =&gt; 'Thing',
-        'name' =&gt; 'Answer Engine Optimization',
-        'description' =&gt; 'Optimizing content for answer engines that generate direct answers'
+        '@type' => 'Thing',
+        'name' => 'Answer Engine Optimization',
+        'description' => 'Optimizing content for answer engines that generate direct answers'
       ],
       [
-        '@type' =&gt; 'Thing',
-        'name' =&gt; 'Generative Engine Optimization',
-        'description' =&gt; 'Optimizing content for generative AI systems that create summaries and citations'
+        '@type' => 'Thing',
+        'name' => 'Generative Engine Optimization',
+        'description' => 'Optimizing content for generative AI systems that create summaries and citations'
       ]
     ],
-    'mentions' =&gt; [
+    'mentions' => [
       [
-        '@type' =&gt; 'SoftwareApplication',
-        'name' =&gt; 'ChatGPT',
-        'description' =&gt; 'AI language model by OpenAI'
+        '@type' => 'SoftwareApplication',
+        'name' => 'ChatGPT',
+        'description' => 'AI language model by OpenAI'
       ],
       [
-        '@type' =&gt; 'SoftwareApplication',
-        'name' =&gt; 'Perplexity',
-        'description' =&gt; 'AI-powered search engine'
+        '@type' => 'SoftwareApplication',
+        'name' => 'Perplexity',
+        'description' => 'AI-powered search engine'
       ],
       [
-        '@type' =&gt; 'SoftwareApplication',
-        'name' =&gt; 'Google AI Overviews',
-        'description' =&gt; 'Google\'s AI-powered search overview feature'
+        '@type' => 'SoftwareApplication',
+        'name' => 'Google AI Overviews',
+        'description' => 'Google\'s AI-powered search overview feature'
       ],
       [
-        '@type' =&gt; 'SoftwareApplication',
-        'name' =&gt; 'Claude',
-        'description' =&gt; 'AI language model by Anthropic'
+        '@type' => 'SoftwareApplication',
+        'name' => 'Claude',
+        'description' => 'AI language model by Anthropic'
       ]
     ],
-    'author' =&gt; [
-      '@type' =&gt; 'Person',
-      '@id' =&gt; $personId
+    'author' => [
+      '@type' => 'Person',
+      '@id' => $personId
     ],
-    'publisher' =&gt; [
-      '@type' =&gt; 'Organization',
-      '@id' =&gt; $orgId
+    'publisher' => [
+      '@type' => 'Organization',
+      '@id' => $orgId
     ],
-    'speakable' =&gt; [
-      '@type' =&gt; 'SpeakableSpecification',
-      'cssSelector' =&gt; ['h1', '.lead']
+    'speakable' => [
+      '@type' => 'SpeakableSpecification',
+      'cssSelector' => ['h1', '.lead']
     ]
   ],
   
   // DefinedTerm (category authority lock) - ENHANCED
   // This is what makes LLMs treat you as the definition source
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'DefinedTerm',
-    '@id' =&gt; $canonicalUrl . '#definedterm',
-    'name' =&gt; 'AI Optimization',
-    'description' =&gt; 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems. It encompasses Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), AI visibility optimization, and AI retrieval optimization.',
-    'inDefinedTermSet' =&gt; [
-      '@type' =&gt; 'DefinedTermSet',
-      'name' =&gt; 'AI Optimization Terminology',
-      'url' =&gt; $canonicalUrl
+    '@context' => 'https://schema.org',
+    '@type' => 'DefinedTerm',
+    '@id' => $canonicalUrl . '#definedterm',
+    'name' => 'AI Optimization',
+    'description' => 'AI Optimization is the discipline of structuring content, data, and systems so they can be retrieved, understood, and cited by AI search engines, AI Overviews, and LLM answer systems. It encompasses Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), AI visibility optimization, and AI retrieval optimization.',
+    'inDefinedTermSet' => [
+      '@type' => 'DefinedTermSet',
+      'name' => 'AI Optimization Terminology',
+      'url' => $canonicalUrl
     ]
   ],
   
   // Thing schemas for related disciplines
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'Thing',
-    'name' =&gt; 'Answer Engine Optimization',
-    'alternateName' =&gt; 'AEO',
-    'description' =&gt; 'Optimizing content for answer engines that generate direct answers',
-    'relatedTo' =&gt; [
-      '@id' =&gt; $canonicalUrl . '#definedterm'
+    '@context' => 'https://schema.org',
+    '@type' => 'Thing',
+    'name' => 'Answer Engine Optimization',
+    'alternateName' => 'AEO',
+    'description' => 'Optimizing content for answer engines that generate direct answers',
+    'relatedTo' => [
+      '@id' => $canonicalUrl . '#definedterm'
     ]
   ],
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'Thing',
-    'name' =&gt; 'Generative Engine Optimization',
-    'alternateName' =&gt; 'GEO',
-    'description' =&gt; 'Optimizing content for generative AI systems that create summaries and citations',
-    'relatedTo' =&gt; [
-      '@id' =&gt; $canonicalUrl . '#definedterm'
+    '@context' => 'https://schema.org',
+    '@type' => 'Thing',
+    'name' => 'Generative Engine Optimization',
+    'alternateName' => 'GEO',
+    'description' => 'Optimizing content for generative AI systems that create summaries and citations',
+    'relatedTo' => [
+      '@id' => $canonicalUrl . '#definedterm'
     ]
   ],
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'Thing',
-    'name' =&gt; 'AI Visibility Optimization',
-    'description' =&gt; 'Optimizing entity signals and structured data for AI system recognition and recommendation',
-    'relatedTo' =&gt; [
-      '@id' =&gt; $canonicalUrl . '#definedterm'
+    '@context' => 'https://schema.org',
+    '@type' => 'Thing',
+    'name' => 'AI Visibility Optimization',
+    'description' => 'Optimizing entity signals and structured data for AI system recognition and recommendation',
+    'relatedTo' => [
+      '@id' => $canonicalUrl . '#definedterm'
     ]
   ],
   [
-    '@context' =&gt; 'https://schema.org',
-    '@type' =&gt; 'Thing',
-    'name' =&gt; 'AI Retrieval Optimization',
-    'description' =&gt; 'Optimizing content structure for AI system retrieval and extraction',
-    'relatedTo' =&gt; [
-      '@id' =&gt; $canonicalUrl . '#definedterm'
+    '@context' => 'https://schema.org',
+    '@type' => 'Thing',
+    'name' => 'AI Retrieval Optimization',
+    'description' => 'Optimizing content structure for AI system retrieval and extraction',
+    'relatedTo' => [
+      '@id' => $canonicalUrl . '#definedterm'
     ]
   ]
 ];
-?&gt;
+?>
 
 <main class="container" itemscope="" itemtype="https://schema.org/WebPage" role="main">
 <article class="section" itemscope="" itemtype="https://schema.org/Article">
@@ -356,9 +356,9 @@ $GLOBALS['__jsonld'] = [
 </ul>
 <p>These disciplines share the common goal of making information accessible and citable by <strong>AI systems</strong>. <strong>AI Optimization</strong> provides the unifying framework and terminology.</p>
 <div class="btn-group" style="margin-top: var(--spacing-md);">
-<a class="btn btn--secondary" href="&lt;?= absolute_url('/en-us/generative-engine-optimization/') ?&gt;">Learn About GEO</a>
-<a class="btn btn--secondary" href="&lt;?= absolute_url('/en-us/ai-visibility/') ?&gt;">AI Visibility</a>
-<a class="btn btn--secondary" href="&lt;?= absolute_url('/en-us/insights/') ?&gt;">Research &amp; Insights</a>
+<a class="btn btn--secondary" href="<?= absolute_url('/en-us/generative-engine-optimization/') ?>">Learn About GEO</a>
+<a class="btn btn--secondary" href="<?= absolute_url('/en-us/ai-visibility/') ?>">AI Visibility</a>
+<a class="btn btn--secondary" href="<?= absolute_url('/en-us/insights/') ?>">Research &amp; Insights</a>
 </div>
 </div>
 </section>
@@ -377,7 +377,6 @@ $GLOBALS['__jsonld'] = [
 <p>This definition is intended for <strong>machine consumption</strong> first, <strong>human consumption</strong> second. It provides the ontological foundation for understanding <strong>AI Optimization</strong> across <strong>AI search systems</strong>, <strong>AI Overviews</strong>, and <strong>LLM answer systems</strong>.</p>
 </div>
 </section>
-</div>
-</article>
-
-Discover comprehensive guidance on improving search visibility and performance with AI by exploring our .Discover comprehensive strategies and insights for optimizing AI in search by consulting our definitive .Discover how to master generative search and AI overviews. Dive deeper with our <a href="https://nrlc.ai/en-us/ai-search-bible/" class="crouton-bridge-link">AI Search Bible</a>.</main>
+    </div>
+  </article>
+</main>
