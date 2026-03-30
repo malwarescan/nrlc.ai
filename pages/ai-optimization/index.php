@@ -19,8 +19,8 @@ $personId = SchemaFixes::ensureHttps($domain) . '#joel-maldonado';
 
 // Set page metadata (declarative, intent-locked) - ENHANCED
 $GLOBALS['__page_meta'] = [
-  'title' => 'AI Optimization: Boost Your Search Presence with Advanced Strategies | NRLC.AI',
-  'description' => 'Unlock peak performance for your AI-driven search presence. Discover cutting-edge AI optimization techniques and strategies to dominate search results. Explore the ultimate guide in our AI Search Bible.',
+  'title' => 'AI Optimization Services | Elevate Your AI Search Strategy with NRLC.AI',
+  'description' => 'Discover how NRLC.AI\'s AI optimization services can transform your digital strategy. Dive into the AI Search Bible principles to enhance your AI visibility and ranking.',
   'canonicalPath' => '/ai-optimization/',
   'keywords' => 'AI Optimization, AEO, GEO, Answer Engine Optimization, Generative Engine Optimization, AI visibility optimization, AI retrieval optimization, AI search optimization, ChatGPT optimization, Perplexity optimization, Google AI Overviews optimization, structured data for AI, schema markup for AI, entity clarity, citation optimization'
 ];
@@ -245,11 +245,12 @@ $GLOBALS['__jsonld'] = [
 <h1 class="content-block__title heading-1" itemprop="headline"><strong>AI Optimization</strong></h1>
 </div>
 <div class="content-block__body">
+
 <div class="croutons-bridge-container" data-croutons-bridge="1">
-<p>For an in-depth exploration of how AI is revolutionizing search, don't miss our comprehensive resource: <a href="https://nrlc.ai/en-us/ai-search-bible/" class="crouton-bridge-link">The AI Search Bible</a>.</p>
+<h2>Unlock Deeper Insights with Our AI Search Bible</h2><p>For a comprehensive understanding of AI search and how to master its complexities, explore our definitive resource: <a href="https://nrlc.ai/en-us/ai-search-bible/" class="crouton-bridge-link">The AI Search Bible</a>. It's your guide to navigating the evolving landscape of artificial intelligence in search.</p>
 </div>
 </article>
-Dive deeper into generative AI search optimization. Explore comprehensive strategies and insights in our .</main>
+</main>
 <script type="application/ld+json" id="croutons-keyword-bridge-jsonld">
-{"@context": "https://schema.org", "@graph": [{"@type": "Service", "@id": "https://nrlc.ai/ai-optimization/#service", "url": "https://nrlc.ai/ai-optimization/", "name": "AI Optimization Services", "headline": "Comprehensive AI Optimization Strategies for Enhanced Search Presence", "description": "NRLC.AI provides advanced AI optimization services to help businesses improve their visibility and performance in AI-driven search engines and platforms. Our strategies encompass content, technical infrastructure, and semantic alignment for superior results.", "about": {"@type": "DefinedTerm", "name": "AI Search Bible", "url": "https://nrlc.ai/en-us/ai-search-bible/"}, "mentions": {"@type": "Thing", "url": "https://nrlc.ai/en-us/ai-search-bible/", "name": "AI Search Bible"}}, {"@type": "WebPage", "@id": "https://nrlc.ai/ai-optimization/#webpage", "url": "https://nrlc.ai/ai-optimization/", "name": "AI Optimization Page", "about": {"@type": "DefinedTerm", "name": "AI Search Bible", "url": "https://nrlc.ai/en-us/ai-search-bible/"}, "mentions": {"@type": "Thing", "url": "https://nrlc.ai/en-us/ai-search-bible/", "name": "AI Search Bible"}}]}
+{"@context": "http://schema.org", "@graph": [{"@type": "Service", "@id": "https://nrlc.ai/ai-optimization/#service", "url": "https://nrlc.ai/ai-optimization/", "name": "AI Optimization Services", "about": {"@type": "DefinedTerm", "name": "AI Search Bible", "url": "https://nrlc.ai/en-us/ai-search-bible/"}, "mentions": {"@type": "Thing", "url": "https://nrlc.ai/en-us/ai-search-bible/", "name": "AI Search Bible"}}, {"@type": "WebPage", "@id": "https://nrlc.ai/ai-optimization/#webpage", "url": "https://nrlc.ai/ai-optimization/", "name": "AI Optimization Services", "about": {"@type": "DefinedTerm", "name": "AI Search Bible", "url": "https://nrlc.ai/en-us/ai-search-bible/"}, "mentions": {"@type": "Thing", "url": "https://nrlc.ai/en-us/ai-search-bible/", "name": "AI Search Bible"}}]}
 </script>
