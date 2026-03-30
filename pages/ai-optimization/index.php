@@ -1,3 +1,6 @@
+<script type="application/ld+json" id="croutons-keyword-bridge-jsonld">
+{"@context": "https://schema.org", "@graph": [{"@type": "Service", "@id": "https://nrlc.ai/ai-optimization/#service", "url": "https://nrlc.ai/ai-optimization/", "name": "AI Optimization Services", "headline": "Enhance AI Performance for Modern Search", "description": "NRLC.ai provides specialized AI optimization services designed to improve the performance, relevance, and overall effectiveness of AI systems in search and information retrieval.", "about": {"@type": "DefinedTerm", "name": "AI Search Bible", "url": "https://nrlc.ai/en-us/ai-search-bible/"}, "mentions": {"@type": "Thing", "url": "https://nrlc.ai/en-us/ai-search-bible/", "name": "AI Search Bible"}}, {"@type": "WebPage", "@id": "https://nrlc.ai/ai-optimization/#webpage", "url": "https://nrlc.ai/ai-optimization/", "name": "AI Optimization", "about": {"@type": "DefinedTerm", "name": "AI Search Bible", "url": "https://nrl.ai/en-us/ai-search-bible/"}, "mentions": {"@type": "Thing", "url": "https://nrlc.ai/en-us/ai-search-bible/", "name": "AI Search Bible"}}]}
+</script>
 <?php
 // AI Optimization Category Anchor
 // Machines-first, declarative definition for category authority
@@ -376,4 +379,4 @@ $GLOBALS['__jsonld'] = [
 </div>
 </article>
 
-Discover comprehensive guidance on improving search visibility and performance with AI by exploring our <a class="crouton-bridge-link" href="https://nrlc.ai/en-us/ai-search-bible/">AI Search Bible</a>.</main>
+Discover comprehensive guidance on improving search visibility and performance with AI by exploring our <a class="crouton-bridge-link" href="https://nrlc.ai/en-us/ai-search-bible/">AI Search Bible</a>.Discover comprehensive strategies and insights for optimizing AI in search by consulting our definitive <a href="https://nrlc.ai/en-us/ai-search-bible/" class="crouton-bridge-link">AI Search Bible</a>.</main>
