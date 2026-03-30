@@ -1,6 +1,5 @@
 <?php
-// TOP-LEVEL ERROR HANDLER: Prevent any fatal error from returning 5xx
-// Homepage MUST ALWAYS return 200, even if bootstrap fails
+// Router errors propagate here; do not mask failures with fake 200 "success" HTML.
 
 // EARLY WWW REDIRECT: Handle www redirect before any other code runs
 // This ensures www redirects work even if Railway routes www traffic
@@ -55,13 +54,27 @@ try {
     route_request();
   }
 } catch (Throwable $e) {
-  // LOG ERROR FOR DEBUGGING (remove after fix)
   error_log("NRLC ROUTER ERROR: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine());
   error_log("Stack trace: " . $e->getTraceAsString());
-  
-  // FALLBACK: Always return 200 with minimal HTML
-  http_response_code(200);
-  header('Content-Type: text/html; charset=UTF-8');
-  echo '<!DOCTYPE html><html><head><title>NRLC.ai - AI SEO & AI Visibility Services</title><meta charset="UTF-8"><meta name="description" content="Professional AI SEO and AI visibility services."></head><body><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p><p>Email: hirejoelm@gmail.com | Phone: +1-844-568-4624</p></body></html>';
+
+  if (!headers_sent()) {
+    header('Content-Type: text/html; charset=UTF-8');
+  }
+  http_response_code(500);
+
+  $host = $_SERVER['HTTP_HOST'] ?? '';
+  $isLocal = in_array($host, ['localhost', '127.0.0.1'], true)
+    || (strpos($host, 'localhost:') === 0)
+    || (strpos($host, '127.0.0.1:') === 0);
+  $appDebug = $_ENV['APP_DEBUG'] ?? getenv('APP_DEBUG') ?: '';
+  $debug = $isLocal || $appDebug === '1' || strtolower((string)$appDebug) === 'true';
+
+  if ($debug) {
+    echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Error</title></head><body><h1>500 — Router error</h1><pre>'
+      . htmlspecialchars($e->getMessage() . "\n\n" . $e->getFile() . ':' . $e->getLine() . "\n\n" . $e->getTraceAsString(), ENT_QUOTES, 'UTF-8')
+      . '</pre></body></html>';
+  } else {
+    echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Error</title></head><body><h1>Something went wrong</h1><p>Please try again later.</p></body></html>';
+  }
 }
 

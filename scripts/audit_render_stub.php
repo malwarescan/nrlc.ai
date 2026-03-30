@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 /**
- * Audit live URLs for render_page() stub failures (silent exceptions masked by 200 OK).
+ * Audit live URLs for render failures.
+ *
+ * render_page() no longer returns a fake 200 stub; router errors surface as HTTP 500.
  *
  * Detection (any triggers a hit):
- * - HTML comment <!-- NRLC_RENDER_FALLBACK -->
- * - Two or more <!DOCTYPE (stub document appended after real header)
- * - Response header X-NRLC-Render: fallback (rare: only if failure before any output)
+ * - HTTP status >= 500
+ * - Legacy: <!-- NRLC_RENDER_FALLBACK -->, multiple <!DOCTYPE (old responses/CDN cache)
  *
- * Production logs (authoritative for exception text):
- *   grep or search Railway / host logs for: render_page failed:
+ * Logs: grep host logs for: render_page failed:
  *
  * Usage:
  *   php scripts/audit_render_stub.php --base-url=https://nrlc.ai
@@ -223,8 +223,8 @@ function http_get(string $url): array {
  */
 function detect_stub(string $body, string $headersRaw, int $status): array {
   $reasons = [];
-  if (stripos($headersRaw, 'X-NRLC-Render:') !== false && stripos($headersRaw, 'fallback') !== false) {
-    $reasons[] = 'header:X-NRLC-Render';
+  if ($status >= 500) {
+    $reasons[] = 'http:status_' . $status;
   }
   if (strpos($body, '<!-- NRLC_RENDER_FALLBACK -->') !== false) {
     $reasons[] = 'html:NRLC_RENDER_FALLBACK';

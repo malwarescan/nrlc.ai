@@ -211,32 +211,9 @@ function route_request(): void {
         }
       }
       
-      // Guard render_page call
       if (function_exists('render_page')) {
-        // Capture any output from render_page to check if it failed
-        ob_start();
-        try {
         render_page('home/home');
-          $output = ob_get_clean();
-          // render_page() failure signature: head+header already sent, then stub document is appended.
-          // Stub contains: second <!DOCTYPE>, <!-- NRLC_RENDER_FALLBACK -->, and <p>AI SEO & AI Visibility Services</p> after </header>.
-          $stubPara = '<p>AI SEO & AI Visibility Services</p>';
-          $hasDoubleDoctype = substr_count($output, '<!DOCTYPE') >= 2;
-          $stubAfterHeader = strpos($output, '</header>') !== false
-            && strpos($output, $stubPara) !== false
-            && strpos($output, $stubPara) > strpos($output, '</header>');
-          if ($hasDoubleDoctype || $stubAfterHeader) {
-            throw new Exception('render_page output fallback HTML');
-          }
-          echo $output;
-        } catch (Throwable $e) {
-          while (ob_get_level() > 0) {
-            ob_end_clean();
-          }
-          throw $e;
-        }
       } else {
-        // Fallback if render_page doesn't exist
         throw new Exception('render_page function not found');
       }
       return;
@@ -2874,15 +2851,9 @@ function load_page_metadata(string $filePath): void {
 }
 
 /**
- * Include templates + pages/{slug}.php. On Throwable, logs and echoes a minimal stub (still HTTP 200).
- *
- * Failure markers for audits and homepage guard:
- * - HTML: second <!DOCTYPE>, or <!-- NRLC_RENDER_FALLBACK --> + stub paragraph after </header>
- * - Header: X-NRLC-Render: fallback (only if no bytes sent yet; usually false after head.php)
- * - Logs: error_log lines containing "render_page failed: slug="
+ * Include templates + pages/{slug}.php. On Throwable, logs and rethrows — no silent HTML stub.
  */
 function render_page(string $slug): void {
-  // GUARD: render_page must not throw fatal errors - always return 200
   try {
     // Define router context BEFORE including any page files
     // This prevents numbered files from being executed directly
@@ -2976,17 +2947,11 @@ function render_page(string $slug): void {
       include __DIR__.'/../templates/footer.php';
     }
   } catch (Throwable $e) {
-    // FALLBACK: If render fails, output minimal HTML - always return 200
     error_log(
       'render_page failed: slug=' . ($GLOBALS['__page_slug'] ?? '')
       . ' | ' . $e->getMessage()
       . ' | ' . $e->getFile() . ':' . $e->getLine()
     );
-    http_response_code(200);
-    header('Content-Type: text/html; charset=UTF-8');
-    if (!headers_sent()) {
-      header('X-NRLC-Render: fallback');
-    }
-    echo '<!DOCTYPE html><html><head><title>NRLC.ai</title><meta charset="UTF-8"></head><body><!-- NRLC_RENDER_FALLBACK --><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p></body></html>';
+    throw $e;
   }
 }

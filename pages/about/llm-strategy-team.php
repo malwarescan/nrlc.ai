@@ -36,14 +36,16 @@ $methodology = '<h2>Methodology & Frameworks</h2>
 <p>Our team has developed the LLM Search Strategy Framework, a 7-step methodology for optimizing brand visibility in AI answer engines. This framework is used by LLM Strategists worldwide to systematically improve citation rates, retrieval surface area, and entity alignment.</p>
 <p><a href="/en-gb/insights/llm-search-strategy-framework/">Learn more about the LLM Search Strategy Framework</a></p>';
 
-$qualifications = '<h2>Why We're Qualified</h2>
+$qualifications = <<<'HTML'
+<h2>Why We're Qualified</h2>
 <ul>
   <li><strong>Technical Expertise:</strong> Deep understanding of structured data, entity recognition systems, and AI retrieval mechanics</li>
   <li><strong>Research Background:</strong> Published research on AI engine behavior, citation patterns, and retrieval optimization</li>
   <li><strong>Practical Experience:</strong> Implemented LLM strategy for hundreds of brands across multiple industries</li>
   <li><strong>Framework Development:</strong> Created the LLM Search Strategy Framework and GEO-16 methodology</li>
   <li><strong>Industry Leadership:</strong> Contributor to schema.org, structured data best practices, and AI SEO standards</li>
-</ul>';
+</ul>
+HTML;
 
 $canonicalUrl = 'https://nrlc.ai/en-gb/about/llm-strategy-team/';
 ?>

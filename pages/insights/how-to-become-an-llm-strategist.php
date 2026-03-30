@@ -42,7 +42,8 @@ $skillsLadder = '<h2>Skills Ladder</h2>
   <li>Build strategic thinking about AI system behavior</li>
 </ul>';
 
-$portfolio = '<h2>Portfolio Checklist</h2>
+$portfolio = <<<'HTML'
+<h2>Portfolio Checklist</h2>
 <p>To demonstrate LLM Strategist capabilities, build a portfolio that includes:</p>
 <ul>
   <li><strong>Structured data implementations:</strong> Show JSON-LD schemas you've implemented and their impact</li>
@@ -52,9 +53,11 @@ $portfolio = '<h2>Portfolio Checklist</h2>
   <li><strong>Case studies:</strong> Detailed examples of LLM strategy implementations and results</li>
   <li><strong>Testing and validation:</strong> Examples of how you test and validate AI system behavior</li>
   <li><strong>Analytics and reporting:</strong> Show how you measure and report on LLM strategy success</li>
-</ul>';
+</ul>
+HTML;
 
-$interview = '<h2>Interview Questions</h2>
+$interview = <<<'HTML'
+<h2>Interview Questions</h2>
 <p>Common interview questions for LLM Strategist roles include:</p>
 
 <h3>Technical Questions</h3>
@@ -82,7 +85,8 @@ $interview = '<h2>Interview Questions</h2>
   <li>"How do you handle situations where AI systems cite incorrect information?"</li>
   <li>"What tools do you use for LLM strategy work?"</li>
   <li>"How do you explain LLM strategy to non-technical stakeholders?"</li>
-</ul>';
+</ul>
+HTML;
 
 $canonicalUrl = 'https://nrlc.ai/en-gb/insights/how-to-become-an-llm-strategist/';
 ?>

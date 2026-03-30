@@ -69,6 +69,11 @@ $GLOBALS['__jsonld'] = [
     'sameAs' => 'https://taskflow.com',
     'disambiguatingDescription' => 'Singapore payment processing platform processing $180M annually'
   ],
+  [
+    '@context' => 'https://schema.org',
+    '@type' => 'Person',
+    '@id' => $personId,
+    'name' => 'Joel David Maldonado',
     'knowsAbout' => [
       'AI SEO',
       'AEO',
@@ -83,7 +88,7 @@ $GLOBALS['__jsonld'] = [
       'https://www.linkedin.com/in/joelmaldonado/'
     ]
   ],
-  
+
   // 3. Organization (NRLC authority anchor) - Enhanced
   [
     '@context' => 'https://schema.org',
