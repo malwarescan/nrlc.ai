@@ -2963,6 +2963,11 @@ function render_page(string $slug): void {
     }
   } catch (Throwable $e) {
     // FALLBACK: If render fails, output minimal HTML - always return 200
+    error_log(
+      'render_page failed: slug=' . ($GLOBALS['__page_slug'] ?? '')
+      . ' | ' . $e->getMessage()
+      . ' | ' . $e->getFile() . ':' . $e->getLine()
+    );
     http_response_code(200);
     header('Content-Type: text/html; charset=UTF-8');
     echo '<!DOCTYPE html><html><head><title>NRLC.ai</title><meta charset="UTF-8"></head><body><h1>NRLC.ai</h1><p>AI SEO & AI Visibility Services</p></body></html>';
